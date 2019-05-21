@@ -676,6 +676,7 @@ pre {
   border-width: 10px;
   margin-top: -10px; }
 
+/*历史页中的New*/
 #process .present {
   position: absolute;
   /*原为：-3%*/
@@ -749,6 +750,22 @@ pre {
   .readmore a:hover {
     background: #F8F8F8;
     border-bottom-color: #D26911; }
+
+/*自定义阅读全文样式*/
+.readmore a {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 14px;
+  color: #555;
+  background: #fff;
+  border: 2px solid #555;
+  text-decoration: none;
+  border-radius: 2px;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  line-height: 2; }
 
 /* syntax highlight*/
 figure.highlight,
