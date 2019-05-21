@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  *
  * @package Maupassant
@@ -677,7 +678,8 @@ pre {
 
 #process .present {
   position: absolute;
-  top: -3%;
+  /*原为：-3%*/
+  top: -8%;
   right: 0;
   margin-top: -20px;
   line-height: 100%; }
