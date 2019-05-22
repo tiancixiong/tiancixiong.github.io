@@ -464,9 +464,10 @@ pre {
 /* *******************************************************
 * Process timelime, (homepage)
 ******************************************************* */
+/*历史页样式*/
 #process {
   padding: 80px 0;
-  background-color: #fff; }
+  background-color: rgba(0, 0, 0, 0); }
 
 #process .col-md-2 i {
   font-size: 50px;
