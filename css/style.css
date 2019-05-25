@@ -19,8 +19,8 @@ html, button, input, select, textarea,
   font-family: "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif !important; }
 
 body {
-  /*背景颜色 FFFFF0-淡黄、#F5F5D5-阮一峰*/
-  background-color: #F5F5D5;
+  /*背景颜色 FFFFF0-淡黄、#f5f5d5-阮一峰*/
+  background-color: #f5f5d5;
   color: #444;
   font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -70,7 +70,8 @@ div {
       overflow: hidden; }
     #header .site-name #logo {
       font: bold 38px/1.12 "Times New Roman", Georgia, Times, sans-serif;
-      color: #555; }
+      color: #555;
+      font-family: cursive; }
       #header .site-name #logo span, #header .site-name #logo:hover {
         color: #777; }
     #header .site-name .description {
@@ -153,7 +154,8 @@ div {
         border-radius: 5px;
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
-        box-shadow: none; }
+        box-shadow: none;
+        outline: none; }
 
 /* title for search result or tagged posts*/
 .label-title {
@@ -637,7 +639,7 @@ pre {
   height: 0;
   border-style: solid;
   border-width: 9px 9px 9px 0;
-  border-color: transparent #eee transparent transparent;
+  border-color: transparent #fff transparent transparent;
   left: 0;
   top: 50%;
   margin-top: -9px;
@@ -726,7 +728,8 @@ pre {
   #process .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
     margin-right: 30px;
     margin-left: 45px;
-    padding: 20px; }
+    padding: 20px;
+    background: #fff; }
   #process .timeline-centered .timeline-entry {
     margin-right: 20px; }
   #process .dot_tp,
