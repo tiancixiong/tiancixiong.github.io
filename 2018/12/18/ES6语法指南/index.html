@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>ES6语法指南 | 天赐</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">ES6语法指南</h1><a id="logo" href="/.">天赐</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">ES6语法指南</h1><div class="post-meta">Dec 18, 2018<span> | </span><span class="category"><a href="/categories/技术笔记/">技术笔记</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 3.1k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i><span class="post-count"> 12</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="post-content"><h1 id="ES6-语法指南"><a href="#ES6-语法指南" class="headerlink" title="ES6 语法指南"></a>ES6 语法指南</h1><p>后端项目搭建完毕，接下来就是前端页面了。不过在这之前需要一些准备工作。我们需要学习ES6的语法标准。</p>
+<p>什么是ES6？就是ECMAScript第6版标准。</p>
+<h2 id="1-什么是ECMAScript？"><a href="#1-什么是ECMAScript？" class="headerlink" title="1.什么是ECMAScript？"></a>1.什么是ECMAScript？</h2><p>来看下前端的发展历程：</p>
+<blockquote>
+<p>web1.0时代：</p>
+</blockquote>
+<ul>
+<li>最初的网页以HTML为主，是纯静态的网页。网页是只读的，信息流只能从服务的到客户端单向流通。<strong>开发人员也只关心页面的样式和内容</strong>即可。</li>
+</ul>
+<blockquote>
+<p>web2.0时代：</p>
+</blockquote>
+<ul>
+<li>1995年，网景工程师Brendan Eich 花了10天时间设计了JavaScript语言。</li>
+<li>1996年，微软发布了JScript，其实是JavaScript的逆向工程实现。</li>
+<li>1997年，为了统一各种不同script脚本语言，ECMA（欧洲计算机制造商协会）以JavaScript为基础，制定了<code>ECMAscript</code>标准规范。JavaScript和JScript都是<code>ECMAScript</code>的标准实现者，随后各大浏览器厂商纷纷实现了<code>ECMAScript</code>标准。</li>
+</ul>
+<p>所以，ECMAScript是浏览器脚本语言的规范，而各种我们熟知的js语言，如JavaScript则是规范的具体实现。</p>
+<h2 id="2-ECMAScript的快速发展"><a href="#2-ECMAScript的快速发展" class="headerlink" title="2.ECMAScript的快速发展"></a>2.ECMAScript的快速发展</h2><p>而后，ECMAScript就进入了快速发展期。</p>
+<ul>
+<li><p>1998年6月，ECMAScript 2.0 发布。</p>
+</li>
+<li><p>1999年12月，ECMAScript 3.0 发布。这时，ECMAScript 规范本身也相对比较完善和稳定了，但是接下来的事情，就比较悲剧了。</p>
+</li>
+<li><p>2007年10月。。。。ECMAScript 4.0 草案发布。</p>
+<p>这次的新规范，历时颇久，规范的新内容也有了很多争议。在制定ES4的时候，是分成了两个工作组同时工作的。</p>
+<ul>
+<li>一边是以 Adobe, Mozilla, Opera 和 Google为主的 ECMAScript 4 工作组。</li>
+<li>一边是以 Microsoft 和 Yahoo 为主的 ECMAScript 3.1 工作组。</li>
+</ul>
+<p>ECMAScript 4 的很多主张比较激进，改动较大。而 ECMAScript 3.1 则主张小幅更新。最终经过 TC39 的会议，决定将一部分不那么激进的改动保留发布为 ECMAScript 3.1，而ES4的内容，则延续到了后来的ECMAScript5和6版本中</p>
+</li>
+<li><p>2009年12月，ECMAScript 5 发布。</p>
+</li>
+<li><p>2011年6月，ECMAScript 5.1 发布。</p>
+</li>
+<li><p>2015年6月，ECMAScript 6，也就是 ECMAScript 2015 发布了。 并且从 ECMAScript 6 开始，开始采用年号来做版本。即 ECMAScript 2015，就是ECMAScript6。 </p>
+</li>
+</ul>
+<h2 id="3-ES5和6的一些新特性"><a href="#3-ES5和6的一些新特性" class="headerlink" title="3.ES5和6的一些新特性"></a>3.ES5和6的一些新特性</h2><p>我们这里只把一些常用的进行学习，更详细的大家参考：<a href="http://es6.ruanyifeng.com/?search=reduce&amp;x=0&amp;y=0#README" target="_blank" rel="noopener">阮一峰的ES6教程</a></p>
+<h3 id="3-1-let-和-const-命令"><a href="#3-1-let-和-const-命令" class="headerlink" title="3.1.let 和 const 命令"></a>3.1.let 和 const 命令</h3><blockquote>
+<p>var</p>
+</blockquote>
+<p>之前，js定义变量只有一个关键字：<code>var</code></p>
+<p><code>var</code>有一个问题，就是定义的变量有时会莫名奇妙的成为全局变量。</p>
+<p>例如这样的一段代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"循环外："</span> + i)</span><br></pre></td></tr></table></figure>
+<p>你猜下打印的结果是什么？</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107278999.png?raw=true" alt="1526107278999"></p>
+<blockquote>
+<p>let</p>
+</blockquote>
+<p><code>let</code>所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p>
+<p>我们把刚才的<code>var</code>改成<code>let</code>试试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"循环外："</span> + i)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107347275.png?raw=true" alt="1526107347275"></p>
+<blockquote>
+<p>const</p>
+</blockquote>
+<p><code>const</code>声明的变量是常量，不能被修改</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107425000.png?raw=true" alt="1526107425000"></p>
+<h3 id="3-2-字符串扩展"><a href="#3-2-字符串扩展" class="headerlink" title="3.2.字符串扩展"></a>3.2.字符串扩展</h3><blockquote>
+<p>新的API</p>
+</blockquote>
+<p>ES6为字符串扩展了几个新的API：</p>
+<ul>
+<li><code>includes()</code>：返回布尔值，表示是否找到了参数字符串。</li>
+<li><code>startsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的头部。</li>
+<li><code>endsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的尾部。</li>
+</ul>
+<p>实验一下：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107640349.png?raw=true" alt="1526107640349"></p>
+<blockquote>
+<p>字符串模板</p>
+</blockquote>
+<p>ES6中提供了`来作为字符串模板标记。我们可以这么玩：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526108070980.png?raw=true" alt="1526108070980"></p>
+<p>在两个`之间的部分都会被作为字符串的值，不管你任意换行，甚至加入js脚本</p>
+<p>键盘是的1的左侧，tab的上侧，esc的正下方</p>
+<h3 id="3-3-解构表达式"><a href="#3-3-解构表达式" class="headerlink" title="3.3.解构表达式"></a>3.3.解构表达式</h3><blockquote>
+<p>数组解构</p>
+</blockquote>
+<p>比如有一个数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>我想获取其中的值，只能通过角标。ES6可以这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [x,y,z] = arr;<span class="comment">// x，y，z将与arr中的每个位置对应来取值</span></span><br><span class="line"><span class="comment">// 然后打印</span></span><br><span class="line"><span class="built_in">console</span>.log(x,y,z);</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109778368.png?raw=true" alt="1526109778368"></p>
+<blockquote>
+<p>对象解构</p>
+</blockquote>
+<p>例如有个person对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name:<span class="string">"jack"</span>,</span><br><span class="line">    age:<span class="number">21</span>,</span><br><span class="line">    language: [<span class="string">'java'</span>,<span class="string">'js'</span>,<span class="string">'css'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以这么做：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解构表达式获取值</span></span><br><span class="line"><span class="keyword">const</span> &#123;name,age,language&#125; = person;</span><br><span class="line"><span class="comment">// 打印</span></span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line"><span class="built_in">console</span>.log(age);</span><br><span class="line"><span class="built_in">console</span>.log(language);</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109984544.png?raw=true" alt="1526109984544"></p>
+<p>如过想要用其它变量接收，需要额外指定别名：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110159450.png?raw=true" alt="1526110159450"></p>
+<ul>
+<li><code>{name:n}</code>：name是person中的属性名，冒号后面的n是解构后要赋值给的变量。</li>
+</ul>
+<h3 id="3-4-函数优化"><a href="#3-4-函数优化" class="headerlink" title="3.4.函数优化"></a>3.4.函数优化</h3><blockquote>
+<p>函数参数默认值</p>
+</blockquote>
+<p>在ES6以前，我们无法给一个函数参数设置默认值，只能采用变通写法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a , b</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 判断b是否为空，为空就给默认值1</span></span><br><span class="line">    b = b || <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 传一个参数</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<p>现在可以这么写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a , b = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 传一个参数</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>箭头函数</p>
+</blockquote>
+<p>ES6中定义函数的简写方式：</p>
+<p>一个参数时：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> print = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(obj);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 简写为：</span></span><br><span class="line"><span class="keyword">var</span> print2 = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure>
+<p>多个参数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两个参数的情况：</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span> (<span class="params">a , b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 简写为：</span></span><br><span class="line"><span class="keyword">var</span> sum2 = <span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b;</span><br></pre></td></tr></table></figure>
+<p>代码不止一行，可以用<code>{}</code>括起来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum3 = <span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对象的函数属性简写</p>
+</blockquote>
+<p>比如一个Person对象，里面有eat方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    name: <span class="string">"jack"</span>,</span><br><span class="line">    <span class="comment">// 以前：</span></span><br><span class="line">    eat: <span class="function"><span class="keyword">function</span> (<span class="params">food</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"在吃"</span> + food);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 箭头函数版：</span></span><br><span class="line">    eat2: <span class="function"><span class="params">food</span> =&gt;</span> <span class="built_in">console</span>.log(person.name + <span class="string">"在吃"</span> + food),<span class="comment">// 这里拿不到this</span></span><br><span class="line">    <span class="comment">// 简写版：</span></span><br><span class="line">    eat3(food)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"在吃"</span> + food);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>箭头函数结合解构表达式</p>
+</blockquote>
+<p>比如有一个函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name:<span class="string">"jack"</span>,</span><br><span class="line">    age:<span class="number">21</span>,</span><br><span class="line">    language: [<span class="string">'java'</span>,<span class="string">'js'</span>,<span class="string">'css'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">person</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"hello,"</span> + person.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果用箭头函数和解构表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hi = <span class="function">(<span class="params">&#123;name&#125;</span>) =&gt;</span>  <span class="built_in">console</span>.log(<span class="string">"hello,"</span> + name);</span><br></pre></td></tr></table></figure>
+<h3 id="3-5-map和reduce"><a href="#3-5-map和reduce" class="headerlink" title="3.5.map和reduce"></a>3.5.map和reduce</h3><p>数组中新增了map和reduce方法。</p>
+<blockquote>
+<p>map</p>
+</blockquote>
+<p><code>map()</code>：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。</p>
+<p>举例：有一个字符串数组，我们希望转为int数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'1'</span>,<span class="string">'20'</span>,<span class="string">'-5'</span>,<span class="string">'3'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"></span><br><span class="line">arr = arr.map(<span class="function"><span class="params">s</span> =&gt;</span> <span class="built_in">parseInt</span>(s));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>
+<p>  <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110796839.png?raw=true" alt="1526110796839"></p>
+<blockquote>
+<p>reduce</p>
+</blockquote>
+<p><code>reduce()</code>：接收一个函数（必须）和一个初始值（可选），该函数接收两个参数：</p>
+<ul>
+<li>第一个参数是上一次reduce处理的结果</li>
+<li>第二个参数是数组中要处理的下一个元素</li>
+</ul>
+<p><code>reduce()</code>会从左到右依次把数组中的元素用reduce处理，并把处理的结果作为下次reduce的第一个参数。如果是第一次，会把前两个元素作为计算参数，或者把用户指定的初始值作为起始参数</p>
+<p>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const arr = [1,20,-5,3]</span><br></pre></td></tr></table></figure>
+<p>没有初始值：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111537204.png?raw=true" alt="1526111537204"></p>
+<p>指定初始值：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111580742.png?raw=true" alt="1526111580742"></p>
+<h3 id="3-6-promise"><a href="#3-6-promise" class="headerlink" title="3.6.promise"></a>3.6.promise</h3><p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
+<p>感觉跟java的Future类很像啊，有木有！</p>
+<p>我们可以通过Promise的构造函数来创建Promise对象，并在内部封装一个异步执行的结果。</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ... 执行异步操作</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</span><br><span class="line">    resolve(value);<span class="comment">// 调用resolve，代表Promise将返回成功的结果</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(error);<span class="comment">// 调用reject，代表Promise会返回失败结果</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样，在promise中就封装了一段异步执行的结果。</p>
+<p>如果我们想要等待异步执行完成，做一些事情，我们可以通过promise的then方法来实现,语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 异步执行成功后的回调</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果想要处理promise异步执行失败的事件，还可以跟上catch：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 异步执行成功后的回调</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 异步执行失败后的回调</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const p = new Promise(function (resolve, reject) &#123;</span><br><span class="line">    // 这里我们用定时任务模拟异步</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        const num = Math.random();</span><br><span class="line">        // 随机返回成功或失败</span><br><span class="line">        if (num &lt; 0.5) &#123;</span><br><span class="line">            resolve(&quot;成功！num:&quot; + num)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            reject(&quot;出错了！num:&quot; + num)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 300)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 调用promise</span><br><span class="line">p.then(function (msg) &#123;</span><br><span class="line">    console.log(msg);</span><br><span class="line">&#125;).catch(function (msg) &#123;</span><br><span class="line">    console.log(msg);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113115887.png?raw=true" alt="1526113115887"></p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113140074.png?raw=true" alt="1526113140074"></p>
+<h3 id="3-7-set和map（了解）"><a href="#3-7-set和map（了解）" class="headerlink" title="3.7.set和map（了解）"></a>3.7.set和map（了解）</h3><p>ES6提供了Set和Map的数据结构。</p>
+<p>Set，本质与数组类似。不同在于Set中只能保存不同元素，如果元素相同会被忽略。跟java很像吧。</p>
+<p>构造函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Set构造函数可以接收一个数组或空</span></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set();</span><br><span class="line"><span class="keyword">set</span>.add(1);// [1]</span><br><span class="line">// 接收数组</span><br><span class="line">let set2 = new Set([2,3,4,5,5]);// 得到[2,3,4,5]</span><br></pre></td></tr></table></figure>
+<p>普通方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set.add(1);// 添加</span><br><span class="line">set.clear();// 清空</span><br><span class="line">set.delete(2);// 删除指定元素</span><br><span class="line">set.has(2); // 判断是否存在</span><br><span class="line">set.keys();// 返回所有key</span><br><span class="line">set.values();// 返回所有值</span><br><span class="line">set.entries();// 返回键值对集合</span><br><span class="line">// 因为set没有键值对，所有其keys、values、entries方法返回值一样的。</span><br><span class="line">set.size; // 元素个数。是属性，不是方法。</span><br></pre></td></tr></table></figure>
+<p>map，本质是与Object类似的结构。不同在于，Object强制规定key只能是字符串。而Map结构的key可以是任意对象。即：</p>
+<ul>
+<li>object是 &lt;string,object&gt;集合</li>
+<li>map是&lt;object,object&gt;集合</li>
+</ul>
+<p>构造函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map接收一个数组，数组中的元素是键值对数组</span></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">'key1'</span>,<span class="string">'value1'</span>],</span><br><span class="line">    [<span class="string">'key2'</span>,<span class="string">'value2'</span>],</span><br><span class="line">])</span><br><span class="line"><span class="comment">// 或者接收一个set</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([</span><br><span class="line">    ['key1','value1'],</span><br><span class="line">    ['key2','value2'],</span><br><span class="line">])</span><br><span class="line">const map2 = new Map(<span class="keyword">set</span>)</span><br><span class="line">// 或者其它map</span><br><span class="line">const map3 = new Map(map);</span><br></pre></td></tr></table></figure>
+<p>方法：</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526114799767.png?raw=true" alt="1526114799767"></p>
+<h3 id="3-8-模块化"><a href="#3-8-模块化" class="headerlink" title="3.8.模块化"></a>3.8.模块化</h3><h4 id="3-8-1-什么是模块化"><a href="#3-8-1-什么是模块化" class="headerlink" title="3.8.1.什么是模块化"></a>3.8.1.什么是模块化</h4><p>模块化就是把代码进行拆分，方便重复利用。类似java中的导包：要使用一个包，必须先导包。</p>
+<p>而JS中没有包的概念，换来的是 模块。</p>
+<p>模块功能主要由两个命令构成：<code>export</code>和<code>import</code>。</p>
+<ul>
+<li><code>export</code>命令用于规定模块的对外接口，</li>
+<li><code>import</code>命令用于导入其他模块提供的功能。</li>
+</ul>
+<h4 id="3-8-2-export"><a href="#3-8-2-export" class="headerlink" title="3.8.2.export"></a>3.8.2.export</h4><p>比如我定义一个js文件:hello.js，里面有一个对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> util = &#123;</span><br><span class="line">    sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我可以使用export将这个对象导出：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> util = &#123;</span><br><span class="line">    sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> util;</span><br></pre></td></tr></table></figure>
+<p>当然，也可以简写为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> util = &#123;</span><br><span class="line">    sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>export</code>不仅可以导出对象，一切JS变量都可以导出。比如：基本类型变量、函数、数组、对象。</p>
+<p>当要导出多个值时，还可以简写。比如我有一个文件：user.js：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"jack"</span></span><br><span class="line"><span class="keyword">var</span> age = <span class="number">21</span></span><br><span class="line"><span class="keyword">export</span> &#123;name,age&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>省略名称</p>
+</blockquote>
+<p>上面的导出代码中，都明确指定了导出的变量名，这样其它人在导入使用时就必须准确写出变量名，否则就会出错。</p>
+<p>因此js提供了<code>default</code>关键字，可以对导出的变量名进行省略</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无需声明对象的名字</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样，当使用者导入时，可以任意起名字</p>
+<h4 id="3-8-3-import"><a href="#3-8-3-import" class="headerlink" title="3.8.3.import"></a>3.8.3.import</h4><p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p>
+<p>例如我要使用上面导出的util：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入util</span></span><br><span class="line"><span class="keyword">import</span> util <span class="keyword">from</span> <span class="string">'hello.js'</span></span><br><span class="line"><span class="comment">// 调用util中的属性</span></span><br><span class="line">util.sum(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>要批量导入前面导出的name和age： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;name, age&#125; <span class="keyword">from</span> <span class="string">'user.js'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name + <span class="string">" , 今年"</span>+ age +<span class="string">"岁了"</span>)</span><br></pre></td></tr></table></figure>
+<p>但是上面的代码暂时无法测试，因为浏览器目前还不支持ES6 的导入和导出功能。除非借助于工具，把ES6 的语法进行编译降级到ES5，比如<code>Babel-cli</code>工具</p>
+<p> 我们暂时不做测试，大家了解即可。</p>
+<h3 id="3-9-对象扩展"><a href="#3-9-对象扩展" class="headerlink" title="3.9.对象扩展"></a>3.9.对象扩展</h3><p>ES6给Object拓展了许多新的方法，如：</p>
+<ul>
+<li>keys(obj)：获取对象的所有key形成的数组</li>
+<li>values(obj)：获取对象的所有value形成的数组</li>
+<li>entries(obj)：获取对象的所有key和value形成的二维数组。格式：<code>[[k1,v1],[k2,v2],...]</code></li>
+<li><p>assian(dest, …src) ：将多个src对象的值 拷贝到 dest中（浅拷贝）。</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1527210872966.png?raw=true" alt="1527210872966"></p>
+</li>
+</ul>
+<h3 id="3-10-数组扩展"><a href="#3-10-数组扩展" class="headerlink" title="3.10.数组扩展"></a>3.10.数组扩展</h3><p>ES6给数组新增了许多方法：</p>
+<ul>
+<li>find(callback)：把数组中的元素逐个传递给函数callback执行，如果返回true，则返回该元素</li>
+<li>findIndex(callback)：与find类似，不过返回的是品牌到的元素的索引</li>
+<li>includes（callback）：与find类似，如果匹配到元素，则返回true，代表找到了。</li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=1.0.0" async></script><a class="article-share-link" data-url="http://xiongtianci-tc.github.io/2018/12/18/ES6语法指南/" data-id="cjw2xr73b001cowa8ubi4pglz" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3awY7CMAxFUf7/pzvrEZNyn92OqHOzQqKEnCCZxPbrhcexGPzd99lWr9+fv2zIkCHjsYzjdJBnCIDMef6p1fMyZMjYh7GKYOmCzuc8D8F8HhkyZMg4Z/RDcC1ky5AhQ0Yn4HYuxl/0vyFDhoyvZ3QC3x0z3HgXlyFDxgMZteD4P69vqW/IkCHjUYxr0/2dJR6NIUOGjNkMHuD4QnnBkmwHX48MGTKmMngxMg2p6YL4dgR7LEOGjBEMEgr5V/aTcbUjqQwZMmYzVosmQZAvnZQt0/ay5e8gQ4aMoQx+CEsvn7U0HJ/zV8CVIUPGaEYt9d8JoDwNh7ZYhgwZWzJqibm45bRdMPgQcGXIkLEBg0zNW8dqLRdoE2XIkDGacR4Qa0tPl0JKm/ExUYYMGYMYJMimCTJe7OwfN2XIkLEPg7RN1IqU5Ltq7R2o2UKGDBkjGLVCYxwQG60VwRbLkCFjKOMAowbj7WU8zbeEyZAhYzSjFrvI1ITHD6Zpqk6GDBnzGDyAcnCKTFN1f7wrQ4aMDRikJYsvOj0+ptQgCyhDhoxBjH5qjBcGagWJD5siQ4aMoYwjHJ2jXq2BDB0ZZciQMZrRabAgoTPdDn6hLYZsGTJkPJZRK2GmrRId/AU1DRkyZIxgXBu/+VEy/QdYPilDhgwZYcGAn0P5NfXDbDJkyJARBl8elC97UoYMGRsw7kvW84soaeOQIUPGnoz06pgeGXlRs9YCIkOGjNGMHxgwddOLcHW4AAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/ES6/">ES6</a></div><div class="post-nav"><a class="pre" href="/2019/01/02/MySQL面试题/">MySQL面试题</a><a class="next" href="/2018/12/14/自定义百度云分享密码/">自定义百度云分享密码</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后台开发/">后台开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术笔记/">技术笔记</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术笔记/博客记录/">博客记录</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/电影资源/">电影资源</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/HashSet/" style="font-size: 15px;">HashSet</a> <a href="/tags/面试题/" style="font-size: 15px;">面试题</a> <a href="/tags/SpringCloud/" style="font-size: 15px;">SpringCloud</a> <a href="/tags/Hystrix/" style="font-size: 15px;">Hystrix</a> <a href="/tags/百度网盘/" style="font-size: 15px;">百度网盘</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Java线程/" style="font-size: 15px;">Java线程</a> <a href="/tags/微信小程序/" style="font-size: 15px;">微信小程序</a> <a href="/tags/公众号文章/" style="font-size: 15px;">公众号文章</a> <a href="/tags/Top电影/" style="font-size: 15px;">Top电影</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/Hexo基本命令/">Hexo基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/重新搭建博客/">重新搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/MySQL面试题/">MySQL面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/18/ES6语法指南/">ES6语法指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/自定义百度云分享密码/">自定义百度云分享密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/11/微信小程序笔记/">微信小程序笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/07/Hystrix状态/">Hystrix状态</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/06/HashSet如何去重/">HashSet如何去重?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/IDEA常用快捷键/">IDEA常用快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/IDEA创建SpringBoot开启找回RunDashboard/">IDEA创建SpringBoot开启找回RunDashboard</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/tian_ci/" title="博主CSDN" target="_blank">博主CSDN</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018-2019 <a rel="nofollow" target="_blank" href="https://xiongtianci.coding.me">天赐 |  </a> Powered by<a rel="nofollow" target="_blank" href="https://xiongtianci-tc.github.io"> 遇见 </a></div><!--#footer= 'Copyright © ' + date(Date.now(), 'YYYY') + ' '--><!--  a(href=url_for('.'), rel='nofollow')= config.title + '.'--><!--  |  Powered by--><!--  a(rel='nofollow', target='_blank', href='https://hexo.io')  Hexo.--><!--  a(rel='nofollow', target='_blank', href='https://github.com/tufu9441/maupassant-hexo')  Theme--><!--  |  by--><!--  a(rel='nofollow', target='_blank', href='https://github.com/pagecho')  Cho.--></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

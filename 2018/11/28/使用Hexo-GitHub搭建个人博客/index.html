@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>使用 Hexo+GitHub 搭建个人博客 | 天赐</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">使用 Hexo+GitHub 搭建个人博客</h1><a id="logo" href="/.">天赐</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">使用 Hexo+GitHub 搭建个人博客</h1><div class="post-meta">Nov 28, 2018<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 2.1k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i><span class="post-count"> 7</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="post-content"><blockquote>
+<p>昨天偶然看见一篇有关使用Hexo搭建个人博客的文章，瞬间吸引我的注意。今天使用的一天的时间在GitHub上搭建了一个个人博客，感觉还不错，分享给大家，并记录下我搭建过程中趟过的坑</p>
+<p>环境：Win10 + Hexo + GitHub</p>
+<p>效果展示：<a href="https://xiongtianci-tc.github.io/">脚印的博客</a></p>
+</blockquote>
+<h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><h2 id="1-了解Hexo"><a href="#1-了解Hexo" class="headerlink" title="1. 了解Hexo"></a>1. 了解Hexo</h2><blockquote>
+<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+</blockquote>
+<p>官方文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
+<h2 id="2-搭建Node-js环境"><a href="#2-搭建Node-js环境" class="headerlink" title="2. 搭建Node.js环境"></a>2. 搭建Node.js环境</h2><p>Hexo基于Node.js环境，那么我们搭建博客网站首先需要安装Node.js环境</p>
+<p>下载地址：<a href="http://nodejs.cn/download" target="_blank" rel="noopener">http://nodejs.cn/download</a></p>
+<p>详细安装文档：<a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">http://www.runoob.com/nodejs/nodejs-install-setup.html</a></p>
+<p>测试安装：命令行使用 <code>node -v</code> 、<code>npm -v</code>，查看显示版本号即成功。如下图：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543458424692.png?raw=true" alt="1543458424692"> </p>
+<h2 id="3-注册Github账号"><a href="#3-注册Github账号" class="headerlink" title="3. 注册Github账号"></a>3. 注册Github账号</h2><p>这里用到Github，是因为我们需要通过Github得到自己的博客网站域名，而且需要使用gitHub同步我们个人博客的相关文件</p>
+<p>注册地址：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com</a><br>注册流程：<a href="https://blog.csdn.net/p10010/article/details/51336332" target="_blank" rel="noopener">https://blog.csdn.net/p10010/article/details/51336332</a></p>
+<blockquote>
+<p>注意：注册Github的时候一定要选择一个合适的名字，因为后来博客网站的域名也会用到这个名字。虽然Github用户名支持后期修改，但是还是会带来很多不必要的麻烦</p>
+</blockquote>
+<h2 id="4-安装Git版本工具"><a href="#4-安装Git版本工具" class="headerlink" title="4. 安装Git版本工具"></a>4. 安装Git版本工具</h2><blockquote>
+<p>使用Git可以帮助我们把本地的网页和文章等内容提交到Gihub上，实现同步</p>
+</blockquote>
+<ul>
+<li><p>下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<p>Windows系统需下载，Mac系统因为自带Git无需操作</p>
+<p>详细安装文档：<a href="https://blog.csdn.net/u013295518/article/details/78746007" target="_blank" rel="noopener">https://blog.csdn.net/u013295518/article/details/78746007</a></p>
+<p>测试安装：<code>git --version</code>，查看显示版本号即成功。如下图：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543458907014.png?raw=true" alt="1543458907014"> </p>
+</li>
+<li><p>配置SSH：<a href="https://blog.csdn.net/qq_35246620/article/details/69061355" target="_blank" rel="noopener">https://blog.csdn.net/qq_35246620/article/details/69061355</a></p>
+<p>SSH key添加之后，就可以在本机git bash中进行测试，输入<code>ssh -T git@github.com</code>进行测试</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543476938196.png?raw=true" alt="1543476938196"> </p>
+<p>显示 <code>Hi username ！You&#39;ve successfully...</code> 说明ssh配置成功了</p>
+</li>
+</ul>
+<h2 id="5-在本地安装-Hexo"><a href="#5-在本地安装-Hexo" class="headerlink" title="5. 在本地安装 Hexo"></a>5. 在本地安装 Hexo</h2><blockquote>
+<p>Hexo是一个建站工具，可以帮助我们快速生成基本的博客文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：在回车之后，可能会出现一行WARN的警告语句，不用管它，这个不妨碍安装</p>
+<p>过一段时间如果出现hexo版本号之类的语句就代表差不多了</p>
+</blockquote>
+<p>然后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+<p>这个时候你会看到命令行出现了一堆白字，紧接着输入<code>hexo v</code>查看是否安装成功：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543477381834.png?raw=true" alt="1543477381834"> </p>
+<p>此时，Hexo已经安装完成</p>
+<h1 id="二、搭建博客"><a href="#二、搭建博客" class="headerlink" title="二、搭建博客"></a>二、搭建博客</h1><h2 id="1-开启GitHub-Pages服务"><a href="#1-开启GitHub-Pages服务" class="headerlink" title="1. 开启GitHub Pages服务"></a>1. 开启GitHub Pages服务</h2><p>搭建我们的个人博客需要一个唯一的域名，当然我们可以申请购买一个域名来使用，但是在不是太必要的情况下，我们也可以通过Github Pages获得一个免费使用的域名，这需要我们在Github上新建一个仓库，如下：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543474709681.png?raw=true" alt="1543474709681"></p>
+<p>这个过程和建立普通的仓库没什么区别，关键在于新仓库的名字，一定要是：</p>
+<blockquote>
+<p>仓库名固定：你的github的username.github.io</p>
+</blockquote>
+<p> 这也是之前强调的要起一个好的用户名的原因。这样之后我们最后的博客网站的链接就会是：<code>https://UserName.github.io</code>的形式。</p>
+<p>点击<code>Create Repository</code>后，选着仓库的<code>Setting</code>进入设置</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543476148226.png?raw=true" alt="1543476148226"></p>
+<p>往下滑找到 <code>Github Pages</code> 如下：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543477847990.png?raw=true" alt="1543477847990"></p>
+<p>这里我们需要点击 <code>Choose a theme</code> 任意选择一个选择主题，然后界面会跳转到仓库，我们看到有两个文件如下：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543477980475.png?raw=true" alt="1543477980475"></p>
+<p>点击 <code>Select theme</code> 选着主题后，此时若再查看setting，我们会看到开启GitHub Pages之后得到的域名如下：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543478176563.png?raw=true" alt="1543478176563"></p>
+<p>输入你的 GitHub 的用户名和密码，成功后复制<code>https://username.github.io/</code>到浏览器打开就行。看！这就是你的博客了，只要能连接到互联网，就能随时查看它(๑•̀ㅂ•́)و✧！</p>
+<h2 id="2-创建本地博客站点"><a href="#2-创建本地博客站点" class="headerlink" title="2. 创建本地博客站点"></a>2. 创建本地博客站点</h2><p>上述的步骤相当于我们使用Github page，创建了一个默认的博客页，并且得到了一个可外部访问的域名。但是这个博客页很Low。我们的目的是创建自己个性化的博客网站，所以我们使用Hexo在本地先创建一个本地博客站点，优化后再把它部署到github上。接下来我们使用控制台命令在本地一个合适的位置创建博客站点文件夹如下：</p>
+<blockquote>
+<p>hexo init  myHexoBlog       //myHexoBlog是项目名</p>
+</blockquote>
+<p>等一会，如果出现橙色的 <strong>WARN</strong> 没关系，只要不出现红色的 <strong>ERROR</strong> 就行。好了后，输入命令：</p>
+<blockquote>
+<p> hexo g      //g是generetor的缩写，生成博客</p>
+<p> hexo s     //s是server的缩写，启动服务</p>
+</blockquote>
+<p>然后点开 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，恭喜你！已经在本地搭建好博客了(๑•̀ㅂ•́)و✧！</p>
+<h2 id="3-同步Github-允许公共访问"><a href="#3-同步Github-允许公共访问" class="headerlink" title="3. 同步Github,允许公共访问"></a>3. 同步Github,允许公共访问</h2><p>在本地我们已经搭建了博客，但是还只能自己本地访问。若要别人也能看到，那就需要我们将其同步部署到GitHub上了。还记得我们之前准备的Github仓库吗，这里就要用到了。<br>首先找到我们的博客仓库，并拷贝仓库地址：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543480461386.png?raw=true" alt="1543480461386"></p>
+<p>然后修改本地博客目录的配置：<br>修改本地博客根目录下的<code>_config.yml</code>文件，修改<code>deploy</code>下的配置，如下：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543480729831.png?raw=true" alt="1543480729831"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:xiongtianci-tc/xiongtianci-tc.github.io.git #复制的仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>repository后面的内容是 <a href="mailto:git@gitbub.com" target="_blank" rel="noopener">git@gitbub.com</a>:username/库地址 的形式</li>
+<li>type、repository、branch冒号的后面都有一个空格（切记~~）</li>
+</ol>
+</blockquote>
+<p>最后执行控制台命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save //安装部署插件</span><br><span class="line"></span><br><span class="line">hexo d //部署到github</span><br></pre></td></tr></table></figure>
+<p>现在，我们再次访问链接：<code>https://userName.github.io</code>，就会发现这里的界面和本地的一样了。如此一来我们搭建的个人博客网站就基本完成了。</p>
+<h1 id="三、发布你的第一篇博客"><a href="#三、发布你的第一篇博客" class="headerlink" title="三、发布你的第一篇博客"></a>三、发布你的第一篇博客</h1><p>终于可以发布自己的第一篇博客了，是不是很激动？（博主当时可是超级激动的~）<br>首先，在本地博客文件夹根目录输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;我个人博客的第一篇博客，激动~&quot;</span><br><span class="line">hexo g   //生成网页</span><br><span class="line">hexo d  //部署到远端(github)</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543481316715.png?raw=true" alt="1543481316715"> </p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543481394185.png?raw=true" alt="1543481394185"> </p>
+<p>现在打开我们的博客网站：<code>http://UserName.github.io</code>,会看到网页如下(可能需要刷新几次页面)：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543483567301.png?raw=true" alt="1543483567301"></p>
+<p>需要编写博客内容时，只需编写本地博客的 <code>_posts</code> 的博客原文，然后通过 <code>hexo g &amp;&amp; hexo d</code> 重新部署到github即可</p>
+<h1 id="四、更换主题"><a href="#四、更换主题" class="headerlink" title="四、更换主题"></a>四、更换主题</h1><p>此时，我们的个人博客已经搭建完成。但是我们需要网站更加高大上，更加美观些，我们可以通过更换主题来实现个性化博客</p>
+<p>这里以使用github上的next主题为例：</p>
+<h2 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1. 下载主题"></a>1. 下载主题</h2><p>next主题：<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a></p>
+<p>在控制台中切换到本地博客根目录输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p>下载成之后我们会看到next的主题已经存在 <code>thems</code> 里了如下：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543484274020.png?raw=true" alt="1543484274020"> </p>
+<h2 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2. 更换主题"></a>2. 更换主题</h2><p>修改博客根目录(不是next主题)下的 <code>_config.yml</code> 文件，搜索 <code>theme</code> 字段，并将其值修改为 <code>next</code></p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543484383922.png?raw=true" alt="1543484383922"> </p>
+<p>然后在控制台下输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  //清理缓存</span><br><span class="line">hexo g    //重新生成博客代码</span><br><span class="line">hexo d   //部署到本地</span><br><span class="line">// 或者直接输入：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>再次打开我们的博客网站：<code>https://UserName.github.io</code>，将会发现我们的博客主题已经发生了改变</p>
+<h1 id="五、个性化"><a href="#五、个性化" class="headerlink" title="五、个性化"></a>五、个性化</h1><p>通过此步骤我们可以设置博客的作者、格言、语言…</p>
+<blockquote>
+<p>在Hexo中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项</p>
+</blockquote>
+<h2 id="1-站点配置"><a href="#1-站点配置" class="headerlink" title="1. 站点配置"></a>1. 站点配置</h2><p>在本地的博客根目录下找到_config.yml，用编辑器打开进行内容的设置，如下：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543485321688.png?raw=true" alt="1543485321688"></p>
+<p>这里可以修改博客网站的标题、描述，语言等属性</p>
+<h2 id="2-主题设置"><a href="#2-主题设置" class="headerlink" title="2. 主题设置"></a>2. 主题设置</h2><p>网上有个超级详细的教程，我就不赘述了：</p>
+<p>文档地址：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></p>
+<hr>
+<p>终于结束了，</p>
+<p>最后，</p>
+</div><script type="text/javascript" src="/js/share.js?v=1.0.0" async></script><a class="article-share-link" data-url="http://xiongtianci-tc.github.io/2018/11/28/使用Hexo-GitHub搭建个人博客/" data-id="cjw2vpphe0013jga8here1a5d" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3aQU4DMQwF0N7/0rBhUQnN9NuOS4XerFAF07wgxdG3H4/4+Xp6fn/y/Pn9Xz1/nn9v9a/KDx4eHt5g6VeLvl/o/SLmu55s7uVG4+Hh4a3x8kM5KQn54d7b3GTNeHh4eJ/DywvDfZGoFh48PDy8/8HrXayTAlDdODw8PLz38yavTn6zR8o36EDWgoeHhxfzJo2ov/p5pb+Hh4eHN+6q3x+4k2M6L0K9df68AQ8PD2+Blx+4vQt3vtDq6EDhN/Hw8PDezusd+nlMXB1KyNtmeHh4eHu8ajMsX1x+Ha+Gtr3xLzw8PLw5L29WJctNFlFtp1X/GZcVDw8PD+8o71SrvhcxzBkvLtB4eHh4C7xeYehFGEmIUC0wl4UHDw8Pb4GXH9Pz8YJ8E3vNs0IwgYeHhzfgVYODagibXNnzEYS8jEVJMx4eHt4Cr3eI9yKG6hBAM2vBw8PDO8TrRQlJHJwPHFS3PvpePDw8vAXeqaO8GknkkUd164/12fDw8PBaowPzbDgvA73w98X1Gg8PD2+Zly80D1uTLZsUiRdvxsPDw1vg5WFushH5Zbc67LXeBsPDw8OLedVWfXnn4mKQFIlySwwPDw9vgddbem+UqhpVVDcCDw8P7528akCQH/S9aKM6NBC13PDw8PAWeD1StcXVi2V7oQkeHh7eHq93ECfH/T07v3wfmCnDw8PDW+BNWlDz6291NCG/+uPh4eHt8XrX3El027zjx4UNDw8Pb4PXG65KGk69K3V1JOsFFQ8PD2+B1zt8ezFuNYQ9O1iAh4eHd5ZXfXU12O2FsJNQAw8PD+89vKRz1Lu8Ttpp82ACDw8P7xN4+ZU6OfonZSMKKfDw8PA+htcLfPP2WPW7LgsJHh4e3hovH7fKo9XeKFUvwD0Q4+Lh4eHFvMmgVe/VkyBj5cHDw8NLn28nDWnOWkwvXgAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/hexo/">hexo</a></div><div class="post-nav"><a class="pre" href="/2018/11/29/豆瓣Top250资源合集/">豆瓣Top250资源合集</a><a class="next" href="/2018/11/28/hello-world/">Hello World</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/电影/">电影</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/面试题/" style="font-size: 15px;">面试题</a> <a href="/tags/SpringCloud/" style="font-size: 15px;">SpringCloud</a> <a href="/tags/Hystrix/" style="font-size: 15px;">Hystrix</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/HashSet/" style="font-size: 15px;">HashSet</a> <a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/线程/" style="font-size: 15px;">线程</a> <a href="/tags/微信小程序/" style="font-size: 15px;">微信小程序</a> <a href="/tags/笔记/" style="font-size: 15px;">笔记</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/后台/" style="font-size: 15px;">后台</a> <a href="/tags/公众号文章/" style="font-size: 15px;">公众号文章</a> <a href="/tags/Top电影/" style="font-size: 15px;">Top电影</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/hexo基本命令/">hexo基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/hello/">hello</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/重新搭建博客/">重新搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/MySQL面试题/">MySQL面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/18/ES6语法指南/">ES6语法指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/自定义百度云分享密码/">自定义百度云分享密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/11/微信小程序笔记/">微信小程序笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/07/Hystrix/">Hystrix状态</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/06/HashSet如何去重/">HashSet如何去重?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/IDEA常用快捷键/">IDEA常用快捷键</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/tian_ci/" title="博主CSDN" target="_blank">博主CSDN</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018-2019 <a rel="nofollow" target="_blank" href="https://xiongtianci.coding.me">天赐 |  </a> Powered by<a rel="nofollow" target="_blank" href="https://xiongtianci-tc.github.io"> 遇见 </a></div><!--#footer= 'Copyright © ' + date(Date.now(), 'YYYY') + ' '--><!--  a(href=url_for('.'), rel='nofollow')= config.title + '.'--><!--  |  Powered by--><!--  a(rel='nofollow', target='_blank', href='https://hexo.io')  Hexo.--><!--  a(rel='nofollow', target='_blank', href='https://github.com/tufu9441/maupassant-hexo')  Theme--><!--  |  by--><!--  a(rel='nofollow', target='_blank', href='https://github.com/pagecho')  Cho.--></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>

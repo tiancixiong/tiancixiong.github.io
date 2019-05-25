@@ -1,0 +1,497 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Linux常用命令 | 天赐</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Linux常用命令</h1><a id="logo" href="/.">天赐</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Linux常用命令</h1><div class="post-meta">Nov 30, 2018<span> | </span><span class="category"><a href="/categories/Linux/">Linux</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 5.3k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i><span class="post-count"> 20</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="post-content"><h1 id="1-Linux介绍（了解）"><a href="#1-Linux介绍（了解）" class="headerlink" title="1. Linux介绍（了解）"></a>1. Linux介绍（了解）</h1><h2 id="1-1、Linux和Windows的区别"><a href="#1-1、Linux和Windows的区别" class="headerlink" title="1.1、Linux和Windows的区别"></a>1.1、Linux和Windows的区别</h2><p>Linux是一款操作系统。正规开发服务器项目部署都是放在Linux操作系统上。</p>
+<p>Windows一款操作系统，民用操作系统。娱乐、影音、上网。</p>
+<h2 id="1-2、Linux历史及使用场景"><a href="#1-2、Linux历史及使用场景" class="headerlink" title="1.2、Linux历史及使用场景"></a>1.2、Linux历史及使用场景</h2><p>Linux诞生90年代，仿制Unix操作系统。</p>
+<p>Linux是免费的，开源的</p>
+<p>Unix是收费的，封闭的。 </p>
+<p>Linux使用场景：<strong>服务器操作系统</strong>，移动设备（安卓手机，平板电脑），路由器（WIFI），交换机，智能家居，Java程序开发</p>
+<h2 id="1-3、Linux的版本"><a href="#1-3、Linux的版本" class="headerlink" title="1.3、Linux的版本"></a>1.3、Linux的版本</h2><p>Linux的版本分为两种：内核版本(<a href="https://www.kernel.org/)和发行版本" target="_blank" rel="noopener">https://www.kernel.org/)和发行版本</a></p>
+<p>Linux内核版本：Linux内核运维开发小组。 源码在一定程度上不是开源的。</p>
+<p>Linux发行版本：由各大互联网/软件公司定制。 外围的样式功能的源码完全开源</p>
+<p>一个内核版本是有多种多样的发行版本 </p>
+<p>Ubuntu：以强大的桌面应用为主，吸收不少Windows用户。</p>
+<ul>
+<li>因为桌面应用会在一定程度上大量占用系统资源，开发。</li>
+<li>服务器部署上，不会优先选择Ubuntu</li>
+</ul>
+<p><strong>CentOS</strong>：对服务器性能进行了一定程度的优化，性能比较高，比较稳定。</p>
+<ul>
+<li>服务器操作系统的优选CentOS</li>
+</ul>
+<h1 id="2、Linux安装【重点】"><a href="#2、Linux安装【重点】" class="headerlink" title="2、Linux安装【重点】"></a>2、Linux安装【重点】</h1><h2 id="2-1、虚拟机、Linux安装"><a href="#2-1、虚拟机、Linux安装" class="headerlink" title="2.1、虚拟机、Linux安装"></a>2.1、虚拟机、Linux安装</h2><h2 id="2-2、CentOS安装jdk、tomcat、mysql"><a href="#2-2、CentOS安装jdk、tomcat、mysql" class="headerlink" title="2.2、CentOS安装jdk、tomcat、mysql"></a>2.2、CentOS安装jdk、tomcat、mysql</h2><h2 id="2-3、Linux目录介绍"><a href="#2-3、Linux目录介绍" class="headerlink" title="2.3、Linux目录介绍"></a>2.3、Linux目录介绍</h2><p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538621186769.png?raw=true" alt="1538621186769"></p>
+<ul>
+<li><p><strong>/</strong>：<strong>Linux系统根目录</strong></p>
+</li>
+<li><p><strong>/etc</strong>：(etcetera) <strong>系统配置文件存放的目录</strong>，不建议在此目录下存放可执行文件。</p>
+<p>重要的配置文件有/etc/inittab、/etc/fstab、/etc/init.d、/etc/X11、/etc/sysconfig、/etc/xinetd.d修改配置文件之前记得备份。</p>
+<p>注：/etc/X11存放与 x windows 有关的设置（防火墙文件，网络设置文件，JDK环境配置文件，mysql）</p>
+</li>
+<li><p><strong>home</strong>:存放所有普通用户文件的根目录，是用户主目录的基点，比如用户user的主目录就是/home/user，可以用<code>~user</code>表示</p>
+</li>
+<li><p><strong>/root</strong>： <strong>系统管理员root(超级用户)的家目录</strong>，系统第一个启动的分区为/，所以最好将/root和/放置在一个分区下</p>
+<p>每一个用户都有家目录，超级管理员root家目录  /root</p>
+<p>Linux命令行模式中相当于Windows的桌面</p>
+</li>
+<li><p><strong>/usr</strong>：(unix shared resources)：<strong>应用程序存放目录</strong>，比较重要的目录<code>/usr/local</code>本地系统管理员软件安装目录（安装系统级的应用）</p>
+<p>/usr/bin 存放应用程序</p>
+<p>/usr/share 存放共享数据</p>
+<p>/usr/lib 存放不能直接运行的，却是许多程序运行所必需的一些函数库文件</p>
+<p>/usr/local:存放软件升级包</p>
+<p>/usr/share/doc: 系统说明文件存放目录</p>
+<p>/usr/share/man: 程序说明文件存放目录，使用 man ls时会查询/usr/share/man/man1/ls.1.gz的内容建议单独分区，设置较大的磁盘空间。<br>​    Jdk,tomcat,mysql,redis,nginx</p>
+</li>
+<li><p><strong>/opt</strong>：<strong>额外安装的可选应用程序包</strong>所放置的位置。一般情况下，我们可以把tomcat等都安装到这里</p>
+</li>
+</ul>
+<p>以上建议并不是强制性约束</p>
+<h2 id="2-4-网络三种连接方式"><a href="#2-4-网络三种连接方式" class="headerlink" title="2.4 网络三种连接方式"></a>2.4 网络三种连接方式</h2><h3 id="2-4-1-桥接模式"><a href="#2-4-1-桥接模式" class="headerlink" title="2.4.1 桥接模式"></a>2.4.1 桥接模式</h3><p><strong>桥接模式</strong>(Bridged)：虚拟机是一台独立的电脑，直接连接到实际的网络上，与宿主机没有任何联系。</p>
+<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1543535328477.png?raw=true" alt="1543535328477"></p>
+<h3 id="2-4-2-仅主机模式"><a href="#2-4-2-仅主机模式" class="headerlink" title="2.4.2 仅主机模式"></a>2.4.2 仅主机模式</h3><blockquote>
+<p>这种方式下，虚拟机的网卡连接到宿主的 VMnet1 上，但系统并不为虚拟机提供任何路由服务，因此虚拟机只能和宿主机进行通信，而不能连接到实际网络上。</p>
+</blockquote>
+<p> <strong>仅主机模式</strong>(host-only)：虚拟机可以访问宿主机，宿主机无法访问虚拟机，虚拟机无法上网</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1543535410144.png?raw=true" alt="1543535410144"></p>
+<h3 id="2-4-3-NAT-模式"><a href="#2-4-3-NAT-模式" class="headerlink" title="2.4.3 NAT 模式"></a>2.4.3 NAT 模式</h3><blockquote>
+<p>这种方式下，虚拟机的网卡连接到宿主的 VMnet8 上。此时系统的 VMWare NAT Service 服务就充当了路由器的作用，负责将虚拟机发到 VMnet8 的包进行地址转换之后发到实际的网络上，再将实际网络上返回的包进行地址转换后通过 VMnet8 发送给虚拟机。VMWare DHCP Service 负责为虚拟机提供 DHCP 服务。</p>
+</blockquote>
+<p><strong>NAT模式</strong>：</p>
+<ul>
+<li><p>虚拟机可以访问宿主机，宿主机可以访问虚拟机</p>
+</li>
+<li><p>此时宿主机相当于路由器，虚拟机可以通过宿主机上网</p>
+</li>
+<li><p>宿主机可以配置254个虚拟机 </p>
+</li>
+</ul>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1543535431117.png?raw=true" alt="1543535431117"></p>
+<h1 id="3、常用命令【重点】"><a href="#3、常用命令【重点】" class="headerlink" title="3、常用命令【重点】"></a>3、常用命令【重点】</h1><p>Linux命令中参数，一般都是无序的。特殊情况下除外</p>
+<p>注意：Linux中的命令<strong>严格区分大小写</strong>的！</p>
+<h2 id="3-1、磁盘管理命令"><a href="#3-1、磁盘管理命令" class="headerlink" title="3.1、磁盘管理命令"></a>3.1、磁盘管理命令</h2><h3 id="ls-列出目录内容"><a href="#ls-列出目录内容" class="headerlink" title="ls 列出目录内容"></a><em>ls</em> 列出目录内容</h3><ol>
+<li><p>ls（list）功能：列出目录内容</p>
+</li>
+<li><p>格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ls [参数] [文件或目录]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-a或--all   查询所有文件和文件夹，包含隐藏。注意隐藏文件、特殊目录、. 和 ..</span><br><span class="line">-l   		查询详细列表    ls -l--&gt;简写：ll</span><br><span class="line">-h 			友好展示信息    ll -h (d目录，-普通文件, l链接)</span><br><span class="line"></span><br><span class="line">-t  		用文件和目录的更改时间排序。</span><br><span class="line">-r 			反向排序</span><br><span class="line">--help   	在线帮助</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls -l		--&gt; 此命令非常常用，提供简化版命令 ll</span><br><span class="line">ls -al</span><br><span class="line">ll /home/	--&gt; 显示指定目录下的内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">需求：展示某个目录下的内容    ls 目录名</span><br><span class="line">所在位置：/root</span><br><span class="line">想要查看:/etc目录下的内容</span><br><span class="line">命令：ll -h /etc</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a><em>cd</em> 切换目录</h3><ol>
+<li><p>cd(change directory) 功能：切换目录</p>
+</li>
+<li><p>语法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">cd [目录]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 常用</span><br><span class="line">cd /目录名   ，任意目录切换到指定目录中     /目录名--&gt;Linux的绝对路径</span><br><span class="line">									   windows绝对路径--&gt;c:/xxxx/xxx.jpg?raw=true</span><br><span class="line">cd ../  	，向上一层目录</span><br><span class="line">cd ~		，切换到当前用户 家目录。root用户家目录 /root</span><br><span class="line">cd /		，切换到Linux的 根目录</span><br><span class="line">cd -	  	，切换到上一次访问的目录。   只能两个目录相互切换</span><br><span class="line">cd ..		，上一级目录</span><br><span class="line">cd			，缺省当前用户目录</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>Linux绝对</strong>：  <ul>
+<li>eg：<code>cd /etc/x1</code>   先切换到 /目录，然后在 /目录 中找到子目录 etc，在 etc 中找 子目录x1</li>
+<li>特点：在任意目录都可以随意切换</li>
+</ul>
+</li>
+<li><strong>Linux相对</strong>：<ul>
+<li>eg：<code>cd x1/x2</code>   在当前目录中寻找子目录x1, 在x1中寻找子目录x2</li>
+<li>特点：必须确定 当前目录 下有子目录x1</li>
+</ul>
+</li>
+</ul>
+<h3 id="pwd-显示当前的所在目录"><a href="#pwd-显示当前的所在目录" class="headerlink" title="pwd 显示当前的所在目录"></a><em>pwd</em> 显示当前的所在目录</h3><ul>
+<li>pwd(print working directory) 功能：显示工作目录(当前的所在目录)。返回绝对路径</li>
+</ul>
+<h3 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir 创建目录"></a><em>mkdir</em> 创建目录</h3><ol>
+<li><p>mkdir（make directoriy）功能： 创建目录</p>
+</li>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">mkdir -p 文件夹名称</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-p  父目录不存在情况下先生成父目录 （parents）</span><br><span class="line">-v	显示命令执行过程中的详细信息</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：</p>
+<p>使用<code>mkdir</code>创建带后缀的文件时，创建的是<strong>目录</strong>，不是文件（创建文件使用<code>touch</code>命令）</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539658915126.png?raw=true" alt="1539658915126"> </p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539659032657.png?raw=true" alt="1539659032657"> </p>
+</li>
+<li><p>eg:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 1</span><br><span class="line">需要在/root/t1目录下创建一个t2目录</span><br><span class="line">位置：/root</span><br><span class="line">命令：相对路径：mkdir t1/t2</span><br><span class="line">绝对：mkdir /root/t1/t2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 2</span><br><span class="line">需要在/root/t3目录下创建一个t4目录</span><br><span class="line">位置：/root</span><br><span class="line">条件：t3和t4都不存在</span><br><span class="line">命令：mkdir -p t3/t4</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a><em>rmdir</em> 删除空目录</h3><ul>
+<li>rmdir(remove directory) 功能：删除空目录</li>
+</ul>
+<h3 id="指令快捷键"><a href="#指令快捷键" class="headerlink" title="指令快捷键"></a>指令快捷键</h3><ol>
+<li><p>历史输入<br>使用上、下箭头可以找出上一条指令和下一条指令</p>
+</li>
+<li><p>Tab代码补全<br>使用tab键可以快速输入指令<br>比如：我要输入shutdown指令，这时，我们可以只输入shut然后按下tab键，即可自动把shutdown补全</p>
+<p><strong>注意</strong>：使用两下Tab补全时，如果匹配的结果有多个，这时候将会把所有匹配的结果展示出来。当结果很多时将会出现以下结果：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539654279277.png?raw=true" alt="1539654279277"> </p>
+<p>按<code>y</code>之后会列出所有匹配的结果，但因为129个比较多，而在电脑中无法一次全显示出来，所以先显示一部分：（More代表还有更多，这时按<code>回车</code>就可以向下滚动，按下<code>Ctrl+C</code>将会退出）</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539654354678.png?raw=true" alt="1539654354678"> </p>
+</li>
+</ol>
+<h2 id="3-2、文件浏览-管理-命令"><a href="#3-2、文件浏览-管理-命令" class="headerlink" title="3.2、文件浏览(管理)命令"></a>3.2、文件浏览(管理)命令</h2><p>日志文件,XML,properties文件</p>
+<h3 id="cat-快捷查看当前文件的内容"><a href="#cat-快捷查看当前文件的内容" class="headerlink" title="cat 快捷查看当前文件的内容"></a><em>cat</em> 快捷查看当前文件的内容</h3><ol>
+<li><p>cat（catenate）功能：快捷查看当前文件的内容</p>
+<p>cat适合查看少量信息的文件</p>
+</li>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">cat 文件名</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a><em>more</em> 分页显示文件内容</h3><ol>
+<li><p>more功能：分页显示文件内容，还支持直接跳转行等功能</p>
+</li>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more 文件名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Enter    向下n行，需要定义。默认为1行</span><br><span class="line">空格键    向下滚动一屏 或 Ctrl+F</span><br><span class="line">B        返回上一屏 或 Ctrl+B</span><br><span class="line">q        退出more</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="less-分页显示文件内容"><a href="#less-分页显示文件内容" class="headerlink" title="less 分页显示文件内容"></a><em>less</em> 分页显示文件内容</h3><ol>
+<li><p>less功能：分页显示文件内容，操作更详细</p>
+</li>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">less -mN 文件名 </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-m  显示类似more命令的百分比</span><br><span class="line">-N  显示每行的行号</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Enter    向下n行，需要定义。默认为1行</span><br><span class="line">空格键    向下滚动一屏 或 Ctrl+F</span><br><span class="line">	B    返回上一屏 或 Ctrl+B</span><br><span class="line">	q    退出more</span><br><span class="line"></span><br><span class="line">	d    前进半页</span><br><span class="line">	u    后退半页</span><br><span class="line">回车键    前进一行 或 方向键向下</span><br><span class="line">	y    后退一行	或 方向键向上</span><br><span class="line">	v    进入vim编辑器</span><br><span class="line">/字符串   向下搜索</span><br><span class="line">?字符串   向上搜索</span><br><span class="line">左右方向键 相当于水平滚动条</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>特点：</p>
+<p>适用于<strong>大量数据</strong>的查看</p>
+</li>
+</ol>
+<h3 id="tail-指定文件末尾内容"><a href="#tail-指定文件末尾内容" class="headerlink" title="tail 指定文件末尾内容"></a><em>tail</em> 指定文件末尾内容</h3><ol>
+<li><p>用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件</p>
+</li>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">tail[必要参数][选择参数][文件]</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-n&lt;行数&gt;	显示行数</span><br><span class="line">-f		 循环读取</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eg：</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/clip_image001.png?raw=true" alt="img"></p>
+<ul>
+<li>&amp; 表示后台运行，否则占用终端</li>
+<li>ctrl + c 退出</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-3、文件操作命令"><a href="#3-3、文件操作命令" class="headerlink" title="3.3、文件操作命令"></a>3.3、文件操作命令</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ol>
+<li><p>隐藏文件</p>
+<p>Linux中以 点<code>.</code> 开头的是隐藏文件，使用<code>ls</code>命令是查看不到的，需使用<code>ls -a</code></p>
+</li>
+<li><p>目录与文件的区别</p>
+<p>当我们使用ls命令列出目录中的所有子目录和文件时，如何区分哪些是文件哪些是目录？<br>可以通过详细信息中第一列的信息来区分：以 <code>d</code> 开头的是目录，以 <code>-</code> 开头的是文件</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539658318279.png?raw=true" alt="1539658318279"> </p>
+</li>
+</ol>
+<h3 id="touch创建文件"><a href="#touch创建文件" class="headerlink" title="touch创建文件"></a><em>touch</em>创建文件</h3><ol>
+<li><p>功能：创建文件</p>
+</li>
+<li><p>语法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch 绝对路径/相对路径</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a><em>cp</em> 复制</h3><ol>
+<li><p>cp（copy）：复制文件或者复制目录</p>
+</li>
+<li><p>复制<strong>文件</strong>：</p>
+<ul>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp 需要复制的文件 复制的位置</span><br></pre></td></tr></table></figure>
+<p>注意：cp可以进行重命名操作：</p>
+<ul>
+<li><p>cp demo1.java t1/ddd.java</p>
+<p>当将一个 文件位置 以不同名字复制到<strong>当前文件</strong>时，意思是复制并重命名；即 将demo1.java复制到t1目录中，并重命名成ddd.java</p>
+</li>
+</ul>
+</li>
+<li><p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">需求：把/root/Demo1.java文件 复制到  /root/t1 目录中</span><br><span class="line">位置：/root</span><br><span class="line">命令：cp Demo1.java t1</span><br><span class="line">	 cp /root/Demo1.java /root/t1</span><br><span class="line"></span><br><span class="line">需求：把/root/Demo1.java文件 复制到  /root/t1 目录中，改名为ddd.java</span><br><span class="line">位置：/root</span><br><span class="line">命令：cp Demo1.java t1/ddd.java</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>复制<strong>目录</strong>：</p>
+<ul>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">cp -r 需要复制的目录 复制的位置</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-r或--recursive  递归处理，将指定目录下的文件与子目录一并处理 复制目录必须使用-r</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">需求：把/root/t5目录 复制到  /root/t1目录中</span><br><span class="line">位置：/root</span><br><span class="line">命令：cp -r t5 t1</span><br><span class="line">	 cp -r /root/t5 /root/t1</span><br><span class="line">	 </span><br><span class="line">cp ./abc ./xxx				#无法复制目录</span><br><span class="line">cp -r ./abc ./xxx			#复制目录必须使用 -r参数</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="mv-移动、更名"><a href="#mv-移动、更名" class="headerlink" title="mv 移动、更名"></a><em>mv</em> 移动、更名</h3><ol>
+<li><p>mv(move) 功能： <strong>移动</strong> 或 <strong>更名</strong> 现有的文件或目录</p>
+</li>
+<li><p>移动<strong>文件</strong>：</p>
+<ul>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">mv -f 需要移动的文件 移动的位置</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-f或--force 　若目标文件或目录与现有的文件或目录重复，则直接覆盖现有的文件或目录，不进行询问</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">需求：把/root/t5 目录 移动到 /root/t3目录中</span><br><span class="line">位置：/root</span><br><span class="line">命令：mv t5 t3</span><br><span class="line"></span><br><span class="line">需求：把/root/t5 目录 移动到 /root/t3目录中</span><br><span class="line">		不询问，直接覆盖</span><br><span class="line">位置：/root</span><br><span class="line">已知：/root/t3目录中 已经有一个t5目录了</span><br><span class="line">命令：mv -f t5 t3</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>文件<strong>更名</strong>：</p>
+<ul>
+<li><p>格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv 需要移动的文件 新名字</span><br><span class="line"><span class="meta">#</span># 必须是在同一目录中进行此操作</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">文件/目录更名操作：</span><br><span class="line">需求：把/root/Demo1.java  改名为 hehe.java</span><br><span class="line">位置：/root</span><br><span class="line">命令：mv Demo1.java hehe.java</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a><em>rm</em> 删除</h3><ol>
+<li><p>rm(remove) 功能：删除文件或目录</p>
+</li>
+<li><p>删除<strong>文件</strong>：</p>
+<ul>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm 文件名</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>删除<strong>目录</strong>：</p>
+<ul>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">rm -rf 目录名</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-f或--force 　		强制删除文件或目录，不进行询问</span><br><span class="line">-r或-R或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。删除目录必须使用-r</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>注意</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf *     删除 当前目录 下所有内容</span><br><span class="line">rm –rf /*    删除Linux系统 根目录 下所有内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">需求：删除/root/t5 目录， </span><br><span class="line">位置：/root</span><br><span class="line">已知：t5目录下有子目录或者文件</span><br><span class="line">命令：rm -rf t5</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="find-查找"><a href="#find-查找" class="headerlink" title="find 查找"></a><em>find</em> 查找</h3><ol>
+<li><p>find功能：查找文件或目录</p>
+</li>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find 目录名 -name '需要查找的字符串'</span><br><span class="line"></span><br><span class="line">-name 指定字符串作为寻找文件或目录的范本样式</span><br><span class="line">* 表示0~多个任意字符 eg：find t1 -name '*.txt'</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">需求：查找/root目录下 所有以ins开头的文件或者目录</span><br><span class="line">位置：/root</span><br><span class="line">命令：find /root -name &apos;ins*&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="3-4、文档编辑命令"><a href="#3-4、文档编辑命令" class="headerlink" title="3.4、文档编辑命令"></a>3.4、文档编辑命令</h2><p>Windows是有记事本<br>Linux也有类似的记事本功能   VIM编辑器</p>
+<h3 id="VI-编辑"><a href="#VI-编辑" class="headerlink" title="VI 编辑"></a><em>VI</em> 编辑</h3><ol>
+<li><p>操作：</p>
+<ul>
+<li>输入 <code>vi 文件名</code>  进入 “命令(一般)模式”</li>
+<li>按下 “<strong>i</strong>” 从一般模式，进入“插入模式”</li>
+<li>按下 “<strong>esc</strong>” 从“插入模式”退出到“一般模式”</li>
+<li>在“一般模式”下，输入 “<strong>:wq</strong>”，退出编辑</li>
+</ul>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538637143785.png?raw=true" alt="1538637143785"></p>
+</li>
+<li></li>
+</ol>
+<h3 id="vim-命令"><a href="#vim-命令" class="headerlink" title="vim 命令"></a><em>vim</em> 命令</h3><ol>
+<li><p>操作：</p>
+<ul>
+<li>输入 <code>vim 文件名</code> 或 <code>vi 文件名</code> 进入 “一般模式”</li>
+<li>按下 “<strong>i</strong>” 从一般模式，进入“插入模式”</li>
+<li>按下 “<strong>esc</strong>” 从“插入模式”退出到“一般模式”</li>
+<li>在“一般模式”下，输入 “<strong>:wq</strong>”，退出编辑</li>
+</ul>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538637143785.png?raw=true" alt="1538637143785"></p>
+</li>
+<li><ul>
+<li><strong>一般(命令)</strong>模式:<ul>
+<li>可以<strong>浏览文件内容</strong>，可以进行文本快捷操作（单行复制，多行复制，单行删除，多行删除…）</li>
+<li>按 <strong>i/a/o</strong> 可以切换到 <strong>插入</strong>模式<br>按 <strong>:</strong> 可以切换到 <strong>底行</strong>模式</li>
+</ul>
+</li>
+<li><strong>插入</strong>模式：<ul>
+<li>可以<strong>编辑</strong>文件内容。</li>
+<li>按 <strong>ESC</strong> 可以切回 <strong>一般</strong>模式</li>
+</ul>
+</li>
+<li><strong>底行</strong>模式：<ul>
+<li>可以进行<strong>强制退出不保存</strong>操作   <strong>q!</strong></li>
+<li>可以进行<strong>保存并退出</strong>操作  <strong>wq</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-5、grep-、-管道-、重定向输出-gt-gt"><a href="#3-5、grep-、-管道-、重定向输出-gt-gt" class="headerlink" title="3.5、grep 、 管道|、重定向输出&gt;&gt;"></a>3.5、<em>grep</em> 、 管道|、重定向输出&gt;&gt;</h2><h3 id="grep-正则表达式"><a href="#grep-正则表达式" class="headerlink" title="grep 正则表达式"></a><em>grep</em> 正则表达式</h3><ol>
+<li><p>grep：正则表达式，进行字符串搜索工作</p>
+<p>用于过滤/搜索的特定字符。可使用正则表达式能多种命令配合使用，使用上十分灵活</p>
+</li>
+<li><p><strong>语法</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 格式</span><br><span class="line">grep -i 需要搜索的字符串 搜索的文件</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 参数</span><br><span class="line">-i 忽略大小写查找数据</span><br></pre></td></tr></table></figure>
+<p>符合规则，就会返回符合规则的<strong>行</strong></p>
+</li>
+</ol>
+<h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a><em>管道</em></h3><ol>
+<li><p>管道命令： 可以连接多个Linux命令，其作用是<strong>将一个命令的输出用在另一个命令的输入</strong></p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538638149167.png?raw=true" alt="1538638149167"></p>
+</li>
+<li><p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令1 | 命令2 | 命令3……</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">需求：查询当前目录中，所有带ins关键字的行数据</span><br><span class="line">位置：/root</span><br><span class="line">思考：查询当前目录内容  ll</span><br><span class="line">	 查询字符串，返回字符串所在行  grep</span><br><span class="line">命令：ll | grep ins</span><br><span class="line"></span><br><span class="line">需求：分页显示ls的help信息</span><br><span class="line">命令：ls --help | more</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="重定向输出-gt-gt-gt"><a href="#重定向输出-gt-gt-gt" class="headerlink" title="重定向输出&gt; &gt;&gt;"></a>重定向输出&gt; &gt;&gt;</h3><ol>
+<li><p>重定向输出</p>
+<ul>
+<li><p>&gt;</p>
+<p>定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空</p>
+</li>
+<li><p>&gt;&gt;</p>
+<p>将输出内容追加到目标文件中。如果文件不存在，就创建文件；如果文件存在，则将新的内容追加到那个文件的末尾，该文件中的原有内容不受影响</p>
+</li>
+</ul>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539671830735.png?raw=true" alt="1539671830735"></p>
+</li>
+<li><p>格式：</p>
+<p>注意：</p>
+</li>
+<li><p>使用：</p>
+<ul>
+<li><p>将一个文件夹的内容保存到文本文件中去，也就是将<code>ls</code>命令打印出来的内容都写到文本中去可以这样：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> a.txt文件中就是ls命令打印出来的内容了</span><br><span class="line">ls -al &gt;&gt; a.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-6、压缩、解压命令【重要】"><a href="#3-6、压缩、解压命令【重要】" class="headerlink" title="3.6、压缩、解压命令【重要】"></a>3.6、压缩、解压命令【重要】</h2><ol>
+<li><p>Linux常见压缩包： <em>.tar        打包，大小不会进行压缩<br>​              </em>.tar.gz   打包并压缩文件大小</p>
+</li>
+<li><p><strong>压缩</strong>：(<strong>参数顺序不变</strong>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 格式</span><br><span class="line">tar -zcvf 压缩包名字.tar.gz 需要压缩的内容</span><br><span class="line"></span><br><span class="line"># 参数</span><br><span class="line">-z 是否需要用 gzip 压缩</span><br><span class="line">-c 建立一个压缩文件的参数指令（create）--压缩</span><br><span class="line">-v 压缩的过程中显示文件（verbose）</span><br><span class="line">-f 使用档案名称，在 f 之后要立即接档名（file）</span><br></pre></td></tr></table></figure>
+<p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例如：tar -zcvf hehe.tar.gz *   将当前目录下所有内容进行打包压缩，文件名hehe.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>解压</strong>：(<strong>参数顺序不变</strong>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 解压到当前目录</span><br><span class="line">tar -zxvf 需要解压的压缩包名称 解压到当前目录</span><br><span class="line"># 解压到指定目录</span><br><span class="line">tar -zxvf 需要解压的压缩包名称 -C 指定压缩路径  解压到指定目录中</span><br><span class="line"></span><br><span class="line"># 参数</span><br><span class="line">-z 是否需要用 gzip 压缩</span><br><span class="line">-x 解开一个压缩文件的参数指令（extract）--解压</span><br><span class="line">-v 压缩的过程中显示文件（verbose）</span><br><span class="line">-f 使用档名，在 f 之后要立即接档名（file）</span><br></pre></td></tr></table></figure>
+<p>eg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">需求：需要把/root/t5/hehe.tar.gz  压缩包 解压到 指定目录中。指定目录/root/t5/t5</span><br><span class="line">位置：/root/t5</span><br><span class="line">命令：tar -zxvf hehe.tar.gz -C /root/t5/t5</span><br><span class="line">tar -zxvf hehe.tar.gz -C t5</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="3-7、系统命令"><a href="#3-7、系统命令" class="headerlink" title="3.7、系统命令"></a>3.7、系统命令</h2><h3 id="系统服务"><a href="#系统服务" class="headerlink" title="系统服务"></a>系统服务</h3><p>服务，是指常期运行，常驻内存中的进程，比如，apache、mysql、ssh等</p>
+<h4 id="服务与端口"><a href="#服务与端口" class="headerlink" title="服务与端口"></a>服务与端口</h4><p>每个服务软件一般在运行时都会对应一个端口。<br>查看监听的端口：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss –lntp</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539792074690.png?raw=true" alt="1539792074690"></p>
+<h4 id="防火墙及防火墙设置"><a href="#防火墙及防火墙设置" class="headerlink" title="防火墙及防火墙设置"></a>防火墙及防火墙设置</h4><p>CentOS 7.0默认使用的是<code>firewall</code>作为防火墙，使用<code>iptables</code>必须重新设置一下</p>
+<p>查看防火墙状态：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br><span class="line"><span class="meta">#</span> running 防火墙处于开启状态</span><br><span class="line"><span class="meta">#</span> not running 防火墙处于关闭状态</span><br></pre></td></tr></table></figure>
+<h5 id="直接关闭防火墙"><a href="#直接关闭防火墙" class="headerlink" title="直接关闭防火墙"></a>直接关闭防火墙</h5><p>停止<strong>firewall</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+<p>禁止<strong>firewall</strong>开机启动：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld.service</span><br></pre></td></tr></table></figure>
+<h4 id="查看系统进程：ps-ef"><a href="#查看系统进程：ps-ef" class="headerlink" title="查看系统进程：ps -ef"></a>查看系统进程：ps -ef</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">需求：查看进程中 和 vim相关的进程</span><br><span class="line">命令：ps -ef|grep -i vim</span><br><span class="line"></span><br><span class="line">-e 　此参数的效果和指定&quot;A&quot;参数相同，显示所有程序</span><br><span class="line">-f 　显示UID,PPIP,C与STIME栏位</span><br></pre></td></tr></table></figure>
+<h4 id="强制杀死某个进程：kill-9-pid号"><a href="#强制杀死某个进程：kill-9-pid号" class="headerlink" title="强制杀死某个进程：kill -9 pid号"></a>强制杀死某个进程：kill -9 pid号</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">需求：查看进程 和 vim相关的进程有哪些，并将vim进程杀死</span><br><span class="line">命令：ps -ef|grep -i vim</span><br><span class="line">	 Kill -9 pid号</span><br><span class="line">	  </span><br><span class="line">-l &lt;信息编号&gt; 　若不加&lt;信息编号&gt;选项，则-l参数会列出全部的信息名称</span><br><span class="line">kill 9 表示强制终止</span><br></pre></td></tr></table></figure>
+<ol>
+<li>查看网络配置：<strong>ifconfig</strong><ul>
+<li>显示网络设备</li>
+</ul>
+</li>
+<li>测试和目标的连通性：<strong>ping 主机名或ip地址</strong><ul>
+<li>测试与目标主机的连通性</li>
+<li>会持续不断一直测试，直到ctrl+c</li>
+</ul>
+</li>
+<li>Linux centos重启命令：<strong>reboot</strong></li>
+<li>Linux centos关机命令：<strong>halt</strong></li>
+</ol>
+<h2 id="3-8、其他命令（了解）"><a href="#3-8、其他命令（了解）" class="headerlink" title="3.8、其他命令（了解）"></a>3.8、其他命令（了解）</h2><h3 id="chmod-文件权限"><a href="#chmod-文件权限" class="headerlink" title="chmod 文件权限"></a><em>chmod</em> 文件权限</h3><ol>
+<li><p>hmod(change mode) 功能：变更文件或目录的权限</p>
+</li>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 格式</span><br><span class="line">chmod [参数] [&lt;权限范围&gt;&lt;符号&gt;&lt;权限代号&gt;]</span><br><span class="line"></span><br><span class="line"># 参数</span><br><span class="line">-R或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理</span><br></pre></td></tr></table></figure>
+<ul>
+<li>权限范围的表示法如下：<ul>
+<li>u：User，即文件或目录的拥有者</li>
+<li>g：Group，即文件或目录的所属群组</li>
+<li>o：Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围</li>
+<li>a：All，即全部的用户，包含拥有者，所属群组以及其他用户</li>
+</ul>
+</li>
+<li>符号：<ul>
+<li>‘+’添加权限</li>
+<li>‘-‘取消权限</li>
+</ul>
+</li>
+<li>有关权限代号的部分，列表于下：<ul>
+<li>r：读取权限，数字代号为”4”</li>
+<li>w：写入权限，数字代号为”2”</li>
+<li>x：执行或切换权限，数字代号为”1”</li>
+<li>-：不具任何权限，数字代号为”0”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir xxx</span><br><span class="line">ll | grep xxx</span><br><span class="line">chmod u-rwx xxx		#取消xxx目录，用户“读写执行”权限</span><br><span class="line">chmod g-rwx xxx 	#取消xxx目录，组“读写执行”权限</span><br><span class="line">chmod 777 xxx		#给xxx目录添加所有权限</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>linux 权限格式：&lt;类型&gt;&lt;用户&gt;&lt;组&gt;&lt;其他用户&gt;</p>
+<p><img src="https://raw.githubusercontent.com/xiongtianci-tc/myHexoBlog/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1543568285232.png" alt="img"></p>
+</li>
+</ol>
+<h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><ol>
+<li><p>VIM命令配置</p>
+<ul>
+<li><p>网卡配置 cat /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+</li>
+<li><p>概要信息如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=eth0                 #网卡名称</span><br><span class="line">TYPE=Ethernet               #网卡类型</span><br><span class="line">ONBOOT=yes                  #是否开机启动网卡</span><br><span class="line">BOOTPROTO=static            #静态获取IP，其他取值：dhcp （如果设置dhcp下面红色不需要）</span><br><span class="line">IPADDR=192.168.44.100       #ip地址</span><br><span class="line">GATEWAY=192.168.44.2        #网关</span><br><span class="line">NETMASK=255.255.255.0       #子网掩码</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>setup设置</p>
+<ol>
+<li><p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/clip_image002-1538642819190.jpg?raw=true" alt="img"> </p>
+</li>
+<li><p>选择“网络配置”</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/clip_image002-1538642858562.jpg?raw=true" alt="img"> </p>
+</li>
+<li><p>选择“设备配置”</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/clip_image001-1538642873407.png?raw=true" alt="img"> </p>
+</li>
+<li><p>选择“第一块网卡”</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538642891449.png?raw=true" alt="1538642891449"> </p>
+</li>
+<li><p>设置IP地址等详细信息</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/clip_image001.png?raw=true" alt="img"> </p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="命令总结-和-帮助"><a href="#命令总结-和-帮助" class="headerlink" title="命令总结 和 帮助"></a>命令总结 和 帮助</h1><ul>
+<li><p>内部命令：属于Shell解析器的一部分 （系统启动直接加载到内存的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd   切换目录（change directory）</span><br><span class="line">pwd  显示当前工作目录（print working directory）</span><br><span class="line">help 帮助</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>外部命令：独立于Shell解析器之外的文件程序（独立的可执行文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls    显示文件和目录列表（list）</span><br><span class="line">mkdir 创建目录（make directoriy）</span><br><span class="line">cp    复制文件或目录（copy）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看帮助文档</p>
+<ul>
+<li><p>内部命令：help + 命令（eg：help cd）</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538643143565.png?raw=true" alt="1538643143565"> </p>
+</li>
+<li><p>外部命令：man + 命令（eg：man ls）</p>
+<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538643159745.png?raw=true" alt="1538643159745"> </p>
+</li>
+</ul>
+</li>
+<li><p>不用特意记忆命令分类，开发中，如果需要查看命令参数，先使用<strong>man</strong>，如果没有结果，再使用<strong>help</strong></p>
+</li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=1.0.0" async></script><a class="article-share-link" data-url="http://xiongtianci-tc.github.io/2018/11/30/Linux常用命令/" data-id="cjw2xr7e00023owa8sp0qwpp8" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNklEQVR42u3aS27DMAxF0ex/0+40RWHlPsoNIPJqFLipreMBw49eL7yut/X3yt319yt3d1v/78NLhgwZxzKu5Vp/526j5L8Im+xNhgwZcxh3m1h/5kF2/cTaC5IhQ4YMwrjAqt1ThgwZMvYZJNUjf00LYBkyZExm8DKVB9m00P1SLS5DhowDGbzr/v3P/zLfkCFDxlGMK1zkDiiN297JryfKkCGjNWPnMekAoDbO5Ic/ZMiQ0ZWxbtyvb11rxqWDTwSTIUPGGEYaTNPqkgTuWstPhgwZ0xi18jIdYaaB+8NPhQwZMloznmrW8/SxNiJFr0mGDBkDGCS0ka3UDkY80IaTIUNGU8b+wJIH6PTgV5BoypAhYwxjJ46lwTc9uvHhigwZMlozeP5IGmHpmIE/EaWJMmTIaM0g5WXa9E9bdfwFbU1TZciQcSwjPWCRHsvgSSHfWzDfkCFDRjsGKSbTQFxLQONfDBkyZDRl7DfU0qCZlqnoKTJkyGjNIKXjTjMuSOz2k1EZMmQMYHASHzfWwnetVSdDhow5DL71tDTlBymKyagMGTKGMfita620dLQQFLEyZMhox7jCxc828DCdJp23oVaGDBlNGXzVmvW1cUI6NJUhQ8YEBgmytVKWBNnaUY/ikQsZMmQcziBlZ7q5tKx9uBaXIUPGeMZOOK4NLz+8GhkyZMh4KCinI9LgmzJkyBjA2DkSwZO59FgGHzbIkCGjNyMtHUmZWhtb8uFEcZApQ4aM8xg/C/qJhzla0ysAAAAASUVORK5CYII=">分享</a><div class="tags"><a href="/tags/Linux/">Linux</a></div><div class="post-nav"><a class="pre" href="/2018/11/30/Flex布局/">Flex布局</a><a class="next" href="/2018/11/29/豆瓣Top250资源合集/">豆瓣Top250资源合集</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后台开发/">后台开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小程序/">小程序</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术笔记/">技术笔记</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术笔记/博客记录/">博客记录</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/电影资源/">电影资源</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Flex/" style="font-size: 15px;">Flex</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/HashSet/" style="font-size: 15px;">HashSet</a> <a href="/tags/面试题/" style="font-size: 15px;">面试题</a> <a href="/tags/SpringCloud/" style="font-size: 15px;">SpringCloud</a> <a href="/tags/Hystrix/" style="font-size: 15px;">Hystrix</a> <a href="/tags/百度网盘/" style="font-size: 15px;">百度网盘</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Java线程/" style="font-size: 15px;">Java线程</a> <a href="/tags/微信小程序/" style="font-size: 15px;">微信小程序</a> <a href="/tags/公众号文章/" style="font-size: 15px;">公众号文章</a> <a href="/tags/Top电影/" style="font-size: 15px;">Top电影</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/Hexo基本命令/">Hexo基本命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/20/重新搭建博客/">重新搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/02/MySQL面试题/">MySQL面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/18/ES6语法指南/">ES6语法指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/14/自定义百度云分享密码/">自定义百度云分享密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/11/微信小程序笔记/">微信小程序笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/07/Hystrix状态/">Hystrix状态</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/06/HashSet如何去重/">HashSet如何去重?</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/IDEA常用快捷键/">IDEA常用快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/04/IDEA创建SpringBoot开启找回RunDashboard/">IDEA创建SpringBoot开启找回RunDashboard</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://blog.csdn.net/tian_ci/" title="博主CSDN" target="_blank">博主CSDN</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018-2019 <a rel="nofollow" target="_blank" href="https://xiongtianci.coding.me">天赐 |  </a> Powered by<a rel="nofollow" target="_blank" href="https://xiongtianci-tc.github.io"> 遇见 </a></div><!--#footer= 'Copyright © ' + date(Date.now(), 'YYYY') + ' '--><!--  a(href=url_for('.'), rel='nofollow')= config.title + '.'--><!--  |  Powered by--><!--  a(rel='nofollow', target='_blank', href='https://hexo.io')  Hexo.--><!--  a(rel='nofollow', target='_blank', href='https://github.com/tufu9441/maupassant-hexo')  Theme--><!--  |  by--><!--  a(rel='nofollow', target='_blank', href='https://github.com/pagecho')  Cho.--></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
