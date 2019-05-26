@@ -20,7 +20,7 @@ html, button, input, select, textarea,
 
 body {
   /*背景颜色 FFFFF0-淡黄、#f5f5d5-阮一峰*/
-  background-color: #f5f5d5;
+  background-color: #fff;
   color: #444;
   font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -94,7 +94,7 @@ div {
         border-bottom-color: #444; }
       #header #nav-menu a.current {
         border: 1px solid #ddd;
-        border-bottom-color: #F5F5D5; }
+        border-bottom-color: #fff; }
 
 #sidebar {
   border-left: 1px solid #ddd;
@@ -639,7 +639,7 @@ pre {
   height: 0;
   border-style: solid;
   border-width: 9px 9px 9px 0;
-  border-color: transparent #fff transparent transparent;
+  border-color: transparent #eee transparent transparent;
   left: 0;
   top: 50%;
   margin-top: -9px;

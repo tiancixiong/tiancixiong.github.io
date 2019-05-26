@@ -8,7 +8,7 @@
       <link href="/2019/05/25/Hexo%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
       <url>/2019/05/25/Hexo%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 写文章</span><br><span class="line">hexo n</span><br><span class="line"></span><br><span class="line"># 生成</span><br><span class="line">hexo g </span><br><span class="line"></span><br><span class="line">#部署 # 可与hexo g合并为 hexo d -g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 写文章</span><br><span class="line">hexo n</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 生成</span><br><span class="line">hexo g </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>部署 # 可与hexo g合并为 hexo d -g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
