@@ -48,7 +48,7 @@
   /*End of Initial Variables*/
   </script>
   <script type="text/javascript">
-  var bg = "https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/img/cover/totoro.jpg,https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/img/cover/1.jpg,https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/img/cover/2.jpg".split(",");
+  var bg = "https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/theme/cover/totoro.jpg,https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/theme/cover/1.jpg,https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/theme/cover/2.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -73,11 +73,11 @@
     <div class="focusinfo no-select">
       <div class="header-tou">
         <a href="http://xiongtianci.com">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/theme/avatar.jpg">
         </a>
       </div>
       <div class="header-info">
-        <p>Live your life with passion! With some drive!</p>
+        <p>记录生活，点滴成长~</p>
         <div class="top-social_v2">
           <li id="bg-pre">
             <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
@@ -363,19 +363,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1536308579640-741ebc243f62?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1536308579640-741ebc243f62?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      ES6语法指南</h1>
+      <p class="entry-census">
+        <span>
+          <a href>
+            <img src>
+          </a>
+        </span>
+        <span>
+          <a href></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2018-12-18<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-          <header class="entry-header">
-            <h1 class="entry-title">ES6语法指南</h1>
-            <p class="entry-census">&nbsp;·&nbsp;2018-12-18&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
-
-            <hr>
-          </header>
         
         <div class="entry-content">
           <h1 id="ES6-语法指南"><a href="#ES6-语法指南" class="headerlink" title="ES6 语法指南"></a>ES6 语法指南</h1><p>后端项目搭建完毕，接下来就是前端页面了。不过在这之前需要一些准备工作。我们需要学习ES6的语法标准。</p>
@@ -426,7 +443,7 @@
 <p>例如这样的一段代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"循环外："</span> + i)</span><br></pre></td></tr></table></figure>
 <p>你猜下打印的结果是什么？</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107278999.png?raw=true" alt="1526107278999"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107278999.png" alt="1526107278999"></p>
 <blockquote>
 <p>let</p>
 </blockquote>
@@ -434,12 +451,12 @@
 <p>我们把刚才的<code>var</code>改成<code>let</code>试试：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"循环外："</span> + i)</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107347275.png?raw=true" alt="1526107347275"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107347275.png" alt="1526107347275"></p>
 <blockquote>
 <p>const</p>
 </blockquote>
 <p><code>const</code>声明的变量是常量，不能被修改</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107425000.png?raw=true" alt="1526107425000"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107425000.png" alt="1526107425000"></p>
 <h3 id="3-2-字符串扩展"><a href="#3-2-字符串扩展" class="headerlink" title="3.2.字符串扩展"></a>3.2.字符串扩展</h3><blockquote>
 <p>新的API</p>
 </blockquote>
@@ -450,12 +467,12 @@
 <li><code>endsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的尾部。</li>
 </ul>
 <p>实验一下：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107640349.png?raw=true" alt="1526107640349"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107640349.png" alt="1526107640349"></p>
 <blockquote>
 <p>字符串模板</p>
 </blockquote>
 <p>ES6中提供了`来作为字符串模板标记。我们可以这么玩：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526108070980.png?raw=true" alt="1526108070980"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526108070980.png" alt="1526108070980"></p>
 <p>在两个`之间的部分都会被作为字符串的值，不管你任意换行，甚至加入js脚本</p>
 <p>键盘是的1的左侧，tab的上侧，esc的正下方</p>
 <h3 id="3-3-解构表达式"><a href="#3-3-解构表达式" class="headerlink" title="3.3.解构表达式"></a>3.3.解构表达式</h3><blockquote>
@@ -466,7 +483,7 @@
 <p>我想获取其中的值，只能通过角标。ES6可以这样：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [x,y,z] = arr;<span class="comment">// x，y，z将与arr中的每个位置对应来取值</span></span><br><span class="line"><span class="comment">// 然后打印</span></span><br><span class="line"><span class="built_in">console</span>.log(x,y,z);</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109778368.png?raw=true" alt="1526109778368"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109778368.png" alt="1526109778368"></p>
 <blockquote>
 <p>对象解构</p>
 </blockquote>
@@ -475,9 +492,9 @@
 <p>我们可以这么做：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解构表达式获取值</span></span><br><span class="line"><span class="keyword">const</span> &#123;name,age,language&#125; = person;</span><br><span class="line"><span class="comment">// 打印</span></span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line"><span class="built_in">console</span>.log(age);</span><br><span class="line"><span class="built_in">console</span>.log(language);</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109984544.png?raw=true" alt="1526109984544"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109984544.png" alt="1526109984544"></p>
 <p>如过想要用其它变量接收，需要额外指定别名：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110159450.png?raw=true" alt="1526110159450"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110159450.png" alt="1526110159450"></p>
 <ul>
 <li><code>{name:n}</code>：name是person中的属性名，冒号后面的n是解构后要赋值给的变量。</li>
 </ul>
@@ -517,7 +534,7 @@
 <p><code>map()</code>：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。</p>
 <p>举例：有一个字符串数组，我们希望转为int数组</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'1'</span>,<span class="string">'20'</span>,<span class="string">'-5'</span>,<span class="string">'3'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"></span><br><span class="line">arr = arr.map(<span class="function"><span class="params">s</span> =&gt;</span> <span class="built_in">parseInt</span>(s));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>
-<p>  <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110796839.png?raw=true" alt="1526110796839"></p>
+<p>  <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110796839.png" alt="1526110796839"></p>
 <blockquote>
 <p>reduce</p>
 </blockquote>
@@ -530,9 +547,9 @@
 <p>举例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const arr = [1,20,-5,3]</span><br></pre></td></tr></table></figure>
 <p>没有初始值：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111537204.png?raw=true" alt="1526111537204"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111537204.png" alt="1526111537204"></p>
 <p>指定初始值：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111580742.png?raw=true" alt="1526111580742"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111580742.png" alt="1526111580742"></p>
 <h3 id="3-6-promise"><a href="#3-6-promise" class="headerlink" title="3.6.promise"></a>3.6.promise</h3><p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p>
 <p>感觉跟java的Future类很像啊，有木有！</p>
 <p>我们可以通过Promise的构造函数来创建Promise对象，并在内部封装一个异步执行的结果。</p>
@@ -546,8 +563,8 @@
 <p>示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const p = new Promise(function (resolve, reject) &#123;</span><br><span class="line">    // 这里我们用定时任务模拟异步</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        const num = Math.random();</span><br><span class="line">        // 随机返回成功或失败</span><br><span class="line">        if (num &lt; 0.5) &#123;</span><br><span class="line">            resolve(&quot;成功！num:&quot; + num)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            reject(&quot;出错了！num:&quot; + num)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 300)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 调用promise</span><br><span class="line">p.then(function (msg) &#123;</span><br><span class="line">    console.log(msg);</span><br><span class="line">&#125;).catch(function (msg) &#123;</span><br><span class="line">    console.log(msg);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113115887.png?raw=true" alt="1526113115887"></p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113140074.png?raw=true" alt="1526113140074"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113115887.png" alt="1526113115887"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113140074.png" alt="1526113140074"></p>
 <h3 id="3-7-set和map（了解）"><a href="#3-7-set和map（了解）" class="headerlink" title="3.7.set和map（了解）"></a>3.7.set和map（了解）</h3><p>ES6提供了Set和Map的数据结构。</p>
 <p>Set，本质与数组类似。不同在于Set中只能保存不同元素，如果元素相同会被忽略。跟java很像吧。</p>
 <p>构造函数：</p>
@@ -562,7 +579,7 @@
 <p>构造函数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map接收一个数组，数组中的元素是键值对数组</span></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">'key1'</span>,<span class="string">'value1'</span>],</span><br><span class="line">    [<span class="string">'key2'</span>,<span class="string">'value2'</span>],</span><br><span class="line">])</span><br><span class="line"><span class="comment">// 或者接收一个set</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([</span><br><span class="line">    ['key1','value1'],</span><br><span class="line">    ['key2','value2'],</span><br><span class="line">])</span><br><span class="line">const map2 = new Map(<span class="keyword">set</span>)</span><br><span class="line">// 或者其它map</span><br><span class="line">const map3 = new Map(map);</span><br></pre></td></tr></table></figure>
 <p>方法：</p>
-<p> <img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526114799767.png?raw=true" alt="1526114799767"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526114799767.png" alt="1526114799767"></p>
 <h3 id="3-8-模块化"><a href="#3-8-模块化" class="headerlink" title="3.8.模块化"></a>3.8.模块化</h3><h4 id="3-8-1-什么是模块化"><a href="#3-8-1-什么是模块化" class="headerlink" title="3.8.1.什么是模块化"></a>3.8.1.什么是模块化</h4><p>模块化就是把代码进行拆分，方便重复利用。类似java中的导包：要使用一个包，必须先导包。</p>
 <p>而JS中没有包的概念，换来的是 模块。</p>
 <p>模块功能主要由两个命令构成：<code>export</code>和<code>import</code>。</p>
@@ -600,7 +617,7 @@
 <li>values(obj)：获取对象的所有value形成的数组</li>
 <li>entries(obj)：获取对象的所有key和value形成的二维数组。格式：<code>[[k1,v1],[k2,v2],...]</code></li>
 <li><p>assian(dest, …src) ：将多个src对象的值 拷贝到 dest中（浅拷贝）。</p>
-<p><img src="https://github.com/xiongtianci-tc/myHexoBlog/blob/master/img/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1527210872966.png?raw=true" alt="1527210872966"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1527210872966.png" alt="1527210872966"></p>
 </li>
 </ul>
 <h3 id="3-10-数组扩展"><a href="#3-10-数组扩展" class="headerlink" title="3.10.数组扩展"></a>3.10.数组扩展</h3><p>ES6给数组新增了许多方法：</p>
@@ -641,7 +658,7 @@
           
             <a href="/2019/01/02/MySQL面试题/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1557401160-4df897e59b78?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Previous Post</span>
@@ -659,7 +676,7 @@
           
             <a href="/2018/12/14/自定义百度云分享密码/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1557231146-afde25e6598f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=789&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Next Post</span>
@@ -838,7 +855,7 @@ $(document).ready(function() {
   </section>
   <div id="mo-nav" class>
   <div class="m-avatar">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/theme/avatar.jpg">
   </div>
   <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">トトロ天赐</p>
   <p style="text-align: center; word-spacing: 20px;">
