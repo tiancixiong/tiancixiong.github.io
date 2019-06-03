@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">关于 | 天赐</title>
+  <title itemprop="name">about | 天赐</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -361,49 +361,181 @@
 
         <div class="pattern-center-blank"></div>
   
+    <div class="pattern-center ">
+      <div class="pattern-attachment-img">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/about.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+      </div>
+      <header class="pattern-header ">
+        <h1 class="entry-title">
+        关于</h1>
+      </header>
+    </div>
+  
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <h1 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h1><p>姓名：天赐<br>城市：广州<br>职业：一枚Java码农</p>
-<h1 id="个人时间轴"><a href="#个人时间轴" class="headerlink" title="个人时间轴"></a>个人时间轴</h1><table>
-<thead>
-<tr>
-<th>时间</th>
-<th style="text-align:left">事件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2019 – now</td>
-<td style="text-align:left">某司实习生，企业互联网，攻城狮，搬运工</td>
-</tr>
-<tr>
-<td>2017 – now</td>
-<td style="text-align:left">大学生活，入坑编程</td>
-</tr>
-<tr>
-<td>1998</td>
-<td style="text-align:left">出生</td>
-</tr>
-</tbody>
-</table>
-<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><p>邮箱：<a href="mailto:tiancixiong@163.com" target="_blank" rel="noopener">tiancixiong@163.com</a><br>站点：<a href="https://xiongtianci-tc.github.io" target="_blank" rel="noopener">https://xiongtianci-tc.github.io</a> or <a href="https://xiongtianci.coding.me" target="_blank" rel="noopener">https://xiongtianci.coding.me</a></p>
+      
+<div class="moe-mashiro" style="text-align:center; font-size: 50px; margin-bottom: 20px;">[さくら荘のhojun]</div>
+<div id="hello-mashiro" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgba(242, 242, 242, 0.5); border-radius: 10px;">
+  <center>
+  <p>
+  </p>
+  <h4>
+  与&nbsp;<ruby>
+  Mashiro&nbsp;<rp>
+  （</rp>
+  <rt>
+  真（ま）白（しろ）</rt>
+  <rp>
+  ）</rp>
+  </ruby>
+  对话中...</h4>
+  <p>
+  </p>
+  </center>
+  <bot-ui>
+</bot-ui></div>
+<script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+<script src="https://unpkg.com/botui/build/botui.min.js"></script>
+<script>
+function bot_ui_ini() {
+    var botui = new BotUI("hello-mashiro");
+    botui.message.add({
+        delay: 800,
+        content: "Hi, there111👋"
+    }).then(function () {
+        botui.message.add({
+            delay: 1100,
+            content: "这里是 Mashiro"
+        }).then(function () {
+            botui.message.add({
+                delay: 1100,
+                content: "一个可爱的蓝孩子~"
+            }).then(function () {
+                botui.action.button({
+                    delay: 1600,
+                    action: [{
+                        text: "然后呢？ 😃",
+                        value: "sure"
+                    }, {
+                        text: "少废话！ 🙄",
+                        value: "skip"
+                    }]
+                }).then(function (a) {
+                    "sure" == a.value && sure();
+                    "skip" == a.value && end()
+                })
+            })
+        })
+    });
+    var sure = function () {
+            botui.message.add({
+                delay: 600,
+                content: "😘"
+            }).then(function () {
+                secondpart()
+            })
+        },
+        end = function () {
+            botui.message.add({
+                delay: 600,
+                content: "![...](https://view.moezx.cc/images/2018/05/06/a1c4cd0452528b572af37952489372b6.md.jpg)"
+            })
+        },
+        secondpart = function () {
+            botui.message.add({
+                delay: 1500,
+                content: "目前就读于上海财经大学"
+            }).then(function () {
+                botui.message.add({
+                    delay: 1500,
+                    content: "向往技术却误入商科，但后来喜欢上了经济学…"
+                }).then(function () {
+                    botui.message.add({
+                        delay: 1200,
+                        content: "因为数据分析也需要Coder嘛"
+                    }).then(function () {
+                        botui.message.add({
+                            delay: 1500,
+                            content: "主攻 R 语言和 Python，略懂 STATA，偶尔也折腾 HTML/CSS/JavaScript/PHP"
+                        }).then(function () {
+                            botui.message.add({
+                                delay: 1500,
+                                content: "研究的方向，是经济/金融方向的数据分析（data science）以及机器学习（machine learning）"
+                            }).then(function () {
+                                botui.message.add({
+                                    delay: 1800,
+                                    content: "喜欢画画，希望有一天能够被称为画师"
+                                }).then(function () {
+                                    botui.action.button({
+                                        delay: 1100,
+                                        action: [{
+                                            text: "为什么叫Mashiro呢？ 🤔",
+                                            value: "why-mashiro"
+                                        }]
+                                    }).then(function (a) {
+                                        thirdpart()
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        },
+        thirdpart = function () {
+            botui.message.add({
+                delay: 1E3,
+                content: "Mashiro以及站名都来自一部动画，因为和主角有一样的爱好~ 如果有兴趣可以找找首页上的视频~"
+            }).then(function () {
+                botui.action.button({
+                    delay: 1500,
+                    action: [{
+                        text: "为什么是白猫呢？ 🤔",
+                        value: "why-cat"
+                    }]
+                }).then(function (a) {
+                    fourthpart()
+                })
+            })
+        },
+        fourthpart = function () {
+            botui.message.add({
+                delay: 1E3,
+                content: "因为对GitHub有种执念… "
+            }).then(function () {
+                botui.message.add({
+                    delay: 1100,
+                    content: "而且我真的是猫控！"
+                }).then(function () {
+                    botui.action.button({
+                        delay: 1500,
+                        action: [{
+                            text: "域名有什么含意吗？(ง •_•)ง",
+                            value: "why-domain"
+                        }]
+                    }).then(function (a) {
+                        fifthpart()
+                    })
+                })
+            })
+        },
+        fifthpart = function () {
+            botui.message.add({
+                delay: 1E3,
+                content: "emmmm，看备案信息你就知道了=.= 本来想要zheng.xin的，但50万真买不起。。"
+            }).then(function () {
+                botui.message.add({
+                    delay: 1600,
+                    content: "那么，仔细看看我的博客吧？ ^_^"
+                })
+            })
+        } 
+}
+bot_ui_ini()
+</script>
 
       <!-- .entry-content -->
       
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
-        appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
       <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
       <footer class="post-footer">
         <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
@@ -569,11 +701,9 @@ $(document).ready(function() {
   <p style="text-align: center; word-spacing: 20px;">
     
       
-        <a href="http://github.com/honjun" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+        <a href="http://github.com/xiongtianci-tc" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
       
-        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
-      
-        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+        <a href="https://weibo.com/u/6338246468?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
       
     
   </p>

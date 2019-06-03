@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://xiongtianci.com/"/>
-  <updated>2019-06-02T15:58:50.400Z</updated>
-  <id>http://xiongtianci.com/</id>
+  <link href="/"/>
+  <updated>2019-06-02T15:53:12.783Z</updated>
+  <id>/</id>
   
   <author>
     <name>天赐</name>
@@ -17,31 +17,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo基本命令</title>
-    <link href="http://xiongtianci.com/2019/05/25/Hexo%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
-    <id>http://xiongtianci.com/2019/05/25/Hexo基本命令/</id>
-    <published>2019-05-25T02:04:49.000Z</published>
-    <updated>2019-06-02T15:58:50.400Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Hexo基本命令"><a href="#Hexo基本命令" class="headerlink" title="Hexo基本命令"></a>Hexo基本命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 写文章</span><br><span class="line">hexo n</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 生成</span><br><span class="line">hexo g </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>部署 # 可与hexo g合并为 hexo d -g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Hexo基本命令笔记
-    
-    </summary>
-    
-      <category term="技术笔记" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Hexo" scheme="http://xiongtianci.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>重新搭建博客</title>
-    <link href="http://xiongtianci.com/2019/05/20/%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://xiongtianci.com/2019/05/20/重新搭建博客/</id>
+    <link href="/2019/05/20/%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>/2019/05/20/重新搭建博客/</id>
     <published>2019-05-20T12:49:00.000Z</published>
     <updated>2019-06-02T15:53:12.783Z</updated>
     
@@ -53,19 +31,19 @@
     
     </summary>
     
-      <category term="技术笔记" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="博客记录" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/"/>
+      <category term="博客记录" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="Hexo" scheme="http://xiongtianci.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>MySQL面试题</title>
-    <link href="http://xiongtianci.com/2019/01/02/MySQL%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>http://xiongtianci.com/2019/01/02/MySQL面试题/</id>
+    <link href="/2019/01/02/MySQL%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>/2019/01/02/MySQL面试题/</id>
     <published>2019-01-02T12:05:58.000Z</published>
     <updated>2019-06-02T15:54:12.547Z</updated>
     
@@ -77,17 +55,17 @@
     
     </summary>
     
-      <category term="数据库" scheme="http://xiongtianci.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-      <category term="MySQL" scheme="http://xiongtianci.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>ES6语法指南</title>
-    <link href="http://xiongtianci.com/2018/12/18/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/"/>
-    <id>http://xiongtianci.com/2018/12/18/ES6语法指南/</id>
+    <link href="/2018/12/18/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/"/>
+    <id>/2018/12/18/ES6语法指南/</id>
     <published>2018-12-18T08:10:28.000Z</published>
     <updated>2019-06-02T15:29:13.183Z</updated>
     
@@ -99,17 +77,17 @@
     
     </summary>
     
-      <category term="技术笔记" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="ES6" scheme="http://xiongtianci.com/tags/ES6/"/>
+      <category term="ES6" scheme="/tags/ES6/"/>
     
   </entry>
   
   <entry>
     <title>自定义百度云分享密码</title>
-    <link href="http://xiongtianci.com/2018/12/14/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%99%BE%E5%BA%A6%E4%BA%91%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81/"/>
-    <id>http://xiongtianci.com/2018/12/14/自定义百度云分享密码/</id>
+    <link href="/2018/12/14/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%99%BE%E5%BA%A6%E4%BA%91%E5%88%86%E4%BA%AB%E5%AF%86%E7%A0%81/"/>
+    <id>/2018/12/14/自定义百度云分享密码/</id>
     <published>2018-12-14T01:13:35.000Z</published>
     <updated>2019-06-02T15:30:42.594Z</updated>
     
@@ -121,17 +99,17 @@
     
     </summary>
     
-      <category term="技术笔记" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="百度网盘" scheme="http://xiongtianci.com/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
+      <category term="百度网盘" scheme="/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序笔记</title>
-    <link href="http://xiongtianci.com/2018/12/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/"/>
-    <id>http://xiongtianci.com/2018/12/11/微信小程序笔记/</id>
+    <link href="/2018/12/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/"/>
+    <id>/2018/12/11/微信小程序笔记/</id>
     <published>2018-12-11T13:15:58.000Z</published>
     <updated>2019-06-02T15:33:04.197Z</updated>
     
@@ -143,17 +121,17 @@
     
     </summary>
     
-      <category term="小程序" scheme="http://xiongtianci.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="小程序" scheme="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-      <category term="微信小程序" scheme="http://xiongtianci.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信小程序" scheme="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>Hystrix状态</title>
-    <link href="http://xiongtianci.com/2018/12/07/Hystrix%E7%8A%B6%E6%80%81/"/>
-    <id>http://xiongtianci.com/2018/12/07/Hystrix状态/</id>
+    <link href="/2018/12/07/Hystrix%E7%8A%B6%E6%80%81/"/>
+    <id>/2018/12/07/Hystrix状态/</id>
     <published>2018-12-07T00:12:05.000Z</published>
     <updated>2019-06-02T15:36:28.039Z</updated>
     
@@ -165,19 +143,19 @@
     
     </summary>
     
-      <category term="后台开发" scheme="http://xiongtianci.com/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+      <category term="后台开发" scheme="/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="SpringCloud" scheme="http://xiongtianci.com/tags/SpringCloud/"/>
+      <category term="SpringCloud" scheme="/tags/SpringCloud/"/>
     
-      <category term="Hystrix" scheme="http://xiongtianci.com/tags/Hystrix/"/>
+      <category term="Hystrix" scheme="/tags/Hystrix/"/>
     
   </entry>
   
   <entry>
     <title>HashSet如何去重?</title>
-    <link href="http://xiongtianci.com/2018/12/06/HashSet%E5%A6%82%E4%BD%95%E5%8E%BB%E9%87%8D/"/>
-    <id>http://xiongtianci.com/2018/12/06/HashSet如何去重/</id>
+    <link href="/2018/12/06/HashSet%E5%A6%82%E4%BD%95%E5%8E%BB%E9%87%8D/"/>
+    <id>/2018/12/06/HashSet如何去重/</id>
     <published>2018-12-06T02:37:51.000Z</published>
     <updated>2019-06-02T15:57:52.158Z</updated>
     
@@ -189,19 +167,19 @@
     
     </summary>
     
-      <category term="后台开发" scheme="http://xiongtianci.com/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+      <category term="后台开发" scheme="/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="HashSet" scheme="http://xiongtianci.com/tags/HashSet/"/>
+      <category term="HashSet" scheme="/tags/HashSet/"/>
     
-      <category term="面试题" scheme="http://xiongtianci.com/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <category term="面试题" scheme="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>IDEA常用快捷键</title>
-    <link href="http://xiongtianci.com/2018/12/04/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://xiongtianci.com/2018/12/04/IDEA常用快捷键/</id>
+    <link href="/2018/12/04/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>/2018/12/04/IDEA常用快捷键/</id>
     <published>2018-12-04T07:45:52.000Z</published>
     <updated>2019-06-02T15:38:00.428Z</updated>
     
@@ -213,17 +191,17 @@
     
     </summary>
     
-      <category term="技术笔记" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="IDEA" scheme="http://xiongtianci.com/tags/IDEA/"/>
+      <category term="IDEA" scheme="/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>IDEA创建SpringBoot开启找回RunDashboard</title>
-    <link href="http://xiongtianci.com/2018/12/04/IDEA%E5%88%9B%E5%BB%BASpringBoot%E5%BC%80%E5%90%AF%E6%89%BE%E5%9B%9ERunDashboard/"/>
-    <id>http://xiongtianci.com/2018/12/04/IDEA创建SpringBoot开启找回RunDashboard/</id>
+    <link href="/2018/12/04/IDEA%E5%88%9B%E5%BB%BASpringBoot%E5%BC%80%E5%90%AF%E6%89%BE%E5%9B%9ERunDashboard/"/>
+    <id>/2018/12/04/IDEA创建SpringBoot开启找回RunDashboard/</id>
     <published>2018-12-04T06:32:05.000Z</published>
     <updated>2019-06-02T15:39:44.166Z</updated>
     
@@ -235,19 +213,19 @@
     
     </summary>
     
-      <category term="技术笔记" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="工具" scheme="http://xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="/tags/%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="IDEA" scheme="http://xiongtianci.com/tags/IDEA/"/>
+      <category term="IDEA" scheme="/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>Vue基础-基本语法</title>
-    <link href="http://xiongtianci.com/2018/11/30/Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
-    <id>http://xiongtianci.com/2018/11/30/Vue基础-基本语法/</id>
+    <link href="/2018/11/30/Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>/2018/11/30/Vue基础-基本语法/</id>
     <published>2018-11-30T09:37:11.000Z</published>
     <updated>2019-06-02T15:41:26.528Z</updated>
     
@@ -259,17 +237,17 @@
     
     </summary>
     
-      <category term="前端开发" scheme="http://xiongtianci.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端开发" scheme="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Vue" scheme="http://xiongtianci.com/tags/Vue/"/>
+      <category term="Vue" scheme="/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>Java线程状态</title>
-    <link href="http://xiongtianci.com/2018/11/30/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/"/>
-    <id>http://xiongtianci.com/2018/11/30/Java线程状态/</id>
+    <link href="/2018/11/30/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/"/>
+    <id>/2018/11/30/Java线程状态/</id>
     <published>2018-11-30T09:23:50.000Z</published>
     <updated>2019-06-02T15:49:27.328Z</updated>
     
@@ -281,17 +259,17 @@
     
     </summary>
     
-      <category term="后台开发" scheme="http://xiongtianci.com/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+      <category term="后台开发" scheme="/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Java线程" scheme="http://xiongtianci.com/tags/Java%E7%BA%BF%E7%A8%8B/"/>
+      <category term="Java线程" scheme="/tags/Java%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Flex布局</title>
-    <link href="http://xiongtianci.com/2018/11/30/Flex%E5%B8%83%E5%B1%80/"/>
-    <id>http://xiongtianci.com/2018/11/30/Flex布局/</id>
+    <link href="/2018/11/30/Flex%E5%B8%83%E5%B1%80/"/>
+    <id>/2018/11/30/Flex布局/</id>
     <published>2018-11-30T09:12:44.000Z</published>
     <updated>2019-06-02T15:51:30.755Z</updated>
     
@@ -303,17 +281,17 @@
     
     </summary>
     
-      <category term="前端开发" scheme="http://xiongtianci.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端开发" scheme="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Flex" scheme="http://xiongtianci.com/tags/Flex/"/>
+      <category term="Flex" scheme="/tags/Flex/"/>
     
   </entry>
   
   <entry>
     <title>Linux常用命令</title>
-    <link href="http://xiongtianci.com/2018/11/30/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>http://xiongtianci.com/2018/11/30/Linux常用命令/</id>
+    <link href="/2018/11/30/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>/2018/11/30/Linux常用命令/</id>
     <published>2018-11-30T08:19:55.000Z</published>
     <updated>2019-06-02T15:42:57.815Z</updated>
     
@@ -325,17 +303,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://xiongtianci.com/categories/Linux/"/>
+      <category term="Linux" scheme="/categories/Linux/"/>
     
     
-      <category term="Linux" scheme="http://xiongtianci.com/tags/Linux/"/>
+      <category term="Linux" scheme="/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>豆瓣Top250资源合集</title>
-    <link href="http://xiongtianci.com/2018/11/29/%E8%B1%86%E7%93%A3Top250%E8%B5%84%E6%BA%90%E5%90%88%E9%9B%86/"/>
-    <id>http://xiongtianci.com/2018/11/29/豆瓣Top250资源合集/</id>
+    <link href="/2018/11/29/%E8%B1%86%E7%93%A3Top250%E8%B5%84%E6%BA%90%E5%90%88%E9%9B%86/"/>
+    <id>/2018/11/29/豆瓣Top250资源合集/</id>
     <published>2018-11-28T17:45:30.000Z</published>
     <updated>2019-06-02T15:55:40.528Z</updated>
     
@@ -347,19 +325,19 @@
     
     </summary>
     
-      <category term="电影资源" scheme="http://xiongtianci.com/categories/%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90/"/>
+      <category term="电影资源" scheme="/categories/%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="公众号文章" scheme="http://xiongtianci.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/"/>
+      <category term="公众号文章" scheme="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/"/>
     
-      <category term="Top电影" scheme="http://xiongtianci.com/tags/Top%E7%94%B5%E5%BD%B1/"/>
+      <category term="Top电影" scheme="/tags/Top%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>使用 Hexo+GitHub 搭建个人博客</title>
-    <link href="http://xiongtianci.com/2018/11/28/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://xiongtianci.com/2018/11/28/使用Hexo+GitHub搭建个人博客/</id>
+    <link href="/2018/11/28/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>/2018/11/28/使用Hexo+GitHub搭建个人博客/</id>
     <published>2018-11-28T07:36:06.000Z</published>
     <updated>2019-06-02T15:59:51.065Z</updated>
     
@@ -371,12 +349,12 @@
     
     </summary>
     
-      <category term="技术笔记" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+      <category term="技术笔记" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="博客记录" scheme="http://xiongtianci.com/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/"/>
+      <category term="博客记录" scheme="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="Hexo" scheme="http://xiongtianci.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="/tags/Hexo/"/>
     
   </entry>
   
