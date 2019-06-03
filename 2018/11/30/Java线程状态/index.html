@@ -470,8 +470,39 @@
 <p>在我们研究线程状态时，采用Thread中的getState()方法进行研究</p>
 </blockquote>
 <p>通过代码演示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 研究新建线程状态</span></span><br><span class="line"><span class="comment"> *   新建状态：至今还未启动的线程处于这一状态</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadStateTest1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建线程对象</span></span><br><span class="line">        MyThread myThread = <span class="keyword">new</span> MyThread();</span><br><span class="line">        <span class="comment">// 线程默认名：Thread-0 Thread-1...</span></span><br><span class="line">        System.out.println(myThread.getName());</span><br><span class="line">        System.out.println(<span class="string">"线程创建之后处于："</span> + myThread.getState());</span><br><span class="line"></span><br><span class="line">        myThread.run();</span><br><span class="line">        System.out.println(<span class="string">"线程run之后处于："</span> + myThread.getState());</span><br><span class="line"></span><br><span class="line">        myThread.start();</span><br><span class="line">        System.out.println(<span class="string">"线程start之后处于："</span> + myThread.getState());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出：</span></span><br><span class="line"><span class="comment">//   线程创建之后处于：NEW</span></span><br><span class="line"><span class="comment">//   线程run之后处于：NEW</span></span><br><span class="line"><span class="comment">//   线程start之后处于：RUNNABLE</span></span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class MyThread extends Thread{
+
+    @Override
+    public void run() {
+        // 线程执行的代码
+    }
+}
+</code></pre>
+<pre><code class="java">/**
+ * 研究新建线程状态
+ *   新建状态：至今还未启动的线程处于这一状态
+ */
+public class ThreadStateTest1 {
+    public static void main(String[] args) {
+        // 创建线程对象
+        MyThread myThread = new MyThread();
+        // 线程默认名：Thread-0 Thread-1...
+        System.out.println(myThread.getName());
+        System.out.println(&quot;线程创建之后处于：&quot; + myThread.getState());
+
+        myThread.run();
+        System.out.println(&quot;线程run之后处于：&quot; + myThread.getState());
+
+        myThread.start();
+        System.out.println(&quot;线程start之后处于：&quot; + myThread.getState());
+
+    }
+}
+// 输出：
+//   线程创建之后处于：NEW
+//   线程run之后处于：NEW
+//   线程start之后处于：RUNNABLE
+</code></pre>
 <blockquote>
 <p>当我们执行 <code>new Thread(target)</code> 时，jvm 要为线程的运行做一些前期的准备工作，比如检查线程类是否已经被加载、解析和初始化过，接下来还要为对象分配空间并对空间初始化零值等。当完成这些准备工作时线程才能进入到下一个 <code>Runnable</code> (可运行)状态。所以说</p>
 <p>当业务需要频繁创建线城市，最好使用线程池，提高效率减轻JVM的压力。当然如果大量线程进行频繁上下文切换，此时多线程的效率会大打折扣。</p>
@@ -483,12 +514,124 @@
 <p>注：这里的等待指的是等待调度，等待的是系统资源，如IO、CPU时间片，与 sleep、lock 的等待有着本质差别。</p>
 </blockquote>
 <p>接下来使用代码演示一个最简单的可运行状态：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"线程开始执行"</span>);</span><br><span class="line">        System.out.println(<span class="string">"线程开始执行具体的任务"</span>);</span><br><span class="line">        <span class="comment">// 假设这个任务使用5秒钟</span></span><br><span class="line">        <span class="keyword">long</span> beiginTime = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">while</span> (System.currentTimeMillis()-beiginTime &lt; <span class="number">5000</span>)&#123;</span><br><span class="line">            <span class="comment">// 假设做了5秒钟的任务</span></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"线程执行完毕"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 可运行状态</span></span><br><span class="line"><span class="comment"> *   当线程有资格运行，调用了start方法，线程首先进入可运行状态</span></span><br><span class="line"><span class="comment"> *   这种可运行状态不一定被线程调度运行</span></span><br><span class="line"><span class="comment"> *   简单来说，调用start方法之后，该线程处于可运行状态，但未运行</span></span><br><span class="line"><span class="comment"> *   此时存放在"可运行池"中</span></span><br><span class="line"><span class="comment"> *   线程在运行的过程中，自然该线程也是处于可运行状态</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   JDK中处于可运行状态的线程，有两种，一种是正在JVM中运行，</span></span><br><span class="line"><span class="comment"> *   另一种是可能正在等待操作系统其它资源，比如处理器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建线程对象</span></span><br><span class="line">        MyThread myThread = <span class="keyword">new</span> MyThread();</span><br><span class="line">        System.out.println(<span class="string">"创建完成之后："</span> + myThread.getState());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 开启线程</span></span><br><span class="line">        myThread.start();</span><br><span class="line">        System.out.println(<span class="string">"开启线程之后："</span> + myThread.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class MyThread extends Thread {
+    @Override
+    public void run() {
+        System.out.println(&quot;线程开始执行&quot;);
+        System.out.println(&quot;线程开始执行具体的任务&quot;);
+        // 假设这个任务使用5秒钟
+        long beiginTime = System.currentTimeMillis();
+        while (System.currentTimeMillis()-beiginTime &lt; 5000){
+            // 假设做了5秒钟的任务
+        }
+        System.out.println(&quot;线程执行完毕&quot;);
+    }
+}
+</code></pre>
+<pre><code class="java">/**
+ * 可运行状态
+ *   当线程有资格运行，调用了start方法，线程首先进入可运行状态
+ *   这种可运行状态不一定被线程调度运行
+ *   简单来说，调用start方法之后，该线程处于可运行状态，但未运行
+ *   此时存放在&quot;可运行池&quot;中
+ *   线程在运行的过程中，自然该线程也是处于可运行状态
+ *
+ *   JDK中处于可运行状态的线程，有两种，一种是正在JVM中运行，
+ *   另一种是可能正在等待操作系统其它资源，比如处理器
+ */
+public class Demo {
+    public static void main(String[] args) {
+        // 创建线程对象
+        MyThread myThread = new MyThread();
+        System.out.println(&quot;创建完成之后：&quot; + myThread.getState());
+
+        // 开启线程
+        myThread.start();
+        System.out.println(&quot;开启线程之后：&quot; + myThread.getState());
+    }
+}
+</code></pre>
 <h2 id="3-BLOCHED-阻塞-状态"><a href="#3-BLOCHED-阻塞-状态" class="headerlink" title="3. BLOCHED(阻塞)状态"></a>3. BLOCHED(阻塞)状态</h2><p>我们还是使用代码来解析一下锁阻塞状态：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadA</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadA</span><span class="params">(String name,Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">        <span class="keyword">this</span>.obj = obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 同步代码块</span></span><br><span class="line">        <span class="keyword">synchronized</span> (obj)&#123;</span><br><span class="line">            System.out.println(<span class="string">"线程A开始执行"</span>);</span><br><span class="line">            System.out.println(<span class="string">"线程A真正开始执行代码了"</span>);</span><br><span class="line">            <span class="keyword">long</span> beginTime = System.currentTimeMillis();</span><br><span class="line">            <span class="comment">// 模拟5秒钟的任务</span></span><br><span class="line">            <span class="keyword">while</span>(System.currentTimeMillis()-beginTime &lt; <span class="number">5000</span>)&#123;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"线程A执行完毕"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadB</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadB</span><span class="params">(String name,Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">        <span class="keyword">this</span>.obj = obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 同步代码块</span></span><br><span class="line">        <span class="keyword">synchronized</span> (obj)&#123;</span><br><span class="line">            System.out.println(<span class="string">"线程B开始执行"</span>);</span><br><span class="line">            System.out.println(<span class="string">"线程B真正开始执行代码了"</span>);</span><br><span class="line">            <span class="keyword">long</span> beginTime = System.currentTimeMillis();</span><br><span class="line">            <span class="comment">// 模拟5秒钟的任务</span></span><br><span class="line">            <span class="keyword">while</span>(System.currentTimeMillis()-beginTime &lt; <span class="number">5000</span>)&#123;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(<span class="string">"线程B执行完毕"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 线程状态之阻塞状态BLOCKED</span></span><br><span class="line"><span class="comment"> *    JDK：锁阻塞并且正在等待监视器锁的某一线程状态</span></span><br><span class="line"><span class="comment"> *    处于受阻状态的某一线程正在等待监视器锁，以便进入一个同步代码块/同步方</span></span><br><span class="line"><span class="comment"> *    还有就是 调用Object.wart方法之后，再次进入同步中时</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlockedDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">// 创建一个锁对象</span></span><br><span class="line">        Object obj = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建线程A、B</span></span><br><span class="line">        ThreadA a = <span class="keyword">new</span> ThreadA(<span class="string">"线程A"</span>, obj);</span><br><span class="line">        ThreadB b = <span class="keyword">new</span> ThreadB(<span class="string">"线程B"</span>, obj);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 开启线程</span></span><br><span class="line">        a.start();</span><br><span class="line">        b.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        System.out.println(<span class="string">"线程A的状态是："</span> + a.getState());</span><br><span class="line">        System.out.println(<span class="string">"线程B的状态是："</span> + b.getState());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        System.out.println(<span class="string">"线程A的状态是："</span> + a.getState());</span><br><span class="line">        System.out.println(<span class="string">"线程B的状态是："</span> + b.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class ThreadA extends Thread {
+    private Object obj;
+
+    public ThreadA(String name,Object obj){
+        super(name);
+        this.obj = obj;
+    }
+
+    @Override
+    public void run() {
+        // 同步代码块
+        synchronized (obj){
+            System.out.println(&quot;线程A开始执行&quot;);
+            System.out.println(&quot;线程A真正开始执行代码了&quot;);
+            long beginTime = System.currentTimeMillis();
+            // 模拟5秒钟的任务
+            while(System.currentTimeMillis()-beginTime &lt; 5000){
+            }
+
+            System.out.println(&quot;线程A执行完毕&quot;);
+        }
+    }
+}
+</code></pre>
+<pre><code class="java">public class ThreadB extends Thread{
+    private Object obj;
+
+    public ThreadB(String name,Object obj){
+        super(name);
+        this.obj = obj;
+    }
+
+    @Override
+    public void run() {
+        // 同步代码块
+        synchronized (obj){
+            System.out.println(&quot;线程B开始执行&quot;);
+            System.out.println(&quot;线程B真正开始执行代码了&quot;);
+            long beginTime = System.currentTimeMillis();
+            // 模拟5秒钟的任务
+            while(System.currentTimeMillis()-beginTime &lt; 5000){
+            }
+
+            System.out.println(&quot;线程B执行完毕&quot;);
+        }
+    }
+}
+</code></pre>
+<pre><code class="java">/**
+ * 线程状态之阻塞状态BLOCKED
+ *    JDK：锁阻塞并且正在等待监视器锁的某一线程状态
+ *    处于受阻状态的某一线程正在等待监视器锁，以便进入一个同步代码块/同步方
+ *    还有就是 调用Object.wart方法之后，再次进入同步中时
+ *
+ */
+public class BlockedDemo {
+    public static void main(String[] args) throws InterruptedException {
+        // 创建一个锁对象
+        Object obj = new Object();
+
+        // 创建线程A、B
+        ThreadA a = new ThreadA(&quot;线程A&quot;, obj);
+        ThreadB b = new ThreadB(&quot;线程B&quot;, obj);
+
+        // 开启线程
+        a.start();
+        b.start();
+
+        //
+        Thread.sleep(3000);
+        System.out.println(&quot;线程A的状态是：&quot; + a.getState());
+        System.out.println(&quot;线程B的状态是：&quot; + b.getState());
+
+        //
+        Thread.sleep(3000);
+        System.out.println(&quot;线程A的状态是：&quot; + a.getState());
+        System.out.println(&quot;线程B的状态是：&quot; + b.getState());
+    }
+}
+</code></pre>
 <p>在这里我们只是对之前分析的情况一进行了阐释</p>
 <h2 id="4-Timed-Waiting-计时等待-状态"><a href="#4-Timed-Waiting-计时等待-状态" class="headerlink" title="4. Timed Waiting(计时等待)状态"></a>4. Timed Waiting(计时等待)状态</h2><blockquote>
 </blockquote>
@@ -508,7 +651,45 @@
 <p>其实当我们调用了sleep方法之后，当前执行的线程就进入到“休眠状态”，其实就是所谓的Timed Waiting（计时等待），那么我们通过一个案例加深对该状态的一个理解：</p>
 <p>实现一个计数器，计数到100，在每个数字之间暂停1秒，每隔10个数字输出一个字符串</p>
 <p>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 限时等待</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread myThread = <span class="keyword">new</span> MyThread();</span><br><span class="line">        myThread.start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">100</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"mt的线程状态： "</span> + myThread.getState());</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实现一个计算器，0-99计数，在每个数字之间暂停1秒，每个10个数字输出一个字符串</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">99</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i%<span class="number">10</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                System.out.println(<span class="string">"oewewowllskd "</span> + i);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(i);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                System.out.println(<span class="string">"    休息了1秒"</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * 限时等待
+ */
+public class MyThread extends Thread {
+    public static void main(String[] args) {
+        MyThread myThread = new MyThread();
+        myThread.start();
+
+        for (int i = 0; i &lt; 10; i++) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(&quot;mt的线程状态： &quot; + myThread.getState());
+
+        }
+    }
+
+    // 实现一个计算器，0-99计数，在每个数字之间暂停1秒，每个10个数字输出一个字符串
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 99; i++) {
+            if (i%10 == 0){
+                System.out.println(&quot;oewewowllskd &quot; + i);
+            }
+
+            System.out.println(i);
+            try {
+                Thread.sleep(1000);
+                System.out.println(&quot;    休息了1秒&quot;);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
 <p>通过案例可以发西咸，sleep方法的使用还是很简单的。我们需要记住下面几点：</p>
 <ol>
 <li>进入 TIMED_WAITING 状态的一种常见情形是调用的 sleep 方法，单独的线程也可以调用，不一定非要有协作关系。</li>
@@ -531,7 +712,61 @@
 <li>一个调用了 Thread.join 方法的线程会等待指定的线程结束</li>
 </ul>
 <p>代码演示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 无限等待</span></span><br><span class="line"><span class="comment"> *   Object中的wait方法完成</span></span><br><span class="line"><span class="comment"> *     使用当前线程 进入无限等待状态，直到其他线程有唤醒 notify 或 notifyAll 才能被唤醒</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *     线程间通信 两个线程执行不同的操作 关联的</span></span><br><span class="line"><span class="comment"> *       两个线程 使用同样的锁 只能使用锁对象调用wait方法或者notify方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">// 使用匿名函数创建线程</span></span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (obj)&#123;</span><br><span class="line">                    System.out.println(<span class="string">"获取到锁，调用wait方法，当前线程进入无线等待状态。。。等待着别的线程来唤醒"</span>);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        obj.wait();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(<span class="string">"唤醒了这个线程，就不再是线程等待了，线程执行完毕"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// 开启线程t1</span></span><br><span class="line">        t1.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用匿名内部内方式创建一个新的线程，用来唤醒t1线程</span></span><br><span class="line">        <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 获取到锁</span></span><br><span class="line">                <span class="keyword">synchronized</span> (obj)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        <span class="comment">// 3秒钟后执行唤醒操作</span></span><br><span class="line">                        Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(<span class="string">"获取到锁 执行 唤醒操作"</span>);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 唤醒操作</span></span><br><span class="line">                    obj.notify();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4秒后查看线程t1状态</span></span><br><span class="line">        Thread.sleep(<span class="number">4000</span>);</span><br><span class="line">        System.out.println(<span class="string">"查看t1的线程状态"</span> + t1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * 无限等待
+ *   Object中的wait方法完成
+ *     使用当前线程 进入无限等待状态，直到其他线程有唤醒 notify 或 notifyAll 才能被唤醒
+ *
+ *     线程间通信 两个线程执行不同的操作 关联的
+ *       两个线程 使用同样的锁 只能使用锁对象调用wait方法或者notify方法
+ */
+public class WaitingTest {
+    private static Object obj = new Object();
+    public static void main(String[] args) throws InterruptedException {
+        // 使用匿名函数创建线程
+        Thread t1 = new Thread() {
+            @Override
+            public void run() {
+                synchronized (obj){
+                    System.out.println(&quot;获取到锁，调用wait方法，当前线程进入无线等待状态。。。等待着别的线程来唤醒&quot;);
+                    try {
+                        obj.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(&quot;唤醒了这个线程，就不再是线程等待了，线程执行完毕&quot;);
+                }
+            }
+        };
+        // 开启线程t1
+        t1.start();
+
+        // 使用匿名内部内方式创建一个新的线程，用来唤醒t1线程
+        new Thread(){
+            @Override
+            public void run() {
+                // 获取到锁
+                synchronized (obj){
+                    try {
+                        // 3秒钟后执行唤醒操作
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(&quot;获取到锁 执行 唤醒操作&quot;);
+
+                    // 唤醒操作
+                    obj.notify();
+                }
+            }
+        }.start();
+
+        // 4秒后查看线程t1状态
+        Thread.sleep(4000);
+        System.out.println(&quot;查看t1的线程状态&quot; + t1.getState());
+    }
+}
+</code></pre>
 <p>通过上述案例我们会发现，一个调用了某个对象的 Object.wait 方法的线程会等待另一个线程调用此对象的 Object.notify() 方法或 Object.notifyAll() 方法</p>
 <p>其实 waiting 状态并不是一个线程的操作，它体现的是多个线程间的通信，可以理解为多个线程之间的协作关系，<br>多个线程会争取锁，同时相互之间又存在协作关系。就好比在公司了你和你的同事们，你们可能存在晋升时的竞争，但更多时候你们更多是一起合作一完成某些任务。</p>
 <h2 id="6-TEMINATED-终止-状态"><a href="#6-TEMINATED-终止-状态" class="headerlink" title="6. TEMINATED(终止)状态"></a>6. TEMINATED(终止)状态</h2><p>线程因如下两个原因之一将被终止：</p>
@@ -643,7 +878,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -655,10 +890,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

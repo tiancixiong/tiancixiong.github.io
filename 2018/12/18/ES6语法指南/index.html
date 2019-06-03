@@ -441,7 +441,11 @@
 <p>之前，js定义变量只有一个关键字：<code>var</code></p>
 <p><code>var</code>有一个问题，就是定义的变量有时会莫名奇妙的成为全局变量。</p>
 <p>例如这样的一段代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"循环外："</span> + i)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">for(var i = 0; i &lt; 5; i++){
+    console.log(i);
+}
+console.log(&quot;循环外：&quot; + i)
+</code></pre>
 <p>你猜下打印的结果是什么？</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107278999.png" alt="1526107278999"></p>
 <blockquote>
@@ -449,7 +453,11 @@
 </blockquote>
 <p><code>let</code>所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p>
 <p>我们把刚才的<code>var</code>改成<code>let</code>试试：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"循环外："</span> + i)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">for(let i = 0; i &lt; 5; i++){
+    console.log(i);
+}
+console.log(&quot;循环外：&quot; + i)
+</code></pre>
 <p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107347275.png" alt="1526107347275"></p>
 <blockquote>
@@ -479,18 +487,33 @@
 <p>数组解构</p>
 </blockquote>
 <p>比如有一个数组：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="js">let arr = [1,2,3]
+</code></pre>
 <p>我想获取其中的值，只能通过角标。ES6可以这样：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [x,y,z] = arr;<span class="comment">// x，y，z将与arr中的每个位置对应来取值</span></span><br><span class="line"><span class="comment">// 然后打印</span></span><br><span class="line"><span class="built_in">console</span>.log(x,y,z);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const [x,y,z] = arr;// x，y，z将与arr中的每个位置对应来取值
+// 然后打印
+console.log(x,y,z);
+</code></pre>
 <p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109778368.png" alt="1526109778368"></p>
 <blockquote>
 <p>对象解构</p>
 </blockquote>
 <p>例如有个person对象：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name:<span class="string">"jack"</span>,</span><br><span class="line">    age:<span class="number">21</span>,</span><br><span class="line">    language: [<span class="string">'java'</span>,<span class="string">'js'</span>,<span class="string">'css'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const person = {
+    name:&quot;jack&quot;,
+    age:21,
+    language: [&#39;java&#39;,&#39;js&#39;,&#39;css&#39;]
+}
+</code></pre>
 <p>我们可以这么做：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解构表达式获取值</span></span><br><span class="line"><span class="keyword">const</span> &#123;name,age,language&#125; = person;</span><br><span class="line"><span class="comment">// 打印</span></span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line"><span class="built_in">console</span>.log(age);</span><br><span class="line"><span class="built_in">console</span>.log(language);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">// 解构表达式获取值
+const {name,age,language} = person;
+// 打印
+console.log(name);
+console.log(age);
+console.log(language);
+</code></pre>
 <p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109984544.png" alt="1526109984544"></p>
 <p>如过想要用其它变量接收，需要额外指定别名：</p>
@@ -502,38 +525,93 @@
 <p>函数参数默认值</p>
 </blockquote>
 <p>在ES6以前，我们无法给一个函数参数设置默认值，只能采用变通写法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a , b</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 判断b是否为空，为空就给默认值1</span></span><br><span class="line">    b = b || <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 传一个参数</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<pre><code class="js">    function add(a , b) {
+        // 判断b是否为空，为空就给默认值1
+        b = b || 1;
+        return a + b;
+    }
+    // 传一个参数
+    console.log(add(10));
+</code></pre>
 <p>现在可以这么写：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a , b = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 传一个参数</span></span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<pre><code class="js">function add(a , b = 1) {
+    return a + b;
+}
+// 传一个参数
+console.log(add(10));
+</code></pre>
 <blockquote>
 <p>箭头函数</p>
 </blockquote>
 <p>ES6中定义函数的简写方式：</p>
 <p>一个参数时：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> print = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(obj);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 简写为：</span></span><br><span class="line"><span class="keyword">var</span> print2 = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">var print = function (obj) {
+    console.log(obj);
+}
+// 简写为：
+var print2 = obj =&gt; console.log(obj);
+</code></pre>
 <p>多个参数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两个参数的情况：</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span> (<span class="params">a , b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 简写为：</span></span><br><span class="line"><span class="keyword">var</span> sum2 = <span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">// 两个参数的情况：
+var sum = function (a , b) {
+    return a + b;
+}
+// 简写为：
+var sum2 = (a,b) =&gt; a+b;
+</code></pre>
 <p>代码不止一行，可以用<code>{}</code>括起来</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum3 = <span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">var sum3 = (a,b) =&gt; {
+    return a + b;
+}
+</code></pre>
 <blockquote>
 <p>对象的函数属性简写</p>
 </blockquote>
 <p>比如一个Person对象，里面有eat方法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    name: <span class="string">"jack"</span>,</span><br><span class="line">    <span class="comment">// 以前：</span></span><br><span class="line">    eat: <span class="function"><span class="keyword">function</span> (<span class="params">food</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"在吃"</span> + food);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 箭头函数版：</span></span><br><span class="line">    eat2: <span class="function"><span class="params">food</span> =&gt;</span> <span class="built_in">console</span>.log(person.name + <span class="string">"在吃"</span> + food),<span class="comment">// 这里拿不到this</span></span><br><span class="line">    <span class="comment">// 简写版：</span></span><br><span class="line">    eat3(food)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"在吃"</span> + food);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">let person = {
+    name: &quot;jack&quot;,
+    // 以前：
+    eat: function (food) {
+        console.log(this.name + &quot;在吃&quot; + food);
+    },
+    // 箭头函数版：
+    eat2: food =&gt; console.log(person.name + &quot;在吃&quot; + food),// 这里拿不到this
+    // 简写版：
+    eat3(food){
+        console.log(this.name + &quot;在吃&quot; + food);
+    }
+}
+</code></pre>
 <blockquote>
 <p>箭头函数结合解构表达式</p>
 </blockquote>
 <p>比如有一个函数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name:<span class="string">"jack"</span>,</span><br><span class="line">    age:<span class="number">21</span>,</span><br><span class="line">    language: [<span class="string">'java'</span>,<span class="string">'js'</span>,<span class="string">'css'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">person</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"hello,"</span> + person.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const person = {
+    name:&quot;jack&quot;,
+    age:21,
+    language: [&#39;java&#39;,&#39;js&#39;,&#39;css&#39;]
+}
+
+function hello(person) {
+    console.log(&quot;hello,&quot; + person.name)
+}
+</code></pre>
 <p>如果用箭头函数和解构表达式</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hi = <span class="function">(<span class="params">&#123;name&#125;</span>) =&gt;</span>  <span class="built_in">console</span>.log(<span class="string">"hello,"</span> + name);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">var hi = ({name}) =&gt;  console.log(&quot;hello,&quot; + name);
+</code></pre>
 <h3 id="3-5-map和reduce"><a href="#3-5-map和reduce" class="headerlink" title="3.5.map和reduce"></a>3.5.map和reduce</h3><p>数组中新增了map和reduce方法。</p>
 <blockquote>
 <p>map</p>
 </blockquote>
 <p><code>map()</code>：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。</p>
 <p>举例：有一个字符串数组，我们希望转为int数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'1'</span>,<span class="string">'20'</span>,<span class="string">'-5'</span>,<span class="string">'3'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br><span class="line"></span><br><span class="line">arr = arr.map(<span class="function"><span class="params">s</span> =&gt;</span> <span class="built_in">parseInt</span>(s));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">let arr = [&#39;1&#39;,&#39;20&#39;,&#39;-5&#39;,&#39;3&#39;];
+console.log(arr)
+
+arr = arr.map(s =&gt; parseInt(s));
+
+console.log(arr)
+</code></pre>
 <p>  <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110796839.png" alt="1526110796839"></p>
 <blockquote>
 <p>reduce</p>
@@ -545,8 +623,8 @@
 </ul>
 <p><code>reduce()</code>会从左到右依次把数组中的元素用reduce处理，并把处理的结果作为下次reduce的第一个参数。如果是第一次，会把前两个元素作为计算参数，或者把用户指定的初始值作为起始参数</p>
 <p>举例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const arr = [1,20,-5,3]</span><br></pre></td></tr></table></figure>
-<p>没有初始值：</p>
+<pre><code>const arr = [1,20,-5,3]
+</code></pre><p>没有初始值：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111537204.png" alt="1526111537204"></p>
 <p>指定初始值：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111580742.png" alt="1526111580742"></p>
@@ -554,30 +632,91 @@
 <p>感觉跟java的Future类很像啊，有木有！</p>
 <p>我们可以通过Promise的构造函数来创建Promise对象，并在内部封装一个异步执行的结果。</p>
 <p>语法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ... 执行异步操作</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>)&#123;</span><br><span class="line">    resolve(value);<span class="comment">// 调用resolve，代表Promise将返回成功的结果</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(error);<span class="comment">// 调用reject，代表Promise会返回失败结果</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const promise = new Promise(function(resolve, reject) {
+  // ... 执行异步操作
+
+  if (/* 异步操作成功 */){
+    resolve(value);// 调用resolve，代表Promise将返回成功的结果
+  } else {
+    reject(error);// 调用reject，代表Promise会返回失败结果
+  }
+});
+</code></pre>
 <p>这样，在promise中就封装了一段异步执行的结果。</p>
 <p>如果我们想要等待异步执行完成，做一些事情，我们可以通过promise的then方法来实现,语法：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 异步执行成功后的回调</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">promise.then(function(value){
+    // 异步执行成功后的回调
+});
+</code></pre>
 <p>如果想要处理promise异步执行失败的事件，还可以跟上catch：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 异步执行成功后的回调</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 异步执行失败后的回调</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">promise.then(function(value){
+    // 异步执行成功后的回调
+}).catch(function(error){
+    // 异步执行失败后的回调
+})
+</code></pre>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const p = new Promise(function (resolve, reject) &#123;</span><br><span class="line">    // 这里我们用定时任务模拟异步</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        const num = Math.random();</span><br><span class="line">        // 随机返回成功或失败</span><br><span class="line">        if (num &lt; 0.5) &#123;</span><br><span class="line">            resolve(&quot;成功！num:&quot; + num)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            reject(&quot;出错了！num:&quot; + num)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, 300)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 调用promise</span><br><span class="line">p.then(function (msg) &#123;</span><br><span class="line">    console.log(msg);</span><br><span class="line">&#125;).catch(function (msg) &#123;</span><br><span class="line">    console.log(msg);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
+<pre><code>const p = new Promise(function (resolve, reject) {
+    // 这里我们用定时任务模拟异步
+    setTimeout(() =&gt; {
+        const num = Math.random();
+        // 随机返回成功或失败
+        if (num &lt; 0.5) {
+            resolve(&quot;成功！num:&quot; + num)
+        } else {
+            reject(&quot;出错了！num:&quot; + num)
+        }
+    }, 300)
+})
+
+// 调用promise
+p.then(function (msg) {
+    console.log(msg);
+}).catch(function (msg) {
+    console.log(msg);
+})
+</code></pre><p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113115887.png" alt="1526113115887"></p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113140074.png" alt="1526113140074"></p>
 <h3 id="3-7-set和map（了解）"><a href="#3-7-set和map（了解）" class="headerlink" title="3.7.set和map（了解）"></a>3.7.set和map（了解）</h3><p>ES6提供了Set和Map的数据结构。</p>
 <p>Set，本质与数组类似。不同在于Set中只能保存不同元素，如果元素相同会被忽略。跟java很像吧。</p>
 <p>构造函数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Set构造函数可以接收一个数组或空</span></span><br><span class="line"><span class="keyword">let</span> <span class="keyword">set</span> = new Set();</span><br><span class="line"><span class="keyword">set</span>.add(1);// [1]</span><br><span class="line">// 接收数组</span><br><span class="line">let set2 = new Set([2,3,4,5,5]);// 得到[2,3,4,5]</span><br></pre></td></tr></table></figure>
+<pre><code class="js">// Set构造函数可以接收一个数组或空
+let set = new Set();
+set.add(1);// [1]
+// 接收数组
+let set2 = new Set([2,3,4,5,5]);// 得到[2,3,4,5]
+</code></pre>
 <p>普通方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set.add(1);// 添加</span><br><span class="line">set.clear();// 清空</span><br><span class="line">set.delete(2);// 删除指定元素</span><br><span class="line">set.has(2); // 判断是否存在</span><br><span class="line">set.keys();// 返回所有key</span><br><span class="line">set.values();// 返回所有值</span><br><span class="line">set.entries();// 返回键值对集合</span><br><span class="line">// 因为set没有键值对，所有其keys、values、entries方法返回值一样的。</span><br><span class="line">set.size; // 元素个数。是属性，不是方法。</span><br></pre></td></tr></table></figure>
-<p>map，本质是与Object类似的结构。不同在于，Object强制规定key只能是字符串。而Map结构的key可以是任意对象。即：</p>
+<pre><code>set.add(1);// 添加
+set.clear();// 清空
+set.delete(2);// 删除指定元素
+set.has(2); // 判断是否存在
+set.keys();// 返回所有key
+set.values();// 返回所有值
+set.entries();// 返回键值对集合
+// 因为set没有键值对，所有其keys、values、entries方法返回值一样的。
+set.size; // 元素个数。是属性，不是方法。
+</code></pre><p>map，本质是与Object类似的结构。不同在于，Object强制规定key只能是字符串。而Map结构的key可以是任意对象。即：</p>
 <ul>
 <li>object是 &lt;string,object&gt;集合</li>
 <li>map是&lt;object,object&gt;集合</li>
 </ul>
 <p>构造函数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map接收一个数组，数组中的元素是键值对数组</span></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">    [<span class="string">'key1'</span>,<span class="string">'value1'</span>],</span><br><span class="line">    [<span class="string">'key2'</span>,<span class="string">'value2'</span>],</span><br><span class="line">])</span><br><span class="line"><span class="comment">// 或者接收一个set</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">set</span> = new Set([</span><br><span class="line">    ['key1','value1'],</span><br><span class="line">    ['key2','value2'],</span><br><span class="line">])</span><br><span class="line">const map2 = new Map(<span class="keyword">set</span>)</span><br><span class="line">// 或者其它map</span><br><span class="line">const map3 = new Map(map);</span><br></pre></td></tr></table></figure>
+<pre><code class="js">// map接收一个数组，数组中的元素是键值对数组
+const map = new Map([
+    [&#39;key1&#39;,&#39;value1&#39;],
+    [&#39;key2&#39;,&#39;value2&#39;],
+])
+// 或者接收一个set
+const set = new Set([
+    [&#39;key1&#39;,&#39;value1&#39;],
+    [&#39;key2&#39;,&#39;value2&#39;],
+])
+const map2 = new Map(set)
+// 或者其它map
+const map3 = new Map(map);
+</code></pre>
 <p>方法：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526114799767.png" alt="1526114799767"></p>
 <h3 id="3-8-模块化"><a href="#3-8-模块化" class="headerlink" title="3.8.模块化"></a>3.8.模块化</h3><h4 id="3-8-1-什么是模块化"><a href="#3-8-1-什么是模块化" class="headerlink" title="3.8.1.什么是模块化"></a>3.8.1.什么是模块化</h4><p>模块化就是把代码进行拆分，方便重复利用。类似java中的导包：要使用一个包，必须先导包。</p>
@@ -588,27 +727,59 @@
 <li><code>import</code>命令用于导入其他模块提供的功能。</li>
 </ul>
 <h4 id="3-8-2-export"><a href="#3-8-2-export" class="headerlink" title="3.8.2.export"></a>3.8.2.export</h4><p>比如我定义一个js文件:hello.js，里面有一个对象：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> util = &#123;</span><br><span class="line">    sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const util = {
+    sum(a,b){
+        return a + b;
+    }
+}
+</code></pre>
 <p>我可以使用export将这个对象导出：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> util = &#123;</span><br><span class="line">    sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> util;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const util = {
+    sum(a,b){
+        return a + b;
+    }
+}
+export util;
+</code></pre>
 <p>当然，也可以简写为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> util = &#123;</span><br><span class="line">    sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">export const util = {
+    sum(a,b){
+        return a + b;
+    }
+}
+</code></pre>
 <p><code>export</code>不仅可以导出对象，一切JS变量都可以导出。比如：基本类型变量、函数、数组、对象。</p>
 <p>当要导出多个值时，还可以简写。比如我有一个文件：user.js：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"jack"</span></span><br><span class="line"><span class="keyword">var</span> age = <span class="number">21</span></span><br><span class="line"><span class="keyword">export</span> &#123;name,age&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">var name = &quot;jack&quot;
+var age = 21
+export {name,age}
+</code></pre>
 <blockquote>
 <p>省略名称</p>
 </blockquote>
 <p>上面的导出代码中，都明确指定了导出的变量名，这样其它人在导入使用时就必须准确写出变量名，否则就会出错。</p>
 <p>因此js提供了<code>default</code>关键字，可以对导出的变量名进行省略</p>
 <p>例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无需声明对象的名字</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	sum(a,b)&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="js">// 无需声明对象的名字
+export default {
+    sum(a,b){
+        return a + b;
+    }
+}
+</code></pre>
 <p>这样，当使用者导入时，可以任意起名字</p>
 <h4 id="3-8-3-import"><a href="#3-8-3-import" class="headerlink" title="3.8.3.import"></a>3.8.3.import</h4><p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p>
 <p>例如我要使用上面导出的util：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入util</span></span><br><span class="line"><span class="keyword">import</span> util <span class="keyword">from</span> <span class="string">'hello.js'</span></span><br><span class="line"><span class="comment">// 调用util中的属性</span></span><br><span class="line">util.sum(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">// 导入util
+import util from &#39;hello.js&#39;
+// 调用util中的属性
+util.sum(1,2)
+</code></pre>
 <p>要批量导入前面导出的name和age： </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;name, age&#125; <span class="keyword">from</span> <span class="string">'user.js'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name + <span class="string">" , 今年"</span>+ age +<span class="string">"岁了"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">import {name, age} from &#39;user.js&#39;
+
+console.log(name + &quot; , 今年&quot;+ age +&quot;岁了&quot;)
+</code></pre>
 <p>但是上面的代码暂时无法测试，因为浏览器目前还不支持ES6 的导入和导出功能。除非借助于工具，把ES6 的语法进行编译降级到ES5，比如<code>Babel-cli</code>工具</p>
 <p> 我们暂时不做测试，大家了解即可。</p>
 <h3 id="3-9-对象扩展"><a href="#3-9-对象扩展" class="headerlink" title="3.9.对象扩展"></a>3.9.对象扩展</h3><p>ES6给Object拓展了许多新的方法，如：</p>
@@ -728,7 +899,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -740,10 +911,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

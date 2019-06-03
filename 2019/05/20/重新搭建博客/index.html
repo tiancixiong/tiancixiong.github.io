@@ -396,8 +396,18 @@
         
         <div class="entry-content">
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>3月份初，许久没写博客（主要就是懒）的博主在莫一天心血来潮写好一篇文章后，使用<code>hexo d</code>部署博客文章时，发现<code>hexo</code>抛出各种错误。但由于当时准备面试的面试题（主要就是懒），然后就放着没管它。紧接着面试实习岗位，工作后也一直没有闲下来。<br>最近终于抽出时间来重构博客，写下这篇文章，记录一下重构博客的过程~</p>
-<h2 id="博客目录介绍"><a href="#博客目录介绍" class="headerlink" title="博客目录介绍"></a>博客目录介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── .deploy</span><br><span class="line">├── public</span><br><span class="line">├── scaffolds</span><br><span class="line">├── scripts</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">├── themes</span><br><span class="line">├── _config.yml</span><br><span class="line">└── package.json</span><br></pre></td></tr></table></figure>
-<ul>
+<h2 id="博客目录介绍"><a href="#博客目录介绍" class="headerlink" title="博客目录介绍"></a>博客目录介绍</h2><pre><code>.
+├── .deploy
+├── public
+├── scaffolds
+├── scripts
+├── source
+|   ├── _drafts
+|   └── _posts
+├── themes
+├── _config.yml
+└── package.json
+</code></pre><ul>
 <li>.deploy：执行hexo deploy命令部署到GitHub上的内容目录</li>
 <li>public：执行hexo generate命令，输出的静态网页内容目录</li>
 <li>scaffolds：layout模板文件目录，其中的md文件可以添加编辑</li>
@@ -410,15 +420,126 @@
 <li>package.json：应用程序数据，指明hexo的版本等信息，类似于一般软件中的 关于 按钮</li>
 </ul>
 <p>接下来是重头戏 _config.yml ，做个简单说明：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hexo Configuration</span></span><br><span class="line"><span class="comment">## Docs: http://zespia.tw/hexo/docs/configure.html</span></span><br><span class="line"><span class="comment">## Source: https://github.com/tommy351/hexo/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Site #整站的基本信息</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">不如</span> <span class="comment">#网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">码农，程序猿，未来的昏析师</span> <span class="comment">#网站副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">bruce</span> <span class="string">sha's</span> <span class="string">blog</span> <span class="string">| java | scala | bi #网站描述，给搜索引擎用的，在生成html中的head-&gt;meta中可看到</span></span><br><span class="line"><span class="string"></span><span class="attr">author:</span> <span class="string">bruce</span> <span class="comment">#网站作者，在下方显示</span></span><br><span class="line"><span class="attr">email:</span> <span class="string">bu.ru@qq.com</span> <span class="comment">#联系邮箱</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span> <span class="comment">#语言</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL #域名和文件结构</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="attr">url:</span> <span class="attr">http://ibruce.info</span> <span class="comment">#你的域名</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing #写文章选项</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span> <span class="comment"># File name of new posts</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span> <span class="comment">#默认layout方式</span></span><br><span class="line"><span class="attr">auto_spacing:</span> <span class="literal">false</span> <span class="comment"># Add spaces between asian characters and western characters</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line"><span class="attr">max_open_file:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">multi_thread:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">filename_case:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">highlight:</span> <span class="comment">#代码高亮</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span> <span class="comment">#是否启用</span></span><br><span class="line"><span class="attr">  line_number:</span> <span class="literal">false</span> <span class="comment">#是否显示行号</span></span><br><span class="line"><span class="attr">  tab_replace:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag #分类与标签</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span> <span class="comment"># default</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Archives #存档，这里的说明好像不对。全部选择1，这个选项与主题中的选项有时候会有冲突</span></span><br><span class="line"><span class="comment">## 2: Enable pagination</span></span><br><span class="line"><span class="comment">## 1: Disable pagination</span></span><br><span class="line"><span class="comment">## 0: Fully Disable</span></span><br><span class="line"><span class="attr">archive:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">category:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">tag:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Server #本地服务参数</span></span><br><span class="line"><span class="comment">## Hexo uses Connect as a server</span></span><br><span class="line"><span class="comment">## You can customize the logger format as defined in</span></span><br><span class="line"><span class="comment">## http://www.senchalabs.org/connect/logger.html</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">4000</span></span><br><span class="line"><span class="attr">logger:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">logger_format:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format #日期显示格式</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">MMM</span> <span class="string">D</span> <span class="string">YYYY</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="attr">H:mm:ss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination #分页设置</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line"><span class="attr">per_page:</span> <span class="number">10</span> <span class="comment">#每页10篇文章</span></span><br><span class="line"><span class="attr">pagination_dir:</span> <span class="string">page</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disqus #社会化评论disqus，我使用多说，在主题中配置</span></span><br><span class="line"><span class="attr">disqus_shortname:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions #插件，暂时未安装插件</span></span><br><span class="line"><span class="comment">## Plugins: https://github.com/tommy351/hexo/wiki/Plugins</span></span><br><span class="line"><span class="comment">## Themes: https://github.com/tommy351/hexo/wiki/Themes</span></span><br><span class="line"><span class="comment">## 主题</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">modernist</span> <span class="comment"># raytaylorism # pacman # modernist # light</span></span><br><span class="line"><span class="attr">exclude_generator:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment #部署</span></span><br><span class="line"><span class="comment">## Docs: http://zespia.tw/hexo/docs/deploy.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">github</span></span><br><span class="line"><span class="attr">  repository:</span> <span class="string">git@github.com:bruce-sha/bruce-sha.github.com.git</span> <span class="comment">#你的GitHub Pages仓库</span></span><br></pre></td></tr></table></figure>
-<h2 id="主题目录介绍"><a href="#主题目录介绍" class="headerlink" title="主题目录介绍"></a>主题目录介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── languages          #多语言</span><br><span class="line">|   ├── default.yml    #默认语言</span><br><span class="line">|   └── zh-CN.yml      #中文语言</span><br><span class="line">├── layout             #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制</span><br><span class="line">|   ├── _partial       #局部的布局，此目录下的*.ejs是对头尾等局部的控制</span><br><span class="line">|   └── _widget        #小挂件的布局，页面下方小挂件的控制</span><br><span class="line">├── source             #源码</span><br><span class="line">|   ├── css            #css源码 </span><br><span class="line">|   |   ├── _base      #*.styl基础css</span><br><span class="line">|   |   ├── _partial   #*.styl局部css</span><br><span class="line">|   |   ├── fonts      #字体</span><br><span class="line">|   |   ├── images     #图片</span><br><span class="line">|   |   └── style.styl #*.styl引入需要的css源码</span><br><span class="line">|   ├── fancybox       #fancybox效果源码</span><br><span class="line">|   └── js             #javascript源代码</span><br><span class="line">├── _config.yml        #主题配置文件</span><br><span class="line">└── README.md          #用GitHub的都知道</span><br></pre></td></tr></table></figure>
-<p>如果你需要修改头部，直接修改 <code>hexo\themes\modernist\layout\_partial\header.ejs</code> ，比如头上加个搜索框：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">&lt;form class=&quot;search&quot; action=&quot;//google.com/search&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt;</span><br><span class="line"> &lt;input type=&quot;search&quot; name=&quot;q&quot; id=&quot;search&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; maxlength=&quot;20&quot; placeholder=&quot;Search&quot; /&gt;</span><br><span class="line"> &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:&lt;%- config.url.replace(/^https?:\/\//, &apos;&apos;) %&gt;&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="yml"># Hexo Configuration
+## Docs: http://zespia.tw/hexo/docs/configure.html
+## Source: https://github.com/tommy351/hexo/
+
+# Site #整站的基本信息
+title: 不如 #网站标题
+subtitle: 码农，程序猿，未来的昏析师 #网站副标题
+description: bruce sha&#39;s blog | java | scala | bi #网站描述，给搜索引擎用的，在生成html中的head-&gt;meta中可看到
+author: bruce #网站作者，在下方显示
+email: bu.ru@qq.com #联系邮箱
+language: zh-CN #语言
+
+# URL #域名和文件结构
+## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
+url: http://ibruce.info #你的域名
+root: /
+permalink: :year/:month/:day/:title/
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+
+# Writing #写文章选项
+new_post_name: :title.md # File name of new posts
+default_layout: post #默认layout方式
+auto_spacing: false # Add spaces between asian characters and western characters
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+max_open_file: 100
+multi_thread: true
+filename_case: 0
+render_drafts: false
+highlight: #代码高亮
+  enable: true #是否启用
+  line_number: false #是否显示行号
+  tab_replace:
+
+# Category &amp; Tag #分类与标签
+default_category: uncategorized # default
+category_map:
+tag_map:
+
+# Archives #存档，这里的说明好像不对。全部选择1，这个选项与主题中的选项有时候会有冲突
+## 2: Enable pagination
+## 1: Disable pagination
+## 0: Fully Disable
+archive: 1
+category: 1
+tag: 1
+
+# Server #本地服务参数
+## Hexo uses Connect as a server
+## You can customize the logger format as defined in
+## http://www.senchalabs.org/connect/logger.html
+port: 4000
+logger: true
+logger_format:
+
+# Date / Time format #日期显示格式
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: MMM D YYYY
+time_format: H:mm:ss
+
+# Pagination #分页设置
+## Set per_page to 0 to disable pagination
+per_page: 10 #每页10篇文章
+pagination_dir: page
+
+# Disqus #社会化评论disqus，我使用多说，在主题中配置
+disqus_shortname:
+
+# Extensions #插件，暂时未安装插件
+## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
+## Themes: https://github.com/tommy351/hexo/wiki/Themes
+## 主题
+theme: modernist # raytaylorism # pacman # modernist # light
+exclude_generator:
+
+# Deployment #部署
+## Docs: http://zespia.tw/hexo/docs/deploy.html
+deploy:
+  type: github
+  repository: git@github.com:bruce-sha/bruce-sha.github.com.git #你的GitHub Pages仓库
+</code></pre>
+<h2 id="主题目录介绍"><a href="#主题目录介绍" class="headerlink" title="主题目录介绍"></a>主题目录介绍</h2><pre><code>.
+├── languages          #多语言
+|   ├── default.yml    #默认语言
+|   └── zh-CN.yml      #中文语言
+├── layout             #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制
+|   ├── _partial       #局部的布局，此目录下的*.ejs是对头尾等局部的控制
+|   └── _widget        #小挂件的布局，页面下方小挂件的控制
+├── source             #源码
+|   ├── css            #css源码 
+|   |   ├── _base      #*.styl基础css
+|   |   ├── _partial   #*.styl局部css
+|   |   ├── fonts      #字体
+|   |   ├── images     #图片
+|   |   └── style.styl #*.styl引入需要的css源码
+|   ├── fancybox       #fancybox效果源码
+|   └── js             #javascript源代码
+├── _config.yml        #主题配置文件
+└── README.md          #用GitHub的都知道
+</code></pre><p>如果你需要修改头部，直接修改 <code>hexo\themes\modernist\layout\_partial\header.ejs</code> ，比如头上加个搜索框：</p>
+<pre><code class="ejs">&lt;div&gt;
+&lt;form class=&quot;search&quot; action=&quot;//google.com/search&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt;
+ &lt;input type=&quot;search&quot; name=&quot;q&quot; id=&quot;search&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; maxlength=&quot;20&quot; placeholder=&quot;Search&quot; /&gt;
+ &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:&lt;%- config.url.replace(/^https?:\/\//, &#39;&#39;) %&gt;&quot;&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
 <p>将如上代码加入即可，您需要修改css以便这个搜索框比较美观。<br>再如，你要修改页脚版权信息，直接编辑 <code>hexo\themes\modernist\layout\_partial\footer.ejs</code>。同理，你需要修改css，直接去修改对应位置的styl文件。</p>
 <h1 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h1><blockquote>
 <p><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="noopener">https://www.haomwei.com/technology/maupassant-hexo.html</a></p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant</span><br><span class="line"><span class="meta">$</span> npm install hexo-renderer-pug --save</span><br><span class="line"><span class="meta">$</span> npm install hexo-renderer-sass --save</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">$ git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
+$ npm install hexo-renderer-pug --save
+$ npm install hexo-renderer-sass --save
+</code></pre>
 <blockquote>
 <p><code>npm install hexo-renderer-pug --save</code>安装时可能会报错，以下是解决方案：<br>改用cnpm来安装软件</p>
 <blockquote>
@@ -426,13 +547,155 @@
 </blockquote>
 </blockquote>
 <p>编辑Hexo目录下的 <code>_config.yml</code>，将<code>theme</code>的值改为<code>maupassant</code></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">matery</span></span><br></pre></td></tr></table></figure>
-<h1 id="功能配置"><a href="#功能配置" class="headerlink" title="功能配置"></a>功能配置</h1><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 是否启用Fancybox图片灯箱效果</span></span><br><span class="line"><span class="comment"># Disqus评论 shortnam</span></span><br><span class="line"><span class="attr">disqus:</span> </span><br><span class="line"><span class="comment"># 友言评论 id</span></span><br><span class="line"><span class="attr">uyan:</span> </span><br><span class="line"><span class="comment"># 来必力评论 data-uid</span></span><br><span class="line"><span class="attr">livere:</span> </span><br><span class="line"><span class="comment"># 畅言评论 appid</span></span><br><span class="line"><span class="attr">changyan:</span> </span><br><span class="line"></span><br><span class="line"><span class="attr">changyan_conf:</span> <span class="comment">## Your changyan conf, e.g. prod_d8a508c2825ab57eeb43e7c69bba0e8b</span></span><br><span class="line"><span class="comment"># Gitment评论相关参数</span></span><br><span class="line"><span class="attr">gitment:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  owner:</span> </span><br><span class="line"><span class="attr">  repo:</span> </span><br><span class="line"><span class="attr">  client_id:</span> </span><br><span class="line"><span class="attr">  client_secret:</span> </span><br><span class="line"><span class="comment"># Gitalk评论相关参数</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span> </span><br><span class="line"><span class="attr">  owner:</span>  </span><br><span class="line"><span class="attr">  repo:</span> </span><br><span class="line"><span class="attr">  client_id:</span>  </span><br><span class="line"><span class="attr">  client_secret:</span>  </span><br><span class="line"><span class="attr">  admin:</span>  </span><br><span class="line"><span class="comment"># Valine评论相关参数</span></span><br><span class="line"><span class="attr">valine:</span> </span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span> </span><br><span class="line"><span class="attr">  appid:</span> </span><br><span class="line"><span class="attr">  appkey:</span> </span><br><span class="line"><span class="attr">  notify:</span> <span class="literal">false</span> <span class="comment"># 评论系统中的邮件提醒设置</span></span><br><span class="line"><span class="attr">  verify:</span> <span class="literal">false</span> <span class="comment">## Validation code.</span></span><br><span class="line"><span class="attr">  placeholder:</span> <span class="string">Just</span> <span class="string">so</span> <span class="string">so</span> </span><br><span class="line"><span class="attr">  avatar:</span> <span class="string">'mm'</span> </span><br><span class="line"><span class="attr">  pageSize:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">  guest_info:</span> <span class="string">nick,mail,link</span></span><br><span class="line"><span class="comment"># 默认使用Google搜索引擎</span></span><br><span class="line"><span class="attr">google_search:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 若想使用百度搜索，将其设定为 true</span></span><br><span class="line"><span class="attr">baidu_search:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># Swiftype 站内搜索key</span></span><br><span class="line"><span class="attr">swiftype:</span> </span><br><span class="line"><span class="comment"># 微搜索 key</span></span><br><span class="line"><span class="attr">tinysou:</span> </span><br><span class="line"><span class="comment"># 基于jQuery的本地搜索引擎，需要安装hexo-generator-search插件使用</span></span><br><span class="line"><span class="attr">self_search:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># Google Analytics 跟踪ID</span></span><br><span class="line"><span class="attr">google_analytics:</span> </span><br><span class="line"><span class="comment"># 百度统计 跟踪ID</span></span><br><span class="line"><span class="attr">baidu_analytics:</span> </span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span> <span class="comment">## If you want to use fancybox please set the value to true.</span></span><br><span class="line"><span class="comment"># 是否显示侧边栏分类数目</span></span><br><span class="line"><span class="attr">show_category_count:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># 是否显示文章中目录列表自动编号</span></span><br><span class="line"><span class="attr">toc_number:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment">#  是否使用分享按鈕，需要安装hexo-helper-qrcode插件使用</span></span><br><span class="line"><span class="attr">shareto:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment">#  是否使用不蒜子页面访问计数</span></span><br><span class="line"><span class="attr">busuanzi:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="attr">wordcount:</span> <span class="literal">false</span> <span class="comment">## If you want to display the word counter and the reading time expected to spend of each post please set the value to true, and you must have hexo-wordcount installed.</span></span><br><span class="line"><span class="comment"># 是否在移动设备屏幕底部显示侧边栏</span></span><br><span class="line"><span class="attr">widgets_on_small_screens:</span> <span class="literal">false</span> <span class="comment">## Set to true to enable widgets on small screens.</span></span><br><span class="line"><span class="comment"># 是否使用canvas动态背景</span></span><br><span class="line"><span class="attr">canvas_nest:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  color:</span> <span class="comment">## RGB value of the color, e.g. "100,99,98"</span></span><br><span class="line"><span class="attr">  opacity:</span> <span class="comment">## Transparency of lines, e.g. "0.7"</span></span><br><span class="line"><span class="attr">  zIndex:</span> <span class="comment">## The z-index property of the background, e.g. "-1"</span></span><br><span class="line"><span class="attr">  count:</span> <span class="comment">## Quantity of lines, e.g. "150"</span></span><br><span class="line"><span class="comment"># 是否启用捐赠按钮</span></span><br><span class="line"><span class="attr">donate:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  github:</span> <span class="comment">## GitHub URL, e.g. https://github.com/Kaiyuan/donate-page</span></span><br><span class="line"><span class="attr">  alipay_qr:</span> <span class="comment">## Path of Alipay QRcode image, e.g. /img/AliPayQR.png</span></span><br><span class="line"><span class="attr">  wechat_qr:</span> <span class="comment">## Path of Wechat QRcode image, e.g. /img/WeChatQR.png</span></span><br><span class="line"><span class="attr">  btc_qr:</span> <span class="comment">## Path of Bitcoin QRcode image, e.g. /img/BTCQR.png</span></span><br><span class="line"><span class="attr">  btc_key:</span> <span class="comment">## Bitcoin key, e.g. 1KuK5eK2BLsqpsFVXXSBG5wbSAwZVadt6L</span></span><br><span class="line"><span class="attr">  paypal_url:</span> <span class="comment">## Paypal URL, e.g. https://www.paypal.me/tufu9441</span></span><br><span class="line"><span class="attr">post_copyright:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">false</span> <span class="comment">## If you want to display the copyright info after each post, please set the value to true and fill the following items on your need.</span></span><br><span class="line"><span class="attr">  author:</span> <span class="comment">## Your author name, e.g. tufu9441</span></span><br><span class="line"><span class="attr">  copyright_text:</span> <span class="comment">## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义页面及菜单，依照已有格式填写。</span></span><br><span class="line"><span class="comment"># 填写后请在source目录下建立相应名称的文件夹，并包含index.md文件，以正确显示页面。</span></span><br><span class="line"><span class="comment"># 导航菜单中集成了FontAwesome图标字体，可以在这里选择新的图标，并按照相关说明使用。</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line"><span class="attr">  - page:</span> <span class="string">home</span></span><br><span class="line"><span class="attr">    directory:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    icon:</span> <span class="string">fa-home</span></span><br><span class="line"><span class="attr">  - page:</span> <span class="string">archive</span></span><br><span class="line"><span class="attr">    directory:</span> <span class="string">archives/</span></span><br><span class="line"><span class="attr">    icon:</span> <span class="string">fa-archive</span></span><br><span class="line"><span class="attr">  - page:</span> <span class="string">about</span></span><br><span class="line"><span class="attr">    directory:</span> <span class="string">about/</span></span><br><span class="line"><span class="attr">    icon:</span> <span class="string">fa-user</span></span><br><span class="line"><span class="attr">  - page:</span> <span class="string">rss</span></span><br><span class="line"><span class="attr">    directory:</span> <span class="string">atom.xml</span></span><br><span class="line"><span class="attr">    icon:</span> <span class="string">fa-rss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择和排列希望使用的侧边栏小工具</span></span><br><span class="line"><span class="attr">widgets:</span> <span class="comment">## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">search</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">category</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">tag</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">recent_posts</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">recent_comments</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">links</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 友情链接，请依照格式填写</span></span><br><span class="line"><span class="attr">links:</span></span><br><span class="line"><span class="attr">  - title:</span> <span class="string">site-name1</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">http://www.example1.com/</span></span><br><span class="line"><span class="attr">  - title:</span> <span class="string">site-name2</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">http://www.example2.com/</span></span><br><span class="line"><span class="attr">  - title:</span> <span class="string">site-name3</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">http://www.example3.com/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站历史时间线，在页面front-matter中设置layout: timeline可显示</span></span><br><span class="line"><span class="attr">timeline:</span></span><br><span class="line"><span class="attr">  - num:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">    word:</span> <span class="number">2014</span><span class="string">/06/12-Start</span></span><br><span class="line"><span class="attr">  - num:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">    word:</span> <span class="number">2014</span><span class="string">/11/29-XXX</span></span><br><span class="line"><span class="attr">  - num:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">    word:</span> <span class="number">2015</span><span class="string">/02/18-DDD</span></span><br><span class="line"><span class="attr">  - num:</span> <span class="number">4</span></span><br><span class="line"><span class="attr">    word:</span> <span class="string">More</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Static files</span></span><br><span class="line"><span class="comment"># 静态文件存储路径，方便设置CDN缓存</span></span><br><span class="line"><span class="attr">js:</span> <span class="string">js</span></span><br><span class="line"><span class="attr">css:</span> <span class="string">css</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Theme version</span></span><br><span class="line"><span class="comment"># 主题版本，便于静态文件更新后刷新CDN缓存</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">0.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<pre><code class="yml">theme: matery
+</code></pre>
+<h1 id="功能配置"><a href="#功能配置" class="headerlink" title="功能配置"></a>功能配置</h1><pre><code class="yml"># 是否启用Fancybox图片灯箱效果
+# Disqus评论 shortnam
+disqus: 
+# 友言评论 id
+uyan: 
+# 来必力评论 data-uid
+livere: 
+# 畅言评论 appid
+changyan: 
+
+changyan_conf: ## Your changyan conf, e.g. prod_d8a508c2825ab57eeb43e7c69bba0e8b
+# Gitment评论相关参数
+gitment:
+  enable: false
+  owner: 
+  repo: 
+  client_id: 
+  client_secret: 
+# Gitalk评论相关参数
+gitalk:
+  enable: false 
+  owner:  
+  repo: 
+  client_id:  
+  client_secret:  
+  admin:  
+# Valine评论相关参数
+valine: 
+  enable: false 
+  appid: 
+  appkey: 
+  notify: false # 评论系统中的邮件提醒设置
+  verify: false ## Validation code.
+  placeholder: Just so so 
+  avatar: &#39;mm&#39; 
+  pageSize: 10
+  guest_info: nick,mail,link
+# 默认使用Google搜索引擎
+google_search: true
+# 若想使用百度搜索，将其设定为 true
+baidu_search: false
+# Swiftype 站内搜索key
+swiftype: 
+# 微搜索 key
+tinysou: 
+# 基于jQuery的本地搜索引擎，需要安装hexo-generator-search插件使用
+self_search: false
+# Google Analytics 跟踪ID
+google_analytics: 
+# 百度统计 跟踪ID
+baidu_analytics: 
+# 
+fancybox: true ## If you want to use fancybox please set the value to true.
+# 是否显示侧边栏分类数目
+show_category_count: false
+# 是否显示文章中目录列表自动编号
+toc_number: true
+#  是否使用分享按鈕，需要安装hexo-helper-qrcode插件使用
+shareto: false
+#  是否使用不蒜子页面访问计数
+busuanzi: false
+# 
+wordcount: false ## If you want to display the word counter and the reading time expected to spend of each post please set the value to true, and you must have hexo-wordcount installed.
+# 是否在移动设备屏幕底部显示侧边栏
+widgets_on_small_screens: false ## Set to true to enable widgets on small screens.
+# 是否使用canvas动态背景
+canvas_nest:
+  enable: false
+  color: ## RGB value of the color, e.g. &quot;100,99,98&quot;
+  opacity: ## Transparency of lines, e.g. &quot;0.7&quot;
+  zIndex: ## The z-index property of the background, e.g. &quot;-1&quot;
+  count: ## Quantity of lines, e.g. &quot;150&quot;
+# 是否启用捐赠按钮
+donate:
+  enable: false
+  github: ## GitHub URL, e.g. https://github.com/Kaiyuan/donate-page
+  alipay_qr: ## Path of Alipay QRcode image, e.g. /img/AliPayQR.png
+  wechat_qr: ## Path of Wechat QRcode image, e.g. /img/WeChatQR.png
+  btc_qr: ## Path of Bitcoin QRcode image, e.g. /img/BTCQR.png
+  btc_key: ## Bitcoin key, e.g. 1KuK5eK2BLsqpsFVXXSBG5wbSAwZVadt6L
+  paypal_url: ## Paypal URL, e.g. https://www.paypal.me/tufu9441
+post_copyright:
+  enable: false ## If you want to display the copyright info after each post, please set the value to true and fill the following items on your need.
+  author: ## Your author name, e.g. tufu9441
+  copyright_text: ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.
+
+# 自定义页面及菜单，依照已有格式填写。
+# 填写后请在source目录下建立相应名称的文件夹，并包含index.md文件，以正确显示页面。
+# 导航菜单中集成了FontAwesome图标字体，可以在这里选择新的图标，并按照相关说明使用。
+menu:
+  - page: home
+    directory: .
+    icon: fa-home
+  - page: archive
+    directory: archives/
+    icon: fa-archive
+  - page: about
+    directory: about/
+    icon: fa-user
+  - page: rss
+    directory: atom.xml
+    icon: fa-rss
+
+# 选择和排列希望使用的侧边栏小工具
+widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.
+  - search
+  - category
+  - tag
+  - recent_posts
+  - recent_comments
+  - links
+
+# 友情链接，请依照格式填写
+links:
+  - title: site-name1
+    url: http://www.example1.com/
+  - title: site-name2
+    url: http://www.example2.com/
+  - title: site-name3
+    url: http://www.example3.com/
+
+# 网站历史时间线，在页面front-matter中设置layout: timeline可显示
+timeline:
+  - num: 1
+    word: 2014/06/12-Start
+  - num: 2
+    word: 2014/11/29-XXX
+  - num: 3
+    word: 2015/02/18-DDD
+  - num: 4
+    word: More
+
+# Static files
+# 静态文件存储路径，方便设置CDN缓存
+js: js
+css: css
+
+# Theme version
+# 主题版本，便于静态文件更新后刷新CDN缓存
+version: 0.0.0
+</code></pre>
 <h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><h3 id="Disqus配置使用"><a href="#Disqus配置使用" class="headerlink" title="Disqus配置使用"></a>Disqus配置使用</h3><h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><blockquote>
 <p><a href="https://link.jianshu.com/?t=https://disqus.com/" target="_blank" rel="noopener">https://disqus.com/</a></p>
 </blockquote>
-<h1 id="主题特性"><a href="#主题特性" class="headerlink" title="主题特性"></a>主题特性</h1><h2 id="主题目录结构"><a href="#主题目录结构" class="headerlink" title="主题目录结构"></a>主题目录结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-maupassant</span><br><span class="line">|-languages</span><br></pre></td></tr></table></figure>
-<h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>网站Favicon：<code>/blog/source/favicon.ico</code>，建议的大小：<code>32px*32px</code>。</p>
+<h1 id="主题特性"><a href="#主题特性" class="headerlink" title="主题特性"></a>主题特性</h1><h2 id="主题目录结构"><a href="#主题目录结构" class="headerlink" title="主题目录结构"></a>主题目录结构</h2><pre><code>-maupassant
+|-languages
+</code></pre><h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>网站Favicon：<code>/blog/source/favicon.ico</code>，建议的大小：<code>32px*32px</code>。</p>
 
         </div>
         <!-- .entry-content -->
@@ -518,7 +781,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -530,10 +793,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

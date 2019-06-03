@@ -462,10 +462,27 @@
 </table>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181211-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/fileTree.png"></p>
 <h1 id="WXML-结构-基础-标签、组件"><a href="#WXML-结构-基础-标签、组件" class="headerlink" title="WXML 结构_基础 (标签、组件)"></a>WXML 结构_基础 (标签、组件)</h1><p>组件文档：<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/component/" target="_blank" rel="noopener">https://mp.weixin.qq.com/debug/wxadoc/dev/component/</a></p>
-<h2 id="常用布局标签-组件"><a href="#常用布局标签-组件" class="headerlink" title="常用布局标签(组件)"></a>常用布局标签(组件)</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span>				相当于    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">text</span>&gt;</span><span class="tag">&lt;/<span class="name">text</span>&gt;</span>				相当于    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">image</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span>				相当于    <span class="tag">&lt;<span class="name">img</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span>&gt;</span><span class="tag">&lt;/<span class="name">navigator</span>&gt;</span>		相当于    <span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">block</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span>				区块标签，不会渲染到页面</span><br></pre></td></tr></table></figure>
+<h2 id="常用布局标签-组件"><a href="#常用布局标签-组件" class="headerlink" title="常用布局标签(组件)"></a>常用布局标签(组件)</h2><pre><code class="xml">&lt;view&gt;&lt;/view&gt;                相当于    &lt;div&gt;&lt;/div&gt;
+&lt;text&gt;&lt;/text&gt;                相当于    &lt;span&gt;&lt;/span&gt;
+&lt;image&gt;&lt;/image&gt;                相当于    &lt;img /&gt;
+&lt;navigator&gt;&lt;/navigator&gt;        相当于    &lt;a&gt;&lt;/a&gt;
+&lt;block&gt;&lt;/block&gt;                区块标签，不会渲染到页面
+</code></pre>
 <p><strong>注意：image组件默认宽度300px、高度225px，很多时候我们都不需要这个默认宽高，记得手动设置宽高</strong></p>
-<h2 id="常用表单标签-组件"><a href="#常用表单标签-组件" class="headerlink" title="常用表单标签(组件)"></a>常用表单标签(组件)</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> /&gt;</span>				</span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">radio</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="轮播图组件"><a href="#轮播图组件" class="headerlink" title="轮播图组件"></a>轮播图组件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">swiper</span> <span class="attr">indicator-dots</span>=<span class="string">"是否显示面板指示点"</span> <span class="attr">autoplay</span>=<span class="string">"是否自动切换"</span> <span class="attr">interval</span>=<span class="string">"自动切换时间间隔"</span> <span class="attr">duration</span>=<span class="string">"滑动动画时长"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"图片路径1"</span> <span class="attr">width</span>=<span class="string">"375"</span> <span class="attr">height</span>=<span class="string">"150"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">      	<span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"图片路径2"</span> <span class="attr">width</span>=<span class="string">"375"</span> <span class="attr">height</span>=<span class="string">"150"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用表单标签-组件"><a href="#常用表单标签-组件" class="headerlink" title="常用表单标签(组件)"></a>常用表单标签(组件)</h2><pre><code class="xml">&lt;button&gt;&lt;/button&gt;
+&lt;input type=&quot;text&quot; /&gt;                
+&lt;checkbox /&gt;
+&lt;radio/&gt;
+</code></pre>
+<h2 id="轮播图组件"><a href="#轮播图组件" class="headerlink" title="轮播图组件"></a>轮播图组件</h2><pre><code class="xml">&lt;swiper indicator-dots=&quot;是否显示面板指示点&quot; autoplay=&quot;是否自动切换&quot; interval=&quot;自动切换时间间隔&quot; duration=&quot;滑动动画时长&quot;&gt;
+    &lt;swiper-item&gt;
+          &lt;image src=&quot;图片路径1&quot; width=&quot;375&quot; height=&quot;150&quot;/&gt;
+    &lt;/swiper-item&gt;
+    &lt;swiper-item&gt;
+          &lt;image src=&quot;图片路径2&quot; width=&quot;375&quot; height=&quot;150&quot;/&gt;
+    &lt;/swiper-item&gt;
+&lt;/swiper&gt;
+</code></pre>
 <p>探索：实现无缝轮播怎么办？</p>
 <h1 id="WXSS-样式"><a href="#WXSS-样式" class="headerlink" title="WXSS 样式"></a>WXSS 样式</h1><p>WXSS (WeiXin Style Sheets) 是一套样式语言。</p>
 <p>WXSS文档： <a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxss.html" target="_blank" rel="noopener">https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxss.html</a></p>
@@ -525,7 +542,30 @@
 </table>
 </blockquote>
 <p>如：<code>app.json</code> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"pages"</span>: [</span><br><span class="line">    <span class="string">"pages/index/index"</span>,</span><br><span class="line">    <span class="string">"pages/logs/logs"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"window"</span>: &#123;</span><br><span class="line">    <span class="string">"navigationBarTitleText"</span>: <span class="string">"小程序标题"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"tabBar"</span>: &#123;</span><br><span class="line">    <span class="string">"list"</span>: [&#123;</span><br><span class="line">      <span class="string">"pagePath"</span>: <span class="string">"pages/index/index"</span>,</span><br><span class="line">      <span class="string">"text"</span>: <span class="string">"首页"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="string">"pagePath"</span>: <span class="string">"pages/logs/logs"</span>,</span><br><span class="line">      <span class="string">"text"</span>: <span class="string">"Tab栏"</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"networkTimeout"</span>: &#123;</span><br><span class="line">    <span class="string">"request"</span>: <span class="number">10000</span>,</span><br><span class="line">    <span class="string">"downloadFile"</span>: <span class="number">10000</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"debug"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">{
+  &quot;pages&quot;: [
+    &quot;pages/index/index&quot;,
+    &quot;pages/logs/logs&quot;
+  ],
+  &quot;window&quot;: {
+    &quot;navigationBarTitleText&quot;: &quot;小程序标题&quot;
+  },
+  &quot;tabBar&quot;: {
+    &quot;list&quot;: [{
+      &quot;pagePath&quot;: &quot;pages/index/index&quot;,
+      &quot;text&quot;: &quot;首页&quot;
+    }, {
+      &quot;pagePath&quot;: &quot;pages/logs/logs&quot;,
+      &quot;text&quot;: &quot;Tab栏&quot;
+    }]
+  },
+  &quot;networkTimeout&quot;: {
+    &quot;request&quot;: 10000,
+    &quot;downloadFile&quot;: 10000
+  },
+  &quot;debug&quot;: true
+}
+</code></pre>
 <h2 id="window-配置"><a href="#window-配置" class="headerlink" title="window 配置"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#window" target="_blank" rel="noopener">window</a> 配置</h2><blockquote>
 <p>用于设置小程序的状态栏、导航条、标题、窗口背景色。</p>
 </blockquote>
@@ -588,7 +628,14 @@
 <p>!! 注意：页面的<code>.json</code>只能设置 <code>window</code> 相关的配置项，以决定本页面的窗口表现，所以无需写 <code>window</code> 这个关键词。</p>
 </blockquote>
 <p>如：/pages/message/message.json</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#ffffff"</span>,</span><br><span class="line">    <span class="string">"navigationBarTextStyle"</span>: <span class="string">"black"</span>,</span><br><span class="line">    <span class="string">"navigationBarTitleText"</span>: <span class="string">"内页标题修改"</span>,</span><br><span class="line">    <span class="string">"backgroundColor"</span>: <span class="string">"#eeeeee"</span>,</span><br><span class="line">    <span class="string">"backgroundTextStyle"</span>: <span class="string">"light"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">{
+    &quot;navigationBarBackgroundColor&quot;: &quot;#ffffff&quot;,
+    &quot;navigationBarTextStyle&quot;: &quot;black&quot;,
+    &quot;navigationBarTitleText&quot;: &quot;内页标题修改&quot;,
+    &quot;backgroundColor&quot;: &quot;#eeeeee&quot;,
+    &quot;backgroundTextStyle&quot;: &quot;light&quot;
+}
+</code></pre>
 <h2 id="tabBar-配置"><a href="#tabBar-配置" class="headerlink" title="tabBar 配置"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#tabbar" target="_blank" rel="noopener">tabBar</a> 配置</h2><p>如果小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。</p>
 <p><strong>属性说明：</strong></p>
 <table>
@@ -691,20 +738,68 @@
 <li>icon 大小限制为40kb，建议尺寸为 81px * 81px。</li>
 </ol>
 </blockquote>
-<h1 id="JS-行为-逻辑"><a href="#JS-行为-逻辑" class="headerlink" title="JS 行为(逻辑)"></a>JS 行为(逻辑)</h1><h2 id="微信小程序生命周期函数"><a href="#微信小程序生命周期函数" class="headerlink" title="微信小程序生命周期函数"></a>微信小程序生命周期函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  <span class="comment">/** 页面的初始数据 */</span></span><br><span class="line">  data: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/** 生命周期函数--监听页面加载 */</span></span><br><span class="line">  onLoad: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(options);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/** 生命周期函数--监听页面初次渲染完成 */</span></span><br><span class="line">  onReady: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/** 生命周期函数--监听页面显示 */</span></span><br><span class="line">  onShow: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/** 生命周期函数--监听页面隐藏 */</span></span><br><span class="line">  onHide: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">/** 生命周期函数--监听页面卸载 */</span></span><br><span class="line">  onUnload: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="页面相关事件处理函数"><a href="#页面相关事件处理函数" class="headerlink" title="页面相关事件处理函数"></a>页面相关事件处理函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 页面相关事件处理函数--监听用户下拉动作 */</span></span><br><span class="line"> onPullDownRefresh: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="comment">/** 页面上拉触底事件的处理函数 */</span></span><br><span class="line"> onReachBottom: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="comment">/** 用户点击右上角分享 */</span></span><br><span class="line"> onShareAppMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="JS-行为-逻辑"><a href="#JS-行为-逻辑" class="headerlink" title="JS 行为(逻辑)"></a>JS 行为(逻辑)</h1><h2 id="微信小程序生命周期函数"><a href="#微信小程序生命周期函数" class="headerlink" title="微信小程序生命周期函数"></a>微信小程序生命周期函数</h2><pre><code class="javascript">Page({
+  /** 页面的初始数据 */
+  data: {
+  },
+  /** 生命周期函数--监听页面加载 */
+  onLoad: function (options) {
+      console.log(options);
+  },
+  /** 生命周期函数--监听页面初次渲染完成 */
+  onReady: function () {
+  },
+  /** 生命周期函数--监听页面显示 */
+  onShow: function () {
+  },
+  /** 生命周期函数--监听页面隐藏 */
+  onHide: function () {
+  },
+  /** 生命周期函数--监听页面卸载 */
+  onUnload: function () {
+  }
+})
+</code></pre>
+<h2 id="页面相关事件处理函数"><a href="#页面相关事件处理函数" class="headerlink" title="页面相关事件处理函数"></a>页面相关事件处理函数</h2><pre><code class="javascript"> /** 页面相关事件处理函数--监听用户下拉动作 */
+  onPullDownRefresh: function () {
+  },
+  /** 页面上拉触底事件的处理函数 */
+  onReachBottom: function () {
+  },
+  /** 用户点击右上角分享 */
+  onShareAppMessage: function () {
+  }
+</code></pre>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><blockquote>
 <p>微信小程序没有BOM和DOM概念，所以不能使用window对象和document对象。</p>
 </blockquote>
-<h1 id="WXML-高级-指令、事件"><a href="#WXML-高级-指令、事件" class="headerlink" title="WXML  高级(指令、事件)"></a>WXML  高级(指令、事件)</h1><h2 id="数据绑定-123-123-125-125"><a href="#数据绑定-123-123-125-125" class="headerlink" title="数据绑定  &#123;&#123; &#125;&#125;"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/data.html" target="_blank" rel="noopener">数据绑定</a>  &#123;&#123; &#125;&#125;</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span> &#123;&#123;message&#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// page.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Hello MINA!'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="WXML-高级-指令、事件"><a href="#WXML-高级-指令、事件" class="headerlink" title="WXML  高级(指令、事件)"></a>WXML  高级(指令、事件)</h1><h2 id="数据绑定-123-123-125-125"><a href="#数据绑定-123-123-125-125" class="headerlink" title="数据绑定  &#123;&#123; &#125;&#125;"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/data.html" target="_blank" rel="noopener">数据绑定</a>  &#123;&#123; &#125;&#125;</h2><pre><code class="xml">&lt;!--wxml--&gt;
+&lt;view&gt; {{message}} &lt;/view&gt;
+</code></pre>
+<pre><code class="javascript">// page.js
+Page({
+  data: {
+    message: &#39;Hello MINA!&#39;
+  }
+})
+</code></pre>
 <h3 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h3><ol>
 <li><strong>花括号和引号之间不能有空格。</strong></li>
 <li><strong>不要直接写 checked=”false”，其计算结果是一个字符串，转成 boolean 类型后代表真值。</strong></li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">"false"</span>&gt;</span> <span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span>					其计算结果是一个字符串，转成 boolean 类型后变成了 true</span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">"&#123;&#123;false&#125;&#125;"</span>&gt;</span> <span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span>				正确写法</span><br></pre></td></tr></table></figure>
-<h2 id="列表渲染-wx-for"><a href="#列表渲染-wx-for" class="headerlink" title="列表渲染  wx:for"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/list.html" target="_blank" rel="noopener">列表渲染</a>  wx:for</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;array&#125;&#125;"</span>&gt;</span> &#123;&#123;item&#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// page.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    array: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;checkbox checked=&quot;false&quot;&gt; &lt;/checkbox&gt;                    其计算结果是一个字符串，转成 boolean 类型后变成了 true
+&lt;checkbox checked=&quot;{{false}}&quot;&gt; &lt;/checkbox&gt;                正确写法
+</code></pre>
+<h2 id="列表渲染-wx-for"><a href="#列表渲染-wx-for" class="headerlink" title="列表渲染  wx:for"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/list.html" target="_blank" rel="noopener">列表渲染</a>  wx:for</h2><pre><code class="xml">&lt;!--wxml--&gt;
+&lt;view wx:for=&quot;{{array}}&quot;&gt; {{item}} &lt;/view&gt;
+</code></pre>
+<pre><code class="javascript">// page.js
+Page({
+  data: {
+    array: [1, 2, 3, 4, 5]
+  }
+})
+</code></pre>
 <h3 id="wx-key"><a href="#wx-key" class="headerlink" title="wx:key"></a>wx:key</h3><p>主要功能：提高列表渲染时排序的效率。</p>
 <p><code>wx:key</code> 的值以两种形式提供：</p>
 <ol>
@@ -714,8 +809,18 @@
 <blockquote>
 <p>如不提供 wx:key，会报一个 warning， 如果明确知道该列表是静态，或者不必关注其顺序，可以选择忽略。</p>
 </blockquote>
-<h2 id="条件渲染-wx-if-wx-else-wx-elif"><a href="#条件渲染-wx-if-wx-else-wx-elif" class="headerlink" title="条件渲染  wx:if   wx:else   wx:elif"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/conditional.html" target="_blank" rel="noopener">条件渲染</a>  wx:if   wx:else   wx:elif</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">"&#123;&#123;length &gt;= 80&#125;&#125;"</span>&gt;</span> 优秀 <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:elif</span>=<span class="string">"&#123;&#123;length &gt;= 60&#125;&#125;"</span>&gt;</span> 良好 <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:else</span>&gt;</span> 加油 <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// page.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    length: <span class="string">'95'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="条件渲染-wx-if-wx-else-wx-elif"><a href="#条件渲染-wx-if-wx-else-wx-elif" class="headerlink" title="条件渲染  wx:if   wx:else   wx:elif"></a><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/view/wxml/conditional.html" target="_blank" rel="noopener">条件渲染</a>  wx:if   wx:else   wx:elif</h2><pre><code class="xml">&lt;!--wxml--&gt;
+&lt;view wx:if=&quot;{{length >= 80}}&quot;&gt; 优秀 &lt;/view&gt;
+&lt;view wx:elif=&quot;{{length >= 60}}&quot;&gt; 良好 &lt;/view&gt;
+&lt;view wx:else&gt; 加油 &lt;/view&gt;
+</code></pre>
+<pre><code class="javascript">// page.js
+Page({
+  data: {
+    length: &#39;95&#39;
+  }
+})
+</code></pre>
 <h3 id="wx-if-与-hidden-区别"><a href="#wx-if-与-hidden-区别" class="headerlink" title="wx:if 与 hidden 区别"></a><code>wx:if</code> 与 <code>hidden</code> 区别</h3><p> <code>wx:if</code>  是否渲染， <code>hidden</code>  是否隐藏。</p>
 <p>一般来说，<code>wx:if</code> 有更高的切换消耗而 <code>hidden</code> 有更高的初始渲染消耗。</p>
 <p>因此，如果需要频繁切换的情景下，用 <code>hidden</code> 更好。</p>
@@ -744,11 +849,28 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">data-index</span>=<span class="string">"自定义属性"</span> <span class="attr">bindtap</span>=<span class="string">"tapHandle"</span>&gt;</span> 点我触发事件 <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// page.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  tapHandle: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;!--wxml--&gt;
+&lt;view data-index=&quot;自定义属性&quot; bindtap=&quot;tapHandle&quot;&gt; 点我触发事件 &lt;/view&gt;
+</code></pre>
+<pre><code class="javascript">// page.js
+Page({
+  tapHandle: function(event) {
+    console.log(event)
+  }
+})
+</code></pre>
 <h3 id="事件传参注意"><a href="#事件传参注意" class="headerlink" title="事件传参注意"></a>事件传参注意</h3><p>小程序绑定事件只能写函数名称，不能通过括号方式传参。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">"tapHandle(520)"</span>&gt;</span> 点我触发事件 <span class="tag">&lt;/<span class="name">view</span>&gt;</span>								错误，事件不能触发</span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">data-index</span>=<span class="string">"520"</span> <span class="attr">bindtap</span>=<span class="string">"tapHandle"</span>&gt;</span> 点我触发事件 <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// page.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  tapHandle: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log( event.target.dataset.index );  <span class="comment">// 输出标签自定义属性上的index值</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;!--wxml--&gt;
+&lt;view bindtap=&quot;tapHandle(520)&quot;&gt; 点我触发事件 &lt;/view&gt;                                错误，事件不能触发
+&lt;view data-index=&quot;520&quot; bindtap=&quot;tapHandle&quot;&gt; 点我触发事件 &lt;/view&gt;    
+</code></pre>
+<pre><code class="javascript">// page.js
+Page({
+  tapHandle: function(event) {
+     console.log( event.target.dataset.index );  // 输出标签自定义属性上的index值
+  }
+})
+</code></pre>
 <h2 id="WXS-脚本"><a href="#WXS-脚本" class="headerlink" title="WXS  脚本"></a>WXS  脚本</h2><p>WXS（WeiXin Script）是小程序的一套脚本语言，结合 <code>WXML</code>，功能类似<code>&lt;script&gt;</code>标签，主要用于在视图层定义函数(比较少用)。</p>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ol>
 <li>wxs 不依赖于运行时的基础库版本，可以在所有版本的小程序中运行。</li>
@@ -757,7 +879,17 @@
 <li>wxs 函数不能作为组件的事件回调。</li>
 <li>由于运行环境的差异，在 iOS 设备上小程序内的 wxs 会比 javascript 代码快 2 ~ 20 倍。在 android 设备上二者运行效率无差异。</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--wxml--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">"foo"</span>&gt;</span></span><br><span class="line">var sum = function(a,b)&#123;</span><br><span class="line">  return a+b;</span><br><span class="line">&#125;;</span><br><span class="line">// 这里可以导出一个对象，这个对象可以直接在界面上使用 </span><br><span class="line">module.exports.sum = sum;</span><br><span class="line"><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span> &#123;&#123;foo.sum(1,2)&#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;!--wxml--&gt;
+&lt;wxs module=&quot;foo&quot;&gt;
+var sum = function(a,b){
+  return a+b;
+};
+// 这里可以导出一个对象，这个对象可以直接在界面上使用 
+module.exports.sum = sum;
+&lt;/wxs&gt;
+
+&lt;view&gt; {{foo.sum(1,2)}} &lt;/view&gt;
+</code></pre>
 <h1 id="微信开发者工具常用快捷键"><a href="#微信开发者工具常用快捷键" class="headerlink" title="微信开发者工具常用快捷键"></a>微信开发者工具常用快捷键</h1><table>
 <thead>
 <tr>
@@ -890,7 +1022,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -902,10 +1034,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

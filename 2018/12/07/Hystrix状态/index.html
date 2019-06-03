@@ -403,7 +403,20 @@
 <p>3、  到达以上阀值，断路器将会开启</p>
 <p>4、  当开启的时候，所有请求都不会进行转发</p>
 <p>5、  一段时间之后（默认是5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器会关闭，若失败，继续开启。重复4和5。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启服务降级</span></span><br><span class="line"><span class="meta">@HystrixCommand</span>(</span><br><span class="line">        <span class="comment">// 熔断器状态相关配置</span></span><br><span class="line">        commandProperties = &#123;</span><br><span class="line">                <span class="comment">// 当请求次数达到10次时才能开启熔断</span></span><br><span class="line">                <span class="meta">@HystrixProperty</span>(name = <span class="string">"circuitBreaker.requestVolumeThreshold"</span>,value = <span class="string">"10"</span>),</span><br><span class="line">                <span class="comment">// 状态变换的时间，由开启 --&gt; 半开</span></span><br><span class="line">                <span class="meta">@HystrixProperty</span>(name = <span class="string">"circuitBreaker.sleepWindowInMilliseconds"</span>,value = <span class="string">"20000"</span>),</span><br><span class="line">                <span class="comment">// 失败请求/所有请求=60% --&gt; 开启熔断器</span></span><br><span class="line">                <span class="meta">@HystrixProperty</span>(name = <span class="string">"circuitBreaker.errorThresholdPercentage"</span>,value = <span class="string">"60"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="java">// 开启服务降级
+@HystrixCommand(
+        // 熔断器状态相关配置
+        commandProperties = {
+                // 当请求次数达到10次时才能开启熔断
+                @HystrixProperty(name = &quot;circuitBreaker.requestVolumeThreshold&quot;,value = &quot;10&quot;),
+                // 状态变换的时间，由开启 --&gt; 半开
+                @HystrixProperty(name = &quot;circuitBreaker.sleepWindowInMilliseconds&quot;,value = &quot;20000&quot;),
+                // 失败请求/所有请求=60% --&gt; 开启熔断器
+                @HystrixProperty(name = &quot;circuitBreaker.errorThresholdPercentage&quot;,value = &quot;60&quot;)
+        }
+)
+</code></pre>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -505,7 +518,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -517,10 +530,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
