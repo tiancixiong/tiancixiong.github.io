@@ -38,7 +38,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz";
   mashiro_option.v_appKey = "7zPSYnuDLeyCNoSQpgTXdC1v";
-  mashiro_option.mathjax = "0";
+  mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -361,19 +361,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1537457843248-3651b8460d4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1537457843248-3651b8460d4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      一千行MySQL学习笔记</h1>
+      <p class="entry-census">
+        <span>
+          <a href="xiongtianci.com">
+            <img src="https://xiongtianci.com/images/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="xiongtianci.com">天赐</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-6-5<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-          <header class="entry-header">
-            <h1 class="entry-title">一千行MySQL学习笔记</h1>
-            <p class="entry-census">天赐&nbsp;·&nbsp;2019-6-5&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
-
-            <hr>
-          </header>
         
         <div class="entry-content">
           <blockquote>
@@ -1352,7 +1369,7 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1364,10 +1381,10 @@ OPTIMIZE [LOCAL | NO_WRITE_TO_BINLOG] TABLE tbl_name [, tbl_name] ...
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
