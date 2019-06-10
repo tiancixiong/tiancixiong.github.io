@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">天赐</title>
+  <title itemprop="name">同源策略与JS跨域 | 天赐</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -357,495 +357,372 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
 <div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">Just do IT!</div>
-  </div>
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank">
-        <div class="img">
-          <img src="/images/startdash/sakura.md.png">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="http://space.bilibili.com/349277426" target="_blank">
-        <div class="img">
-          <img src="/images/startdash/bilibili.jpg">
-        </div>
-        <div class="info">
-          <h3>Bilibili</h3>
-          <p>博主的b站视频</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/" target="_blank">
-        <div class="img">
-          <img src="/images/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>天赐的万事屋</h3>
-          <p>技术服务</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/30/Java线程状态/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1487016815652-405c7ac05f2e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1957&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-30 17:11</div>
-      <a href="/2018/11/30/Java线程状态/" class="post-title">
-        <h3>Java线程状态</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-            <a href="/tags/Java线程/">Java线程<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>Java线程状态</p>
-        <div class="post-bottom">
-          <a href="/2018/11/30/Java线程状态/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+          <header class="entry-header">
+            <h1 class="entry-title">同源策略与JS跨域</h1>
+            <p class="entry-census">天赐&nbsp;·&nbsp;2018-11-19&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
+
+            <hr>
+          </header>
+        
+        <div class="entry-content">
+          <h1 id="为什么要跨域"><a href="#为什么要跨域" class="headerlink" title="为什么要跨域"></a>为什么要跨域</h1><p>为了用户的信息安全，浏览器就引入了同源策略<br>那么同源策略是如何保证用户的信息安全的呢？</p>
+<ul>
+<li>如果没有同源策略，你打开了你的银行账户页面A，又打开了另一个不相关的页面B，这时候如果B是恶意网站，B可以通过Javascript轻松访问和修改A页面中的内容</li>
+<li>现在我们广泛的使用cookie来维护用户的登录状态，而如果没有同源策略，这些cookie信息就会泄露，其他网站就可以冒充这个登录用户</li>
+</ul>
+<p>由此可以看出，同源策略确实是必不可少的，那么它会带来哪些限制呢？</p>
+<blockquote>
+<ol>
+<li>Cookie、LocalStorage和IndexDB无法读取</li>
+<li>DOM无法获得</li>
+<li>AJAX请求不能发送</li>
+</ol>
+</blockquote>
+<p>有时候我们需要突破上述限制，就需要用跨域的方法来解决</p>
+<h1 id="跨域是什么？"><a href="#跨域是什么？" class="headerlink" title="跨域是什么？"></a>跨域是什么？</h1><ol>
+<li>什么叫做不同的域？<br>协议（http）、域名（<a href="http://www.a.com）、端口（8000）三者中有一个不同就叫不同的域" target="_blank" rel="noopener">www.a.com）、端口（8000）三者中有一个不同就叫不同的域</a></li>
+<li>跨域就是不同的域间相互访问时使用某些方法来突破上述限制</li>
+<li>协议或者端口的不同，只能通过后台来解决<h1 id="如何实现跨域？"><a href="#如何实现跨域？" class="headerlink" title="如何实现跨域？"></a>如何实现跨域？</h1><h3 id="一、解决上面提到的1、2两点限制："><a href="#一、解决上面提到的1、2两点限制：" class="headerlink" title="一、解决上面提到的1、2两点限制："></a>一、解决上面提到的1、2两点限制：</h3><h4 id="1-通过document-domain跨子域"><a href="#1-通过document-domain跨子域" class="headerlink" title="1. 通过document.domain跨子域"></a>1. 通过document.domain跨子域</h4><blockquote>
+<p>适用范围：</p>
+<ol>
+<li>两个域只是子域不同</li>
+<li>只适用于iframe窗口与父窗口之间互相获取cookie和DOM节点，不能突破LocalStorage和IndexDB的限制</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<p>当两个不同的域只是子域不同时，可以通过把document.domain设置为他们共同的父域来解决</p>
+<blockquote>
+<p>eg:<br>A: <a href="http://www.example.com/a.html" target="_blank" rel="noopener">http://www.example.com/a.html</a><br>B: <a href="http://example.com/b.html" target="_blank" rel="noopener">http://example.com/b.html</a></p>
+</blockquote>
+<p>当A、B想要获取对方的<code>cookie</code>或者<code>DOM节点</code>时，可以设置:</p>
+<blockquote>
+<p>document.domain=’example.com’;</p>
+</blockquote>
+<p>这时A网页通过脚本设置:</p>
+<blockquote>
+<p>document.cookie = “testA=hello”;</p>
+</blockquote>
+<p>B网页就可以拿到这个cookie：</p>
+<blockquote>
+<p>var aCookie = document.cookie;</p>
+</blockquote>
+<h4 id="2-通过window-name跨域"><a href="#2-通过window-name跨域" class="headerlink" title="2. 通过window.name跨域"></a>2. 通过window.name跨域</h4><blockquote>
+<p>使用范围：</p>
+<ol>
+<li>可以是两个完全不同源的域</li>
+<li>同一个窗口内：即同一个标签页内先后打开的窗口</li>
+</ol>
+</blockquote>
+<p>window.name属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的。</p>
+<p>基于这个思想，我们可以在某个页面设置好 window.name 的值，然后在本标签页内跳转到另外一个域下的页面。在这个页面中就可以获取到我们刚刚设置的 window.name 了。</p>
+<p>结合iframe还有更高级的用法：</p>
+<p>父窗口先打开一个与自己不同源的子窗口，在这个子窗口里设置：</p>
+<blockquote>
+<p>window.name = data;</p>
+</blockquote>
+<p>然后让子窗口跳转到一个与父窗口同域的网址：</p>
+<blockquote>
+<p>location=’<a href="http://www.parent.com/a.html&#39;" target="_blank" rel="noopener">http://www.parent.com/a.html&#39;</a>;</p>
+</blockquote>
+<p>这时，因为同域并且同一窗口window.name是不变的，所以父窗口可以获取到子窗口下的window.name。</p>
+<blockquote>
+<p>var data = document.getElementById(‘myFrame’).contentWindow.name;</p>
+</blockquote>
+<p>优点：window.name容量很大，可以放置非常长的字符串；缺点：必须监听子窗口window.name属性的变化，影响网页性能。</p>
+<h4 id="3-使用HTML5的window-postMessage跨域"><a href="#3-使用HTML5的window-postMessage跨域" class="headerlink" title="3. 使用HTML5的window.postMessage跨域"></a>3. 使用HTML5的window.postMessage跨域</h4><p>window.postMessage(message,targetOrigin) 方法是html5新引进的特性，可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源，目前IE8+、FireFox、Chrome、Opera等浏览器都已经支持window.postMessage方法。</p>
+<p>otherWindow.postMessage(message, targetOrigin);</p>
+<p>otherWindow:接受消息页面的window的引用。可以是页面中iframe的contentWindow属性；window.open的返回值；通过name或下标从window.frames取到的值。<br>message:所要发送的数据，string类型。<br>targetOrigin:用于限制otherWindow，*表示不做限制。</p>
+<h5 id="eg1"><a href="#eg1" class="headerlink" title="eg1:"></a>eg1:</h5><p>在父页面中嵌入子页面，通过postMessage发送数据。<br>parent.com/index.html中的代码：</p>
+<pre><code>&lt;iframe id=&quot;ifr&quot; src=&quot;child.com/index.html&quot;&gt;&lt;/iframe&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+window.onload = function() {
+    var ifr = document.getElementById(&#39;ifr&#39;);
+    var targetOrigin = &#39;http://child.com&#39;; 
+    // 若写成&#39;http://child.com/c/proxy.html&#39;效果一样
+    // 若写成&#39;http://c.com&#39;就不会执行postMessage了
+    ifr.contentWindow.postMessage(&#39;I was there!&#39;, targetOrigin);
+};
+&lt;/script&gt;
+</code></pre><p>在子页面中通过message事件监听父页面发送来的消息并显示。<br>child.com/index.html中的代码：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+window.addEventListener(&#39;message&#39;, function(event){
+    // 通过origin属性判断消息来源地址
+    if (event.origin == &#39;http://parent.com&#39;) {
+        alert(event.data);    // 弹出&quot;I was there!&quot;
+        alert(event.source);  
+        // 对parent.com、index.html中window对象的引用
+        // 但由于同源策略，这里event.source不可以访问window对象
+    }
+}, false);
+&lt;/script&gt;
+</code></pre><h5 id="eg2"><a href="#eg2" class="headerlink" title="eg2:"></a>eg2:</h5><p>假设在a.html里嵌套个</p>
+<pre><code>&lt;iframe src=&quot;http://www.child.com/b.html&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+</code></pre><p>在这两个页面里互相通信</p>
+<p><strong>a.html</strong></p>
+<pre><code>window.onload = function() {
+    window.addEventListener(&quot;message&quot;, function(e) {
+        alert(e.data);
+    });
+
+    window.frames[0].postMessage(&quot;b data&quot;, &quot;http://www.child.com/b.html&quot;);
+}
+</code></pre><p><strong>b.html</strong></p>
+<pre><code>window.onload = function() {
+    window.addEventListener(&quot;message&quot;, function(e) {
+        alert(e.data);
+    });
+    window.parent.postMessage(&quot;a data&quot;, &quot;http://www.parent.com/a.html&quot;);
+}
+</code></pre><p>这样打开a页面，首先监听到了b.html通过postMessage传来的消息，就先弹出 a data，然后a通过postMessage传递消息给子页面b.html，这时会弹出 b data</p>
+<h3 id="二、解决第3点限制："><a href="#二、解决第3点限制：" class="headerlink" title="二、解决第3点限制："></a>二、解决第3点限制：</h3><blockquote>
+<p>AJAX请求不能发送</p>
+</blockquote>
+<h4 id="4-通过JSONP跨域"><a href="#4-通过JSONP跨域" class="headerlink" title="4. 通过JSONP跨域"></a>4. 通过JSONP跨域</h4><blockquote>
+<p>适用范围：</p>
+<ol>
+<li>可以是两个完全不同源的域；</li>
+<li>只支持HTTP请求中的GET方式；</li>
+<li>老式浏览器全部支持；</li>
+<li>需要服务端支持</li>
+</ol>
+</blockquote>
+<p>JSONP(JSON with Padding)是资料格式JSON的一种使用模式，可以让网页从别的网域要资料。</p>
+<p>由于浏览器的同源策略，在网页端出现了这个“跨域”的问题，然而我们发现，所有的 src 属性并没有受到相关的限制，比如 img / script 等。</p>
+<p>JSONP 的原理就要从 script 说起。script 可以引用其他域的脚本文件，比如这样：</p>
+<pre><code>a.html
+...
+&lt;script&gt;
+    function callback(data) {
+        console.log(data.url)
+    }
+&lt;/script&gt;
+&lt;script src=&#39;b.js&#39;&gt;&lt;/script&gt;
+...
+
+b.js
+callback({url: &#39;http://www.rccoder.net&#39;})
+</code></pre><p>这就类似于JSONP的原理了。</p>
+<p>JSONP的基本思想是：先在网页上添加一个script标签，设置这个script标签的src属性用于向服务器请求JSON数据 ，需要注意的是，src属性的查询字符串一定要加一个callback参数，用来指定回调函数的名字 。而这个函数是在资源加载之前就已经在前端定义好的，这个函数接受一个参数并利用这个参数做一些事情。向服务器请求后，服务器会将JSON数据放在一个指定名字的回调函数里作为其参数传回来。这时，因为函数已经在前端定义好了，所以会直接调用。</p>
+<p>eg：</p>
+<pre><code>function addScriptTag(src) {
+    var script = document.createElement(&#39;script&#39;);
+    script.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);
+    script.src = src;
+    document.body.appendChild(script);
+}
+
+window.onload = function () {
+    addScriptTag(&#39;http://example.com/ip?callback=foo&#39;);//请求服务器数据并规定回调函数为foo
+}
+
+function foo(data) {
+    console.log(&#39;Your public IP address is: &#39; + data.ip);
+};
+</code></pre><p>向服务器example.com请求数据，这时服务器会先生成JSON数据，这里是{“ip”: “8.8.8.8”}，然后以JS语法的方式生成一个函数，函数名就是传递上来的callback参数的值，最后将数据放在函数的参数中返回：</p>
+<pre><code>foo({
+    &quot;ip&quot;: &quot;8.8.8.8&quot;
+});
+</code></pre><p>客户端解析script标签，执行返回的JS代码，调用函数。</p>
+<h5 id="5-通过CORS跨域"><a href="#5-通过CORS跨域" class="headerlink" title="5. 通过CORS跨域"></a>5. 通过CORS跨域</h5><blockquote>
+<p>适用范围：</p>
+<ol>
+<li>可以是两个完全不同源的域；</li>
+<li>支持所有类型的HTTP请求；</li>
+<li>被绝大多数现代浏览器支持，老式浏览器不支持；</li>
+<li>需要服务端支持</li>
+</ol>
+</blockquote>
+<p>对于前端开发者来说，跨域的CORS通信与同源的AJAX通信没有差别，代码完全一样。因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</p>
+<p>浏览器将CORS请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。</p>
+<p>只要同时满足以下两大条件，就属于简单请求。</p>
+<pre><code>（1) 请求方法是以下三种方法之一：
+HEAD
+GET
+POST
+（2）HTTP的头信息不超出以下几种字段：
+Accept
+Accept-Language
+Content-Language
+Last-Event-ID
+Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+</code></pre><p>凡是不同时满足上面两个条件，就属于非简单请求。<br>浏览器对这两种请求的处理，是不一样的。</p>
+<p>简单请求：<br>下面是一次跨源AJAX请求，浏览器发现它是简单请求，就会直接在头信息中加一个origin字段：</p>
+<pre><code>GET /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre><p>服务器收到这条请求，如果这个origin指定的源在许可范围内，那么服务器返回的头信息中会包含Access-Control-Allow-Origin字段，值与origin的值相同，以及其他几个相关字段：</p>
+<pre><code>Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: FooBar
+</code></pre><p>Access-Control-Allow-Origin: 该字段是必须的。要么与origin相同，要么为*<br>Access-Control-Allow-Credentials: 该字段可选。设为true表示服务器允许发送cookie<br>Access-Control-Expose-Headers: 该字段可选。CORS请求时，XMLHttpRequest对象的getResponseHeader()方法只能拿到6个基本字段：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。上面的例子指定，getResponseHeader(‘FooBar’)可以返回FooBar字段的值。</p>
+<p>想要发送cookie，这里还有两点需要额外注意：</p>
+<p>1）开发者必须在AJAX请求中打开withCredentials属性。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+</code></pre><p>否则即使服务器允许，客户端也不会发送。</p>
+<p>2）Access-Control-Allow-Origin不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且（跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。</p>
+<p>非简单请求：<br>1.预检请求：</p>
+<p>非简单请求会在正式通信前加一次预检（preflight）请求。作用是浏览器先询问服务器当前网页所在域名是否在服务器的许可名单中，以及可以使用哪些HTTP方法以及头信息字段。只有得到肯定答复，浏览器才会发送XMLHttpRequest，否则报错。<br>一个例子：</p>
+<pre><code>var url = &#39;http://api.alice.com/cors&#39;;
+var xhr = new XMLHttpRequest();
+xhr.open(&#39;PUT&#39;, url, true);
+xhr.setRequestHeader(&#39;X-Custom-Header&#39;, &#39;value&#39;);
+xhr.send();
+</code></pre><p>HTTP请求方法为PUT，并发送一个自定义头信息”X-Custom-Header”，浏览器发现这是一个非简单请求，就会自动发送一个预检请求，预检请求的HTTP头信息如下：</p>
+<pre><code>OPTIONS /cors HTTP/1.1
+Origin: http://api.bob.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: X-Custom-Header
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre><p>请求方法是OPTIONS，表示这个请求是用来询问的，头信息中的关键信息有3个：</p>
+<p>（1）表示请求来自哪个源</p>
+<pre><code>Origin: http://api.bob.com
+</code></pre><p>（2）列出浏览器的CORS请求会用到哪些HTTP方法</p>
+<pre><code>Access-Control-Request-Method: PUT
+</code></pre><p>（3）指定浏览器CORS请求会额外发送的头信息字段</p>
+<pre><code>Access-Control-Request-Headers: X-Custom-Header
+</code></pre><p>2.预检请求的回应（有两种情况：A允许、B不允许）</p>
+<p>A.服务器允许这次跨域请求</p>
+<pre><code>HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Content-Type: text/html; charset=utf-8
+Content-Encoding: gzip
+Content-Length: 0
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Content-Type: text/plain
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 1728000
+</code></pre><p>服务器返回中要注意的字段：</p>
+<p>（1）服务器同意的跨域请求源：</p>
+<pre><code>Access-Control-Allow-Origin: http://api.bob.com
+</code></pre><p>（2）服务器支持的所有跨域请求的方法：</p>
+<pre><code>Access-Control-Allow-Methods: GET, POST, PUT
+</code></pre><p>（3）表明服务器支持的所有头信息字段：</p>
+<pre><code>Access-Control-Allow-Headers: X-Custom-Header
+</code></pre><p>（4）指定本次预检请求的有效期，单位为秒，即允许请求该条回应在有效期之前都不用再发送预检请求：</p>
+<pre><code>Access-Control-Max-Age: 1728000
+</code></pre><p>B.服务器不允许这次跨域请求<br>即origin指定的源不在许可范围内，服务器会返回一个正常的HTTP回应。但是头信息中没有包含Access-Control-Allow-Origin字段，就知道出错了，从而抛出一个错误，被XMLHttpRequest的onerror回调函数捕获。但是要注意的是，这种HTTP回应的状态码很有可能是200，所以无法通过状态码识别这种错误。</p>
+<p>3.正式请求<br>过了预检请求，非简单请求的正式请求就与简单请求一样了。</p>
+
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/30/Flex布局/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071002.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-30 17:11</div>
-      <a href="/2018/11/30/Flex布局/" class="post-title">
-        <h3>Flex布局</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/Flex/">Flex<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-            <a href="/categories/笔记/">笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>Flex布局</p>
-        <div class="post-bottom">
-          <a href="/2018/11/30/Flex布局/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="/images/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="/images/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/30/Linux常用命令/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1487016815652-405c7ac05f2e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1957&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-30 16:11</div>
-      <a href="/2018/11/30/Linux常用命令/" class="post-title">
-        <h3>Linux常用命令</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
         
-            <a href="/tags/Linux/">Linux<em>·</em></a>
           
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
+            <div class="post-nepre half previous">
           
-            <a href="/categories/技术/">技术</a>
+            <a href="/2018/11/28/使用Hexo+GitHub搭建个人博客/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/hexo+github.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                使用 Hexo+GitHub 搭建个人博客</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
           
-            <a href="/categories/笔记/">笔记</a>
+            <div class="post-nepre half next">
           
-        </span>
-      </div>
-      <div class="float-content">
-        <p>Linux常用命令</p>
-        <div class="post-bottom">
-          <a href="/2018/11/30/Linux常用命令/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+            <a href="/2018/11/16/电商项目中的SPU和SKU概念/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                电商项目中的SPU和SKU概念</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件设置 -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
+        appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="https://xiongtianci.com" class="profile gravatar"><img src="https://xiongtianci.com/images/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://xiongtianci.com" itemprop="url" rel="author">天赐</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/29/豆瓣Top250资源合集/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/flagged/photo-1556274262-a6ccd473d171?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=753&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-29 01:11</div>
-      <a href="/2018/11/29/豆瓣Top250资源合集/" class="post-title">
-        <h3>豆瓣Top250资源合集</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/公众号文章/">公众号文章<em>·</em></a>
-          
-            <a href="/tags/Top电影/">Top电影<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>《龙猫》 12.14不见不散</p>
-        <div class="post-bottom">
-          <a href="/2018/11/29/豆瓣Top250资源合集/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/28/使用Hexo+GitHub搭建个人博客/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/hexo+github.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-28 15:11</div>
-      <a href="/2018/11/28/使用Hexo+GitHub搭建个人博客/" class="post-title">
-        <h3>使用 Hexo+GitHub 搭建个人博客</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/Hexo/">Hexo<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-            <a href="/categories/笔记/">笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>搭建博客</p>
-        <div class="post-bottom">
-          <a href="/2018/11/28/使用Hexo+GitHub搭建个人博客/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/19/同源策略与JS跨域/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-19 10:11</div>
-      <a href="/2018/11/19/同源策略与JS跨域/" class="post-title">
-        <h3>同源策略与JS跨域</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/19/同源策略与JS跨域/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/16/电商项目中的SPU和SKU概念/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-16 14:11</div>
-      <a href="/2018/11/16/电商项目中的SPU和SKU概念/" class="post-title">
-        <h3>电商项目中的SPU和SKU概念</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/16/电商项目中的SPU和SKU概念/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/16/Servlet简介及其生命周期详解/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-16 10:11</div>
-      <a href="/2018/11/16/Servlet简介及其生命周期详解/" class="post-title">
-        <h3>Servlet简介及其生命周期详解</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/16/Servlet简介及其生命周期详解/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/15/反向安装jar包到Mave本地仓库/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-15 01:11</div>
-      <a href="/2018/11/15/反向安装jar包到Mave本地仓库/" class="post-title">
-        <h3>反向安装jar包到Mave本地仓库</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/15/反向安装jar包到Mave本地仓库/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/09/SpringMVC的工作原理/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-9 21:11</div>
-      <a href="/2018/11/09/SpringMVC的工作原理/" class="post-title">
-        <h3>SpringMVC的工作原理</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/09/SpringMVC的工作原理/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next</a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/3/" class>Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
