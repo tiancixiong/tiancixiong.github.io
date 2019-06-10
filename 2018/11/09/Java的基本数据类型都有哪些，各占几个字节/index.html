@@ -361,19 +361,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=769&amp;q=80);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=769&amp;q=80">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Java 的基本数据类型都有哪些，各占几个字节</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://xiongtianci.com">
+            <img src="https://xiongtianci.com/images/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://xiongtianci.com">天赐</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2018-11-9<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-          <header class="entry-header">
-            <h1 class="entry-title">Java 的基本数据类型都有哪些，各占几个字节</h1>
-            <p class="entry-census">天赐&nbsp;·&nbsp;2018-11-9&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
-
-            <hr>
-          </header>
         
         <div class="entry-content">
           <table><br>    <thead><br>        <tr><br>            <th>四类</th><br>            <th>八种</th><br>            <th>字节数</th><br>            <th>数据表示范围</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <th rowspan="4">整型</th><br>            <td>byte</td><br>            <td>1</td><br>            <td>-128~127</td><br>        </tr><br>        <tr><br>            <td>short</td><br>            <td>2</td><br>            <td>-32768~32767</td><br>        </tr><br>        <tr><br>            <td>int</td><br>            <td>4</td><br>            <td>-2147483648～2147483647</td><br>        </tr><br>        <tr><br>            <td>long</td><br>            <td>8</td><br>            <td>-2^63^～2^63^-1</td><br>        </tr><br>        <tr><br>            <th rowspan="2">浮点型</th><br>            <td>float</td><br>            <td>4</td><br>            <td>-3.403E38～3.403E38</td><br>        </tr><br>        <tr><br>            <td>double </td><br>            <td>8</td><br>            <td>-1.798E308～1.798E308</td><br>        </tr><br>        <tr><br>            <th>字符型</th><br>            <td>char</td><br>            <td>2</td><br>            <td>表示一个字符，如(‘a’，’A’，’0’，’家’)</td><br>        </tr><br>        <tr><br>            <th>布尔型</th><br>            <td>boolean</td><br>            <td>1</td><br>            <td>只有两个值true与false</td><br>        </tr><br>    </tbody><br></table>
@@ -408,7 +425,7 @@
           
             <a href="/2018/11/09/SpringMVC的工作原理/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Previous Post</span>
@@ -479,7 +496,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -491,10 +508,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
