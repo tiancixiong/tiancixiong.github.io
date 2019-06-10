@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Java中List集合去重的几种方式 | 天赐</title>
+  <title itemprop="name">常用正则表达式公式 | 天赐</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -363,11 +363,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=769&amp;q=80);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=769&amp;q=80">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1543268956-75970fe7c955?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=752&amp;q=80);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1543268956-75970fe7c955?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=752&amp;q=80">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Java中List集合去重的几种方式</h1>
+      常用正则表达式公式</h1>
       <p class="entry-census">
         <span>
           <a href="https://xiongtianci.com">
@@ -379,7 +379,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2019-2-19<span class="bull">
+        2019-6-10<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -393,47 +393,135 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>准备数据：</p>
-<pre><code class="java">// 准备数据
-List&lt;String&gt; list = new ArrayList();
-list.add(&quot;a&quot;);
-list.add(&quot;b&quot;);
-list.add(&quot;c&quot;);
-list.add(&quot;c&quot;);
-list.add(&quot;b&quot;);
-list.add(&quot;a&quot;);
+          <blockquote>
+<p>作者：艾欢欢</p>
+<p>链接：<a href="https://mp.weixin.qq.com/s?__biz=MzIwMTY0NDU3Nw==&amp;mid=2651939156&amp;idx=1&amp;sn=79f0579d9070be0fb61bce7e503ea9be&amp;chksm=8d0f0e1aba78870ce8a2b6749b1749069946d4cba32a819c424b96d1c1b38ba0c096452fdcb1&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;key=c057d35eab709d25144f00cb6fa9b63212b36228878f80f4bce5a77b2439611899d707ea217205f14f3957120d4979ff78fd401ea654e0b67635d0d36e71dd4b347163fa798001e7963ac98d4cd62e50&amp;ascene=1&amp;uin=MjYxNjc3MjAzOA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=2Z5hSrTwDuopoqQqW4vKeZajl7djxXXhYMTrGA%2FC5uVIPjB09bhdrVYCqRhocWOj" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzIwMTY0NDU3Nw==&amp;mid=2651939156&amp;idx=1&amp;sn=79f0579d9070be0fb61bce7e503ea9be&amp;chksm=8d0f0e1aba78870ce8a2b6749b1749069946d4cba32a819c424b96d1c1b38ba0c096452fdcb1&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;key=c057d35eab709d25144f00cb6fa9b63212b36228878f80f4bce5a77b2439611899d707ea217205f14f3957120d4979ff78fd401ea654e0b67635d0d36e71dd4b347163fa798001e7963ac98d4cd62e50&amp;ascene=1&amp;uin=MjYxNjc3MjAzOA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=2Z5hSrTwDuopoqQqW4vKeZajl7djxXXhYMTrGA%2FC5uVIPjB09bhdrVYCqRhocWOj</a></p>
+</blockquote>
+<h1 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a>校验数字的表达式</h1><p>一位数字：</p>
+<pre><code>^[0-9]\*$
+</code></pre><p>n位的数字：</p>
+<pre><code>^\d{n}$
+</code></pre><p>至少n位的数字：</p>
+<pre><code>^\d{n,}$
+</code></pre><p>m-n位的数字：</p>
+<pre><code>^\d{m,n}$
+</code></pre><p>零和非零开头的数字：</p>
+<pre><code>^(0|[1-9][0-9]\*)$
+</code></pre><p>非零开头的最多带两位小数的数字：</p>
+<pre><code>^([1-9][0-9]\*)+(\.[0-9]{1,2})?$
+</code></pre><p>带1-2位小数的正数或负数：</p>
+<pre><code>^(\-)?\d+(\.\d{1,2})$
+</code></pre><p>正数、负数、和小数：</p>
+<pre><code>^(\-|\+)?\d+(\.\d+)?$
+</code></pre><p>有两位小数的正实数：</p>
+<pre><code>^[0-9]+(\.[0-9]{2})?$
+</code></pre><p>有1~3位小数的正实数：</p>
+<pre><code>^[0-9]+(\.[0-9]{1,3})?$
+</code></pre><p>非零的正整数：</p>
+<pre><code>^[1-9]\d\*$
+或
+^([1-9][0-9]\*){1,3}$
+或
+^\+?[1-9][0-9]\*$
+</code></pre><p>非零的负整数：</p>
+<pre><code>^\-[1-9][]0-9&quot;\*$
+或
+^-[1-9]\d\*$
+</code></pre><p>非负整数：</p>
+<pre><code>^\d+$
+或
+^[1-9]\d\*|0$
+</code></pre><p>非正整数：</p>
+<pre><code>^-[1-9]\d\*|0$
+或
+^((-\d+)|(0+))$
+</code></pre><p>非负浮点数：</p>
+<pre><code>^\d+(\.\d+)?$
+或
+^[1-9]\d\*\.\d\*|0\.\d\*[1-9]\d\*|0?\.0+|0$
+</code></pre><p>非正浮点数：</p>
+<pre><code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$
+或
+^(-([1-9]\d\*\.\d\*|0\.\d\*[1-9]\d\*))|0?\.0+|0$
+</code></pre><p>正浮点数：</p>
+<pre><code>^[1-9]\d\*\.\d\*|0\.\d\*[1-9]\d\*$
+或
+^(([0-9]+\.[0-9]\*[1-9][0-9]\*)|([0-9]\*[1-9][0-9]\*\.[0-9]+)|([0-9]\*[1-9][0-9]\*))$
+</code></pre><p>负浮点数：</p>
+<pre><code>^-([1-9]\d\*\.\d\*|0\.\d\*[1-9]\d\*)$
+或
+^(-(([0-9]+\.[0-9]\*[1-9][0-9]\*)|([0-9]\*[1-9][0-9]\*\.[0-9]+)|([0-9]\*[1-9][0-9]\*)))$
+</code></pre><p>浮点数：</p>
+<pre><code>^(-?\d+)(\.\d+)?$
+或
+^-?([1-9]\d\*\.\d\*|0\.\d\*[1-9]\d\*|0?\.0+|0)$
+</code></pre><h1 id="校验字符的表达式"><a href="#校验字符的表达式" class="headerlink" title="校验字符的表达式"></a>校验字符的表达式</h1><p>汉字：</p>
+<pre><code>^[\u4e00-\u9fa5]{0,}$
+</code></pre><p>英文和数字：</p>
+<pre><code>^[A-Za-z0-9]+$
+或
+^[A-Za-z0-9]{4,40}$
+</code></pre><p>长度为3-20的所有字符：</p>
+<pre><code>^.{3,20}$
+</code></pre><p>由26个英文字母组成的字符串：</p>
+<pre><code>^[A-Za-z]+$
+</code></pre><p>由26个大写英文字母组成的字符串：</p>
+<pre><code>^[A-Z]+$
+</code></pre><p>由26个小写英文字母组成的字符串：</p>
+<pre><code>^[a-z]+$
+</code></pre><p>由数字和26个英文字母组成的字符串：</p>
+<pre><code>^[A-Za-z0-9]+$
+</code></pre><p>由数字、26个英文字母或者下划线组成的字符串：</p>
+<pre><code>^\w+$ 或 ^\w{3,20}$
+</code></pre><p>中文、英文、数字包括下划线：</p>
+<pre><code>^[\u4E00-\u9FA5A-Za-z0-9_]+$
+</code></pre><p>中文、英文、数字但不包括下划线等符号：</p>
+<pre><code>^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$
+</code></pre><p>禁止输入含有~的字符：</p>
+<pre><code>[^~\x22]+
+</code></pre><h1 id="特殊需求表达式"><a href="#特殊需求表达式" class="headerlink" title="特殊需求表达式"></a>特殊需求表达式</h1><p>Email地址：</p>
+<pre><code>^\w+([-+.]\w+)\*@\w+([-.]\w+)\*\.\w+([-.]\w+)\*$
+</code></pre><p>域名：</p>
+<pre><code>[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?
+</code></pre><p>InternetURL：</p>
+<pre><code>[a-zA-z]+://[^\s]\* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]\*)?$
+</code></pre><p>手机号码：</p>
+<pre><code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$
+</code></pre><p>国内电话号码(0511-4405222、021-87888822)：</p>
+<pre><code>\d{3}-\d{8}|\d{4}-\d{7}
+</code></pre><p>电话号码正则表达式（支持手机号码，3-4位区号，7-8位直播号码，1－4位分机号）:</p>
+<pre><code> ((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)
+</code></pre><p>身份证号(15位、18位数字)，最后一位是校验位，可能为数字或字符X：</p>
+<pre><code>(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)
+</code></pre><p>帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：</p>
+<pre><code>^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+</code></pre><p>密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：</p>
+<pre><code>^[a-zA-Z]\w{5,17}$
+</code></pre><p>强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间)：</p>
+<pre><code>^(?=.\*\d)(?=.\*[a-z])(?=.\*[A-Z])[a-zA-Z0-9]{8,10}$
+</code></pre><p>强密码(必须包含大小写字母和数字的组合，可以使用特殊字符，长度在8-10之间)：</p>
+<pre><code>^(?=.\*\d)(?=.\*[a-z])(?=.\*[A-Z]).{8,10}$
+</code></pre><p>日期格式：</p>
+<pre><code>^\d{4}-\d{1,2}-\d{1,2}
+</code></pre><p>一年的12个月(01～09和1～12)：</p>
+<pre><code>^(0?[1-9]|1[0-2])$
+</code></pre><p>一个月的31天(01～09和1～31)：</p>
+<pre><code>^((0?[1-9])|((1|2)[0-9])|30|31)$
+</code></pre><p>xml文件：</p>
+<pre><code>^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$
+</code></pre><p>中文字符的正则表达式：</p>
+<pre><code>[\u4e00-\u9fa5]
+</code></pre><p>空白行的正则表达式：</p>
+<pre><code>\n\s\*\r (可以用来删除空白行)
+</code></pre><p>HTML标记的正则表达式：</p>
+<pre><code>&lt;(\S\*?)[^&gt;]\*&gt;.\*?|&lt;.\*? /&gt; ( 首尾空白字符的正则表达式：^\s\*|\s\*$或(^\s\*)|(\s\*$) (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)
+</code></pre><p>腾讯QQ号：</p>
+<pre><code>[1-9][0-9]{4,} (腾讯QQ号从10000开始)
+</code></pre><p>中国邮政编码：</p>
+<pre><code>[1-9]\d{5}(?!\d) (中国邮政编码为6位数字)
+</code></pre><p>IP地址：</p>
+<pre><code>((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))
 </code></pre>
-<h3 id="1-利用HashSet去重"><a href="#1-利用HashSet去重" class="headerlink" title="1. 利用HashSet去重"></a>1. 利用HashSet去重</h3><pre><code class="java">// 利用list中的元素创建HashSet集合，此时set中进行了去重操作
-HashSet set = new HashSet(list);
-// 清空list集合
-list.clear();
-// 将去重后的元素重新添加到list中
-list.addAll(set);
-</code></pre>
-<h3 id="2-通过List的contains-方法去重"><a href="#2-通过List的contains-方法去重" class="headerlink" title="2. 通过List的contains()方法去重"></a>2. 通过List的contains()方法去重</h3><pre><code class="java">// 创建一个新的list集合，用于存储去重后的元素
-List listTemp = new ArrayList();
-// 遍历list集合
-for (int i = 0; i &lt; list.size(); i++) {
-    // 判断listTemp集合中是否包含list中的元素
-    if (!listTemp.contains(list.get(i))) {
-        // 将未包含的元素添加进listTemp集合中
-        listTemp.add(list.get(i));
-    }
-}
-</code></pre>
-<h3 id="3-循环List进行去重"><a href="#3-循环List进行去重" class="headerlink" title="3. 循环List进行去重"></a>3. 循环List进行去重</h3><pre><code class="java">// 从list中索引为0开始往后遍历
-for (int i = 0; i &lt; list.size() - 1; i++) {
-    // 从list中索引为 list.size()-1 开始往前遍历
-    for (int j = list.size() - 1; j &gt; i; j--) {
-        // 进行比较
-        if (list.get(j).equals(list.get(i))) {
-            // 去重
-            list.remove(j);
-        }
-    }
-}
-</code></pre>
-
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -460,36 +548,19 @@ for (int i = 0; i &lt; list.size() - 1; i++) {
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/02/25/IDEA开启Run Dashboard的配置/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                IDEA开启Run Dashboard的配置</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2019/01/17/关闭迅雷更新到新版本的提示/" rel="next">
+            <a href="/2019/06/10/致迷茫中的自己/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190610-%E8%87%B4%E8%BF%B7%E8%8C%AB%E4%B8%AD%E7%9A%84%E8%87%AA%E5%B7%B1/Do.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                关闭迅雷更新到新版本的提示</h3>
+                致迷茫中的自己</h3>
                 <hr>
               </div>
             </a>
