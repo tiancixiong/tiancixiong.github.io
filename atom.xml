@@ -74,7 +74,7 @@
     <link href="/2019/06/05/%E4%B8%80%E5%8D%83%E8%A1%8CMySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>/2019/06/05/一千行MySQL学习笔记/</id>
     <published>2019-06-05T09:41:17.000Z</published>
-    <updated>2019-06-10T01:33:52.449Z</updated>
+    <updated>2019-06-11T07:27:08.617Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>作者：Jioby</p><p>链接： <a href="https://shockerli.net/post/1000-line-mysql-note/" target="_blank" rel="noopener">https://shockerli.net/post/1000-line-mysql-note/</a></p></blockquote><h1 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h1><pre><code class="sql">-- 启动mysqlnet start mysql-- 创建windows服务(注意：等号与值之间有空格)sc create mysql binpath= mysqld_bin_path</code></pre><h1 id="连接与断开服务器"><a href="#连接与断开服务器" class="headerlink" title="连接与断开服务器"></a>连接与断开服务器</h1><pre><code class="sql">-- 连接（地址、端口可不填，默认为localhost:3306）mysql -h 地址 -p 端口 -u 用户名 -p 密码-- 显示哪些线程正在运行show processlist-- 显示系统变量信息show variables</code></pre><h1 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h1><pre><code class="sql">-- 查看当前数据库select database();-- 显示当前时间、用户名、数据库版本select now(), user(), version();-- 创建库create database[ if not exists] 数据库名 数据库选项    -- 数据库选项：    character set charset_name    collate collation_name-- 查看已有库show databases[ like &#39;pattern&#39;]-- 查看当前库信息show create database 数据库名-- 修改库的选项信息alter database 库名 选项信息-- 删除库drop database[ if exists] 数据库名    -- 同时删除该数据库相关的目录及其目录内容</code></pre><h1 id="表的操作"><a href="#表的操作" class="headerlink" title="表的操作"></a>表的操作</h1><pre><code class="sql">-- 创建表create [temporary] table [if not exists] [库名.]表名 (表的结构定义) [表选项]    每个字段必须有数据类型    最后一个字段后不能有逗号    temporary 临时表，会话结束时表自动消失    对于字段的定义：        字段名 数据类型 [not null | null] [default default_value] [auto_increment] [unique [key] | [primary] key] [comment &#39;string&#39;]    -- 表选项        -- 字符集            charset = charset_name            如果表没有设定，则使用数据库字符集        -- 存储引擎            engine = engine_name            表在管理数据时采用的不同的数据结构，结构不同会导致处理方式、提供的特性操作等不同            常见的引擎：innodb myisam memory/heap bdb merge example csv maxdb archive            不同的引擎在保存表的结构和数据时采用不同的方式            myisam表文件含义：.frm表定义，.myd表数据，.myi表索引            innodb表文件含义：.frm表定义，表空间数据和日志文件            show engines -- 显示存储引擎的状态信息            show engine 引擎名 {logs|status} -- 显示存储引擎的日志或状态信息        -- 自增起始数            auto_increment = 行数        -- 数据文件目录            data directory = &#39;目录&#39;        -- 索引文件目录            index directory = &#39;目录&#39;        -- 表注释            comment = &#39;string&#39;        -- 分区选项            partition by ... (详细见手册)-- 查看所有表show tables[ like &#39;pattern&#39;]show tables from 表名-- 查看表机构show create table 表名 （信息更详细）desc 表名 / describe 表名 / explain 表名 / show columns from 表名 [like &#39;pattern&#39;]show table status [from db_name] [like &#39;pattern&#39;]-- 修改表    -- 修改表本身的选项        alter table 表名 表的选项        eg: alter table 表名 engine=myisam;    -- 对表进行重命名        rename table 原表名 to 新表名        rename table 原表名 to 库名.表名 （可将表移动到另一个数据库）        -- rename可以交换两个表名    -- 修改表的字段机构（13.1.2. alter table语法）        alter table 表名 操作名        -- 操作名            add[ column] 字段定义       -- 增加字段                after 字段名          -- 表示增加在该字段名后面                first               -- 表示增加在第一个            add primary key(字段名)   -- 创建主键            add unique [索引名] (字段名)-- 创建唯一索引            add index [索引名] (字段名) -- 创建普通索引            drop[ column] 字段名      -- 删除字段            modify[ column] 字段名 字段属性     -- 支持对字段属性进行修改，不能修改字段名(所有原有属性也需写上)            change[ column] 原字段名 新字段名 字段属性      -- 支持对字段名修改            drop primary key    -- 删除主键(删除主键前需删除其auto_increment属性)            drop index 索引名 -- 删除索引            drop foreign key 外键    -- 删除外键-- 删除表drop table[ if exists] 表名 ...-- 清空表数据truncate [table] 表名-- 复制表结构create table 表名 like 要复制的表名-- 复制表结构和数据create table 表名 [as] select * from 要复制的表名-- 检查表是否有错误check table tbl_name [, tbl_name] ... [option] ...-- 优化表optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...-- 修复表repair [local | no_write_to_binlog] table tbl_name [, tbl_name] ... [quick] [extended] [use_frm]-- 分析表analyze [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pre><h1 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h1><pre><code class="sql">-- 增insert [into] 表名 [(字段列表)] values (值列表)[, (值列表), ...]    -- 如果要插入的值列表包含所有字段并且顺序一致，则可以省略字段列表。    -- 可同时插入多条数据记录！    replace 与 insert 完全一样，可互换。insert [into] 表名 set 字段名=值[, 字段名=值, ...]-- 查select 字段列表 from 表名[ 其他子句]    -- 可来自多个表的多个字段    -- 其他子句可以不使用    -- 字段列表可以用*代替，表示所有字段-- 删delete from 表名[ 删除条件子句]    没有条件子句，则会删除全部-- 改update 表名 set 字段名=新值[, 字段名=新值] [更新条件]</code></pre><h1 id="字符集编码"><a href="#字符集编码" class="headerlink" title="字符集编码"></a>字符集编码</h1><pre><code class="sql">-- mysql、数据库、表、字段均可设置编码-- 数据编码与客户端编码不需一致show variables like &#39;character_set_%&#39;   -- 查看所有字符集编码项    character_set_client        客户端向服务器发送数据时使用的编码    character_set_results       服务器端将结果返回给客户端所使用的编码    character_set_connection    连接层编码set 变量名 = 变量值    set character_set_client = gbk;    set character_set_results = gbk;    set character_set_connection = gbk;set names gbk;  -- 相当于完成以上三个设置-- 校对集    校对集用以排序    show character set [like &#39;pattern&#39;]/show charset [like &#39;pattern&#39;]   查看所有字符集    show collation [like &#39;pattern&#39;]     查看所有校对集    charset 字符集编码     设置字符集编码    collate 校对集编码     设置校对集编码</code></pre><h1 id="数据类型（列类型）"><a href="#数据类型（列类型）" class="headerlink" title="数据类型（列类型）"></a>数据类型（列类型）</h1><pre><code class="sql">1. 数值类型-- a. 整型 ----------    类型         字节     范围（有符号位）    tinyint     1字节    -128 ~ 127      无符号位：0 ~ 255    smallint    2字节    -32768 ~ 32767    mediumint   3字节    -8388608 ~ 8388607    int         4字节    bigint      8字节    int(m)  m表示总位数    - 默认存在符号位，unsigned 属性修改    - 显示宽度，如果某个数不够定义字段时设置的位数，则前面以0补填，zerofill 属性修改        例：int(5)   插入一个数&#39;123&#39;，补填后为&#39;00123&#39;    - 在满足要求的情况下，越小越好。    - 1表示bool值真，0表示bool值假。mysql没有布尔类型，通过整型0和1表示。常用tinyint(1)表示布尔型。-- b. 浮点型 ----------    类型             字节     范围    float(单精度)     4字节    double(双精度)    8字节    浮点型既支持符号位 unsigned 属性，也支持显示宽度 zerofill 属性。        不同于整型，前后均会补填0.    定义浮点型时，需指定总位数和小数位数。        float(m, d)     double(m, d)        m表示总位数，d表示小数位数。        m和d的大小会决定浮点数的范围。不同于整型的固定范围。        m既表示总位数（不包括小数点和正负号），也表示显示宽度（所有显示符号均包括）。        支持科学计数法表示。        浮点数表示近似值。-- c. 定点数 ----------    decimal -- 可变长度    decimal(m, d)   m也表示总位数，d表示小数位数。    保存一个精确的数值，不会发生数据的改变，不同于浮点数的四舍五入。    将浮点数转换为字符串来保存，每9位数字保存为4个字节。2. 字符串类型-- a. char, varchar ----------    char    定长字符串，速度快，但浪费空间    varchar 变长字符串，速度慢，但节省空间    m表示能存储的最大长度，此长度是字符数，非字节数。    不同的编码，所占用的空间不同。    char,最多255个字符，与编码无关。    varchar,最多65535字符，与编码有关。    一条有效记录最大不能超过65535个字节。        utf8 最大为21844个字符，gbk 最大为32766个字符，latin1 最大为65532个字符    varchar 是变长的，需要利用存储空间保存 varchar 的长度，如果数据小于255个字节，则采用一个字节来保存长度，反之需要两个字节来保存。    varchar 的最大有效长度由最大行大小和使用的字符集确定。    最大有效长度是65532字节，因为在varchar存字符串时，第一个字节是空的，不存在任何数据，然后还需两个字节来存放字符串的长度，所以有效长度是64432-1-2=65532字节。    例：若一个表定义为 create table tb(c1 int, c2 char(30), c3 varchar(n)) charset=utf8; 问n的最大值是多少？ 答：(65535-1-2-4-30*3)/3-- b. blob, text ----------    blob 二进制字符串（字节字符串）        tinyblob, blob, mediumblob, longblob    text 非二进制字符串（字符字符串）        tinytext, text, mediumtext, longtext    text 在定义时，不需要定义长度，也不会计算总长度。    text 类型在定义时，不可给default值-- c. binary, varbinary ----------    类似于char和varchar，用于保存二进制字符串，也就是保存字节字符串而非字符字符串。    char, varchar, text 对应 binary, varbinary, blob.3. 日期时间类型    一般用整型保存时间戳，因为php可以很方便的将时间戳进行格式化。    datetime    8字节    日期及时间     1000-01-01 00:00:00 到 9999-12-31 23:59:59    date        3字节    日期         1000-01-01 到 9999-12-31    timestamp   4字节    时间戳        19700101000000 到 2038-01-19 03:14:07    time        3字节    时间         -838:59:59 到 838:59:59    year        1字节    年份         1901 - 2155datetime    yyyy-mm-dd hh:mm:sstimestamp   yy-mm-dd hh:mm:ss            yyyymmddhhmmss            yymmddhhmmss            yyyymmddhhmmss            yymmddhhmmssdate        yyyy-mm-dd            yy-mm-dd            yyyymmdd            yymmdd            yyyymmdd            yymmddtime        hh:mm:ss            hhmmss            hhmmssyear        yyyy            yy            yyyy            yy4. 枚举和集合-- 枚举(enum) ----------enum(val1, val2, val3...)    在已知的值中进行单选。最大数量为65535.    枚举值在保存时，以2个字节的整型(smallint)保存。每个枚举值，按保存的位置顺序，从1开始逐一递增。    表现为字符串类型，存储却是整型。    null值的索引是null。    空字符串错误值的索引值是0。-- 集合（set） ----------set(val1, val2, val3...)    create table tab ( gender set(&#39;男&#39;, &#39;女&#39;, &#39;无&#39;) );    insert into tab values (&#39;男, 女&#39;);    最多可以有64个不同的成员。以bigint存储，共8个字节。采取位运算的形式。    当创建表时，set成员值的尾部空格将自动被删除。</code></pre><h1 id="选择类型"><a href="#选择类型" class="headerlink" title="选择类型"></a>选择类型</h1><pre><code class="sql">-- php角度1. 功能满足2. 存储空间尽量小，处理效率更高3. 考虑兼容问题-- ip存储 ----------1. 只需存储，可用字符串2. 如果需计算，查找等，可存储为4个字节的无符号int，即unsigned    1) php函数转换        ip2long可转换为整型，但会出现携带符号问题。需格式化为无符号的整型。        利用sprintf函数格式化字符串        sprintf(&quot;%u&quot;, ip2long(&#39;192.168.3.134&#39;));        然后用long2ip将整型转回ip字符串    2) mysql函数转换(无符号整型，unsigned)        inet_aton(&#39;127.0.0.1&#39;) 将ip转为整型        inet_ntoa(2130706433) 将整型转为ip</code></pre><h1 id="列属性（列约束）"><a href="#列属性（列约束）" class="headerlink" title="列属性（列约束）"></a>列属性（列约束）</h1><pre><code class="sql">1. primary 主键    - 能唯一标识记录的字段，可以作为主键。    - 一个表只能有一个主键。    - 主键具有唯一性。    - 声明字段时，用 primary key 标识。        也可以在字段列表之后声明            例：create table tab ( id int, stu varchar(10), primary key (id));    - 主键字段的值不能为null。    - 主键可以由多个字段共同组成。此时需要在字段列表后声明的方法。        例：create table tab ( id int, stu varchar(10), age int, primary key (stu, age));2. unique 唯一索引（唯一约束）    使得某字段的值也不能重复。3. null 约束    null不是数据类型，是列的一个属性。    表示当前列是否可以为null，表示什么都没有。    null, 允许为空。默认。    not null, 不允许为空。    insert into tab values (null, &#39;val&#39;);        -- 此时表示将第一个字段的值设为null, 取决于该字段是否允许为null4. default 默认值属性    当前字段的默认值。    insert into tab values (default, &#39;val&#39;);    -- 此时表示强制使用默认值。    create table tab ( add_time timestamp default current_timestamp );        -- 表示将当前时间的时间戳设为默认值。        current_date, current_time5. auto_increment 自动增长约束    自动增长必须为索引（主键或unique）    只能存在一个字段为自动增长。    默认为1开始自动增长。可以通过表属性 auto_increment = x进行设置，或 alter table tbl auto_increment = x;6. comment 注释    例：create table tab ( id int ) comment &#39;注释内容&#39;;7. foreign key 外键约束    用于限制主表与从表数据完整性。    alter table t1 add constraint `t1_t2_fk` foreign key (t1_id) references t2(id);        -- 将表t1的t1_id外键关联到表t2的id字段。        -- 每个外键都有一个名字，可以通过 constraint 指定    存在外键的表，称之为从表（子表），外键指向的表，称之为主表（父表）。    作用：保持数据一致性，完整性，主要目的是控制存储在外键表（从表）中的数据。    mysql中，可以对innodb引擎使用外键约束：    语法：    foreign key (外键字段） references 主表名 (关联字段) [主表记录删除时的动作] [主表记录更新时的动作]    此时需要检测一个从表的外键需要约束为主表的已存在的值。外键在没有关联的情况下，可以设置为null.前提是该外键列，没有not null。    可以不指定主表记录更改或更新时的动作，那么此时主表的操作被拒绝。    如果指定了 on update 或 on delete：在删除或更新时，有如下几个操作可以选择：    1. cascade，级联操作。主表数据被更新（主键值更新），从表也被更新（外键值更新）。主表记录被删除，从表相关记录也被删除。    2. set null，设置为null。主表数据被更新（主键值更新），从表的外键被设置为null。主表记录被删除，从表相关记录外键被设置成null。但注意，要求该外键列，没有not null属性约束。    3. restrict，拒绝父表删除和更新。    注意，外键只被innodb存储引擎所支持。其他引擎是不支持的。</code></pre><h1 id="建表规范"><a href="#建表规范" class="headerlink" title="建表规范"></a>建表规范</h1><pre><code class="sql">-- normal format, nf    - 每个表保存一个实体信息    - 每个具有一个id字段作为主键    - id主键 + 原子表-- 1nf, 第一范式    字段不能再分，就满足第一范式。-- 2nf, 第二范式    满足第一范式的前提下，不能出现部分依赖。    消除符合主键就可以避免部分依赖。增加单列关键字。-- 3nf, 第三范式    满足第二范式的前提下，不能出现传递依赖。    某个字段依赖于主键，而有其他字段依赖于该字段。这就是传递依赖。    将一个实体信息的数据放在一个表内实现。</code></pre><h1 id="select"><a href="#select" class="headerlink" title="select"></a>select</h1><pre><code class="sql">select [all|distinct] select_expr from -&gt; where -&gt; group by [合计函数] -&gt; having -&gt; order by -&gt; limita. select_expr    -- 可以用 * 表示所有字段。        select * from tb;    -- 可以使用表达式（计算公式、函数调用、字段也是个表达式）        select stu, 29+25, now() from tb;    -- 可以为每个列使用别名。适用于简化列标识，避免多个列标识符重复。        - 使用 as 关键字，也可省略 as.        select stu+10 as add10 from tb;b. from 子句    用于标识查询来源。    -- 可以为表起别名。使用as关键字。        select * from tb1 as tt, tb2 as bb;    -- from子句后，可以同时出现多个表。        -- 多个表会横向叠加到一起，而数据会形成一个笛卡尔积。        select * from tb1, tb2;    -- 向优化符提示如何选择索引        use index、ignore index、force index        select * from table1 use index (key1,key2) where key1=1 and key2=2 and key3=3;        select * from table1 ignore index (key3) where key1=1 and key2=2 and key3=3;c. where 子句    -- 从from获得的数据源中进行筛选。    -- 整型1表示真，0表示假。    -- 表达式由运算符和运算数组成。        -- 运算数：变量（字段）、值、函数返回值        -- 运算符：            =, &lt;=&gt;, &lt;&gt;, !=, &lt;=, &lt;, &gt;=, &gt;, !, &amp;&amp;, ||,            in (not) null, (not) like, (not) in, (not) between and, is (not), and, or, not, xor            is/is not 加上ture/false/unknown，检验某个值的真假            &lt;=&gt;与&lt;&gt;功能相同，&lt;=&gt;可用于null比较d. group by 子句, 分组子句    group by 字段/别名 [排序方式]    分组后会进行排序。升序：asc，降序：desc    以下[合计函数]需配合 group by 使用：    count 返回不同的非null值数目  count(*)、count(字段)    sum 求和    max 求最大值    min 求最小值    avg 求平均值    group_concat 返回带有来自一个组的连接的非null值的字符串结果。组内字符串连接。e. having 子句，条件子句    与 where 功能、用法相同，执行时机不同。    where 在开始时执行检测数据，对原数据进行过滤。    having 对筛选出的结果再次进行过滤。    having 字段必须是查询出来的，where 字段必须是数据表存在的。    where 不可以使用字段的别名，having 可以。因为执行where代码时，可能尚未确定列值。    where 不可以使用合计函数。一般需用合计函数才会用 having    sql标准要求having必须引用group by子句中的列或用于合计函数中的列。f. order by 子句，排序子句    order by 排序字段/别名 排序方式 [,排序字段/别名 排序方式]...    升序：asc，降序：desc    支持多个字段的排序。g. limit 子句，限制结果数量子句    仅对处理好的结果进行数量限制。将处理好的结果的看作是一个集合，按照记录出现的顺序，索引从0开始。    limit 起始位置, 获取条数    省略第一个参数，表示从索引0开始。limit 获取条数h. distinct, all 选项    distinct 去除重复记录    默认为 all, 全部记录</code></pre><h1 id="union"><a href="#union" class="headerlink" title="union"></a>union</h1><pre><code class="sql">将多个select查询的结果组合成一个结果集合。select ... union [all|distinct] select ...默认 distinct 方式，即所有返回的行都是唯一的建议，对每个select查询加上小括号包裹。order by 排序时，需加上 limit 进行结合。需要各select查询的字段数量一样。每个select查询的字段列表(数量、类型)应一致，因为结果中的字段名以第一条select语句为准。</code></pre><h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><pre><code>    - 子查询需用括号包裹。-- from型    from后要求是一个表，必须给子查询结果取个别名。    - 简化每个查询内的条件。    - from型需将结果生成一个临时表格，可用以原表的锁定的释放。    - 子查询返回一个表，表型子查询。    select * from (select * from tb where id&gt;0) as subfrom where id&gt;1;-- where型    - 子查询返回一个值，标量子查询。    - 不需要给子查询取别名。    - where子查询内的表，不能直接用以更新。    select * from tb where money = (select max(money) from tb);    -- 列子查询        如果子查询结果返回的是一列。        使用 in 或 not in 完成查询        exists 和 not exists 条件            如果子查询返回数据，则返回1或0。常用于判断条件。            select column1 from t1 where exists (select * from t2);    -- 行子查询        查询条件是一个行。        select * from t1 where (id, gender) in (select id, gender from t2);        行构造符：(col1, col2, ...) 或 row(col1, col2, ...)        行构造符通常用于与对能返回两个或两个以上列的子查询进行比较。    -- 特殊运算符    != all()    相当于 not in    = some()    相当于 in。any 是 some 的别名    != some()   不等同于 not in，不等于其中某一个。    all, some 可以配合其他运算符一起使用。</code></pre><h1 id="连接查询-join"><a href="#连接查询-join" class="headerlink" title="连接查询(join)"></a>连接查询(join)</h1><pre><code class="sql">    将多个表的字段进行连接，可以指定连接条件。-- 内连接(inner join)    - 默认就是内连接，可省略inner。    - 只有数据存在时才能发送连接。即连接结果不能出现空行。    on 表示连接条件。其条件表达式与where类似。也可以省略条件（表示条件永远为真）    也可用where表示连接条件。    还有 using, 但需字段名相同。 using(字段名)    -- 交叉连接 cross join        即，没有条件的内连接。        select * from tb1 cross join tb2;-- 外连接(outer join)    - 如果数据不存在，也会出现在连接结果中。    -- 左外连接 left join        如果数据不存在，左表记录会出现，而右表为null填充    -- 右外连接 right join        如果数据不存在，右表记录会出现，而左表为null填充-- 自然连接(natural join)    自动判断连接条件完成连接。    相当于省略了using，会自动查找相同字段名。    natural join    natural left join    natural right joinselect info.id, info.name, info.stu_num, extra_info.hobby, extra_info.sex from info, extra_info where info.stu_num = extra_info.stu_id;/* 导入导出 */ ------------------select * into outfile 文件地址 [控制格式] from 表名;   -- 导出表数据load data [local] infile 文件地址 [replace|ignore] into table 表名 [控制格式]; -- 导入数据    生成的数据默认的分隔符是制表符    local未指定，则数据文件必须在服务器上    replace 和 ignore 关键词控制对现有的唯一键记录的重复的处理-- 控制格式fields  控制字段格式默认：fields terminated by &#39;\t&#39; enclosed by &#39;&#39; escaped by &#39;\\&#39;    terminated by &#39;string&#39;  -- 终止    enclosed by &#39;char&#39;      -- 包裹    escaped by &#39;char&#39;       -- 转义    -- 示例：        select a,b,a+b into outfile &#39;/tmp/result.text&#39;        fields terminated by &#39;,&#39; optionally enclosed by &#39;&quot;&#39;        lines terminated by &#39;\n&#39;        from test_table;lines   控制行格式默认：lines terminated by &#39;\n&#39;    terminated by &#39;string&#39;  -- 终止</code></pre><h1 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h1><pre><code class="sql">select语句获得的数据可以用insert插入。可以省略对列的指定，要求 values () 括号内，提供给了按照列顺序出现的所有字段的值。    或者使用set语法。    insert into tbl_name set field=value,...；可以一次性使用多个值，采用(), (), ();的形式。    insert into tbl_name values (), (), ();可以在列值指定时，使用表达式。    insert into tbl_name values (field_value, 10+10, now());可以使用一个特殊值 default，表示该列使用默认值。    insert into tbl_name values (field_value, default);可以通过一个查询的结果，作为需要插入的值。    insert into tbl_name select ...;可以指定在插入的值出现主键（或唯一索引）冲突时，更新其他非主键列的信息。    insert into tbl_name values/set/select on duplicate key update 字段=值, …;</code></pre><h1 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h1><pre><code class="sql">delete from tbl_name [where where_definition] [order by ...] [limit row_count]按照条件删除。where指定删除的最多记录数。limit可以通过排序条件删除。order by + limit支持多表删除，使用类似连接语法。delete from 需要删除数据多表1，表2 using 表连接操作 条件。/* truncate */ ------------------truncate [table] tbl_name清空数据删除重建表区别：1，truncate 是删除表再创建，delete 是逐条删除2，truncate 重置auto_increment的值。而delete不会3，truncate 不知道删除了几条，而delete知道。4，当被用于带分区的表时，truncate 会保留分区</code></pre><h1 id="备份与还原"><a href="#备份与还原" class="headerlink" title="备份与还原"></a>备份与还原</h1><pre><code class="sql">备份，将数据的结构与表内数据保存起来。利用 mysqldump 指令完成。-- 导出mysqldump [options] db_name [tables]mysqldump [options] ---database db1 [db2 db3...]mysqldump [options] --all--database1. 导出一张表　　mysqldump -u用户名 -p密码 库名 表名 &gt; 文件名(d:/a.sql)2. 导出多张表　　mysqldump -u用户名 -p密码 库名 表1 表2 表3 &gt; 文件名(d:/a.sql)3. 导出所有表　　mysqldump -u用户名 -p密码 库名 &gt; 文件名(d:/a.sql)4. 导出一个库　　mysqldump -u用户名 -p密码 --lock-all-tables --database 库名 &gt; 文件名(d:/a.sql)可以-w携带where条件-- 导入1. 在登录mysql的情况下：　　source  备份文件2. 在不登录的情况下　　mysql -u用户名 -p密码 库名 &lt; 备份文件</code></pre><h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><pre><code class="sql">什么是视图：    视图是一个虚拟表，其内容由查询定义。同真实的表一样，视图包含一系列带有名称的列和行数据。但是，视图并不在数据库中以存储的数据值集形式存在。行和列数据来自由定义视图的查询所引用的表，并且在引用视图时动态生成。    视图具有表结构文件，但不存在数据文件。    对其中所引用的基础表来说，视图的作用类似于筛选。定义视图的筛选可以来自当前或其它数据库的一个或多个表，或者其它视图。通过视图进行查询没有任何限制，通过它们进行数据修改时的限制也很少。    视图是存储在数据库中的查询的sql语句，它主要出于两种原因：安全原因，视图可以隐藏一些数据，如：社会保险基金表，可以用视图只显示姓名，地址，而不显示社会保险号和工资数等，另一原因是可使复杂的查询易于理解和使用。-- 创建视图create [or replace] [algorithm = {undefined | merge | temptable}] view view_name [(column_list)] as select_statement    - 视图名必须唯一，同时不能与表重名。    - 视图可以使用select语句查询到的列名，也可以自己指定相应的列名。    - 可以指定视图执行的算法，通过algorithm指定。    - column_list如果存在，则数目必须等于select语句检索的列数-- 查看结构    show create view view_name-- 删除视图    - 删除视图后，数据依然存在。    - 可同时删除多个视图。    drop view [if exists] view_name ...-- 修改视图结构    - 一般不修改视图，因为不是所有的更新视图都会映射到表上。    alter view view_name [(column_list)] as select_statement-- 视图作用    1. 简化业务逻辑    2. 对客户端隐藏真实的表结构-- 视图算法(algorithm)    merge       合并        将视图的查询语句，与外部查询需要先合并再执行！    temptable   临时表        将视图执行完毕后，形成临时表，再做外层查询！    undefined   未定义(默认)，指的是mysql自主去选择相应的算法。</code></pre><h1 id="事务-transaction"><a href="#事务-transaction" class="headerlink" title="事务(transaction)"></a>事务(transaction)</h1><pre><code class="sql">事务是指逻辑上的一组操作，组成这组操作的各个单元，要不全成功要不全失败。    - 支持连续sql的集体成功或集体撤销。    - 事务是数据库在数据晚自习方面的一个功能。    - 需要利用 innodb 或 bdb 存储引擎，对自动提交的特性支持完成。    - innodb被称为事务安全型引擎。-- 事务开启    start transaction; 或者 begin;    开启事务后，所有被执行的sql语句均被认作当前事务内的sql语句。-- 事务提交    commit;-- 事务回滚    rollback;    如果部分操作发生问题，映射到事务开启前。-- 事务的特性    1. 原子性（atomicity）        事务是一个不可分割的工作单位，事务中的操作要么都发生，要么都不发生。    2. 一致性（consistency）        事务前后数据的完整性必须保持一致。        - 事务开始和结束时，外部数据一致        - 在整个事务过程中，操作是连续的    3. 隔离性（isolation）        多个用户并发访问数据库时，一个用户的事务不能被其它用户的事物所干扰，多个并发事务之间的数据要相互隔离。    4. 持久性（durability）        一个事务一旦被提交，它对数据库中的数据改变就是永久性的。-- 事务的实现    1. 要求是事务支持的表类型    2. 执行一组相关的操作前开启事务    3. 整组操作完成后，都成功，则提交；如果存在失败，选择回滚，则会回到事务开始的备份点。-- 事务的原理    利用innodb的自动提交(autocommit)特性完成。    普通的mysql执行语句后，当前的数据提交操作均可被其他客户端可见。    而事务是暂时关闭“自动提交”机制，需要commit提交持久化数据操作。-- 注意    1. 数据定义语言（ddl）语句不能被回滚，比如创建或取消数据库的语句，和创建、取消或更改表或存储的子程序的语句。    2. 事务不能被嵌套-- 保存点    savepoint 保存点名称 -- 设置一个事务保存点    rollback to savepoint 保存点名称 -- 回滚到保存点    release savepoint 保存点名称 -- 删除保存点-- innodb自动提交特性设置    set autocommit = 0|1;   0表示关闭自动提交，1表示开启自动提交。    - 如果关闭了，那普通操作的结果对其他客户端也不可见，需要commit提交后才能持久化数据操作。    - 也可以关闭自动提交来开启事务。但与start transaction不同的是，        set autocommit是永久改变服务器的设置，直到下次再次修改该设置。(针对当前连接)        而start transaction记录开启前的状态，而一旦事务提交或回滚后就需要再次开启事务。(针对当前事务)</code></pre><h1 id="锁表"><a href="#锁表" class="headerlink" title="锁表"></a>锁表</h1><pre><code class="sql">表锁定只用于防止其它客户端进行不正当地读取和写入myisam 支持表锁，innodb 支持行锁-- 锁定    lock tables tbl_name [as alias]-- 解锁    unlock tables</code></pre><h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><pre><code class="sql">    触发程序是与表有关的命名数据库对象，当该表出现特定事件时，将激活该对象    监听：记录的增加、修改、删除。-- 创建触发器create trigger trigger_name trigger_time trigger_event on tbl_name for each row trigger_stmt    参数：    trigger_time是触发程序的动作时间。它可以是 before 或 after，以指明触发程序是在激活它的语句之前或之后触发。    trigger_event指明了激活触发程序的语句的类型        insert：将新行插入表时激活触发程序        update：更改某一行时激活触发程序        delete：从表中删除某一行时激活触发程序    tbl_name：监听的表，必须是永久性的表，不能将触发程序与temporary表或视图关联起来。    trigger_stmt：当触发程序激活时执行的语句。执行多个语句，可使用begin...end复合语句结构-- 删除drop trigger [schema_name.]trigger_name可以使用old和new代替旧的和新的数据    更新操作，更新前是old，更新后是new.    删除操作，只有old.    增加操作，只有new.-- 注意    1. 对于具有相同触发程序动作时间和事件的给定表，不能有两个触发程序。-- 字符连接函数concat(str1,str2,...])concat_ws(separator,str1,str2,...)-- 分支语句if 条件 then    执行语句elseif 条件 then    执行语句else    执行语句end if;-- 修改最外层语句结束符delimiter 自定义结束符号    sql语句自定义结束符号delimiter ;     -- 修改回原来的分号-- 语句块包裹begin    语句块end-- 特殊的执行1. 只要添加记录，就会触发程序。2. insert into on duplicate key update 语法会触发：    如果没有重复记录，会触发 before insert, after insert;    如果有重复记录并更新，会触发 before insert, before update, after update;    如果有重复记录但是没有发生更新，则触发 before insert, before update3. replace 语法 如果有记录，则执行 before insert, before delete, after delete, after insert</code></pre><h1 id="SQL编程"><a href="#SQL编程" class="headerlink" title="SQL编程"></a>SQL编程</h1><pre><code class="sql">--// 局部变量 ------------ 变量声明    declare var_name[,...] type [default value]    这个语句被用来声明局部变量。要给变量提供一个默认值，请包含一个default子句。值可以被指定为一个表达式，不需要为一个常数。如果没有default子句，初始值为null。-- 赋值    使用 set 和 select into 语句为变量赋值。    - 注意：在函数内是可以使用全局变量（用户自定义的变量）--// 全局变量 ------------ 定义、赋值set 语句可以定义并为变量赋值。set @var = value;也可以使用select into语句为变量初始化并赋值。这样要求select语句只能返回一行，但是可以是多个字段，就意味着同时为多个变量进行赋值，变量的数量需要与查询的列数一致。还可以把赋值语句看作一个表达式，通过select执行完成。此时为了避免=被当作关系运算符看待，使用:=代替。（set语句可以使用= 和 :=）。select @var:=20;select @v1:=id, @v2=name from t1 limit 1;select * from tbl_name where @var:=30;select into 可以将表中查询获得的数据赋给变量。    -| select max(height) into @max_height from tb;-- 自定义变量名为了避免select语句中，用户自定义的变量与系统标识符（通常是字段名）冲突，用户自定义变量在变量名前使用@作为开始符号。@var=10;    - 变量被定义后，在整个会话周期都有效（登录到退出）--// 控制结构 ------------ if语句if search_condition then    statement_list   [elseif search_condition then    statement_list]...[else    statement_list]end if;-- case语句case value when [compare-value] then result[when [compare-value] then result ...][else result]end-- while循环[begin_label:] while search_condition do    statement_listend while [end_label];- 如果需要在循环内提前终止 while循环，则需要使用标签；标签需要成对出现。    -- 退出循环        退出整个循环 leave        退出当前循环 iterate        通过退出的标签决定退出哪个循环--// 内置函数 ------------ 数值函数abs(x)          -- 绝对值 abs(-10.9) = 10format(x, d)    -- 格式化千分位数值 format(1234567.456, 2) = 1,234,567.46ceil(x)         -- 向上取整 ceil(10.1) = 11floor(x)        -- 向下取整 floor (10.1) = 10round(x)        -- 四舍五入去整mod(m, n)       -- m%n m mod n 求余 10%3=1pi()            -- 获得圆周率pow(m, n)       -- m^nsqrt(x)         -- 算术平方根rand()          -- 随机数truncate(x, d)  -- 截取d位小数-- 时间日期函数now(), current_timestamp();     -- 当前日期时间current_date();                 -- 当前日期current_time();                 -- 当前时间date(&#39;yyyy-mm-dd hh:ii:ss&#39;);    -- 获取日期部分time(&#39;yyyy-mm-dd hh:ii:ss&#39;);    -- 获取时间部分date_format(&#39;yyyy-mm-dd hh:ii:ss&#39;, &#39;%d %y %a %d %m %b %j&#39;); -- 格式化时间unix_timestamp();               -- 获得unix时间戳from_unixtime();                -- 从时间戳获得时间-- 字符串函数length(string)          -- string长度，字节char_length(string)     -- string的字符个数substring(str, position [,length])      -- 从str的position开始,取length个字符replace(str ,search_str ,replace_str)   -- 在str中用replace_str替换search_strinstr(string ,substring)    -- 返回substring首次在string中出现的位置concat(string [,...])   -- 连接字串charset(str)            -- 返回字串字符集lcase(string)           -- 转换成小写left(string, length)    -- 从string2中的左边起取length个字符load_file(file_name)    -- 从文件读取内容locate(substring, string [,start_position]) -- 同instr,但可指定开始位置lpad(string, length, pad)   -- 重复用pad加在string开头,直到字串长度为lengthltrim(string)           -- 去除前端空格repeat(string, count)   -- 重复count次rpad(string, length, pad)   --在str后用pad补充,直到长度为lengthrtrim(string)           -- 去除后端空格strcmp(string1 ,string2)    -- 逐字符比较两字串大小-- 流程函数case when [condition] then result [when [condition] then result ...] [else result] end   多分支if(expr1,expr2,expr3)  双分支。-- 聚合函数count()sum();max();min();avg();group_concat()-- 其他常用函数md5();default();--// 存储函数，自定义函数 ------------ 新建    create function function_name (参数列表) returns 返回值类型        函数体    - 函数名，应该合法的标识符，并且不应该与已有的关键字冲突。    - 一个函数应该属于某个数据库，可以使用db_name.funciton_name的形式执行当前函数所属数据库，否则为当前数据库。    - 参数部分，由&quot;参数名&quot;和&quot;参数类型&quot;组成。多个参数用逗号隔开。    - 函数体由多条可用的mysql语句，流程控制，变量声明等语句构成。    - 多条语句应该使用 begin...end 语句块包含。    - 一定要有 return 返回值语句。-- 删除    drop function [if exists] function_name;-- 查看    show function status like &#39;partten&#39;    show create function function_name;-- 修改    alter function function_name 函数选项--// 存储过程，自定义功能 ------------ 定义存储存储过程 是一段代码（过程），存储在数据库中的sql组成。一个存储过程通常用于完成一段业务逻辑，例如报名，交班费，订单入库等。而一个函数通常专注与某个功能，视为其他程序服务的，需要在其他语句中调用函数才可以，而存储过程不能被其他调用，是自己执行 通过call执行。-- 创建create procedure sp_name (参数列表)    过程体参数列表：不同于函数的参数列表，需要指明参数类型in，表示输入型out，表示输出型inout，表示混合型注意，没有返回值。</code></pre><h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><pre><code class="sql">存储过程是一段可执行性代码的集合。相比函数，更偏向于业务逻辑。调用：call 过程名-- 注意- 没有返回值。- 只能单独调用，不可夹杂在其他语句中-- 参数in|out|inout 参数名 数据类型in      输入：在调用过程中，将数据输入到过程体内部的参数out     输出：在调用过程中，将过程体处理完的结果返回到客户端inout   输入输出：既可输入，也可输出-- 语法create procedure 过程名 (参数列表)begin    过程体end</code></pre><h1 id="用户和权限管理"><a href="#用户和权限管理" class="headerlink" title="用户和权限管理"></a>用户和权限管理</h1><pre><code class="sql">-- root密码重置1. 停止mysql服务2.  [linux] /usr/local/mysql/bin/safe_mysqld --skip-grant-tables &amp;    [windows] mysqld --skip-grant-tables3. use mysql;4. update `user` set password=password(&quot;密码&quot;) where `user` = &quot;root&quot;;5. flush privileges;用户信息表：mysql.user-- 刷新权限flush privileges;-- 增加用户create user 用户名 identified by [password] 密码(字符串)    - 必须拥有mysql数据库的全局create user权限，或拥有insert权限。    - 只能创建用户，不能赋予权限。    - 用户名，注意引号：如 &#39;user_name&#39;@&#39;192.168.1.1&#39;    - 密码也需引号，纯数字密码也要加引号    - 要在纯文本中指定密码，需忽略password关键词。要把密码指定为由password()函数返回的混编值，需包含关键字password-- 重命名用户rename user old_user to new_user-- 设置密码set password = password(&#39;密码&#39;)  -- 为当前用户设置密码set password for 用户名 = password(&#39;密码&#39;) -- 为指定用户设置密码-- 删除用户drop user 用户名-- 分配权限/添加用户grant 权限列表 on 表名 to 用户名 [identified by [password] &#39;password&#39;]    - all privileges 表示所有权限    - *.* 表示所有库的所有表    - 库名.表名 表示某库下面的某表    grant all privileges on `pms`.* to &#39;pms&#39;@&#39;%&#39; identified by &#39;pms0817&#39;;-- 查看权限show grants for 用户名    -- 查看当前用户权限    show grants; 或 show grants for current_user; 或 show grants for current_user();-- 撤消权限revoke 权限列表 on 表名 from 用户名revoke all privileges, grant option from 用户名   -- 撤销所有权限-- 权限层级-- 要使用grant或revoke，您必须拥有grant option权限，并且您必须用于您正在授予或撤销的权限。全局层级：全局权限适用于一个给定服务器中的所有数据库，mysql.user    grant all on *.*和 revoke all on *.*只授予和撤销全局权限。数据库层级：数据库权限适用于一个给定数据库中的所有目标，mysql.db, mysql.host    grant all on db_name.*和revoke all on db_name.*只授予和撤销数据库权限。表层级：表权限适用于一个给定表中的所有列，mysql.talbes_priv    grant all on db_name.tbl_name和revoke all on db_name.tbl_name只授予和撤销表权限。列层级：列权限适用于一个给定表中的单一列，mysql.columns_priv    当使用revoke时，您必须指定与被授权列相同的列。-- 权限列表all [privileges]    -- 设置除grant option之外的所有简单权限alter   -- 允许使用alter tablealter routine   -- 更改或取消已存储的子程序create  -- 允许使用create tablecreate routine  -- 创建已存储的子程序create temporary tables     -- 允许使用create temporary tablecreate user     -- 允许使用create user, drop user, rename user和revoke all privileges。create view     -- 允许使用create viewdelete  -- 允许使用deletedrop    -- 允许使用drop tableexecute     -- 允许用户运行已存储的子程序file    -- 允许使用select...into outfile和load data infileindex   -- 允许使用create index和drop indexinsert  -- 允许使用insertlock tables     -- 允许对您拥有select权限的表使用lock tablesprocess     -- 允许使用show full processlistreferences  -- 未被实施reload  -- 允许使用flushreplication client  -- 允许用户询问从属服务器或主服务器的地址replication slave   -- 用于复制型从属服务器（从主服务器中读取二进制日志事件）select  -- 允许使用selectshow databases  -- 显示所有数据库show view   -- 允许使用show create viewshutdown    -- 允许使用mysqladmin shutdownsuper   -- 允许使用change master, kill, purge master logs和set global语句，mysqladmin debug命令；允许您连接（一次），即使已达到max_connections。update  -- 允许使用updateusage   -- “无权限”的同义词grant option    -- 允许授予权限</code></pre><h1 id="表维护"><a href="#表维护" class="headerlink" title="表维护"></a>表维护</h1><pre><code class="sql">-- 分析和存储表的关键字分布analyze [local | no_write_to_binlog] table 表名 ...-- 检查一个或多个表是否有错误check table tbl_name [, tbl_name] ... [option] ...option = {quick | fast | medium | extended | changed}-- 整理数据文件的碎片optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pre><h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><pre><code class="sql">1. 可用反引号（`）为标识符（库名、表名、字段名、索引、别名）包裹，以避免与关键字重名！中文也可以作为标识符！2. 每个库目录存在一个保存当前数据库的选项文件db.opt。3. 注释：    单行注释 # 注释内容    多行注释 /* 注释内容 */    单行注释 -- 注释内容     (标准sql注释风格，要求双破折号后加一空格符（空格、tab、换行等）)4. 模式通配符：    _   任意单个字符    %   任意多个字符，甚至包括零字符    单引号需要进行转义 \&#39;5. cmd命令行内的语句结束符可以为 &quot;;&quot;, &quot;\g&quot;, &quot;\g&quot;，仅影响显示结果。其他地方还是用分号结束。delimiter 可修改当前对话的语句结束符。6. sql对大小写不敏感7. 清除已有语句：\c</code></pre>]]></content>
     
@@ -93,8 +93,6 @@
     
       <category term="MySQL" scheme="/tags/MySQL/"/>
     
-      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
-    
   </entry>
   
   <entry>
@@ -102,7 +100,7 @@
     <link href="/2019/05/20/npm-install-hexo-renderer-sass%E6%97%B6%E6%8A%A5%E9%94%99/"/>
     <id>/2019/05/20/npm-install-hexo-renderer-sass时报错/</id>
     <published>2019-05-20T15:37:42.000Z</published>
-    <updated>2019-06-10T09:50:03.488Z</updated>
+    <updated>2019-06-11T07:27:53.649Z</updated>
     
     <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用<code>hexo</code>搭建博客时，需安装<code>hexo-renderer-sass</code>：</p><pre><code class="shell">$ npm install hexo-renderer-sass</code></pre><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>改用淘宝镜像：</p><pre><code class="shell">$ npm install -g cnpm --registry=https://registry.npm.taobao.org$ npm config set registry https://registry.npm.taobao.org</code></pre><p>再次安装：</p><pre><code class="shell">$ cnpm install hexo-renderer-sass --save</code></pre>]]></content>
     
@@ -118,6 +116,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="Hexo" scheme="/tags/Hexo/"/>
+    
   </entry>
   
   <entry>
@@ -125,7 +125,7 @@
     <link href="/2019/05/20/%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>/2019/05/20/重新搭建博客/</id>
     <published>2019-05-20T12:49:00.000Z</published>
-    <updated>2019-06-10T01:33:10.842Z</updated>
+    <updated>2019-06-11T07:27:25.005Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>3月份初，许久没写博客（主要就是懒）的博主在莫一天心血来潮写好一篇文章后，使用<code>hexo d</code>部署博客文章时，发现<code>hexo</code>抛出各种错误。但由于当时准备面试的面试题（主要就是懒），然后就放着没管它。紧接着面试实习岗位，工作后也一直没有闲下来。<br>最近终于抽出时间来重构博客，写下这篇文章，记录一下重构博客的过程~</p><h2 id="博客目录介绍"><a href="#博客目录介绍" class="headerlink" title="博客目录介绍"></a>博客目录介绍</h2><pre><code>.├── .deploy├── public├── scaffolds├── scripts├── source|   ├── _drafts|   └── _posts├── themes├── _config.yml└── package.json</code></pre><ul><li>.deploy：执行hexo deploy命令部署到GitHub上的内容目录</li><li>public：执行hexo generate命令，输出的静态网页内容目录</li><li>scaffolds：layout模板文件目录，其中的md文件可以添加编辑</li><li>scripts：扩展脚本目录，这里可以自定义一些javascript脚本</li><li>source：文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里，该目录下可新建页面目录。</li><li>_drafts：草稿文章</li><li>_posts：发布文章</li><li>themes：主题文件目录</li><li>_config.yml：全局配置文件，大多数的设置都在这里</li><li>package.json：应用程序数据，指明hexo的版本等信息，类似于一般软件中的 关于 按钮</li></ul><p>接下来是重头戏 _config.yml ，做个简单说明：</p><pre><code class="yml"># Hexo Configuration## Docs: http://zespia.tw/hexo/docs/configure.html## Source: https://github.com/tommy351/hexo/# Site #整站的基本信息title: 不如 #网站标题subtitle: 码农，程序猿，未来的昏析师 #网站副标题description: bruce sha&#39;s blog | java | scala | bi #网站描述，给搜索引擎用的，在生成html中的head-&gt;meta中可看到author: bruce #网站作者，在下方显示email: bu.ru@qq.com #联系邮箱language: zh-CN #语言# URL #域名和文件结构## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;url: http://ibruce.info #你的域名root: /permalink: :year/:month/:day/:title/tag_dir: tagsarchive_dir: archivescategory_dir: categoriescode_dir: downloads/code# Writing #写文章选项new_post_name: :title.md # File name of new postsdefault_layout: post #默认layout方式auto_spacing: false # Add spaces between asian characters and western characterstitlecase: false # Transform title into titlecaseexternal_link: true # Open external links in new tabmax_open_file: 100multi_thread: truefilename_case: 0render_drafts: falsehighlight: #代码高亮  enable: true #是否启用  line_number: false #是否显示行号  tab_replace:# Category &amp; Tag #分类与标签default_category: uncategorized # defaultcategory_map:tag_map:# Archives #存档，这里的说明好像不对。全部选择1，这个选项与主题中的选项有时候会有冲突## 2: Enable pagination## 1: Disable pagination## 0: Fully Disablearchive: 1category: 1tag: 1# Server #本地服务参数## Hexo uses Connect as a server## You can customize the logger format as defined in## http://www.senchalabs.org/connect/logger.htmlport: 4000logger: truelogger_format:# Date / Time format #日期显示格式## Hexo uses Moment.js to parse and display date## You can customize the date format as defined in## http://momentjs.com/docs/#/displaying/format/date_format: MMM D YYYYtime_format: H:mm:ss# Pagination #分页设置## Set per_page to 0 to disable paginationper_page: 10 #每页10篇文章pagination_dir: page# Disqus #社会化评论disqus，我使用多说，在主题中配置disqus_shortname:# Extensions #插件，暂时未安装插件## Plugins: https://github.com/tommy351/hexo/wiki/Plugins## Themes: https://github.com/tommy351/hexo/wiki/Themes## 主题theme: modernist # raytaylorism # pacman # modernist # lightexclude_generator:# Deployment #部署## Docs: http://zespia.tw/hexo/docs/deploy.htmldeploy:  type: github  repository: git@github.com:bruce-sha/bruce-sha.github.com.git #你的GitHub Pages仓库</code></pre><h2 id="主题目录介绍"><a href="#主题目录介绍" class="headerlink" title="主题目录介绍"></a>主题目录介绍</h2><pre><code>.├── languages          #多语言|   ├── default.yml    #默认语言|   └── zh-CN.yml      #中文语言├── layout             #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制|   ├── _partial       #局部的布局，此目录下的*.ejs是对头尾等局部的控制|   └── _widget        #小挂件的布局，页面下方小挂件的控制├── source             #源码|   ├── css            #css源码 |   |   ├── _base      #*.styl基础css|   |   ├── _partial   #*.styl局部css|   |   ├── fonts      #字体|   |   ├── images     #图片|   |   └── style.styl #*.styl引入需要的css源码|   ├── fancybox       #fancybox效果源码|   └── js             #javascript源代码├── _config.yml        #主题配置文件└── README.md          #用GitHub的都知道</code></pre><p>如果你需要修改头部，直接修改 <code>hexo\themes\modernist\layout\_partial\header.ejs</code> ，比如头上加个搜索框：</p><pre><code class="ejs">&lt;div&gt;&lt;form class=&quot;search&quot; action=&quot;//google.com/search&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt; &lt;input type=&quot;search&quot; name=&quot;q&quot; id=&quot;search&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; maxlength=&quot;20&quot; placeholder=&quot;Search&quot; /&gt; &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:&lt;%- config.url.replace(/^https?:\/\//, &#39;&#39;) %&gt;&quot;&gt;&lt;/form&gt;&lt;/div&gt;</code></pre><p>将如上代码加入即可，您需要修改css以便这个搜索框比较美观。<br>再如，你要修改页脚版权信息，直接编辑 <code>hexo\themes\modernist\layout\_partial\footer.ejs</code>。同理，你需要修改css，直接去修改对应位置的styl文件。</p><h1 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h1><blockquote><p><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="noopener">https://www.haomwei.com/technology/maupassant-hexo.html</a></p></blockquote><pre><code class="shell">$ git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant$ npm install hexo-renderer-pug --save$ npm install hexo-renderer-sass --save</code></pre><blockquote><p><code>npm install hexo-renderer-pug --save</code>安装时可能会报错，以下是解决方案：<br>改用cnpm来安装软件</p><blockquote><p>$ npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>目的是直接改npm为淘宝的npm，也为防止某些依赖直接用npm来安装，导致无法顺利安装完成<br>$ npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p></blockquote></blockquote><p>编辑Hexo目录下的 <code>_config.yml</code>，将<code>theme</code>的值改为<code>maupassant</code></p><pre><code class="yml">theme: matery</code></pre><h1 id="功能配置"><a href="#功能配置" class="headerlink" title="功能配置"></a>功能配置</h1><pre><code class="yml"># 是否启用Fancybox图片灯箱效果# Disqus评论 shortnamdisqus: # 友言评论 iduyan: # 来必力评论 data-uidlivere: # 畅言评论 appidchangyan: changyan_conf: ## Your changyan conf, e.g. prod_d8a508c2825ab57eeb43e7c69bba0e8b# Gitment评论相关参数gitment:  enable: false  owner:   repo:   client_id:   client_secret: # Gitalk评论相关参数gitalk:  enable: false   owner:    repo:   client_id:    client_secret:    admin:  # Valine评论相关参数valine:   enable: false   appid:   appkey:   notify: false # 评论系统中的邮件提醒设置  verify: false ## Validation code.  placeholder: Just so so   avatar: &#39;mm&#39;   pageSize: 10  guest_info: nick,mail,link# 默认使用Google搜索引擎google_search: true# 若想使用百度搜索，将其设定为 truebaidu_search: false# Swiftype 站内搜索keyswiftype: # 微搜索 keytinysou: # 基于jQuery的本地搜索引擎，需要安装hexo-generator-search插件使用self_search: false# Google Analytics 跟踪IDgoogle_analytics: # 百度统计 跟踪IDbaidu_analytics: # fancybox: true ## If you want to use fancybox please set the value to true.# 是否显示侧边栏分类数目show_category_count: false# 是否显示文章中目录列表自动编号toc_number: true#  是否使用分享按鈕，需要安装hexo-helper-qrcode插件使用shareto: false#  是否使用不蒜子页面访问计数busuanzi: false# wordcount: false ## If you want to display the word counter and the reading time expected to spend of each post please set the value to true, and you must have hexo-wordcount installed.# 是否在移动设备屏幕底部显示侧边栏widgets_on_small_screens: false ## Set to true to enable widgets on small screens.# 是否使用canvas动态背景canvas_nest:  enable: false  color: ## RGB value of the color, e.g. &quot;100,99,98&quot;  opacity: ## Transparency of lines, e.g. &quot;0.7&quot;  zIndex: ## The z-index property of the background, e.g. &quot;-1&quot;  count: ## Quantity of lines, e.g. &quot;150&quot;# 是否启用捐赠按钮donate:  enable: false  github: ## GitHub URL, e.g. https://github.com/Kaiyuan/donate-page  alipay_qr: ## Path of Alipay QRcode image, e.g. /img/AliPayQR.png  wechat_qr: ## Path of Wechat QRcode image, e.g. /img/WeChatQR.png  btc_qr: ## Path of Bitcoin QRcode image, e.g. /img/BTCQR.png  btc_key: ## Bitcoin key, e.g. 1KuK5eK2BLsqpsFVXXSBG5wbSAwZVadt6L  paypal_url: ## Paypal URL, e.g. https://www.paypal.me/tufu9441post_copyright:  enable: false ## If you want to display the copyright info after each post, please set the value to true and fill the following items on your need.  author: ## Your author name, e.g. tufu9441  copyright_text: ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.# 自定义页面及菜单，依照已有格式填写。# 填写后请在source目录下建立相应名称的文件夹，并包含index.md文件，以正确显示页面。# 导航菜单中集成了FontAwesome图标字体，可以在这里选择新的图标，并按照相关说明使用。menu:  - page: home    directory: .    icon: fa-home  - page: archive    directory: archives/    icon: fa-archive  - page: about    directory: about/    icon: fa-user  - page: rss    directory: atom.xml    icon: fa-rss# 选择和排列希望使用的侧边栏小工具widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.  - search  - category  - tag  - recent_posts  - recent_comments  - links# 友情链接，请依照格式填写links:  - title: site-name1    url: http://www.example1.com/  - title: site-name2    url: http://www.example2.com/  - title: site-name3    url: http://www.example3.com/# 网站历史时间线，在页面front-matter中设置layout: timeline可显示timeline:  - num: 1    word: 2014/06/12-Start  - num: 2    word: 2014/11/29-XXX  - num: 3    word: 2015/02/18-DDD  - num: 4    word: More# Static files# 静态文件存储路径，方便设置CDN缓存js: jscss: css# Theme version# 主题版本，便于静态文件更新后刷新CDN缓存version: 0.0.0</code></pre><h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><h3 id="Disqus配置使用"><a href="#Disqus配置使用" class="headerlink" title="Disqus配置使用"></a>Disqus配置使用</h3><h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><blockquote><p><a href="https://link.jianshu.com/?t=https://disqus.com/" target="_blank" rel="noopener">https://disqus.com/</a></p></blockquote><h1 id="主题特性"><a href="#主题特性" class="headerlink" title="主题特性"></a>主题特性</h1><h2 id="主题目录结构"><a href="#主题目录结构" class="headerlink" title="主题目录结构"></a>主题目录结构</h2><pre><code>-maupassant|-languages</code></pre><h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>网站Favicon：<code>/blog/source/favicon.ico</code>，建议的大小：<code>32px*32px</code>。</p>]]></content>
     
@@ -142,6 +142,8 @@
     
       <category term="Hexo" scheme="/tags/Hexo/"/>
     
+      <category term="博客" scheme="/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
   </entry>
   
   <entry>
@@ -149,7 +151,7 @@
     <link href="/2019/05/15/hexo-d%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99%EF%BC%9AERROR-Deployer-not-found-git/"/>
     <id>/2019/05/15/hexo-d命令报错：ERROR-Deployer-not-found-git/</id>
     <published>2019-05-15T06:30:17.000Z</published>
-    <updated>2019-06-11T07:02:12.688Z</updated>
+    <updated>2019-06-11T07:28:09.206Z</updated>
     
     <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>使用<code>hexo d</code>或<code>hexo deploy</code>命令时报错：</p><blockquote><p>ERROR Deployer not found: git</p></blockquote><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>安装<code>hexo-deployer-git</code>：</p><pre><code class="shell">npm install --save hexo-deployer-git</code></pre><p>在<code>_config.yml</code>配置中将<code>deploy</code>的<code>type</code>由<code>github</code>改为<code>git</code>：</p><pre><code class="yml">deploy  type: git  repository: git@github.com:YOUR_ID/YOUR_ID.github.io.git  branch: master</code></pre><blockquote><p>将其中的<code>YOUR_ID</code>改成你自己的GitHub账号</p></blockquote>]]></content>
     
@@ -165,6 +167,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="Hexo" scheme="/tags/Hexo/"/>
+    
   </entry>
   
   <entry>
@@ -172,7 +176,7 @@
     <link href="/2019/05/09/%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/"/>
     <id>/2019/05/09/彻底禁用Chrome的“请停用以开发者模式运行的扩展程序”提示/</id>
     <published>2019-05-09T12:17:52.000Z</published>
-    <updated>2019-06-11T07:02:33.528Z</updated>
+    <updated>2019-06-11T07:28:46.109Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Chrome勾选<code>开发者模式</code>安装插件后，每次启动都会弹出<code>请停用以开发者模式运行的扩展程序</code>的提示，最为一枚具有强迫症的程序员，这个绝对不能忍~~</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200546595.png" alt="20190509200546595.png"></p><blockquote><p>Chrome版本：74.0.3729.131</p></blockquote><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="方案一：反编译修改chrome-dll文件"><a href="#方案一：反编译修改chrome-dll文件" class="headerlink" title="方案一：反编译修改chrome.dll文件"></a>方案一：反编译修改chrome.dll文件</h2><h3 id="1-1-下载x64dbg"><a href="#1-1-下载x64dbg" class="headerlink" title="1.1 下载x64dbg"></a>1.1 下载x64dbg</h3><p>下载地址：<a href="https://github.com/x64dbg/x64dbg/releases" target="_blank" rel="noopener">https://github.com/x64dbg/x64dbg/releases</a><br>选择最新版本进行下载：<img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200649190.png" alt="20190509200649190.png"><br>下载好之后，解压打开<code>release</code>，可以点击<code>x96dbg</code>选择<code>x64dbg</code>，也可以直接选择<code>x64</code>文件夹中的<code>x64dbg</code>，如果你是<code>32位</code>的系统还可以选择<code>x32dbg</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200733234.png" alt="在这里插入图片描述"></p><h3 id="1-2-反编译chrome-dll"><a href="#1-2-反编译chrome-dll" class="headerlink" title="1.2 反编译chrome.dll"></a>1.2 反编译chrome.dll</h3><p>通过 <code>右键chrome图标</code> –&gt; <code>属性</code> –&gt; <code>打开文件的所在位置</code> 找到<code>chrome.dll</code>文件<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/2019050920091629.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200924590.png" alt="在这里插入图片描述"><br>将<code>chrome.dll</code>文件拖入<code>x64.dbg</code>，会出现两个弹窗，其中黑色命令行弹窗不要关掉。如图：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201022963.png" alt="在这里插入图片描述">然后连续多次点击<code>运行到用户代码</code>按钮（我这里是连续点击6下），直至窗口标题处的模块变成<code>chrome.dll</code>：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201142813.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201224765.png" alt="在这里插入图片描述"><br>然后在主面板右键依次选择 <code>搜索</code>  –&gt; <code>当前模块</code> –&gt; <code>字符串</code>：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201307958.png" alt="在这里插入图片描述"><br>然后会打开一个搜索界面，等待模块搜索进度条<code>100%</code>也就是加载完毕：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201331276.png" alt="在这里插入图片描述"><br>在<code>搜索</code>框输入<code>ExtensionDeveloperModeWarning</code>进行搜索，会搜到2条结果，双击第1个，跳转到反汇编界面，往上翻一点，找到<code>cmp eax,2</code>（也有可能是 cmp eax,3 ）：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/201905092013524.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201416572.png" alt="在这里插入图片描述"><br>双击打开编辑页面，修改成<code>cmp eax,9</code>，然后点击<code>确定</code>，注意只需要<code>点击一次确定</code>即可，点击确定后它还是会继续弹出其它行的编辑界面，此时直接关闭对话框即可：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201440897.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201502878.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201514611.png" alt="在这里插入图片描述"><br>修改完之后<code>Ctrl+P</code>导出修改过的dll文件（点击修补文件按钮就是导出dll文件）：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/2019050920153199.png" alt="在这里插入图片描述"><br>然后把dll文件导出到任意其他位置，然后把原始<code>chrome.dll</code>文件==<strong>备份</strong>==（以免操作失误，否则只能重装Chrome），先关掉<code>x64dbg</code>，将刚刚导出的修补文件以<code>chrome.dll</code>命名然后覆盖原来的<code>chrome.dll</code>文件，重启Chrome，发现整个世界都清净了~~</p>]]></content>
     
@@ -188,6 +192,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="Chrome" scheme="/tags/Chrome/"/>
+    
+      <category term="请停用以开发者模式运行的扩展程序" scheme="/tags/%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F/"/>
+    
   </entry>
   
   <entry>
@@ -195,7 +203,7 @@
     <link href="/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/"/>
     <id>/2019/05/07/黑马乐优商城/</id>
     <published>2019-05-07T03:50:27.000Z</published>
-    <updated>2019-06-11T07:02:54.103Z</updated>
+    <updated>2019-06-11T07:29:00.935Z</updated>
     
     <content type="html"><![CDATA[<p>链接：<a href="https://pan.baidu.com/s/1xL-A9YPPMX6AzZjVPx-_vA" target="_blank ">乐优商城（19 天+资料+源码+笔记）</a><br>密码：<code>java</code></p><blockquote><p>本资源是博主在网上寻找乐优商城资料时，一位好人所赠</p><font color="hotpink">注意：找乐优商城资料的同学应该知道，乐优商城的视频有win和mac版本之分，此资源中的视频是mac版本。资料中的课件是完整的，但是与视频会有所出入</font></blockquote><blockquote><p><font color="red">PS：如果链接失效，可通过左侧联系博主</font></p></blockquote>]]></content>
     
@@ -211,6 +219,10 @@
       <category term="资源" scheme="/categories/%E8%B5%84%E6%BA%90/"/>
     
     
+      <category term="黑马" scheme="/tags/%E9%BB%91%E9%A9%AC/"/>
+    
+      <category term="乐优商城" scheme="/tags/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/"/>
+    
   </entry>
   
   <entry>
@@ -218,7 +230,7 @@
     <link href="/2019/05/05/navicat%E6%93%8D%E4%BD%9Cmysql%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5null%E5%80%BC%EF%BC%9F/"/>
     <id>/2019/05/05/navicat操作mysql的时候，如何输入null值？/</id>
     <published>2019-05-05T03:47:07.000Z</published>
-    <updated>2019-06-11T07:04:29.840Z</updated>
+    <updated>2019-06-11T07:29:20.622Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190505-navicat%E6%93%8D%E4%BD%9Cmysql%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5null%E5%80%BC%EF%BC%9F/2019050511402255.png" alt="在这里插入图片描述"><br>使用<code>右键</code>或菜单栏中的<code>编辑</code>可以设置<code>NULL值</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190505-navicat%E6%93%8D%E4%BD%9Cmysql%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5null%E5%80%BC%EF%BC%9F/20190505114522257.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190505-navicat%E6%93%8D%E4%BD%9Cmysql%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5null%E5%80%BC%EF%BC%9F/20190505114636410.png" alt="在这里插入图片描述"></p>]]></content>
     
@@ -234,6 +246,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="Mysql" scheme="/tags/Mysql/"/>
+    
+      <category term="Navicat" scheme="/tags/Navicat/"/>
+    
   </entry>
   
   <entry>
@@ -241,7 +257,7 @@
     <link href="/2019/04/23/POI%E5%AF%BC%E5%85%A5Excel%E5%BC%82%E5%B8%B8Cannot-get-a-text-value-from-a-numeric-cell/"/>
     <id>/2019/04/23/POI导入Excel异常Cannot-get-a-text-value-from-a-numeric-cell/</id>
     <published>2019-04-23T09:37:03.000Z</published>
-    <updated>2019-06-11T07:05:08.768Z</updated>
+    <updated>2019-06-11T07:29:36.837Z</updated>
     
     <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><code>POI</code>操作<code>Excel</code>时偶尔会出现<code>Cannot get a text value from a numeric cell</code>的异常错误</p><blockquote><p>java.lang.IllegalStateException: Cannot get a text value from a numeric cell</p></blockquote><p>异常原因：Excel数据cell有不同的类型，当我们试图从一个数字类型的Cell读取出一个字符串并写入数据库时，就会出现Cannot get a text value from a numeric cell的异常错误。</p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>通过<code>setCellType()</code>设置<code>cell</code>类型，统一设置成String类型，然后再获取</p><pre><code class="java">Row row = sheet.getRow(i);for (int j = 0; j &lt; row.getPhysicalNumberOfCells(); j++) {    //     row.getCell(j).setCellType(Cell.CELL_TYPE_STRING);    //     String cellValue = row.getCell(j).getStringCellValue();    System.out.println(cellValue);}</code></pre>]]></content>
     
@@ -257,6 +273,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="POI" scheme="/tags/POI/"/>
+    
+      <category term="Excel" scheme="/tags/Excel/"/>
+    
   </entry>
   
   <entry>
@@ -264,7 +284,7 @@
     <link href="/2019/04/19/%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E5%90%8E%E5%BC%B9%E7%AA%97%E6%8F%90%E7%A4%BA%E4%B8%8B%E8%BD%BD%E5%90%8D%E7%A7%B0%E6%98%AFcc-png%EF%BC%8C%E6%9D%A5%E6%BA%90%E6%98%AFs3-amazonaws-com%E7%9A%84%E6%96%87%E4%BB%B6/"/>
     <id>/2019/04/19/电脑开机后弹窗提示下载名称是cc-png，来源是s3-amazonaws-com的文件/</id>
     <published>2019-04-19T01:27:45.000Z</published>
-    <updated>2019-06-11T07:06:12.332Z</updated>
+    <updated>2019-06-11T07:29:59.148Z</updated>
     
     <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>电脑开机之后会自动弹窗提示让下载一个名称是<code>cc.png</code>，来源是<code>s3.amazonaws.com</code>的文件<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190419-%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E5%90%8E%E5%BC%B9%E7%AA%97%E6%8F%90%E7%A4%BA%E4%B8%8B%E8%BD%BD%E5%90%8D%E7%A7%B0%E6%98%AFcc-png%EF%BC%8C%E6%9D%A5%E6%BA%90%E6%98%AFs3-amazonaws-com%E7%9A%84%E6%96%87%E4%BB%B6/20190419091835627.png" alt="在这里插入图片描述"></p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>网上查询后，了解到是因为我最近下载了<code>Adobe Premiere</code>，而破解工具有瑕疵的原因。网上的解决方案是将<code>Adobe Creative Cloud</code>的默认开机启动改成<code>禁用</code>即可，下面是解决步骤：</p><blockquote><p>1、使用快捷键<code>Ctrl + Shift + Esc</code>打开<code>任务管理器</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190419-%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E5%90%8E%E5%BC%B9%E7%AA%97%E6%8F%90%E7%A4%BA%E4%B8%8B%E8%BD%BD%E5%90%8D%E7%A7%B0%E6%98%AFcc-png%EF%BC%8C%E6%9D%A5%E6%BA%90%E6%98%AFs3-amazonaws-com%E7%9A%84%E6%96%87%E4%BB%B6/20190419092336589.png" alt="在这里插入图片描述"><br>2、在<code>启动</code>中找到<code>Adobe Creative Cloud</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190419-%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E5%90%8E%E5%BC%B9%E7%AA%97%E6%8F%90%E7%A4%BA%E4%B8%8B%E8%BD%BD%E5%90%8D%E7%A7%B0%E6%98%AFcc-png%EF%BC%8C%E6%9D%A5%E6%BA%90%E6%98%AFs3-amazonaws-com%E7%9A%84%E6%96%87%E4%BB%B6/20190419092453410.png" alt="在这里插入图片描述"><br>3、右键，将其改为<code>禁用</code>即可<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190419-%E7%94%B5%E8%84%91%E5%BC%80%E6%9C%BA%E5%90%8E%E5%BC%B9%E7%AA%97%E6%8F%90%E7%A4%BA%E4%B8%8B%E8%BD%BD%E5%90%8D%E7%A7%B0%E6%98%AFcc-png%EF%BC%8C%E6%9D%A5%E6%BA%90%E6%98%AFs3-amazonaws-com%E7%9A%84%E6%96%87%E4%BB%B6/20190419092604757.png" alt="在这里插入图片描述"></p></blockquote>]]></content>
     
@@ -280,6 +300,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="cc.png" scheme="/tags/cc-png/"/>
+    
   </entry>
   
   <entry>
@@ -287,7 +309,7 @@
     <link href="/2019/04/16/IDEA%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2%E9%AB%98%E4%BA%AE%E7%9A%84%E6%97%A5%E5%BF%97/"/>
     <id>/2019/04/16/IDEA运行SpringBoot项目控制台输出颜色高亮的日志/</id>
     <published>2019-04-16T08:43:18.000Z</published>
-    <updated>2019-06-11T07:08:43.451Z</updated>
+    <updated>2019-06-11T07:30:58.414Z</updated>
     
     <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>有时IDEA运行SpringBoot项目，控制台<code>Console</code>输出的日志颜色为白色的</p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>配置启动类<code>application</code>的相关参数，添加：<code>-Dspring.output.ansi.enabled=ALWAYS</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190416-IDEA%E8%BF%90%E8%A1%8CSpringBoot%E9%A1%B9%E7%9B%AE%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2%E9%AB%98%E4%BA%AE%E7%9A%84%E6%97%A5%E5%BF%97/20190416160105555.png" alt="在这里插入图片描述"></p>]]></content>
     
@@ -303,6 +325,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="IDEA" scheme="/tags/IDEA/"/>
+    
+      <category term="SpringBoot" scheme="/tags/SpringBoot/"/>
+    
   </entry>
   
   <entry>
@@ -310,7 +336,7 @@
     <link href="/2019/04/16/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E5%88%87%E6%8D%A2%E5%B9%B3%E7%89%87%E5%81%87%E5%90%8D/"/>
     <id>/2019/04/16/win10日语输入法切换平片假名/</id>
     <published>2019-04-16T07:45:21.000Z</published>
-    <updated>2019-06-11T07:07:29.751Z</updated>
+    <updated>2019-06-11T07:30:41.089Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1-切换平假名"><a href="#1-切换平假名" class="headerlink" title="1.切换平假名"></a>1.切换平假名</h3><p>使用<code>Ctrl + CapsLock</code>切换至<code>平假名输入</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190416-win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E5%88%87%E6%8D%A2%E5%B9%B3%E7%89%87%E5%81%87%E5%90%8D/20190416154213323.png" alt="在这里插入图片描述"></p><h3 id="2-切换片假名"><a href="#2-切换片假名" class="headerlink" title="2.切换片假名"></a>2.切换片假名</h3><p>使用<code>Alt + CapsLock</code>切换至<code>片假名输入</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190416-win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E5%88%87%E6%8D%A2%E5%B9%B3%E7%89%87%E5%81%87%E5%90%8D/20190416154232520.png" alt="在这里插入图片描述"></p><h3 id="3-切换英文输入"><a href="#3-切换英文输入" class="headerlink" title="3.切换英文输入"></a>3.切换英文输入</h3><p>使用<code>Shift + CapsLock</code>或<code>Alt + ~</code>切换至<code>英文输入</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190416-win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E5%88%87%E6%8D%A2%E5%B9%B3%E7%89%87%E5%81%87%E5%90%8D/20190416154245677.png" alt="在这里插入图片描述"></p><h3 id="4-语言切换"><a href="#4-语言切换" class="headerlink" title="4.语言切换"></a>4.语言切换</h3><p>使用<code>win徽标键 + 空格</code>在不同的输入法中切换<br>使用<code>Alt + Shift</code>在输入语言之间切换</p>]]></content>
     
@@ -325,6 +351,12 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+      <category term="生活" scheme="/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="win10" scheme="/tags/win10/"/>
+    
+      <category term="日语" scheme="/tags/%E6%97%A5%E8%AF%AD/"/>
     
   </entry>
   
@@ -333,7 +365,7 @@
     <link href="/2019/04/01/Chrome%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD/"/>
     <id>/2019/04/01/Chrome历史版本下载/</id>
     <published>2019-04-01T02:23:02.000Z</published>
-    <updated>2019-06-11T07:09:02.747Z</updated>
+    <updated>2019-06-11T07:31:09.499Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://www.chromedownloads.net/chrome64linux/" target="_blank" rel="noopener">Chrome历史版本</a></p>]]></content>
     
@@ -349,6 +381,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="Chrome" scheme="/tags/Chrome/"/>
+    
   </entry>
   
   <entry>
@@ -356,7 +390,7 @@
     <link href="/2019/03/29/%E4%BD%BF%E7%94%A8Twitter%E7%9A%84Snowflake%E8%AE%BE%E7%BD%AE%E5%88%86%E5%B8%83%E5%BC%8F%E8%87%AA%E5%A2%9E%E9%95%BFID/"/>
     <id>/2019/03/29/使用Twitter的Snowflake设置分布式自增长ID/</id>
     <published>2019-03-29T06:44:44.000Z</published>
-    <updated>2019-06-11T07:09:15.236Z</updated>
+    <updated>2019-06-11T07:31:33.202Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>十次方项目工具类<code>IdWorker.java</code><br>描述：使用<code>Twitter</code>的<code>Snowflake</code>雪花算法设置分布式自增长ID</p></blockquote><pre><code class="java">import java.lang.management.ManagementFactory;import java.net.InetAddress;import java.net.NetworkInterface;/** * &lt;p&gt;名称：IdWorker.java&lt;/p&gt; * &lt;p&gt;描述：分布式自增长ID&lt;/p&gt; * &lt;pre&gt; *     Twitter的 Snowflake　JAVA实现方案 * &lt;/pre&gt; * 核心代码为其IdWorker这个类实现，其原理结构如下，我分别用一个0表示一位，用—分割开部分的作用： * 1||0---0000000000 0000000000 0000000000 0000000000 0 --- 00000 ---00000 ---000000000000 * 在上面的字符串中，第一位为未使用（实际上也可作为long的符号位），接下来的41位为毫秒级时间， * 然后5位datacenter标识位，5位机器ID（并不算标识符，实际是为线程标识）， * 然后12位该毫秒内的当前毫秒内的计数，加起来刚好64位，为一个Long型。 * 这样的好处是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞（由datacenter和机器ID作区分）， * 并且效率较高，经测试，snowflake每秒能够产生26万ID左右，完全满足需要。 * &lt;p&gt; * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加)) * * @author Polim */public class IdWorker {    // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）    private final static long twepoch = 1288834974657L;    // 机器标识位数    private final static long workerIdBits = 5L;    // 数据中心标识位数    private final static long datacenterIdBits = 5L;    // 机器ID最大值    private final static long maxWorkerId = -1L ^ (-1L &lt;&lt; workerIdBits);    // 数据中心ID最大值    private final static long maxDatacenterId = -1L ^ (-1L &lt;&lt; datacenterIdBits);    // 毫秒内自增位    private final static long sequenceBits = 12L;    // 机器ID偏左移12位    private final static long workerIdShift = sequenceBits;    // 数据中心ID左移17位    private final static long datacenterIdShift = sequenceBits + workerIdBits;    // 时间毫秒左移22位    private final static long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;    private final static long sequenceMask = -1L ^ (-1L &lt;&lt; sequenceBits);    /* 上次生产id时间戳 */    private static long lastTimestamp = -1L;    // 0，并发控制    private long sequence = 0L;    private final long workerId;    // 数据标识id部分    private final long datacenterId;    public IdWorker() {        this.datacenterId = getDatacenterId(maxDatacenterId);        this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);    }    /**     * @param workerId     工作机器ID     * @param datacenterId 序列号     */    public IdWorker(long workerId, long datacenterId) {        if (workerId &gt; maxWorkerId || workerId &lt; 0) {            throw new IllegalArgumentException(String.format(&quot;worker Id can&#39;t be greater than %d or less than 0&quot;, maxWorkerId));        }        if (datacenterId &gt; maxDatacenterId || datacenterId &lt; 0) {            throw new IllegalArgumentException(String.format(&quot;datacenter Id can&#39;t be greater than %d or less than 0&quot;, maxDatacenterId));        }        this.workerId = workerId;        this.datacenterId = datacenterId;    }    /**     * 获取下一个ID     *     * @return     */    public synchronized long nextId() {        long timestamp = timeGen();        if (timestamp &lt; lastTimestamp) {            throw new RuntimeException(String.format(&quot;Clock moved backwards.  Refusing to generate id for %d milliseconds&quot;, lastTimestamp - timestamp));        }        if (lastTimestamp == timestamp) {            // 当前毫秒内，则+1            sequence = (sequence + 1) &amp; sequenceMask;            if (sequence == 0) {                // 当前毫秒内计数满了，则等待下一秒                timestamp = tilNextMillis(lastTimestamp);            }        } else {            sequence = 0L;        }        lastTimestamp = timestamp;        // ID偏移组合生成最终的ID，并返回ID        long nextId = ((timestamp - twepoch) &lt;&lt; timestampLeftShift)                | (datacenterId &lt;&lt; datacenterIdShift)                | (workerId &lt;&lt; workerIdShift) | sequence;        return nextId;    }    private long tilNextMillis(final long lastTimestamp) {        long timestamp = this.timeGen();        while (timestamp &lt;= lastTimestamp) {            timestamp = this.timeGen();        }        return timestamp;    }    private long timeGen() {        return System.currentTimeMillis();    }    /**     * &lt;p&gt;     * 获取 maxWorkerId     * &lt;/p&gt;     */    protected static long getMaxWorkerId(long datacenterId, long maxWorkerId) {        StringBuffer mpid = new StringBuffer();        mpid.append(datacenterId);        String name = ManagementFactory.getRuntimeMXBean().getName();        if (!name.isEmpty()) {            /*             * GET jvmPid             */            mpid.append(name.split(&quot;@&quot;)[0]);        }        /*         * MAC + PID 的 hashcode 获取16个低位         */        return (mpid.toString().hashCode() &amp; 0xffff) % (maxWorkerId + 1);    }    /**     * &lt;p&gt;     * 数据标识id部分     * &lt;/p&gt;     */    protected static long getDatacenterId(long maxDatacenterId) {        long id = 0L;        try {            InetAddress ip = InetAddress.getLocalHost();            NetworkInterface network = NetworkInterface.getByInetAddress(ip);            if (network == null) {                id = 1L;            } else {                byte[] mac = network.getHardwareAddress();                id = ((0x000000FF &amp; (long) mac[mac.length - 1])                        | (0x0000FF00 &amp; (((long) mac[mac.length - 2]) &lt;&lt; 8))) &gt;&gt; 6;                id = id % (maxDatacenterId + 1);            }        } catch (Exception e) {            System.out.println(&quot; getDatacenterId: &quot; + e.getMessage());        }        return id;    }}</code></pre>]]></content>
     
@@ -372,6 +406,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="Snowflake" scheme="/tags/Snowflake/"/>
+    
+      <category term="自增ID" scheme="/tags/%E8%87%AA%E5%A2%9EID/"/>
+    
   </entry>
   
   <entry>
@@ -379,7 +417,7 @@
     <link href="/2019/03/29/bat%E8%84%9A%E6%9C%AC%E4%B8%AD%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/"/>
     <id>/2019/03/29/bat脚本中以管理员权限执行命令/</id>
     <published>2019-03-29T06:30:05.000Z</published>
-    <updated>2019-06-11T07:10:21.781Z</updated>
+    <updated>2019-06-11T07:31:58.371Z</updated>
     
     <content type="html"><![CDATA[<p>在bat脚本文件<code>第一行</code>加上下面命令：</p><blockquote><p>%1 mshta vbscript:CreateObject(“Shell.Application”).ShellExecute(“cmd.exe”,”/c %~s0 ::”,””,”runas”,1)(window.close)&amp;&amp;exit</p></blockquote>]]></content>
     
@@ -395,6 +433,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="bat" scheme="/tags/bat/"/>
+    
+      <category term="脚本" scheme="/tags/%E8%84%9A%E6%9C%AC/"/>
+    
   </entry>
   
   <entry>
@@ -402,7 +444,7 @@
     <link href="/2019/03/29/win10%E5%BC%80%E6%9C%BA%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/"/>
     <id>/2019/03/29/win10开机运行脚本文件/</id>
     <published>2019-03-29T06:24:21.000Z</published>
-    <updated>2019-06-11T07:10:07.884Z</updated>
+    <updated>2019-06-11T07:31:46.156Z</updated>
     
     <content type="html"><![CDATA[<h6 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h6><blockquote><p>有个bat脚本，希望电脑开机时自动执行此脚本</p></blockquote><h6 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h6><p>1、打开电脑目录：<code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190329-win10%E5%BC%80%E6%9C%BA%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/20190329142339956.png" alt="在这里插入图片描述"><br>2、将需要开机启动就执行的脚本放入此目录下<br>3、重启电脑</p>]]></content>
     
@@ -417,6 +459,10 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="win10" scheme="/tags/win10/"/>
+    
+      <category term="脚本" scheme="/tags/%E8%84%9A%E6%9C%AC/"/>
     
   </entry>
   
@@ -448,7 +494,7 @@
     <link href="/2019/03/26/win%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84WIFI%E5%AF%86%E7%A0%81/"/>
     <id>/2019/03/26/win系统查看连接过的WIFI密码/</id>
     <published>2019-03-26T10:22:36.000Z</published>
-    <updated>2019-06-11T07:12:24.473Z</updated>
+    <updated>2019-06-11T07:32:36.025Z</updated>
     
     <content type="html"><![CDATA[<h6 id="1-win-R，输入cmd回车打开cmd窗口"><a href="#1-win-R，输入cmd回车打开cmd窗口" class="headerlink" title="1. win+R，输入cmd回车打开cmd窗口"></a>1. <code>win+R</code>，输入<code>cmd</code>回车打开cmd窗口</h6><h6 id="2-输入下面命令显示电脑连接过的所有WIFI名："><a href="#2-输入下面命令显示电脑连接过的所有WIFI名：" class="headerlink" title="2. 输入下面命令显示电脑连接过的所有WIFI名："></a>2. 输入下面命令显示电脑连接过的所有WIFI名：</h6><pre><code class="command">netsh wlan show profiles</code></pre><blockquote><p>在cmd中鼠标右键是粘贴</p></blockquote><h6 id="3-输入下面命令查看WIFI密码："><a href="#3-输入下面命令查看WIFI密码：" class="headerlink" title="3. 输入下面命令查看WIFI密码："></a>3. 输入下面命令查看WIFI密码：</h6><pre><code>netsh wlan show profile name=&quot;WIFI名&quot; key=clear</code></pre><blockquote><p>“WIFI名称”：使用英文状态下的双引号</p></blockquote><p>在显示的内容中找到<code>安全设置</code>下的<code>关键内容</code>，即为WIFI密码<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190326-win%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84WIFI%E5%AF%86%E7%A0%81/20190326180330559.png" alt="在这里插入图片描述"></p>]]></content>
     
@@ -464,6 +510,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="win10" scheme="/tags/win10/"/>
+    
+      <category term="WIFI密码" scheme="/tags/WIFI%E5%AF%86%E7%A0%81/"/>
+    
   </entry>
   
   <entry>
@@ -471,7 +521,7 @@
     <link href="/2019/03/25/Swagger%E5%BC%82%E5%B8%B8%EF%BC%9Ajava-lang-NumberFormatException-For-input-string/"/>
     <id>/2019/03/25/Swagger异常：java-lang-NumberFormatException-For-input-string/</id>
     <published>2019-03-25T06:36:14.000Z</published>
-    <updated>2019-06-10T09:40:50.544Z</updated>
+    <updated>2019-06-11T07:33:05.459Z</updated>
     
     <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>项目整合<code>Swagger</code>，访问<code>Swagger</code>首页时后台抛出下面异常：</p><blockquote><p>i.s.m.p.AbstractSerializableParameter    : Illegal DefaultValue null for parameter type integer<br>java.lang.NumberFormatException: For input string: “”</p></blockquote><p>原因好像是说<code>swagger2</code>本身引用的<code>swagger-models-1.5.20.jar</code>有<code>bug</code><br><br></p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>导入下面的<code>maven</code>坐标：</p><pre><code class="xml">&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;    &lt;version&gt;2.9.2&lt;/version&gt;    &lt;exclusions&gt;        &lt;exclusion&gt;            &lt;groupId&gt;io.swagger&lt;/groupId&gt;            &lt;artifactId&gt;swagger-models&lt;/artifactId&gt;        &lt;/exclusion&gt;    &lt;/exclusions&gt;&lt;/dependency&gt;&lt;dependency&gt;    &lt;groupId&gt;io.swagger&lt;/groupId&gt;    &lt;artifactId&gt;swagger-models&lt;/artifactId&gt;    &lt;version&gt;1.5.21&lt;/version&gt;&lt;/dependency&gt;</code></pre>]]></content>
     
@@ -487,16 +537,18 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="Swagger" scheme="/tags/Swagger/"/>
+    
   </entry>
   
   <entry>
     <title>上传图片415异常：&quot;Content type &#39;multipart/form-data;&#39; .... not supported&quot;</title>
-    <link href="/2019/03/25/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data;&#39;%20....%20not%20supported/"/>
-    <id>/2019/03/25/上传图片415异常：Content type &#39;multipartform-data;&#39; .... not supported/</id>
+    <link href="/2019/03/25/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data;&#39;%20~not%20supported/"/>
+    <id>/2019/03/25/上传图片415异常：Content type &#39;multipartform-data;&#39; ~not supported/</id>
     <published>2019-03-25T02:23:04.000Z</published>
-    <updated>2019-06-11T07:12:39.268Z</updated>
+    <updated>2019-06-11T07:32:49.070Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote><p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p></blockquote><p><img src="https://img-blog.csdnimg.cn/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre>]]></content>
+    <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote><p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190325-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data%3B&#39;%20~not%20supported/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -509,6 +561,8 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="415" scheme="/tags/415/"/>
     
   </entry>
   
@@ -540,9 +594,9 @@
     <link href="/2019/03/22/MySQL%E4%B8%ADdatetime%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%8EJavaBean%E5%AF%B9%E5%BA%94%E7%9A%84%E7%B1%BB%E5%9E%8B/"/>
     <id>/2019/03/22/MySQL中datetime类型的字段与JavaBean对应的类型/</id>
     <published>2019-03-22T03:50:18.000Z</published>
-    <updated>2019-06-10T09:36:21.619Z</updated>
+    <updated>2019-06-11T07:33:25.952Z</updated>
     
-    <content type="html"><![CDATA[<h6 id="MySQL数据库中时间格式为datetime类型的字段："><a href="#MySQL数据库中时间格式为datetime类型的字段：" class="headerlink" title="MySQL数据库中时间格式为datetime类型的字段："></a>MySQL数据库中时间格式为<code>datetime</code>类型的字段：</h6><p><img src="https://img-blog.csdnimg.cn/20190322113812741.png" alt="在这里插入图片描述"></p><h6 id="JavaBean中对应字段的类型："><a href="#JavaBean中对应字段的类型：" class="headerlink" title="JavaBean中对应字段的类型："></a>JavaBean中对应字段的类型：</h6><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;// 如果到的是sql下的包(java.sql.Date)，get操作时封装的结果为null、put/post操作时会抛415异常import java.util.Date;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private Date ctime;</code></pre><p>or</p><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private String ctime;</code></pre>]]></content>
+    <content type="html"><![CDATA[<h6 id="MySQL数据库中时间格式为datetime类型的字段："><a href="#MySQL数据库中时间格式为datetime类型的字段：" class="headerlink" title="MySQL数据库中时间格式为datetime类型的字段："></a>MySQL数据库中时间格式为<code>datetime</code>类型的字段：</h6><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190322-MySQL%E4%B8%ADdatetime%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%8EJavaBean%E5%AF%B9%E5%BA%94%E7%9A%84%E7%B1%BB%E5%9E%8B/20190322113812741.png" alt="在这里插入图片描述"></p><h6 id="JavaBean中对应字段的类型："><a href="#JavaBean中对应字段的类型：" class="headerlink" title="JavaBean中对应字段的类型："></a>JavaBean中对应字段的类型：</h6><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;// 如果到的是sql下的包(java.sql.Date)，get操作时封装的结果为null、put/post操作时会抛415异常import java.util.Date;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private Date ctime;</code></pre><p>or</p><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private String ctime;</code></pre>]]></content>
     
     <summary type="html">
     
@@ -556,6 +610,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="MySQL" scheme="/tags/MySQL/"/>
+    
+      <category term="datetime" scheme="/tags/datetime/"/>
+    
   </entry>
   
   <entry>
@@ -563,7 +621,7 @@
     <link href="/2019/03/20/SpringBoot%E4%B8%ADMyBatis%E5%B1%9E%E6%80%A7%E6%98%A0%E5%B0%84%E4%B9%8B%E5%BC%80%E5%90%AF%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D/"/>
     <id>/2019/03/20/SpringBoot中MyBatis属性映射之开启驼峰命名/</id>
     <published>2019-03-20T06:43:26.000Z</published>
-    <updated>2019-06-10T09:35:43.438Z</updated>
+    <updated>2019-06-11T07:34:15.346Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>今天使用<code>SpringBoot</code>整合<code>MyBatis</code>开发时，发现从数据库中查询到的结果封装到<code>javabean</code>中，只要表中有<strong>下划线的字段</strong>，就会出现<code>null</code>值</p></blockquote><p>MyBatis默认是属性名和数据库字段名一一对应的，即<br>数据库表列：user_name<br>实体类属性：user_name</p><p>但是java中一般使用驼峰命名<br>数据库表列：user_name<br>实体类属性：userName</p><p>在<code>SpringBoot</code>中，可以通过设置<code>map-underscore-to-camel-case</code>属性为<code>true</code>来开启驼峰功能：</p><pre><code class="yml">mybatis:  configuration:    map-underscore-to-camel-case: true  # 开启驼峰命名</code></pre>]]></content>
     
@@ -579,6 +637,12 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="MyBatis" scheme="/tags/MyBatis/"/>
+    
+      <category term="SpringBoot" scheme="/tags/SpringBoot/"/>
+    
+      <category term="驼峰命名" scheme="/tags/%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D/"/>
+    
   </entry>
   
   <entry>
@@ -586,7 +650,7 @@
     <link href="/2019/03/19/%E5%8E%9F%E7%94%9Fjs%E4%BF%AE%E6%94%B9textarea%E7%9A%84%E5%80%BC/"/>
     <id>/2019/03/19/原生js修改textarea的值/</id>
     <published>2019-03-19T07:56:17.000Z</published>
-    <updated>2019-06-10T09:35:06.245Z</updated>
+    <updated>2019-06-11T07:34:32.209Z</updated>
     
     <content type="html"><![CDATA[<pre><code class="js">// 设置textarea的值document.getElementById(&quot;goodstext_id&quot;).value = &quot;值&quot;;</code></pre>]]></content>
     
@@ -602,6 +666,10 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="js" scheme="/tags/js/"/>
+    
+      <category term="textarea" scheme="/tags/textarea/"/>
+    
   </entry>
   
   <entry>
@@ -609,7 +677,7 @@
     <link href="/2019/03/19/js%E8%8E%B7%E5%8F%96ModelAndView%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE/"/>
     <id>/2019/03/19/js获取ModelAndView中的数据/</id>
     <published>2019-03-19T07:47:05.000Z</published>
-    <updated>2019-06-10T09:34:33.428Z</updated>
+    <updated>2019-06-11T07:36:04.103Z</updated>
     
     <content type="html"><![CDATA[<p><strong>后台封装：</strong></p><pre><code class="java">@GetMapping(&quot;/findById/{id}&quot;)public ModelAndView findById(@PathVariable(&quot;id&quot;) Integer id) {    // 通过id查询商品    Goods dbgoods = goodsService.findById(id);    // 创建ModelAndView对象    ModelAndView mv = new ModelAndView();    // 跳转到goods_editor.html页面    mv.setViewName(&quot;/goods/goods_editor&quot;);    // 封装查询结果    mv.addObject(&quot;dbgoods&quot;,dbgoods);    //    return mv;}</code></pre><p><br></p><p><strong>前端获取：</strong></p><pre><code class="html">&lt;script th:inline=&quot;javascript&quot;&gt; // 需要添加 th:inline 才能访问 model 中的属性    window.onload = function () {        console.log(&quot;页面加载完成&quot;);        // 获取ModelAndView中的dbgoods对象        var dbgoods = [[${dbgoods}]];        // 打印        console.log(dbgoods);    }&lt;/script&gt;</code></pre>]]></content>
     
@@ -624,6 +692,10 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="js" scheme="/tags/js/"/>
+    
+      <category term="ModelAndView" scheme="/tags/ModelAndView/"/>
     
   </entry>
   
@@ -655,7 +727,7 @@
     <link href="/2019/03/19/org-xml-sax-SAXParseException-%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8Blink%E5%BF%85%E9%A1%BB%E7%94%B1%E5%8C%B9%E9%85%8D%E7%9A%84%E7%BB%93%E6%9D%9F%E6%A0%87%E8%AE%B0link%E7%BB%88%E6%AD%A2/"/>
     <id>/2019/03/19/org-xml-sax-SAXParseException-元素类型link必须由匹配的结束标记link终止/</id>
     <published>2019-03-19T02:02:05.000Z</published>
-    <updated>2019-06-10T09:33:07.432Z</updated>
+    <updated>2019-06-11T07:35:46.936Z</updated>
     
     <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><code>SpringBoot</code>使用<code>thymeleaf</code>模板引擎时报错：</p><blockquote><p>org.xml.sax.SAXParseException: 元素类型 “link” 必须由匹配的结束标记 “&lt;&#47;link&gt;” 终止</p></blockquote><p>or</p><blockquote><p>org.xml.sax.SAXParseException: 元素类型 “meta” 必须由匹配的结束标记 “&lt;&#47;meta&gt;” 终止</p></blockquote><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>解决方法是在<code>pom.xml</code>文件中指定具体的<code>thymeleaf</code>版本具体如下</p><pre><code class="xml">&lt;properties&gt;    &lt;java.version&gt;1.8&lt;/java.version&gt;    &lt;!--添加下面两项指定thymeleaf的版本--&gt;    &lt;thymeleaf.version&gt;3.0.2.RELEASE&lt;/thymeleaf.version&gt;    &lt;thymeleaf-layout-dialect.version&gt;2.0.5&lt;/thymeleaf-layout-dialect.version&gt;&lt;/properties&gt;</code></pre>]]></content>
     
@@ -671,6 +743,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="踩坑" scheme="/tags/%E8%B8%A9%E5%9D%91/"/>
+    
   </entry>
   
   <entry>
@@ -678,7 +752,7 @@
     <link href="/2019/03/18/%E9%80%9A%E8%BF%87MyBatis%E5%90%91MySQL%E4%B8%AD%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E6%97%B6%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
     <id>/2019/03/18/通过MyBatis向MySQL中插入数据时中文乱码/</id>
     <published>2019-03-18T06:20:50.000Z</published>
-    <updated>2019-06-10T09:32:12.358Z</updated>
+    <updated>2019-06-11T07:36:29.883Z</updated>
     
     <content type="html"><![CDATA[<p><strong>问题：</strong><br>通过MyBatis向MySQL中插入或更新操作时，中文会显示成<code>???</code></p><p><strong>解决：</strong><br>在配置文件<code>application.yml</code>中连接数据库的地址<code>url</code>后面加上<code>characterEncoding=utf8</code>即可</p><pre><code class="yml">spring:  application:    name: server # 服务名称  datasource:    driverClassName: com.mysql.jdbc.Driver    url: jdbc:mysql://localhost:3306/db?characterEncoding=utf8    username: root # 数据库账号    password: root # 数据库密码</code></pre>]]></content>
     
@@ -694,6 +768,14 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="MySQL" scheme="/tags/MySQL/"/>
+    
+      <category term="踩坑" scheme="/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+      <category term="MyBatis" scheme="/tags/MyBatis/"/>
+    
+      <category term="乱码" scheme="/tags/%E4%B9%B1%E7%A0%81/"/>
+    
   </entry>
   
   <entry>
@@ -701,7 +783,7 @@
     <link href="/2019/03/14/A-component-required-a-bean-of-type-com-renqijie-dao-SellerMapper-that-could-not-be-found/"/>
     <id>/2019/03/14/A-component-required-a-bean-of-type-com-renqijie-dao-SellerMapper-that-could-not-be-found/</id>
     <published>2019-03-14T09:53:11.000Z</published>
-    <updated>2019-06-10T09:31:37.689Z</updated>
+    <updated>2019-06-11T07:36:59.885Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>异常：<br>Description:<br>A component required a bean of type ‘com.renqijie.dao.SellerMapper’ that could not be found.</p></blockquote><p><strong>原因：</strong><br>dao层接口<code>SellerMapper</code>未加注解<a href="mailto:`@org.apache.ibatis.annotations.Mapper" target="_blank" rel="noopener">`@org.apache.ibatis.annotations.Mapper</a>`</p>]]></content>
     
@@ -717,6 +799,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="踩坑" scheme="/tags/%E8%B8%A9%E5%9D%91/"/>
+    
   </entry>
   
   <entry>
@@ -724,7 +808,7 @@
     <link href="/2019/03/14/org-springframework-http-converter-HttpMessageNotWritableException-Could-not-write-JSON/"/>
     <id>/2019/03/14/org-springframework-http-converter-HttpMessageNotWritableException-Could-not-write-JSON/</id>
     <published>2019-03-14T03:52:15.000Z</published>
-    <updated>2019-06-10T09:31:09.190Z</updated>
+    <updated>2019-06-11T07:36:47.113Z</updated>
     
     <content type="html"><![CDATA[<p>记一次踩坑经历：<br><code>Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: (was java.lang.NullPointerException); nested exception is com.fasterxml.jackson.databind.JsonMappingException: (was java.lang.NullPointerException) (through reference chain: com.renqijie.pojo.vo.IndexBean[&quot;images&quot;]-&gt;java.util.ArrayList[0]-&gt;com.renqijie.pojo.Image[&quot;id&quot;])]</code></p><blockquote><p>原因：<br>JavaBean类<code>Image</code>中有一个属性类型刚开始设置成<code>int</code>类型，生成<code>getter/setter</code>方法后，又将其改成了<code>Integer</code>类型，结果就出现了上述情况</p></blockquote>]]></content>
     
@@ -740,6 +824,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="踩坑" scheme="/tags/%E8%B8%A9%E5%9D%91/"/>
+    
   </entry>
   
   <entry>
@@ -747,7 +833,7 @@
     <link href="/2019/03/13/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%A8%E6%88%B7%E8%A1%A8wx-user%E8%AE%BE%E8%AE%A1/"/>
     <id>/2019/03/13/小程序用户表wx-user设计/</id>
     <published>2019-03-13T02:07:05.000Z</published>
-    <updated>2019-06-10T09:30:30.616Z</updated>
+    <updated>2019-06-11T07:37:13.360Z</updated>
     
     <content type="html"><![CDATA[<pre><code class="sql">CREATE TABLE `wx_user` (  `id` int(20) NOT NULL AUTO_INCREMENT,  `openid` varchar(28) DEFAULT NULL COMMENT &#39;小程序用户的openid&#39;,  `nickname` varchar(100) DEFAULT NULL COMMENT &#39;用户头像&#39;,  `avatarurl` varchar(100) DEFAULT NULL COMMENT &#39;用户头像&#39;,  `gender` tinyint(1) DEFAULT NULL COMMENT &#39;性别  0-男、1-女&#39;,  `country` varchar(100) DEFAULT NULL COMMENT &#39;所在国家&#39;,  `province` varchar(100) DEFAULT NULL COMMENT &#39;省份&#39;,  `city` varchar(100) DEFAULT NULL COMMENT &#39;城市&#39;,  `language` varchar(100) DEFAULT NULL COMMENT &#39;语种&#39;,  `ctime` datetime DEFAULT NULL COMMENT &#39;创建/注册时间&#39;,  `mobile` varchar(50) DEFAULT NULL COMMENT &#39;手机号码&#39;,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=&#39;小程序用户表&#39;;</code></pre>]]></content>
     
@@ -763,6 +849,8 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="小程序" scheme="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
   </entry>
   
   <entry>
@@ -770,7 +858,7 @@
     <link href="/2019/03/12/%E6%9F%A5%E7%9C%8BCentOS%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/"/>
     <id>/2019/03/12/查看CentOS版本信息/</id>
     <published>2019-03-12T02:37:43.000Z</published>
-    <updated>2019-06-10T09:29:58.927Z</updated>
+    <updated>2019-06-11T07:37:23.572Z</updated>
     
     <content type="html"><![CDATA[<p>指令：<code>cat /etc/redhat-release</code></p><pre><code class="shell">CentOS Linux release 7.5.1804 (Core) </code></pre>]]></content>
     
@@ -785,6 +873,8 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="CentOS" scheme="/tags/CentOS/"/>
     
   </entry>
   

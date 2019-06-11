@@ -82,8 +82,6 @@
             
             <tag> MySQL </tag>
             
-            <tag> 笔记 </tag>
-            
         </tags>
       
     </entry>
@@ -104,6 +102,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
       
     </entry>
     
@@ -130,6 +134,8 @@
             
             <tag> Hexo </tag>
             
+            <tag> 博客 </tag>
+            
         </tags>
       
     </entry>
@@ -151,6 +157,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -169,6 +181,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Chrome </tag>
+            
+            <tag> 请停用以开发者模式运行的扩展程序 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -189,6 +209,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 黑马 </tag>
+            
+            <tag> 乐优商城 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -207,6 +235,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Mysql </tag>
+            
+            <tag> Navicat </tag>
+            
+        </tags>
       
     </entry>
     
@@ -227,6 +263,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> POI </tag>
+            
+            <tag> Excel </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -245,6 +289,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> cc.png </tag>
+            
+        </tags>
       
     </entry>
     
@@ -265,6 +315,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -281,8 +339,18 @@
           
           <category> 技术 </category>
           
+          <category> 生活 </category>
+          
       </categories>
       
+      
+        <tags>
+            
+            <tag> win10 </tag>
+            
+            <tag> 日语 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -303,6 +371,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Chrome </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -321,6 +395,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Snowflake </tag>
+            
+            <tag> 自增ID </tag>
+            
+        </tags>
       
     </entry>
     
@@ -341,6 +423,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -359,6 +449,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> win10 </tag>
+            
+            <tag> 脚本 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -398,6 +496,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> win10 </tag>
+            
+            <tag> WIFI密码 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -417,16 +523,22 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Swagger </tag>
+            
+        </tags>
+      
     </entry>
     
     
     
     <entry>
       <title>上传图片415异常：&quot;Content type &#39;multipart/form-data;&#39; .... not supported&quot;</title>
-      <link href="/2019/03/25/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data;&#39;%20....%20not%20supported/"/>
-      <url>/2019/03/25/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data;&#39;%20....%20not%20supported/</url>
+      <link href="/2019/03/25/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data;&#39;%20~not%20supported/"/>
+      <url>/2019/03/25/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data;&#39;%20~not%20supported/</url>
       
-        <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote><p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p></blockquote><p><img src="https://img-blog.csdnimg.cn/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote><p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190325-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data%3B&#39;%20~not%20supported/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p><pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {    try {        // 进行上传操作        return imgRotationService.uploadRotationImg(file, imgRotation);    } catch (Exception e) {        // 上传失败        e.printStackTrace();        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);    }}</code></pre>]]></content>
       
       
       <categories>
@@ -435,6 +547,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 415 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -464,7 +582,7 @@
       <link href="/2019/03/22/MySQL%E4%B8%ADdatetime%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%8EJavaBean%E5%AF%B9%E5%BA%94%E7%9A%84%E7%B1%BB%E5%9E%8B/"/>
       <url>/2019/03/22/MySQL%E4%B8%ADdatetime%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%8EJavaBean%E5%AF%B9%E5%BA%94%E7%9A%84%E7%B1%BB%E5%9E%8B/</url>
       
-        <content type="html"><![CDATA[<h6 id="MySQL数据库中时间格式为datetime类型的字段："><a href="#MySQL数据库中时间格式为datetime类型的字段：" class="headerlink" title="MySQL数据库中时间格式为datetime类型的字段："></a>MySQL数据库中时间格式为<code>datetime</code>类型的字段：</h6><p><img src="https://img-blog.csdnimg.cn/20190322113812741.png" alt="在这里插入图片描述"></p><h6 id="JavaBean中对应字段的类型："><a href="#JavaBean中对应字段的类型：" class="headerlink" title="JavaBean中对应字段的类型："></a>JavaBean中对应字段的类型：</h6><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;// 如果到的是sql下的包(java.sql.Date)，get操作时封装的结果为null、put/post操作时会抛415异常import java.util.Date;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private Date ctime;</code></pre><p>or</p><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private String ctime;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h6 id="MySQL数据库中时间格式为datetime类型的字段："><a href="#MySQL数据库中时间格式为datetime类型的字段：" class="headerlink" title="MySQL数据库中时间格式为datetime类型的字段："></a>MySQL数据库中时间格式为<code>datetime</code>类型的字段：</h6><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190322-MySQL%E4%B8%ADdatetime%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%8EJavaBean%E5%AF%B9%E5%BA%94%E7%9A%84%E7%B1%BB%E5%9E%8B/20190322113812741.png" alt="在这里插入图片描述"></p><h6 id="JavaBean中对应字段的类型："><a href="#JavaBean中对应字段的类型：" class="headerlink" title="JavaBean中对应字段的类型："></a>JavaBean中对应字段的类型：</h6><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;// 如果到的是sql下的包(java.sql.Date)，get操作时封装的结果为null、put/post操作时会抛415异常import java.util.Date;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private Date ctime;</code></pre><p>or</p><pre><code class="java">import com.fasterxml.jackson.annotation.JsonFormat;import org.springframework.format.annotation.DateTimeFormat;@JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;,timezone=&quot;GMT+8&quot;)@DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)@ApiModelProperty(&quot;创建时间，格式：yyyy-MM-dd HH:mm:ss&quot;)private String ctime;</code></pre>]]></content>
       
       
       <categories>
@@ -473,6 +591,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+            <tag> datetime </tag>
+            
+        </tags>
       
     </entry>
     
@@ -493,6 +619,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> MyBatis </tag>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> 驼峰命名 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -512,6 +648,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> textarea </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -530,6 +674,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+            <tag> ModelAndView </tag>
+            
+        </tags>
       
     </entry>
     
@@ -569,6 +721,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 踩坑 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -587,6 +745,18 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+            <tag> 踩坑 </tag>
+            
+            <tag> MyBatis </tag>
+            
+            <tag> 乱码 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -607,6 +777,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 踩坑 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -625,6 +801,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 踩坑 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -645,6 +827,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 小程序 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -663,6 +851,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> CentOS </tag>
+            
+        </tags>
       
     </entry>
     

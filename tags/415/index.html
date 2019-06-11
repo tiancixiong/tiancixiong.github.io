@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">上传图片415异常：&#34;Content type &#39;multipart/form-data;&#39; .... not supported&#34; | 天赐</title>
+  <title itemprop="name">Tag: 415 | 天赐</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -357,169 +357,64 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1505057244805-4efc582eee9b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1505057244805-4efc582eee9b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      上传图片415异常："Content type 'multipart/form-data;' .... not supported"</h1>
-      <p class="entry-census">
-        <span>
-          <a href="https://xiongtianci.com">
-            <img src="https://xiongtianci.com/images/avatar.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="https://xiongtianci.com">天赐</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2019-3-25<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="415.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">415</h1>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
-<p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p>
-<pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
-public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {
-    try {
-        // 进行上传操作
-        return imgRotationService.uploadRotationImg(file, imgRotation);
-    } catch (Exception e) {
-        // 上传失败
-        e.printStackTrace();
-        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-}
-</code></pre>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p>
-<pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
-public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {
-    try {
-        // 进行上传操作
-        return imgRotationService.uploadRotationImg(file, imgRotation);
-    } catch (Exception e) {
-        // 上传失败
-        e.printStackTrace();
-        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-}
-</code></pre>
-
+      
+  <!-- 首页默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2019/03/25/上传图片415异常：Content type 'multipartform-data;' ~not supported/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏<div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="/images/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="/images/custom/donate/WeChanQR.png"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2019/03/25/Swagger异常：java-lang-NumberFormatException-For-input-string/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                Swagger异常：java.lang.NumberFormatException: For input string: </h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2019/03/22/@RequestParam和@RequestBody/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                @RequestParam和@RequestBody</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
-      <!-- 评论插件设置 -->
+        <img width="150" height="150" src="https://images.unsplash.com/photo-1505057244805-4efc582eee9b?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt>
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2019/03/25/上传图片415异常：Content type 'multipartform-data;' ~not supported/">
+    上传图片415异常：&#34;Content type &#39;multipart/form-data;&#39; .... not supported&#34;</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2019-3-25</div>
+    <p>
+    </p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2019/03/25/上传图片415异常：Content type 'multipartform-data;' ~not supported/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
 
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
-        appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
 
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="https://xiongtianci.com" class="profile gravatar"><img src="https://xiongtianci.com/images/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="https://xiongtianci.com" itemprop="url" rel="author">天赐</a>
-            </h3>
-          </div>
-        </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
-
-
-
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
