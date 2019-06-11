@@ -870,7 +870,7 @@ public class WaitingTest {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -882,10 +882,10 @@ public class WaitingTest {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -1018,7 +1018,7 @@ public class WaitingTest {
 		window.setTimeout("show_date_time()", 1000);
 
 		// 获得建站时间
-		var time = "28/11/2018 12:00:00";
+		var time = "28/11/2018 15:36:06";
 		time = time.replace(/\//g, ':').replace(' ', ':');
 		time = time.split(':');
 		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
