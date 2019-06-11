@@ -60,9 +60,9 @@
     
     </summary>
     
-      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
-    
       <category term="生活" scheme="/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
     
     
       <category term="生活" scheme="/tags/%E7%94%9F%E6%B4%BB/"/>
@@ -471,7 +471,7 @@
     <link href="/2019/03/27/SpringMVC%E6%B3%A8%E8%A7%A3@CrossOrigin%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
     <id>/2019/03/27/SpringMVC注解@CrossOrigin解决跨域问题/</id>
     <published>2019-03-27T01:51:27.000Z</published>
-    <updated>2019-06-11T07:10:33.210Z</updated>
+    <updated>2019-06-11T07:49:22.063Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>一般的，只要网站的【协议名protocol】、【主机host】、【端口号port】这三个中的任意一个不同，网站间的数据请求与传输便构成了跨域调用<br>跨域：浏览同源策略的造成，是浏览器对JavaScript施加的安全限制<br>CORS是一种可以解决跨域问题的技术</p></blockquote><h3 id="SprinMVC通过-CrossOrigin注解解决跨域"><a href="#SprinMVC通过-CrossOrigin注解解决跨域" class="headerlink" title="SprinMVC通过@CrossOrigin注解解决跨域"></a>SprinMVC通过@CrossOrigin注解解决跨域</h3><blockquote><p>在Spring MVC<code>4.2</code>之后推出了<code>@CrossOrigin</code>注解来解决跨域问题，而在4.2之前我们都是通过定义注册<code>过滤器</code>的方式来解决跨域问题的</p></blockquote><p><strong>@CrossOrigin的参数：</strong><br>1、origins：允许可访问的域列表；*表示可以是任何来源<br>2、maxAge：准备响应前的缓存持续的最大时间（单位：秒）</p><p><strong>@CrossOrigin使用在Controller层：</strong><br>1、类上，此类中所有方法启用跨域支持</p><pre><code class="java">// 开启跨域支持@CrossOrigin@RestController@RequestMapping(&quot;/user&quot;)public class UserController {}</code></pre><p>2、方法上，仅此方法启用跨域支持</p><pre><code class="java">// 开启跨域支持@CrossOrigin@RequestMapping(value = &quot;/findAll&quot;, method = RequestMethod.GET)public List&lt;User&gt; findAll(){    return userService.findAll();}</code></pre><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、注解失效问题：此时Controlle的方法上<code>@RequestMapping</code>注解中需要声明<code>请求方式</code>即增加<code>method=RequestMethod.XXX</code></p><p>2、添加注解后session失效问题：此时对的ajax请求中需要添加<code>xhrFields:{withCredentials:true}</code>（每个ajax中都需要加此属性，以保证session一致）</p><pre><code class="js">$.ajax({    type: &quot;post&quot;,    url: &#39;/user/login&#39;,    xhrFields: {withCredentials: true},    data: {        username: username,        password: password    },    success: function (msg) {        console.log(&#39;登录成功&#39;);    },    error: function (msg) {        console.log(&#39;请求报错！&#39;);    }})</code></pre>]]></content>
     
@@ -486,6 +486,12 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="SpringMVC" scheme="/tags/SpringMVC/"/>
+    
+      <category term="CrossOrigin" scheme="/tags/CrossOrigin/"/>
+    
+      <category term="跨域" scheme="/tags/%E8%B7%A8%E5%9F%9F/"/>
     
   </entry>
   
@@ -571,7 +577,7 @@
     <link href="/2019/03/22/@RequestParam%E5%92%8C@RequestBody/"/>
     <id>/2019/03/22/@RequestParam和@RequestBody/</id>
     <published>2019-03-22T07:51:52.000Z</published>
-    <updated>2019-06-10T09:37:15.214Z</updated>
+    <updated>2019-06-11T07:46:52.899Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、-RequestParam"><a href="#一、-RequestParam" class="headerlink" title="一、@RequestParam"></a>一、@RequestParam</h3><blockquote><p>GET和POST请求传的参数会自动转换赋值到<code>@RequestParam</code>所注解的变量上</p></blockquote><pre><code class="html">&lt;form action=&quot;/requestParamDemo&quot; method=&quot;get&quot;&gt;    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;    用户昵称：&lt;input type=&quot;text&quot; name=&quot;usernick&quot;&gt;&lt;br&gt;    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;&lt;/form&gt;</code></pre><pre><code class="java">@RequestMapping(value = &quot;/requestParamDemo&quot;, method = RequestMethod.GET)public void requestParamDemo(@RequestParam(value = &quot;username&quot;) String userName, @RequestParam(value = &quot;usernick&quot;) String userNick) {    System.out.println(&quot;username: &quot; + userName);    System.out.println(&quot;usernick: &quot; + userNick);}</code></pre><h3 id="二、-RequestBody"><a href="#二、-RequestBody" class="headerlink" title="二、@RequestBody"></a>二、@RequestBody</h3><blockquote><p><code>@RequestBody</code>注解可以接收<code>json</code>格式的数据，并将其转换成对应的数据类型</p></blockquote><pre><code class="json">// 通过ajax发送json数据{    &quot;id&quot;:1,    &quot;username&quot;:&quot;jack&quot;,    &quot;password&quot;:&quot;1234&quot;}</code></pre><pre><code class="java">@RequestMapping(value=&quot;/requestBodyDemo&quot;, method = RequestMethod.POST)public void requestBodyDemo(@RequestBody User user){    System.out.println(&quot;id: &quot; + user.getId());    System.out.println(&quot;name: &quot; + user.getName());    System.out.println(&quot;password: &quot; + user.getPassword());}</code></pre>]]></content>
     
@@ -586,6 +592,10 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="RequestParam" scheme="/tags/RequestParam/"/>
+    
+      <category term="RequestBody" scheme="/tags/RequestBody/"/>
     
   </entry>
   
@@ -704,7 +714,7 @@
     <link href="/2019/03/19/SpringBoot%E4%BD%BF%E7%94%A8-thymeleaf-RestController-%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2/"/>
     <id>/2019/03/19/SpringBoot使用-thymeleaf-RestController-跳转页面/</id>
     <published>2019-03-19T02:19:37.000Z</published>
-    <updated>2019-06-10T09:33:48.770Z</updated>
+    <updated>2019-06-11T07:49:58.417Z</updated>
     
     <content type="html"><![CDATA[<p><code>thymeleaf</code>推荐使用<code>@Controller</code>进行页面跳转<br>如果用<code>@RestController</code>，则可以通过<code>ModelAndView</code>进行页面跳转<br>eg</p><pre><code class="java">/** * 跳转到goods_editor.html页面 * @return */@GetMapping(&quot;/goodsEditor&quot;)public ModelAndView goodsEditor(){    ModelAndView mv = new ModelAndView();    mv.setViewName(&quot;/goods/goods_editor&quot;);    return mv;}</code></pre>]]></content>
     
@@ -719,6 +729,12 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="SpringBoot" scheme="/tags/SpringBoot/"/>
+    
+      <category term="thymeleaf" scheme="/tags/thymeleaf/"/>
+    
+      <category term="RestController" scheme="/tags/RestController/"/>
     
   </entry>
   
@@ -768,11 +784,11 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="MySQL" scheme="/tags/MySQL/"/>
-    
       <category term="踩坑" scheme="/tags/%E8%B8%A9%E5%9D%91/"/>
     
       <category term="MyBatis" scheme="/tags/MyBatis/"/>
+    
+      <category term="MySQL" scheme="/tags/MySQL/"/>
     
       <category term="乱码" scheme="/tags/%E4%B9%B1%E7%A0%81/"/>
     

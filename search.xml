@@ -42,9 +42,9 @@
       
       <categories>
           
-          <category> 随想 </category>
-          
           <category> 生活 </category>
+          
+          <category> 随想 </category>
           
       </categories>
       
@@ -477,6 +477,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> SpringMVC </tag>
+            
+            <tag> CrossOrigin </tag>
+            
+            <tag> 跨域 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -572,6 +582,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> RequestParam </tag>
+            
+            <tag> RequestBody </tag>
+            
+        </tags>
       
     </entry>
     
@@ -702,6 +720,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> thymeleaf </tag>
+            
+            <tag> RestController </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -748,11 +776,11 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> 踩坑 </tag>
             
             <tag> MyBatis </tag>
+            
+            <tag> MySQL </tag>
             
             <tag> 乱码 </tag>
             
