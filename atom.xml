@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-06-12T01:31:50.239Z</updated>
+  <updated>2019-06-12T01:34:46.681Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo常用命名汇总</title>
+    <link href="https://www.xiongtianci.com/2019/06/12/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/"/>
+    <id>https://www.xiongtianci.com/2019/06/12/hexo常用命名汇总/</id>
+    <published>2019-06-12T01:32:47.000Z</published>
+    <updated>2019-06-12T01:34:46.681Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code class="shell"># hexo clean# hexo g# hexo d# hexo n &quot;文章名&quot;</code></pre><pre><code>hexo d -ghexo g &amp;&amp; hexo d</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      hexo命令汇总
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://www.xiongtianci.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>git常用命名汇总</title>
@@ -455,9 +477,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="脚本" scheme="https://www.xiongtianci.com/tags/%E8%84%9A%E6%9C%AC/"/>
-    
       <category term="bat" scheme="https://www.xiongtianci.com/tags/bat/"/>
+    
+      <category term="脚本" scheme="https://www.xiongtianci.com/tags/%E8%84%9A%E6%9C%AC/"/>
     
   </entry>
   

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>hexo常用命名汇总</title>
+      <link href="/2019/06/12/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/"/>
+      <url>/2019/06/12/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/</url>
+      
+        <content type="html"><![CDATA[<pre><code class="shell"># hexo clean# hexo g# hexo d# hexo n &quot;文章名&quot;</code></pre><pre><code>hexo d -ghexo g &amp;&amp; hexo d</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git常用命名汇总</title>
       <link href="/2019/06/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/"/>
       <url>/2019/06/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/</url>
@@ -450,9 +475,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
