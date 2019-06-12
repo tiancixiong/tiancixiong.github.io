@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-06-11T11:59:22.043Z</updated>
+  <updated>2019-06-12T01:31:08.635Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git常用命名汇总</title>
+    <link href="https://www.xiongtianci.com/2019/06/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/"/>
+    <id>https://www.xiongtianci.com/2019/06/12/git常用命名汇总/</id>
+    <published>2019-06-12T01:24:41.000Z</published>
+    <updated>2019-06-12T01:31:08.635Z</updated>
+    
+    <content type="html"><![CDATA[<p>给项目添加远程仓库</p><pre><code class="shell">git remote add origin git@github.xxx.git</code></pre><p>本地分支和远程分支建立联系</p><pre><code class="shell">git branch --set-upstream-to=origin/远程分支 本地分支</code></pre><p>查看本地分支和远程分支联系</p><pre><code class="shell">git branch -vv</code></pre><p>查看git本地分支</p><pre><code class="shell">git branch</code></pre><p>查看git远程分支</p><pre><code class="shell">git branch -a</code></pre><p>切换git分支</p><pre><code class="shell">git checkout dev</code></pre><p>新建并切换git分支</p><pre><code class="shell">git checkout -b dev</code></pre><p>删除git分支</p><pre><code class="shell">git branch -d dev</code></pre><p>删除git远程分支</p><pre><code class="shell">git push origin -d dev</code></pre><p>查看git 配置</p><pre><code class="shell">git config -l</code></pre><p>修改远程仓库地址</p><pre><code class="shell">git remote set-url origin git@github.com:xiongtianci-tc/hexo-theme-sakura.git</code></pre><p>本地分支回滚到指定版本</p><pre><code class="shell">git reset --hard &lt;commit ID号&gt;</code></pre><p>强制推送到远程分支</p><pre><code class="shell">git push -f origin &lt;branch name&gt;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      git命令汇总
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://www.xiongtianci.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="git" scheme="https://www.xiongtianci.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>常用正则表达式公式</title>
@@ -460,9 +482,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
-    
       <category term="脚本" scheme="https://www.xiongtianci.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
     
   </entry>
   
@@ -2023,9 +2045,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
