@@ -389,6 +389,12 @@
           <h1 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h1><pre><code class="shell"># 给项目添加远程仓库
 $ git remote add origin git@github.xxx.git
 
+# 显示工作目录和暂存区的状态
+$ git status
+
+# 查看工作区与暂存区的差异
+$ git diff
+
 # ----分支
 # 查看git本地分支
 $ git branch
@@ -428,7 +434,7 @@ $ git reset --hard &lt;commit ID号&gt;
 # 强制推送到远程分支
 $ git push -f origin &lt;branch name&gt;
 </code></pre>
-<h1 id="1、新建代码库"><a href="#1、新建代码库" class="headerlink" title="1、新建代码库"></a>1、新建代码库</h1><pre><code class="shell"># 在当前目录新建一个Git代码库
+<h1 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h1><pre><code class="shell"># 在当前目录新建一个Git代码库
 $ git init
 
 # 新建一个目录，将其初始化为Git代码库
@@ -452,7 +458,7 @@ $ git clone [url]
 # bare参数表示delta目录只有仓库区，没有工作区和暂存区，即delta目录中就是.git目录的内容
 $ git clone alpha delta --bare
 </code></pre>
-<h1 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h1><pre><code class="shell"># 显示当前的Git配置
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><pre><code class="shell"># 显示当前的Git配置
 $ git config --list
 
 # 编辑Git配置文件
@@ -481,7 +487,7 @@ $ git config --global core.editor vim #编辑器
 
 $ git config --global alias.st status #按这种方法，配置别名
 </code></pre>
-<h1 id="3、增加-删除文件"><a href="#3、增加-删除文件" class="headerlink" title="3、增加/删除文件"></a>3、增加/删除文件</h1><pre><code class="shell"># 添加指定文件到暂存区
+<h1 id="增加-删除文件"><a href="#增加-删除文件" class="headerlink" title="增加/删除文件"></a>增加/删除文件</h1><pre><code class="shell"># 添加指定文件到暂存区
 $ git add [file1] [file2] ...
 
 # 添加指定目录到暂存区，包括子目录
@@ -540,7 +546,7 @@ $ git rm --cached [file]
 <h2 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h2><pre><code class="shell"># 改名文件，并且将这个改名放入暂存区
 $ git mv [file-original] [file-renamed]
 </code></pre>
-<h1 id="4、代码提交"><a href="#4、代码提交" class="headerlink" title="4、代码提交"></a>4、代码提交</h1><pre><code class="shell"># 提交暂存区到仓库区
+<h1 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h1><pre><code class="shell"># 提交暂存区到仓库区
 $ git commit -m [message]
 
 # 提交暂存区的指定文件到仓库区
@@ -592,7 +598,7 @@ $ git commit --fixup &lt;commit&gt;
 <h4 id="–squash"><a href="#–squash" class="headerlink" title="–squash"></a>–squash</h4><p><code>--squash</code>参数的作用与<code>--fixup</code>类似，表示当前添加的 commit 应该与以前某一个 commit 合并成一个，以后执行互动式的<code>git rebase</code>的时候，这两个 commit 将会合并成一个。</p>
 <pre><code class="shell">$ git commit --squash &lt;commit&gt;
 </code></pre>
-<h1 id="5、分支"><a href="#5、分支" class="headerlink" title="5、分支"></a>5、分支</h1><pre><code class="shell"># 列出所有本地分支
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><pre><code class="shell"># 列出所有本地分支
 $ git branch
 
 # 列出所有远程分支
@@ -698,7 +704,7 @@ $ git merge [branch]
 <pre><code class="shell"># 选择一个commit，合并进当前分支
 $ git cherry-pick [commit]
 </code></pre>
-<h1 id="6、标签"><a href="#6、标签" class="headerlink" title="6、标签"></a>6、标签</h1><pre><code class="shell"># 列出所有tag
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><pre><code class="shell"># 列出所有tag
 $ git tag
 
 # 新建一个tag在当前commit
@@ -731,7 +737,7 @@ $ git push --tags
 $ git tag v0.0.1
 $ git push origin master --tags
 </code></pre>
-<h1 id="7、查看信息"><a href="#7、查看信息" class="headerlink" title="7、查看信息"></a>7、查看信息</h1><pre><code class="shell"># 显示有变更的文件
+<h1 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h1><pre><code class="shell"># 显示有变更的文件
 $ git status
 
 # 显示当前分支的版本历史
@@ -774,7 +780,7 @@ $ git show [commit]:[filename]
 # 显示当前分支的最近几次提交
 $ git reflog
 </code></pre>
-<h1 id="8、远程同步"><a href="#8、远程同步" class="headerlink" title="8、远程同步"></a>8、远程同步</h1><h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code><br><code>git remote</code>查看远程库的信息</p>
+<h1 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h1><h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code><br><code>git remote</code>查看远程库的信息</p>
 <pre><code class="shell"># 下载远程仓库的所有变动
 $ git fetch [remote]
 
@@ -800,7 +806,53 @@ $ git push [remote] --force
 # 推送所有分支到远程仓库
 $ git push [remote] --all
 </code></pre>
-<h1 id="9、撤销"><a href="#9、撤销" class="headerlink" title="9、撤销"></a>9、撤销</h1><pre><code class="shell"># 恢复暂存区的指定文件到工作区
+<h1 id="查看版本改动"><a href="#查看版本改动" class="headerlink" title="查看版本改动"></a>查看版本改动</h1><h2 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h2><p><code>git diff</code>命令用于查看文件之间的差异</p>
+<p>在git提交环节，存在三大部分：<strong>working tree</strong>（工作区）, <strong>index file</strong>（暂存区：stage）, <strong>commit</strong>（分支：master）</p>
+<pre><code class="shell"># 查看工作区与暂存区的差异
+$ git diff
+
+# 查看某个文件的工作区与暂存区的差异
+$ git diff file.txt
+
+# 查看暂存区与当前 commit 的差异
+$ git diff --cached
+
+# 查看两个commit的差异
+$ git diff &lt;commitBefore&gt; &lt;commitAfter&gt;
+
+# 查看暂存区与仓库区的差异
+$ git diff --cached
+
+# 查看工作区与上一次commit之间的差异
+# 即如果执行 git commit -a，将提交的文件
+$ git diff HEAD
+
+# 查看工作区与某个 commit 的差异
+$ git diff &lt;commit&gt;
+
+# 显示两次提交之间的差异
+$ git diff [first-branch]...[second-branch]
+
+# 查看工作区与当前分支上一次提交的差异，但是局限于test文件
+$ git diff HEAD -- ./test
+
+# 查看当前分支上一次提交与上上一次提交之间的差异
+$ git diff HEAD -- ./test
+
+# 生成patch
+$ git format-patch master --stdout &gt; mypatch.patch
+</code></pre>
+<p>比较两个分支</p>
+<pre><code class="shell"># 查看topic分支与master分支最新提交之间的差异
+$ git diff topic master
+
+# 与上一条命令相同
+$ git diff topic..master
+
+# 查看自从topic分支建立以后，master分支发生的变化
+$ git diff topic...master
+</code></pre>
+<h1 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h1><pre><code class="shell"># 恢复暂存区的指定文件到工作区
 $ git checkout [file]
 
 # 恢复某个commit的指定文件到工作区
@@ -828,9 +880,10 @@ $ git reset --keep [commit]
 # 后者的所有变化都将被前者抵消，并且应用到当前分支
 $ git revert [commit]
 </code></pre>
-<h1 id="10、其他"><a href="#10、其他" class="headerlink" title="10、其他"></a>10、其他</h1><pre><code class="shell"># 生成一个可供发布的压缩包
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><pre><code class="shell"># 生成一个可供发布的压缩包
 $ git archive
 </code></pre>
+<p><code>HEAD</code>表示当前版本，也就是最新的提交。上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，<br>往上100个版本写100个<code>^</code> 比较容易数不过来，所以写成<code>HEAD~100</code>。<code>HEAD~2</code>相当于<code>HEAD^^</code></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
 <p><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰官方网站</a>、<a href="https://www.bookstack.cn/books/git-tutorial" target="_blank" rel="noopener">阮一峰 Git 教程</a></p>
 </blockquote>
