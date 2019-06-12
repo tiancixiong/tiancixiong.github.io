@@ -8,7 +8,7 @@
       <link href="/2019/06/12/git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/"/>
       <url>/2019/06/12/git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/</url>
       
-        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>进行<code>git push</code>操作时报错：<code>fatal: The current branch master has no upstream branch.</code></p><p><img src="img/1560320619462.png" alt="1560320619462"></p><p><strong>原因：</strong>没有将本地的分支与远程仓库的分支进行关联<br>通过<code>git branch</code>查看本地分支只有<code>master</code></p><p><img src="img/1560321303707.png" alt="1560321303707"></p><p>通过<code>git branch -a</code>查看远程分支，有<code>master</code>和<code>remotes/origin/master</code>两个</p><p><img src="img/1560321309091.png" alt="1560321309091"></p><p>这时由于远程仓库太多，且分支较多。在默认情况下，<code>git push</code>时一般会上传到<code>origin</code>下的<code>master</code>分支上，然而当<code>repository</code>和<code>branch</code>过多，而又没有设置关联时，git就会产生疑问，因为它无法判断你的push目标</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>使用<code>git push --set-upstream origin master</code>命令</p><h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>使用<code>git push -u origin master</code>命令</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>进行<code>git push</code>操作时报错：<code>fatal: The current branch master has no upstream branch.</code></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190612-git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/1560320619462.png" alt="1560320619462"></p><p><strong>原因：</strong>没有将本地的分支与远程仓库的分支进行关联<br>通过<code>git branch</code>查看本地分支只有<code>master</code></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190612-git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/1560321303707.png" alt="1560321303707"></p><p>通过<code>git branch -a</code>查看远程分支，有<code>master</code>和<code>remotes/origin/master</code>两个</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190612-git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/1560321309091.png" alt="1560321309091"></p><p>这时由于远程仓库太多，且分支较多。在默认情况下，<code>git push</code>时一般会上传到<code>origin</code>下的<code>master</code>分支上，然而当<code>repository</code>和<code>branch</code>过多，而又没有设置关联时，git就会产生疑问，因为它无法判断你的push目标</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>使用<code>git push --set-upstream origin master</code>命令</p><h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>使用<code>git push -u origin master</code>命令</p>]]></content>
       
       
       <categories>
@@ -1020,6 +1020,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 踩坑 </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1039,6 +1047,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> SpringDataRedis </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1057,6 +1071,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> SpringBoot </tag>
+            
+            <tag> Redis </tag>
+            
+            <tag> 缓存 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1105,7 +1129,7 @@
       <link href="/2019/02/25/IDEA%E5%BC%80%E5%90%AFRun%20Dashboard%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
       <url>/2019/02/25/IDEA%E5%BC%80%E5%90%AFRun%20Dashboard%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
       
-        <content type="html"><![CDATA[<p>Run Dashboard面板：<br><img src="https://img-blog.csdnimg.cn/20190225094527956.png" alt="在这里插入图片描述"><br>IDEA升级到 2017.3.1 版本后，发现找不到Run Dashboard面板了。通过下面步骤教你找回Run Dashboard：</p><h5 id="1-找到-idea文件下的workspace-xml，通过Ctrl-F搜索RunDashboard"><a href="#1-找到-idea文件下的workspace-xml，通过Ctrl-F搜索RunDashboard" class="headerlink" title="1. 找到.idea文件下的workspace.xml，通过Ctrl+F搜索RunDashboard"></a>1. 找到<code>.idea</code>文件下的<code>workspace.xml</code>，通过<code>Ctrl+F</code>搜索<code>RunDashboard</code></h5><p><img src="https://img-blog.csdnimg.cn/20190225094806232.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190225094912778.png" alt="在这里插入图片描述"></p><h5 id="2-加入如下配置，重启服务，Run-Dashboard就自动就弹出来了"><a href="#2-加入如下配置，重启服务，Run-Dashboard就自动就弹出来了" class="headerlink" title="2. 加入如下配置，重启服务，Run Dashboard就自动就弹出来了"></a>2. 加入如下配置，重启服务，Run Dashboard就自动就弹出来了</h5><pre><code class="xml">&lt;option name=&quot;configurationTypes&quot;&gt;    &lt;set&gt;        &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;    &lt;/set&gt;&lt;/option&gt;</code></pre><h5 id="3-最终配置如下：最终配置如下："><a href="#3-最终配置如下：最终配置如下：" class="headerlink" title="3. 最终配置如下：最终配置如下："></a>3. 最终配置如下：最终配置如下：</h5><pre><code class="xml">&lt;component name=&quot;RunDashboard&quot;&gt;  &lt;option name=&quot;configurationTypes&quot;&gt;    &lt;set&gt;      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot; /&gt;    &lt;/set&gt;  &lt;/option&gt;  &lt;option name=&quot;ruleStates&quot;&gt;    &lt;list&gt;      &lt;RuleState&gt;        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot; /&gt;      &lt;/RuleState&gt;      &lt;RuleState&gt;        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot; /&gt;      &lt;/RuleState&gt;    &lt;/list&gt;  &lt;/option&gt;  &lt;option name=&quot;contentProportion&quot; value=&quot;0.20013662&quot; /&gt;&lt;/component&gt;</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>Run Dashboard面板：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190225-IDEA%E5%BC%80%E5%90%AFRun%20Dashboard%E7%9A%84%E9%85%8D%E7%BD%AE/20190225094527956.png" alt="在这里插入图片描述"><br>IDEA升级到 2017.3.1 版本后，发现找不到Run Dashboard面板了。通过下面步骤教你找回Run Dashboard：</p><h5 id="1-找到-idea文件下的workspace-xml，通过Ctrl-F搜索RunDashboard"><a href="#1-找到-idea文件下的workspace-xml，通过Ctrl-F搜索RunDashboard" class="headerlink" title="1. 找到.idea文件下的workspace.xml，通过Ctrl+F搜索RunDashboard"></a>1. 找到<code>.idea</code>文件下的<code>workspace.xml</code>，通过<code>Ctrl+F</code>搜索<code>RunDashboard</code></h5><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190225-IDEA%E5%BC%80%E5%90%AFRun%20Dashboard%E7%9A%84%E9%85%8D%E7%BD%AE/20190225094806232.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190225-IDEA%E5%BC%80%E5%90%AFRun%20Dashboard%E7%9A%84%E9%85%8D%E7%BD%AE/20190225094912778.png" alt="在这里插入图片描述"></p><h5 id="2-加入如下配置，重启服务，Run-Dashboard就自动就弹出来了"><a href="#2-加入如下配置，重启服务，Run-Dashboard就自动就弹出来了" class="headerlink" title="2. 加入如下配置，重启服务，Run Dashboard就自动就弹出来了"></a>2. 加入如下配置，重启服务，Run Dashboard就自动就弹出来了</h5><pre><code class="xml">&lt;option name=&quot;configurationTypes&quot;&gt;    &lt;set&gt;        &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;    &lt;/set&gt;&lt;/option&gt;</code></pre><h5 id="3-最终配置如下：最终配置如下："><a href="#3-最终配置如下：最终配置如下：" class="headerlink" title="3. 最终配置如下：最终配置如下："></a>3. 最终配置如下：最终配置如下：</h5><pre><code class="xml">&lt;component name=&quot;RunDashboard&quot;&gt;  &lt;option name=&quot;configurationTypes&quot;&gt;    &lt;set&gt;      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot; /&gt;    &lt;/set&gt;  &lt;/option&gt;  &lt;option name=&quot;ruleStates&quot;&gt;    &lt;list&gt;      &lt;RuleState&gt;        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot; /&gt;      &lt;/RuleState&gt;      &lt;RuleState&gt;        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot; /&gt;      &lt;/RuleState&gt;    &lt;/list&gt;  &lt;/option&gt;  &lt;option name=&quot;contentProportion&quot; value=&quot;0.20013662&quot; /&gt;&lt;/component&gt;</code></pre>]]></content>
       
       
       <categories>
@@ -1114,6 +1138,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
+            
+            <tag> RunDashboard </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1134,6 +1168,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> List </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1143,7 +1185,7 @@
       <link href="/2019/01/17/%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/"/>
       <url>/2019/01/17/%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/</url>
       
-        <content type="html"><![CDATA[<p>每次打开迅雷都会自动检查是否是最新版本，如果不是最新版本，迅雷会一直重复弹窗弹出<strong>更新到新版本</strong>的提示：<img src="https://img-blog.csdnimg.cn/20190117081555322.png" alt="在这里插入图片描述"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>简介：迅雷提示升级是因为每次迅雷主程序启动时都会同时启动一个叫<code>XLLiveUD.exe</code>的程序，这个程序会检查更新，所以如果不想让他检查更新，就只需要把他替换掉就可以了（因为如果删除它，每次迅雷启动时都会弹出一个错误对话框，提示找不到文件<code>XLLiveUD.exe</code>）</p><hr><ol><li><p>进入迅雷安装目录，找到<code>XLLiveUD.exe</code>( 可直接在迅雷安装目录中搜索这个文件 )，将其删除。这个就是自动升级的程序，但是删除之后下次开启迅雷会提示该文件丢失。<br><img src="https://img-blog.csdnimg.cn/20190117082613245.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190117082638473.png" alt="在这里插入图片描述"></p></li><li><p>在同一个目录找到迅雷执行程序文件<code>Thunder.exe</code>，这个是就是迅雷桌面快捷方式指到的程序也就是迅雷开启程序。然后复制拷贝<code>Thunder.exe</code>副本，然后将副本文件名更改为迅雷更新执行程序名：<strong>XLLiveUD.exe</strong><br><img src="https://img-blog.csdnimg.cn/20190117082959128.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190117083307505.gif" alt="在这里插入图片描述"></p></li><li><p>当迅雷程序调用检查更新的执行文件时，实际上相当于重复点击打开迅雷，而迅雷本身不允许重复打开。这样既不会报错也不会造成重复弹屏的问题。从而算是比较完美的解决了<strong>关闭迅雷更新到新版本提示</strong>的问题(❁´◡`❁)<em>✲ﾟ</em></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>每次打开迅雷都会自动检查是否是最新版本，如果不是最新版本，迅雷会一直重复弹窗弹出<strong>更新到新版本</strong>的提示：<img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117-%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/20190117081555322.png" alt="在这里插入图片描述"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>简介：迅雷提示升级是因为每次迅雷主程序启动时都会同时启动一个叫<code>XLLiveUD.exe</code>的程序，这个程序会检查更新，所以如果不想让他检查更新，就只需要把他替换掉就可以了（因为如果删除它，每次迅雷启动时都会弹出一个错误对话框，提示找不到文件<code>XLLiveUD.exe</code>）</p><hr><ol><li><p>进入迅雷安装目录，找到<code>XLLiveUD.exe</code>( 可直接在迅雷安装目录中搜索这个文件 )，将其删除。这个就是自动升级的程序，但是删除之后下次开启迅雷会提示该文件丢失。<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117-%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/20190117082613245.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117-%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/20190117082638473.png" alt="在这里插入图片描述"></p></li><li><p>在同一个目录找到迅雷执行程序文件<code>Thunder.exe</code>，这个是就是迅雷桌面快捷方式指到的程序也就是迅雷开启程序。然后复制拷贝<code>Thunder.exe</code>副本，然后将副本文件名更改为迅雷更新执行程序名：<strong>XLLiveUD.exe</strong><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117-%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/20190117082959128.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117-%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/20190117083307505.gif" alt="在这里插入图片描述"></p></li><li><p>当迅雷程序调用检查更新的执行文件时，实际上相当于重复点击打开迅雷，而迅雷本身不允许重复打开。这样既不会报错也不会造成重复弹屏的问题。从而算是比较完美的解决了<strong>关闭迅雷更新到新版本提示</strong>的问题(❁´◡`❁)<em>✲ﾟ</em></p></li></ol>]]></content>
       
       
       <categories>
@@ -1152,6 +1194,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> 迅雷 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1162,7 +1212,7 @@
       <link href="/2019/01/12/XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/"/>
       <url>/2019/01/12/XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<h3 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h3><p>链接：<a href="https://pan.baidu.com/s/1yA9OkiPwkImDlnIS_NoxUg" target="_Blank">XMind8+破解补丁</a><br>密码：<code>6666</code></p><h3 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h3><p>安装好XMind8后，接下来进行破解</p><ol><li><p>将<strong>破解补丁</strong>中的<code>XMindCrack.jar</code>拷贝到一个目录下( 注意：这个位置要是一个不会移动的位置，我就复制在XMind的安装目录下 )，如图 ：<br><img src="https://img-blog.csdnimg.cn/20190112113708377.png" alt="在这里插入图片描述"></p></li><li><p>修改XMind的配置文件<br>打开XMind的配置文件<code>XMind.ini</code>，增加内容：<code>-javaagent:刚刚XMindCrack.jar放置的位置</code><br><img src="https://img-blog.csdnimg.cn/20190112113935256.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190112114234667.png" alt="在这里插入图片描述"></p></li><li><p>修改电脑的<code>hosts</code>文件，切断Xmind访问网络<br><code>hosts</code>文件目录：<code>C:\Windows\System32\drivers\etc</code><br><img src="https://img-blog.csdnimg.cn/20190112114632247.png" alt="在这里插入图片描述"><br>添加内容：<code>0.0.0.0 www.xmind.net</code><br><img src="https://img-blog.csdnimg.cn/20190112114747686.png" alt="在这里插入图片描述"></p></li><li><p>添加序列号<br>启动XMind，在<strong>帮助</strong>里面找到<strong>序列号</strong>，填写序列号<br><img src="https://img-blog.csdnimg.cn/20190112115023565.png" alt="在这里插入图片描述"><br>邮箱任意，将<strong>破解补丁</strong>内<strong>序列号.txt</strong>文件中的内容复制到<strong>序列号</strong>中，点击验证<br><img src="https://img-blog.csdnimg.cn/20190112115122390.png" alt="在这里插入图片描述"><br>出现下面内容证明激活成功了<br><img src="https://img-blog.csdnimg.cn/2019011211523843.png" alt="在这里插入图片描述"><br>ヾ(๑╹◡╹)ﾉ”ヾ(●´∀｀●) </p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h3><p>链接：<a href="https://pan.baidu.com/s/1yA9OkiPwkImDlnIS_NoxUg" target="_Blank">XMind8+破解补丁</a><br>密码：<code>6666</code></p><h3 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h3><p>安装好XMind8后，接下来进行破解</p><ol><li><p>将<strong>破解补丁</strong>中的<code>XMindCrack.jar</code>拷贝到一个目录下( 注意：这个位置要是一个不会移动的位置，我就复制在XMind的安装目录下 )，如图 ：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20190112113708377.png" alt="在这里插入图片描述"></p></li><li><p>修改XMind的配置文件<br>打开XMind的配置文件<code>XMind.ini</code>，增加内容：<code>-javaagent:刚刚XMindCrack.jar放置的位置</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20190112113935256.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20190112114234667.png" alt="在这里插入图片描述"></p></li><li><p>修改电脑的<code>hosts</code>文件，切断Xmind访问网络<br><code>hosts</code>文件目录：<code>C:\Windows\System32\drivers\etc</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20190112114632247.png" alt="在这里插入图片描述"><br>添加内容：<code>0.0.0.0 www.xmind.net</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20190112114747686.png" alt="在这里插入图片描述"></p></li><li><p>添加序列号<br>启动XMind，在<strong>帮助</strong>里面找到<strong>序列号</strong>，填写序列号<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20190112115023565.png" alt="在这里插入图片描述"><br>邮箱任意，将<strong>破解补丁</strong>内<strong>序列号.txt</strong>文件中的内容复制到<strong>序列号</strong>中，点击验证<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20190112115122390.png" alt="在这里插入图片描述"><br>出现下面内容证明激活成功了<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190112-XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/2019011211523843.png" alt="在这里插入图片描述"><br>ヾ(๑╹◡╹)ﾉ”ヾ(●´∀｀●) </p></li></ol>]]></content>
       
       
       <categories>
@@ -1171,6 +1221,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> XMind </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1181,7 +1239,7 @@
       <link href="/2019/01/08/%E8%BF%9E%E6%8E%A5Oracle%E6%8A%A5%E9%94%99-ORA-12638-%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%98%8E%E6%A3%80%E7%B4%A2%E5%A4%B1%E8%B4%A5/"/>
       <url>/2019/01/08/%E8%BF%9E%E6%8E%A5Oracle%E6%8A%A5%E9%94%99-ORA-12638-%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%98%8E%E6%A3%80%E7%B4%A2%E5%A4%B1%E8%B4%A5/</url>
       
-        <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>连接Oracle数据库时报错：<code>ORA-12638: 身份证明检索失败</code><br><img src="https://img-blog.csdnimg.cn/20190108091444890.png" alt="在这里插入图片描述"></p><pre><code class="cmd">C:\Users\***&gt;sqlplus scott/tiger@192.168.56.103:1521/orclSQL*Plus: Release 10.2.0.1.0 - Production on 星期二 1月 8 09:13:18 2019Copyright (c) 1982, 2005, Oracle.  All rights reserved.ERROR:ORA-12638: 身份证明检索失败</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>将oracle安装路径<code>oracle\product\10.2.0\db_1\NETWORK\ADMIN\sqlnet.ora</code> 文件修改一下<br><img src="https://img-blog.csdnimg.cn/20190108091632740.png" alt="在这里插入图片描述"><br>把文件中的：<br><code>SQLNET.AUTHENTICATION_SERVICES= (NTS)</code><br>修改为：<br><code>SQLNET.AUTHENTICATION_SERVICES= (BEQ,NONE)</code></p><p><strong>修改前：</strong></p><pre><code># sqlnet.ora Network Configuration File: C:\oracle\product\10.2.0\db_1\network\admin\sqlnet.ora# Generated by Oracle configuration tools.# This file is actually generated by netca. But if customers choose to # install &quot;Software Only&quot;, this file wont exist and without the native # authentication, they will not be able to connect to the database on NT.SQLNET.AUTHENTICATION_SERVICES= (NTS)NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)</code></pre><p><strong>修改后：</strong></p><pre><code># sqlnet.ora Network Configuration File: C:\oracle\product\10.2.0\db_1\network\admin\sqlnet.ora# Generated by Oracle configuration tools.# This file is actually generated by netca. But if customers choose to # install &quot;Software Only&quot;, this file wont exist and without the native # authentication, they will not be able to connect to the database on NT.SQLNET.AUTHENTICATION_SERVICES= (BEQ,NONE)NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)</code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>连接Oracle数据库时报错：<code>ORA-12638: 身份证明检索失败</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190108-%E8%BF%9E%E6%8E%A5Oracle%E6%8A%A5%E9%94%99-ORA-12638-%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%98%8E%E6%A3%80%E7%B4%A2%E5%A4%B1%E8%B4%A5/20190108091444890.png" alt="在这里插入图片描述"></p><pre><code class="cmd">C:\Users\***&gt;sqlplus scott/tiger@192.168.56.103:1521/orclSQL*Plus: Release 10.2.0.1.0 - Production on 星期二 1月 8 09:13:18 2019Copyright (c) 1982, 2005, Oracle.  All rights reserved.ERROR:ORA-12638: 身份证明检索失败</code></pre><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>将oracle安装路径<code>oracle\product\10.2.0\db_1\NETWORK\ADMIN\sqlnet.ora</code> 文件修改一下<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190108-%E8%BF%9E%E6%8E%A5Oracle%E6%8A%A5%E9%94%99-ORA-12638-%E8%BA%AB%E4%BB%BD%E8%AF%81%E6%98%8E%E6%A3%80%E7%B4%A2%E5%A4%B1%E8%B4%A5/20190108091632740.png" alt="在这里插入图片描述"><br>把文件中的：<br><code>SQLNET.AUTHENTICATION_SERVICES= (NTS)</code><br>修改为：<br><code>SQLNET.AUTHENTICATION_SERVICES= (BEQ,NONE)</code></p><p><strong>修改前：</strong></p><pre><code># sqlnet.ora Network Configuration File: C:\oracle\product\10.2.0\db_1\network\admin\sqlnet.ora# Generated by Oracle configuration tools.# This file is actually generated by netca. But if customers choose to # install &quot;Software Only&quot;, this file wont exist and without the native # authentication, they will not be able to connect to the database on NT.SQLNET.AUTHENTICATION_SERVICES= (NTS)NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)</code></pre><p><strong>修改后：</strong></p><pre><code># sqlnet.ora Network Configuration File: C:\oracle\product\10.2.0\db_1\network\admin\sqlnet.ora# Generated by Oracle configuration tools.# This file is actually generated by netca. But if customers choose to # install &quot;Software Only&quot;, this file wont exist and without the native # authentication, they will not be able to connect to the database on NT.SQLNET.AUTHENTICATION_SERVICES= (BEQ,NONE)NAMES.DIRECTORY_PATH= (TNSNAMES, EZCONNECT)</code></pre>]]></content>
       
       
       <categories>
@@ -1190,6 +1248,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 踩坑 </tag>
+            
+            <tag> Oracle </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1210,6 +1276,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1228,6 +1300,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1248,6 +1326,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> 虚拟机 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1266,6 +1352,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1286,6 +1380,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1304,6 +1406,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1324,6 +1432,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1342,6 +1456,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1362,6 +1482,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1371,7 +1497,7 @@
       <link href="/2019/01/03/MyBatis%E4%B8%AD#%E5%92%8C$%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/"/>
       <url>/2019/01/03/MyBatis%E4%B8%AD#%E5%92%8C$%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>#相当于对数据加上双引号，$相当于直接显示数据</p></blockquote><ol><li>#将传入的数据都当成一个<strong>字符串</strong>，会对自动传入的数据<strong>加一个双引号</strong>。如：order by #user_id#，如果传入的值是111，那么解析成sq 时的值为：order by “111”；如果传入的值是id，则解析成的sql为：order by “id”</li><li>$将传入的数据直接显示生成在sql中。如：order by $user_id$，如果传入的值是111，那么解析成sql 时的值为：order by user_id,；如果传入的值是id，则解析成的sql为：order by id</li><li>#方式能够很大程度防止sql 注入</li><li>$方式无法防止sql注入</li><li>$方式一般用于传入数据库对象，例如传入表名</li><li>一般能用#的就别用$</li></ol>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>#相当于对数据加上双引号，$相当于直接显示数据</p></blockquote><ol><li>&#35;将传入的数据都当成一个<strong>字符串</strong>，会对自动传入的数据<strong>加一个双引号</strong>。如：order by &#35;user_id&#35;，如果传入的值是111，那么解析成sq 时的值为：order by “111”；如果传入的值是id，则解析成的sql为：order by “id”</li><li>&#36;将传入的数据直接显示生成在sql中。如：order by $user_id$，如果传入的值是111，那么解析成sql 时的值为：order by user_id,；如果传入的值是id，则解析成的sql为：order by id</li><li>&#35;方式能够很大程度防止sql 注入</li><li>&#36;方式无法防止sql注入</li><li>&#36;方式一般用于传入数据库对象，例如传入表名</li><li>一般能用&#35;的就别用&#36;</li></ol>]]></content>
       
       
       <categories>
@@ -1380,6 +1506,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1400,6 +1534,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1419,6 +1561,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> MySQL </tag>
+            
+            <tag> 事务 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1437,6 +1589,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1458,6 +1618,8 @@
       
       
         <tags>
+            
+            <tag> 面试题 </tag>
             
             <tag> MySQL </tag>
             
@@ -1482,6 +1644,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Chrome </tag>
+            
+            <tag> 快捷键 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1501,6 +1673,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1510,7 +1690,7 @@
       <link href="/2018/12/26/Typora%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE%E6%8A%98%E5%8F%A0-win%E7%B3%BB%E7%BB%9F/"/>
       <url>/2018/12/26/Typora%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE%E6%8A%98%E5%8F%A0-win%E7%B3%BB%E7%BB%9F/</url>
       
-        <content type="html"><![CDATA[<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="https://img-blog.csdnimg.cn/20181226094905721.gif" alt="在这里插入图片描述"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>文件 &rArr; 偏好设置 &rArr; 勾选”侧边栏”<br><img src="https://img-blog.csdnimg.cn/20181226093929134.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181226093934973.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181226101055865.gif" alt="在这里插入图片描述"></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181226-Typora%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE%E6%8A%98%E5%8F%A0-win%E7%B3%BB%E7%BB%9F/20181226094905721.gif" alt="在这里插入图片描述"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>文件 &rArr; 偏好设置 &rArr; 勾选”侧边栏”<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181226-Typora%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE%E6%8A%98%E5%8F%A0-win%E7%B3%BB%E7%BB%9F/20181226093929134.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181226-Typora%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE%E6%8A%98%E5%8F%A0-win%E7%B3%BB%E7%BB%9F/20181226093934973.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181226-Typora%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE%E6%8A%98%E5%8F%A0-win%E7%B3%BB%E7%BB%9F/20181226101055865.gif" alt="在这里插入图片描述"></p>]]></content>
       
       
       <categories>
@@ -1519,6 +1699,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Typora </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1539,6 +1727,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> MyBatis </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1557,6 +1751,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1577,6 +1777,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> JDBC </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1596,6 +1804,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> 跨域 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1612,8 +1828,18 @@
           
           <category> 技术 </category>
           
+          <category> 笔记 </category>
+          
       </categories>
       
+      
+        <tags>
+            
+            <tag> 工具类 </tag>
+            
+            <tag> CollectionUtils </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1634,6 +1860,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Mapper </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1643,15 +1875,25 @@
       <link href="/2018/12/20/%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
       <url>/2018/12/20/%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<h2 id="什么是反向代理？"><a href="#什么是反向代理？" class="headerlink" title="什么是反向代理？"></a>什么是反向代理？</h2><ul><li>代理：通过客户机的配置，实现让一台服务器(代理服务器)代理客户机，客户的所有请求都交给代理服务器处理。</li><li>反向代理：用一台服务器，代理真实服务器，用户访问时，不再是访问真实服务器，而是代理服务器。</li></ul><p>nginx可以当做反向代理服务器来使用：</p><ul><li>我们需要提前在nginx中配置好反向代理的规则，不同的请求，交给不同的真实服务器处理</li><li>当请求到达nginx，nginx会根据已经定义的规则进行请求的转发，从而实现路由功能</li></ul><p>利用反向代理，就可以解决我们前面所说的端口问题，如图：<br><img src="https://img-blog.csdnimg.cn/20181220170949726.png" alt="在这里插入图片描述"></p><h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装非常简单，把课前资料提供的nginx直接解压即可，绿色免安装，舒服！<br><img src="https://img-blog.csdnimg.cn/20181220171122796.gif" alt="在这里插入图片描述"></p><blockquote><p>下载nginx：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p></blockquote><p>我们在本地安装一台nginx：<br><img src="https://img-blog.csdnimg.cn/20181220171233798.png" alt="在这里插入图片描述"></p><p>解压后，目录结构：<br><img src="https://img-blog.csdnimg.cn/20181220171247576.png" alt="在这里插入图片描述"></p><ol><li>conf：配置目录</li><li>contrib：第三方依赖</li><li>html：默认的静态资源目录，类似于tomcat的webapps</li><li>logs：日志目录</li><li>nginx.exe：启动程序。可双击运行，但不建议这么做。</li></ol><h3 id="反向代理配置"><a href="#反向代理配置" class="headerlink" title="反向代理配置"></a>反向代理配置</h3><p>示例：<br><img src="https://img-blog.csdnimg.cn/20181220171320144.png" alt="在这里插入图片描述"></p><p>nginx中的每个server就是一个反向代理配置，可以有多个server</p><p>完整配置：</p><pre><code class="nginx">#user  nobody;worker_processes  1;events {    worker_connections  1024;}http {    include       mime.types;    default_type  application/octet-stream;    sendfile        on;    keepalive_timeout  65;    gzip  on;    server {        listen       80;        server_name  manage.leyou.com;        proxy_set_header X-Forwarded-Host $host;        proxy_set_header X-Forwarded-Server $host;        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;        location / {            proxy_pass http://127.0.0.1:9001;            proxy_connect_timeout 600;            proxy_read_timeout 600;        }    }    server {        listen       80;        server_name  api.leyou.com;        proxy_set_header X-Forwarded-Host $host;        proxy_set_header X-Forwarded-Server $host;        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;        location / {            proxy_pass http://127.0.0.1:10010;            proxy_connect_timeout 600;            proxy_read_timeout 600;        }    }}</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>nginx可以通过命令行来启动，操作命令：</p><ul><li>启动：<code>start nginx.exe</code></li><li>停止：<code>nginx.exe -s stop</code></li><li>重新加载：<code>nginx.exe -s reload</code></li></ul><p>启动过程会闪烁一下，启动成功后，任务管理器中会有两个nginx进程：<br><img src="https://img-blog.csdnimg.cn/20181222113315892.png" alt="在这里插入图片描述"></p><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>启动nginx，然后用域名访问后台管理系统：<br><img src="https://img-blog.csdnimg.cn/2018122017160322.png" alt="在这里插入图片描述"><br>现在实现了域名访问网站了，中间的流程是怎样的呢？<br><img src="https://img-blog.csdnimg.cn/20181220171624185.png" alt="在这里插入图片描述"></p><ol><li>浏览器准备发起请求，访问 <code>http://mamage.leyou.com</code>，但需要进行域名解析</li><li>优先进行本地域名解析，因为我们修改了hosts，所以解析成功，得到地址：<code>127.0.0.1</code></li><li>请求被发往解析得到的ip，并且默认使用80端口： <code>http://127.0.0.1:80</code><br>本机的nginx一直监听 <code>80</code> 端口，因此捕获这个请求</li><li>nginx中配置了反向代理规则，将 <code>manage.leyou.com</code> 代理到 <code>127.0.0.1:9001</code>，因此请求被转发</li><li>后台系统的webpack server监听的端口是9001，得到请求并处理，完成后将响应返回到nginx</li><li>nginx将得到的结果返回到浏览器</li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="什么是反向代理？"><a href="#什么是反向代理？" class="headerlink" title="什么是反向代理？"></a>什么是反向代理？</h2><ul><li>代理：通过客户机的配置，实现让一台服务器(代理服务器)代理客户机，客户的所有请求都交给代理服务器处理。</li><li>反向代理：用一台服务器，代理真实服务器，用户访问时，不再是访问真实服务器，而是代理服务器。</li></ul><p>nginx可以当做反向代理服务器来使用：</p><ul><li>我们需要提前在nginx中配置好反向代理的规则，不同的请求，交给不同的真实服务器处理</li><li>当请求到达nginx，nginx会根据已经定义的规则进行请求的转发，从而实现路由功能</li></ul><p>利用反向代理，就可以解决我们前面所说的端口问题，如图：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220170949726.png" alt="在这里插入图片描述"></p><h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装非常简单，把课前资料提供的nginx直接解压即可，绿色免安装，舒服！<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171122796.gif" alt="在这里插入图片描述"></p><blockquote><p>下载nginx：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p></blockquote><p>我们在本地安装一台nginx：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171233798.png" alt="在这里插入图片描述"></p><p>解压后，目录结构：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171247576.png" alt="在这里插入图片描述"></p><ol><li>conf：配置目录</li><li>contrib：第三方依赖</li><li>html：默认的静态资源目录，类似于tomcat的webapps</li><li>logs：日志目录</li><li>nginx.exe：启动程序。可双击运行，但不建议这么做。</li></ol><h3 id="反向代理配置"><a href="#反向代理配置" class="headerlink" title="反向代理配置"></a>反向代理配置</h3><p>示例：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171320144.png" alt="在这里插入图片描述"></p><p>nginx中的每个server就是一个反向代理配置，可以有多个server</p><p>完整配置：</p><pre><code class="nginx">#user  nobody;worker_processes  1;events {    worker_connections  1024;}http {    include       mime.types;    default_type  application/octet-stream;    sendfile        on;    keepalive_timeout  65;    gzip  on;    server {        listen       80;        server_name  manage.leyou.com;        proxy_set_header X-Forwarded-Host $host;        proxy_set_header X-Forwarded-Server $host;        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;        location / {            proxy_pass http://127.0.0.1:9001;            proxy_connect_timeout 600;            proxy_read_timeout 600;        }    }    server {        listen       80;        server_name  api.leyou.com;        proxy_set_header X-Forwarded-Host $host;        proxy_set_header X-Forwarded-Server $host;        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;        location / {            proxy_pass http://127.0.0.1:10010;            proxy_connect_timeout 600;            proxy_read_timeout 600;        }    }}</code></pre><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>nginx可以通过命令行来启动，操作命令：</p><ul><li>启动：<code>start nginx.exe</code></li><li>停止：<code>nginx.exe -s stop</code></li><li>重新加载：<code>nginx.exe -s reload</code></li></ul><p>启动过程会闪烁一下，启动成功后，任务管理器中会有两个nginx进程：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181222113315892.png" alt="在这里插入图片描述"></p><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>启动nginx，然后用域名访问后台管理系统：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/2018122017160322.png" alt="在这里插入图片描述"><br>现在实现了域名访问网站了，中间的流程是怎样的呢？<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171624185.png" alt="在这里插入图片描述"></p><ol><li>浏览器准备发起请求，访问 <code>http://mamage.leyou.com</code>，但需要进行域名解析</li><li>优先进行本地域名解析，因为我们修改了hosts，所以解析成功，得到地址：<code>127.0.0.1</code></li><li>请求被发往解析得到的ip，并且默认使用80端口： <code>http://127.0.0.1:80</code><br>本机的nginx一直监听 <code>80</code> 端口，因此捕获这个请求</li><li>nginx中配置了反向代理规则，将 <code>manage.leyou.com</code> 代理到 <code>127.0.0.1:9001</code>，因此请求被转发</li><li>后台系统的webpack server监听的端口是9001，得到请求并处理，完成后将响应返回到nginx</li><li>nginx将得到的结果返回到浏览器</li></ol>]]></content>
       
       
       <categories>
           
           <category> 技术 </category>
           
+          <category> 笔记 </category>
+          
       </categories>
       
+      
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+            <tag> 反向代理 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1662,7 +1904,7 @@
       <link href="/2018/12/20/win10%E4%BD%BF%E7%94%A8Switchhost%E6%98%BE%E7%A4%BA%E6%97%A0%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90/"/>
       <url>/2018/12/20/win10%E4%BD%BF%E7%94%A8Switchhost%E6%98%BE%E7%A4%BA%E6%97%A0%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90/</url>
       
-        <content type="html"><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用Switchhost!操作电脑hosts文件时，显示无修改权限，即使使用管理员身份运行Switchhost!也是如此<br><img src="https://img-blog.csdnimg.cn/20181220162929593.png" alt="在这里插入图片描述"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol><li>找到<strong>hosts</strong>文件<br>路径：<code>C:\Windows\System32\drivers\etc</code></li><li>右键<strong>hosts</strong>，点击<strong>属性</strong>，选择<strong>安全</strong><br><img src="https://img-blog.csdnimg.cn/2018122016401089.png" alt="在这里插入图片描述"></li><li>点击<strong>编辑</strong>，赋予<strong>Users</strong> <code>完全权限</code><br><img src="https://img-blog.csdnimg.cn/20181220164036629.png" alt="在这里插入图片描述"></li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>使用Switchhost!操作电脑hosts文件时，显示无修改权限，即使使用管理员身份运行Switchhost!也是如此<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-win10%E4%BD%BF%E7%94%A8Switchhost%E6%98%BE%E7%A4%BA%E6%97%A0%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90/20181220162929593.png" alt="在这里插入图片描述"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol><li>找到<strong>hosts</strong>文件<br>路径：<code>C:\Windows\System32\drivers\etc</code></li><li>右键<strong>hosts</strong>，点击<strong>属性</strong>，选择<strong>安全</strong><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-win10%E4%BD%BF%E7%94%A8Switchhost%E6%98%BE%E7%A4%BA%E6%97%A0%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90/2018122016401089.png" alt="在这里插入图片描述"></li><li>点击<strong>编辑</strong>，赋予<strong>Users</strong> <code>完全权限</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-win10%E4%BD%BF%E7%94%A8Switchhost%E6%98%BE%E7%A4%BA%E6%97%A0%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90/20181220164036629.png" alt="在这里插入图片描述"></li></ol>]]></content>
       
       
       <categories>
@@ -1671,6 +1913,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> win10 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1681,7 +1931,7 @@
       <link href="/2018/12/20/IDEA%E6%8A%A5%E9%94%99%EF%BC%9ALombok%20Requires%20Annotation%20Processing/"/>
       <url>/2018/12/20/IDEA%E6%8A%A5%E9%94%99%EF%BC%9ALombok%20Requires%20Annotation%20Processing/</url>
       
-        <content type="html"><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>Lombok安装完成之后，启动项目时出现 <code>Lombok Requires Annotation Processing</code> 的错误提示<br><img src="https://img-blog.csdnimg.cn/20181220161224759.png" alt="在这里插入图片描述"></p><pre><code>16:08    Lombok Requires Annotation Processing    Annotation processing seems to be disabled for the project &quot;leyou&quot;.    For the plugin to function correctly, please enable it under    &quot;Settings &gt; Build &gt; Compiler &gt; Annotation Processors&quot;</code></pre><p><br></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>依次点 <code>File</code> &rarr; <code>Settings</code> &rarr; <code>Build, Execution, Deploymen</code> &rarr; <code>Annotation Processors</code> 打开编辑页面，勾上 <code>Enable annotation processing</code> 前面的选框，保存重启IDEA即可解决<br><img src="https://img-blog.csdnimg.cn/20181220162024980.png" alt="在这里插入图片描述"></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h3><p>Lombok安装完成之后，启动项目时出现 <code>Lombok Requires Annotation Processing</code> 的错误提示<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-IDEA%E6%8A%A5%E9%94%99%EF%BC%9ALombok%20Requires%20Annotation%20Processing/20181220161224759.png" alt="在这里插入图片描述"></p><pre><code>16:08    Lombok Requires Annotation Processing    Annotation processing seems to be disabled for the project &quot;leyou&quot;.    For the plugin to function correctly, please enable it under    &quot;Settings &gt; Build &gt; Compiler &gt; Annotation Processors&quot;</code></pre><p><br></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>依次点 <code>File</code> &rarr; <code>Settings</code> &rarr; <code>Build, Execution, Deploymen</code> &rarr; <code>Annotation Processors</code> 打开编辑页面，勾上 <code>Enable annotation processing</code> 前面的选框，保存重启IDEA即可解决<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-IDEA%E6%8A%A5%E9%94%99%EF%BC%9ALombok%20Requires%20Annotation%20Processing/20181220162024980.png" alt="在这里插入图片描述"></p>]]></content>
       
       
       <categories>
@@ -1690,6 +1940,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> IDEA </tag>
+            
+            <tag> 踩坑 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1710,6 +1970,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1728,6 +1994,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1748,6 +2020,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -1757,7 +2035,7 @@
       <link href="/2018/12/18/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/"/>
       <url>/2018/12/18/ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/</url>
       
-        <content type="html"><![CDATA[<h1 id="ES6-语法指南"><a href="#ES6-语法指南" class="headerlink" title="ES6 语法指南"></a>ES6 语法指南</h1><p>后端项目搭建完毕，接下来就是前端页面了。不过在这之前需要一些准备工作。我们需要学习ES6的语法标准。</p><p>什么是ES6？就是ECMAScript第6版标准。</p><h2 id="1-什么是ECMAScript？"><a href="#1-什么是ECMAScript？" class="headerlink" title="1.什么是ECMAScript？"></a>1.什么是ECMAScript？</h2><p>来看下前端的发展历程：</p><blockquote><p>web1.0时代：</p></blockquote><ul><li>最初的网页以HTML为主，是纯静态的网页。网页是只读的，信息流只能从服务的到客户端单向流通。<strong>开发人员也只关心页面的样式和内容</strong>即可。</li></ul><blockquote><p>web2.0时代：</p></blockquote><ul><li>1995年，网景工程师Brendan Eich 花了10天时间设计了JavaScript语言。</li><li>1996年，微软发布了JScript，其实是JavaScript的逆向工程实现。</li><li>1997年，为了统一各种不同script脚本语言，ECMA（欧洲计算机制造商协会）以JavaScript为基础，制定了<code>ECMAscript</code>标准规范。JavaScript和JScript都是<code>ECMAScript</code>的标准实现者，随后各大浏览器厂商纷纷实现了<code>ECMAScript</code>标准。</li></ul><p>所以，ECMAScript是浏览器脚本语言的规范，而各种我们熟知的js语言，如JavaScript则是规范的具体实现。</p><h2 id="2-ECMAScript的快速发展"><a href="#2-ECMAScript的快速发展" class="headerlink" title="2.ECMAScript的快速发展"></a>2.ECMAScript的快速发展</h2><p>而后，ECMAScript就进入了快速发展期。</p><ul><li><p>1998年6月，ECMAScript 2.0 发布。</p></li><li><p>1999年12月，ECMAScript 3.0 发布。这时，ECMAScript 规范本身也相对比较完善和稳定了，但是接下来的事情，就比较悲剧了。</p></li><li><p>2007年10月。。。。ECMAScript 4.0 草案发布。</p><p>这次的新规范，历时颇久，规范的新内容也有了很多争议。在制定ES4的时候，是分成了两个工作组同时工作的。</p><ul><li>一边是以 Adobe, Mozilla, Opera 和 Google为主的 ECMAScript 4 工作组。</li><li>一边是以 Microsoft 和 Yahoo 为主的 ECMAScript 3.1 工作组。</li></ul><p>ECMAScript 4 的很多主张比较激进，改动较大。而 ECMAScript 3.1 则主张小幅更新。最终经过 TC39 的会议，决定将一部分不那么激进的改动保留发布为 ECMAScript 3.1，而ES4的内容，则延续到了后来的ECMAScript5和6版本中</p></li><li><p>2009年12月，ECMAScript 5 发布。</p></li><li><p>2011年6月，ECMAScript 5.1 发布。</p></li><li><p>2015年6月，ECMAScript 6，也就是 ECMAScript 2015 发布了。 并且从 ECMAScript 6 开始，开始采用年号来做版本。即 ECMAScript 2015，就是ECMAScript6。 </p></li></ul><h2 id="3-ES5和6的一些新特性"><a href="#3-ES5和6的一些新特性" class="headerlink" title="3.ES5和6的一些新特性"></a>3.ES5和6的一些新特性</h2><p>我们这里只把一些常用的进行学习，更详细的大家参考：<a href="http://es6.ruanyifeng.com/?search=reduce&amp;x=0&amp;y=0#README" target="_blank" rel="noopener">阮一峰的ES6教程</a></p><h3 id="3-1-let-和-const-命令"><a href="#3-1-let-和-const-命令" class="headerlink" title="3.1.let 和 const 命令"></a>3.1.let 和 const 命令</h3><blockquote><p>var</p></blockquote><p>之前，js定义变量只有一个关键字：<code>var</code></p><p><code>var</code>有一个问题，就是定义的变量有时会莫名奇妙的成为全局变量。</p><p>例如这样的一段代码：</p><pre><code class="js">for(var i = 0; i &lt; 5; i++){    console.log(i);}console.log(&quot;循环外：&quot; + i)</code></pre><p>你猜下打印的结果是什么？</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107278999.png" alt="1526107278999"></p><blockquote><p>let</p></blockquote><p><code>let</code>所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p><p>我们把刚才的<code>var</code>改成<code>let</code>试试：</p><pre><code class="js">for(let i = 0; i &lt; 5; i++){    console.log(i);}console.log(&quot;循环外：&quot; + i)</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107347275.png" alt="1526107347275"></p><blockquote><p>const</p></blockquote><p><code>const</code>声明的变量是常量，不能被修改</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107425000.png" alt="1526107425000"></p><h3 id="3-2-字符串扩展"><a href="#3-2-字符串扩展" class="headerlink" title="3.2.字符串扩展"></a>3.2.字符串扩展</h3><blockquote><p>新的API</p></blockquote><p>ES6为字符串扩展了几个新的API：</p><ul><li><code>includes()</code>：返回布尔值，表示是否找到了参数字符串。</li><li><code>startsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的头部。</li><li><code>endsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的尾部。</li></ul><p>实验一下：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107640349.png" alt="1526107640349"></p><blockquote><p>字符串模板</p></blockquote><p>ES6中提供了`来作为字符串模板标记。我们可以这么玩：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526108070980.png" alt="1526108070980"></p><p>在两个`之间的部分都会被作为字符串的值，不管你任意换行，甚至加入js脚本</p><p>键盘是的1的左侧，tab的上侧，esc的正下方</p><h3 id="3-3-解构表达式"><a href="#3-3-解构表达式" class="headerlink" title="3.3.解构表达式"></a>3.3.解构表达式</h3><blockquote><p>数组解构</p></blockquote><p>比如有一个数组：</p><pre><code class="js">let arr = [1,2,3]</code></pre><p>我想获取其中的值，只能通过角标。ES6可以这样：</p><pre><code class="js">const [x,y,z] = arr;// x，y，z将与arr中的每个位置对应来取值// 然后打印console.log(x,y,z);</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109778368.png" alt="1526109778368"></p><blockquote><p>对象解构</p></blockquote><p>例如有个person对象：</p><pre><code class="js">const person = {    name:&quot;jack&quot;,    age:21,    language: [&#39;java&#39;,&#39;js&#39;,&#39;css&#39;]}</code></pre><p>我们可以这么做：</p><pre><code class="js">// 解构表达式获取值const {name,age,language} = person;// 打印console.log(name);console.log(age);console.log(language);</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109984544.png" alt="1526109984544"></p><p>如过想要用其它变量接收，需要额外指定别名：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110159450.png" alt="1526110159450"></p><ul><li><code>{name:n}</code>：name是person中的属性名，冒号后面的n是解构后要赋值给的变量。</li></ul><h3 id="3-4-函数优化"><a href="#3-4-函数优化" class="headerlink" title="3.4.函数优化"></a>3.4.函数优化</h3><blockquote><p>函数参数默认值</p></blockquote><p>在ES6以前，我们无法给一个函数参数设置默认值，只能采用变通写法：</p><pre><code class="js">    function add(a , b) {        // 判断b是否为空，为空就给默认值1        b = b || 1;        return a + b;    }    // 传一个参数    console.log(add(10));</code></pre><p>现在可以这么写：</p><pre><code class="js">function add(a , b = 1) {    return a + b;}// 传一个参数console.log(add(10));</code></pre><blockquote><p>箭头函数</p></blockquote><p>ES6中定义函数的简写方式：</p><p>一个参数时：</p><pre><code class="js">var print = function (obj) {    console.log(obj);}// 简写为：var print2 = obj =&gt; console.log(obj);</code></pre><p>多个参数：</p><pre><code class="js">// 两个参数的情况：var sum = function (a , b) {    return a + b;}// 简写为：var sum2 = (a,b) =&gt; a+b;</code></pre><p>代码不止一行，可以用<code>{}</code>括起来</p><pre><code class="js">var sum3 = (a,b) =&gt; {    return a + b;}</code></pre><blockquote><p>对象的函数属性简写</p></blockquote><p>比如一个Person对象，里面有eat方法：</p><pre><code class="js">let person = {    name: &quot;jack&quot;,    // 以前：    eat: function (food) {        console.log(this.name + &quot;在吃&quot; + food);    },    // 箭头函数版：    eat2: food =&gt; console.log(person.name + &quot;在吃&quot; + food),// 这里拿不到this    // 简写版：    eat3(food){        console.log(this.name + &quot;在吃&quot; + food);    }}</code></pre><blockquote><p>箭头函数结合解构表达式</p></blockquote><p>比如有一个函数：</p><pre><code class="js">const person = {    name:&quot;jack&quot;,    age:21,    language: [&#39;java&#39;,&#39;js&#39;,&#39;css&#39;]}function hello(person) {    console.log(&quot;hello,&quot; + person.name)}</code></pre><p>如果用箭头函数和解构表达式</p><pre><code class="js">var hi = ({name}) =&gt;  console.log(&quot;hello,&quot; + name);</code></pre><h3 id="3-5-map和reduce"><a href="#3-5-map和reduce" class="headerlink" title="3.5.map和reduce"></a>3.5.map和reduce</h3><p>数组中新增了map和reduce方法。</p><blockquote><p>map</p></blockquote><p><code>map()</code>：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。</p><p>举例：有一个字符串数组，我们希望转为int数组</p><pre><code class="js">let arr = [&#39;1&#39;,&#39;20&#39;,&#39;-5&#39;,&#39;3&#39;];console.log(arr)arr = arr.map(s =&gt; parseInt(s));console.log(arr)</code></pre><p>  <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110796839.png" alt="1526110796839"></p><blockquote><p>reduce</p></blockquote><p><code>reduce()</code>：接收一个函数（必须）和一个初始值（可选），该函数接收两个参数：</p><ul><li>第一个参数是上一次reduce处理的结果</li><li>第二个参数是数组中要处理的下一个元素</li></ul><p><code>reduce()</code>会从左到右依次把数组中的元素用reduce处理，并把处理的结果作为下次reduce的第一个参数。如果是第一次，会把前两个元素作为计算参数，或者把用户指定的初始值作为起始参数</p><p>举例：</p><pre><code>const arr = [1,20,-5,3]</code></pre><p>没有初始值：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111537204.png" alt="1526111537204"></p><p>指定初始值：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111580742.png" alt="1526111580742"></p><h3 id="3-6-promise"><a href="#3-6-promise" class="headerlink" title="3.6.promise"></a>3.6.promise</h3><p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p><p>感觉跟java的Future类很像啊，有木有！</p><p>我们可以通过Promise的构造函数来创建Promise对象，并在内部封装一个异步执行的结果。</p><p>语法：</p><pre><code class="js">const promise = new Promise(function(resolve, reject) {  // ... 执行异步操作  if (/* 异步操作成功 */){    resolve(value);// 调用resolve，代表Promise将返回成功的结果  } else {    reject(error);// 调用reject，代表Promise会返回失败结果  }});</code></pre><p>这样，在promise中就封装了一段异步执行的结果。</p><p>如果我们想要等待异步执行完成，做一些事情，我们可以通过promise的then方法来实现,语法：</p><pre><code class="js">promise.then(function(value){    // 异步执行成功后的回调});</code></pre><p>如果想要处理promise异步执行失败的事件，还可以跟上catch：</p><pre><code class="js">promise.then(function(value){    // 异步执行成功后的回调}).catch(function(error){    // 异步执行失败后的回调})</code></pre><p>示例：</p><pre><code>const p = new Promise(function (resolve, reject) {    // 这里我们用定时任务模拟异步    setTimeout(() =&gt; {        const num = Math.random();        // 随机返回成功或失败        if (num &lt; 0.5) {            resolve(&quot;成功！num:&quot; + num)        } else {            reject(&quot;出错了！num:&quot; + num)        }    }, 300)})// 调用promisep.then(function (msg) {    console.log(msg);}).catch(function (msg) {    console.log(msg);})</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113115887.png" alt="1526113115887"></p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113140074.png" alt="1526113140074"></p><h3 id="3-7-set和map（了解）"><a href="#3-7-set和map（了解）" class="headerlink" title="3.7.set和map（了解）"></a>3.7.set和map（了解）</h3><p>ES6提供了Set和Map的数据结构。</p><p>Set，本质与数组类似。不同在于Set中只能保存不同元素，如果元素相同会被忽略。跟java很像吧。</p><p>构造函数：</p><pre><code class="js">// Set构造函数可以接收一个数组或空let set = new Set();set.add(1);// [1]// 接收数组let set2 = new Set([2,3,4,5,5]);// 得到[2,3,4,5]</code></pre><p>普通方法：</p><pre><code>set.add(1);// 添加set.clear();// 清空set.delete(2);// 删除指定元素set.has(2); // 判断是否存在set.keys();// 返回所有keyset.values();// 返回所有值set.entries();// 返回键值对集合// 因为set没有键值对，所有其keys、values、entries方法返回值一样的。set.size; // 元素个数。是属性，不是方法。</code></pre><p>map，本质是与Object类似的结构。不同在于，Object强制规定key只能是字符串。而Map结构的key可以是任意对象。即：</p><ul><li>object是 &lt;string,object&gt;集合</li><li>map是&lt;object,object&gt;集合</li></ul><p>构造函数：</p><pre><code class="js">// map接收一个数组，数组中的元素是键值对数组const map = new Map([    [&#39;key1&#39;,&#39;value1&#39;],    [&#39;key2&#39;,&#39;value2&#39;],])// 或者接收一个setconst set = new Set([    [&#39;key1&#39;,&#39;value1&#39;],    [&#39;key2&#39;,&#39;value2&#39;],])const map2 = new Map(set)// 或者其它mapconst map3 = new Map(map);</code></pre><p>方法：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526114799767.png" alt="1526114799767"></p><h3 id="3-8-模块化"><a href="#3-8-模块化" class="headerlink" title="3.8.模块化"></a>3.8.模块化</h3><h4 id="3-8-1-什么是模块化"><a href="#3-8-1-什么是模块化" class="headerlink" title="3.8.1.什么是模块化"></a>3.8.1.什么是模块化</h4><p>模块化就是把代码进行拆分，方便重复利用。类似java中的导包：要使用一个包，必须先导包。</p><p>而JS中没有包的概念，换来的是 模块。</p><p>模块功能主要由两个命令构成：<code>export</code>和<code>import</code>。</p><ul><li><code>export</code>命令用于规定模块的对外接口，</li><li><code>import</code>命令用于导入其他模块提供的功能。</li></ul><h4 id="3-8-2-export"><a href="#3-8-2-export" class="headerlink" title="3.8.2.export"></a>3.8.2.export</h4><p>比如我定义一个js文件:hello.js，里面有一个对象：</p><pre><code class="js">const util = {    sum(a,b){        return a + b;    }}</code></pre><p>我可以使用export将这个对象导出：</p><pre><code class="js">const util = {    sum(a,b){        return a + b;    }}export util;</code></pre><p>当然，也可以简写为：</p><pre><code class="js">export const util = {    sum(a,b){        return a + b;    }}</code></pre><p><code>export</code>不仅可以导出对象，一切JS变量都可以导出。比如：基本类型变量、函数、数组、对象。</p><p>当要导出多个值时，还可以简写。比如我有一个文件：user.js：</p><pre><code class="js">var name = &quot;jack&quot;var age = 21export {name,age}</code></pre><blockquote><p>省略名称</p></blockquote><p>上面的导出代码中，都明确指定了导出的变量名，这样其它人在导入使用时就必须准确写出变量名，否则就会出错。</p><p>因此js提供了<code>default</code>关键字，可以对导出的变量名进行省略</p><p>例如：</p><pre><code class="js">// 无需声明对象的名字export default {    sum(a,b){        return a + b;    }}</code></pre><p>这样，当使用者导入时，可以任意起名字</p><h4 id="3-8-3-import"><a href="#3-8-3-import" class="headerlink" title="3.8.3.import"></a>3.8.3.import</h4><p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p><p>例如我要使用上面导出的util：</p><pre><code class="js">// 导入utilimport util from &#39;hello.js&#39;// 调用util中的属性util.sum(1,2)</code></pre><p>要批量导入前面导出的name和age： </p><pre><code class="js">import {name, age} from &#39;user.js&#39;console.log(name + &quot; , 今年&quot;+ age +&quot;岁了&quot;)</code></pre><p>但是上面的代码暂时无法测试，因为浏览器目前还不支持ES6 的导入和导出功能。除非借助于工具，把ES6 的语法进行编译降级到ES5，比如<code>Babel-cli</code>工具</p><p> 我们暂时不做测试，大家了解即可。</p><h3 id="3-9-对象扩展"><a href="#3-9-对象扩展" class="headerlink" title="3.9.对象扩展"></a>3.9.对象扩展</h3><p>ES6给Object拓展了许多新的方法，如：</p><ul><li>keys(obj)：获取对象的所有key形成的数组</li><li>values(obj)：获取对象的所有value形成的数组</li><li>entries(obj)：获取对象的所有key和value形成的二维数组。格式：<code>[[k1,v1],[k2,v2],...]</code></li><li><p>assian(dest, …src) ：将多个src对象的值 拷贝到 dest中（浅拷贝）。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1527210872966.png" alt="1527210872966"></p></li></ul><h3 id="3-10-数组扩展"><a href="#3-10-数组扩展" class="headerlink" title="3.10.数组扩展"></a>3.10.数组扩展</h3><p>ES6给数组新增了许多方法：</p><ul><li>find(callback)：把数组中的元素逐个传递给函数callback执行，如果返回true，则返回该元素</li><li>findIndex(callback)：与find类似，不过返回的是品牌到的元素的索引</li><li>includes（callback）：与find类似，如果匹配到元素，则返回true，代表找到了。</li></ul>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>作者：<a href="http://www.ruanyifeng.com/" target="_blank" rel="noopener">阮一峰</a></p><p>链接：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">http://es6.ruanyifeng.com/</a></p></blockquote><h1 id="ES6-语法指南"><a href="#ES6-语法指南" class="headerlink" title="ES6 语法指南"></a>ES6 语法指南</h1><p>后端项目搭建完毕，接下来就是前端页面了。不过在这之前需要一些准备工作。我们需要学习ES6的语法标准。</p><p>什么是ES6？就是ECMAScript第6版标准。</p><h2 id="1-什么是ECMAScript？"><a href="#1-什么是ECMAScript？" class="headerlink" title="1.什么是ECMAScript？"></a>1.什么是ECMAScript？</h2><p>来看下前端的发展历程：</p><blockquote><p>web1.0时代：</p></blockquote><ul><li>最初的网页以HTML为主，是纯静态的网页。网页是只读的，信息流只能从服务的到客户端单向流通。<strong>开发人员也只关心页面的样式和内容</strong>即可。</li></ul><blockquote><p>web2.0时代：</p></blockquote><ul><li>1995年，网景工程师Brendan Eich 花了10天时间设计了JavaScript语言。</li><li>1996年，微软发布了JScript，其实是JavaScript的逆向工程实现。</li><li>1997年，为了统一各种不同script脚本语言，ECMA（欧洲计算机制造商协会）以JavaScript为基础，制定了<code>ECMAscript</code>标准规范。JavaScript和JScript都是<code>ECMAScript</code>的标准实现者，随后各大浏览器厂商纷纷实现了<code>ECMAScript</code>标准。</li></ul><p>所以，ECMAScript是浏览器脚本语言的规范，而各种我们熟知的js语言，如JavaScript则是规范的具体实现。</p><h2 id="2-ECMAScript的快速发展"><a href="#2-ECMAScript的快速发展" class="headerlink" title="2.ECMAScript的快速发展"></a>2.ECMAScript的快速发展</h2><p>而后，ECMAScript就进入了快速发展期。</p><ul><li><p>1998年6月，ECMAScript 2.0 发布。</p></li><li><p>1999年12月，ECMAScript 3.0 发布。这时，ECMAScript 规范本身也相对比较完善和稳定了，但是接下来的事情，就比较悲剧了。</p></li><li><p>2007年10月。。。。ECMAScript 4.0 草案发布。</p><p>这次的新规范，历时颇久，规范的新内容也有了很多争议。在制定ES4的时候，是分成了两个工作组同时工作的。</p><ul><li>一边是以 Adobe, Mozilla, Opera 和 Google为主的 ECMAScript 4 工作组。</li><li>一边是以 Microsoft 和 Yahoo 为主的 ECMAScript 3.1 工作组。</li></ul><p>ECMAScript 4 的很多主张比较激进，改动较大。而 ECMAScript 3.1 则主张小幅更新。最终经过 TC39 的会议，决定将一部分不那么激进的改动保留发布为 ECMAScript 3.1，而ES4的内容，则延续到了后来的ECMAScript5和6版本中</p></li><li><p>2009年12月，ECMAScript 5 发布。</p></li><li><p>2011年6月，ECMAScript 5.1 发布。</p></li><li><p>2015年6月，ECMAScript 6，也就是 ECMAScript 2015 发布了。 并且从 ECMAScript 6 开始，开始采用年号来做版本。即 ECMAScript 2015，就是ECMAScript6。 </p></li></ul><h2 id="3-ES5和6的一些新特性"><a href="#3-ES5和6的一些新特性" class="headerlink" title="3.ES5和6的一些新特性"></a>3.ES5和6的一些新特性</h2><p>我们这里只把一些常用的进行学习，更详细的大家参考：<a href="http://es6.ruanyifeng.com/?search=reduce&amp;x=0&amp;y=0#README" target="_blank" rel="noopener">阮一峰的ES6教程</a></p><h3 id="3-1-let-和-const-命令"><a href="#3-1-let-和-const-命令" class="headerlink" title="3.1.let 和 const 命令"></a>3.1.let 和 const 命令</h3><blockquote><p>var</p></blockquote><p>之前，js定义变量只有一个关键字：<code>var</code></p><p><code>var</code>有一个问题，就是定义的变量有时会莫名奇妙的成为全局变量。</p><p>例如这样的一段代码：</p><pre><code class="js">for(var i = 0; i &lt; 5; i++){    console.log(i);}console.log(&quot;循环外：&quot; + i)</code></pre><p>你猜下打印的结果是什么？</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107278999.png" alt="1526107278999"></p><blockquote><p>let</p></blockquote><p><code>let</code>所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p><p>我们把刚才的<code>var</code>改成<code>let</code>试试：</p><pre><code class="js">for(let i = 0; i &lt; 5; i++){    console.log(i);}console.log(&quot;循环外：&quot; + i)</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107347275.png" alt="1526107347275"></p><blockquote><p>const</p></blockquote><p><code>const</code>声明的变量是常量，不能被修改</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107425000.png" alt="1526107425000"></p><h3 id="3-2-字符串扩展"><a href="#3-2-字符串扩展" class="headerlink" title="3.2.字符串扩展"></a>3.2.字符串扩展</h3><blockquote><p>新的API</p></blockquote><p>ES6为字符串扩展了几个新的API：</p><ul><li><code>includes()</code>：返回布尔值，表示是否找到了参数字符串。</li><li><code>startsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的头部。</li><li><code>endsWith()</code>：返回布尔值，表示参数字符串是否在原字符串的尾部。</li></ul><p>实验一下：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107640349.png" alt="1526107640349"></p><blockquote><p>字符串模板</p></blockquote><p>ES6中提供了`来作为字符串模板标记。我们可以这么玩：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526108070980.png" alt="1526108070980"></p><p>在两个`之间的部分都会被作为字符串的值，不管你任意换行，甚至加入js脚本</p><p>键盘是的1的左侧，tab的上侧，esc的正下方</p><h3 id="3-3-解构表达式"><a href="#3-3-解构表达式" class="headerlink" title="3.3.解构表达式"></a>3.3.解构表达式</h3><blockquote><p>数组解构</p></blockquote><p>比如有一个数组：</p><pre><code class="js">let arr = [1,2,3]</code></pre><p>我想获取其中的值，只能通过角标。ES6可以这样：</p><pre><code class="js">const [x,y,z] = arr;// x，y，z将与arr中的每个位置对应来取值// 然后打印console.log(x,y,z);</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109778368.png" alt="1526109778368"></p><blockquote><p>对象解构</p></blockquote><p>例如有个person对象：</p><pre><code class="js">const person = {    name:&quot;jack&quot;,    age:21,    language: [&#39;java&#39;,&#39;js&#39;,&#39;css&#39;]}</code></pre><p>我们可以这么做：</p><pre><code class="js">// 解构表达式获取值const {name,age,language} = person;// 打印console.log(name);console.log(age);console.log(language);</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109984544.png" alt="1526109984544"></p><p>如过想要用其它变量接收，需要额外指定别名：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110159450.png" alt="1526110159450"></p><ul><li><code>{name:n}</code>：name是person中的属性名，冒号后面的n是解构后要赋值给的变量。</li></ul><h3 id="3-4-函数优化"><a href="#3-4-函数优化" class="headerlink" title="3.4.函数优化"></a>3.4.函数优化</h3><blockquote><p>函数参数默认值</p></blockquote><p>在ES6以前，我们无法给一个函数参数设置默认值，只能采用变通写法：</p><pre><code class="js">    function add(a , b) {        // 判断b是否为空，为空就给默认值1        b = b || 1;        return a + b;    }    // 传一个参数    console.log(add(10));</code></pre><p>现在可以这么写：</p><pre><code class="js">function add(a , b = 1) {    return a + b;}// 传一个参数console.log(add(10));</code></pre><blockquote><p>箭头函数</p></blockquote><p>ES6中定义函数的简写方式：</p><p>一个参数时：</p><pre><code class="js">var print = function (obj) {    console.log(obj);}// 简写为：var print2 = obj =&gt; console.log(obj);</code></pre><p>多个参数：</p><pre><code class="js">// 两个参数的情况：var sum = function (a , b) {    return a + b;}// 简写为：var sum2 = (a,b) =&gt; a+b;</code></pre><p>代码不止一行，可以用<code>{}</code>括起来</p><pre><code class="js">var sum3 = (a,b) =&gt; {    return a + b;}</code></pre><blockquote><p>对象的函数属性简写</p></blockquote><p>比如一个Person对象，里面有eat方法：</p><pre><code class="js">let person = {    name: &quot;jack&quot;,    // 以前：    eat: function (food) {        console.log(this.name + &quot;在吃&quot; + food);    },    // 箭头函数版：    eat2: food =&gt; console.log(person.name + &quot;在吃&quot; + food),// 这里拿不到this    // 简写版：    eat3(food){        console.log(this.name + &quot;在吃&quot; + food);    }}</code></pre><blockquote><p>箭头函数结合解构表达式</p></blockquote><p>比如有一个函数：</p><pre><code class="js">const person = {    name:&quot;jack&quot;,    age:21,    language: [&#39;java&#39;,&#39;js&#39;,&#39;css&#39;]}function hello(person) {    console.log(&quot;hello,&quot; + person.name)}</code></pre><p>如果用箭头函数和解构表达式</p><pre><code class="js">var hi = ({name}) =&gt;  console.log(&quot;hello,&quot; + name);</code></pre><h3 id="3-5-map和reduce"><a href="#3-5-map和reduce" class="headerlink" title="3.5.map和reduce"></a>3.5.map和reduce</h3><p>数组中新增了map和reduce方法。</p><blockquote><p>map</p></blockquote><p><code>map()</code>：接收一个函数，将原数组中的所有元素用这个函数处理后放入新数组返回。</p><p>举例：有一个字符串数组，我们希望转为int数组</p><pre><code class="js">let arr = [&#39;1&#39;,&#39;20&#39;,&#39;-5&#39;,&#39;3&#39;];console.log(arr)arr = arr.map(s =&gt; parseInt(s));console.log(arr)</code></pre><p>  <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110796839.png" alt="1526110796839"></p><blockquote><p>reduce</p></blockquote><p><code>reduce()</code>：接收一个函数（必须）和一个初始值（可选），该函数接收两个参数：</p><ul><li>第一个参数是上一次reduce处理的结果</li><li>第二个参数是数组中要处理的下一个元素</li></ul><p><code>reduce()</code>会从左到右依次把数组中的元素用reduce处理，并把处理的结果作为下次reduce的第一个参数。如果是第一次，会把前两个元素作为计算参数，或者把用户指定的初始值作为起始参数</p><p>举例：</p><pre><code>const arr = [1,20,-5,3]</code></pre><p>没有初始值：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111537204.png" alt="1526111537204"></p><p>指定初始值：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111580742.png" alt="1526111580742"></p><h3 id="3-6-promise"><a href="#3-6-promise" class="headerlink" title="3.6.promise"></a>3.6.promise</h3><p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。Promise 提供统一的 API，各种异步操作都可以用同样的方法进行处理。</p><p>感觉跟java的Future类很像啊，有木有！</p><p>我们可以通过Promise的构造函数来创建Promise对象，并在内部封装一个异步执行的结果。</p><p>语法：</p><pre><code class="js">const promise = new Promise(function(resolve, reject) {  // ... 执行异步操作  if (/* 异步操作成功 */){    resolve(value);// 调用resolve，代表Promise将返回成功的结果  } else {    reject(error);// 调用reject，代表Promise会返回失败结果  }});</code></pre><p>这样，在promise中就封装了一段异步执行的结果。</p><p>如果我们想要等待异步执行完成，做一些事情，我们可以通过promise的then方法来实现,语法：</p><pre><code class="js">promise.then(function(value){    // 异步执行成功后的回调});</code></pre><p>如果想要处理promise异步执行失败的事件，还可以跟上catch：</p><pre><code class="js">promise.then(function(value){    // 异步执行成功后的回调}).catch(function(error){    // 异步执行失败后的回调})</code></pre><p>示例：</p><pre><code>const p = new Promise(function (resolve, reject) {    // 这里我们用定时任务模拟异步    setTimeout(() =&gt; {        const num = Math.random();        // 随机返回成功或失败        if (num &lt; 0.5) {            resolve(&quot;成功！num:&quot; + num)        } else {            reject(&quot;出错了！num:&quot; + num)        }    }, 300)})// 调用promisep.then(function (msg) {    console.log(msg);}).catch(function (msg) {    console.log(msg);})</code></pre><p>结果：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113115887.png" alt="1526113115887"></p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113140074.png" alt="1526113140074"></p><h3 id="3-7-set和map（了解）"><a href="#3-7-set和map（了解）" class="headerlink" title="3.7.set和map（了解）"></a>3.7.set和map（了解）</h3><p>ES6提供了Set和Map的数据结构。</p><p>Set，本质与数组类似。不同在于Set中只能保存不同元素，如果元素相同会被忽略。跟java很像吧。</p><p>构造函数：</p><pre><code class="js">// Set构造函数可以接收一个数组或空let set = new Set();set.add(1);// [1]// 接收数组let set2 = new Set([2,3,4,5,5]);// 得到[2,3,4,5]</code></pre><p>普通方法：</p><pre><code>set.add(1);// 添加set.clear();// 清空set.delete(2);// 删除指定元素set.has(2); // 判断是否存在set.keys();// 返回所有keyset.values();// 返回所有值set.entries();// 返回键值对集合// 因为set没有键值对，所有其keys、values、entries方法返回值一样的。set.size; // 元素个数。是属性，不是方法。</code></pre><p>map，本质是与Object类似的结构。不同在于，Object强制规定key只能是字符串。而Map结构的key可以是任意对象。即：</p><ul><li>object是 &lt;string,object&gt;集合</li><li>map是&lt;object,object&gt;集合</li></ul><p>构造函数：</p><pre><code class="js">// map接收一个数组，数组中的元素是键值对数组const map = new Map([    [&#39;key1&#39;,&#39;value1&#39;],    [&#39;key2&#39;,&#39;value2&#39;],])// 或者接收一个setconst set = new Set([    [&#39;key1&#39;,&#39;value1&#39;],    [&#39;key2&#39;,&#39;value2&#39;],])const map2 = new Map(set)// 或者其它mapconst map3 = new Map(map);</code></pre><p>方法：</p><p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526114799767.png" alt="1526114799767"></p><h3 id="3-8-模块化"><a href="#3-8-模块化" class="headerlink" title="3.8.模块化"></a>3.8.模块化</h3><h4 id="3-8-1-什么是模块化"><a href="#3-8-1-什么是模块化" class="headerlink" title="3.8.1.什么是模块化"></a>3.8.1.什么是模块化</h4><p>模块化就是把代码进行拆分，方便重复利用。类似java中的导包：要使用一个包，必须先导包。</p><p>而JS中没有包的概念，换来的是 模块。</p><p>模块功能主要由两个命令构成：<code>export</code>和<code>import</code>。</p><ul><li><code>export</code>命令用于规定模块的对外接口，</li><li><code>import</code>命令用于导入其他模块提供的功能。</li></ul><h4 id="3-8-2-export"><a href="#3-8-2-export" class="headerlink" title="3.8.2.export"></a>3.8.2.export</h4><p>比如我定义一个js文件:hello.js，里面有一个对象：</p><pre><code class="js">const util = {    sum(a,b){        return a + b;    }}</code></pre><p>我可以使用export将这个对象导出：</p><pre><code class="js">const util = {    sum(a,b){        return a + b;    }}export util;</code></pre><p>当然，也可以简写为：</p><pre><code class="js">export const util = {    sum(a,b){        return a + b;    }}</code></pre><p><code>export</code>不仅可以导出对象，一切JS变量都可以导出。比如：基本类型变量、函数、数组、对象。</p><p>当要导出多个值时，还可以简写。比如我有一个文件：user.js：</p><pre><code class="js">var name = &quot;jack&quot;var age = 21export {name,age}</code></pre><blockquote><p>省略名称</p></blockquote><p>上面的导出代码中，都明确指定了导出的变量名，这样其它人在导入使用时就必须准确写出变量名，否则就会出错。</p><p>因此js提供了<code>default</code>关键字，可以对导出的变量名进行省略</p><p>例如：</p><pre><code class="js">// 无需声明对象的名字export default {    sum(a,b){        return a + b;    }}</code></pre><p>这样，当使用者导入时，可以任意起名字</p><h4 id="3-8-3-import"><a href="#3-8-3-import" class="headerlink" title="3.8.3.import"></a>3.8.3.import</h4><p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p><p>例如我要使用上面导出的util：</p><pre><code class="js">// 导入utilimport util from &#39;hello.js&#39;// 调用util中的属性util.sum(1,2)</code></pre><p>要批量导入前面导出的name和age： </p><pre><code class="js">import {name, age} from &#39;user.js&#39;console.log(name + &quot; , 今年&quot;+ age +&quot;岁了&quot;)</code></pre><p>但是上面的代码暂时无法测试，因为浏览器目前还不支持ES6 的导入和导出功能。除非借助于工具，把ES6 的语法进行编译降级到ES5，比如<code>Babel-cli</code>工具</p><p> 我们暂时不做测试，大家了解即可。</p><h3 id="3-9-对象扩展"><a href="#3-9-对象扩展" class="headerlink" title="3.9.对象扩展"></a>3.9.对象扩展</h3><p>ES6给Object拓展了许多新的方法，如：</p><ul><li>keys(obj)：获取对象的所有key形成的数组</li><li>values(obj)：获取对象的所有value形成的数组</li><li>entries(obj)：获取对象的所有key和value形成的二维数组。格式：<code>[[k1,v1],[k2,v2],...]</code></li><li><p>assian(dest, …src) ：将多个src对象的值 拷贝到 dest中（浅拷贝）。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1527210872966.png" alt="1527210872966"></p></li></ul><h3 id="3-10-数组扩展"><a href="#3-10-数组扩展" class="headerlink" title="3.10.数组扩展"></a>3.10.数组扩展</h3><p>ES6给数组新增了许多方法：</p><ul><li>find(callback)：把数组中的元素逐个传递给函数callback执行，如果返回true，则返回该元素</li><li>findIndex(callback)：与find类似，不过返回的是品牌到的元素的索引</li><li>includes（callback）：与find类似，如果匹配到元素，则返回true，代表找到了。</li></ul>]]></content>
       
       
       <categories>
@@ -1786,7 +2064,7 @@
       <link href="/2018/12/17/Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
       <url>/2018/12/17/Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
       
-        <content type="html"><![CDATA[<h1 id="使用Inject-language编写JSON字符串"><a href="#使用Inject-language编写JSON字符串" class="headerlink" title="使用Inject language编写JSON字符串"></a>使用Inject language编写JSON字符串</h1><p>如果你使用IDEA在编写JSON字符串的时候，然后要一个一个<code>\</code>去转义双引号的话，就实在太不应该了，又烦又容易出错。在IDEA可以使用<code>Inject language</code>帮我们自动转义双引号</p><ol><li>在双引号内 <code>Alt+回车</code>，选择<code>Inject language or reference</code>，然后回车<br><img src="https://img-blog.csdnimg.cn/20181217181824340.png" alt="在这里插入图片描述"></li><li>输入 <strong>json</strong>，在列表中选择 json组件，回车<br><img src="https://img-blog.csdnimg.cn/20181217181753821.png" alt="在这里插入图片描述"></li><li>选择完后，在双引号内<code>Alt+回车</code>，选择<code>Edit JSON Fragment</code>，回车<br><img src="https://img-blog.csdnimg.cn/20181217181854421.png" alt="在这里插入图片描述"></li><li>此时将弹出编辑JSON文件的视图了<br><img src="https://img-blog.csdnimg.cn/20181217182000472.png" alt="在这里插入图片描述"></li></ol><p>可以看到IDEA确实帮我们自动转义双引号了。如果要退出编辑JSON信息的视图，只需要使用<code>Ctrl+F4</code>快捷键即可。</p><hr><h1 id="Structure展示一个类的所有方法"><a href="#Structure展示一个类的所有方法" class="headerlink" title="Structure展示一个类的所有方法"></a>Structure展示一个类的所有方法</h1><p><img src="https://img-blog.csdnimg.cn/20181217190146126.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181217190405526.png" alt="在这里插入图片描述"><br>或者使用<code>Ctrl+F12</code>弹框查看当前类的所有方法</p><hr>]]></content>
+        <content type="html"><![CDATA[<h1 id="使用Inject-language编写JSON字符串"><a href="#使用Inject-language编写JSON字符串" class="headerlink" title="使用Inject language编写JSON字符串"></a>使用Inject language编写JSON字符串</h1><p>如果你使用IDEA在编写JSON字符串的时候，然后要一个一个<code>\</code>去转义双引号的话，就实在太不应该了，又烦又容易出错。在IDEA可以使用<code>Inject language</code>帮我们自动转义双引号</p><ol><li>在双引号内 <code>Alt+回车</code>，选择<code>Inject language or reference</code>，然后回车<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181217-Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/20181217181824340.png" alt="在这里插入图片描述"></li><li>输入 <strong>json</strong>，在列表中选择 json组件，回车<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181217-Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/20181217181753821.png" alt="在这里插入图片描述"></li><li>选择完后，在双引号内<code>Alt+回车</code>，选择<code>Edit JSON Fragment</code>，回车<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181217-Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/20181217181854421.png" alt="在这里插入图片描述"></li><li>此时将弹出编辑JSON文件的视图了<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181217-Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/20181217182000472.png" alt="在这里插入图片描述"></li></ol><p>可以看到IDEA确实帮我们自动转义双引号了。如果要退出编辑JSON信息的视图，只需要使用<code>Ctrl+F4</code>快捷键即可。</p><hr><h1 id="Structure展示一个类的所有方法"><a href="#Structure展示一个类的所有方法" class="headerlink" title="Structure展示一个类的所有方法"></a>Structure展示一个类的所有方法</h1><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181217-Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/20181217190146126.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181217-Intellij%20IDEA%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7/20181217190405526.png" alt="在这里插入图片描述"><br>或者使用<code>Ctrl+F12</code>弹框查看当前类的所有方法</p><hr>]]></content>
       
       
       <categories>
@@ -1795,6 +2073,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> IDEA </tag>
+            
+        </tags>
       
     </entry>
     
@@ -1816,6 +2102,8 @@
       
       
         <tags>
+            
+            <tag> 软件 </tag>
             
             <tag> 百度网盘 </tag>
             
@@ -1843,6 +2131,8 @@
       
       
         <tags>
+            
+            <tag> 软件 </tag>
             
             <tag> 微信小程序 </tag>
             
@@ -1898,9 +2188,9 @@
       
         <tags>
             
-            <tag> HashSet </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> HashSet </tag>
             
         </tags>
       
@@ -2019,7 +2309,7 @@
       <link href="/2018/11/30/Flex%E5%B8%83%E5%B1%80/"/>
       <url>/2018/11/30/Flex%E5%B8%83%E5%B1%80/</url>
       
-        <content type="html"><![CDATA[<h1 id="Flex-布局教程：语法篇"><a href="#Flex-布局教程：语法篇" class="headerlink" title="Flex 布局教程：语法篇"></a>Flex 布局教程：语法篇</h1><p>作者： <a href="http://www.ruanyifeng.com/blog//" target="_blank" rel="noopener">阮一峰</a></p><p>日期： <a href="http://www.ruanyifeng.com/blog/2015/07/" target="_blank" rel="noopener">2015年7月10日</a></p><p>网页布局（layout）是 CSS 的一个重点应用</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071001.gif?raw=true" alt="img"></p><p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model" target="_blank" rel="noopener">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" rel="noopener"><code>display</code></a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank" rel="noopener"><code>position</code></a>属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank" rel="noopener"><code>float</code></a>属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="noopener">垂直居中</a>就不容易实现。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071002.png" alt="img"></p><p>2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071003.jpg" alt="img"></p><p>Flex 布局将成为未来布局的首选方案。本文介绍它的语法，<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">下一篇文章</a>给出常见布局的 Flex 写法。网友<a href="http://vgee.cn/" target="_blank" rel="noopener">JailBreak</a> 为本文的所有示例制作了 <a href="http://static.vgee.cn/static/index.html" target="_blank" rel="noopener">Demo</a>，也可以参考。</p><p>以下内容主要参考了下面两篇文章：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">A Complete Guide to Flexbox</a> 和 <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank" rel="noopener">A Visual Guide to CSS3 Flexbox Properties</a>。</p><h2 id="一、Flex-布局是什么？"><a href="#一、Flex-布局是什么？" class="headerlink" title="一、Flex 布局是什么？"></a>一、Flex 布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p><p>任何一个容器都可以指定为 Flex 布局。</p><blockquote><pre><code class="css">.box{  display: flex;}</code></pre></blockquote><p>行内元素也可以使用 Flex 布局。</p><blockquote><pre><code class="css">.box{  display: inline-flex;}</code></pre></blockquote><p>Webkit 内核的浏览器，必须加上<code>-webkit</code>前缀。</p><blockquote><pre><code class="css">.box{  display: -webkit-flex; /* Safari */  display: flex;}</code></pre></blockquote><p>注意，设为 Flex 布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</p><h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071004.png" alt="img"></p><p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p><p>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</p><h2 id="三、容器的属性-紫色大盒子"><a href="#三、容器的属性-紫色大盒子" class="headerlink" title="三、容器的属性  (紫色大盒子) *"></a>三、容器的属性  (紫色大盒子) *</h2><p>以下6个属性设置在容器上。</p><blockquote><ul><li>flex-direction  √</li><li>flex-wrap  √</li><li>flex-flow</li><li>justify-content  √</li><li>align-items √</li><li>align-content</li></ul></blockquote><h3 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性 **"></a>3.1 flex-direction属性 **</h3><p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p><blockquote><pre><code>.box {  flex-direction: row | row-reverse | column | column-reverse;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071005.png" alt="img"></p><p>它可能有4个值。</p><blockquote><ul><li><code>row</code>（默认值）：主轴为水平方向，起点在左端。</li><li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li><li><code>column</code>：主轴为垂直方向，起点在上沿。</li><li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li></ul></blockquote><h3 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性 **"></a>3.2 flex-wrap属性 **</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071006.png" alt="img"></p><blockquote><pre><code>.box{  flex-wrap: nowrap | wrap | wrap-reverse;}</code></pre></blockquote><p>它可能取三个值。</p><p>（1）<code>nowrap</code>（默认）：不换行。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071007.png" alt="img"></p><p>（2）<code>wrap</code>：换行，第一行在上方。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071008.jpg" alt="img"></p><p>（3）<code>wrap-reverse</code>：换行，第一行在下方。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071009.jpg" alt="img"></p><h3 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h3><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p><blockquote><pre><code>.box {  flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;}</code></pre></blockquote><h3 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性  **"></a>3.4 justify-content属性  **</h3><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p><blockquote><pre><code class="css">.box {  justify-content: flex-start | flex-end | center | space-between | space-around;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071010.png" alt="img"></p><p>它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。</p><blockquote><ul><li><code>flex-start</code>（默认值）：左对齐</li><li><code>flex-end</code>：右对齐</li><li><code>center</code>： 居中</li><li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li><li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li></ul></blockquote><h3 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性 **"></a>3.5 align-items属性 **</h3><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p><blockquote><pre><code>.box {  align-items: flex-start | flex-end | center | baseline | stretch;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071011.png" alt="img"></p><p>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</p><blockquote><ul><li><code>flex-start</code>：交叉轴的起点对齐。</li><li><code>flex-end</code>：交叉轴的终点对齐。</li><li><code>center</code>：交叉轴的中点对齐。</li><li><code>baseline</code>: 项目的第一行文字的基线对齐。</li><li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li></ul></blockquote><h3 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h3><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p><blockquote><pre><code>.box {  align-content: flex-start | flex-end | center | space-between | space-around | stretch;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071012.png" alt="img"></p><p>该属性可能取6个值。</p><blockquote><ul><li><code>flex-start</code>：与交叉轴的起点对齐。</li><li><code>flex-end</code>：与交叉轴的终点对齐。</li><li><code>center</code>：与交叉轴的中点对齐。</li><li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li><li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li><li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li></ul></blockquote><h2 id="四、项目的属性-橙色小盒子"><a href="#四、项目的属性-橙色小盒子" class="headerlink" title="四、项目的属性  (橙色小盒子) *"></a>四、项目的属性  (橙色小盒子) *</h2><p>以下6个属性设置在项目上。</p><blockquote><ul><li><code>order</code></li><li><code>flex-grow</code></li><li><code>flex-shrink</code></li><li><code>flex-basis</code></li><li><code>flex</code></li><li><code>align-self</code></li></ul></blockquote><h3 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h3><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p><blockquote><pre><code>.item {  order: &lt;integer&gt;;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071013.png" alt="img"></p><h3 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h3><p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p><blockquote><pre><code>.item {  flex-grow: &lt;number&gt;; /* default 0 */}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071014.png" alt="img"></p><p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p><h3 id="4-3-flex-shrink属性"><a href="#4-3-flex-shrink属性" class="headerlink" title="4.3 flex-shrink属性"></a>4.3 flex-shrink属性</h3><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p><blockquote><pre><code>.item {  flex-shrink: &lt;number&gt;; /* default 1 */}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071015.jpg" alt="img"></p><p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</p><p>负值对该属性无效。</p><h3 id="4-4-flex-basis属性"><a href="#4-4-flex-basis属性" class="headerlink" title="4.4 flex-basis属性"></a>4.4 flex-basis属性</h3><p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p><blockquote><pre><code>.item {  flex-basis: &lt;length&gt; | auto; /* default auto */}</code></pre></blockquote><p>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</p><h3 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性 **"></a>4.5 flex属性 **</h3><p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p><blockquote><pre><code>.item {  flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]}</code></pre></blockquote><p>该属性有两个快捷值：<code>auto</code> (<code>1 1 auto</code>) 和 none (<code>0 0 auto</code>)。</p><p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p><h3 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p><blockquote><pre><code>.item {  align-self: auto | flex-start | flex-end | center | baseline | stretch;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071016.png" alt="img"></p><p>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Flex-布局教程：语法篇"><a href="#Flex-布局教程：语法篇" class="headerlink" title="Flex 布局教程：语法篇"></a>Flex 布局教程：语法篇</h1><blockquote><p>作者： <a href="http://www.ruanyifeng.com/blog//" target="_blank" rel="noopener">阮一峰</a><br>链接： <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p></blockquote><p>网页布局（layout）是 CSS 的一个重点应用</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071001.gif?raw=true" alt="img"></p><p>布局的传统解决方案，基于<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model" target="_blank" rel="noopener">盒状模型</a>，依赖 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" rel="noopener"><code>display</code></a> 属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank" rel="noopener"><code>position</code></a>属性 + <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank" rel="noopener"><code>float</code></a>属性。它对于那些特殊布局非常不方便，比如，<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="noopener">垂直居中</a>就不容易实现。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071002.png" alt="img"></p><p>2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071003.jpg" alt="img"></p><p>Flex 布局将成为未来布局的首选方案。本文介绍它的语法，<a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">下一篇文章</a>给出常见布局的 Flex 写法。网友<a href="http://vgee.cn/" target="_blank" rel="noopener">JailBreak</a> 为本文的所有示例制作了 <a href="http://static.vgee.cn/static/index.html" target="_blank" rel="noopener">Demo</a>，也可以参考。</p><p>以下内容主要参考了下面两篇文章：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">A Complete Guide to Flexbox</a> 和 <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank" rel="noopener">A Visual Guide to CSS3 Flexbox Properties</a>。</p><h2 id="一、Flex-布局是什么？"><a href="#一、Flex-布局是什么？" class="headerlink" title="一、Flex 布局是什么？"></a>一、Flex 布局是什么？</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p><p>任何一个容器都可以指定为 Flex 布局。</p><blockquote><pre><code class="css">.box{  display: flex;}</code></pre></blockquote><p>行内元素也可以使用 Flex 布局。</p><blockquote><pre><code class="css">.box{  display: inline-flex;}</code></pre></blockquote><p>Webkit 内核的浏览器，必须加上<code>-webkit</code>前缀。</p><blockquote><pre><code class="css">.box{  display: -webkit-flex; /* Safari */  display: flex;}</code></pre></blockquote><p>注意，设为 Flex 布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</p><h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><p>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071004.png" alt="img"></p><p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</p><p>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</p><h2 id="三、容器的属性-紫色大盒子"><a href="#三、容器的属性-紫色大盒子" class="headerlink" title="三、容器的属性  (紫色大盒子) *"></a>三、容器的属性  (紫色大盒子) *</h2><p>以下6个属性设置在容器上。</p><blockquote><ul><li>flex-direction  √</li><li>flex-wrap  √</li><li>flex-flow</li><li>justify-content  √</li><li>align-items √</li><li>align-content</li></ul></blockquote><h3 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性 **"></a>3.1 flex-direction属性 **</h3><p><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</p><blockquote><pre><code>.box {  flex-direction: row | row-reverse | column | column-reverse;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071005.png" alt="img"></p><p>它可能有4个值。</p><blockquote><ul><li><code>row</code>（默认值）：主轴为水平方向，起点在左端。</li><li><code>row-reverse</code>：主轴为水平方向，起点在右端。</li><li><code>column</code>：主轴为垂直方向，起点在上沿。</li><li><code>column-reverse</code>：主轴为垂直方向，起点在下沿。</li></ul></blockquote><h3 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性 **"></a>3.2 flex-wrap属性 **</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071006.png" alt="img"></p><blockquote><pre><code>.box{  flex-wrap: nowrap | wrap | wrap-reverse;}</code></pre></blockquote><p>它可能取三个值。</p><p>（1）<code>nowrap</code>（默认）：不换行。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071007.png" alt="img"></p><p>（2）<code>wrap</code>：换行，第一行在上方。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071008.jpg" alt="img"></p><p>（3）<code>wrap-reverse</code>：换行，第一行在下方。</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071009.jpg" alt="img"></p><h3 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h3><p><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</p><blockquote><pre><code>.box {  flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;}</code></pre></blockquote><h3 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性  **"></a>3.4 justify-content属性  **</h3><p><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</p><blockquote><pre><code class="css">.box {  justify-content: flex-start | flex-end | center | space-between | space-around;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071010.png" alt="img"></p><p>它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。</p><blockquote><ul><li><code>flex-start</code>（默认值）：左对齐</li><li><code>flex-end</code>：右对齐</li><li><code>center</code>： 居中</li><li><code>space-between</code>：两端对齐，项目之间的间隔都相等。</li><li><code>space-around</code>：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li></ul></blockquote><h3 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性 **"></a>3.5 align-items属性 **</h3><p><code>align-items</code>属性定义项目在交叉轴上如何对齐。</p><blockquote><pre><code>.box {  align-items: flex-start | flex-end | center | baseline | stretch;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071011.png" alt="img"></p><p>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</p><blockquote><ul><li><code>flex-start</code>：交叉轴的起点对齐。</li><li><code>flex-end</code>：交叉轴的终点对齐。</li><li><code>center</code>：交叉轴的中点对齐。</li><li><code>baseline</code>: 项目的第一行文字的基线对齐。</li><li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li></ul></blockquote><h3 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h3><p><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p><blockquote><pre><code>.box {  align-content: flex-start | flex-end | center | space-between | space-around | stretch;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071012.png" alt="img"></p><p>该属性可能取6个值。</p><blockquote><ul><li><code>flex-start</code>：与交叉轴的起点对齐。</li><li><code>flex-end</code>：与交叉轴的终点对齐。</li><li><code>center</code>：与交叉轴的中点对齐。</li><li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li><li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li><li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li></ul></blockquote><h2 id="四、项目的属性-橙色小盒子"><a href="#四、项目的属性-橙色小盒子" class="headerlink" title="四、项目的属性  (橙色小盒子) *"></a>四、项目的属性  (橙色小盒子) *</h2><p>以下6个属性设置在项目上。</p><blockquote><ul><li><code>order</code></li><li><code>flex-grow</code></li><li><code>flex-shrink</code></li><li><code>flex-basis</code></li><li><code>flex</code></li><li><code>align-self</code></li></ul></blockquote><h3 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h3><p><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p><blockquote><pre><code>.item {  order: &lt;integer&gt;;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071013.png" alt="img"></p><h3 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h3><p><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</p><blockquote><pre><code>.item {  flex-grow: &lt;number&gt;; /* default 0 */}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071014.png" alt="img"></p><p>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p><h3 id="4-3-flex-shrink属性"><a href="#4-3-flex-shrink属性" class="headerlink" title="4.3 flex-shrink属性"></a>4.3 flex-shrink属性</h3><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p><blockquote><pre><code>.item {  flex-shrink: &lt;number&gt;; /* default 1 */}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071015.jpg" alt="img"></p><p>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</p><p>负值对该属性无效。</p><h3 id="4-4-flex-basis属性"><a href="#4-4-flex-basis属性" class="headerlink" title="4.4 flex-basis属性"></a>4.4 flex-basis属性</h3><p><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</p><blockquote><pre><code>.item {  flex-basis: &lt;length&gt; | auto; /* default auto */}</code></pre></blockquote><p>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</p><h3 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性 **"></a>4.5 flex属性 **</h3><p><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</p><blockquote><pre><code>.item {  flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]}</code></pre></blockquote><p>该属性有两个快捷值：<code>auto</code> (<code>1 1 auto</code>) 和 none (<code>0 0 auto</code>)。</p><p>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p><h3 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h3><p><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</p><blockquote><pre><code>.item {  align-self: auto | flex-start | flex-end | center | baseline | stretch;}</code></pre></blockquote><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071016.png" alt="img"></p><p>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</p>]]></content>
       
       
       <categories>
@@ -2027,6 +2317,8 @@
           <category> 技术 </category>
           
           <category> 笔记 </category>
+          
+          <category> 装载 </category>
           
       </categories>
       
@@ -2089,6 +2381,8 @@
             
             <tag> Top电影 </tag>
             
+            <tag> 电仪 </tag>
+            
         </tags>
       
     </entry>
@@ -2109,12 +2403,18 @@
           
           <category> 笔记 </category>
           
+          <category> 生活 </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> Hexo </tag>
+            
+            <tag> GitHub </tag>
+            
+            <tag> 博客 </tag>
             
         </tags>
       
@@ -2138,6 +2438,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2147,7 +2453,7 @@
       <link href="/2018/11/27/%E4%BD%BF%E7%94%A8Notepad++%E6%9B%BF%E6%8D%A2%E6%9F%90%E4%B8%80%E7%89%B9%E5%AE%9A%E4%B8%AD%E6%96%87%E5%90%8E%E9%9D%A2%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/"/>
       <url>/2018/11/27/%E4%BD%BF%E7%94%A8Notepad++%E6%9B%BF%E6%8D%A2%E6%9F%90%E4%B8%80%E7%89%B9%E5%AE%9A%E4%B8%AD%E6%96%87%E5%90%8E%E9%9D%A2%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/</url>
       
-        <content type="html"><![CDATA[<h3 id="需求：删除”电影描述”以及其后面的内容"><a href="#需求：删除”电影描述”以及其后面的内容" class="headerlink" title="需求：删除”电影描述”以及其后面的内容"></a>需求：删除”电影描述”以及其后面的内容</h3><blockquote><p>Top1 肖申克的救赎    评分：9.6    电影描述：希望让人自由<br>Top2 霸王别姬    评分：9.5    电影描述：风华绝代<br>Top3 这个杀手不太冷    评分：9.4    电影描述：怪蜀黍和小萝莉不得不说的故事<br>Top4 阿甘正传    评分：9.4    电影描述：一部美国近现代史<br>Top5 美丽人生    评分：9.5    电影描述：最美的谎言<br>Top6 千与千寻    评分：9.2    电影描述：最好的宫崎骏，最好的久石让<br>Top7 泰坦尼克号    评分：9.2    电影描述：失去的才是永恒的<br>Top8 辛德勒的名单    评分：9.4    电影描述：拯救一个人，就是拯救整个世界<br>Top9 盗梦空间    评分：9.3    电影描述：诺兰给了我们一场无法盗取的梦<br>Top10 机器人总动员    评分：9.3    电影描述：小瓦力，大人生<br>Top11 海上钢琴师    评分：9.2    电影描述：每个人都要走一条自己坚定了的路，就算是粉身碎骨<br>Top12 三傻大闹宝莱坞    评分：9.1    电影描述：英俊版憨豆，高情商版谢耳朵<br>Top13 忠犬八公的故事    评分：9.2    电影描述：永远都不能忘记你所爱的人<br>Top14 放牛班的春天    评分：9.2    电影描述：天籁一般的童声，是最接近上帝的存在<br>Top15 大话西游之大圣娶亲    评分：9.2    电影描述：一生所爱</p></blockquote><p><br></p><h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><ol><li>Ctrl+R 打开替换窗口</li><li>在”查找目标”中输入：特定字符.*</li><li>选择右下角的”正则表达式”</li><li>点击”全部替换”<br><img src="https://img-blog.csdnimg.cn/20181127104259536.png" alt="在这里插入图片描述"></li></ol><p><br></p><h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><blockquote><p>Top1 肖申克的救赎    评分：9.6<br>Top2 霸王别姬    评分：9.5<br>Top3 这个杀手不太冷    评分：9.4<br>Top4 阿甘正传    评分：9.4<br>Top5 美丽人生    评分：9.5<br>Top6 千与千寻    评分：9.2<br>Top7 泰坦尼克号    评分：9.2<br>Top8 辛德勒的名单    评分：9.4<br>Top9 盗梦空间    评分：9.3<br>Top10 机器人总动员    评分：9.3<br>Top11 海上钢琴师    评分：9.2<br>Top12 三傻大闹宝莱坞    评分：9.1<br>Top13 忠犬八公的故事    评分：9.2<br>Top14 放牛班的春天    评分：9.2<br>Top15 大话西游之大圣娶亲    评分：9.2  </p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h3 id="需求：删除”电影描述”以及其后面的内容"><a href="#需求：删除”电影描述”以及其后面的内容" class="headerlink" title="需求：删除”电影描述”以及其后面的内容"></a>需求：删除”电影描述”以及其后面的内容</h3><blockquote><p>Top1 肖申克的救赎    评分：9.6    电影描述：希望让人自由<br>Top2 霸王别姬    评分：9.5    电影描述：风华绝代<br>Top3 这个杀手不太冷    评分：9.4    电影描述：怪蜀黍和小萝莉不得不说的故事<br>Top4 阿甘正传    评分：9.4    电影描述：一部美国近现代史<br>Top5 美丽人生    评分：9.5    电影描述：最美的谎言<br>Top6 千与千寻    评分：9.2    电影描述：最好的宫崎骏，最好的久石让<br>Top7 泰坦尼克号    评分：9.2    电影描述：失去的才是永恒的<br>Top8 辛德勒的名单    评分：9.4    电影描述：拯救一个人，就是拯救整个世界<br>Top9 盗梦空间    评分：9.3    电影描述：诺兰给了我们一场无法盗取的梦<br>Top10 机器人总动员    评分：9.3    电影描述：小瓦力，大人生<br>Top11 海上钢琴师    评分：9.2    电影描述：每个人都要走一条自己坚定了的路，就算是粉身碎骨<br>Top12 三傻大闹宝莱坞    评分：9.1    电影描述：英俊版憨豆，高情商版谢耳朵<br>Top13 忠犬八公的故事    评分：9.2    电影描述：永远都不能忘记你所爱的人<br>Top14 放牛班的春天    评分：9.2    电影描述：天籁一般的童声，是最接近上帝的存在<br>Top15 大话西游之大圣娶亲    评分：9.2    电影描述：一生所爱</p></blockquote><p><br></p><h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><ol><li>Ctrl+R 打开替换窗口</li><li>在”查找目标”中输入：特定字符.*</li><li>选择右下角的”正则表达式”</li><li>点击”全部替换”<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181127-%E4%BD%BF%E7%94%A8Notepad%2B%2B%E6%9B%BF%E6%8D%A2%E6%9F%90%E4%B8%80%E7%89%B9%E5%AE%9A%E4%B8%AD%E6%96%87%E5%90%8E%E9%9D%A2%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/20181127104259536.png" alt="在这里插入图片描述"></li></ol><p><br></p><h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><blockquote><p>Top1 肖申克的救赎    评分：9.6<br>Top2 霸王别姬    评分：9.5<br>Top3 这个杀手不太冷    评分：9.4<br>Top4 阿甘正传    评分：9.4<br>Top5 美丽人生    评分：9.5<br>Top6 千与千寻    评分：9.2<br>Top7 泰坦尼克号    评分：9.2<br>Top8 辛德勒的名单    评分：9.4<br>Top9 盗梦空间    评分：9.3<br>Top10 机器人总动员    评分：9.3<br>Top11 海上钢琴师    评分：9.2<br>Top12 三傻大闹宝莱坞    评分：9.1<br>Top13 忠犬八公的故事    评分：9.2<br>Top14 放牛班的春天    评分：9.2<br>Top15 大话西游之大圣娶亲    评分：9.2  </p></blockquote>]]></content>
       
       
       <categories>
@@ -2157,14 +2463,22 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Notepad </tag>
+            
+        </tags>
+      
     </entry>
     
     
     
     <entry>
-      <title>Win10常用快捷键</title>
-      <link href="/2018/11/26/Win10%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-      <url>/2018/11/26/Win10%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      <title>win10常用快捷键</title>
+      <link href="/2018/11/26/win10%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+      <url>/2018/11/26/win10%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
       
         <content type="html"><![CDATA[<table><caption><font color="hotpink" size="6">常用快捷键</font></caption></table><br><table><br>    <thead><br>        <tr><br>            <th>快捷键</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>Alt + F4</td><br>            <td>关闭活动项，或者退出活动应用</td><br>        </tr><br>        <tr><br>            <td>Alt + Tab</td><br>            <td>在打开的应用之间切换</td><br>        </tr><br>        <tr><br>            <td>Win + L</td><br>            <td>锁定电脑</td><br>        </tr><br>        <tr><br>            <td>Win + D</td><br>            <td>显示和隐藏桌面</td><br>        </tr><br>        <tr><br>            <td>Ctrl + D（或 Delete）</td><br>            <td>删除选定项并将其移动到“回收站”</td><br>        </tr><br>    </tbody><br></table><p><br></p><table><br>    <thead><br>        <tr><br>            <th>快捷键</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>Win + A</td><br>            <td>打开操作中心</td><br>        </tr><br>        <tr><br>            <td>Win + E</td><br>            <td>打开文件资源管理器</td><br>        </tr><br>        <tr><br>            <td>Win + I</td><br>            <td>打开Windows设置</td><br>        </tr><br>        <tr><br>            <td>Win + Q / Win + S</td><br>            <td>打开Cortana</td><br>        </tr><br>        <tr><br>            <td>Win + R</td><br>            <td>打开运行</td><br>        </tr><br>        <tr><br>            <td>Win + L</td><br>            <td>锁定笔记本</td><br>        </tr><br>        <tr><br>            <td>Ctrl + Shift + Esc</td><br>            <td>打开任务管理器</td><br>        </tr><br>        <tr><br>            <td>Win + X</td><br>            <td>打开开始菜单左侧选项</td><br>        </tr><br>        <tr><br>            <td>Win + 加号</td><br>            <td>打开放大镜并放大屏幕内容</td><br>        </tr><br>        <tr><br>            <td>Win + 减号</td><br>            <td>打开放大镜并缩小屏幕内容</td><br>        </tr><br>        <tr><br>            <td>Win + Esc</td><br>            <td>退出放大镜</td><br>        </tr><br>    </tbody><br></table><p><br></p><table><caption><font color size="5">运行(Win+R)的常用命令</font></caption></table><br><table><br>    <thead><br>        <tr><br>            <th>命令</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>notepad</td><br>            <td>打开记事本</td><br>        </tr><br>        <tr><br>            <td>calc</td><br>            <td>打开计算器</td><br>        </tr><br>        <tr><br>            <td>mspaint</td><br>            <td>打开画图</td><br>        </tr><br>        <tr><br>            <td>osk</td><br>            <td>打开虚拟键盘</td><br>        </tr><br>        <tr><br>            <td>sysdm.cpl</td><br>            <td>打开系统设置（常用于配置环境变量）</td><br>        </tr><br>        <tr><br>            <td>appwiz.cpl</td><br>            <td>打开控制面板（常用于卸载程序）</td><br>        </tr><br>        <tr><br>            <td>psr.exe</td><br>            <td>打开步骤记录器（常用于记录操作步骤）</td><br>        </tr><br>        <tr><br>            <td>cmd</td><br>            <td>打开命令行窗口</td><br>        </tr><br>    </tbody><br></table><p><br></p><table><caption><font color size="5">管理窗口</font></caption></table><br><table><br>    <thead><br>        <tr><br>            <th>快捷键</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>Win + D</td><br>            <td>最小化所有窗口，重复按下可还原</td><br>        </tr><br>        <tr><br>            <td>Win + 1…9</td><br>            <td>打开任务栏对应窗口</td><br>        </tr><br>        <tr><br>            <td>Win + T</td><br>            <td>将焦点切换到任务栏图标，并在图标之间进行切换</td><br>        </tr><br>        <tr><br>            <td>Win + 上/下</td><br>            <td>使窗口在最大化，正常状态以及最小化之间切换</td><br>        </tr><br>        <tr><br>            <td>Win + 左/右</td><br>            <td>使窗口在左半屏幕，正常状态以及右半屏幕之间切换</td><br>        </tr><br>        <tr><br>            <td>Ctrl + Tab</td><br>            <td>切换当前程序中的不同页面</td><br>        </tr><br>        <tr><br>            <td>Alt + Tab</td><br>            <td>切换当前程序</td><br>        </tr><br>        <tr><br>            <td>Ctrl + F4</td><br>            <td>关闭当前程序中的当前页面</td><br>        </tr><br>        <tr><br>            <td>Alt + F4</td><br>            <td>关闭当前程序</td><br>        </tr><br>    </tbody><br></table><p><br></p><table><caption><font color size="5">虚拟窗口</font></caption></table><br><table><br>    <thead><br>        <tr><br>            <th>快捷键</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>Win + Ctrl + D</td><br>            <td>创建新的虚拟桌面</td><br>        </tr><br>        <tr><br>            <td>Win + Ctrl + F4</td><br>            <td>关闭当前虚拟桌面</td><br>        </tr><br>        <tr><br>            <td>Win + Ctrl + 左/右</td><br>            <td>切换虚拟桌面</td><br>        </tr><br>    </tbody><br></table><p><br></p><table><caption><font color size="5">录频和截图</font></caption></table><br><table><br>    <thead><br>        <tr><br>            <th>快捷键</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>Win + G</td><br>            <td>打开屏幕录制工具栏</td><br>        </tr><br>        <tr><br>            <td>PtrSc</td><br>            <td>全屏截图并保存到剪贴板</td><br>        </tr><br>        <tr><br>            <td>Alt + PtrSc</td><br>            <td>当前窗口截图并保存到剪贴板</td><br>        </tr><br>        <tr><br>            <td>Win + PtrSc</td><br>            <td>全屏截图并保存到本地</td><br>        </tr><br>    </tbody><br></table><p><br></p><table><caption><font color size="5">输入法</font></caption></table><br><table><br>    <thead><br>        <tr><br>            <th>快捷键</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>Shift</td><br>            <td>切换输入法</td><br>        </tr><br>        <tr><br>            <td>Shift + Space</td><br>            <td>切换全半角</td><br>        </tr><br>    </tbody><br></table><p><br></p><table><caption><font color size="6">触控板常用手势</font></caption></table><br><table><br>    <thead><br>        <tr><br>            <th>操作</th><br>            <th>描述</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>单指双击拖动</td><br>            <td>拖拽文件</td><br>        </tr><br>        <tr><br>            <td>两指上下移动</td><br>            <td>滚动屏幕</td><br>        </tr><br>        <tr><br>            <td>两指缩放</td><br>            <td>缩放</td><br>        </tr><br>        <tr><br>            <td>两指旋转</td><br>            <td>旋转</td><br>        </tr><br>        <tr><br>            <td>三指扩张</td><br>            <td>显示所有窗口</td><br>        </tr><br>        <tr><br>            <td>三指上下移动</td><br>            <td>隐藏或显示窗口</td><br>        </tr><br>        <tr><br>            <td>三指左右移动</td><br>            <td>切换窗口</td><br>        </tr><br>    </tbody><br></table>]]></content>
       
@@ -2175,6 +2489,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> win10 </tag>
+            
+            <tag> 快捷键 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2195,6 +2517,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> 多线程 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2204,7 +2534,7 @@
       <link href="/2018/11/22/Word2016%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E5%85%B6%E4%BB%96%E5%8D%9A%E5%AE%A2%E8%B4%A6%E5%8F%B7/"/>
       <url>/2018/11/22/Word2016%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E5%85%B6%E4%BB%96%E5%8D%9A%E5%AE%A2%E8%B4%A6%E5%8F%B7/</url>
       
-        <content type="html"><![CDATA[<p>网友介绍能够在word上直接将博文发布到CSDN上，纯洁的我跟着网友的说法一顿操作，结果凉凉~<br>按照网友说法在word中创建博客账号时，需要选择“其他”，就是这个&darr;&darr;&darr;<br><img src="https://img-blog.csdnimg.cn/20181122191455372.png" alt="在这里插入图片描述"><br>结果&darr;&darr;&darr;<br><img src="https://img-blog.csdnimg.cn/20181122182840183.png" alt="在这里插入图片描述"><br>网上搜了半天，终于找到一篇看似有用的文章：<a href="https://answers.microsoft.com/zh-hans/msoffice/forum/msoffice_word-mso_win10/%E6%9B%B4%E6%96%B0offices/b0f47f10-fd19-4de4-aad3-87a64ecc60fe" target="_blank" rel="noopener">Word 2016 无法创建其他博客账号</a><br>然并卵，我并没有找到所谓的补丁( 一群羊驼奔腾而过~ )<br>希望各位大神赐教</p>]]></content>
+        <content type="html"><![CDATA[<p>网友介绍能够在word上直接将博文发布到CSDN上，纯洁的我跟着网友的说法一顿操作，结果凉凉~<br>按照网友说法在word中创建博客账号时，需要选择“其他”，就是这个&darr;&darr;&darr;<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181122-Word2016%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E5%85%B6%E4%BB%96%E5%8D%9A%E5%AE%A2%E8%B4%A6%E5%8F%B7/20181122191455372.png" alt="在这里插入图片描述"><br>结果&darr;&darr;&darr;<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181122-Word2016%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4%E6%97%A0%E6%B3%95%E5%88%9B%E5%BB%BA%E5%85%B6%E4%BB%96%E5%8D%9A%E5%AE%A2%E8%B4%A6%E5%8F%B7/20181122182840183.png" alt="在这里插入图片描述"><br>网上搜了半天，终于找到一篇看似有用的文章：<a href="https://answers.microsoft.com/zh-hans/msoffice/forum/msoffice_word-mso_win10/%E6%9B%B4%E6%96%B0offices/b0f47f10-fd19-4de4-aad3-87a64ecc60fe" target="_blank" rel="noopener">Word 2016 无法创建其他博客账号</a><br>然并卵，我并没有找到所谓的补丁( 一群羊驼奔腾而过~ )<br>希望各位大神赐教</p>]]></content>
       
       
       <categories>
@@ -2213,6 +2543,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Word2016 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2233,6 +2571,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> JS </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2251,6 +2597,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> 线程 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2271,6 +2625,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2289,6 +2649,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2309,6 +2675,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> JSP </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2327,6 +2701,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2347,6 +2727,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2365,6 +2751,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题、 </tag>
+            
+            <tag> 同源策略 </tag>
+            
+            <tag> JS跨域 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2385,6 +2781,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2394,7 +2796,7 @@
       <link href="/2018/11/16/Servlet%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/"/>
       <url>/2018/11/16/Servlet%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/</url>
       
-        <content type="html"><![CDATA[<h2 id="一、什么是Servlet？"><a href="#一、什么是Servlet？" class="headerlink" title="一、什么是Servlet？"></a>一、什么是Servlet？</h2><p><strong>Servlet</strong>：是用Java编写的服务器端程序，一门用于开发动态web资源的技术。其主要功能在与交互式的浏览和修改数据，生成动态web内容。狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet的类。一般对Servlet的理解是后者。<br>若想开发一个动态web资源(即开发一个Java程序向浏览器输出数据)，需要完成以下2个步骤：<br>　　1、编写一个Java类，实现servlet接口。<br>　　2、把开发好的Java类部署到web服务器中。<br>按照一种约定俗成的称呼习惯，通常我们也把实现了servlet接口的java程序，称之为Servlet</p><h2 id="二、Servlet的运行流程"><a href="#二、Servlet的运行流程" class="headerlink" title="二、Servlet的运行流程"></a>二、Servlet的运行流程</h2><p>Servlet程序是由WEB服务器调用，WEB服务器收到客户端的Servlet访问请求后：</p><ol><li>Web服务器首先检查是否已经装载并创建了该Servlet的实例对象。如果是，则直接执行第4步，否则，执行第2步</li><li>装载并创建该Servlet的一个实例对象 </li><li>调用Servlet实例对象的<code>init()</code>方法</li><li>创建一个用于封装HTTP请求消息的<code>HttpServletRequest</code>对象和一个代表HTTP响应消息的<code>HttpServletResponse</code>对象，然后调用Servlet的<code>service()</code>方法并将请求和响应对象作为参数传递进去</li><li>WEB应用程序被停止或重新启动之前，Servlet引擎将卸载Servlet，并在卸载之前调用Servlet的<code>destroy()</code>方法</li></ol><p><img src="https://img-blog.csdnimg.cn/20181116103539879.png" alt="在这里插入图片描述"></p><h2 id="三、Servlet的生命周期"><a href="#三、Servlet的生命周期" class="headerlink" title="三、Servlet的生命周期"></a>三、Servlet的生命周期</h2><p>Servlet运行在Servlet容器中，其生命周期由容器来管理。Servlet的生命周期通过javax.servlet.Servlet接口中的<code>init()</code>、<code>service()</code>和<code>destroy()</code>方法来表示<br>Servlet的生命周期包含了下面4个阶段：</p><ol><li><strong>加载和实例化</strong>：第一次请求时创建，通过服务器反射机制创建Servlet对象</li><li><strong>初始化</strong>：调用Servlet对象的<code>init()</code>方法，初始化Servlet的信息，<code>init()</code>方法只会在创建后被调用一次</li><li><strong>请求处理</strong>：调用<code>service()</code>或者是<code>doGet()</code>，<code>doPost()</code>方法来处理请求</li><li><strong>服务终止</strong>：在长时间没有被调用或者是服务器关闭时，会调用<code>destroy()</code>方法来销毁Servlet对象</li></ol><p>在整个Servlet的生命周期过程中，创建Servlet实例、调用实例的<code>init()</code>和<code>destroy()</code>方法都只执行一次，当初始化完成后，Servlet容器会将该实例保存在内存中，通过调用它的<code>service()</code>方法，为接收到的请求服务</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="一、什么是Servlet？"><a href="#一、什么是Servlet？" class="headerlink" title="一、什么是Servlet？"></a>一、什么是Servlet？</h2><p><strong>Servlet</strong>：是用Java编写的服务器端程序，一门用于开发动态web资源的技术。其主要功能在与交互式的浏览和修改数据，生成动态web内容。狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet的类。一般对Servlet的理解是后者。<br>若想开发一个动态web资源(即开发一个Java程序向浏览器输出数据)，需要完成以下2个步骤：<br>　　1、编写一个Java类，实现servlet接口。<br>　　2、把开发好的Java类部署到web服务器中。<br>按照一种约定俗成的称呼习惯，通常我们也把实现了servlet接口的java程序，称之为Servlet</p><h2 id="二、Servlet的运行流程"><a href="#二、Servlet的运行流程" class="headerlink" title="二、Servlet的运行流程"></a>二、Servlet的运行流程</h2><p>Servlet程序是由WEB服务器调用，WEB服务器收到客户端的Servlet访问请求后：</p><ol><li>Web服务器首先检查是否已经装载并创建了该Servlet的实例对象。如果是，则直接执行第4步，否则，执行第2步</li><li>装载并创建该Servlet的一个实例对象 </li><li>调用Servlet实例对象的<code>init()</code>方法</li><li>创建一个用于封装HTTP请求消息的<code>HttpServletRequest</code>对象和一个代表HTTP响应消息的<code>HttpServletResponse</code>对象，然后调用Servlet的<code>service()</code>方法并将请求和响应对象作为参数传递进去</li><li>WEB应用程序被停止或重新启动之前，Servlet引擎将卸载Servlet，并在卸载之前调用Servlet的<code>destroy()</code>方法</li></ol><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181116-Servlet%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/20181116103539879.png" alt="在这里插入图片描述"></p><h2 id="三、Servlet的生命周期"><a href="#三、Servlet的生命周期" class="headerlink" title="三、Servlet的生命周期"></a>三、Servlet的生命周期</h2><p>Servlet运行在Servlet容器中，其生命周期由容器来管理。Servlet的生命周期通过javax.servlet.Servlet接口中的<code>init()</code>、<code>service()</code>和<code>destroy()</code>方法来表示<br>Servlet的生命周期包含了下面4个阶段：</p><ol><li><strong>加载和实例化</strong>：第一次请求时创建，通过服务器反射机制创建Servlet对象</li><li><strong>初始化</strong>：调用Servlet对象的<code>init()</code>方法，初始化Servlet的信息，<code>init()</code>方法只会在创建后被调用一次</li><li><strong>请求处理</strong>：调用<code>service()</code>或者是<code>doGet()</code>，<code>doPost()</code>方法来处理请求</li><li><strong>服务终止</strong>：在长时间没有被调用或者是服务器关闭时，会调用<code>destroy()</code>方法来销毁Servlet对象</li></ol><p>在整个Servlet的生命周期过程中，创建Servlet实例、调用实例的<code>init()</code>和<code>destroy()</code>方法都只执行一次，当初始化完成后，Servlet容器会将该实例保存在内存中，通过调用它的<code>service()</code>方法，为接收到的请求服务</p>]]></content>
       
       
       <categories>
@@ -2403,6 +2805,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> Servlet </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2413,15 +2823,23 @@
       <link href="/2018/11/15/%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/"/>
       <url>/2018/11/15/%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/</url>
       
-        <content type="html"><![CDATA[<p>当maven中央仓库没有所需jar的坐标时，需要自行将jar包反向安装到maven的本地仓库中<br>步骤：</p><blockquote><p>注意：前提是安装好Maven并且配置好maven的环境变量</p><ol><li>准备所需的jar包<br><img src="https://img-blog.csdnimg.cn/20181115010549472.png" alt="在这里插入图片描述"></li><li>打开命令行，输入以下命令，按下回车即可安装<pre><code>mvn install:install-file -Dfile=d:\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar</code></pre><img src="https://img-blog.csdnimg.cn/20181115011230828.png" alt="在这里插入图片描述"></li><li>可以在Maven本地仓库中查看是否安装成功<br><img src="https://img-blog.csdnimg.cn/20181115011514373.png" alt="在这里插入图片描述"></li><li>在pom文件中导入坐标<br><code>`</code>xml</li></ol></blockquote><p><dependency><br>    <groupid>com.alibaba</groupid><br>    <artifactid>dubbo</artifactid><br>    <version>2.8.4</version><br></dependency><br><code>`</code></p>]]></content>
+        <content type="html"><![CDATA[<p>当maven中央仓库没有所需jar的坐标时，需要自行将jar包反向安装到maven的本地仓库中<br>步骤：</p><blockquote><p>注意：前提是安装好Maven并且配置好maven的环境变量</p><ol><li>准备所需的jar包<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181115-%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/20181115010549472.png" alt="在这里插入图片描述"></li><li>打开命令行，输入以下命令，按下回车即可安装<pre><code>mvn install:install-file -Dfile=d:\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar</code></pre><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181115-%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/20181115011230828.png" alt="在这里插入图片描述"></li><li>可以在Maven本地仓库中查看是否安装成功<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181115-%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/20181115011514373.png" alt="在这里插入图片描述"></li><li>在pom文件中导入坐标<br><code>`</code>xml</li></ol></blockquote><p><dependency><br>    <groupid>com.alibaba</groupid><br>    <artifactid>dubbo</artifactid><br>    <version>2.8.4</version><br></dependency><br><code>`</code></p>]]></content>
       
       
       <categories>
           
           <category> 技术 </category>
           
+          <category> 笔记 </category>
+          
       </categories>
       
+      
+        <tags>
+            
+            <tag> maven </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2432,7 +2850,7 @@
       <link href="/2018/11/09/SpringMVC%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
       <url>/2018/11/09/SpringMVC%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-SpringMVC的主要组件"><a href="#1-SpringMVC的主要组件" class="headerlink" title="1. SpringMVC的主要组件"></a>1. SpringMVC的主要组件</h2><ul><li><strong>DispatchServlet</strong>：前端控制器，接收请求，响应结果，返回可以是json,String等数据类型，也可以是页面（Model）</li><li><strong>HandlerMapping</strong>：处理器映射器，根据URL去查找处理器，一般通过xml配置或者注解进行查找</li><li><strong>Handler</strong>：处理器，即Controller控制器，由我们程序员编写</li><li><strong>HandlerAdapter</strong>：处理器适配器，可以将处理器包装成适配器，这样就可以支持多种类型的处理器</li><li><strong>ViewResolver</strong>：视图解析器，进行视图解析，返回view对象（常见的有JSP,FreeMark等）</li></ul><h2 id="2-SpringMVC的工作原理"><a href="#2-SpringMVC的工作原理" class="headerlink" title="2. SpringMVC的工作原理"></a>2. SpringMVC的工作原理</h2><p><img src="https://img-blog.csdnimg.cn/20181109211450528.png" alt="在这里插入图片描述"></p><ol><li>用户向服务器发送请求，请求被 SpringMVC 前端控制器DispatchServlet 捕获</li><li>DispatcherServle 对请求 URL 进行解析，得到请求资源标识符（URL），然后根据该 URL 调用 HandlerMapping<br>将请求映射到处理器 HandlerExcutionChain</li><li>DispatchServlet 根据获得 Handler 选择一个合适的 HandlerAdapter 适配器处理；</li><li>Handler 对数据处理完成以后将返回一个 ModelAndView() 对象给 DisPatchServlet;</li><li>Handler 返回的 ModelAndView()只是一个逻辑视图并不是一个正式的视图，DispatcherSevlet 通过 ViewResolver 试图解析器将逻辑视图转化为真正的视图View;</li><li>DispatcherServle 通过model 解析出 ModelAndView() 中的参数进行解析最终展现出完整的 view 并返回给<br>客户端</li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-SpringMVC的主要组件"><a href="#1-SpringMVC的主要组件" class="headerlink" title="1. SpringMVC的主要组件"></a>1. SpringMVC的主要组件</h2><ul><li><strong>DispatchServlet</strong>：前端控制器，接收请求，响应结果，返回可以是json,String等数据类型，也可以是页面（Model）</li><li><strong>HandlerMapping</strong>：处理器映射器，根据URL去查找处理器，一般通过xml配置或者注解进行查找</li><li><strong>Handler</strong>：处理器，即Controller控制器，由我们程序员编写</li><li><strong>HandlerAdapter</strong>：处理器适配器，可以将处理器包装成适配器，这样就可以支持多种类型的处理器</li><li><strong>ViewResolver</strong>：视图解析器，进行视图解析，返回view对象（常见的有JSP,FreeMark等）</li></ul><h2 id="2-SpringMVC的工作原理"><a href="#2-SpringMVC的工作原理" class="headerlink" title="2. SpringMVC的工作原理"></a>2. SpringMVC的工作原理</h2><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181109-SpringMVC%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/20181109211450528.png" alt="在这里插入图片描述"></p><ol><li>用户向服务器发送请求，请求被 SpringMVC 前端控制器DispatchServlet 捕获</li><li>DispatcherServle 对请求 URL 进行解析，得到请求资源标识符（URL），然后根据该 URL 调用 HandlerMapping<br>将请求映射到处理器 HandlerExcutionChain</li><li>DispatchServlet 根据获得 Handler 选择一个合适的 HandlerAdapter 适配器处理；</li><li>Handler 对数据处理完成以后将返回一个 ModelAndView() 对象给 DisPatchServlet;</li><li>Handler 返回的 ModelAndView()只是一个逻辑视图并不是一个正式的视图，DispatcherSevlet 通过 ViewResolver 试图解析器将逻辑视图转化为真正的视图View;</li><li>DispatcherServle 通过model 解析出 ModelAndView() 中的参数进行解析最终展现出完整的 view 并返回给<br>客户端</li></ol>]]></content>
       
       
       <categories>
@@ -2441,6 +2859,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> SpringMVC </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2461,6 +2885,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2479,6 +2909,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2499,6 +2935,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> 数组 </tag>
+            
+            <tag> 排序 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -2508,7 +2954,7 @@
       <link href="/2018/11/08/%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%9A%84Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87/"/>
       <url>/2018/11/08/%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%9A%84Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-将扩展程序图标在-Chrome-菜单中隐藏"><a href="#1-将扩展程序图标在-Chrome-菜单中隐藏" class="headerlink" title="1. 将扩展程序图标在 Chrome 菜单中隐藏"></a>1. 将扩展程序图标在 Chrome 菜单中隐藏</h2><p>将鼠标移动到需要隐藏的扩展程序上面，点击鼠标右键，选择“在 Chrome 菜单中隐藏”即可进行隐藏<br><img src="https://img-blog.csdnimg.cn/20181108152413697.png" alt="在这里插入图片描述"></p><h2 id="2-将隐藏的扩展程序图标在-Chrome-菜单中重新显示"><a href="#2-将隐藏的扩展程序图标在-Chrome-菜单中重新显示" class="headerlink" title="2. 将隐藏的扩展程序图标在 Chrome 菜单中重新显示"></a>2. 将隐藏的扩展程序图标在 Chrome 菜单中重新显示</h2><p>在浏览器地址栏最右边，待鼠标变成左右双向箭头图标的时候向左拖动，会发现隐藏的扩展程序出现了<br><img src="https://img-blog.csdnimg.cn/20181108152531335.png" alt="在这里插入图片描述"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-将扩展程序图标在-Chrome-菜单中隐藏"><a href="#1-将扩展程序图标在-Chrome-菜单中隐藏" class="headerlink" title="1. 将扩展程序图标在 Chrome 菜单中隐藏"></a>1. 将扩展程序图标在 Chrome 菜单中隐藏</h2><p>将鼠标移动到需要隐藏的扩展程序上面，点击鼠标右键，选择“在 Chrome 菜单中隐藏”即可进行隐藏<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181108-%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%9A%84Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87/20181108152413697.png" alt="在这里插入图片描述"></p><h2 id="2-将隐藏的扩展程序图标在-Chrome-菜单中重新显示"><a href="#2-将隐藏的扩展程序图标在-Chrome-菜单中重新显示" class="headerlink" title="2. 将隐藏的扩展程序图标在 Chrome 菜单中重新显示"></a>2. 将隐藏的扩展程序图标在 Chrome 菜单中重新显示</h2><p>在浏览器地址栏最右边，待鼠标变成左右双向箭头图标的时候向左拖动，会发现隐藏的扩展程序出现了<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181108-%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%9A%84Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87/20181108152531335.png" alt="在这里插入图片描述"></p>]]></content>
       
       
       <categories>
@@ -2517,6 +2963,16 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Chrome </tag>
+            
+            <tag> 扩展程序 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -2527,7 +2983,7 @@
       <link href="/2018/09/30/Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/"/>
       <url>/2018/09/30/Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<h1 id="Typora设置图片的相对路径（win系统）"><a href="#Typora设置图片的相对路径（win系统）" class="headerlink" title="Typora设置图片的相对路径（win系统）"></a>Typora设置图片的相对路径（win系统）</h1><h4 id="步骤：文件–-gt-偏好设置–-gt-图片插入"><a href="#步骤：文件–-gt-偏好设置–-gt-图片插入" class="headerlink" title="步骤：文件–&gt;偏好设置–&gt;图片插入"></a>步骤：文件–&gt;偏好设置–&gt;图片插入</h4><h4 id="结果：将插入的图片路径设置成相对路径（-assets目录）"><a href="#结果：将插入的图片路径设置成相对路径（-assets目录）" class="headerlink" title="结果：将插入的图片路径设置成相对路径（./assets目录）"></a>结果：将插入的图片路径设置成相对路径（./assets目录）</h4><p><img src="https://img-blog.csdn.net/20180930151428623" alt="第一步"><br><img src="https://img-blog.csdn.net/20180930151509174" alt="第二步"><br><img src="https://img-blog.csdn.net/20180930151533395" alt="在这里插入图片描述"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Typora设置图片的相对路径（win系统）"><a href="#Typora设置图片的相对路径（win系统）" class="headerlink" title="Typora设置图片的相对路径（win系统）"></a>Typora设置图片的相对路径（win系统）</h1><h2 id="步骤：文件–-gt-偏好设置–-gt-图片插入"><a href="#步骤：文件–-gt-偏好设置–-gt-图片插入" class="headerlink" title="步骤：文件–&gt;偏好设置–&gt;图片插入"></a>步骤：文件–&gt;偏好设置–&gt;图片插入</h2><h2 id="结果：将插入的图片路径设置成相对路径（-assets目录）"><a href="#结果：将插入的图片路径设置成相对路径（-assets目录）" class="headerlink" title="结果：将插入的图片路径设置成相对路径（./assets目录）"></a>结果：将插入的图片路径设置成相对路径（./assets目录）</h2><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20180930-Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20180930151428623.png" alt="第一步"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20180930-Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20180930151509174.png" alt="第二步"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20180930-Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20180930151533395.png" alt="在这里插入图片描述"></p>]]></content>
       
       
       <categories>
@@ -2536,6 +2992,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 软件 </tag>
+            
+            <tag> Typora </tag>
+            
+        </tags>
       
     </entry>
     

@@ -387,11 +387,11 @@
         
         <div class="entry-content">
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>进行<code>git push</code>操作时报错：<code>fatal: The current branch master has no upstream branch.</code></p>
-<p><img src="img/1560320619462.png" alt="1560320619462"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190612-git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/1560320619462.png" alt="1560320619462"></p>
 <p><strong>原因：</strong>没有将本地的分支与远程仓库的分支进行关联<br>通过<code>git branch</code>查看本地分支只有<code>master</code></p>
-<p><img src="img/1560321303707.png" alt="1560321303707"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190612-git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/1560321303707.png" alt="1560321303707"></p>
 <p>通过<code>git branch -a</code>查看远程分支，有<code>master</code>和<code>remotes/origin/master</code>两个</p>
-<p><img src="img/1560321309091.png" alt="1560321309091"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190612-git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/1560321309091.png" alt="1560321309091"></p>
 <p>这时由于远程仓库太多，且分支较多。在默认情况下，<code>git push</code>时一般会上传到<code>origin</code>下的<code>master</code>分支上，然而当<code>repository</code>和<code>branch</code>过多，而又没有设置关联时，git就会产生疑问，因为它无法判断你的push目标</p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>使用<code>git push --set-upstream origin master</code>命令</p>
 <h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>使用<code>git push -u origin master</code>命令</p>
