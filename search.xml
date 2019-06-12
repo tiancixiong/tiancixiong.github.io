@@ -261,9 +261,9 @@
       
         <tags>
             
-            <tag> Chrome </tag>
+            <tag> 软件 </tag>
             
-            <tag> 请停用以开发者模式运行的扩展程序 </tag>
+            <tag> Chrome </tag>
             
         </tags>
       
@@ -369,6 +369,8 @@
       
         <tags>
             
+            <tag> 软件 </tag>
+            
             <tag> cc.png </tag>
             
         </tags>
@@ -449,6 +451,8 @@
       
       
         <tags>
+            
+            <tag> 软件 </tag>
             
             <tag> Chrome </tag>
             
@@ -1169,9 +1173,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2270,9 +2274,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
