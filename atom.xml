@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-06-12T01:34:46.681Z</updated>
+  <updated>2019-06-12T01:36:07.948Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.xiongtianci.com/2019/06/12/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/"/>
     <id>https://www.xiongtianci.com/2019/06/12/hexo常用命名汇总/</id>
     <published>2019-06-12T01:32:47.000Z</published>
-    <updated>2019-06-12T01:34:46.681Z</updated>
+    <updated>2019-06-12T01:36:07.948Z</updated>
     
-    <content type="html"><![CDATA[<pre><code class="shell"># hexo clean# hexo g# hexo d# hexo n &quot;文章名&quot;</code></pre><pre><code>hexo d -ghexo g &amp;&amp; hexo d</code></pre>]]></content>
+    <content type="html"><![CDATA[<pre><code class="shell"># hexo clean# hexo g# hexo d# hexo n &quot;文章名&quot;</code></pre><pre><code class="shell">hexo d -ghexo g &amp;&amp; hexo d</code></pre>]]></content>
     
     <summary type="html">
     
