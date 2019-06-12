@@ -389,29 +389,32 @@
           <h1 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h1><pre><code class="shell"># 给项目添加远程仓库
 $ git remote add origin git@github.xxx.git
 
+# ----分支
+# 查看git本地分支
+$ git branch
+# 查看git远程分支
+$ git branch -r
+# 查看所有本地分支和远程分支，远程分支为红色
+$ git branch -a
+# 查看每个本地分支的最后一次提交
+$ git branch -v
+# 查看本地分支和远程分支联系
+$ git branch -vv
+# 切换git分支
+$ git checkout branch-name
+# 创建分支
+$ git branch branch-name
+# 新建并切换git分支
+$ git checkout -b branch-name
+# 删除git分支
+$ git branch -d branch-name
+# 强制删除git分支
+$ git branch -D branch-name
+# 删除git远程分支
+$ git push origin -d branch-name
 # 本地分支和远程分支建立联系
 $ git branch --set-upstream-to=origin/远程分支 本地分支
 
-# 查看本地分支和远程分支联系
-$ git branch -vv
-
-# 查看git本地分支
-$ git branch
-
-# 查看git远程分支
-$ git branch -a
-
-# 切换git分支
-$ git checkout dev
-
-# 新建并切换git分支
-$ git checkout -b dev
-
-# 删除git分支
-$ git branch -d dev
-
-# 删除git远程分支
-$ git push origin -d dev
 
 # 查看git 配置
 $ git config -l
@@ -602,22 +605,22 @@ $ git branch -a
 $ git branch [branch-name]
 
 # 新建一个分支，并切换到该分支
-$ git checkout -b [branch]
+$ git checkout -b [branch-name]
 
 # 新建一个分支，指向指定commit
-$ git branch [branch] [commit]
+$ git branch [branch-name] [commit]
 
 # 新建一个分支，与指定的远程分支建立追踪关系
-$ git branch --track [branch] [remote-branch]
+$ git branch --track [branch-name] [remote-branch]
 
 # 切换到指定分支，并更新工作区
 $ git checkout [branch-name]
 
 # 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream [branch] [remote-branch]
+$ git branch --set-upstream [branch-name] [remote-branch]
 
 # 合并指定分支到当前分支
-$ git merge [branch]
+$ git merge [branch-name]
 
 # 选择一个commit，合并进当前分支
 $ git cherry-pick [commit]
@@ -629,7 +632,7 @@ $ git branch -d [branch-name]
 $ git push origin --delete &lt;branch-name&gt;
 $ git branch -dr &lt;remote/branch&gt;
 </code></pre>
-<h2 id="git-branch-amp-git-checkout"><a href="#git-branch-amp-git-checkout" class="headerlink" title="git branch &amp; git checkout"></a>git branch &amp; git checkout</h2><p><code>git branch</code>是分支操作命令</p>
+<h2 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h2><p><code>git branch</code>是分支操作命令</p>
 <pre><code class="shell"># 列出所有本地分支
 $ git branch
 
@@ -639,26 +642,16 @@ $ git branch -r
 # 列出所有本地分支和远程分支
 $ git branch -a
 </code></pre>
-<p>另：</p>
-<pre><code class="shell"># 新建一个分支，指向指定commit
-$ git branch [branch] [commit]
-
-# 新建一个分支，与指定的远程分支建立追踪关系
-$ git branch --track [branch] [remote-branch]
-
-# 建立追踪关系，在现有分支与指定的远程分支之间
-$ git branch --set-upstream [branch] [remote-branch]
-</code></pre>
 <h3 id="新建一个分支"><a href="#新建一个分支" class="headerlink" title="新建一个分支"></a>新建一个分支</h3><p>直接在<code>git branch</code>后面跟上分支名，就表示新建该分支</p>
 <pre><code class="shell"># 新建一个分支，但依然停留在当前分支
-$ git branch develop
+$ git branch branch-name
 </code></pre>
 <p>新建一个分支，指向当前 commit。本质是在<code>refs/heads/</code>目录中生成一个文件，文件名为分支名，内容为当前 commit 的哈希值</p>
 <blockquote>
 <p>注意：创建后，还是停留在原来分支，需要用<code>git checkout</code>切换到新建分支</p>
 </blockquote>
 <pre><code class="shell"># 切换到指定分支，并更新工作区
-$ git checkout develop
+$ git checkout branch-name
 </code></pre>
 <p>使用<code>-b</code>参数，可以新建的同时，切换到新分支</p>
 <pre><code class="shell"># 新建一个分支，并切换到该分支
@@ -666,10 +659,10 @@ $ git checkout -b NewBranch MyBranch
 </code></pre>
 <h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><p><code>-d</code>参数用来删除一个分支，<strong>前提</strong>是该分支没有未合并的变动</p>
 <pre><code class="shell"># 删除分支
-$ git branch -d &lt;branchname分支名&gt;
+$ git branch -d &lt;branch-name分支名&gt;
 </code></pre>
 <p><strong>强制删除</strong>一个分支，不管有没有未合并变化</p>
-<pre><code class="shell">$ git branch -D &lt;branchname分支名&gt;
+<pre><code class="shell">$ git branch -D &lt;branch-name分支名&gt;
 </code></pre>
 <p>删除<strong>远程分支</strong></p>
 <pre><code class="shell"># 删除远程分支
@@ -781,10 +774,12 @@ $ git show [commit]:[filename]
 # 显示当前分支的最近几次提交
 $ git reflog
 </code></pre>
-<h1 id="8、远程同步"><a href="#8、远程同步" class="headerlink" title="8、远程同步"></a>8、远程同步</h1><pre><code class="shell"># 下载远程仓库的所有变动
+<h1 id="8、远程同步"><a href="#8、远程同步" class="headerlink" title="8、远程同步"></a>8、远程同步</h1><h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code><br><code>git remote</code>查看远程库的信息</p>
+<pre><code class="shell"># 下载远程仓库的所有变动
 $ git fetch [remote]
 
-# 显示所有远程仓库
+# 查看远程库详细信息
+# 显示可以抓取(fetch)和推送(push)的origin的地址；如果没有推送权限，就看不到push的地址
 $ git remote -v
 
 # 显示某个远程仓库的信息
@@ -837,7 +832,7 @@ $ git revert [commit]
 $ git archive
 </code></pre>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a href="https://www.bookstack.cn/books/git-tutorial" target="_blank" rel="noopener">阮一峰 Git 教程</a></p>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰官方网站</a>、<a href="https://www.bookstack.cn/books/git-tutorial" target="_blank" rel="noopener">阮一峰 Git 教程</a></p>
 </blockquote>
 
         </div>
