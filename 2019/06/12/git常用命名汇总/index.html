@@ -387,7 +387,7 @@
         
         <div class="entry-content">
           <h1 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h1><pre><code class="shell"># 给项目添加远程仓库
-$ git remote add origin $ git@$ github.xxx.$ git
+$ git remote add origin git@github.xxx.git
 
 # 本地分支和远程分支建立联系
 $ git branch --set-upstream-to=origin/远程分支 本地分支
@@ -395,29 +395,29 @@ $ git branch --set-upstream-to=origin/远程分支 本地分支
 # 查看本地分支和远程分支联系
 $ git branch -vv
 
-# 查看$ git本地分支
+# 查看git本地分支
 $ git branch
 
-# 查看$ git远程分支
+# 查看git远程分支
 $ git branch -a
 
-# 切换$ git分支
+# 切换git分支
 $ git checkout dev
 
-# 新建并切换$ git分支
+# 新建并切换git分支
 $ git checkout -b dev
 
-# 删除$ git分支
+# 删除git分支
 $ git branch -d dev
 
-# 删除$ git远程分支
+# 删除git远程分支
 $ git push origin -d dev
 
-# 查看$ git 配置
+# 查看git 配置
 $ git config -l
 
 # 修改远程仓库地址
-$ git remote set-url origin $ git@$ github.com:xiongtianci-tc/hexo-theme-sakura.$ git
+$ git remote set-url origin git@github.xxx.git
 
 # 本地分支回滚到指定版本
 $ git reset --hard &lt;commit ID号&gt;
@@ -425,7 +425,16 @@ $ git reset --hard &lt;commit ID号&gt;
 # 强制推送到远程分支
 $ git push -f origin &lt;branch name&gt;
 </code></pre>
-<h1 id="1、新建代码库"><a href="#1、新建代码库" class="headerlink" title="1、新建代码库"></a>1、新建代码库</h1><h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p><code>git init</code>命令将当前目录转为git仓库<br>它会在当前目录下生成一个<code>.git</code>子目录，在其中写入git的配置和项目的快照</p>
+<h1 id="1、新建代码库"><a href="#1、新建代码库" class="headerlink" title="1、新建代码库"></a>1、新建代码库</h1><pre><code class="shell"># 在当前目录新建一个Git代码库
+$ git init
+
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]
+
+# 下载一个项目和它的整个代码历史
+$ git clone [url]
+</code></pre>
+<h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p><code>git init</code>命令将当前目录转为git仓库<br>它会在当前目录下生成一个<code>.git</code>子目录，在其中写入git的配置和项目的快照</p>
 <pre><code class="shell"># 在当前目录新建一个Git代码库
 $ git init
 
@@ -440,7 +449,17 @@ $ git clone [url]
 # bare参数表示delta目录只有仓库区，没有工作区和暂存区，即delta目录中就是.git目录的内容
 $ git clone alpha delta --bare
 </code></pre>
-<h1 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h1><h2 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h2><p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下，也可以在项目目录下</p>
+<h1 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h1><pre><code class="shell"># 显示当前的Git配置
+$ git config --list
+
+# 编辑Git配置文件
+$ git config -e [--global]
+
+# 设置提交代码时的用户信息
+$ git config [--global] user.name &quot;[name]&quot;
+$ git config [--global] user.email &quot;[email address]&quot;
+</code></pre>
+<h2 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h2><p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下，也可以在项目目录下</p>
 <pre><code class="shell"># 显示当前的Git配置
 $ git config --list 
 $ git config -l
@@ -459,7 +478,25 @@ $ git config --global core.editor vim #编辑器
 
 $ git config --global alias.st status #按这种方法，配置别名
 </code></pre>
-<h1 id="3、增加-删除文件"><a href="#3、增加-删除文件" class="headerlink" title="3、增加/删除文件"></a>3、增加/删除文件</h1><h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><p><code>git add</code>命令用于将变化的文件，从工作区提交到暂存区。它的作用就是告诉 Git，下一次哪些变化需要保存到仓库区。用户可以使用<code>git status</code>命令查看目前的暂存区放置了哪些文件。</p>
+<h1 id="3、增加-删除文件"><a href="#3、增加-删除文件" class="headerlink" title="3、增加/删除文件"></a>3、增加/删除文件</h1><pre><code class="shell"># 添加指定文件到暂存区
+$ git add [file1] [file2] ...
+
+# 添加指定目录到暂存区，包括子目录
+$ git add [dir]
+
+# 添加当前目录的所有文件到暂存区
+$ git add .
+
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1] [file2] ...
+
+# 停止追踪指定文件，但该文件会保留在工作区
+$ git rm --cached [file]
+
+# 改名文件，并且将这个改名放入暂存区
+$ git mv [file-original] [file-renamed]
+</code></pre>
+<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><p><code>git add</code>命令用于将变化的文件，从工作区提交到暂存区。它的作用就是告诉 Git，下一次哪些变化需要保存到仓库区。用户可以使用<code>git status</code>命令查看目前的暂存区放置了哪些文件。</p>
 <pre><code class="shell"># 添加指定文件到暂存区
 $ git add [file1] [file2] ...
 
@@ -684,6 +721,61 @@ $ git show [commit]:[filename]
 
 # 显示当前分支的最近几次提交
 $ git reflog
+</code></pre>
+<h1 id="8、远程同步"><a href="#8、远程同步" class="headerlink" title="8、远程同步"></a>8、远程同步</h1><pre><code class="shell"># 下载远程仓库的所有变动
+$ git fetch [remote]
+
+# 显示所有远程仓库
+$ git remote -v
+
+# 显示某个远程仓库的信息
+$ git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+$ git remote add [shortname] [url]
+
+# 取回远程仓库的变化，并与本地分支合并
+$ git pull [remote] [branch]
+
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+
+# 强行推送当前分支到远程仓库，即使有冲突
+$ git push [remote] --force
+
+# 推送所有分支到远程仓库
+$ git push [remote] --all
+</code></pre>
+<h1 id="9、撤销"><a href="#9、撤销" class="headerlink" title="9、撤销"></a>9、撤销</h1><pre><code class="shell"># 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到工作区
+$ git checkout [commit] [file]
+
+# 恢复上一个commit的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+</code></pre>
+<h1 id="10、其他"><a href="#10、其他" class="headerlink" title="10、其他"></a>10、其他</h1><pre><code class="shell"># 生成一个可供发布的压缩包
+$ git archive
 </code></pre>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
 <p><a href="https://www.bookstack.cn/books/git-tutorial" target="_blank" rel="noopener">阮一峰 Git 教程</a></p>
