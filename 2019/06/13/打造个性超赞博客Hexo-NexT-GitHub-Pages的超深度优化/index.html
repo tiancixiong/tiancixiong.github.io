@@ -356,7 +356,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://io-oi.oss-cn-shanghai.aliyuncs.com/images/hexo-next-optimization-title.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://io-oi.oss-cn-shanghai.aliyuncs.com/images/hexo-next-optimization-title.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613-%E6%89%93%E9%80%A0%E4%B8%AA%E6%80%A7%E8%B6%85%E8%B5%9E%E5%8D%9A%E5%AE%A2Hexo-NexT-GitHub-Pages%E7%9A%84%E8%B6%85%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%8C%96/Coldplay.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613-%E6%89%93%E9%80%A0%E4%B8%AA%E6%80%A7%E8%B6%85%E8%B5%9E%E5%8D%9A%E5%AE%A2Hexo-NexT-GitHub-Pages%E7%9A%84%E8%B6%85%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%8C%96/Coldplay.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -391,8 +391,6 @@
 <p>链接：<a href="https://io-oi.me/tech/hexo-next-optimization.html#main" target="_blank" rel="noopener">https://io-oi.me/tech/hexo-next-optimization.html#main</a></p>
 <p>theme：<a href="https://github.com/xiongtianci-tc/hexo-theme-next" target="_blank" rel="noopener">https://github.com/xiongtianci-tc/hexo-theme-next</a></p>
 </blockquote>
-<p>人无完人，设想地球上的每个超棒的想法都能汇聚在相应的小河之中，那么文明的大河将会迅速变成大海（赶在太阳将河水蒸干之前）。感谢互联网，让开源共享精神照耀了这个时代，让这个设想有了真正的可能。拥有自己的博客，不仅记录了自己，反思了自己，而且借助互联网还可能照亮他人，给整个文明光能。本文就是一篇关于利用 GitHub Pages + Hexo + NexT 搭建个人博客的文章，教你如何从 0 到 1 打造自己的个性超赞博客！</p>
-<p>注意：NexT 主题已经更新到 <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">v6</a>，所以文章中的有些内容可能 out 了，建议大家先浏览新版本主题的<a href="https://theme-next.org/docs/" target="_blank" rel="noopener">官方文档</a>，对此请大家多留意哈～<img src="chrome-extension://cahedbegdkagmcjfolhdlechbkeaieki/images/apple/1f412.png" alt="🐒"></p>
 <h1 id="必读-写在前面"><a href="#必读-写在前面" class="headerlink" title="必读 写在前面"></a>必读 写在前面</h1><p>本文主要内容是 NexT 主题的个性化定制和一些细节的优化。搭建的过程，已有的优化，Markdown 的使用，都直接贴出大佬的文章链接。</p>
 <p>首先肯定是感谢各位大佬的文章，我一个小白，没学 HTML，没学 CSS，没学 JavaScript，连 C 也还没学会……如果你是一个和我一样的小白，且对本博客感觉还蛮满意，恭喜你！看完这篇文章，你自己也可以拥有一个这样的博客啦！</p>
 <p>给小白（像我一样，也许还有完美主义和强迫症<img src="chrome-extension://cahedbegdkagmcjfolhdlechbkeaieki/images/apple/1f602.png" alt="😂">）却想搭建个性化博客提供参考，是我写这篇文章的主要目的，所以如果本文有幸被大佬读到，文中的不足还请大佬见谅。</p>
@@ -876,7 +874,8 @@ font:
     size:
 </code></pre>
 <p>注意：本博客的字体最新设置方法请看我的<a href="https://io-oi.me/tech/noto-serif-sc-added-on-google-fonts.html" target="_blank" rel="noopener">这篇文章</a>。</p>
-<h1 id="进阶-高级功能配置"><a href="#进阶-高级功能配置" class="headerlink" title="进阶 高级功能配置"></a>进阶 高级功能配置</h1>
+<h1 id="进阶-高级功能配置"><a href="#进阶-高级功能配置" class="headerlink" title="进阶 高级功能配置"></a>进阶 高级功能配置</h1><p>这些功能的配置，大部分都要修改 NexT 主题的一些文件，所以<code>git pull</code>升级主题的时候，会比较麻烦，解决方法见<a href="#更新主题">本文 2.3.2 节</a>。</p>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -903,9 +902,26 @@ font:
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/06/13/Typora锚点-页内跳转/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1463319611694-4bf9eb5a6e72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Typora锚点-页内跳转</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2019/06/12/git-push报错：The-current-branch-master-has-no-upstream-branch/" rel="next">
               <div class="background">
