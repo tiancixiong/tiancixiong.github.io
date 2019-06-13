@@ -386,14 +386,28 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h1><pre><code class="shell"># 给项目添加远程仓库
+          <h1 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h1><h2 id="将本地项目初始化"><a href="#将本地项目初始化" class="headerlink" title="将本地项目初始化"></a>将本地项目初始化</h2><pre><code class="shell"># 
+$ git init
+
+# 给项目添加远程仓库
 $ git remote add origin git@github.xxx.git
 
-# 显示工作目录和暂存区的状态
+# 本地分支和远程分支建立联系(使用git branch -vv  可以查看本地分支和远程分支的关联关系)
+$ git branch --set-upstream-to=origin/远程分支 本地分支   
+</code></pre>
+<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><pre><code class="shell">
+
+# 查看工作目录和暂存区的状态
 $ git status
 
 # 查看工作区与暂存区的差异
 $ git diff
+
+# 查看提交历史
+$ git log
+
+# 查看命令历史
+$ git reflog
 
 # ----分支
 # 查看git本地分支
