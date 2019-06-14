@@ -842,28 +842,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/client/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/comment/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/donate/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/lab/index.html</loc>
+    <loc>https://www.xiongtianci.com/rss/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
@@ -877,7 +856,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/rss/index.html</loc>
+    <loc>https://www.xiongtianci.com/comment/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/client/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
@@ -892,6 +878,20 @@
   
   <url>
     <loc>https://www.xiongtianci.com/theme-sakura/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/donate/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/lab/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
