@@ -1929,7 +1929,7 @@
     <link href="https://www.xiongtianci.com/2018/12/20/%E9%80%9A%E7%94%A8Mapper%E7%9A%84select(T%20t)%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>https://www.xiongtianci.com/2018/12/20/通用Mapper的select(T t)的使用/</id>
     <published>2018-12-20T12:35:14.000Z</published>
-    <updated>2019-06-12T09:05:56.073Z</updated>
+    <updated>2019-06-14T03:57:39.996Z</updated>
     
     <content type="html"><![CDATA[<p>通用mapper类：</p><pre><code class="java">public interface CategoryMapper extends Mapper&lt;Category&gt; {}</code></pre><p>使用select(T t)</p><pre><code class="java">public List&lt;Category&gt; queryCategoryListByParentId(Long pid) {    // select(T t) 将对象c中的非空字段当作查询的条件参数    Category record = new Category();    record.setParentId(pid);    return this.categoryMapper.select(record);}</code></pre><blockquote><p>select(T t) 将实例对象t中的非空字段作为条件参数<br>上面实例转换的sql语句：select * from category c where c.pid = #{pid}</p></blockquote>]]></content>
     
