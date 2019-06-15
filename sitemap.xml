@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiongtianci.com/2019/06/15/%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90%E7%BD%91%E5%9D%80-%E7%8F%8D%E8%97%8F/</loc>
+    
+    <lastmod>2019-06-15T14:21:22.609Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiongtianci.com/links/index.html</loc>
     
     <lastmod>2019-06-14T04:40:31.479Z</lastmod>
@@ -842,35 +849,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/client/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/comment/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/donate/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/lab/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiongtianci.com/music/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/client/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
@@ -884,7 +870,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/tags/index.html</loc>
+    <loc>https://www.xiongtianci.com/donate/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
@@ -898,7 +884,28 @@
   </url>
   
   <url>
+    <loc>https://www.xiongtianci.com/tags/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/comment/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiongtianci.com/video/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/lab/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
