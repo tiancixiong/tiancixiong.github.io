@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiongtianci.com/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/</loc>
+    
+    <lastmod>2019-06-17T15:58:59.361Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiongtianci.com/links/index.html</loc>
     
     <lastmod>2019-06-17T03:48:22.675Z</lastmod>
@@ -807,13 +814,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/</loc>
-    
-    <lastmod>2019-06-11T07:29:00.935Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiongtianci.com/2019/05/15/hexo-d%E5%91%BD%E4%BB%A4%E6%8A%A5%E9%94%99%EF%BC%9AERROR-Deployer-not-found-git/</loc>
     
     <lastmod>2019-06-11T07:28:09.206Z</lastmod>
@@ -849,13 +849,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/client/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiongtianci.com/comment/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
@@ -877,7 +870,7 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/rss/index.html</loc>
+    <loc>https://www.xiongtianci.com/client/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
@@ -885,6 +878,13 @@
   
   <url>
     <loc>https://www.xiongtianci.com/music/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/rss/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
