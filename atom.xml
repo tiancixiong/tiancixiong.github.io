@@ -2884,7 +2884,7 @@
     <link href="https://www.xiongtianci.com/2018/11/16/Servlet%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/"/>
     <id>https://www.xiongtianci.com/2018/11/16/Servlet简介及其生命周期详解/</id>
     <published>2018-11-16T02:36:38.000Z</published>
-    <updated>2019-06-12T09:39:36.672Z</updated>
+    <updated>2019-06-18T08:41:35.620Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一、什么是Servlet？"><a href="#一、什么是Servlet？" class="headerlink" title="一、什么是Servlet？"></a>一、什么是Servlet？</h2><p><strong>Servlet</strong>：是用Java编写的服务器端程序，一门用于开发动态web资源的技术。其主要功能在与交互式的浏览和修改数据，生成动态web内容。狭义的Servlet是指Java语言实现的一个接口，广义的Servlet是指任何实现了这个Servlet的类。一般对Servlet的理解是后者。<br>若想开发一个动态web资源(即开发一个Java程序向浏览器输出数据)，需要完成以下2个步骤：<br>　　1、编写一个Java类，实现servlet接口。<br>　　2、把开发好的Java类部署到web服务器中。<br>按照一种约定俗成的称呼习惯，通常我们也把实现了servlet接口的java程序，称之为Servlet</p><h2 id="二、Servlet的运行流程"><a href="#二、Servlet的运行流程" class="headerlink" title="二、Servlet的运行流程"></a>二、Servlet的运行流程</h2><p>Servlet程序是由WEB服务器调用，WEB服务器收到客户端的Servlet访问请求后：</p><ol><li>Web服务器首先检查是否已经装载并创建了该Servlet的实例对象。如果是，则直接执行第4步，否则，执行第2步</li><li>装载并创建该Servlet的一个实例对象 </li><li>调用Servlet实例对象的<code>init()</code>方法</li><li>创建一个用于封装HTTP请求消息的<code>HttpServletRequest</code>对象和一个代表HTTP响应消息的<code>HttpServletResponse</code>对象，然后调用Servlet的<code>service()</code>方法并将请求和响应对象作为参数传递进去</li><li>WEB应用程序被停止或重新启动之前，Servlet引擎将卸载Servlet，并在卸载之前调用Servlet的<code>destroy()</code>方法</li></ol><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181116-Servlet%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/20181116103539879.png" alt="在这里插入图片描述"></p><h2 id="三、Servlet的生命周期"><a href="#三、Servlet的生命周期" class="headerlink" title="三、Servlet的生命周期"></a>三、Servlet的生命周期</h2><p>Servlet运行在Servlet容器中，其生命周期由容器来管理。Servlet的生命周期通过javax.servlet.Servlet接口中的<code>init()</code>、<code>service()</code>和<code>destroy()</code>方法来表示<br>Servlet的生命周期包含了下面4个阶段：</p><ol><li><strong>加载和实例化</strong>：第一次请求时创建，通过服务器反射机制创建Servlet对象</li><li><strong>初始化</strong>：调用Servlet对象的<code>init()</code>方法，初始化Servlet的信息，<code>init()</code>方法只会在创建后被调用一次</li><li><strong>请求处理</strong>：调用<code>service()</code>或者是<code>doGet()</code>，<code>doPost()</code>方法来处理请求</li><li><strong>服务终止</strong>：在长时间没有被调用或者是服务器关闭时，会调用<code>destroy()</code>方法来销毁Servlet对象</li></ol><p>在整个Servlet的生命周期过程中，创建Servlet实例、调用实例的<code>init()</code>和<code>destroy()</code>方法都只执行一次，当初始化完成后，Servlet容器会将该实例保存在内存中，通过调用它的<code>service()</code>方法，为接收到的请求服务</p>]]></content>
     
@@ -2911,7 +2911,7 @@
     <link href="https://www.xiongtianci.com/2018/11/15/%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/"/>
     <id>https://www.xiongtianci.com/2018/11/15/反向安装jar包到Mave本地仓库/</id>
     <published>2018-11-14T17:17:48.000Z</published>
-    <updated>2019-06-12T09:39:10.774Z</updated>
+    <updated>2019-06-18T08:41:21.334Z</updated>
     
     <content type="html"><![CDATA[<p>当maven中央仓库没有所需jar的坐标时，需要自行将jar包反向安装到maven的本地仓库中<br>步骤：</p><blockquote><p>注意：前提是安装好Maven并且配置好maven的环境变量</p><ol><li>准备所需的jar包<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181115-%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/20181115010549472.png" alt="在这里插入图片描述"></li><li>打开命令行，输入以下命令，按下回车即可安装<pre><code>mvn install:install-file -Dfile=d:\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar</code></pre><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181115-%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/20181115011230828.png" alt="在这里插入图片描述"></li><li>可以在Maven本地仓库中查看是否安装成功<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181115-%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/20181115011514373.png" alt="在这里插入图片描述"></li><li>在pom文件中导入坐标<br><code>`</code>xml</li></ol></blockquote><p><dependency><br>    <groupid>com.alibaba</groupid><br>    <artifactid>dubbo</artifactid><br>    <version>2.8.4</version><br></dependency><br><code>`</code></p>]]></content>
     
@@ -2938,7 +2938,7 @@
     <link href="https://www.xiongtianci.com/2018/11/09/SpringMVC%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
     <id>https://www.xiongtianci.com/2018/11/09/SpringMVC的工作原理/</id>
     <published>2018-11-09T13:17:04.000Z</published>
-    <updated>2019-06-12T09:41:04.538Z</updated>
+    <updated>2019-06-18T08:40:48.196Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-SpringMVC的主要组件"><a href="#1-SpringMVC的主要组件" class="headerlink" title="1. SpringMVC的主要组件"></a>1. SpringMVC的主要组件</h2><ul><li><strong>DispatchServlet</strong>：前端控制器，接收请求，响应结果，返回可以是json,String等数据类型，也可以是页面（Model）</li><li><strong>HandlerMapping</strong>：处理器映射器，根据URL去查找处理器，一般通过xml配置或者注解进行查找</li><li><strong>Handler</strong>：处理器，即Controller控制器，由我们程序员编写</li><li><strong>HandlerAdapter</strong>：处理器适配器，可以将处理器包装成适配器，这样就可以支持多种类型的处理器</li><li><strong>ViewResolver</strong>：视图解析器，进行视图解析，返回view对象（常见的有JSP,FreeMark等）</li></ul><h2 id="2-SpringMVC的工作原理"><a href="#2-SpringMVC的工作原理" class="headerlink" title="2. SpringMVC的工作原理"></a>2. SpringMVC的工作原理</h2><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181109-SpringMVC%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/20181109211450528.png" alt="在这里插入图片描述"></p><ol><li>用户向服务器发送请求，请求被 SpringMVC 前端控制器DispatchServlet 捕获</li><li>DispatcherServle 对请求 URL 进行解析，得到请求资源标识符（URL），然后根据该 URL 调用 HandlerMapping<br>将请求映射到处理器 HandlerExcutionChain</li><li>DispatchServlet 根据获得 Handler 选择一个合适的 HandlerAdapter 适配器处理；</li><li>Handler 对数据处理完成以后将返回一个 ModelAndView() 对象给 DisPatchServlet;</li><li>Handler 返回的 ModelAndView()只是一个逻辑视图并不是一个正式的视图，DispatcherSevlet 通过 ViewResolver 试图解析器将逻辑视图转化为真正的视图View;</li><li>DispatcherServle 通过model 解析出 ModelAndView() 中的参数进行解析最终展现出完整的 view 并返回给<br>客户端</li></ol>]]></content>
     
@@ -2963,7 +2963,7 @@
     <link href="https://www.xiongtianci.com/2018/11/09/Java%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E5%90%84%E5%8D%A0%E5%87%A0%E4%B8%AA%E5%AD%97%E8%8A%82/"/>
     <id>https://www.xiongtianci.com/2018/11/09/Java的基本数据类型都有哪些，各占几个字节/</id>
     <published>2018-11-09T09:37:25.000Z</published>
-    <updated>2019-06-12T09:41:31.429Z</updated>
+    <updated>2019-06-18T08:40:42.299Z</updated>
     
     <content type="html"><![CDATA[<table><br>    <thead><br>        <tr><br>            <th>四类</th><br>            <th>八种</th><br>            <th>字节数</th><br>            <th>数据表示范围</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <th rowspan="4">整型</th><br>            <td>byte</td><br>            <td>1</td><br>            <td>-128~127</td><br>        </tr><br>        <tr><br>            <td>short</td><br>            <td>2</td><br>            <td>-32768~32767</td><br>        </tr><br>        <tr><br>            <td>int</td><br>            <td>4</td><br>            <td>-2147483648～2147483647</td><br>        </tr><br>        <tr><br>            <td>long</td><br>            <td>8</td><br>            <td>-2^63^～2^63^-1</td><br>        </tr><br>        <tr><br>            <th rowspan="2">浮点型</th><br>            <td>float</td><br>            <td>4</td><br>            <td>-3.403E38～3.403E38</td><br>        </tr><br>        <tr><br>            <td>double </td><br>            <td>8</td><br>            <td>-1.798E308～1.798E308</td><br>        </tr><br>        <tr><br>            <th>字符型</th><br>            <td>char</td><br>            <td>2</td><br>            <td>表示一个字符，如(‘a’，’A’，’0’，’家’)</td><br>        </tr><br>        <tr><br>            <th>布尔型</th><br>            <td>boolean</td><br>            <td>1</td><br>            <td>只有两个值true与false</td><br>        </tr><br>    </tbody><br></table>]]></content>
     
@@ -2988,7 +2988,7 @@
     <link href="https://www.xiongtianci.com/2018/11/09/final%E3%80%81finally%E3%80%81finalize-%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
     <id>https://www.xiongtianci.com/2018/11/09/final、finally、finalize-的区别/</id>
     <published>2018-11-09T08:33:44.000Z</published>
-    <updated>2019-06-12T09:41:46.690Z</updated>
+    <updated>2019-06-18T08:40:13.502Z</updated>
     
     <content type="html"><![CDATA[<ol><li><strong>final</strong>：用于声明属性( 变量 )，方法和类。分别表示属性不可变( 不可二次赋值 )，方法不可覆盖，被其修饰的类不可继承</li><li><strong>finally</strong>：异常处理语句 try/catch 结构的一部分，表示总是执行</li><li><strong>finalize</strong>：Object 类的一个方法，在垃圾回收器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。该方法更像是一个对象生命周期的临终方法，当该方法被系统调用则代表该对象即将“死亡”，但是需要注意的是，我们主动行为上去调用该方法并不会导致该对象“死亡”，这是一个被动的方法（其实就是回调方法），不需要我们调用</li></ol>]]></content>
     
@@ -3013,7 +3013,7 @@
     <link href="https://www.xiongtianci.com/2018/11/09/%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8E%92%E5%BA%8F%E6%96%B9%E5%BC%8F%EF%BC%9A%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E5%92%8C%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
     <id>https://www.xiongtianci.com/2018/11/09/数组的两种排序方式：选择排序和冒泡排序/</id>
     <published>2018-11-09T08:23:06.000Z</published>
-    <updated>2019-06-12T09:40:05.124Z</updated>
+    <updated>2019-06-18T08:40:55.552Z</updated>
     
     <content type="html"><![CDATA[<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><blockquote><p>原理：在数组中选择出最小（大）的一个数，与第一个位置的数进行交换位置；<br><code>`</code><br>int[] arr = {5,8,3,9,10,2};<br>System.out.println(“排序前：” + Arrays.toString(arr));</p></blockquote><p>// 使用两层循环遍历数组，将前一位数值与后面以为数值进行比较，<br>// 如果前一位数值要大于后一位数值，则交换他们的位置。故而可以实现排序<br>for(int m = 0; m&lt;arr.length-1; m++){<br>    for(int n = m+1; n&lt;arr.length; n++){<br>        if(arr[m] &gt; arr[n]){<br>            // 用于临时储存需要交换位置的某一个值<br>            int temp = arr[m];<br>            // 交换位置<br>            arr[m] = arr[n];<br>            arr[n] = temp;<br>        }<br>    }<br>}<br>System.out.println(“排序后：” + Arrays.toString(arr));</p><pre><code>## 冒泡排序</code></pre><p>int[] arr = {5,8,3,9,10,2};<br>System.out.println(“排序前：” + Arrays.toString(arr));</p><p>// 使用两层循环遍历数组<br>for(int m = 0; m&lt;arr.length-1; m++){<br>    // 第二层循环，将 arr 索引为 0~arr.length-1-m 中最大的一个数移动到 arr[arr.length-1-m] 的位置<br>    for(int n = 0; n&lt;arr.length-1-m; n++){<br>        if(arr[n] &gt; arr[n+1]){<br>            // 用于临时储存需要交换位置的某一个值<br>            int temp = arr[n];<br>            // 交换位置<br>            arr[n] = arr[n+1];<br>            arr[n+1] = temp;<br>        }<br>    }<br>}<br>System.out.println(“排序后：” + Arrays.toString(arr));<br><code>`</code></p>]]></content>
     
@@ -3042,7 +3042,7 @@
     <link href="https://www.xiongtianci.com/2018/11/08/%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%9A%84Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87/"/>
     <id>https://www.xiongtianci.com/2018/11/08/如何显示隐藏的Chrome扩展程序图标/</id>
     <published>2018-11-08T07:33:35.000Z</published>
-    <updated>2019-06-12T09:42:48.268Z</updated>
+    <updated>2019-06-18T08:40:26.294Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-将扩展程序图标在-Chrome-菜单中隐藏"><a href="#1-将扩展程序图标在-Chrome-菜单中隐藏" class="headerlink" title="1. 将扩展程序图标在 Chrome 菜单中隐藏"></a>1. 将扩展程序图标在 Chrome 菜单中隐藏</h2><p>将鼠标移动到需要隐藏的扩展程序上面，点击鼠标右键，选择“在 Chrome 菜单中隐藏”即可进行隐藏<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181108-%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%9A%84Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87/20181108152413697.png" alt="在这里插入图片描述"></p><h2 id="2-将隐藏的扩展程序图标在-Chrome-菜单中重新显示"><a href="#2-将隐藏的扩展程序图标在-Chrome-菜单中重新显示" class="headerlink" title="2. 将隐藏的扩展程序图标在 Chrome 菜单中重新显示"></a>2. 将隐藏的扩展程序图标在 Chrome 菜单中重新显示</h2><p>在浏览器地址栏最右边，待鼠标变成左右双向箭头图标的时候向左拖动，会发现隐藏的扩展程序出现了<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181108-%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E7%9A%84Chrome%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87/20181108152531335.png" alt="在这里插入图片描述"></p>]]></content>
     
@@ -3071,7 +3071,7 @@
     <link href="https://www.xiongtianci.com/2018/09/30/Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/"/>
     <id>https://www.xiongtianci.com/2018/09/30/Typora设置图片的相对路径（win系统）/</id>
     <published>2018-09-30T07:17:41.000Z</published>
-    <updated>2019-06-12T09:44:31.008Z</updated>
+    <updated>2019-06-18T08:40:32.328Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Typora设置图片的相对路径（win系统）"><a href="#Typora设置图片的相对路径（win系统）" class="headerlink" title="Typora设置图片的相对路径（win系统）"></a>Typora设置图片的相对路径（win系统）</h1><h2 id="步骤：文件–-gt-偏好设置–-gt-图片插入"><a href="#步骤：文件–-gt-偏好设置–-gt-图片插入" class="headerlink" title="步骤：文件–&gt;偏好设置–&gt;图片插入"></a>步骤：文件–&gt;偏好设置–&gt;图片插入</h2><h2 id="结果：将插入的图片路径设置成相对路径（-assets目录）"><a href="#结果：将插入的图片路径设置成相对路径（-assets目录）" class="headerlink" title="结果：将插入的图片路径设置成相对路径（./assets目录）"></a>结果：将插入的图片路径设置成相对路径（./assets目录）</h2><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20180930-Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20180930151428623.png" alt="第一步"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20180930-Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20180930151509174.png" alt="第二步"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20180930-Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/20180930151533395.png" alt="在这里插入图片描述"></p>]]></content>
     
