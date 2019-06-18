@@ -448,6 +448,30 @@ $ git reset --hard &lt;commit ID号&gt;
 # 强制推送到远程分支
 $ git push -f origin &lt;branch name&gt;
 </code></pre>
+<h2 id="删除commit记录"><a href="#删除commit记录" class="headerlink" title="删除commit记录"></a>删除commit记录</h2><p>何时需要删除Git提交的历史记录</p>
+<ol>
+<li>当历史记录中出现过<strong>密码</strong>等敏感信息在历史记录中, 需要删除历史记录时</li>
+<li>当项目因历史记录过多, 导致历史记录占用了<strong>大量内存</strong>时, 比如<strong>Github仓库个人总容量时1GB不够用时</strong></li>
+<li>当你想要一个全新的项目的时候, 并且想保持项目代码不变</li>
+</ol>
+<pre><code class="shell"># 1. 创建全新的孤立分支 latest_branch
+git checkout --orphan latest_branch
+
+# 2. 暂存所有文件
+git add -A
+
+# 3. 提交所有文件的修改到latest_branch
+git commit -am &quot;del all history&quot;
+
+# 4. 删除原来的master分支
+git branch -D master
+
+# 5. 修改latest_branch分支名为master
+git branch -m master
+
+# 6. 强制更新远程服务器的master分支, 至此清空git所有历史
+git push -f origin master
+</code></pre>
 <h1 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h1><pre><code class="shell"># 在当前目录新建一个Git代码库
 $ git init
 
@@ -1004,7 +1028,7 @@ $ git archive
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1016,10 +1040,10 @@ $ git archive
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
