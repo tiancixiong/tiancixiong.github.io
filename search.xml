@@ -803,9 +803,9 @@
       
         <tags>
             
-            <tag> SpringBoot </tag>
-            
             <tag> MyBatis </tag>
+            
+            <tag> SpringBoot </tag>
             
             <tag> 驼峰命名 </tag>
             
@@ -942,9 +942,9 @@
             
             <tag> 踩坑 </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> MyBatis </tag>
+            
+            <tag> MySQL </tag>
             
             <tag> 乱码 </tag>
             
