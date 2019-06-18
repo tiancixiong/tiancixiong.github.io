@@ -388,96 +388,100 @@
 <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
 <script src="https://unpkg.com/botui/build/botui.min.js"></script>
 <script>
-function bot_ui_ini() {
-    var botui = new BotUI("hello-mashiro");
-    botui.message.add({
-        delay: 800,
-        content: "Hi，朋友，欢迎来访~~👋"
-    }).then(function () {
-        botui.message.add({
-            delay: 1100,
-            content: "这里是~天赐~"
-        }).then(function () {
-            botui.message.add({
-                delay: 1100,
-                content: "a boy~"
-            }).then(function () {
-                botui.action.button({
-                    delay: 1600,
-                    action: [{
-                        text: "然后呢？ 😃",
-                        value: "sure"
-                    }, {
-                        text: "少废话！ 🙄",
-                        value: "skip"
-                    }]
-                }).then(function (a) {
-                    "sure" == a.value && sure();
-                    "skip" == a.value && end()
-                })
-            })
-        })
-    });
-    var sure = function () {
-            botui.message.add({
-                delay: 600,
-                content: "😘"
-            }).then(function () {
-                secondpart()
-            })
-        },
-        end = function () {
-            botui.message.add({
-                delay: 600,
-                content: "![...](https://view.moezx.cc/images/2018/05/06/a1c4cd0452528b572af37952489372b6.md.jpg)"
-            })
-        },
-        secondpart = function () {
-            botui.message.add({
-                delay: 1500,
-                content: "目前任职于某司实习生"
-            }).then(function () {
-                botui.message.add({
-                    delay: 1500,
-                    content: "大学入坑编程，后来一发不可收拾…"
-                }).then(function () {
-                    botui.message.add({
-                        delay: 1200,
-                        content: "现在的工作是java码畜"
-                    }).then(function () {
-                        botui.message.add({
-                            delay: 1500,
-                            content: "略懂 大数据，偶尔也折腾 Linux/HTML/CSS/JavaScript/Node.js"
-                        }).then(function () {
-                                botui.message.add({
-                                    delay: 1800,
-                                    content: "喜欢旅行和电影，正谋划一场毕业旅行"
-                                }).then(function () {
-                                    botui.action.button({
-                                        delay: 1100,
-                                        action: [{
-                                            text: "博客的内容是什么呢？ 🤔",
-                                            value: "blog-daily"
-                                        }]
-                                    }).then(function (a) {
-                                        thirdpart()
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        },
-        thirdpart = function () {
-            botui.message.add({
-                delay: 1E3,
-                content: "日常（灌水）内容，会不定时记录自己遇到的技术问题和生活片段~"
-            })
-        }
-        
-}
-bot_ui_ini()
+	function bot_ui_ini() {
+		var botui = new BotUI("hello-mashiro");
+		botui.message.add({
+			delay: 800,
+			content: "Hi, 朋友, 欢迎来访~👋"
+		}).then(function() {
+			botui.message.add({
+				delay: 1100,
+				content: "这里是~天赐~"
+			}).then(function() {
+				botui.message.add({
+					delay: 1100,
+					content: "a boy~"
+				}).then(function() {
+					botui.action.button({
+						delay: 1600,
+						action: [{
+							text: "然后呢？ 😃",
+							value: "sure"
+						}, {
+							text: "少废话！ 🙄",
+							value: "skip"
+						}]
+					}).then(function(a) {
+						"sure" == a.value && sure();
+						"skip" == a.value && end()
+					})
+				})
+			})
+		});
+		var sure = function() {
+				botui.message.add({
+					delay: 600,
+					content: "😘"
+				}).then(function() {
+					secondpart()
+				})
+			},
+			end = function() {
+				botui.message.add({
+					delay: 600,
+					content: "![...](https://view.moezx.cc/images/2018/05/06/a1c4cd0452528b572af37952489372b6.md.jpg)"
+				})
+			},
+			secondpart = function() {
+				botui.message.add({
+					delay: 1500,
+					content: "目前任职于某司实习生"
+				}).then(function() {
+					botui.message.add({
+						delay: 1500,
+						content: "大学入坑编程, 后来一去不返…"
+					}).then(function() {
+						botui.message.add({
+							delay: 1200,
+							content: "现在的工作是java码畜"
+						}).then(function() {
+							botui.message.add({
+								delay: 1500,
+								content: "略懂 大数据, 偶尔也折腾 Linux/HTML/CSS/JavaScript/Node.js等"
+							}).then(function() {
+								botui.message.add({
+									delay: 1800,
+									content: "喜欢旅行和电影, 正计划一场毕业旅行"
+								}).then(function() {
+									botui.action.button({
+										delay: 1100,
+										action: [{
+											text: "博客的内容是什么呢？ 🤔",
+											value: "blog-daily"
+										}]
+									}).then(function(a) {
+										thirdpart()
+									})
+								})
+
+							})
+						})
+					})
+				})
+			},
+			thirdpart = function() {
+				botui.message.add({
+					delay: 1E3,
+					content: "都是一些日常（灌水）内容，会不定时记录自己遇到的技术问题和生活片段~"
+				}).then(function() {
+					botui.message.add({
+						delay: 1600,
+						content: "那么，仔细看看我的博客吧~ ^_^"
+					})
+				})
+			}
+	}
+	bot_ui_ini()
 </script>
 
 
@@ -516,7 +520,7 @@ bot_ui_ini()
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -528,10 +532,10 @@ bot_ui_ini()
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
