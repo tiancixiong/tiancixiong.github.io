@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiongtianci.com/about/index.html</loc>
+    
+    <lastmod>2019-06-18T09:36:46.603Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiongtianci.com/2019/02/26/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E5%90%AF%E5%90%8E%EF%BC%8CDocker%E5%AE%89%E8%A3%85%E7%9A%84mysql%E6%80%8E%E4%B9%88%E9%87%8D%E5%90%AF%EF%BC%9F/</loc>
     
     <lastmod>2019-06-18T09:03:38.634Z</lastmod>
@@ -838,13 +845,6 @@
     <loc>https://www.xiongtianci.com/rss/index.html</loc>
     
     <lastmod>2019-06-18T03:38:10.531Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/about/index.html</loc>
-    
-    <lastmod>2019-06-18T03:37:10.425Z</lastmod>
     
   </url>
   
