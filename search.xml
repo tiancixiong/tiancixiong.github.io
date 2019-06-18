@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Octotree访问私有仓库：Error: Private repository</title>
+      <link href="/2019/06/18/Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/"/>
+      <url>/2019/06/18/Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在<strong>GitHub</strong>==私有仓库==中使用<strong>Octotree</strong>时出现下面情况：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560844399302.png" alt="1560844399302"></p><p>这个是因为我们需要在==GitHub==中给==Octotree==设置一个访问令牌</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在==GitHub==中：<strong>Settings</strong> -&gt; <strong>Developer settings</strong> -&gt; <strong>Personal access tokens</strong> -&gt; <strong>Generate new token</strong> 创建令牌</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560845107107.png" alt="1560845107107"></p><p>设置名称<strong>Octotree browser extension</strong>（任意）：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560845356974.png" alt="1560845356974"></p><p>勾选权限范围：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560846071313.png" alt="1560846071313"></p><p>点击<strong>Generate token</strong>创建令牌：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560845423161.png" alt="1560845423161"></p><p>点击复制按钮复制令牌<strong>token</strong>（<strong>注意：这个token值只会显示一次</strong>）</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560845596169.png" alt="1560845596169"></p><hr><p>在==Octotree==中点击<strong>设置</strong>按钮：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560845805967.png" alt="1560845805967"></p><p>将你刚刚复制的<strong>token</strong>粘贴到<strong>GitHub access token</strong>文本框中，点击<strong>Apply settings</strong>，刷新页面即可：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190618-Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/1560845892967.png" alt="1560845892967"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> google扩展 </tag>
+            
+            <tag> Octotree </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>电影资源网址-珍藏</title>
       <link href="/2019/06/15/%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90%E7%BD%91%E5%9D%80-%E7%8F%8D%E8%97%8F/"/>
       <url>/2019/06/15/%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90%E7%BD%91%E5%9D%80-%E7%8F%8D%E8%97%8F/</url>
