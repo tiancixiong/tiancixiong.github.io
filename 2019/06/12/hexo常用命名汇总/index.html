@@ -410,6 +410,16 @@ npm update hexo -g
 
 # hexo初始化
 hexo init
+
+
+# 查看node.js版本号
+node -v
+# 查看npm版本号
+npm -v
+# 查看git版本号
+git --version
+# 查看hexo版本号
+hexo -v
 </code></pre>
 <h1 id="插件安装和卸载"><a href="#插件安装和卸载" class="headerlink" title="插件安装和卸载"></a>插件安装和卸载</h1><pre><code class="shell"># 安装插件
 npm install hexo-xxx-xxx --save
@@ -457,10 +467,10 @@ npm uninstall hexo-xxx-xxx --save
 $ hexo init [folder]
 </code></pre>
 <p>如果没有设置<code>folder</code>，Hexo默认在<strong>当前文件夹</strong>建立网站</p>
-<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><pre><code class="shell"># 新建一篇文章
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><pre><code class="shell"># 新建一篇文章,文章名称和标题为 [title],文章采用 [layout] 布局
 $ hexo new [layout] &lt;title&gt;
 </code></pre>
-<p>如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">_config.yml</a> 中的 <code>default_layout</code> 参数代替。<br>如果标题包含空格的话，请使用引号括起来。</p>
+<p>会在目录<code>source/_posts</code>下生成 [title].md 文件，[title].md文件的顶部会使用<code>---</code>分割区域，也称作<strong>Front matter</strong>区<br>如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">_config.yml</a> 中的 <code>default_layout</code> 参数代替（一般默认是<code>post</code>）。<br>如果标题包含空格的话，请使用<strong>引号</strong>括起来。</p>
 <pre><code class="shell"># eg
 $ hexo new &quot;post title with whitespace&quot;
 </code></pre>
@@ -486,36 +496,48 @@ $ hexo g
 </tr>
 </tbody>
 </table>
+<p>执行 <code>$ hexo g</code>后会在站点根目录下生成<code>public</code>文件夹, hexo会将<code>/blog/source/</code>下面的<code>.md</code>后缀的文件编译为<code>.html后</code>缀的文件,存放在<code>/blog/public/</code>路径下</p>
 <h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><pre><code class="shell"># 发表草稿
 $ hexo publish [layout] &lt;filename&gt;
 </code></pre>
+<p><code>hexo publish [layout] &lt;title&gt;</code> 通过 <code>publish</code> 命令将草稿移动到 <code>source/_posts</code> 文件夹<br>如:<code>$ hexo publish [layout] &lt;title&gt;</code>，草稿默认是不会显示在页面中的，可在执行时加上 <code>--draft</code> 参数，或是把 <code>render_drafts</code> 参数设为 <code>true</code>来预览草稿。</p>
 <h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><pre><code class="shell"># 启动服务器（常用于调试）
 $ hexo server
+$ hexo s
 </code></pre>
-<p>默认情况下，访问网址为： <code>http://localhost:4000/</code></p>
+<p>默认情况下，访问网址为： <code>http://localhost:4000/</code>。Hexo 会监视文件变动并自动更新，除修改<strong>站点配置文件</strong>外,无须重启服务器,直接刷新网页即可生效。</p>
 <table>
 <thead>
 <tr>
 <th>选项</th>
 <th>描述</th>
+<th>eg</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>-p</code>, <code>--port</code></td>
 <td>重设端口</td>
+<td>hexo s -p 5000</td>
 </tr>
 <tr>
 <td><code>-s</code>, <code>--static</code></td>
 <td>只使用静态文件</td>
+<td></td>
 </tr>
 <tr>
 <td><code>-l</code>, <code>--log</code></td>
 <td>启动日记记录，使用覆盖记录格式</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>自定义IP</td>
+<td>hexo s -i 192.168.1.1</td>
 </tr>
 </tbody>
 </table>
-<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><pre><code class="shell"># 部署网站
+<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><pre><code class="shell"># 部署网站,将本地数据部署到远端服务器(如github、coding)
 $ hexo deploy
 $ hexo d
 </code></pre>
@@ -552,7 +574,8 @@ $ hexo render &lt;file1&gt; [file2] ...
 <h2 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h2><pre><code class="shell">$ hexo migrate &lt;type&gt;
 </code></pre>
 <p>从其他博客系统 <a href="https://hexo.io/zh-cn/docs/migration" target="_blank" rel="noopener">迁移内容</a>。</p>
-<h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><pre><code class="shell">$ hexo clean
+<h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><pre><code class="shell"># 清除缓存,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹
+$ hexo clean
 </code></pre>
 <p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
 <p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
@@ -576,6 +599,7 @@ $ hexo version
 </code></pre><p>自定义当前工作目录（Current working directory）的路径。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">hexo官方文档</a></li>
+<li><a href="https://segmentfault.com/a/1190000002632530#articleHeader1" target="_blank" rel="noopener">hexo常用命令笔记</a></li>
 </ul>
 
         </div>
