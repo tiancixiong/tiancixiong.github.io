@@ -884,7 +884,7 @@ font:
 </ol>
 <p>第一篇文章内有 NexT 主题的文件目录说明，这对自己自定义博客有很大帮助。此外，大佬的博客可不仅仅有一篇文章，多在上面逗留会，也许会有甜品。</p>
 <h2 id="更改上一篇，下一篇的顺序"><a href="#更改上一篇，下一篇的顺序" class="headerlink" title="更改上一篇，下一篇的顺序"></a>更改上一篇，下一篇的顺序</h2><p>进入一篇文章，在文章底部，有上下篇的链接（&lt; &gt;），但是点 &gt; 发现进入的是页面中的的上面那篇文章，与操作习惯不符，别扭。</p>
-<p>我猜这是从时间角度设计的，&gt; 英语叫 next，而 next 是更新的。不过别扭就改成习惯的好了，从空间位置角度设计。<a href="https://io-oi.me/tech/hexo-next-optimization.html#fn:1" target="_blank" rel="noopener">[1]</a></p>
+<p>我猜这是从时间角度设计的，&gt; 英语叫 next，而 next 是更新的。不过别扭就改成习惯的好了，从空间位置角度设计。[^1]</p>
 <p>方法就是修改文件：</p>
 <pre><code class="js"># 文件位置：~/blog/themes/next/layout/_macro/post.swig
 {% if not is_index and (post.prev or post.next) %}
@@ -1016,7 +1016,7 @@ rating:
         {% endif %}
 </code></pre>
 <h2 id="侧栏加入已运行的时间"><a href="#侧栏加入已运行的时间" class="headerlink" title="侧栏加入已运行的时间"></a>侧栏加入已运行的时间</h2><p>我们都有自己的生日，都知道自己的岁数，那为什么不给博客加上，让读者知道博客的年纪呢？操作很简单，而且不是精确到年而是精确到秒，233333～</p>
-<p>首先要加入下面代码：[2]</p>
+<p>首先要加入下面代码：[^2]</p>
 <pre><code class="js"># 文件位置：~/blog/themes/next/layout/_custom/sidebar.swig
 
 &lt;div id=&quot;days&quot;&gt;&lt;/div&gt;
@@ -1109,7 +1109,7 @@ menu:
   commonweal: 公益404
   top: TopX /* 可以不为 TopX，随便取 */
 </code></pre>
-<p>注意：如果你的<strong>站点</strong>配置文件中的 languages 写的不是 zh-CN，那么这里请更改相应语言配置文件。最后，编辑第一步新建页面生成的文件：<a href="https://io-oi.me/tech/hexo-next-optimization.html#fn:3" target="_blank" rel="noopener">[3]</a></p>
+<p>注意：如果你的<strong>站点</strong>配置文件中的 languages 写的不是 zh-CN，那么这里请更改相应语言配置文件。最后，编辑第一步新建页面生成的文件：[^3]</p>
 <pre><code class="js"># 文件位置：~/blog/source/top/index.md
 
 ---
@@ -1150,7 +1150,7 @@ description: 博客文章阅读量排行榜
 <p>1）如果在设置 &gt; 安全中心中，没有将<code>http://localhost:4000</code>加入 Web 安全域名，那么本地调试将看不到，可以先将之加入，调试完后删除。<br>2）如果你发现文章标题显示不对，这是由于更改过文章标题导致的，在存储 &gt; Counter 双击<code>title</code>修改即可。</p>
 <p>另外，应该也可以按类似的方式，利用 JS 代码，将评分（rating）高╱多的文章，评论多的文章，也加入这个页面，不过现在博客的阅读量还不多，我暂时没折腾（其实也不太会）。如果你实现了，麻烦告诉我哦😘～</p>
 <p>注意：如果你的博客使用了 Valine 评论系统，那么可能会有代码冲突问题，解决方法见<a href="https://io-oi.me/tech/use-valine-in-theme-next.html" target="_blank" rel="noopener">这篇文章</a>。</p>
-<h2 id="利用-gulp-压缩代码"><a href="#利用-gulp-压缩代码" class="headerlink" title="利用 gulp 压缩代码"></a>利用 gulp 压缩代码</h2><p>右键查看网页源代码发现有大量留白，咋整？利用 gulp。首先任意目录全局安装：<a href="https://io-oi.me/tech/hexo-next-optimization.html#fn:4" target="_blank" rel="noopener">[4]</a></p>
+<h2 id="利用-gulp-压缩代码"><a href="#利用-gulp-压缩代码" class="headerlink" title="利用 gulp 压缩代码"></a>利用 gulp 压缩代码</h2><p>右键查看网页源代码发现有大量留白，咋整？利用 gulp。首先任意目录全局安装：[^4]</p>
 <pre><code class="shell">npm install gulp@3.9.1 -g
 </code></pre>
 <p>然后到<strong>站点</strong>文件夹根目录：</p>
@@ -1593,7 +1593,7 @@ password:
 <h2 id="使用-Markdown（必读）"><a href="#使用-Markdown（必读）" class="headerlink" title="使用 Markdown（必读）"></a>使用 Markdown（必读）</h2><p>用 Hexo 写文章是直接用 Markdown 写的，而不是像 WordPress 有一个类似 Word 一样的文字编辑器，所以第一次用会感觉有点难，但你熟练之后，就会觉得文字编辑器都是辣鸡🌚…</p>
 <h3 id="Markdown-简介"><a href="#Markdown-简介" class="headerlink" title="Markdown 简介"></a>Markdown 简介</h3><p>Markdown 的目标是实现「易读易写」。</p>
 <p>不过最需要强调的便是它的可读性。一份使用 Markdown 格式撰写的文件应该可以直接以纯文字发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，然而最大灵感来源其实是纯文字的电子邮件格式。</p>
-<p>因此 Markdown 的语法全由标点符号所组成，并经过严谨慎选，是为了让它们看起来就像所要表达的意思。像是在文字两旁加上星号，看起来就像<strong>强调</strong>。Markdown 的清单看起来，嗯，就是清单。假如你有使用过电子邮件，区块引言看起来就真的像是引用一段文字。<a href="https://io-oi.me/tech/hexo-next-optimization.html#fn:5" target="_blank" rel="noopener">[5]</a></p>
+<p>因此 Markdown 的语法全由标点符号所组成，并经过严谨慎选，是为了让它们看起来就像所要表达的意思。像是在文字两旁加上星号，看起来就像<strong>强调</strong>。Markdown 的清单看起来，嗯，就是清单。假如你有使用过电子邮件，区块引言看起来就真的像是引用一段文字。[^5]</p>
 <h3 id="Markdown-教程"><a href="#Markdown-教程" class="headerlink" title="Markdown 教程"></a>Markdown 教程</h3><p>这是写文章必须掌握的技能哦，一开始可能比较懵，因为大脑没有相关概念，无法将 Markdown 语法「翻译」成相应样式，不过多写几篇就好啦🙊。</p>
 <ol>
 <li><a href="http://markdown.tw/" target="_blank" rel="noopener">Markdown 语法说明</a></li>
@@ -1883,13 +1883,7 @@ span#inline-toc {
 <p>不知道这篇文章有木有照亮你呢？为修改这篇文章博主光通宵就来了两次，如果你觉得这篇文章很赞，欢迎分享本文给更多像我一样的小白看到！感谢😘φ(≧ω≦*)♪～</p>
 <p>最后如果引用本文的内容，麻烦<strong>留个本文的链接</strong>，因为如果读者或我自己发现文章有错误，我会在这里更正，留个本文的链接，防止我暂时的疏漏耽误了他人宝贵的时间。</p>
 <hr>
-<ol>
-<li>参考：<a href="https://github.com/ahonn/hexo-theme-even/issues/69" target="_blank" rel="noopener">https://github.com/ahonn/hexo-theme-even/issues/69</a> <a href="https://io-oi.me/tech/hexo-next-optimization.html#fnref:1" target="_blank" rel="noopener">↑</a></li>
-<li>来源：<a href="http://lovekernel.com/2017/hexo%E5%8D%9A%E5%AE%A2%E6%9E%84%E5%BB%BA%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">http://lovekernel.com/2017/hexo博客构建笔记/</a> <a href="https://io-oi.me/tech/hexo-next-optimization.html#fnref:2" target="_blank" rel="noopener">↑</a></li>
-<li>参考：<a href="http://lovekernel.com/2017/hexo%E5%8D%9A%E5%AE%A2%E6%9E%84%E5%BB%BA%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">http://lovekernel.com/2017/hexo博客构建笔记/</a> <a href="https://io-oi.me/tech/hexo-next-optimization.html#fnref:3" target="_blank" rel="noopener">↑</a></li>
-<li>参考：<a href="https://leaferx.online/2017/06/16/use-gulp-to-minimize/" target="_blank" rel="noopener">https://leaferx.online/2017/06/16/use-gulp-to-minimize/</a> <a href="https://io-oi.me/tech/hexo-next-optimization.html#fnref:4" target="_blank" rel="noopener">↑</a></li>
-<li>来源：<a href="http://markdown.tw/" target="_blank" rel="noopener">http://markdown.tw/</a> <a href="https://io-oi.me/tech/hexo-next-optimization.html#fnref:5" target="_blank" rel="noopener">↑</a></li>
-</ol>
+<p>[^1]: <a href="https://github.com/ahonn/hexo-theme-even/issues/69" target="_blank" rel="noopener">https://github.com/ahonn/hexo-theme-even/issues/69</a><a href="#fnref:1">↑</a><br>[^2]: <a href="http://lovekernel.com/2017/hexo%E5%8D%9A%E5%AE%A2%E6%9E%84%E5%BB%BA%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">http://lovekernel.com/2017/hexo博客构建笔记/</a><a href="#fnref:2">↑</a><br>[^3]: <a href="http://lovekernel.com/2017/hexo%E5%8D%9A%E5%AE%A2%E6%9E%84%E5%BB%BA%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">http://lovekernel.com/2017/hexo博客构建笔记/</a><a href="#fnref:3">↑</a><br>[^4]: <a href="https://leaferx.online/2017/06/16/use-gulp-to-minimize/" target="_blank" rel="noopener">https://leaferx.online/2017/06/16/use-gulp-to-minimize/</a><a href="#fnref:4">↑</a><br>[^5]: <a href="http://markdown.tw/" target="_blank" rel="noopener">http://markdown.tw/</a><a href="#fnref:5">↑</a></p>
 
         </div>
         <!-- .entry-content -->
