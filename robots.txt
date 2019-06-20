@@ -11,5 +11,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://xiongtianci.com/sitemap.xml
-Sitemap: https://xiongtianci.com/baidusitemap.xml
+Sitemap: https://www.xiongtianci.com/sitemap.xml
+Sitemap: https://www.xiongtianci.com/baidusitemap.xml
