@@ -1359,18 +1359,18 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
           </div>
         
       </section>
-      <!-- 评论插件设置 -->
+      <!-- 评论插件valine -->
 
 <div id="vcomments"></div>
 <script>
   window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-		av: AV.init({
+	  AV.init({
 			appId: 'NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz',
 			appKey: '7zPSYnuDLeyCNoSQpgTXdC1v',
 			serverURLs: 'https://avoscloud.com'
-		}),
+		});
+      var valine = new Valine();
+      valine.init({
         el: '#vcomments',
         appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
         appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
@@ -1480,7 +1480,6 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 <!-- Valine -->
 <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
-<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
 <script src="//cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
 <script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
 
