@@ -419,7 +419,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -431,10 +431,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -641,6 +641,27 @@
       </div>
     </div>
   </section>
+  
+  <!-- 下面两行为了实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+            <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+            <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+            <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+            <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+            <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+            <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+            <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+        </ul>
+</div>
+<canvas id="night-mode-cover"></canvas></div> 
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换主题 | SCHEME TOOL &nbsp;
+	<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+</div>
+  
   <div id="mo-nav" class>
   <div class="m-avatar">
     <img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg">
@@ -872,37 +893,7 @@
   });
 </script></div>
 </body>
-</html>		time = time.replace(/\//g, ':').replace(' ', ':');
-		time = time.split(':');
-		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
-		
-		today = new Date();
-		timeold = (today.getTime() - BirthDay.getTime());
-		sectimeold = timeold / 1000
-		secondsold = Math.floor(sectimeold);
-		msPerDay = 24 * 60 * 60 * 1000
-		e_daysold = timeold / msPerDay
-		daysold = Math.floor(e_daysold);
-		e_hrsold = (e_daysold - daysold) * 24;
-		hrsold = setzero(Math.floor(e_hrsold));
-		e_minsold = (e_hrsold - hrsold) * 60;
-		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
-		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
-		document.getElementById('days').innerHTML = "已在风雨中运行 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
-	}
-
-	function setzero(i) {
-		if(i < 10) {
-			i = "0" + i
-		};
-		return i;
-	}
-	show_date_time();
-</script>
-<!-- 访客统计-js -->
-<script>
-	if(true){
-		document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
+</html>span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
@@ -931,6 +922,27 @@
       </div>
     </div>
   </section>
+  
+  <!-- 下面两行为了实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+            <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+            <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+            <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+            <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+            <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+            <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+            <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+        </ul>
+</div>
+<canvas id="night-mode-cover"></canvas></div> 
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换主题 | SCHEME TOOL &nbsp;
+	<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+</div>
+  
   <div id="mo-nav" class>
   <div class="m-avatar">
     <img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg">
