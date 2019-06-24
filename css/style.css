@@ -4197,7 +4197,9 @@ li.feature-2 {
     -o-transition:.7s all ease;
     -ms-transition:.7s all ease
 }
-.wechat:hover .wechatInner {
+/*.wechat:hover .wechatInner {*/
+/*修改为只在微信logo上面才触发显示二维码*/
+.wechat a:hover + .wechatInner {
     -webkit-transform:translate3d(0,16px,0);
     transform:translate3d(0,16px,0);
     opacity:1;
@@ -6258,6 +6260,7 @@ button.botui-actions-buttons-button {
     background:rgba(125,137,95,0);
     pointer-events:none
 }
+/* 右下角切换主题 */
 #night-mode-cover {
     position:fixed;
     top:0;
