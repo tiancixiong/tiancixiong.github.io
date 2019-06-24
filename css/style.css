@@ -7861,3 +7861,22 @@ td.hljs-ln-numbers {
 @media(max-width:1200px) {
     .toc {display: none;}
 }
+
+/* 代码块样式 */
+.hljs-ln-line span::-moz-selection,.hljs-ln-line::-moz-selection {
+    background: #fff;
+    color: #21252b
+}
+
+.hljs-ln-line span::selection,.hljs-ln-line::selection {
+    background: #fff;
+    color: #21252b
+}
+
+.hljs-ln-code .hljs-ln-line {
+    padding-left: 5px
+}
+
+.hljs-ln-code .hljs-ln-line:hover {
+    background-color: rgba(255,255,255,.1)
+}
