@@ -847,6 +847,8 @@ public class WaitingTest {
         el: '#vcomments',
         appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
         appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
+		notify: false,
+		verify: false,
         path: window.location.pathname,
         placeholder: "你是我一生只会遇见一次的惊喜 ...",
 		avatar: "monsterid",
@@ -861,18 +863,6 @@ public class WaitingTest {
     }
   }
 </script>
-<!--<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "",
-        appKey: "",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>-->
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -898,7 +888,7 @@ public class WaitingTest {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -910,10 +900,10 @@ public class WaitingTest {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
