@@ -1877,6 +1877,14 @@ i.iconfont.hotpost {
     text-align:right;
     margin:20px 10px 10px 0
 }
+/*图片在左，文章信息在右*/
+.post-list-thumb-left .post-content-wrap a, .post-meta {
+	text-align: left;
+}
+.post-list-thumb-left .post-content-wrap .float-content p {
+	text-align: left;
+}
+/**/
 .post-list-thumb-left .post-thumb {
     float:left
 }
