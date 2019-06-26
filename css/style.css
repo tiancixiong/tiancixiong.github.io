@@ -837,8 +837,17 @@ table {
     border-collapse:collapse;
     border-spacing:0
 }
+/*
 td,th {
     padding:0
+}
+*/
+/*table样式*/
+table td, th {
+	font-size: 1em;
+    padding: .4em;
+    text-align: center;
+    border: 1px solid #eee;
 }
 body,button,input,select,textarea {
     color:#404040;
@@ -7433,6 +7442,10 @@ to {
 .hljs-ln {
     margin:6px 0 0 0 !important
 }
+/*table样式*/
+.hljs-ln .hljs-ln-numbers, .hljs-ln-code {
+	text-align: center;
+}
 .highlight td.numbers {
     -webkit-touch-callout:none;
     -webkit-user-select:none;
@@ -7817,6 +7830,7 @@ img[src*="#in-center"] {
     text-align:center
 }
 td.hljs-ln-numbers {
+	border: none; /*table样式*/
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -7831,6 +7845,10 @@ td.hljs-ln-numbers {
     left: 0;
     width: 30px;
 }
+td.hljs-ln-numbers div{
+	text-align: center;
+}
+/*盼*/
 .post-share:hover .show-share, .post-share:hover .sharehidden {
     opacity: 1;
     display: inline-block;
@@ -7883,7 +7901,11 @@ td.hljs-ln-numbers {
     background: #fff;
     color: #21252b
 }
-
+/*table样式*/
+.hljs-ln-code, .hljs-ln-line {
+	border: none;
+	text-align: left;
+}
 .hljs-ln-code .hljs-ln-line {
     padding-left: 5px
 }
