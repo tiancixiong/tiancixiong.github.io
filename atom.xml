@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-06-26T06:10:40.148Z</updated>
+  <updated>2019-06-26T03:54:28.450Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>alb</title>
-    <link href="https://www.xiongtianci.com/2019/06/26/alb/"/>
-    <id>https://www.xiongtianci.com/2019/06/26/alb/</id>
-    <published>2019-06-26T03:58:01.000Z</published>
-    <updated>2019-06-26T06:10:40.148Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>jQuery-选择器总结</title>
@@ -476,6 +455,31 @@
       <category term="黑马" scheme="https://www.xiongtianci.com/tags/%E9%BB%91%E9%A9%AC/"/>
     
       <category term="乐优商城" scheme="https://www.xiongtianci.com/tags/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>navicat操作mysql的时候，如何输入null值？</title>
+    <link href="https://www.xiongtianci.com/2019/05/05/navicat%E6%93%8D%E4%BD%9Cmysql%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5null%E5%80%BC%EF%BC%9F/"/>
+    <id>https://www.xiongtianci.com/2019/05/05/navicat操作mysql的时候，如何输入null值？/</id>
+    <published>2019-05-05T03:47:07.000Z</published>
+    <updated>2019-06-18T08:53:14.999Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Mysql" scheme="https://www.xiongtianci.com/tags/Mysql/"/>
+    
+      <category term="Navicat" scheme="https://www.xiongtianci.com/tags/Navicat/"/>
     
   </entry>
   
