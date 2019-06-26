@@ -42,8 +42,8 @@
   mashiro_option.site_name = "トトロ天赐";
   mashiro_option.author_name = "天赐";
   mashiro_option.site_url = "/";
-  mashiro_option.v_appId = "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz";
-  mashiro_option.v_appKey = "7zPSYnuDLeyCNoSQpgTXdC1v";
+  mashiro_option.v_appId = "";
+  mashiro_option.v_appKey = "";
   mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
@@ -476,13 +476,25 @@ public ModelAndView goodsEditor(){
       var valine = new Valine();
       valine.init({
         el: '#vcomments',
-        appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
-        appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
+        appId: "",
+        appKey: "",
         path: window.location.pathname,
         placeholder: "你是我一生只会遇见一次的惊喜 ..."
       })
   }
 </script>
+<!--<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "",
+        appKey: "",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>-->
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
