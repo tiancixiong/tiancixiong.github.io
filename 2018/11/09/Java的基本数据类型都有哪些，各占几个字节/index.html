@@ -464,12 +464,22 @@
       var valine = new Valine();
       valine.init({
         el: '#vcomments',
-		notify: "true",
+		verify: "false",
+		notify: "false",
         appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
         appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
         path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "mp",
+		pageSize: "10" || 10
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
   }
 </script>
 <!--<script>
