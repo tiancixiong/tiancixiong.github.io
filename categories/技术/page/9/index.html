@@ -50,7 +50,8 @@
 
   // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
   // mashiro_option.float_player_on = true;
-
+  console.info("%c Blog %c", "background:#24272A; color:#ffffff", "", "https://www.xiongtianci.com");
+  console.info("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/tiancixiong");
   /*End of Initial Variables*/
   </script>
   <script type="text/javascript">
@@ -714,7 +715,7 @@
     <!-- 
       <nav class="navigator">
         
-        <a class="extend prev" rel="prev" href="/categories/技术/page/8/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/categories/技术/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/技术/page/7/">7</a><a class="page-number" href="/categories/技术/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/categories/技术/page/10/">10</a><a class="extend next" rel="next" href="/categories/技术/page/10/"><i class="iconfont icon-right"></i></a>
+        <a class="extend prev" rel="prev" href="/categories/技术/page/8/">Prev</a><a class="page-number" href="/categories/技术/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/技术/page/7/">7</a><a class="page-number" href="/categories/技术/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/categories/技术/page/10/">10</a><a class="extend next" rel="next" href="/categories/技术/page/10/">Next</a>
       </nav>
      -->
     
@@ -1128,7 +1129,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1140,10 +1141,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -1164,8 +1165,8 @@
 	<div class="site-info">
 		<div class="footertext">
 			<div class="img-preload">
-				<img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
-				<img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/wordpress-rotating-ball-o.svg">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/disqus-preloader.svg">
 			</div>
 			<!-- color: #666666; -->
 			<p style="color: #b9b9b9;">&copy; 2018 -
@@ -1335,16 +1336,14 @@
 (function(){
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
-	console.log(curProtocol);
     if (curProtocol === 'https') {
         bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
     }
     else {
         bp.src = 'http://push.zhanzhang.baidu.com/push.js';
     }
-	
-    var s = document.getElementsByTagName("script")[0];
-	console.log(s);
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
