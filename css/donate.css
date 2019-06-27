@@ -35,7 +35,7 @@
   height: 70px;
   line-height: 70px;
   color: #fff;
-  background: #ffd886 url(https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/donate/like.svg) no-repeat center 10px;
+  background: #ffd886 url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/like.svg) no-repeat center 10px;
   background-size: 20px;
   border-radius: 35px;
   text-align: center;
@@ -85,10 +85,10 @@
   display: block;
 }
 #donateBox #PayPal {
-  background-image: url(https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/donate/paypal.svg);
+  background-image: url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/paypal.svg);
 }
 #donateBox>#BTC {
-  background-image: url(https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/donate/bitcoin.svg);
+  background-image: url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/bitcoin.svg);
   line-height: 28px;
 }
 #donateBox>#BTC:hover {
@@ -99,10 +99,10 @@
   cursor: pointer;
 }
 #donateBox #AliPay {
-  background-image: url(https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/donate/alipay.svg);
+  background-image: url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/alipay.svg);
 }
 #donateBox #WeChat {
-  background-image: url(https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/donate/wechat.svg);
+  background-image: url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/wechat.svg);
 }
 #QRBox {
   position: relative;
@@ -147,7 +147,7 @@
   height: 24px;
   top: -12px;
   left: -10px;
-  background: no-repeat center center url(https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/donate/github.svg);
+  background: no-repeat center center url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/github.svg);
   background-size: contain;
   opacity: 0.3;
   transform: rotatez(15deg );
