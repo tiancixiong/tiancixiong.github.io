@@ -555,16 +555,16 @@ $(document).ready(function () {
   })
   add_upload_tips()
 })
-
+/*首页背景-下一张*/
 function nextBG () {
   bgindex = bgindex + 1
-  console.log(bg[Math.abs(bgindex % bg.length)])
+  //console.log(bg[Math.abs(bgindex % bg.length)])
   $('.centerbg').css('background-image', 'url("' + bg[Math.abs(bgindex % bg.length)] + '")')
 }
-
+/*首页背景-上一张*/
 function preBG () {
   bgindex = bgindex - 1
-  console.log(bg[Math.abs(bgindex % bg.length)])
+  //console.log(bg[Math.abs(bgindex % bg.length)])
   $('.centerbg').css('background-image', 'url("' + bg[Math.abs(bgindex % bg.length)] + '")')
 }
 $(document).ready(function () {
