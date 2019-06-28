@@ -655,6 +655,24 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 	<!-- .site-info -->
 </footer>
 
+<!-- 百度统计自动推送 -->
+{% if theme.baidu_push %}
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+{% endif %}
+
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -664,9 +682,9 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
-<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
-<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -785,22 +803,6 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
-</script>
-<!-- 百度统计自动推送 -->
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-	var scriptList = document.getElementsByTagName("script");
-    var s = scriptList[0];
-    s.parentNode.insertBefore(bp, s);
-})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
