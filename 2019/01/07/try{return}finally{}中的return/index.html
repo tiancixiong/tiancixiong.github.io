@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -414,10 +414,8 @@
         }
         return i;
     }
-}
-</code></pre>
-<pre><code>打印结果：1
-</code></pre><p>返回的是基本数据类型，直接返回值<br><br></p>
+}</code></pre>
+<pre><code>打印结果：1</code></pre><p>返回的是基本数据类型，直接返回值<br><br></p>
 <pre><code class="java">public class Demo {
     public static void main(String[] args) {
         System.out.println(num().getI());
@@ -447,10 +445,8 @@ class Test{
     public void setI(int i) {
         this.i = i;
     }
-}
-</code></pre>
-<pre><code>打印结果：2
-</code></pre><p>返回的是对象的引用</p>
+}</code></pre>
+<pre><code>打印结果：2</code></pre><p>返回的是对象的引用</p>
 
         </div>
         <!-- .entry-content -->
@@ -1055,5 +1051,20 @@ class Test{
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

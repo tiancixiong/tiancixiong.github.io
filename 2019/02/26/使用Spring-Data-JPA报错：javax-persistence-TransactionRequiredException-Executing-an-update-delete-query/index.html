@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -395,8 +395,7 @@
         
         <div class="entry-content">
           <pre><code>Caused by: javax.persistence.TransactionRequiredException: Executing an update/delete query
-    at org.hibernate.query.internal.AbstractProducedQuery.executeUpdate(AbstractProducedQuery.java:1496)
-</code></pre><p>1、 报错原因：SpringData JPA事务导致的异常<br>2、解决：在Service层添加注解<code>@Transactional</code>进行事务管理<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190226-%E4%BD%BF%E7%94%A8Spring-Data-JPA%E6%8A%A5%E9%94%99%EF%BC%9Ajavax-persistence-TransactionRequiredException-Executing-an-update-delete-query/20190226115939325.png" alt="在这里插入图片描述"></p>
+    at org.hibernate.query.internal.AbstractProducedQuery.executeUpdate(AbstractProducedQuery.java:1496)</code></pre><p>1、 报错原因：SpringData JPA事务导致的异常<br>2、解决：在Service层添加注解<code>@Transactional</code>进行事务管理<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190226-%E4%BD%BF%E7%94%A8Spring-Data-JPA%E6%8A%A5%E9%94%99%EF%BC%9Ajavax-persistence-TransactionRequiredException-Executing-an-update-delete-query/20190226115939325.png" alt="在这里插入图片描述"></p>
 
         </div>
         <!-- .entry-content -->
@@ -1001,5 +1000,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

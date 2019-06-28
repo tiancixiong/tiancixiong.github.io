@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -405,12 +405,10 @@
 <p>下载解压，得到vue.js文件</p>
 <h2 id="2-2-使用CDN"><a href="#2-2-使用CDN" class="headerlink" title="2.2 使用CDN"></a>2.2 使用CDN</h2><p>或者也可以直接使用公共的CDN服务：</p>
 <pre><code class="html">&lt;!-- 开发环境版本，包含了用帮助的命令行警告 --&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
-</code></pre>
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p>或者：</p>
 <pre><code class="html">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
-</code></pre>
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;</code></pre>
 <h1 id="3-框架和库的区别"><a href="#3-框架和库的区别" class="headerlink" title="3. 框架和库的区别"></a>3. 框架和库的区别</h1><ul>
 <li>框架：是一套完整的解决方案；对项目的侵入性较大，项目如果需要更换框架，则需要重新架构整个项目。<ul>
 <li>node 中的 express；</li>
@@ -457,8 +455,7 @@
 <h1 id="6-快速入门"><a href="#6-快速入门" class="headerlink" title="6. 快速入门"></a>6. 快速入门</h1><h1 id="7-Vue实例"><a href="#7-Vue实例" class="headerlink" title="7. Vue实例"></a>7. Vue实例</h1><h2 id="7-1-创建Vue实例"><a href="#7-1-创建Vue实例" class="headerlink" title="7.1 创建Vue实例"></a>7.1 创建Vue实例</h2><p>每个 Vue 应用都是通过用 <code>Vue</code> 函数创建一个新的 <strong>Vue 实例</strong>开始的：</p>
 <pre><code class="javascript">var vm = new Vue({
   // 选项
-})
-</code></pre>
+})</code></pre>
 <p>在构造函数中传入一个对象，并且在对象中声明各种Vue需要的数据和方法，包括：</p>
 <ul>
 <li>el</li>
@@ -472,28 +469,24 @@
 <p>例如一段html模板：</p>
 <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
 
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
 <p>然后创建Vue实例，关联这个div</p>
 <pre><code class="js">var vm = new Vue({
     el:&quot;#app&quot;
-})
-</code></pre>
+})</code></pre>
 <p>这样，Vue就可以基于id为<code>app</code>的div元素作为模板进行渲染了。在这个div范围以外的部分是无法使用vue特性的。</p>
 <h2 id="7-3-数据"><a href="#7-3-数据" class="headerlink" title="7.3 数据"></a>7.3 数据</h2><p>当Vue实例被创建时，它会尝试获取在data中定义的所有属性，用于视图的渲染，并且监视data中的属性变化，当data发生改变，所有相关的视图都将重新渲染，这就是“响应式“系统。</p>
 <p>html：</p>
 <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
     &lt;input type=&quot;text&quot; v-model=&quot;name&quot;/&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
 <p>js:</p>
 <pre><code class="js">var vm = new Vue({
     el:&quot;#app&quot;,
     data:{
         name:&quot;刘德华&quot;
     }
-})
-</code></pre>
+})</code></pre>
 <ul>
 <li>name的变化会影响到<code>input</code>的值</li>
 <li>input中输入的值，也会导致vm中的name发生改变</li>
@@ -503,8 +496,7 @@
 <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
     {{num}}
     &lt;button v-on:click=&quot;add&quot;&gt;加&lt;/button&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
 <p>js写法一：</p>
 <pre><code class="js">&lt;div id=&quot;app&quot;&gt;
     {{num}}
@@ -523,8 +515,7 @@
            }
        }
     });
-&lt;/script&gt;
-</code></pre>
+&lt;/script&gt;</code></pre>
 <p>js写法二：</p>
 <pre><code class="javascript">&lt;div id=&quot;app&quot;&gt;
     {{num}}
@@ -545,8 +536,7 @@
     });
 
 
-&lt;/script&gt;
-</code></pre>
+&lt;/script&gt;</code></pre>
 <h2 id="7-5-生命周期"><a href="#7-5-生命周期" class="headerlink" title="7.5 生命周期"></a>7.5 生命周期</h2><h3 id="7-5-1-生命周期"><a href="#7-5-1-生命周期" class="headerlink" title="7.5.1 生命周期"></a>7.5.1 生命周期</h3><p>每个 Vue 实例在被创建时都要经过一系列的初始化过程 ：创建实例，装载模板，渲染模板等等。Vue为生命周期中的每个状态都设置了钩子函数（监听函数）。每当Vue实例处于不同的生命周期时，对应的函数就会被触发调用。</p>
 <p>生命周期：</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/lifecycle.png" alt="Vue life cycle"></p>
@@ -582,8 +572,7 @@
 <p>html:</p>
 <pre><code class="html">&lt;div id=&quot;app&quot;&gt;
     {{hello}}
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
 <p>js:</p>
 <pre><code class="js">&lt;script src=&quot;vue-2.5.17.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
@@ -596,8 +585,7 @@
            this.hello = &#39;czdx,一统江湖，千秋万代&#39;
        }
     });
-&lt;/script&gt;
-</code></pre>
+&lt;/script&gt;</code></pre>
 <p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/1540845983254.png" alt="1540845983254"></p>
 <ul>
@@ -666,8 +654,7 @@
       vm.$destroy();
    &lt;/script&gt;
 
-&lt;/html&gt;
-</code></pre>
+&lt;/html&gt;</code></pre>
 <h3 id="7-5-3-this"><a href="#7-5-3-this" class="headerlink" title="7.5.3 this"></a>7.5.3 this</h3><p>我们可以看下在vue内部的this变量是谁，我们在created的时候，打印this</p>
 <pre><code class="js">var vm = new Vue({
     el:&quot;#app&quot;,
@@ -678,16 +665,14 @@
         this.hello = &quot;czdx,一统江湖，千秋万代&quot;;
         console.log(this);
     }
-})
-</code></pre>
+})</code></pre>
 <p> 控制台的输出：</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/1540846042618.png" alt="1540846042618"></p>
 <h1 id="8-指令"><a href="#8-指令" class="headerlink" title="8. 指令"></a>8. 指令</h1><p><strong>指令</strong> (Directives)： 是带有 <code>v-</code> 前缀的特殊特性。指令特性的预期值是：<strong>单个 JavaScript 表达式</strong>。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。 </p>
 <p>例如我们在入门案例中的v-on，代表绑定事件。</p>
 <h2 id="8-1-插值表达式"><a href="#8-1-插值表达式" class="headerlink" title="8.1 插值表达式"></a>8.1 插值表达式</h2><h3 id="8-1-1-大括号-u007B-u007B"><a href="#8-1-1-大括号-u007B-u007B" class="headerlink" title="8.1.1 大括号 u007B;u007B;"></a>8.1.1 大括号 u007B;u007B;</h3><ol>
 <li><p>格式：</p>
-<pre><code>u007B;u007B;表达式
-</code></pre><p>说明：</p>
+<pre><code>u007B;u007B;表达式</code></pre><p>说明：</p>
 </li>
 </ol>
 
@@ -1294,5 +1279,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

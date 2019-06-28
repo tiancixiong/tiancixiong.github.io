@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -397,14 +397,16 @@
           <h3 id="需求：删除”电影描述”以及其后面的内容"><a href="#需求：删除”电影描述”以及其后面的内容" class="headerlink" title="需求：删除”电影描述”以及其后面的内容"></a>需求：删除”电影描述”以及其后面的内容</h3><blockquote>
 <p>Top1 肖申克的救赎    评分：9.6    电影描述：希望让人自由<br>Top2 霸王别姬    评分：9.5    电影描述：风华绝代<br>Top3 这个杀手不太冷    评分：9.4    电影描述：怪蜀黍和小萝莉不得不说的故事<br>Top4 阿甘正传    评分：9.4    电影描述：一部美国近现代史<br>Top5 美丽人生    评分：9.5    电影描述：最美的谎言<br>Top6 千与千寻    评分：9.2    电影描述：最好的宫崎骏，最好的久石让<br>Top7 泰坦尼克号    评分：9.2    电影描述：失去的才是永恒的<br>Top8 辛德勒的名单    评分：9.4    电影描述：拯救一个人，就是拯救整个世界<br>Top9 盗梦空间    评分：9.3    电影描述：诺兰给了我们一场无法盗取的梦<br>Top10 机器人总动员    评分：9.3    电影描述：小瓦力，大人生<br>Top11 海上钢琴师    评分：9.2    电影描述：每个人都要走一条自己坚定了的路，就算是粉身碎骨<br>Top12 三傻大闹宝莱坞    评分：9.1    电影描述：英俊版憨豆，高情商版谢耳朵<br>Top13 忠犬八公的故事    评分：9.2    电影描述：永远都不能忘记你所爱的人<br>Top14 放牛班的春天    评分：9.2    电影描述：天籁一般的童声，是最接近上帝的存在<br>Top15 大话西游之大圣娶亲    评分：9.2    电影描述：一生所爱</p>
 </blockquote>
-<p><br></p>
+<br>
+
 <h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><ol>
 <li>Ctrl+R 打开替换窗口</li>
 <li>在”查找目标”中输入：特定字符.*</li>
 <li>选择右下角的”正则表达式”</li>
 <li>点击”全部替换”<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181127-%E4%BD%BF%E7%94%A8Notepad%2B%2B%E6%9B%BF%E6%8D%A2%E6%9F%90%E4%B8%80%E7%89%B9%E5%AE%9A%E4%B8%AD%E6%96%87%E5%90%8E%E9%9D%A2%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/20181127104259536.png" alt="在这里插入图片描述"></li>
 </ol>
-<p><br></p>
+<br>
+
 <h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><blockquote>
 <p>Top1 肖申克的救赎    评分：9.6<br>Top2 霸王别姬    评分：9.5<br>Top3 这个杀手不太冷    评分：9.4<br>Top4 阿甘正传    评分：9.4<br>Top5 美丽人生    评分：9.5<br>Top6 千与千寻    评分：9.2<br>Top7 泰坦尼克号    评分：9.2<br>Top8 辛德勒的名单    评分：9.4<br>Top9 盗梦空间    评分：9.3<br>Top10 机器人总动员    评分：9.3<br>Top11 海上钢琴师    评分：9.2<br>Top12 三傻大闹宝莱坞    评分：9.1<br>Top13 忠犬八公的故事    评分：9.2<br>Top14 放牛班的春天    评分：9.2<br>Top15 大话西游之大圣娶亲    评分：9.2  </p>
 </blockquote>
@@ -1012,5 +1014,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

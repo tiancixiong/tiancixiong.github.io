@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -397,10 +397,9 @@
           <h4 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h4><pre><code class="java">Integer a = 1000, b = 1000;
 System.out.println(a == b);//false
 Integer c = 100, d = 100;
-System.out.println(c == d);//true
-</code></pre>
+System.out.println(c == d);//true</code></pre>
 <blockquote>
-<p>=<strong> 运算比较的不是值而是</strong>引用**</p>
+<p>=** 运算比较的不是值而是<strong>引用</strong></p>
 </blockquote>
 <h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><blockquote>
 <p>其实正常情况Integer类型与int是不可能相等的，一个是对象类型（Integer ），一个是基础数据类型（int）。只是Java搞了自动装箱和拆箱机制，会将int转换成Integer，反之亦然。但是转换时正常情况下，装箱与拆箱的对象的内存地址应该是不同的，应该仍然不等才对，但是JVM让对应的<code>-128~127</code>的装箱对象都缓存起来了，这意味着每次装箱在这个范围的，直接从缓存取，不会new，通过这个trick让其相等 但是超出这个范围的默认还是一般原理就不相等了</p>
@@ -410,8 +409,7 @@ System.out.println(c == d);//true
   if (i &gt;= IntegerCache.low &amp;&amp; i
       return IntegerCache.cache[i + (-IntegerCache.low)];
   return new Integer(i);
-}
-</code></pre>
+}</code></pre>
 <p>IntegerCache 是Integer 的内部类，其代码如下所示：</p>
 <pre><code class="java">/**
      * Cache to support the object identity semantics of autoboxing for values between
@@ -456,8 +454,7 @@ System.out.println(c == d);//true
         }
 
         private IntegerCache() {}
-    }
-</code></pre>
+    }</code></pre>
 <p>简单的说，如果整型字面量的值在<code>-128 ~ 127</code>之间，那么不会new新的Integer对象，而是直接引用常量池中的Integer对象，所以才会出现上面的现象</p>
 
         </div>
@@ -1063,5 +1060,20 @@ System.out.println(c == d);//true
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -401,14 +401,12 @@
     用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
     用户昵称：&lt;input type=&quot;text&quot; name=&quot;usernick&quot;&gt;&lt;br&gt;
     &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form&gt;
-</code></pre>
+&lt;/form&gt;</code></pre>
 <pre><code class="java">@RequestMapping(value = &quot;/requestParamDemo&quot;, method = RequestMethod.GET)
 public void requestParamDemo(@RequestParam(value = &quot;username&quot;) String userName, @RequestParam(value = &quot;usernick&quot;) String userNick) {
     System.out.println(&quot;username: &quot; + userName);
     System.out.println(&quot;usernick: &quot; + userNick);
-}
-</code></pre>
+}</code></pre>
 <h3 id="二、-RequestBody"><a href="#二、-RequestBody" class="headerlink" title="二、@RequestBody"></a>二、@RequestBody</h3><blockquote>
 <p><code>@RequestBody</code>注解可以接收<code>json</code>格式的数据，并将其转换成对应的数据类型</p>
 </blockquote>
@@ -417,15 +415,13 @@ public void requestParamDemo(@RequestParam(value = &quot;username&quot;) String 
     &quot;id&quot;:1,
     &quot;username&quot;:&quot;jack&quot;,
     &quot;password&quot;:&quot;1234&quot;
-}
-</code></pre>
+}</code></pre>
 <pre><code class="java">@RequestMapping(value=&quot;/requestBodyDemo&quot;, method = RequestMethod.POST)
 public void requestBodyDemo(@RequestBody User user){
     System.out.println(&quot;id: &quot; + user.getId());
     System.out.println(&quot;name: &quot; + user.getName());
     System.out.println(&quot;password: &quot; + user.getPassword());
-}
-</code></pre>
+}</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1030,5 +1026,20 @@ public void requestBodyDemo(@RequestBody User user){
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

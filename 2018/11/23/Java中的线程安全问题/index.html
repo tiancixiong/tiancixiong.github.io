@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -396,8 +396,7 @@
         <div class="entry-content">
           <h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><p><strong>线程安全</strong>：如果有多个线程在<strong>同时</strong>运行，而这些线程可能会<strong>同时运行这段代码</strong>。程序每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，此时我们就称之为是线程安全的。</p>
 <p>我们通过一个案例，演示线程的安全问题：</p>
-<pre><code>电影院卖票，使用了A、B、C三个窗口进行卖票，电影票总数为100张
-</code></pre><p>采用线程对象来模拟卖票窗口A、B、C；使用Runnable接口的子类来模拟买的电影票</p>
+<pre><code>电影院卖票，使用了A、B、C三个窗口进行卖票，电影票总数为100张</code></pre><p>采用线程对象来模拟卖票窗口A、B、C；使用Runnable接口的子类来模拟买的电影票</p>
 <p>模拟电影票：</p>
 <pre><code class="java">public class Ticket implements Runnable{
     // 在成员位置 定义票的总数100
@@ -422,8 +421,7 @@
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>模拟买票：</p>
 <pre><code class="java">/**
  * 模拟买票操作
@@ -448,8 +446,7 @@ public class Demo {
         t2.start();
         t3.start();
     }
-}
-</code></pre>
+}</code></pre>
 <p>运行结果：</p>
 <pre><code>窗口A卖掉第100张票
 窗口C卖掉第98张票
@@ -463,11 +460,9 @@ public class Demo {
 ...
 窗口C卖掉第1张票
 窗口A卖掉第0张票
-窗口B卖掉第-1张票 ⇐
-</code></pre><p>发现程序出现了两个问题：</p>
+窗口B卖掉第-1张票 ⇐</code></pre><p>发现程序出现了两个问题：</p>
 <pre><code> 1. 相同的票数被卖了多次，如第94张被三个窗口都卖了
- 2. 卖出了不存在的票，如窗口B卖掉了第-1张票
-</code></pre><p>此时，几个窗口(线程)票数不同步了，这种问题称为线程不安全。</p>
+ 2. 卖出了不存在的票，如窗口B卖掉了第-1张票</code></pre><p>此时，几个窗口(线程)票数不同步了，这种问题称为线程不安全。</p>
 <blockquote>
 <p>线程安全问题都是有全局变量即静态变量引起的。若每个线程中对全局变量、静态变量只有读操作，而无写操作。一般来说，这个全局变量是线程安全的；若有多个线程同时执行写操作，一般都需要考虑线程同步，否则的话就可能影响线程安全</p>
 </blockquote>
@@ -475,23 +470,19 @@ public class Demo {
 <pre><code>窗口A线程进入操作(买票)的时候，窗口B和窗口C线程只能在外等着，
 窗口A操作结束，窗口A、窗口B和窗口C(CPU分配内存是随机的，所以还有可能是窗口A进入)才有机会进入代码去执行。
 也就是说，在某个线程修改共享资源的时候，其他线程不能修改该资源，
-等待修改完毕同步之后，才能去抢夺CPU资源，完成对应的操作，保证了数据的同步性，解决了线程不安全的现象。
-</code></pre><p>为了保证每个线程都能正常执行原子操作，Java引入了线程同步机制。</p>
+等待修改完毕同步之后，才能去抢夺CPU资源，完成对应的操作，保证了数据的同步性，解决了线程不安全的现象。</code></pre><p>为了保证每个线程都能正常执行原子操作，Java引入了线程同步机制。</p>
 <p>有三种方式完成同步操作：</p>
 <pre><code> 1. 同步代码块
  2. 同步方法
- 3. 锁机制
-</code></pre><h1 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h1><p><strong>同步代码块</strong>：<code>synchronized</code> 关键字可以用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问。</p>
+ 3. 锁机制</code></pre><h1 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h1><p><strong>同步代码块</strong>：<code>synchronized</code> 关键字可以用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问。</p>
 <p>格式：</p>
 <pre><code class="java">synchronized(同步锁){
     // 需要同步的操作的代码
-}
-</code></pre>
+}</code></pre>
 <p><strong>同步锁</strong>：</p>
 <p>对象的同步锁只是一个概念，可以想象为在对象上标记了一个锁。</p>
 <pre><code> 1. 锁对象可以是任意类型
- 2. 多个线程对象要使用同一把锁
-</code></pre><blockquote>
+ 2. 多个线程对象要使用同一把锁</code></pre><blockquote>
 <p>注意：在任何时候，最多允许一个线程拥有同步锁，谁拿到就进入代码块，其他的线程只能在外等着</p>
 </blockquote>
 <p>使用同步代码块解决卖票问题：</p>
@@ -531,8 +522,7 @@ public class Ticket implements Runnable{
 
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>执行结果：</p>
 <pre><code>窗口A卖掉第100票
 窗口C卖掉第99票
@@ -542,8 +532,7 @@ public class Ticket implements Runnable{
 窗口C卖掉第4票
 窗口A卖掉第3票
 窗口A卖掉第2票
-窗口A卖掉第1票
-</code></pre><p>此时，每张票都只会被卖掉一次，不会存在卖掉不存在的电影票的问题。</p>
+窗口A卖掉第1票</code></pre><p>此时，每张票都只会被卖掉一次，不会存在卖掉不存在的电影票的问题。</p>
 <p>当使用了同步代码块后，上述的线程的安全问题即可解决</p>
 
         </div>
@@ -1149,5 +1138,20 @@ public class Ticket implements Runnable{
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

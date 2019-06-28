@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -396,12 +396,10 @@
         <div class="entry-content">
           <h4 id="方式一：通过Calendar实现"><a href="#方式一：通过Calendar实现" class="headerlink" title="方式一：通过Calendar实现"></a>方式一：通过Calendar实现</h4><pre><code class="java">Calendar cal = Calendar.getInstance();
 cal.add(Calendar.DATE,-1);
-System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(cal.getTime()));
-</code></pre>
+System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(cal.getTime()));</code></pre>
 <h4 id="方式二：通过Date实现"><a href="#方式二：通过Date实现" class="headerlink" title="方式二：通过Date实现"></a>方式二：通过Date实现</h4><pre><code class="java">// 1天的时间 = 24小时 x 60分钟 x 60秒 x 1000毫秒 单位是L
 Date yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
-System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(yesterday));
-</code></pre>
+System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(yesterday));</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1006,5 +1004,20 @@ System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

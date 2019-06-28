@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -397,7 +397,44 @@
           <blockquote>
 <p>window.location.search的作用为：获取页面 URL 地址</p>
 </blockquote>
-<table><br>    <th>属性</th><br>    <th>描述</th><br>    <tbody><br>        <tr><br>            <td>hash</td><br>            <td>从 # 开始的 URL（锚）</td><br>        </tr><br>        <tr><br>            <td>host</td><br>            <td>主机名和当前 URL 的端口号</td><br>        </tr><br>        <tr><br>            <td>hostname</td><br>            <td>当前 URL 的主机名</td><br>        </tr><br>        <tr><br>            <td>href</td><br>            <td>完整的 URL</td><br>        </tr><br>        <tr><br>            <td>pathname</td><br>            <td>当前 URL 的路径部分</td><br>        </tr><br>        <tr><br>            <td>port</td><br>            <td>当前 URL 的端口号</td><br>        </tr><br>        <tr><br>            <td>protocol</td><br>            <td>当前 URL 的协议</td><br>        </tr><br>        <tr><br>            <td><font color="hotpink">search</font><br>            </td><td><font color="hotpink">从问号 (?) 开始的 URL（查询部分）</font><br>        </td></tr><br>    </tbody><br></table>
+<table>
+    <th>属性</th>
+    <th>描述</th>
+    <tbody>
+        <tr>
+            <td>hash</td>
+            <td>从 # 开始的 URL（锚）</td>
+        </tr>
+        <tr>
+            <td>host</td>
+            <td>主机名和当前 URL 的端口号</td>
+        </tr>
+        <tr>
+            <td>hostname</td>
+            <td>当前 URL 的主机名</td>
+        </tr>
+        <tr>
+            <td>href</td>
+            <td>完整的 URL</td>
+        </tr>
+        <tr>
+            <td>pathname</td>
+            <td>当前 URL 的路径部分</td>
+        </tr>
+        <tr>
+            <td>port</td>
+            <td>当前 URL 的端口号</td>
+        </tr>
+        <tr>
+            <td>protocol</td>
+            <td>当前 URL 的协议</td>
+        </tr>
+        <tr>
+            <td><font color="hotpink">search</font>
+            </td><td><font color="hotpink">从问号 (?) 开始的 URL（查询部分）</font>
+        </td></tr>
+    </tbody>
+</table>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -1001,5 +1038,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -396,27 +396,400 @@
         <div class="entry-content">
           <h2 id="标签页和窗口快捷键">标签页和窗口快捷键</h2>
 
-<table><br>    <thead><br>    <tr><br>        <th>操作</th><br>        <th>快捷键</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>打开新窗口</td><br>        <td><font color="hotpink">Ctrl + N</font></td><br>    </tr><br>    <tr><br>        <td>在无痕模式下打开新窗口</td><br>        <td><font color="hotpink">Ctrl + Shift + N</font></td><br>    </tr><br>    <tr><br>        <td>打开新的标签页，并跳转到该标签页</td><br>        <td><font color="hotpink">Ctrl + T</font></td><br>    </tr><br>    <tr><br>        <td>重新打开最后关闭的标签页，并跳转到该标签页</td><br>        <td><font color="hotpink">Ctrl + Shift + T</font></td><br>    </tr><br>    <tr><br>        <td>跳转到下一个打开的标签页</td><br>        <td>Ctrl + Tab 或 Ctrl + PgDn</td><br>    </tr><br>    <tr><br>        <td>跳转到上一个打开的标签页</td><br>        <td>Ctrl + Shift + Tab 或 Ctrl + PgUp</td><br>    </tr><br>    <tr><br>        <td>跳转到特定标签页</td><br>        <td>Ctrl + 1 到 Ctrl + 8</td><br>    </tr><br>    <tr><br>        <td>跳转到最后一个标签页</td><br>        <td>Ctrl + 9</td><br>    </tr><br>    <tr><br>        <td>在当前标签页中打开主页</td><br>        <td>Alt + Home</td><br>    </tr><br>    <tr><br>        <td>打开当前标签页浏览记录中记录的上一个页面</td><br>        <td>Alt + 向左箭头键</td><br>    </tr><br>    <tr><br>        <td>打开当前标签页浏览记录中记录的下一个页面</td><br>        <td>Alt + 向右箭头键</td><br>    </tr><br>    <tr><br>        <td>关闭当前标签页</td><br>        <td><font color="hotpink">Ctrl + W 或 Ctrl + F4</font></td><br>    </tr><br>    <tr><br>        <td>关闭所有打开的标签页和浏览器</td><br>        <td>Ctrl + Shift + W</td><br>    </tr><br>    <tr><br>        <td>最小化当前窗口</td><br>        <td>Alt + 空格键 + N</td><br>    </tr><br>    <tr><br>        <td>最大化当前窗口</td><br>        <td>Alt + 空格键 + X</td><br>    </tr><br>    <tr><br>        <td>关闭当前窗口</td><br>        <td><font color="hotpink">Alt + F4</font></td><br>    </tr><br>    <tr><br>        <td>退出 Google Chrome</td><br>        <td>Ctrl + Shift + q</td><br>    </tr><br>    </tbody><br></table>
+<table>
+    <thead>
+    <tr>
+        <th>操作</th>
+        <th>快捷键</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>打开新窗口</td>
+        <td><font color="hotpink">Ctrl + N</font></td>
+    </tr>
+    <tr>
+        <td>在无痕模式下打开新窗口</td>
+        <td><font color="hotpink">Ctrl + Shift + N</font></td>
+    </tr>
+    <tr>
+        <td>打开新的标签页，并跳转到该标签页</td>
+        <td><font color="hotpink">Ctrl + T</font></td>
+    </tr>
+    <tr>
+        <td>重新打开最后关闭的标签页，并跳转到该标签页</td>
+        <td><font color="hotpink">Ctrl + Shift + T</font></td>
+    </tr>
+    <tr>
+        <td>跳转到下一个打开的标签页</td>
+        <td>Ctrl + Tab 或 Ctrl + PgDn</td>
+    </tr>
+    <tr>
+        <td>跳转到上一个打开的标签页</td>
+        <td>Ctrl + Shift + Tab 或 Ctrl + PgUp</td>
+    </tr>
+    <tr>
+        <td>跳转到特定标签页</td>
+        <td>Ctrl + 1 到 Ctrl + 8</td>
+    </tr>
+    <tr>
+        <td>跳转到最后一个标签页</td>
+        <td>Ctrl + 9</td>
+    </tr>
+    <tr>
+        <td>在当前标签页中打开主页</td>
+        <td>Alt + Home</td>
+    </tr>
+    <tr>
+        <td>打开当前标签页浏览记录中记录的上一个页面</td>
+        <td>Alt + 向左箭头键</td>
+    </tr>
+    <tr>
+        <td>打开当前标签页浏览记录中记录的下一个页面</td>
+        <td>Alt + 向右箭头键</td>
+    </tr>
+    <tr>
+        <td>关闭当前标签页</td>
+        <td><font color="hotpink">Ctrl + W 或 Ctrl + F4</font></td>
+    </tr>
+    <tr>
+        <td>关闭所有打开的标签页和浏览器</td>
+        <td>Ctrl + Shift + W</td>
+    </tr>
+    <tr>
+        <td>最小化当前窗口</td>
+        <td>Alt + 空格键 + N</td>
+    </tr>
+    <tr>
+        <td>最大化当前窗口</td>
+        <td>Alt + 空格键 + X</td>
+    </tr>
+    <tr>
+        <td>关闭当前窗口</td>
+        <td><font color="hotpink">Alt + F4</font></td>
+    </tr>
+    <tr>
+        <td>退出 Google Chrome</td>
+        <td>Ctrl + Shift + q</td>
+    </tr>
+    </tbody>
+</table>
 
 
 <h2 id="google-chrome-功能快捷键">Google Chrome 功能快捷键</h2>
 
-<table><br>    <thead><br>    <tr><br>        <th>操作</th><br>        <th>快捷键</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>打开 Chrome 菜单</td><br>        <td>Alt + F、Alt + E 或 F10</td><br>    </tr><br>    <tr><br>        <td>显示或隐藏书签栏</td><br>        <td>Ctrl + Shift + B</td><br>    </tr><br>    <tr><br>        <td>打开书签管理器</td><br>        <td><font color="hotpink">Ctrl + Shift + O</font></td><br>    </tr><br>    <tr><br>        <td>在新标签页中打开“历史记录”页</td><br>        <td>Ctrl + H</td><br>    </tr><br>    <tr><br>        <td>在新标签页中打开“下载内容”页</td><br>        <td>Ctrl + J</td><br>    </tr><br>    <tr><br>        <td>打开 Chrome 任务管理器</td><br>        <td>Shift + Esc</td><br>    </tr><br>    <tr><br>        <td>将焦点放置在 Chrome 工具栏中的第一项上</td><br>        <td>Shift + Alt + T</td><br>    </tr><br>    <tr><br>        <td>在地址栏、书签栏（若显示）和页面内容之间向前切换焦点</td><br>        <td>F6</td><br>    </tr><br>    <tr><br>        <td>在地址栏、书签栏（若显示）和页面内容之间向后切换焦点</td><br>        <td>Shift + F6</td><br>    </tr><br>    <tr><br>        <td>打开查找栏搜索当前网页</td><br>        <td>Ctrl + F 或 F3</td><br>    </tr><br>    <tr><br>        <td>跳转到与查找栏中搜索字词相匹配的下一条内容</td><br>        <td>Ctrl + G</td><br>    </tr><br>    <tr><br>        <td>跳转到与查找栏中搜索字词相匹配的上一条内容</td><br>        <td>Ctrl + Shift + G</td><br>    </tr><br>    <tr><br>        <td>打开“开发者工具”</td><br>        <td>Ctrl + Shift + j 或 F12</td><br>    </tr><br>    <tr><br>        <td>打开“清除浏览数据”选项</td><br>        <td>Ctrl + Shift + Delete</td><br>    </tr><br>    <tr><br>        <td>在新标签页中打开 Chrome 帮助中心</td><br>        <td>F1</td><br>    </tr><br>    <tr><br>        <td>使用其他帐号登录或以访客身份浏览</td><br>        <td>Ctrl + Shift + m</td><br>    </tr><br>    <tr><br>        <td>打开反馈表单</td><br>        <td>Alt + Shift + i</td><br>    </tr><br>    </tbody><br></table>
+<table>
+    <thead>
+    <tr>
+        <th>操作</th>
+        <th>快捷键</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>打开 Chrome 菜单</td>
+        <td>Alt + F、Alt + E 或 F10</td>
+    </tr>
+    <tr>
+        <td>显示或隐藏书签栏</td>
+        <td>Ctrl + Shift + B</td>
+    </tr>
+    <tr>
+        <td>打开书签管理器</td>
+        <td><font color="hotpink">Ctrl + Shift + O</font></td>
+    </tr>
+    <tr>
+        <td>在新标签页中打开“历史记录”页</td>
+        <td>Ctrl + H</td>
+    </tr>
+    <tr>
+        <td>在新标签页中打开“下载内容”页</td>
+        <td>Ctrl + J</td>
+    </tr>
+    <tr>
+        <td>打开 Chrome 任务管理器</td>
+        <td>Shift + Esc</td>
+    </tr>
+    <tr>
+        <td>将焦点放置在 Chrome 工具栏中的第一项上</td>
+        <td>Shift + Alt + T</td>
+    </tr>
+    <tr>
+        <td>在地址栏、书签栏（若显示）和页面内容之间向前切换焦点</td>
+        <td>F6</td>
+    </tr>
+    <tr>
+        <td>在地址栏、书签栏（若显示）和页面内容之间向后切换焦点</td>
+        <td>Shift + F6</td>
+    </tr>
+    <tr>
+        <td>打开查找栏搜索当前网页</td>
+        <td>Ctrl + F 或 F3</td>
+    </tr>
+    <tr>
+        <td>跳转到与查找栏中搜索字词相匹配的下一条内容</td>
+        <td>Ctrl + G</td>
+    </tr>
+    <tr>
+        <td>跳转到与查找栏中搜索字词相匹配的上一条内容</td>
+        <td>Ctrl + Shift + G</td>
+    </tr>
+    <tr>
+        <td>打开“开发者工具”</td>
+        <td>Ctrl + Shift + j 或 F12</td>
+    </tr>
+    <tr>
+        <td>打开“清除浏览数据”选项</td>
+        <td>Ctrl + Shift + Delete</td>
+    </tr>
+    <tr>
+        <td>在新标签页中打开 Chrome 帮助中心</td>
+        <td>F1</td>
+    </tr>
+    <tr>
+        <td>使用其他帐号登录或以访客身份浏览</td>
+        <td>Ctrl + Shift + m</td>
+    </tr>
+    <tr>
+        <td>打开反馈表单</td>
+        <td>Alt + Shift + i</td>
+    </tr>
+    </tbody>
+</table>
 
 
 <h2 id="地址栏快捷键">地址栏快捷键</h2>
 
-<table><br>    <thead><br>    <tr><br>        <th>操作</th><br>        <th>快捷键</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>使用默认搜索引擎进行搜索</td><br>        <td>输入搜索字词并按 Enter 键</td><br>    </tr><br>    <tr><br>        <td>使用其他搜索引擎进行搜索</td><br>        <td>输入搜索引擎名称并按 Tab 键</td><br>    </tr><br>    <tr><br>        <td>为网站名称添加 www. 和 .com，并在当前标签页中打开该网站</td><br>        <td>输入网站名称并按 Ctrl + Enter</td><br>    </tr><br>    <tr><br>        <td>打开新的标签页并执行 Google 搜索</td><br>        <td>输入搜索字词并按 Alt + Enter 键</td><br>    </tr><br>    <tr><br>        <td>跳转到地址栏</td><br>        <td>Ctrl + l、Alt + d 或 F6</td><br>    </tr><br>    <tr><br>        <td>从页面中的任意位置搜索</td><br>        <td>Ctrl + k 或 Ctrl + e</td><br>    </tr><br>    <tr><br>        <td>从地址栏中移除联想查询内容</td><br>        <td>按向下箭头键以突出显示相应内容，然后按 Shift + Delete</td><br>    </tr><br>    </tbody><br></table>
+<table>
+    <thead>
+    <tr>
+        <th>操作</th>
+        <th>快捷键</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>使用默认搜索引擎进行搜索</td>
+        <td>输入搜索字词并按 Enter 键</td>
+    </tr>
+    <tr>
+        <td>使用其他搜索引擎进行搜索</td>
+        <td>输入搜索引擎名称并按 Tab 键</td>
+    </tr>
+    <tr>
+        <td>为网站名称添加 www. 和 .com，并在当前标签页中打开该网站</td>
+        <td>输入网站名称并按 Ctrl + Enter</td>
+    </tr>
+    <tr>
+        <td>打开新的标签页并执行 Google 搜索</td>
+        <td>输入搜索字词并按 Alt + Enter 键</td>
+    </tr>
+    <tr>
+        <td>跳转到地址栏</td>
+        <td>Ctrl + l、Alt + d 或 F6</td>
+    </tr>
+    <tr>
+        <td>从页面中的任意位置搜索</td>
+        <td>Ctrl + k 或 Ctrl + e</td>
+    </tr>
+    <tr>
+        <td>从地址栏中移除联想查询内容</td>
+        <td>按向下箭头键以突出显示相应内容，然后按 Shift + Delete</td>
+    </tr>
+    </tbody>
+</table>
 
 
 <h2 id="网页快捷键">网页快捷键</h2>
 
-<table><br>    <thead><br>    <tr><br>        <th>操作</th><br>        <th>快捷键</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>打开选项以打印当前网页</td><br>        <td>Ctrl + p</td><br>    </tr><br>    <tr><br>        <td>打开选项以保存当前网页</td><br>        <td>Ctrl + s</td><br>    </tr><br>    <tr><br>        <td>重新加载当前网页</td><br>        <td>F5 或 Ctrl + r</td><br>    </tr><br>    <tr><br>        <td>重新加载当前网页（忽略缓存的内容）</td><br>        <td>Shift + F5 或 Ctrl + Shift + r</td><br>    </tr><br>    <tr><br>        <td>停止加载网页</td><br>        <td>Esc</td><br>    </tr><br>    <tr><br>        <td>浏览下一个可点击项</td><br>        <td>Tab</td><br>    </tr><br>    <tr><br>        <td>浏览上一个可点击项</td><br>        <td>Shift + Tab</td><br>    </tr><br>    <tr><br>        <td>使用 Chrome 打开计算机中的文件</td><br>        <td>按住 Ctrl + o 键并选择文件</td><br>    </tr><br>    <tr><br>        <td>显示当前网页的 HTML 源代码（不可修改）</td><br>        <td>Ctrl + u</td><br>    </tr><br>    <tr><br>        <td>将当前网页保存为书签</td><br>        <td>Ctrl + d</td><br>    </tr><br>    <tr><br>        <td>将所有打开的标签页以书签的形式保存在新文件夹中</td><br>        <td>Ctrl + Shift + d</td><br>    </tr><br>    <tr><br>        <td>开启或关闭全屏模式</td><br>        <td>F11</td><br>    </tr><br>    <tr><br>        <td>放大网页上的所有内容</td><br>        <td>Ctrl 和 +</td><br>    </tr><br>    <tr><br>        <td>缩小网页上的所有内容</td><br>        <td>Ctrl 和 -</td><br>    </tr><br>    <tr><br>        <td>将网页上的所有内容恢复到默认大小</td><br>        <td>Ctrl + 0</td><br>    </tr><br>    <tr><br>        <td>向下滚动网页，一次一个屏幕</td><br>        <td>空格键或 PgDn</td><br>    </tr><br>    <tr><br>        <td>向上滚动网页，一次一个屏幕</td><br>        <td>Shift + 空格键或 PgUp</td><br>    </tr><br>    <tr><br>        <td>转到网页顶部</td><br>        <td>首页</td><br>    </tr><br>    <tr><br>        <td>转到网页底部</td><br>        <td>末尾</td><br>    </tr><br>    <tr><br>        <td>在网页上水平滚动</td><br>        <td>按住 Shift 键并滚动鼠标滚轮</td><br>    </tr><br>    <tr><br>        <td>将光标移到文本字段中的上一个字词前面</td><br>        <td>Ctrl + 向左箭头键</td><br>    </tr><br>    <tr><br>        <td>将光标移到文本字段中的上一个字词后面</td><br>        <td>Ctrl + 向右箭头键</td><br>    </tr><br>    <tr><br>        <td>删除文本字段中的上一个字词</td><br>        <td>Ctrl + Backspace</td><br>    </tr><br>    <tr><br>        <td>将焦点移到通知上</td><br>        <td>Alt + n</td><br>    </tr><br>    <tr><br>        <td>在通知中允许</td><br>        <td>Alt + Shift + a</td><br>    </tr><br>    <tr><br>        <td>在通知中拒绝</td><br>        <td>Alt + Shift + d</td><br>    </tr><br>    <tr><br>        <td>在当前标签页中打开主页</td><br>        <td>Alt + Home</td><br>    </tr><br>    </tbody><br></table>
+<table>
+    <thead>
+    <tr>
+        <th>操作</th>
+        <th>快捷键</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>打开选项以打印当前网页</td>
+        <td>Ctrl + p</td>
+    </tr>
+    <tr>
+        <td>打开选项以保存当前网页</td>
+        <td>Ctrl + s</td>
+    </tr>
+    <tr>
+        <td>重新加载当前网页</td>
+        <td>F5 或 Ctrl + r</td>
+    </tr>
+    <tr>
+        <td>重新加载当前网页（忽略缓存的内容）</td>
+        <td>Shift + F5 或 Ctrl + Shift + r</td>
+    </tr>
+    <tr>
+        <td>停止加载网页</td>
+        <td>Esc</td>
+    </tr>
+    <tr>
+        <td>浏览下一个可点击项</td>
+        <td>Tab</td>
+    </tr>
+    <tr>
+        <td>浏览上一个可点击项</td>
+        <td>Shift + Tab</td>
+    </tr>
+    <tr>
+        <td>使用 Chrome 打开计算机中的文件</td>
+        <td>按住 Ctrl + o 键并选择文件</td>
+    </tr>
+    <tr>
+        <td>显示当前网页的 HTML 源代码（不可修改）</td>
+        <td>Ctrl + u</td>
+    </tr>
+    <tr>
+        <td>将当前网页保存为书签</td>
+        <td>Ctrl + d</td>
+    </tr>
+    <tr>
+        <td>将所有打开的标签页以书签的形式保存在新文件夹中</td>
+        <td>Ctrl + Shift + d</td>
+    </tr>
+    <tr>
+        <td>开启或关闭全屏模式</td>
+        <td>F11</td>
+    </tr>
+    <tr>
+        <td>放大网页上的所有内容</td>
+        <td>Ctrl 和 +</td>
+    </tr>
+    <tr>
+        <td>缩小网页上的所有内容</td>
+        <td>Ctrl 和 -</td>
+    </tr>
+    <tr>
+        <td>将网页上的所有内容恢复到默认大小</td>
+        <td>Ctrl + 0</td>
+    </tr>
+    <tr>
+        <td>向下滚动网页，一次一个屏幕</td>
+        <td>空格键或 PgDn</td>
+    </tr>
+    <tr>
+        <td>向上滚动网页，一次一个屏幕</td>
+        <td>Shift + 空格键或 PgUp</td>
+    </tr>
+    <tr>
+        <td>转到网页顶部</td>
+        <td>首页</td>
+    </tr>
+    <tr>
+        <td>转到网页底部</td>
+        <td>末尾</td>
+    </tr>
+    <tr>
+        <td>在网页上水平滚动</td>
+        <td>按住 Shift 键并滚动鼠标滚轮</td>
+    </tr>
+    <tr>
+        <td>将光标移到文本字段中的上一个字词前面</td>
+        <td>Ctrl + 向左箭头键</td>
+    </tr>
+    <tr>
+        <td>将光标移到文本字段中的上一个字词后面</td>
+        <td>Ctrl + 向右箭头键</td>
+    </tr>
+    <tr>
+        <td>删除文本字段中的上一个字词</td>
+        <td>Ctrl + Backspace</td>
+    </tr>
+    <tr>
+        <td>将焦点移到通知上</td>
+        <td>Alt + n</td>
+    </tr>
+    <tr>
+        <td>在通知中允许</td>
+        <td>Alt + Shift + a</td>
+    </tr>
+    <tr>
+        <td>在通知中拒绝</td>
+        <td>Alt + Shift + d</td>
+    </tr>
+    <tr>
+        <td>在当前标签页中打开主页</td>
+        <td>Alt + Home</td>
+    </tr>
+    </tbody>
+</table>
 
 
 <h2 id="鼠标快捷键">鼠标快捷键</h2>
 
-<table><br>    <thead><br>    <tr><br>        <th>操作</th><br>        <th>快捷键</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>在当前标签页中打开链接（仅限鼠标）</td><br>        <td>将链接拖到标签页中</td><br>    </tr><br>    <tr><br>        <td>在新的后台标签页中打开链接</td><br>        <td>按住 Ctrl 键的同时点击链接</td><br>    </tr><br>    <tr><br>        <td>打开链接，并跳转到该链接</td><br>        <td>按住 Ctrl + Shift 键的同时点击链接</td><br>    </tr><br>    <tr><br>        <td>打开链接，并跳转到该链接（仅使用鼠标）</td><br>        <td>将链接拖到标签栏的空白区域</td><br>    </tr><br>    <tr><br>        <td>在新窗口中打开链接</td><br>        <td>按住 Shift 键的同时点击链接</td><br>    </tr><br>    <tr><br>        <td>在新窗口中打开标签页（仅使用鼠标）</td><br>        <td>将标签页拖出标签栏</td><br>    </tr><br>    <tr><br>        <td>将标签页移至当前窗口（仅限鼠标）</td><br>        <td>将标签页拖到现有窗口中</td><br>    </tr><br>    <tr><br>        <td>将标签页移回其原始位置</td><br>        <td>拖动标签页的同时按 Esc</td><br>    </tr><br>    <tr><br>        <td>将当前网页保存为书签</td><br>        <td>将相应网址拖动到书签栏中</td><br>    </tr><br>    <tr><br>        <td>下载链接目标</td><br>        <td>按住 Alt 键的同时点击链接</td><br>    </tr><br>    <tr><br>        <td>显示浏览记录</td><br>        <td>右键点击“后退”箭头 返回 或“前进”箭头 下一个，或者左键点击（并按住鼠标左键</td><br>    </tr><br>    <tr><br>        <td>在最大化模式和窗口模式间切换</td><br>        <td>双击标签栏的空白区域</td><br>    </tr><br>    <tr><br>        <td>放大网页上的所有内容</td><br>        <td>按住 Ctrl 键的同时向上滚动鼠标滚轮</td><br>    </tr><br>    <tr><br>        <td>缩小网页上的所有内容</td><br>        <td>按住 Ctrl 键的同时向下滚动鼠标滚轮</td><br>    </tr><br>    </tbody><br></table>
+<table>
+    <thead>
+    <tr>
+        <th>操作</th>
+        <th>快捷键</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>在当前标签页中打开链接（仅限鼠标）</td>
+        <td>将链接拖到标签页中</td>
+    </tr>
+    <tr>
+        <td>在新的后台标签页中打开链接</td>
+        <td>按住 Ctrl 键的同时点击链接</td>
+    </tr>
+    <tr>
+        <td>打开链接，并跳转到该链接</td>
+        <td>按住 Ctrl + Shift 键的同时点击链接</td>
+    </tr>
+    <tr>
+        <td>打开链接，并跳转到该链接（仅使用鼠标）</td>
+        <td>将链接拖到标签栏的空白区域</td>
+    </tr>
+    <tr>
+        <td>在新窗口中打开链接</td>
+        <td>按住 Shift 键的同时点击链接</td>
+    </tr>
+    <tr>
+        <td>在新窗口中打开标签页（仅使用鼠标）</td>
+        <td>将标签页拖出标签栏</td>
+    </tr>
+    <tr>
+        <td>将标签页移至当前窗口（仅限鼠标）</td>
+        <td>将标签页拖到现有窗口中</td>
+    </tr>
+    <tr>
+        <td>将标签页移回其原始位置</td>
+        <td>拖动标签页的同时按 Esc</td>
+    </tr>
+    <tr>
+        <td>将当前网页保存为书签</td>
+        <td>将相应网址拖动到书签栏中</td>
+    </tr>
+    <tr>
+        <td>下载链接目标</td>
+        <td>按住 Alt 键的同时点击链接</td>
+    </tr>
+    <tr>
+        <td>显示浏览记录</td>
+        <td>右键点击“后退”箭头 返回 或“前进”箭头 下一个，或者左键点击（并按住鼠标左键</td>
+    </tr>
+    <tr>
+        <td>在最大化模式和窗口模式间切换</td>
+        <td>双击标签栏的空白区域</td>
+    </tr>
+    <tr>
+        <td>放大网页上的所有内容</td>
+        <td>按住 Ctrl 键的同时向上滚动鼠标滚轮</td>
+    </tr>
+    <tr>
+        <td>缩小网页上的所有内容</td>
+        <td>按住 Ctrl 键的同时向下滚动鼠标滚轮</td>
+    </tr>
+    </tbody>
+</table>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -1020,5 +1393,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

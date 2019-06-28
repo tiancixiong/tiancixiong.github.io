@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -487,16 +487,16 @@
 <li><a href="http://www.zzkorea.com/forum-67-1.html" target="_blank" rel="noopener">住在韩国</a></li>
 </ul>
 <h1 id="日剧"><a href="#日剧" class="headerlink" title="日剧"></a>日剧</h1><ul>
-<li><a href="https://neets.cc/category?country=japan&amp;type=tv" target="_blank" rel="noopener"><strong>neets搜索站-日剧</strong></a></li>
+<li><a href="https://neets.cc/category?country=japan&type=tv" target="_blank" rel="noopener"><strong>neets搜索站-日剧</strong></a></li>
 <li><a href="https://sub.kamigami.org/category/drama/%E8%AF%B8%E7%A5%9E%E6%97%A5%E5%89%A7%E7%BB%84" target="_blank" rel="noopener"><strong>诸神字幕组-日剧</strong></a></li>
-<li><a href="http://www.zmz2019.com/resourcelist?channel=tv&amp;area=%E6%97%A5%E6%9C%AC" target="_blank" rel="noopener">字幕组-日剧</a></li>
+<li><a href="http://www.zmz2019.com/resourcelist?channel=tv&area=%E6%97%A5%E6%9C%AC" target="_blank" rel="noopener">字幕组-日剧</a></li>
 <li><a href="https://www.novipnoad.com/tv/japan/" target="_blank" rel="noopener">NO视频</a></li>
 <li><a href="http://www.hideystudio.com/drama/" target="_blank" rel="noopener">隐社导航</a></li>
 <li><a href="http://www.doki8.com/" target="_blank" rel="noopener">心动日剧</a></li>
 <li><a href="https://blog.aipanpan.com/" target="_blank" rel="noopener">日剧网</a></li>
 <li><a href="https://discuss.huayiwork.com/t/%E6%97%A5%E5%89%A7" target="_blank" rel="noopener"><a href="https://discuss.huayiwork.com/" target="_blank" rel="noopener">花译工坊</a></a></li>
 <li><a href="http://zhuixinfan.com/main.php" target="_blank" rel="noopener">追新番</a></li>
-<li><a href="http://www.mytvbt.net/forumdisplay.php?fid=6&amp;page=1" target="_blank" rel="noopener">日菁字幕组</a></li>
+<li><a href="http://www.mytvbt.net/forumdisplay.php?fid=6&page=1" target="_blank" rel="noopener">日菁字幕组</a></li>
 <li><a href="http://forum.6cn.org/forum-105-1.html" target="_blank" rel="noopener">第六感</a></li>
 <li><a href="https://www.tokyonothot.com/drama" target="_blank" rel="noopener">东京不够热</a></li>
 </ul>
@@ -544,7 +544,7 @@
 <li><a href="https://www.cilishu.live/" target="_blank" rel="noopener">磁力鼠</a></li>
 <li><a href="https://www.wancisou.me/" target="_blank" rel="noopener">万磁搜</a></li>
 <li><a href="http://www.1btbtt.com/" target="_blank" rel="noopener">BT之家</a></li>
-<li><a href="[http://liubi.com](http://liubi.com/">流弊网</a>)</li>
+<li><a href="[http://liubi.com](http://liubi.com/)">流弊网</a></li>
 <li><a href="https://www.1080.cn/" target="_blank" rel="noopener">蓝光电影网</a></li>
 <li><a href="http://oabt005.com/home.html" target="_blank" rel="noopener">磁力站</a></li>
 <li><a href="https://www.chapianyuan.com/" target="_blank" rel="noopener">查片源</a></li>
@@ -1182,5 +1182,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

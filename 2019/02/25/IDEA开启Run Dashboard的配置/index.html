@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -400,8 +400,7 @@
     &lt;set&gt;
         &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;
     &lt;/set&gt;
-&lt;/option&gt;
-</code></pre>
+&lt;/option&gt;</code></pre>
 <h5 id="3-最终配置如下：最终配置如下："><a href="#3-最终配置如下：最终配置如下：" class="headerlink" title="3. 最终配置如下：最终配置如下："></a>3. 最终配置如下：最终配置如下：</h5><pre><code class="xml">&lt;component name=&quot;RunDashboard&quot;&gt;
   &lt;option name=&quot;configurationTypes&quot;&gt;
     &lt;set&gt;
@@ -419,8 +418,7 @@
     &lt;/list&gt;
   &lt;/option&gt;
   &lt;option name=&quot;contentProportion&quot; value=&quot;0.20013662&quot; /&gt;
-&lt;/component&gt;
-</code></pre>
+&lt;/component&gt;</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1025,5 +1023,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

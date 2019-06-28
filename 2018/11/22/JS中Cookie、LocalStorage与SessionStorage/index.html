@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -403,8 +403,40 @@
 <h3 id="3-SessionStorage"><a href="#3-SessionStorage" class="headerlink" title="3. SessionStorage"></a>3. SessionStorage</h3><blockquote>
 <p><strong>sessionStorage</strong>仅在当前会话下有效，关闭页面或浏览器后被清除。存放数据大小为一般为5MB,而且它仅在客户端（即浏览器）中保存，不参与和服务器的通信。源生接口可以接受，亦可再次封装来对Object和Array有更好的支持</p>
 </blockquote>
-<p><br></p>
-<h1 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h1><table><br>    <thead><br>        <th>特性</th><br>        <th>Cookie</th><br>        <th>LocalStorage</th><br>        <th>SessionStorage</th><br>    </thead><br>    <tdoby><br>        <tr><br>            <th>数据的生命周期</th><br>            <td>一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td><br>            <td>除非被清除，否则<font color="hotpink">永久保存</font></td><br>            <td>仅在<font color="hotpink">当前会话</font>下有效，关闭页面或浏览器后被清除<br></td><br>        </tr><br>        <tr><br>            <th>存放数据大小</th><br>            <td>4K左右</td><br>            <td colspan="2">一般为5MB</td><br>        </tr><br>        <tr><br>            <th>与服务器端通信</th><br>            <td>每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</td><br>            <td colspan="2">仅在客户端（即浏览器）中保存，不参与和服务器的通信</td><br>        </tr><br>        <tr><br>            <th>易用性</th><br>            <td>需要程序员自己封装，源生的Cookie接口不友好</td><br>            <td colspan="2">源生接口可以接受，亦可再次封装来对Object和Array有更好的支持</td><br>        </tr><br>    <br></tdoby></table>
+<br>
+
+<h1 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h1><table>
+    <thead>
+        <th>特性</th>
+        <th>Cookie</th>
+        <th>LocalStorage</th>
+        <th>SessionStorage</th>
+    </thead>
+    <tdoby>
+        <tr>
+            <th>数据的生命周期</th>
+            <td>一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
+            <td>除非被清除，否则<font color="hotpink">永久保存</font></td>
+            <td>仅在<font color="hotpink">当前会话</font>下有效，关闭页面或浏览器后被清除
+</td>
+        </tr>
+        <tr>
+            <th>存放数据大小</th>
+            <td>4K左右</td>
+            <td colspan="2">一般为5MB</td>
+        </tr>
+        <tr>
+            <th>与服务器端通信</th>
+            <td>每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</td>
+            <td colspan="2">仅在客户端（即浏览器）中保存，不参与和服务器的通信</td>
+        </tr>
+        <tr>
+            <th>易用性</th>
+            <td>需要程序员自己封装，源生的Cookie接口不友好</td>
+            <td colspan="2">源生接口可以接受，亦可再次封装来对Object和Array有更好的支持</td>
+        </tr>
+    
+</tdoby></table>
 
 <blockquote>
 <p><font size="4" color="hotpink"><strong>LocalStorage和SessionStorage：</strong></font></p>
@@ -414,24 +446,21 @@
 <li>这里需要注意的是，页面及标签页仅指顶级窗口，如果一个标签页包含多个 <code>iframe</code> 标签且他们属于同源页面，那么他们之间是可以共享 <code>sessionStorage</code> 的</li>
 </ol>
 </blockquote>
-<p><br> </p>
+<br> 
+
 <h1 id="三、LocalStorage-和-SessionStorage-的操作"><a href="#三、LocalStorage-和-SessionStorage-的操作" class="headerlink" title="三、LocalStorage 和 SessionStorage 的操作"></a>三、LocalStorage 和 SessionStorage 的操作</h1><p><code>LocalStorage</code> 和 <code>SessionStorage</code> 具有相同的操作方法，例如<code>setItem</code>、 <code>getItem</code> 和 <code>removeItem</code> 等</p>
 <h3 id="1-添加value"><a href="#1-添加value" class="headerlink" title="1. 添加value"></a>1. 添加value</h3><p><strong>描述</strong>：使用 <code>key/value</code> 的形式将数据存储进本地存储中<br><strong>格式</strong>：</p>
 <pre><code class="js">sessionStorage.setItem(&quot;key&quot;, &quot;value&quot;);
-localStorage.setItem(&quot;site&quot;, &quot;js8.in&quot;);
-</code></pre>
+localStorage.setItem(&quot;site&quot;, &quot;js8.in&quot;);</code></pre>
 <h3 id="2-获取value"><a href="#2-获取value" class="headerlink" title="2.获取value"></a>2.获取value</h3><p><strong>描述</strong>：获取指定 <code>key</code> 本地存储的值<br><strong>格式</strong>：</p>
 <pre><code class="js">var value = sessionStorage.getItem(&quot;key&quot;);
-var site = localStorage.getItem(&quot;site&quot;);
-</code></pre>
+var site = localStorage.getItem(&quot;site&quot;);</code></pre>
 <h3 id="3-删除value"><a href="#3-删除value" class="headerlink" title="3.删除value"></a>3.删除value</h3><p><strong>描述</strong>：删除指定 <code>key</code> 本地存储的值<br><strong>格式</strong>：</p>
 <pre><code class="js">sessionStorage.removeItem(&quot;key&quot;);
-localStorage.removeItem(&quot;site&quot;);
-</code></pre>
+localStorage.removeItem(&quot;site&quot;);</code></pre>
 <h3 id="4-清除value"><a href="#4-清除value" class="headerlink" title="4.清除value"></a>4.清除value</h3><p><strong>描述</strong>：清除所有的 <code>key/value</code><br><strong>格式</strong>：</p>
 <pre><code class="js">sessionStorage.clear();
-localStorage.clear();
-</code></pre>
+localStorage.clear();</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1036,5 +1065,20 @@ localStorage.clear();
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

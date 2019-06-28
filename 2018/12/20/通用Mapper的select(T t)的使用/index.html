@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -396,16 +396,14 @@
         <div class="entry-content">
           <p>通用mapper类：</p>
 <pre><code class="java">public interface CategoryMapper extends Mapper&lt;Category&gt; {
-}
-</code></pre>
+}</code></pre>
 <p>使用select(T t)</p>
 <pre><code class="java">public List&lt;Category&gt; queryCategoryListByParentId(Long pid) {
     // select(T t) 将对象c中的非空字段当作查询的条件参数
     Category record = new Category();
     record.setParentId(pid);
     return this.categoryMapper.select(record);
-}
-</code></pre>
+}</code></pre>
 <blockquote>
 <p>select(T t) 将实例对象t中的非空字段作为条件参数<br>上面实例转换的sql语句：select * from category c where c.pid = #{pid}</p>
 </blockquote>
@@ -1013,5 +1011,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

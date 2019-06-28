@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -401,8 +401,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Alt + F4</td>
 <td>关闭活动项，或者退出活动应用</td>
 </tr>
@@ -422,8 +421,7 @@
 <td>Ctrl + D（或 Delete）</td>
 <td>删除选定项并将其移动到“回收站”</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -431,8 +429,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Win + A</td>
 <td>打开操作中心</td>
 </tr>
@@ -476,8 +473,7 @@
 <td>Win + Esc</td>
 <td>退出放大镜</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="运行-Win-R-的常用命令"><a href="#运行-Win-R-的常用命令" class="headerlink" title="运行(Win+R)的常用命令"></a>运行(Win+R)的常用命令</h1><table>
 <thead>
 <tr>
@@ -485,8 +481,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>notepad</td>
 <td>打开记事本</td>
 </tr>
@@ -518,8 +513,7 @@
 <td>cmd</td>
 <td>打开命令行窗口</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="管理窗口"><a href="#管理窗口" class="headerlink" title="管理窗口"></a>管理窗口</h1><table>
 <thead>
 <tr>
@@ -527,8 +521,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Win + D</td>
 <td>最小化所有窗口，重复按下可还原</td>
 </tr>
@@ -564,8 +557,7 @@
 <td>Alt + F4</td>
 <td>关闭当前程序</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="虚拟窗口"><a href="#虚拟窗口" class="headerlink" title="虚拟窗口"></a>虚拟窗口</h1><table>
 <thead>
 <tr>
@@ -573,8 +565,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Win + Ctrl + D</td>
 <td>创建新的虚拟桌面</td>
 </tr>
@@ -586,8 +577,7 @@
 <td>Win + Ctrl + 左/右</td>
 <td>切换虚拟桌面</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="录频和截图"><a href="#录频和截图" class="headerlink" title="录频和截图"></a>录频和截图</h1><table>
 <thead>
 <tr>
@@ -595,8 +585,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Win + G</td>
 <td>打开屏幕录制工具栏</td>
 </tr>
@@ -612,8 +601,7 @@
 <td>Win + PtrSc</td>
 <td>全屏截图并保存到本地</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="输入法"><a href="#输入法" class="headerlink" title="输入法"></a>输入法</h1><table>
 <thead>
 <tr>
@@ -621,8 +609,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Shift</td>
 <td>切换输入法</td>
 </tr>
@@ -630,8 +617,7 @@
 <td>Shift + Space</td>
 <td>切换全半角</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h1 id="触控板常用手势"><a href="#触控板常用手势" class="headerlink" title="触控板常用手势"></a>触控板常用手势</h1><table>
 <thead>
 <tr>
@@ -639,8 +625,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>单指双击拖动</td>
 <td>拖拽文件</td>
 </tr>
@@ -668,8 +653,7 @@
 <td>三指左右移动</td>
 <td>切换窗口</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
         </div>
         <!-- .entry-content -->
@@ -1274,5 +1258,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

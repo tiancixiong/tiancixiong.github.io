@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -403,8 +403,7 @@
 <p><strong>注意：</strong><br>1、 sychronized意味着在一次仅有一个线程能够更改HashTable。就是说任何线程要更新HashTable时要首先获得同步锁，其它线程要等到同步锁被释放之后才能再次获得同步锁更新HashTable。<br>2、Fail-safe和iterator迭代器相关。如果某个集合对象创建了Iterator或者ListIterator，然后其它的线程试图“结构上”更改集合对象，将会抛出ConcurrentModificationException异常。但其它线程可以通过set()方法更改集合对象是允许的，因为这并没有从“结构上”更改集合。但是假如已经从结构上进行了更改，再调用set()方法，将会抛出IllegalArgumentException异常。<br>3、结构上的更改指的是删除或者插入一个元素，这样会影响到map的结构。</p>
 </blockquote>
 <h4 id="我们能否让HashMap同步？"><a href="#我们能否让HashMap同步？" class="headerlink" title="我们能否让HashMap同步？"></a>我们能否让HashMap同步？</h4><p>HashMap可以通过下面的语句进行同步：</p>
-<pre><code class="java">Map map = Collections.synchronizeMap(hashMap);
-</code></pre>
+<pre><code class="java">Map map = Collections.synchronizeMap(hashMap);</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1009,5 +1008,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

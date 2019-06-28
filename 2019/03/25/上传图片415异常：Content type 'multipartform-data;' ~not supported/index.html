@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -397,7 +397,7 @@
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
 <p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p>
 </blockquote>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190325-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20&#39;multipartform-data%3B&#39;%20~not%20supported/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190325-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87415%E5%BC%82%E5%B8%B8%EF%BC%9AContent%20type%20'multipartform-data%3B'%20~not%20supported/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p>
 <pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
 public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {
     try {
@@ -408,8 +408,7 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
         e.printStackTrace();
         return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p>
 <pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
 public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {
@@ -421,8 +420,7 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
         e.printStackTrace();
         return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
-</code></pre>
+}</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1027,5 +1025,20 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

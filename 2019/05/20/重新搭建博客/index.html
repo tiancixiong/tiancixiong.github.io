@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -405,8 +405,7 @@
 |   └── _posts
 ├── themes
 ├── _config.yml
-└── package.json
-</code></pre><ul>
+└── package.json</code></pre><ul>
 <li>.deploy：执行hexo deploy命令部署到GitHub上的内容目录</li>
 <li>public：执行hexo generate命令，输出的静态网页内容目录</li>
 <li>scaffolds：layout模板文件目录，其中的md文件可以添加编辑</li>
@@ -503,8 +502,7 @@ exclude_generator:
 ## Docs: http://zespia.tw/hexo/docs/deploy.html
 deploy:
   type: github
-  repository: git@github.com:bruce-sha/bruce-sha.github.com.git #你的GitHub Pages仓库
-</code></pre>
+  repository: git@github.com:bruce-sha/bruce-sha.github.com.git #你的GitHub Pages仓库</code></pre>
 <h2 id="主题目录介绍"><a href="#主题目录介绍" class="headerlink" title="主题目录介绍"></a>主题目录介绍</h2><pre><code>.
 ├── languages          #多语言
 |   ├── default.yml    #默认语言
@@ -522,23 +520,20 @@ deploy:
 |   ├── fancybox       #fancybox效果源码
 |   └── js             #javascript源代码
 ├── _config.yml        #主题配置文件
-└── README.md          #用GitHub的都知道
-</code></pre><p>如果你需要修改头部，直接修改 <code>hexo\themes\modernist\layout\_partial\header.ejs</code> ，比如头上加个搜索框：</p>
+└── README.md          #用GitHub的都知道</code></pre><p>如果你需要修改头部，直接修改 <code>hexo\themes\modernist\layout\_partial\header.ejs</code> ，比如头上加个搜索框：</p>
 <pre><code class="ejs">&lt;div&gt;
 &lt;form class=&quot;search&quot; action=&quot;//google.com/search&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt;
  &lt;input type=&quot;search&quot; name=&quot;q&quot; id=&quot;search&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot; autocapitalize=&quot;off&quot; maxlength=&quot;20&quot; placeholder=&quot;Search&quot; /&gt;
  &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:&lt;%- config.url.replace(/^https?:\/\//, &#39;&#39;) %&gt;&quot;&gt;
 &lt;/form&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
 <p>将如上代码加入即可，您需要修改css以便这个搜索框比较美观。<br>再如，你要修改页脚版权信息，直接编辑 <code>hexo\themes\modernist\layout\_partial\footer.ejs</code>。同理，你需要修改css，直接去修改对应位置的styl文件。</p>
 <h1 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h1><blockquote>
 <p><a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="noopener">https://www.haomwei.com/technology/maupassant-hexo.html</a></p>
 </blockquote>
 <pre><code class="shell">$ git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
 $ npm install hexo-renderer-pug --save
-$ npm install hexo-renderer-sass --save
-</code></pre>
+$ npm install hexo-renderer-sass --save</code></pre>
 <blockquote>
 <p><code>npm install hexo-renderer-pug --save</code>安装时可能会报错，以下是解决方案：<br>改用cnpm来安装软件</p>
 <blockquote>
@@ -546,8 +541,7 @@ $ npm install hexo-renderer-sass --save
 </blockquote>
 </blockquote>
 <p>编辑Hexo目录下的 <code>_config.yml</code>，将<code>theme</code>的值改为<code>maupassant</code></p>
-<pre><code class="yml">theme: matery
-</code></pre>
+<pre><code class="yml">theme: matery</code></pre>
 <h1 id="功能配置"><a href="#功能配置" class="headerlink" title="功能配置"></a>功能配置</h1><pre><code class="yml"># 是否启用Fancybox图片灯箱效果
 # Disqus评论 shortnam
 disqus: 
@@ -687,14 +681,12 @@ css: css
 
 # Theme version
 # 主题版本，便于静态文件更新后刷新CDN缓存
-version: 0.0.0
-</code></pre>
+version: 0.0.0</code></pre>
 <h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><h3 id="Disqus配置使用"><a href="#Disqus配置使用" class="headerlink" title="Disqus配置使用"></a>Disqus配置使用</h3><h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><blockquote>
 <p><a href="https://link.jianshu.com/?t=https://disqus.com/" target="_blank" rel="noopener">https://disqus.com/</a></p>
 </blockquote>
 <h1 id="主题特性"><a href="#主题特性" class="headerlink" title="主题特性"></a>主题特性</h1><h2 id="主题目录结构"><a href="#主题目录结构" class="headerlink" title="主题目录结构"></a>主题目录结构</h2><pre><code>-maupassant
-|-languages
-</code></pre><h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>网站Favicon：<code>/blog/source/favicon.ico</code>，建议的大小：<code>32px*32px</code>。</p>
+|-languages</code></pre><h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>网站Favicon：<code>/blog/source/favicon.ico</code>，建议的大小：<code>32px*32px</code>。</p>
 
         </div>
         <!-- .entry-content -->
@@ -1299,5 +1291,20 @@ version: 0.0.0
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

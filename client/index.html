@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -372,11 +372,11 @@
   
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <p>直接下载 or 扫码下载：<br>
+      <p>直接下载 or 扫码下载：</p>
+
 <div style="text-align: center;">
 <img class="lazyload" data-src="https://view.moezx.cc/images/2018/06/08/app-download.png#in-center#width-50" style="width: 200px; height: 200px;" alt>
 </div>
-</p>
 
       <!-- .entry-content -->
       <!-- 评论插件valine -->
@@ -903,5 +903,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

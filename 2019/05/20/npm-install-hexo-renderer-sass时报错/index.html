@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -395,15 +395,12 @@
         
         <div class="entry-content">
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用<code>hexo</code>搭建博客时，需安装<code>hexo-renderer-sass</code>：</p>
-<pre><code class="shell">$ npm install hexo-renderer-sass
-</code></pre>
+<pre><code class="shell">$ npm install hexo-renderer-sass</code></pre>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>改用淘宝镜像：</p>
 <pre><code class="shell">$ npm install -g cnpm --registry=https://registry.npm.taobao.org
-$ npm config set registry https://registry.npm.taobao.org
-</code></pre>
+$ npm config set registry https://registry.npm.taobao.org</code></pre>
 <p>再次安装：</p>
-<pre><code class="shell">$ cnpm install hexo-renderer-sass --save
-</code></pre>
+<pre><code class="shell">$ cnpm install hexo-renderer-sass --save</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1008,5 +1005,20 @@ $ npm config set registry https://registry.npm.taobao.org
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

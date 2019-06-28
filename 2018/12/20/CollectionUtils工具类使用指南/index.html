@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -406,8 +406,7 @@ Collection&lt;String&gt; subtract = CollectionUtils.subtract(a, b);
 //判断集合是否为空
 Boolean boolean = CollectionUtils.isEmpty(Collection&lt;?&gt; collection);
 //判断集合是否不为空
-Boolean boolean = CollectionUtils.isNotEmpty(Collection&lt;?&gt; collection);
-</code></pre>
+Boolean boolean = CollectionUtils.isNotEmpty(Collection&lt;?&gt; collection);</code></pre>
 <h4 id="并集"><a href="#并集" class="headerlink" title="并集"></a>并集</h4><pre><code class="java">@Test
 public void testUnion(){
     String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
@@ -417,8 +416,7 @@ public void testUnion(){
     //2个数组取并集 
     System.out.println(ArrayUtils.toString(CollectionUtils.union(listA, listB)));
     //[A, B, C, D, E, F, G, H, K]
-}
-</code></pre>
+}</code></pre>
 <h4 id="交集"><a href="#交集" class="headerlink" title="交集"></a>交集</h4><pre><code class="java">@Test
 public void testIntersection(){
     String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
@@ -428,8 +426,7 @@ public void testIntersection(){
     //2个数组取交集 
     System.out.println(ArrayUtils.toString(CollectionUtils.intersection(listA, listB)));
     //[B, D, F]
-}
-</code></pre>
+}</code></pre>
 <h4 id="交集的补集（析取）"><a href="#交集的补集（析取）" class="headerlink" title="交集的补集（析取）"></a>交集的补集（析取）</h4><pre><code class="java">@Test
 public void testDisjunction(){
     String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
@@ -439,8 +436,7 @@ public void testDisjunction(){
     //2个数组取交集 的补集
     System.out.println(ArrayUtils.toString(CollectionUtils.disjunction(listA, listB)));
     //[A, C, E, G, H, K]
-}
-</code></pre>
+}</code></pre>
 <h4 id="差集（扣除）"><a href="#差集（扣除）" class="headerlink" title="差集（扣除）"></a>差集（扣除）</h4><pre><code class="java">@Test
 public void testSubtract(){
     String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
@@ -450,8 +446,7 @@ public void testSubtract(){
     //arrayA扣除arrayB
     System.out.println(ArrayUtils.toString(CollectionUtils.subtract(listA, listB)));
     //[A, C, E]
-}
-</code></pre>
+}</code></pre>
 <h4 id="集合是否为空"><a href="#集合是否为空" class="headerlink" title="集合是否为空"></a>集合是否为空</h4><pre><code class="java">@Test
 public void testIsEmpty(){
 
@@ -472,8 +467,7 @@ public void testIsEmpty(){
     System.out.println(CollectionUtils.isNotEmpty(first));   //false
     System.out.println(CollectionUtils.isNotEmpty(second));   //false
     System.out.println(CollectionUtils.isNotEmpty(boy));   //true
-}
-</code></pre>
+}</code></pre>
 <h4 id="集合是否相等"><a href="#集合是否相等" class="headerlink" title="集合是否相等"></a>集合是否相等</h4><pre><code class="java">@Test
 public void testIsEqual(){
 
@@ -505,8 +499,7 @@ public void testIsEqual(){
     List&lt;Person&gt; boy4 = new ArrayList&lt;&gt;();
     boy4.add(goldGirl);
     System.out.println(CollectionUtils.isEqualCollection(boy3,boy4));   //true
-}
-</code></pre>
+}</code></pre>
 <h4 id="不可修改的集合"><a href="#不可修改的集合" class="headerlink" title="不可修改的集合"></a>不可修改的集合</h4><p>我们对c进行操作，s也同样获得了和c相同的内容，这样就可以避免其他人员修改这个s对象。有时候需要对它进行保护，避免返回结果被人修改。</p>
 <pre><code class="java">@Test
 public void testUnmodifiableCollection(){
@@ -517,12 +510,10 @@ public void testUnmodifiableCollection(){
     c.add(&quot;girl&quot;);
     //! s.add(&quot;have a error&quot;);
     System.out.println(s);
-}
-</code></pre>
+}</code></pre>
 <p>Collections.unmodifiableCollection可以得到一个集合的镜像，它的返回结果是不可直接被改变，否则会提示错误</p>
 <pre><code>java.lang.UnsupportedOperationException
-at org.apache.commons.collections.collection.UnmodifiableCollection.add(UnmodifiableCollection.java:75)
-</code></pre>
+at org.apache.commons.collections.collection.UnmodifiableCollection.add(UnmodifiableCollection.java:75)</code></pre>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -1126,5 +1117,20 @@ at org.apache.commons.collections.collection.UnmodifiableCollection.add(Unmodifi
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

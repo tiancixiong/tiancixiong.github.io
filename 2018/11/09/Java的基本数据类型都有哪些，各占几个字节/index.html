@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -394,7 +394,62 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <table><br>    <thead><br>        <tr><br>            <th>四类</th><br>            <th>八种</th><br>            <th>字节数</th><br>            <th>数据表示范围</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <th rowspan="4">整型</th><br>            <td>byte</td><br>            <td>1</td><br>            <td>-128~127</td><br>        </tr><br>        <tr><br>            <td>short</td><br>            <td>2</td><br>            <td>-32768~32767</td><br>        </tr><br>        <tr><br>            <td>int</td><br>            <td>4</td><br>            <td>-2147483648～2147483647</td><br>        </tr><br>        <tr><br>            <td>long</td><br>            <td>8</td><br>            <td>-2^63^～2^63^-1</td><br>        </tr><br>        <tr><br>            <th rowspan="2">浮点型</th><br>            <td>float</td><br>            <td>4</td><br>            <td>-3.403E38～3.403E38</td><br>        </tr><br>        <tr><br>            <td>double </td><br>            <td>8</td><br>            <td>-1.798E308～1.798E308</td><br>        </tr><br>        <tr><br>            <th>字符型</th><br>            <td>char</td><br>            <td>2</td><br>            <td>表示一个字符，如(‘a’，’A’，’0’，’家’)</td><br>        </tr><br>        <tr><br>            <th>布尔型</th><br>            <td>boolean</td><br>            <td>1</td><br>            <td>只有两个值true与false</td><br>        </tr><br>    </tbody><br></table>
+          <table>
+    <thead>
+        <tr>
+            <th>四类</th>
+            <th>八种</th>
+            <th>字节数</th>
+            <th>数据表示范围</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th rowspan="4">整型</th>
+            <td>byte</td>
+            <td>1</td>
+            <td>-128~127</td>
+        </tr>
+        <tr>
+            <td>short</td>
+            <td>2</td>
+            <td>-32768~32767</td>
+        </tr>
+        <tr>
+            <td>int</td>
+            <td>4</td>
+            <td>-2147483648～2147483647</td>
+        </tr>
+        <tr>
+            <td>long</td>
+            <td>8</td>
+            <td>-2^63^～2^63^-1</td>
+        </tr>
+        <tr>
+            <th rowspan="2">浮点型</th>
+            <td>float</td>
+            <td>4</td>
+            <td>-3.403E38～3.403E38</td>
+        </tr>
+        <tr>
+            <td>double </td>
+            <td>8</td>
+            <td>-1.798E308～1.798E308</td>
+        </tr>
+        <tr>
+            <th>字符型</th>
+            <td>char</td>
+            <td>2</td>
+            <td>表示一个字符，如('a'，'A'，'0'，'家')</td>
+        </tr>
+        <tr>
+            <th>布尔型</th>
+            <td>boolean</td>
+            <td>1</td>
+            <td>只有两个值true与false</td>
+        </tr>
+    </tbody>
+</table>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -998,5 +1053,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

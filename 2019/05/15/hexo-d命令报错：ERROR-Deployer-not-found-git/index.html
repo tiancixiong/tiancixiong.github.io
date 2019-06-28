@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -399,14 +399,12 @@
 <p>ERROR Deployer not found: git</p>
 </blockquote>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>安装<code>hexo-deployer-git</code>：</p>
-<pre><code class="shell">npm install --save hexo-deployer-git
-</code></pre>
+<pre><code class="shell">npm install --save hexo-deployer-git</code></pre>
 <p>在<code>_config.yml</code>配置中将<code>deploy</code>的<code>type</code>由<code>github</code>改为<code>git</code>：</p>
 <pre><code class="yml">deploy
   type: git
   repository: git@github.com:YOUR_ID/YOUR_ID.github.io.git
-  branch: master
-</code></pre>
+  branch: master</code></pre>
 <blockquote>
 <p>将其中的<code>YOUR_ID</code>改成你自己的GitHub账号</p>
 </blockquote>
@@ -1014,5 +1012,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

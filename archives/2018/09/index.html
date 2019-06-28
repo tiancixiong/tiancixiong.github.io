@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -396,6 +396,19 @@
                       3</span>
                     篇文章)</span>
                     <ul class="al_post_list" style>
+              
+                      <li>
+                        <a href="/2019/06/28/测试数学公式/">
+                          <span style="color:#0bf;">
+                          28日13:07:13</span>
+                          测试数学公式
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
               
                       <li>
                         <a href="/2019/06/26/Notepad++正则的使用/">
@@ -830,7 +843,7 @@
                         <a href="/2019/03/25/上传图片415异常：Content type 'multipartform-data;' ~not supported/">
                           <span style="color:#0bf;">
                           25日10:23:04</span>
-                          上传图片415异常：&#34;Content type &#39;multipart/form-data;&#39; .... not supported&#34;
+                          上传图片415异常：&quot;Content type &#39;multipart/form-data;&#39; .... not supported&quot;
                         </a>
                       </li>
                       
@@ -921,7 +934,7 @@
                         <a href="/2019/03/19/org-xml-sax-SAXParseException-元素类型link必须由匹配的结束标记link终止/">
                           <span style="color:#0bf;">
                           19日10:02:05</span>
-                          org.xml.sax.SAXParseException: 元素类型 &#34;link&#34; 必须由匹配的结束标记 &#34;&lt;/link&gt;&#34; 终止
+                          org.xml.sax.SAXParseException: 元素类型 &quot;link&quot; 必须由匹配的结束标记 &quot;&lt;/link&gt;&quot; 终止
                         </a>
                       </li>
                       
@@ -2580,5 +2593,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

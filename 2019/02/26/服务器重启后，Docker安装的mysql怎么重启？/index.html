@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -395,18 +395,14 @@
         
         <div class="entry-content">
           <p>1、重启Docker</p>
-<pre><code class="shell">[root@pinyoyougou-docker ~]# sudo systemctl start docker
-</code></pre>
+<pre><code class="shell">[root@pinyoyougou-docker ~]# sudo systemctl start docker</code></pre>
 <p>2、列出Docker中创建的容器</p>
-<pre><code class="shell">[root@pinyoyougou-docker ~]# docker ps -a
-</code></pre>
+<pre><code class="shell">[root@pinyoyougou-docker ~]# docker ps -a</code></pre>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190226-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E5%90%AF%E5%90%8E%EF%BC%8CDocker%E5%AE%89%E8%A3%85%E7%9A%84mysql%E6%80%8E%E4%B9%88%E9%87%8D%E5%90%AF%EF%BC%9F/2019022608493286.png" alt="在这里插入图片描述"></p>
 <p>3、启动mysql</p>
-<pre><code class="shell">[root@pinyoyougou-docker ~]# docker restart 3815a718c8b5
-</code></pre>
+<pre><code class="shell">[root@pinyoyougou-docker ~]# docker restart 3815a718c8b5</code></pre>
 <p>4、查看是否启动成功</p>
-<pre><code class="shell">[root@pinyoyougou-docker ~]# docker ps
-</code></pre>
+<pre><code class="shell">[root@pinyoyougou-docker ~]# docker ps</code></pre>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190226-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E5%90%AF%E5%90%8E%EF%BC%8CDocker%E5%AE%89%E8%A3%85%E7%9A%84mysql%E6%80%8E%E4%B9%88%E9%87%8D%E5%90%AF%EF%BC%9F/20190226085103514.png" alt="在这里插入图片描述"></p>
 
         </div>
@@ -1012,5 +1008,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

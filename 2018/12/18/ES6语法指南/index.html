@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -437,7 +437,7 @@
 <li><p>2015年6月，ECMAScript 6，也就是 ECMAScript 2015 发布了。 并且从 ECMAScript 6 开始，开始采用年号来做版本。即 ECMAScript 2015，就是ECMAScript6。 </p>
 </li>
 </ul>
-<h2 id="3-ES5和6的一些新特性"><a href="#3-ES5和6的一些新特性" class="headerlink" title="3.ES5和6的一些新特性"></a>3.ES5和6的一些新特性</h2><p>我们这里只把一些常用的进行学习，更详细的大家参考：<a href="http://es6.ruanyifeng.com/?search=reduce&amp;x=0&amp;y=0#README" target="_blank" rel="noopener">阮一峰的ES6教程</a></p>
+<h2 id="3-ES5和6的一些新特性"><a href="#3-ES5和6的一些新特性" class="headerlink" title="3.ES5和6的一些新特性"></a>3.ES5和6的一些新特性</h2><p>我们这里只把一些常用的进行学习，更详细的大家参考：<a href="http://es6.ruanyifeng.com/?search=reduce&x=0&y=0#README" target="_blank" rel="noopener">阮一峰的ES6教程</a></p>
 <h3 id="3-1-let-和-const-命令"><a href="#3-1-let-和-const-命令" class="headerlink" title="3.1.let 和 const 命令"></a>3.1.let 和 const 命令</h3><blockquote>
 <p>var</p>
 </blockquote>
@@ -447,8 +447,7 @@
 <pre><code class="js">for(var i = 0; i &lt; 5; i++){
     console.log(i);
 }
-console.log(&quot;循环外：&quot; + i)
-</code></pre>
+console.log(&quot;循环外：&quot; + i)</code></pre>
 <p>你猜下打印的结果是什么？</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107278999.png" alt="1526107278999"></p>
 <blockquote>
@@ -459,8 +458,7 @@ console.log(&quot;循环外：&quot; + i)
 <pre><code class="js">for(let i = 0; i &lt; 5; i++){
     console.log(i);
 }
-console.log(&quot;循环外：&quot; + i)
-</code></pre>
+console.log(&quot;循环外：&quot; + i)</code></pre>
 <p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526107347275.png" alt="1526107347275"></p>
 <blockquote>
@@ -490,13 +488,11 @@ console.log(&quot;循环外：&quot; + i)
 <p>数组解构</p>
 </blockquote>
 <p>比如有一个数组：</p>
-<pre><code class="js">let arr = [1,2,3]
-</code></pre>
+<pre><code class="js">let arr = [1,2,3]</code></pre>
 <p>我想获取其中的值，只能通过角标。ES6可以这样：</p>
 <pre><code class="js">const [x,y,z] = arr;// x，y，z将与arr中的每个位置对应来取值
 // 然后打印
-console.log(x,y,z);
-</code></pre>
+console.log(x,y,z);</code></pre>
 <p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109778368.png" alt="1526109778368"></p>
 <blockquote>
@@ -507,16 +503,14 @@ console.log(x,y,z);
     name:&quot;jack&quot;,
     age:21,
     language: [&#39;java&#39;,&#39;js&#39;,&#39;css&#39;]
-}
-</code></pre>
+}</code></pre>
 <p>我们可以这么做：</p>
 <pre><code class="js">// 解构表达式获取值
 const {name,age,language} = person;
 // 打印
 console.log(name);
 console.log(age);
-console.log(language);
-</code></pre>
+console.log(language);</code></pre>
 <p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526109984544.png" alt="1526109984544"></p>
 <p>如过想要用其它变量接收，需要额外指定别名：</p>
@@ -534,15 +528,13 @@ console.log(language);
         return a + b;
     }
     // 传一个参数
-    console.log(add(10));
-</code></pre>
+    console.log(add(10));</code></pre>
 <p>现在可以这么写：</p>
 <pre><code class="js">function add(a , b = 1) {
     return a + b;
 }
 // 传一个参数
-console.log(add(10));
-</code></pre>
+console.log(add(10));</code></pre>
 <blockquote>
 <p>箭头函数</p>
 </blockquote>
@@ -552,21 +544,18 @@ console.log(add(10));
     console.log(obj);
 }
 // 简写为：
-var print2 = obj =&gt; console.log(obj);
-</code></pre>
+var print2 = obj =&gt; console.log(obj);</code></pre>
 <p>多个参数：</p>
 <pre><code class="js">// 两个参数的情况：
 var sum = function (a , b) {
     return a + b;
 }
 // 简写为：
-var sum2 = (a,b) =&gt; a+b;
-</code></pre>
+var sum2 = (a,b) =&gt; a+b;</code></pre>
 <p>代码不止一行，可以用<code>{}</code>括起来</p>
 <pre><code class="js">var sum3 = (a,b) =&gt; {
     return a + b;
-}
-</code></pre>
+}</code></pre>
 <blockquote>
 <p>对象的函数属性简写</p>
 </blockquote>
@@ -583,8 +572,7 @@ var sum2 = (a,b) =&gt; a+b;
     eat3(food){
         console.log(this.name + &quot;在吃&quot; + food);
     }
-}
-</code></pre>
+}</code></pre>
 <blockquote>
 <p>箭头函数结合解构表达式</p>
 </blockquote>
@@ -597,11 +585,9 @@ var sum2 = (a,b) =&gt; a+b;
 
 function hello(person) {
     console.log(&quot;hello,&quot; + person.name)
-}
-</code></pre>
+}</code></pre>
 <p>如果用箭头函数和解构表达式</p>
-<pre><code class="js">var hi = ({name}) =&gt;  console.log(&quot;hello,&quot; + name);
-</code></pre>
+<pre><code class="js">var hi = ({name}) =&gt;  console.log(&quot;hello,&quot; + name);</code></pre>
 <h3 id="3-5-map和reduce"><a href="#3-5-map和reduce" class="headerlink" title="3.5.map和reduce"></a>3.5.map和reduce</h3><p>数组中新增了map和reduce方法。</p>
 <blockquote>
 <p>map</p>
@@ -613,8 +599,7 @@ console.log(arr)
 
 arr = arr.map(s =&gt; parseInt(s));
 
-console.log(arr)
-</code></pre>
+console.log(arr)</code></pre>
 <p>  <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526110796839.png" alt="1526110796839"></p>
 <blockquote>
 <p>reduce</p>
@@ -626,8 +611,7 @@ console.log(arr)
 </ul>
 <p><code>reduce()</code>会从左到右依次把数组中的元素用reduce处理，并把处理的结果作为下次reduce的第一个参数。如果是第一次，会把前两个元素作为计算参数，或者把用户指定的初始值作为起始参数</p>
 <p>举例：</p>
-<pre><code>const arr = [1,20,-5,3]
-</code></pre><p>没有初始值：</p>
+<pre><code>const arr = [1,20,-5,3]</code></pre><p>没有初始值：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111537204.png" alt="1526111537204"></p>
 <p>指定初始值：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526111580742.png" alt="1526111580742"></p>
@@ -643,21 +627,18 @@ console.log(arr)
   } else {
     reject(error);// 调用reject，代表Promise会返回失败结果
   }
-});
-</code></pre>
+});</code></pre>
 <p>这样，在promise中就封装了一段异步执行的结果。</p>
 <p>如果我们想要等待异步执行完成，做一些事情，我们可以通过promise的then方法来实现,语法：</p>
 <pre><code class="js">promise.then(function(value){
     // 异步执行成功后的回调
-});
-</code></pre>
+});</code></pre>
 <p>如果想要处理promise异步执行失败的事件，还可以跟上catch：</p>
 <pre><code class="js">promise.then(function(value){
     // 异步执行成功后的回调
 }).catch(function(error){
     // 异步执行失败后的回调
-})
-</code></pre>
+})</code></pre>
 <p>示例：</p>
 <pre><code>const p = new Promise(function (resolve, reject) {
     // 这里我们用定时任务模拟异步
@@ -677,8 +658,7 @@ p.then(function (msg) {
     console.log(msg);
 }).catch(function (msg) {
     console.log(msg);
-})
-</code></pre><p>结果：</p>
+})</code></pre><p>结果：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113115887.png" alt="1526113115887"></p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526113140074.png" alt="1526113140074"></p>
 <h3 id="3-7-set和map（了解）"><a href="#3-7-set和map（了解）" class="headerlink" title="3.7.set和map（了解）"></a>3.7.set和map（了解）</h3><p>ES6提供了Set和Map的数据结构。</p>
@@ -688,8 +668,7 @@ p.then(function (msg) {
 let set = new Set();
 set.add(1);// [1]
 // 接收数组
-let set2 = new Set([2,3,4,5,5]);// 得到[2,3,4,5]
-</code></pre>
+let set2 = new Set([2,3,4,5,5]);// 得到[2,3,4,5]</code></pre>
 <p>普通方法：</p>
 <pre><code>set.add(1);// 添加
 set.clear();// 清空
@@ -699,8 +678,7 @@ set.keys();// 返回所有key
 set.values();// 返回所有值
 set.entries();// 返回键值对集合
 // 因为set没有键值对，所有其keys、values、entries方法返回值一样的。
-set.size; // 元素个数。是属性，不是方法。
-</code></pre><p>map，本质是与Object类似的结构。不同在于，Object强制规定key只能是字符串。而Map结构的key可以是任意对象。即：</p>
+set.size; // 元素个数。是属性，不是方法。</code></pre><p>map，本质是与Object类似的结构。不同在于，Object强制规定key只能是字符串。而Map结构的key可以是任意对象。即：</p>
 <ul>
 <li>object是 &lt;string,object&gt;集合</li>
 <li>map是&lt;object,object&gt;集合</li>
@@ -718,8 +696,7 @@ const set = new Set([
 ])
 const map2 = new Map(set)
 // 或者其它map
-const map3 = new Map(map);
-</code></pre>
+const map3 = new Map(map);</code></pre>
 <p>方法：</p>
 <p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1526114799767.png" alt="1526114799767"></p>
 <h3 id="3-8-模块化"><a href="#3-8-模块化" class="headerlink" title="3.8.模块化"></a>3.8.模块化</h3><h4 id="3-8-1-什么是模块化"><a href="#3-8-1-什么是模块化" class="headerlink" title="3.8.1.什么是模块化"></a>3.8.1.什么是模块化</h4><p>模块化就是把代码进行拆分，方便重复利用。类似java中的导包：要使用一个包，必须先导包。</p>
@@ -734,29 +711,25 @@ const map3 = new Map(map);
     sum(a,b){
         return a + b;
     }
-}
-</code></pre>
+}</code></pre>
 <p>我可以使用export将这个对象导出：</p>
 <pre><code class="js">const util = {
     sum(a,b){
         return a + b;
     }
 }
-export util;
-</code></pre>
+export util;</code></pre>
 <p>当然，也可以简写为：</p>
 <pre><code class="js">export const util = {
     sum(a,b){
         return a + b;
     }
-}
-</code></pre>
+}</code></pre>
 <p><code>export</code>不仅可以导出对象，一切JS变量都可以导出。比如：基本类型变量、函数、数组、对象。</p>
 <p>当要导出多个值时，还可以简写。比如我有一个文件：user.js：</p>
 <pre><code class="js">var name = &quot;jack&quot;
 var age = 21
-export {name,age}
-</code></pre>
+export {name,age}</code></pre>
 <blockquote>
 <p>省略名称</p>
 </blockquote>
@@ -768,28 +741,28 @@ export default {
     sum(a,b){
         return a + b;
     }
-}
-</code></pre>
+}</code></pre>
 <p>这样，当使用者导入时，可以任意起名字</p>
 <h4 id="3-8-3-import"><a href="#3-8-3-import" class="headerlink" title="3.8.3.import"></a>3.8.3.import</h4><p>使用<code>export</code>命令定义了模块的对外接口以后，其他 JS 文件就可以通过<code>import</code>命令加载这个模块。</p>
 <p>例如我要使用上面导出的util：</p>
 <pre><code class="js">// 导入util
 import util from &#39;hello.js&#39;
 // 调用util中的属性
-util.sum(1,2)
-</code></pre>
+util.sum(1,2)</code></pre>
 <p>要批量导入前面导出的name和age： </p>
 <pre><code class="js">import {name, age} from &#39;user.js&#39;
 
-console.log(name + &quot; , 今年&quot;+ age +&quot;岁了&quot;)
-</code></pre>
+console.log(name + &quot; , 今年&quot;+ age +&quot;岁了&quot;)</code></pre>
 <p>但是上面的代码暂时无法测试，因为浏览器目前还不支持ES6 的导入和导出功能。除非借助于工具，把ES6 的语法进行编译降级到ES5，比如<code>Babel-cli</code>工具</p>
 <p> 我们暂时不做测试，大家了解即可。</p>
 <h3 id="3-9-对象扩展"><a href="#3-9-对象扩展" class="headerlink" title="3.9.对象扩展"></a>3.9.对象扩展</h3><p>ES6给Object拓展了许多新的方法，如：</p>
 <ul>
-<li>keys(obj)：获取对象的所有key形成的数组</li>
-<li>values(obj)：获取对象的所有value形成的数组</li>
-<li>entries(obj)：获取对象的所有key和value形成的二维数组。格式：<code>[[k1,v1],[k2,v2],...]</code></li>
+<li><p>keys(obj)：获取对象的所有key形成的数组</p>
+</li>
+<li><p>values(obj)：获取对象的所有value形成的数组</p>
+</li>
+<li><p>entries(obj)：获取对象的所有key和value形成的二维数组。格式：<code>[[k1,v1],[k2,v2],...]</code></p>
+</li>
 <li><p>assian(dest, …src) ：将多个src对象的值 拷贝到 dest中（浅拷贝）。</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181218-ES6%E8%AF%AD%E6%B3%95%E6%8C%87%E5%8D%97/1527210872966.png" alt="1527210872966"></p>
 </li>
@@ -1404,5 +1377,20 @@ console.log(name + &quot; , 今年&quot;+ age +&quot;岁了&quot;)
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

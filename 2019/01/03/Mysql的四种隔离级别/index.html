@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -394,7 +394,42 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="一、MySQL事务隔离级别"><a href="#一、MySQL事务隔离级别" class="headerlink" title="一、MySQL事务隔离级别"></a>一、MySQL事务隔离级别</h3><table border="1" style="text-align: center;"><br>    <thead><br>        <tr><br>            <th>隔离级别</th><br>            <th>脏读</th><br>            <th>不可重复读</th><br>            <th>幻读</th><br>        </tr><br>    </thead><br>    <tbody><br>        <tr><br>            <td>读未提交</td><br>            <td>是</td><br>            <td>是</td><br>            <td>是</td><br>        </tr><br>        <tr><br>            <td>读已提交</td><br>            <td>否</td><br>            <td>是</td><br>            <td>是</td><br>        </tr><br>        <tr><br>            <td>可重复读</td><br>            <td>否</td><br>            <td>否</td><br>            <td>是</td><br>        </tr><br>        <tr><br>            <td>串行化</td><br>            <td>否</td><br>            <td>否</td><br>            <td>否</td><br>        </tr><br>    </tbody><br></table>
+          <h3 id="一、MySQL事务隔离级别"><a href="#一、MySQL事务隔离级别" class="headerlink" title="一、MySQL事务隔离级别"></a>一、MySQL事务隔离级别</h3><table border="1" style="text-align: center;">
+    <thead>
+        <tr>
+            <th>隔离级别</th>
+            <th>脏读</th>
+            <th>不可重复读</th>
+            <th>幻读</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>读未提交</td>
+            <td>是</td>
+            <td>是</td>
+            <td>是</td>
+        </tr>
+        <tr>
+            <td>读已提交</td>
+            <td>否</td>
+            <td>是</td>
+            <td>是</td>
+        </tr>
+        <tr>
+            <td>可重复读</td>
+            <td>否</td>
+            <td>否</td>
+            <td>是</td>
+        </tr>
+        <tr>
+            <td>串行化</td>
+            <td>否</td>
+            <td>否</td>
+            <td>否</td>
+        </tr>
+    </tbody>
+</table>
 
 <p>在SQL标准中定义了四种隔离级别，每一种级别都规定了一个事务中所做的修改，哪些是在事务内和事务间可见的，哪些是不可见的。较低级别的隔离通常可以执行更高的并发，系统的开销也更低。</p>
 <p><strong>未提交读（Read uncommitted）</strong>：在未提交读级别，事务中的修改，即使没有提交，对其他事务也都是可见的。事务可以读取未提交的数据，这也被称为脏读（Dirty Read）。这个级别会导致很多问题，从性能上来说，未提交读不会比其他的级别好太多，但是缺乏其他级别的很多好处，在实际应用中一般很少使用。<br><strong>读已提交（Read committed）</strong>：大多数数据库系统的默认隔离级别都是读已提交（但Mysql不是）。读已提交满足隔离性的简单定义：一个事务开始时，只能“看见”已经提交的事务所做的修改。换句话说，一个事务从开始直到提交之前，所做的任何修改对其他事务都是不可见的。这个级别有时候也叫做不可重复读（nonrepeatable read），因为两次执行同样的查询，可能会得到不一样的结果。<br><strong>可重复读（Repeatable read）</strong>：可重复读解决了脏读的问题。该级别保证了在同一个事务中多次读取同样记录的结果是一致的。但是理论上，可重复读隔离级别还是无法解决另外一个幻读（Phantom read）问题。所谓幻读，指的是当某个事务在读取某个范围内的记录时，另外一个事务中又在该范围插入了新的记录，当之前的事务再次读取该范围的记录时，会产生幻行（Phantom row）。可重复读是MySQL的默认事务隔离级别。<br><strong>可串行化（Serializable）</strong>：可串行化是最高的隔离级别。它通过强制事务串行执行，避免了前面所说的幻读问题。简单来说，可串行化会在读取的每一行数据上都加上锁，所以可能导致大量的超时和锁争用问题。实际应用中也很少用到这个隔离级别，只有在非常需要确保数据的一致性而且可以接受没有并发的情况下，才考虑用该级别。</p>
@@ -1006,5 +1041,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

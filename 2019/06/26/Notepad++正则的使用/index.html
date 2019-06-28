@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -406,24 +406,22 @@
 <thead>
 <tr>
 <th>正则</th>
-<th style="text-align:left">描述</th>
+<th align="left">描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>\n[\s&#124; ]*\r</td>
-<td style="text-align:left">匹配空白行(n行)</td>
+<td align="left">匹配空白行(n行)</td>
 </tr>
 <tr>
 <td><code>^</code></td>
-<td style="text-align:left">匹配每行开头</td>
+<td align="left">匹配每行开头</td>
 </tr>
 <tr>
 <td><code>$</code></td>
-<td style="text-align:left">匹配每行结尾</td>
+<td align="left">匹配每行结尾</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
         </div>
         <!-- .entry-content -->
@@ -451,9 +449,26 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/06/28/测试数学公式/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                测试数学公式</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2019/06/24/CSS-hover选择器的使用/" rel="next">
               <div class="background">
@@ -1011,5 +1026,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

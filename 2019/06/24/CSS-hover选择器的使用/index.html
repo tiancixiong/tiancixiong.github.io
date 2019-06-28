@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -398,25 +398,21 @@
 <p><code>:hover</code>选择器适用于所有元素</p>
 <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="用法一"><a href="#用法一" class="headerlink" title="用法一"></a>用法一</h2><pre><code class="css">a:hover {
     background-color: yellow;
-}
-</code></pre>
+}</code></pre>
 <p>效果：当鼠标悬浮在a元素上时，a的背景颜色设置为黄色</p>
 <h2 id="用法二"><a href="#用法二" class="headerlink" title="用法二"></a>用法二</h2><p>使用 a 控制其他块的样式</p>
 <h3 id="子元素"><a href="#子元素" class="headerlink" title="子元素"></a>子元素</h3><p>使用 a 控制 a 的子元素 b ：</p>
 <pre><code class="css">a:hover b {
     background-color:blue;
-}
-</code></pre>
+}</code></pre>
 <h3 id="兄弟元素"><a href="#兄弟元素" class="headerlink" title="兄弟元素"></a>兄弟元素</h3><p>使用 a 控制 a 的兄弟元素 c(同级元素)</p>
 <pre><code class="css">a:hover + c {
     background-color:blue;
-}
-</code></pre>
+}</code></pre>
 <h3 id="就近元素"><a href="#就近元素" class="headerlink" title="就近元素"></a>就近元素</h3><p>使用 a 控制 a 的就近元素 d</p>
 <pre><code class="css">a:hover ~ d {
     background-color:blue;
-}
-</code></pre>
+}</code></pre>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>:hover</code>用于选择鼠标悬停其上时的元素</p>
 <ul>
 <li>空格：控制子元素</li>
@@ -1027,5 +1023,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

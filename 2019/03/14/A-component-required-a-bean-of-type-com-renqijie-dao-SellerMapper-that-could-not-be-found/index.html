@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -397,7 +397,7 @@
           <blockquote>
 <p>异常：<br>Description:<br>A component required a bean of type ‘com.renqijie.dao.SellerMapper’ that could not be found.</p>
 </blockquote>
-<p><strong>原因：</strong><br>dao层接口<code>SellerMapper</code>未加注解<a href="mailto:`@org.apache.ibatis.annotations.Mapper" target="_blank" rel="noopener">`@org.apache.ibatis.annotations.Mapper</a>`</p>
+<p><strong>原因：</strong><br>dao层接口<code>SellerMapper</code>未加注解<code>@org.apache.ibatis.annotations.Mapper</code></p>
 
         </div>
         <!-- .entry-content -->
@@ -1002,5 +1002,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

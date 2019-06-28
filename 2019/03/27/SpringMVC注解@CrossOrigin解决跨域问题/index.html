@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -407,16 +407,14 @@
 @RestController
 @RequestMapping(&quot;/user&quot;)
 public class UserController {
-}
-</code></pre>
+}</code></pre>
 <p>2、方法上，仅此方法启用跨域支持</p>
 <pre><code class="java">// 开启跨域支持
 @CrossOrigin
 @RequestMapping(value = &quot;/findAll&quot;, method = RequestMethod.GET)
 public List&lt;User&gt; findAll(){
     return userService.findAll();
-}
-</code></pre>
+}</code></pre>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、注解失效问题：此时Controlle的方法上<code>@RequestMapping</code>注解中需要声明<code>请求方式</code>即增加<code>method=RequestMethod.XXX</code></p>
 <p>2、添加注解后session失效问题：此时对的ajax请求中需要添加<code>xhrFields:{withCredentials:true}</code>（每个ajax中都需要加此属性，以保证session一致）</p>
 <pre><code class="js">$.ajax({
@@ -433,8 +431,7 @@ public List&lt;User&gt; findAll(){
     error: function (msg) {
         console.log(&#39;请求报错！&#39;);
     }
-})
-</code></pre>
+})</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1039,5 +1036,20 @@ public List&lt;User&gt; findAll(){
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

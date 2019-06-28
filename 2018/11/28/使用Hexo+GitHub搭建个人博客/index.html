@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -432,14 +432,12 @@
 <h2 id="5-在本地安装-Hexo"><a href="#5-在本地安装-Hexo" class="headerlink" title="5. 在本地安装 Hexo"></a>5. 在本地安装 Hexo</h2><blockquote>
 <p>Hexo是一个建站工具，可以帮助我们快速生成基本的博客文件</p>
 </blockquote>
-<pre><code>npm install -g hexo-cli
-</code></pre><blockquote>
+<pre><code>npm install -g hexo-cli</code></pre><blockquote>
 <p>注意：在回车之后，可能会出现一行WARN的警告语句，不用管它，这个不妨碍安装</p>
 <p>过一段时间如果出现hexo版本号之类的语句就代表差不多了</p>
 </blockquote>
 <p>然后输入</p>
-<pre><code>npm install hexo --save
-</code></pre><p>这个时候你会看到命令行出现了一堆白字，紧接着输入<code>hexo v</code>查看是否安装成功：</p>
+<pre><code>npm install hexo --save</code></pre><p>这个时候你会看到命令行出现了一堆白字，紧接着输入<code>hexo v</code>查看是否安装成功：</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543477381834.png" alt="1543477381834"> </p>
 <p>此时，Hexo已经安装完成</p>
 <h1 id="二、搭建博客"><a href="#二、搭建博客" class="headerlink" title="二、搭建博客"></a>二、搭建博客</h1><h2 id="1-开启GitHub-Pages服务"><a href="#1-开启GitHub-Pages服务" class="headerlink" title="1. 开启GitHub Pages服务"></a>1. 开启GitHub Pages服务</h2><p>搭建我们的个人博客需要一个唯一的域名，当然我们可以申请购买一个域名来使用，但是在不是太必要的情况下，我们也可以通过Github Pages获得一个免费使用的域名，这需要我们在Github上新建一个仓库，如下：</p>
@@ -475,8 +473,7 @@
 <pre><code>deploy:
   type: git
   repository: git@github.com:xiongtianci-tc/xiongtianci-tc.github.io.git #复制的仓库地址
-  branch: master
-</code></pre><blockquote>
+  branch: master</code></pre><blockquote>
 <p>注意：</p>
 <ol>
 <li>repository后面的内容是 <a href="mailto:git@gitbub.com" target="_blank" rel="noopener">git@gitbub.com</a>:username/库地址 的形式</li>
@@ -486,13 +483,11 @@
 <p>最后执行控制台命令：</p>
 <pre><code>npm install hexo-deployer-git --save //安装部署插件
 
-hexo d //部署到github
-</code></pre><p>现在，我们再次访问链接：<code>https://userName.github.io</code>，就会发现这里的界面和本地的一样了。如此一来我们搭建的个人博客网站就基本完成了。</p>
+hexo d //部署到github</code></pre><p>现在，我们再次访问链接：<code>https://userName.github.io</code>，就会发现这里的界面和本地的一样了。如此一来我们搭建的个人博客网站就基本完成了。</p>
 <h1 id="三、发布你的第一篇博客"><a href="#三、发布你的第一篇博客" class="headerlink" title="三、发布你的第一篇博客"></a>三、发布你的第一篇博客</h1><p>终于可以发布自己的第一篇博客了，是不是很激动？（博主当时可是超级激动的~）<br>首先，在本地博客文件夹根目录输入：</p>
 <pre><code>hexo new &quot;我个人博客的第一篇博客，激动~&quot;
 hexo g   //生成网页
-hexo d  //部署到远端(github)
-</code></pre><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543481316715.png" alt="1543481316715"> </p>
+hexo d  //部署到远端(github)</code></pre><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543481316715.png" alt="1543481316715"> </p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543481394185.png" alt="1543481394185"> </p>
 <p>现在打开我们的博客网站：<code>http://UserName.github.io</code>,会看到网页如下(可能需要刷新几次页面)：</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543483567301.png" alt="1543483567301"></p>
@@ -501,8 +496,7 @@ hexo d  //部署到远端(github)
 <p>这里以使用github上的next主题为例：</p>
 <h2 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1. 下载主题"></a>1. 下载主题</h2><p>next主题：<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a></p>
 <p>在控制台中切换到本地博客根目录输入：</p>
-<pre><code>$ git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next
-</code></pre><p>下载成之后我们会看到next的主题已经存在 <code>thems</code> 里了如下：</p>
+<pre><code>$ git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next</code></pre><p>下载成之后我们会看到next的主题已经存在 <code>thems</code> 里了如下：</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543484274020.png" alt="1543484274020"> </p>
 <h2 id="2-更换主题"><a href="#2-更换主题" class="headerlink" title="2. 更换主题"></a>2. 更换主题</h2><p>修改博客根目录(不是next主题)下的 <code>_config.yml</code> 文件，搜索 <code>theme</code> 字段，并将其值修改为 <code>next</code></p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181128-%E4%BD%BF%E7%94%A8Hexo%2BGitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1543484383922.png" alt="1543484383922"> </p>
@@ -510,8 +504,7 @@ hexo d  //部署到远端(github)
 <pre><code>hexo clean  //清理缓存
 hexo g    //重新生成博客代码
 hexo d   //部署到本地
-// 或者直接输入：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
-</code></pre><p>再次打开我们的博客网站：<code>https://UserName.github.io</code>，将会发现我们的博客主题已经发生了改变</p>
+// 或者直接输入：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><p>再次打开我们的博客网站：<code>https://UserName.github.io</code>，将会发现我们的博客主题已经发生了改变</p>
 <h1 id="五、个性化"><a href="#五、个性化" class="headerlink" title="五、个性化"></a>五、个性化</h1><p>通过此步骤我们可以设置博客的作者、格言、语言…</p>
 <blockquote>
 <p>在Hexo中有两份主要的配置文件，其名称都是 _config.yml。 其中，一份位于站点根目录下，主要包含 Hexo本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项</p>
@@ -1128,5 +1121,20 @@ hexo d   //部署到本地
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

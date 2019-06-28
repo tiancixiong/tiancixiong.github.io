@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -399,13 +399,11 @@
 &lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
+&lt;/dependency&gt;</code></pre>
 <p>2、在yml配置文件中配置redis连接信息</p>
 <pre><code class="yml">spring:
   redis:
-    host: 192.168.206.128
-</code></pre>
+    host: 192.168.206.128</code></pre>
 <p>3、在service中通过RedisTemplate操作redis，使用redis进行缓存数据库查询</p>
 <pre><code class="java">/**
  * 根据ID查询
@@ -424,8 +422,7 @@ public Article findById(String id) {
 
     // 返回从redis缓存中获得的数据
     return article;
-}
-</code></pre>
+}</code></pre>
 <p>4、对数据库进行删除或修改后删除redis中的缓存</p>
 <pre><code class="java">/**
  * 修改
@@ -449,12 +446,10 @@ public void deleteById(String id) {
     redisTemplate.delete(&quot;article_&quot; + id);
     // 删除操作
     articleDao.deleteById(id);
-}
-</code></pre>
+}</code></pre>
 <p>5、缓存过期处理</p>
 <pre><code class="java">// 设置缓存过期时间为1天
-redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.DAYS);
-</code></pre>
+redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.DAYS);</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1059,5 +1054,20 @@ redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -405,8 +405,7 @@
 # i与n之间使用英文逗号&quot;,&quot;隔开
 
 # 
-limit n 等同于 limit 0,n
-</code></pre>
+limit n 等同于 limit 0,n</code></pre>
 <p>栗子：</p>
 <pre><code class="sql"># 查询10条数据，索引从0到9
 select * from t_user limit 10;
@@ -418,8 +417,7 @@ select * from t_user limit 1,10;
 select * from t_user limit 5,10;
 
 # 查询10条记录，索引从6到16(6+10)
-select * from t_user limit 6,10;
-</code></pre>
+select * from t_user limit 6,10;</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1024,5 +1022,20 @@ select * from t_user limit 6,10;
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

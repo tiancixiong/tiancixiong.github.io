@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -460,8 +460,7 @@
 <p>如果服务器允许跨域，需要在返回的响应头中携带下面信息：</p>
 <pre><code class="http">Access-Control-Allow-Origin: http://manage.leyou.com
 Access-Control-Allow-Credentials: true
-Content-Type: text/html; charset=utf-8
-</code></pre>
+Content-Type: text/html; charset=utf-8</code></pre>
 <ul>
 <li>Access-Control-Allow-Origin：可接受的域，是一个具体域名或者*（代表任意域名）</li>
 <li>Access-Control-Allow-Credentials：是否允许携带cookie，默认情况下，cors不会携带cookie，除非这个值是true</li>
@@ -489,8 +488,7 @@ Access-Control-Request-Headers: X-Custom-Header
 Host: api.leyou.com
 Accept-Language: en-US
 Connection: keep-alive
-User-Agent: Mozilla/5.0...
-</code></pre>
+User-Agent: Mozilla/5.0...</code></pre>
 <p>与简单请求相比，除了Origin以外，多了两个头：</p>
 <ul>
 <li>Access-Control-Request-Method：接下来会用到的请求方式，比如PUT</li>
@@ -513,8 +511,7 @@ Content-Encoding: gzip
 Content-Length: 0
 Keep-Alive: timeout=2, max=100
 Connection: Keep-Alive
-Content-Type: text/plain
-</code></pre>
+Content-Type: text/plain</code></pre>
 <p>除了<code>Access-Control-Allow-Origin</code>和<code>Access-Control-Allow-Credentials</code>以外，这里又额外多出3个头：</p>
 <ul>
 <li>Access-Control-Allow-Methods：允许访问的方式</li>
@@ -563,8 +560,7 @@ public class GlobalCorsConfig {
         //3.返回新的CorsFilter.
         return new CorsFilter(configSource);
     }
-}
-</code></pre>
+}</code></pre>
 <p>结构：<br><img src="https://img-blog.csdnimg.cn/20181221084136322.png" alt="在这里插入图片描述"></p>
 
         </div>
@@ -1170,5 +1166,20 @@ public class GlobalCorsConfig {
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

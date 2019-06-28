@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -395,14 +395,16 @@
         
         <div class="entry-content">
           <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><blockquote>
-<p>原理：在数组中选择出最小（大）的一个数，与第一个位置的数进行交换位置；<br><code>`</code><br>int[] arr = {5,8,3,9,10,2};<br>System.out.println(“排序前：” + Arrays.toString(arr));</p>
-</blockquote>
-<p>// 使用两层循环遍历数组，将前一位数值与后面以为数值进行比较，<br>// 如果前一位数值要大于后一位数值，则交换他们的位置。故而可以实现排序<br>for(int m = 0; m&lt;arr.length-1; m++){<br>    for(int n = m+1; n&lt;arr.length; n++){<br>        if(arr[m] &gt; arr[n]){<br>            // 用于临时储存需要交换位置的某一个值<br>            int temp = arr[m];<br>            // 交换位置<br>            arr[m] = arr[n];<br>            arr[n] = temp;<br>        }<br>    }<br>}<br>System.out.println(“排序后：” + Arrays.toString(arr));</p>
+<p>原理：在数组中选择出最小（大）的一个数，与第一个位置的数进行交换位置；</p>
+<pre><code>int[] arr = {5,8,3,9,10,2};
+System.out.println(&quot;排序前：&quot; + Arrays.toString(arr));</code></pre></blockquote>
+<p>// 使用两层循环遍历数组，将前一位数值与后面以为数值进行比较，<br>// 如果前一位数值要大于后一位数值，则交换他们的位置。故而可以实现排序<br>for(int m = 0; m&lt;arr.length-1; m++){<br>    for(int n = m+1; n&lt;arr.length; n++){<br>        if(arr[m] &gt; arr[n]){<br>            // 用于临时储存需要交换位置的某一个值<br>            int temp = arr[m];<br>            // 交换位置<br>            arr[m] = arr[n];<br>            arr[n] = temp;<br>        }<br>    }<br>}
+System.out.println(“排序后：” + Arrays.toString(arr));</p>
 <pre><code>## 冒泡排序
-
 </code></pre><p>int[] arr = {5,8,3,9,10,2};<br>System.out.println(“排序前：” + Arrays.toString(arr));</p>
-<p>// 使用两层循环遍历数组<br>for(int m = 0; m&lt;arr.length-1; m++){<br>    // 第二层循环，将 arr 索引为 0~arr.length-1-m 中最大的一个数移动到 arr[arr.length-1-m] 的位置<br>    for(int n = 0; n&lt;arr.length-1-m; n++){<br>        if(arr[n] &gt; arr[n+1]){<br>            // 用于临时储存需要交换位置的某一个值<br>            int temp = arr[n];<br>            // 交换位置<br>            arr[n] = arr[n+1];<br>            arr[n+1] = temp;<br>        }<br>    }<br>}<br>System.out.println(“排序后：” + Arrays.toString(arr));<br><code>`</code></p>
-
+<p>// 使用两层循环遍历数组<br>for(int m = 0; m&lt;arr.length-1; m++){<br>    // 第二层循环，将 arr 索引为 0~arr.length-1-m 中最大的一个数移动到 arr[arr.length-1-m] 的位置<br>    for(int n = 0; n&lt;arr.length-1-m; n++){<br>        if(arr[n] &gt; arr[n+1]){<br>            // 用于临时储存需要交换位置的某一个值<br>            int temp = arr[n];<br>            // 交换位置<br>            arr[n] = arr[n+1];<br>            arr[n+1] = temp;<br>        }<br>    }<br>}
+System.out.println(“排序后：” + Arrays.toString(arr));</p>
+<pre><code></code></pre>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -1006,5 +1008,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -421,14 +421,12 @@
         thread2.start();
         thread3.start();
     }
-}
-</code></pre>
+}</code></pre>
 <p>上面的代码执行结果：</p>
 <pre><code class="java">// 线程执行顺序是随机的
 thread1
 thread3
-thread2
-</code></pre>
+thread2</code></pre>
 <blockquote>
 <p>原因：start()方法只是让子线程处于就绪状态，最终执行状态是不可控的</p>
 </blockquote>
@@ -441,13 +439,11 @@ thread2
     thread2.start();
     thread2.join();
     thread3.start();
-}
-</code></pre>
+}</code></pre>
 <p>结果：</p>
 <pre><code>thread1
 thread2
-thread3
-</code></pre><p>join方法的原理就是调用相应线程的<code>wait</code>方法进行等待操作的，例如A线程中调用了B线程的join方法，则相当于在A线程中调用了B线程的wait方法，当B线程执行完（或者到达等待时间），B线程会自动调用自身的notifyAll( 调用了JVM底层lock.notify_all(thread)方法来唤醒 )方法唤醒A线程，从而达到同步的目的</p>
+thread3</code></pre><p>join方法的原理就是调用相应线程的<code>wait</code>方法进行等待操作的，例如A线程中调用了B线程的join方法，则相当于在A线程中调用了B线程的wait方法，当B线程执行完（或者到达等待时间），B线程会自动调用自身的notifyAll( 调用了JVM底层lock.notify_all(thread)方法来唤醒 )方法唤醒A线程，从而达到同步的目的</p>
 <p>jion()源码：</p>
 <pre><code class="java">public final synchronized void join(long millis)
 throws InterruptedException {
@@ -472,11 +468,9 @@ throws InterruptedException {
             now = System.currentTimeMillis() - base;
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>最终是调用object的wait方法</p>
-<pre><code class="java">public final native void wait(long timeout) throws InterruptedException;
-</code></pre>
+<pre><code class="java">public final native void wait(long timeout) throws InterruptedException;</code></pre>
 <p>join()的调用位于main Thread的main()中，所以这里当然就是阻塞main Thread了。所以thread1.join()调用后，main Thread会阻塞起来。</p>
 <h3 id="方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务"><a href="#方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务" class="headerlink" title="方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务"></a>方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务</h3><p>利用并发包里的<code>Excutors</code>的<code>newSingleThreadExecuto</code>产生一个单线程的线程池，而这个线程池的底层原理就是一个先进先出（FIFO）的队列。代码中<code>executor.submit</code>依次添加了123线程，按照FIFO的特性，执行顺序也就是123的执行结果，从而保证了执行顺序</p>
 <pre><code class="java">static ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -485,8 +479,7 @@ public static void main(String[] args) throws Exception {
     executorService.submit(thread2);
     executorService.submit(thread3);
     executorService.shutdown();
-}
-</code></pre>
+}</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1091,5 +1084,20 @@ public static void main(String[] args) throws Exception {
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

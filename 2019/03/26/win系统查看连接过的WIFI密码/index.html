@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -394,13 +394,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h6 id="1-win-R，输入cmd回车打开cmd窗口"><a href="#1-win-R，输入cmd回车打开cmd窗口" class="headerlink" title="1. win+R，输入cmd回车打开cmd窗口"></a>1. <code>win+R</code>，输入<code>cmd</code>回车打开cmd窗口</h6><h6 id="2-输入下面命令显示电脑连接过的所有WIFI名："><a href="#2-输入下面命令显示电脑连接过的所有WIFI名：" class="headerlink" title="2. 输入下面命令显示电脑连接过的所有WIFI名："></a>2. 输入下面命令显示电脑连接过的所有WIFI名：</h6><pre><code class="command">netsh wlan show profiles
-</code></pre>
+          <h6 id="1-win-R，输入cmd回车打开cmd窗口"><a href="#1-win-R，输入cmd回车打开cmd窗口" class="headerlink" title="1. win+R，输入cmd回车打开cmd窗口"></a>1. <code>win+R</code>，输入<code>cmd</code>回车打开cmd窗口</h6><h6 id="2-输入下面命令显示电脑连接过的所有WIFI名："><a href="#2-输入下面命令显示电脑连接过的所有WIFI名：" class="headerlink" title="2. 输入下面命令显示电脑连接过的所有WIFI名："></a>2. 输入下面命令显示电脑连接过的所有WIFI名：</h6><pre><code class="command">netsh wlan show profiles</code></pre>
 <blockquote>
 <p>在cmd中鼠标右键是粘贴</p>
 </blockquote>
-<h6 id="3-输入下面命令查看WIFI密码："><a href="#3-输入下面命令查看WIFI密码：" class="headerlink" title="3. 输入下面命令查看WIFI密码："></a>3. 输入下面命令查看WIFI密码：</h6><pre><code>netsh wlan show profile name=&quot;WIFI名&quot; key=clear
-</code></pre><blockquote>
+<h6 id="3-输入下面命令查看WIFI密码："><a href="#3-输入下面命令查看WIFI密码：" class="headerlink" title="3. 输入下面命令查看WIFI密码："></a>3. 输入下面命令查看WIFI密码：</h6><pre><code>netsh wlan show profile name=&quot;WIFI名&quot; key=clear</code></pre><blockquote>
 <p>“WIFI名称”：使用英文状态下的双引号</p>
 </blockquote>
 <p>在显示的内容中找到<code>安全设置</code>下的<code>关键内容</code>，即为WIFI密码<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190326-win%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84WIFI%E5%AF%86%E7%A0%81/20190326180330559.png" alt="在这里插入图片描述"></p>
@@ -1008,5 +1006,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -408,8 +408,7 @@
     &lt;!--添加下面两项指定thymeleaf的版本--&gt;
     &lt;thymeleaf.version&gt;3.0.2.RELEASE&lt;/thymeleaf.version&gt;
     &lt;thymeleaf-layout-dialect.version&gt;2.0.5&lt;/thymeleaf-layout-dialect.version&gt;
-&lt;/properties&gt;
-</code></pre>
+&lt;/properties&gt;</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1014,5 +1013,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

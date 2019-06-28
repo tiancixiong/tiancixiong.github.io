@@ -44,7 +44,7 @@
   mashiro_option.site_url = "/";
   mashiro_option.v_appId = "";
   mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.mathjax = "false";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -398,8 +398,8 @@
 <pre><code>16:08    Lombok Requires Annotation Processing
     Annotation processing seems to be disabled for the project &quot;leyou&quot;.
     For the plugin to function correctly, please enable it under
-    &quot;Settings &gt; Build &gt; Compiler &gt; Annotation Processors&quot;
-</code></pre><p><br></p>
+    &quot;Settings &gt; Build &gt; Compiler &gt; Annotation Processors&quot;</code></pre><br>
+
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>依次点 <code>File</code> &rarr; <code>Settings</code> &rarr; <code>Build, Execution, Deploymen</code> &rarr; <code>Annotation Processors</code> 打开编辑页面，勾上 <code>Enable annotation processing</code> 前面的选框，保存重启IDEA即可解决<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-IDEA%E6%8A%A5%E9%94%99%EF%BC%9ALombok%20Requires%20Annotation%20Processing/20181220162024980.png" alt="在这里插入图片描述"></p>
 
         </div>
@@ -1005,5 +1005,20 @@
     })
   });
 </script></div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
