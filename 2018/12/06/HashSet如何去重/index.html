@@ -406,7 +406,8 @@
 */
 public HashSet() {
     map = new HashMap&lt;&gt;();
-}</code></pre>
+}
+</code></pre>
 <p>很明显，HashSet底层是Hashmap存储的。借大神的话</p>
 <blockquote>
 <p>HashSet 就是HashMap的马甲       —–someone</p>
@@ -428,7 +429,8 @@ public HashSet() {
      */
     public boolean add(E e) {
         return map.put(e, PRESENT)==null;
-    }</code></pre>
+    }
+</code></pre>
 <p>add方法的参数：</p>
 <ul>
 <li>map：map是一个HashMap的实例</li>
@@ -496,7 +498,8 @@ public HashSet() {
             resize();
         afterNodeInsertion(evict);
         return null;
-    }</code></pre>
+    }
+</code></pre>
 <p><strong>这里边有两个看点：</strong></p>
 <ul>
 <li>HashMap中key存储是hash后的值，对于String类型的相同值的hash值是一致的（其他接触类型类似，自定义对象类型需要重写hashcode方法与equel方法）。换句话说相同的值在hashMap中的存储位置是一样的。</li>
@@ -508,7 +511,8 @@ public HashSet() {
         e.value = value;
         afterNodeAccess(e);
     return oldValue;
-}</code></pre>
+}
+</code></pre>
 <p>所以hashset中存储的值输出的顺序和存储的先后顺序不一致，这是因为hashset是按照值的hash顺序进行输出。</p>
 
         </div>
@@ -624,7 +628,7 @@ public HashSet() {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -636,10 +640,10 @@ public HashSet() {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -684,7 +688,7 @@ public HashSet() {
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -695,24 +699,6 @@ public HashSet() {
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -722,9 +708,9 @@ public HashSet() {
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -843,6 +829,22 @@ public HashSet() {
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -1070,10 +1072,9 @@ public HashSet() {
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1102,7 +1103,7 @@ public HashSet() {
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1114,20 +1115,5 @@ public HashSet() {
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

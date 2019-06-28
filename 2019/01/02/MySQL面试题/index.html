@@ -396,19 +396,27 @@
         <div class="entry-content">
           <h1 id="1-主键-超键-候选键-外键"><a href="#1-主键-超键-候选键-外键" class="headerlink" title="1. 主键 超键 候选键 外键"></a>1. 主键 超键 候选键 外键</h1><p><strong>主 键：</strong></p>
 <pre><code>数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。
-一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）</code></pre><p><strong>超 键：</strong></p>
+一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）
+</code></pre><p><strong>超 键：</strong></p>
 <pre><code>在关系中能唯一标识元组的属性集称为关系模式的超键
 一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键
-超键包含候选键和主键。</code></pre><p><strong>候选键：</strong></p>
-<pre><code>是最小超键，即没有冗余元素的超键。</code></pre><p><strong>外 键：</strong></p>
-<pre><code>在一个表中存在的另一个表的主键称此表的外键</code></pre><h1 id="2-数据库事务的四个特性及含义"><a href="#2-数据库事务的四个特性及含义" class="headerlink" title="2.数据库事务的四个特性及含义"></a>2.数据库事务的四个特性及含义</h1><blockquote>
+超键包含候选键和主键。
+</code></pre><p><strong>候选键：</strong></p>
+<pre><code>是最小超键，即没有冗余元素的超键。
+</code></pre><p><strong>外 键：</strong></p>
+<pre><code>在一个表中存在的另一个表的主键称此表的外键
+</code></pre><h1 id="2-数据库事务的四个特性及含义"><a href="#2-数据库事务的四个特性及含义" class="headerlink" title="2.数据库事务的四个特性及含义"></a>2.数据库事务的四个特性及含义</h1><blockquote>
 <p>数据库事务( transanction )正确执行的四个基本要素( ACID )：原子性(Atomicity)、一致性(Correspondence)、隔离性(Isolation)、持久性(Durability)。</p>
 </blockquote>
 <p><strong>原子性</strong>：</p>
-<pre><code>整个事务中的所有操作，要么全部完成，要么全部不完成，不可能停滞在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</code></pre><p><strong>一致性</strong>：</p>
-<pre><code>在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。</code></pre><p><strong>隔离性</strong>：</p>
-<pre><code>隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相同的时间内，执行 相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系统。这种属性有时称为串行化，为了防止事务操作间的混淆，必须串行化或序列化请求，使得在同一时间仅有一个请求用于同一数据。</code></pre><p><strong>持久性</strong>：</p>
-<pre><code>在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中，并不会被回滚。</code></pre><h1 id="3-drop-delete与truncate的区别"><a href="#3-drop-delete与truncate的区别" class="headerlink" title="3.drop,delete与truncate的区别"></a>3.drop,delete与truncate的区别</h1><blockquote>
+<pre><code>整个事务中的所有操作，要么全部完成，要么全部不完成，不可能停滞在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。
+</code></pre><p><strong>一致性</strong>：</p>
+<pre><code>在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。
+</code></pre><p><strong>隔离性</strong>：</p>
+<pre><code>隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相同的时间内，执行 相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系统。这种属性有时称为串行化，为了防止事务操作间的混淆，必须串行化或序列化请求，使得在同一时间仅有一个请求用于同一数据。
+</code></pre><p><strong>持久性</strong>：</p>
+<pre><code>在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中，并不会被回滚。
+</code></pre><h1 id="3-drop-delete与truncate的区别"><a href="#3-drop-delete与truncate的区别" class="headerlink" title="3.drop,delete与truncate的区别"></a>3.drop,delete与truncate的区别</h1><blockquote>
 <p>drop直接删掉表<br>delete删除表中数据，可以加where字句<br>truncate删除表中数据，再插入时自增长id又从1开始</p>
 </blockquote>
 <pre><code>1、DELETE语句执行删除的过程是每次从表中删除一行，并且同时将该行的删除操作作为事务记录在日志中保存以便进行回滚操作。TRUNCATE TABLE 则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存，删除的数据是不能恢复的。并且在删除的过程中不会激活与表有关的删除触发器。执行速度快。
@@ -434,9 +442,9 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 
 11、TRUNCATE TABLE 删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用 DELETE。如果要删除表定义及其数据，请使用 DROP TABLE 语句。
 
-12、对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 WHERE 子句的 DELETE 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。</code></pre><h1 id="4-索引的工作原理及其种类"><a href="#4-索引的工作原理及其种类" class="headerlink" title="4.索引的工作原理及其种类"></a>4.索引的工作原理及其种类</h1><blockquote>
-<p><strong>数据库索引</strong>：是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。<strong>索引的实现通常使用B树及其变种B+树</strong>。
-在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构，就是<strong>索引</strong>。</p>
+12、对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 WHERE 子句的 DELETE 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
+</code></pre><h1 id="4-索引的工作原理及其种类"><a href="#4-索引的工作原理及其种类" class="headerlink" title="4.索引的工作原理及其种类"></a>4.索引的工作原理及其种类</h1><blockquote>
+<p><strong>数据库索引</strong>：是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。<strong>索引的实现通常使用B树及其变种B+树</strong>。<br>在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构，就是<strong>索引</strong>。</p>
 </blockquote>
 <p>为表设置索引要付出代价的：一是增加了数据库的存储空间，二是在插入和修改数据时要花费较多的时间(因为索引也要随之变动)。</p>
 <p><img src="img/1546432394934.png" alt="1546432394934"></p>
@@ -576,7 +584,7 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -588,10 +596,10 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -636,7 +644,7 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -647,24 +655,6 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -674,9 +664,9 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -795,6 +785,22 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -1022,10 +1028,9 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1054,7 +1059,7 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1066,20 +1071,5 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

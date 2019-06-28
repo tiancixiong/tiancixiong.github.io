@@ -411,35 +411,37 @@
 <table>
 <thead>
 <tr>
-<th align="center">线程状态</th>
-<th align="center">导致状态发生条件</th>
+<th style="text-align:center">线程状态</th>
+<th style="text-align:center">导致状态发生条件</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">NEW(新建)</td>
-<td align="center">线程刚被创建，但是并未启动</td>
+<tbody>
+<tr>
+<td style="text-align:center">NEW(新建)</td>
+<td style="text-align:center">线程刚被创建，但是并未启动</td>
 </tr>
 <tr>
-<td align="center">Runnable(可运行)</td>
-<td align="center">线程可以在java虚拟机中运行的状态，可能正在运行自己代码，也可能没有，这取决于操作系统处理器</td>
+<td style="text-align:center">Runnable(可运行)</td>
+<td style="text-align:center">线程可以在java虚拟机中运行的状态，可能正在运行自己代码，也可能没有，这取决于操作系统处理器</td>
 </tr>
 <tr>
-<td align="center">Blocked(锁阻塞)</td>
-<td align="center">当一个线程试图获取一个对象锁，而该对象锁被其他的线程持有，则该线程进入Blocked状态；当该线程持有锁时，该线程将变成Runnable状态</td>
+<td style="text-align:center">Blocked(锁阻塞)</td>
+<td style="text-align:center">当一个线程试图获取一个对象锁，而该对象锁被其他的线程持有，则该线程进入Blocked状态；当该线程持有锁时，该线程将变成Runnable状态</td>
 </tr>
 <tr>
-<td align="center">Waiting(无限等待)</td>
-<td align="center">一个线程在等待另一个线程执行一个（唤醒）动作时，该线程进入Waiting状态。进入这个状态后是不能自动唤醒的，必须等待另一个线程调用notify或者notifyAll方法才能够唤醒</td>
+<td style="text-align:center">Waiting(无限等待)</td>
+<td style="text-align:center">一个线程在等待另一个线程执行一个（唤醒）动作时，该线程进入Waiting状态。进入这个状态后是不能自动唤醒的，必须等待另一个线程调用notify或者notifyAll方法才能够唤醒</td>
 </tr>
 <tr>
-<td align="center">Timed Waiting(计时等待)</td>
-<td align="center">同waiting状态，有几个方法有超时参数，调用他们将进入Timed Waiting状态。这一状态将一直保持到超时期满或者接收到唤醒通知。带有超时参数的常用方法有Thread.sleep 、Object.wait。</td>
+<td style="text-align:center">Timed Waiting(计时等待)</td>
+<td style="text-align:center">同waiting状态，有几个方法有超时参数，调用他们将进入Timed Waiting状态。这一状态将一直保持到超时期满或者接收到唤醒通知。带有超时参数的常用方法有Thread.sleep 、Object.wait。</td>
 </tr>
 <tr>
-<td align="center">Teminated(被终止)</td>
-<td align="center">因为run方法正常退出而死亡，或者因为没有捕获的异常终止了run方法而死亡</td>
+<td style="text-align:center">Teminated(被终止)</td>
+<td style="text-align:center">因为run方法正常退出而死亡，或者因为没有捕获的异常终止了run方法而死亡</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <blockquote>
 <ol>
 <li>初始(NEW)：新创建了一个线程对象，但还没有调用 <code>start()</code> 方法。</li>
@@ -473,7 +475,8 @@
     public void run() {
         // 线程执行的代码
     }
-}</code></pre>
+}
+</code></pre>
 <pre><code class="java">/**
  * 研究新建线程状态
  *   新建状态：至今还未启动的线程处于这一状态
@@ -497,7 +500,8 @@ public class ThreadStateTest1 {
 // 输出：
 //   线程创建之后处于：NEW
 //   线程run之后处于：NEW
-//   线程start之后处于：RUNNABLE</code></pre>
+//   线程start之后处于：RUNNABLE
+</code></pre>
 <blockquote>
 <p>当我们执行 <code>new Thread(target)</code> 时，jvm 要为线程的运行做一些前期的准备工作，比如检查线程类是否已经被加载、解析和初始化过，接下来还要为对象分配空间并对空间初始化零值等。当完成这些准备工作时线程才能进入到下一个 <code>Runnable</code> (可运行)状态。所以说</p>
 <p>当业务需要频繁创建线城市，最好使用线程池，提高效率减轻JVM的压力。当然如果大量线程进行频繁上下文切换，此时多线程的效率会大打折扣。</p>
@@ -521,7 +525,8 @@ public class ThreadStateTest1 {
         }
         System.out.println(&quot;线程执行完毕&quot;);
     }
-}</code></pre>
+}
+</code></pre>
 <pre><code class="java">/**
  * 可运行状态
  *   当线程有资格运行，调用了start方法，线程首先进入可运行状态
@@ -543,7 +548,8 @@ public class Demo {
         myThread.start();
         System.out.println(&quot;开启线程之后：&quot; + myThread.getState());
     }
-}</code></pre>
+}
+</code></pre>
 <h2 id="3-BLOCHED-阻塞-状态"><a href="#3-BLOCHED-阻塞-状态" class="headerlink" title="3. BLOCHED(阻塞)状态"></a>3. BLOCHED(阻塞)状态</h2><p>我们还是使用代码来解析一下锁阻塞状态：</p>
 <pre><code class="java">public class ThreadA extends Thread {
     private Object obj;
@@ -567,7 +573,8 @@ public class Demo {
             System.out.println(&quot;线程A执行完毕&quot;);
         }
     }
-}</code></pre>
+}
+</code></pre>
 <pre><code class="java">public class ThreadB extends Thread{
     private Object obj;
 
@@ -590,7 +597,8 @@ public class Demo {
             System.out.println(&quot;线程B执行完毕&quot;);
         }
     }
-}</code></pre>
+}
+</code></pre>
 <pre><code class="java">/**
  * 线程状态之阻塞状态BLOCKED
  *    JDK：锁阻塞并且正在等待监视器锁的某一线程状态
@@ -621,7 +629,8 @@ public class BlockedDemo {
         System.out.println(&quot;线程A的状态是：&quot; + a.getState());
         System.out.println(&quot;线程B的状态是：&quot; + b.getState());
     }
-}</code></pre>
+}
+</code></pre>
 <p>在这里我们只是对之前分析的情况一进行了阐释</p>
 <h2 id="4-Timed-Waiting-计时等待-状态"><a href="#4-Timed-Waiting-计时等待-状态" class="headerlink" title="4. Timed Waiting(计时等待)状态"></a>4. Timed Waiting(计时等待)状态</h2><blockquote>
 </blockquote>
@@ -678,7 +687,8 @@ public class MyThread extends Thread {
             }
         }
     }
-}</code></pre>
+}
+</code></pre>
 <p>通过案例可以发西咸，sleep方法的使用还是很简单的。我们需要记住下面几点：</p>
 <ol>
 <li>进入 TIMED_WAITING 状态的一种常见情形是调用的 sleep 方法，单独的线程也可以调用，不一定非要有协作关系。</li>
@@ -754,7 +764,8 @@ public class WaitingTest {
         Thread.sleep(4000);
         System.out.println(&quot;查看t1的线程状态&quot; + t1.getState());
     }
-}</code></pre>
+}
+</code></pre>
 <p>通过上述案例我们会发现，一个调用了某个对象的 Object.wait 方法的线程会等待另一个线程调用此对象的 Object.notify() 方法或 Object.notifyAll() 方法</p>
 <p>其实 waiting 状态并不是一个线程的操作，它体现的是多个线程间的通信，可以理解为多个线程之间的协作关系，<br>多个线程会争取锁，同时相互之间又存在协作关系。就好比在公司了你和你的同事们，你们可能存在晋升时的竞争，但更多时候你们更多是一起合作一完成某些任务。</p>
 <h2 id="6-TEMINATED-终止-状态"><a href="#6-TEMINATED-终止-状态" class="headerlink" title="6. TEMINATED(终止)状态"></a>6. TEMINATED(终止)状态</h2><p>线程因如下两个原因之一将被终止：</p>
@@ -878,7 +889,7 @@ public class WaitingTest {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -890,10 +901,10 @@ public class WaitingTest {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -938,7 +949,7 @@ public class WaitingTest {
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -949,24 +960,6 @@ public class WaitingTest {
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -976,9 +969,9 @@ public class WaitingTest {
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1097,6 +1090,22 @@ public class WaitingTest {
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -1324,10 +1333,9 @@ public class WaitingTest {
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1356,7 +1364,7 @@ public class WaitingTest {
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1368,20 +1376,5 @@ public class WaitingTest {
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -474,17 +474,20 @@
 
 -t          用文件和目录的更改时间排序。
 -r             反向排序
---help       在线帮助</code></pre>
+--help       在线帮助
+</code></pre>
 </li>
 <li><p>常用：</p>
 <pre><code>ls -l        --&gt; 此命令非常常用，提供简化版命令 ll
 ls -al
-ll /home/    --&gt; 显示指定目录下的内容</code></pre></li>
+ll /home/    --&gt; 显示指定目录下的内容
+</code></pre></li>
 <li><p>eg:</p>
 <pre><code>需求：展示某个目录下的内容    ls 目录名
 所在位置：/root
 想要查看:/etc目录下的内容
-命令：ll -h /etc</code></pre></li>
+命令：ll -h /etc
+</code></pre></li>
 </ol>
 <h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a><em>cd</em> 切换目录</h3><ol>
 <li><p>cd(change directory) 功能：切换目录</p>
@@ -501,7 +504,8 @@ cd ~        ，切换到当前用户 家目录。root用户家目录 /root
 cd /        ，切换到Linux的 根目录
 cd -          ，切换到上一次访问的目录。   只能两个目录相互切换
 cd ..        ，上一级目录
-cd            ，缺省当前用户目录</code></pre>
+cd            ，缺省当前用户目录
+</code></pre>
 </li>
 </ol>
 <ul>
@@ -528,7 +532,8 @@ mkdir -p 文件夹名称
 
 # 参数
 -p  父目录不存在情况下先生成父目录 （parents）
--v    显示命令执行过程中的详细信息</code></pre>
+-v    显示命令执行过程中的详细信息
+</code></pre>
 </li>
 <li><p>注意：</p>
 <p>使用<code>mkdir</code>创建带后缀的文件时，创建的是<strong>目录</strong>，不是文件（创建文件使用<code>touch</code>命令）</p>
@@ -546,7 +551,8 @@ mkdir -p 文件夹名称
 需要在/root/t3目录下创建一个t4目录
 位置：/root
 条件：t3和t4都不存在
-命令：mkdir -p t3/t4</code></pre>
+命令：mkdir -p t3/t4
+</code></pre>
 </li>
 </ol>
 <h3 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a><em>rmdir</em> 删除空目录</h3><ul>
@@ -569,19 +575,22 @@ mkdir -p 文件夹名称
 </li>
 <li><p><strong>语法</strong>：</p>
 <pre><code class="shell"># 格式
-cat 文件名</code></pre>
+cat 文件名
+</code></pre>
 </li>
 </ol>
 <h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a><em>more</em> 分页显示文件内容</h3><ol>
 <li><p>more功能：分页显示文件内容，还支持直接跳转行等功能</p>
 </li>
 <li><p><strong>语法</strong>：</p>
-<pre><code>more 文件名</code></pre></li>
+<pre><code>more 文件名
+</code></pre></li>
 <li><p>操作：</p>
 <pre><code>Enter    向下n行，需要定义。默认为1行
 空格键    向下滚动一屏 或 Ctrl+F
 B        返回上一屏 或 Ctrl+B
-q        退出more</code></pre></li>
+q        退出more
+</code></pre></li>
 </ol>
 <h3 id="less-分页显示文件内容"><a href="#less-分页显示文件内容" class="headerlink" title="less 分页显示文件内容"></a><em>less</em> 分页显示文件内容</h3><ol>
 <li><p>less功能：分页显示文件内容，操作更详细</p>
@@ -592,7 +601,8 @@ less -mN 文件名
 
 # 参数
 -m  显示类似more命令的百分比
--N  显示每行的行号</code></pre>
+-N  显示每行的行号
+</code></pre>
 </li>
 <li><p>操作：</p>
 <pre><code class="shell">Enter    向下n行，需要定义。默认为1行
@@ -607,7 +617,8 @@ less -mN 文件名
     v    进入vim编辑器
 /字符串   向下搜索
 ?字符串   向上搜索
-左右方向键 相当于水平滚动条</code></pre>
+左右方向键 相当于水平滚动条
+</code></pre>
 </li>
 <li><p>特点：</p>
 <p>适用于<strong>大量数据</strong>的查看</p>
@@ -622,7 +633,8 @@ tail[必要参数][选择参数][文件]
 
 # 参数
 -n&lt;行数&gt;    显示行数
--f         循环读取</code></pre>
+-f         循环读取
+</code></pre>
 </li>
 <li><p>eg：</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/clip_image001.png" alt="img"></p>
@@ -645,7 +657,8 @@ tail[必要参数][选择参数][文件]
 <li><p>功能：创建文件</p>
 </li>
 <li><p>语法：</p>
-<pre><code class="shell">touch 绝对路径/相对路径</code></pre>
+<pre><code class="shell">touch 绝对路径/相对路径
+</code></pre>
 </li>
 </ol>
 <h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a><em>cp</em> 复制</h3><ol>
@@ -654,7 +667,8 @@ tail[必要参数][选择参数][文件]
 <li><p>复制<strong>文件</strong>：</p>
 <ul>
 <li><p><strong>语法</strong>：</p>
-<pre><code class="shell">cp 需要复制的文件 复制的位置</code></pre>
+<pre><code class="shell">cp 需要复制的文件 复制的位置
+</code></pre>
 <p>注意：cp可以进行重命名操作：</p>
 <ul>
 <li><p>cp demo1.java t1/ddd.java</p>
@@ -670,7 +684,8 @@ tail[必要参数][选择参数][文件]
 
 需求：把/root/Demo1.java文件 复制到  /root/t1 目录中，改名为ddd.java
 位置：/root
-命令：cp Demo1.java t1/ddd.java</code></pre></li>
+命令：cp Demo1.java t1/ddd.java
+</code></pre></li>
 </ul>
 </li>
 <li><p>复制<strong>目录</strong>：</p>
@@ -680,7 +695,8 @@ tail[必要参数][选择参数][文件]
 cp -r 需要复制的目录 复制的位置
 
 # 参数
--r或--recursive  递归处理，将指定目录下的文件与子目录一并处理 复制目录必须使用-r</code></pre>
+-r或--recursive  递归处理，将指定目录下的文件与子目录一并处理 复制目录必须使用-r
+</code></pre>
 </li>
 </ul>
 </li>
@@ -693,7 +709,8 @@ cp -r 需要复制的目录 复制的位置
      cp -r /root/t5 /root/t1
 
 cp ./abc ./xxx                #无法复制目录
-cp -r ./abc ./xxx            #复制目录必须使用 -r参数</code></pre></li>
+cp -r ./abc ./xxx            #复制目录必须使用 -r参数
+</code></pre></li>
 </ul>
 <h3 id="mv-移动、更名"><a href="#mv-移动、更名" class="headerlink" title="mv 移动、更名"></a><em>mv</em> 移动、更名</h3><ol>
 <li><p>mv(move) 功能： <strong>移动</strong> 或 <strong>更名</strong> 现有的文件或目录</p>
@@ -705,7 +722,8 @@ cp -r ./abc ./xxx            #复制目录必须使用 -r参数</code></pre></li
 mv -f 需要移动的文件 移动的位置
 
 # 参数
--f或--force 　若目标文件或目录与现有的文件或目录重复，则直接覆盖现有的文件或目录，不进行询问</code></pre>
+-f或--force 　若目标文件或目录与现有的文件或目录重复，则直接覆盖现有的文件或目录，不进行询问
+</code></pre>
 </li>
 <li><p>eg：</p>
 <pre><code>需求：把/root/t5 目录 移动到 /root/t3目录中
@@ -716,20 +734,23 @@ mv -f 需要移动的文件 移动的位置
         不询问，直接覆盖
 位置：/root
 已知：/root/t3目录中 已经有一个t5目录了
-命令：mv -f t5 t3</code></pre></li>
+命令：mv -f t5 t3
+</code></pre></li>
 </ul>
 </li>
 <li><p>文件<strong>更名</strong>：</p>
 <ul>
 <li><p>格式：</p>
 <pre><code class="shell">mv 需要移动的文件 新名字
-## 必须是在同一目录中进行此操作</code></pre>
+## 必须是在同一目录中进行此操作
+</code></pre>
 </li>
 <li><p>eg：</p>
 <pre><code>文件/目录更名操作：
 需求：把/root/Demo1.java  改名为 hehe.java
 位置：/root
-命令：mv Demo1.java hehe.java</code></pre></li>
+命令：mv Demo1.java hehe.java
+</code></pre></li>
 </ul>
 </li>
 </ol>
@@ -739,7 +760,8 @@ mv -f 需要移动的文件 移动的位置
 <li><p>删除<strong>文件</strong>：</p>
 <ul>
 <li><p><strong>语法</strong>：</p>
-<pre><code class="shell">rm 文件名</code></pre>
+<pre><code class="shell">rm 文件名
+</code></pre>
 </li>
 </ul>
 </li>
@@ -751,19 +773,22 @@ rm -rf 目录名
 
 # 参数
 -f或--force 　        强制删除文件或目录，不进行询问
--r或-R或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。删除目录必须使用-r</code></pre>
+-r或-R或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理。删除目录必须使用-r
+</code></pre>
 </li>
 </ul>
 </li>
 <li><p><strong>注意</strong>：</p>
 <pre><code class="shell">rm -rf *     删除 当前目录 下所有内容
-rm –rf /*    删除Linux系统 根目录 下所有内容</code></pre>
+rm –rf /*    删除Linux系统 根目录 下所有内容
+</code></pre>
 </li>
 <li><p>eg：</p>
 <pre><code>需求：删除/root/t5 目录， 
 位置：/root
 已知：t5目录下有子目录或者文件
-命令：rm -rf t5</code></pre></li>
+命令：rm -rf t5
+</code></pre></li>
 </ol>
 <h3 id="find-查找"><a href="#find-查找" class="headerlink" title="find 查找"></a><em>find</em> 查找</h3><ol>
 <li><p>find功能：查找文件或目录</p>
@@ -772,12 +797,14 @@ rm –rf /*    删除Linux系统 根目录 下所有内容</code></pre>
 <pre><code class="shell">find 目录名 -name &#39;需要查找的字符串&#39;
 
 -name 指定字符串作为寻找文件或目录的范本样式
-* 表示0~多个任意字符 eg：find t1 -name &#39;*.txt&#39;</code></pre>
+* 表示0~多个任意字符 eg：find t1 -name &#39;*.txt&#39;
+</code></pre>
 </li>
 <li><p>eg:</p>
 <pre><code>需求：查找/root目录下 所有以ins开头的文件或者目录
 位置：/root
-命令：find /root -name &#39;ins*&#39;</code></pre></li>
+命令：find /root -name &#39;ins*&#39;
+</code></pre></li>
 </ol>
 <h2 id="3-4、文档编辑命令"><a href="#3-4、文档编辑命令" class="headerlink" title="3.4、文档编辑命令"></a>3.4、文档编辑命令</h2><p>Windows是有记事本<br>Linux也有类似的记事本功能   VIM编辑器</p>
 <h3 id="VI-编辑"><a href="#VI-编辑" class="headerlink" title="VI 编辑"></a><em>VI</em> 编辑</h3><ol>
@@ -830,7 +857,8 @@ rm –rf /*    删除Linux系统 根目录 下所有内容</code></pre>
 grep -i 需要搜索的字符串 搜索的文件
 
 # 参数
--i 忽略大小写查找数据</code></pre>
+-i 忽略大小写查找数据
+</code></pre>
 <p>符合规则，就会返回符合规则的<strong>行</strong></p>
 </li>
 </ol>
@@ -839,7 +867,8 @@ grep -i 需要搜索的字符串 搜索的文件
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1538638149167.png" alt="1538638149167"></p>
 </li>
 <li><p>格式：</p>
-<pre><code class="seh">命令1 | 命令2 | 命令3……</code></pre>
+<pre><code class="seh">命令1 | 命令2 | 命令3……
+</code></pre>
 </li>
 <li><p>eg：</p>
 <pre><code>需求：查询当前目录中，所有带ins关键字的行数据
@@ -849,7 +878,8 @@ grep -i 需要搜索的字符串 搜索的文件
 命令：ll | grep ins
 
 需求：分页显示ls的help信息
-命令：ls --help | more</code></pre></li>
+命令：ls --help | more
+</code></pre></li>
 </ol>
 <h3 id="重定向输出-gt-gt-gt"><a href="#重定向输出-gt-gt-gt" class="headerlink" title="重定向输出&gt; &gt;&gt;"></a>重定向输出&gt; &gt;&gt;</h3><ol>
 <li><p>重定向输出</p>
@@ -870,13 +900,14 @@ grep -i 需要搜索的字符串 搜索的文件
 <ul>
 <li><p>将一个文件夹的内容保存到文本文件中去，也就是将<code>ls</code>命令打印出来的内容都写到文本中去可以这样：</p>
 <pre><code class="shell"># a.txt文件中就是ls命令打印出来的内容了
-ls -al &gt;&gt; a.txt</code></pre>
+ls -al &gt;&gt; a.txt
+</code></pre>
 </li>
 </ul>
 </li>
 </ol>
 <h2 id="3-6、压缩、解压命令【重要】"><a href="#3-6、压缩、解压命令【重要】" class="headerlink" title="3.6、压缩、解压命令【重要】"></a>3.6、压缩、解压命令【重要】</h2><ol>
-<li><p>Linux常见压缩包： *.tar        打包，大小不会进行压缩<br>​              *.tar.gz   打包并压缩文件大小</p>
+<li><p>Linux常见压缩包： <em>.tar        打包，大小不会进行压缩<br>​              </em>.tar.gz   打包并压缩文件大小</p>
 </li>
 <li><p><strong>压缩</strong>：(<strong>参数顺序不变</strong>)</p>
 <pre><code># 格式
@@ -887,8 +918,10 @@ tar -zcvf 压缩包名字.tar.gz 需要压缩的内容
 -c 建立一个压缩文件的参数指令（create）--压缩
 -v 压缩的过程中显示文件（verbose）
 -f 使用档案名称，在 f 之后要立即接档名（file）
+
 </code></pre><p>eg：</p>
 <pre><code>例如：tar -zcvf hehe.tar.gz *   将当前目录下所有内容进行打包压缩，文件名hehe.tar.gz
+
 </code></pre></li>
 <li><p><strong>解压</strong>：(<strong>参数顺序不变</strong>)</p>
 <pre><code># 解压到当前目录
@@ -901,37 +934,45 @@ tar -zxvf 需要解压的压缩包名称 -C 指定压缩路径  解压到指定�
 -x 解开一个压缩文件的参数指令（extract）--解压
 -v 压缩的过程中显示文件（verbose）
 -f 使用档名，在 f 之后要立即接档名（file）
+
 </code></pre><p>eg：</p>
 <pre><code>需求：需要把/root/t5/hehe.tar.gz  压缩包 解压到 指定目录中。指定目录/root/t5/t5
 位置：/root/t5
 命令：tar -zxvf hehe.tar.gz -C /root/t5/t5
 tar -zxvf hehe.tar.gz -C t5
+
 </code></pre></li>
 </ol>
 <h2 id="3-7、系统命令"><a href="#3-7、系统命令" class="headerlink" title="3.7、系统命令"></a>3.7、系统命令</h2><h3 id="系统服务"><a href="#系统服务" class="headerlink" title="系统服务"></a>系统服务</h3><p>服务，是指常期运行，常驻内存中的进程，比如，apache、mysql、ssh等</p>
 <h4 id="服务与端口"><a href="#服务与端口" class="headerlink" title="服务与端口"></a>服务与端口</h4><p>每个服务软件一般在运行时都会对应一个端口。<br>查看监听的端口：</p>
-<pre><code class="shell">ss –lntp</code></pre>
+<pre><code class="shell">ss –lntp
+</code></pre>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1539792074690.png" alt="1539792074690"></p>
 <h4 id="防火墙及防火墙设置"><a href="#防火墙及防火墙设置" class="headerlink" title="防火墙及防火墙设置"></a>防火墙及防火墙设置</h4><p>CentOS 7.0默认使用的是<code>firewall</code>作为防火墙，使用<code>iptables</code>必须重新设置一下</p>
 <p>查看防火墙状态：</p>
 <pre><code class="shell">firewall-cmd --state
 # running 防火墙处于开启状态
-# not running 防火墙处于关闭状态</code></pre>
+# not running 防火墙处于关闭状态
+</code></pre>
 <h5 id="直接关闭防火墙"><a href="#直接关闭防火墙" class="headerlink" title="直接关闭防火墙"></a>直接关闭防火墙</h5><p>停止<strong>firewall</strong>：</p>
-<pre><code class="shell">systemctl stop firewalld.service</code></pre>
+<pre><code class="shell">systemctl stop firewalld.service
+</code></pre>
 <p>禁止<strong>firewall</strong>开机启动：</p>
-<pre><code class="shell">systemctl disable firewalld.service </code></pre>
+<pre><code class="shell">systemctl disable firewalld.service 
+</code></pre>
 <h4 id="查看系统进程：ps-ef"><a href="#查看系统进程：ps-ef" class="headerlink" title="查看系统进程：ps -ef"></a>查看系统进程：ps -ef</h4><pre><code>需求：查看进程中 和 vim相关的进程
 命令：ps -ef|grep -i vim
 
 -e 　此参数的效果和指定&quot;A&quot;参数相同，显示所有程序
 -f 　显示UID,PPIP,C与STIME栏位
+
 </code></pre><h4 id="强制杀死某个进程：kill-9-pid号"><a href="#强制杀死某个进程：kill-9-pid号" class="headerlink" title="强制杀死某个进程：kill -9 pid号"></a>强制杀死某个进程：kill -9 pid号</h4><pre><code>需求：查看进程 和 vim相关的进程有哪些，并将vim进程杀死
 命令：ps -ef|grep -i vim
      Kill -9 pid号
 
 -l &lt;信息编号&gt; 　若不加&lt;信息编号&gt;选项，则-l参数会列出全部的信息名称
 kill 9 表示强制终止
+
 </code></pre><ol>
 <li>查看网络配置：<strong>ifconfig</strong><ul>
 <li>显示网络设备</li>
@@ -954,6 +995,7 @@ chmod [参数] [&lt;权限范围&gt;&lt;符号&gt;&lt;权限代号&gt;]
 
 # 参数
 -R或--recursive 　递归处理，将指定目录下的所有文件及子目录一并处理
+
 </code></pre><ul>
 <li>权限范围的表示法如下：<ul>
 <li>u：User，即文件或目录的拥有者</li>
@@ -982,6 +1024,7 @@ ll | grep xxx
 chmod u-rwx xxx        #取消xxx目录，用户“读写执行”权限
 chmod g-rwx xxx     #取消xxx目录，组“读写执行”权限
 chmod 777 xxx        #给xxx目录添加所有权限
+
 </code></pre></li>
 <li><p>linux 权限格式：&lt;类型&gt;&lt;用户&gt;&lt;组&gt;&lt;其他用户&gt;</p>
 <p><img src="https://raw.githubusercontent.com/xiongtianci-tc/myHexoBlog/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1543568285232.png" alt="img"></p>
@@ -1000,6 +1043,7 @@ BOOTPROTO=static            #静态获取IP，其他取值：dhcp （如果设�
 IPADDR=192.168.44.100       #ip地址
 GATEWAY=192.168.44.2        #网关
 NETMASK=255.255.255.0       #子网掩码
+
 </code></pre></li>
 </ul>
 </li>
@@ -1027,11 +1071,13 @@ NETMASK=255.255.255.0       #子网掩码
 <pre><code>cd   切换目录（change directory）
 pwd  显示当前工作目录（print working directory）
 help 帮助
+
 </code></pre></li>
 <li><p>外部命令：独立于Shell解析器之外的文件程序（独立的可执行文件）</p>
 <pre><code>ls    显示文件和目录列表（list）
 mkdir 创建目录（make directoriy）
 cp    复制文件或目录（copy）
+
 </code></pre></li>
 <li><p>查看帮助文档</p>
 <ul>
@@ -1160,7 +1206,7 @@ cp    复制文件或目录（copy）
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1172,10 +1218,10 @@ cp    复制文件或目录（copy）
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -1220,7 +1266,7 @@ cp    复制文件或目录（copy）
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -1231,24 +1277,6 @@ cp    复制文件或目录（copy）
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -1258,9 +1286,9 @@ cp    复制文件或目录（copy）
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1379,6 +1407,22 @@ cp    复制文件或目录（copy）
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -1606,10 +1650,9 @@ cp    复制文件或目录（copy）
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1638,7 +1681,7 @@ cp    复制文件或目录（copy）
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1650,20 +1693,5 @@ cp    复制文件或目录（copy）
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -400,9 +400,7 @@
 <p>Chrome版本：74.0.3729.131</p>
 </blockquote>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="方案一：反编译修改chrome-dll文件"><a href="#方案一：反编译修改chrome-dll文件" class="headerlink" title="方案一：反编译修改chrome.dll文件"></a>方案一：反编译修改chrome.dll文件</h2><h3 id="1-1-下载x64dbg"><a href="#1-1-下载x64dbg" class="headerlink" title="1.1 下载x64dbg"></a>1.1 下载x64dbg</h3><p>下载地址：<a href="https://github.com/x64dbg/x64dbg/releases" target="_blank" rel="noopener">https://github.com/x64dbg/x64dbg/releases</a><br>选择最新版本进行下载：<img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200649190.png" alt="20190509200649190.png"><br>下载好之后，解压打开<code>release</code>，可以点击<code>x96dbg</code>选择<code>x64dbg</code>，也可以直接选择<code>x64</code>文件夹中的<code>x64dbg</code>，如果你是<code>32位</code>的系统还可以选择<code>x32dbg</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200733234.png" alt="在这里插入图片描述"></p>
-<h3 id="1-2-反编译chrome-dll"><a href="#1-2-反编译chrome-dll" class="headerlink" title="1.2 反编译chrome.dll"></a>1.2 反编译chrome.dll</h3><p>通过 <code>右键chrome图标</code> –&gt; <code>属性</code> –&gt; <code>打开文件的所在位置</code> 找到<code>chrome.dll</code>文件<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/2019050920091629.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200924590.png" alt="在这里插入图片描述"><br>将<code>chrome.dll</code>文件拖入<code>x64.dbg</code>，会出现两个弹窗，其中黑色命令行弹窗不要关掉。如图：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201022963.png" alt="在这里插入图片描述">然后连续多次点击<code>运行到用户代码</code>按钮（我这里是连续点击6下），直至窗口标题处的模块变成<code>chrome.dll</code>：
-<img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201142813.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201224765.png" alt="在这里插入图片描述"><br>然后在主面板右键依次选择 <code>搜索</code>  –&gt; <code>当前模块</code> –&gt; <code>字符串</code>：
-<img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201307958.png" alt="在这里插入图片描述"><br>然后会打开一个搜索界面，等待模块搜索进度条<code>100%</code>也就是加载完毕：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201331276.png" alt="在这里插入图片描述"><br>在<code>搜索</code>框输入<code>ExtensionDeveloperModeWarning</code>进行搜索，会搜到2条结果，双击第1个，跳转到反汇编界面，往上翻一点，找到<code>cmp eax,2</code>（也有可能是 cmp eax,3 ）：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/201905092013524.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201416572.png" alt="在这里插入图片描述"><br>双击打开编辑页面，修改成<code>cmp eax,9</code>，然后点击<code>确定</code>，注意只需要<code>点击一次确定</code>即可，点击确定后它还是会继续弹出其它行的编辑界面，此时直接关闭对话框即可：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201440897.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201502878.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201514611.png" alt="在这里插入图片描述"><br>修改完之后<code>Ctrl+P</code>导出修改过的dll文件（点击修补文件按钮就是导出dll文件）：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/2019050920153199.png" alt="在这里插入图片描述"><br>然后把dll文件导出到任意其他位置，然后把原始<code>chrome.dll</code>文件==<strong>备份</strong>==（以免操作失误，否则只能重装Chrome），先关掉<code>x64dbg</code>，将刚刚导出的修补文件以<code>chrome.dll</code>命名然后覆盖原来的<code>chrome.dll</code>文件，重启Chrome，发现整个世界都清净了~~</p>
+<h3 id="1-2-反编译chrome-dll"><a href="#1-2-反编译chrome-dll" class="headerlink" title="1.2 反编译chrome.dll"></a>1.2 反编译chrome.dll</h3><p>通过 <code>右键chrome图标</code> –&gt; <code>属性</code> –&gt; <code>打开文件的所在位置</code> 找到<code>chrome.dll</code>文件<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/2019050920091629.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509200924590.png" alt="在这里插入图片描述"><br>将<code>chrome.dll</code>文件拖入<code>x64.dbg</code>，会出现两个弹窗，其中黑色命令行弹窗不要关掉。如图：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201022963.png" alt="在这里插入图片描述">然后连续多次点击<code>运行到用户代码</code>按钮（我这里是连续点击6下），直至窗口标题处的模块变成<code>chrome.dll</code>：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201142813.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201224765.png" alt="在这里插入图片描述"><br>然后在主面板右键依次选择 <code>搜索</code>  –&gt; <code>当前模块</code> –&gt; <code>字符串</code>：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201307958.png" alt="在这里插入图片描述"><br>然后会打开一个搜索界面，等待模块搜索进度条<code>100%</code>也就是加载完毕：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201331276.png" alt="在这里插入图片描述"><br>在<code>搜索</code>框输入<code>ExtensionDeveloperModeWarning</code>进行搜索，会搜到2条结果，双击第1个，跳转到反汇编界面，往上翻一点，找到<code>cmp eax,2</code>（也有可能是 cmp eax,3 ）：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/201905092013524.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201416572.png" alt="在这里插入图片描述"><br>双击打开编辑页面，修改成<code>cmp eax,9</code>，然后点击<code>确定</code>，注意只需要<code>点击一次确定</code>即可，点击确定后它还是会继续弹出其它行的编辑界面，此时直接关闭对话框即可：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201440897.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201502878.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/20190509201514611.png" alt="在这里插入图片描述"><br>修改完之后<code>Ctrl+P</code>导出修改过的dll文件（点击修补文件按钮就是导出dll文件）：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190509-%E5%BD%BB%E5%BA%95%E7%A6%81%E7%94%A8Chrome%E7%9A%84%E2%80%9C%E8%AF%B7%E5%81%9C%E7%94%A8%E4%BB%A5%E5%BC%80%E5%8F%91%E8%80%85%E6%A8%A1%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%E6%89%A9%E5%B1%95%E7%A8%8B%E5%BA%8F%E2%80%9D%E6%8F%90%E7%A4%BA/2019050920153199.png" alt="在这里插入图片描述"><br>然后把dll文件导出到任意其他位置，然后把原始<code>chrome.dll</code>文件==<strong>备份</strong>==（以免操作失误，否则只能重装Chrome），先关掉<code>x64dbg</code>，将刚刚导出的修补文件以<code>chrome.dll</code>命名然后覆盖原来的<code>chrome.dll</code>文件，重启Chrome，发现整个世界都清净了~~</p>
 
         </div>
         <!-- .entry-content -->
@@ -517,7 +515,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -529,10 +527,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -577,7 +575,7 @@
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -588,24 +586,6 @@
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -615,9 +595,9 @@
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -736,6 +716,22 @@
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -963,10 +959,9 @@
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -995,7 +990,7 @@
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1007,20 +1002,5 @@
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

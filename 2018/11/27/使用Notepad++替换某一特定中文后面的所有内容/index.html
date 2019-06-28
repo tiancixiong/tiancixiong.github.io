@@ -397,16 +397,14 @@
           <h3 id="需求：删除”电影描述”以及其后面的内容"><a href="#需求：删除”电影描述”以及其后面的内容" class="headerlink" title="需求：删除”电影描述”以及其后面的内容"></a>需求：删除”电影描述”以及其后面的内容</h3><blockquote>
 <p>Top1 肖申克的救赎    评分：9.6    电影描述：希望让人自由<br>Top2 霸王别姬    评分：9.5    电影描述：风华绝代<br>Top3 这个杀手不太冷    评分：9.4    电影描述：怪蜀黍和小萝莉不得不说的故事<br>Top4 阿甘正传    评分：9.4    电影描述：一部美国近现代史<br>Top5 美丽人生    评分：9.5    电影描述：最美的谎言<br>Top6 千与千寻    评分：9.2    电影描述：最好的宫崎骏，最好的久石让<br>Top7 泰坦尼克号    评分：9.2    电影描述：失去的才是永恒的<br>Top8 辛德勒的名单    评分：9.4    电影描述：拯救一个人，就是拯救整个世界<br>Top9 盗梦空间    评分：9.3    电影描述：诺兰给了我们一场无法盗取的梦<br>Top10 机器人总动员    评分：9.3    电影描述：小瓦力，大人生<br>Top11 海上钢琴师    评分：9.2    电影描述：每个人都要走一条自己坚定了的路，就算是粉身碎骨<br>Top12 三傻大闹宝莱坞    评分：9.1    电影描述：英俊版憨豆，高情商版谢耳朵<br>Top13 忠犬八公的故事    评分：9.2    电影描述：永远都不能忘记你所爱的人<br>Top14 放牛班的春天    评分：9.2    电影描述：天籁一般的童声，是最接近上帝的存在<br>Top15 大话西游之大圣娶亲    评分：9.2    电影描述：一生所爱</p>
 </blockquote>
-<br>
-
+<p><br></p>
 <h3 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h3><ol>
 <li>Ctrl+R 打开替换窗口</li>
 <li>在”查找目标”中输入：特定字符.*</li>
 <li>选择右下角的”正则表达式”</li>
 <li>点击”全部替换”<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181127-%E4%BD%BF%E7%94%A8Notepad%2B%2B%E6%9B%BF%E6%8D%A2%E6%9F%90%E4%B8%80%E7%89%B9%E5%AE%9A%E4%B8%AD%E6%96%87%E5%90%8E%E9%9D%A2%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/20181127104259536.png" alt="在这里插入图片描述"></li>
 </ol>
-<br>
-
+<p><br></p>
 <h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><blockquote>
 <p>Top1 肖申克的救赎    评分：9.6<br>Top2 霸王别姬    评分：9.5<br>Top3 这个杀手不太冷    评分：9.4<br>Top4 阿甘正传    评分：9.4<br>Top5 美丽人生    评分：9.5<br>Top6 千与千寻    评分：9.2<br>Top7 泰坦尼克号    评分：9.2<br>Top8 辛德勒的名单    评分：9.4<br>Top9 盗梦空间    评分：9.3<br>Top10 机器人总动员    评分：9.3<br>Top11 海上钢琴师    评分：9.2<br>Top12 三傻大闹宝莱坞    评分：9.1<br>Top13 忠犬八公的故事    评分：9.2<br>Top14 放牛班的春天    评分：9.2<br>Top15 大话西游之大圣娶亲    评分：9.2  </p>
 </blockquote>
@@ -524,7 +522,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -536,10 +534,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -584,7 +582,7 @@
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -595,24 +593,6 @@
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -622,9 +602,9 @@
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -743,6 +723,22 @@
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -970,10 +966,9 @@
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1002,7 +997,7 @@
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1014,20 +1009,5 @@
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

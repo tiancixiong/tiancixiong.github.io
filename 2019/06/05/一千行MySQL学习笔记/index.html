@@ -401,13 +401,15 @@
 <h1 id="Windows服务"><a href="#Windows服务" class="headerlink" title="Windows服务"></a>Windows服务</h1><pre><code class="sql">-- 启动mysql
 net start mysql
 -- 创建windows服务(注意：等号与值之间有空格)
-sc create mysql binpath= mysqld_bin_path</code></pre>
+sc create mysql binpath= mysqld_bin_path
+</code></pre>
 <h1 id="连接与断开服务器"><a href="#连接与断开服务器" class="headerlink" title="连接与断开服务器"></a>连接与断开服务器</h1><pre><code class="sql">-- 连接（地址、端口可不填，默认为localhost:3306）
 mysql -h 地址 -p 端口 -u 用户名 -p 密码
 -- 显示哪些线程正在运行
 show processlist
 -- 显示系统变量信息
-show variables</code></pre>
+show variables
+</code></pre>
 <h1 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h1><pre><code class="sql">-- 查看当前数据库
 select database();
 -- 显示当前时间、用户名、数据库版本
@@ -425,7 +427,8 @@ show create database 数据库名
 alter database 库名 选项信息
 -- 删除库
 drop database[ if exists] 数据库名
-    -- 同时删除该数据库相关的目录及其目录内容</code></pre>
+    -- 同时删除该数据库相关的目录及其目录内容
+</code></pre>
 <h1 id="表的操作"><a href="#表的操作" class="headerlink" title="表的操作"></a>表的操作</h1><pre><code class="sql">-- 创建表
 create [temporary] table [if not exists] [库名.]表名 (表的结构定义) [表选项]
     每个字段必须有数据类型
@@ -509,7 +512,8 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
 -- 修复表
 repair [local | no_write_to_binlog] table tbl_name [, tbl_name] ... [quick] [extended] [use_frm]
 -- 分析表
-analyze [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pre>
+analyze [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
+</code></pre>
 <h1 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h1><pre><code class="sql">-- 增
 insert [into] 表名 [(字段列表)] values (值列表)[, (值列表), ...]
     -- 如果要插入的值列表包含所有字段并且顺序一致，则可以省略字段列表。
@@ -528,7 +532,8 @@ delete from 表名[ 删除条件子句]
     没有条件子句，则会删除全部
 
 -- 改
-update 表名 set 字段名=新值[, 字段名=新值] [更新条件]</code></pre>
+update 表名 set 字段名=新值[, 字段名=新值] [更新条件]
+</code></pre>
 <h1 id="字符集编码"><a href="#字符集编码" class="headerlink" title="字符集编码"></a>字符集编码</h1><pre><code class="sql">-- mysql、数据库、表、字段均可设置编码
 -- 数据编码与客户端编码不需一致
 show variables like &#39;character_set_%&#39;   -- 查看所有字符集编码项
@@ -546,7 +551,8 @@ set names gbk;  -- 相当于完成以上三个设置
     show character set [like &#39;pattern&#39;]/show charset [like &#39;pattern&#39;]   查看所有字符集
     show collation [like &#39;pattern&#39;]     查看所有校对集
     charset 字符集编码     设置字符集编码
-    collate 校对集编码     设置校对集编码</code></pre>
+    collate 校对集编码     设置校对集编码
+</code></pre>
 <h1 id="数据类型（列类型）"><a href="#数据类型（列类型）" class="headerlink" title="数据类型（列类型）"></a>数据类型（列类型）</h1><pre><code class="sql">1. 数值类型
 -- a. 整型 ----------
     类型         字节     范围（有符号位）
@@ -642,7 +648,8 @@ set(val1, val2, val3...)
     create table tab ( gender set(&#39;男&#39;, &#39;女&#39;, &#39;无&#39;) );
     insert into tab values (&#39;男, 女&#39;);
     最多可以有64个不同的成员。以bigint存储，共8个字节。采取位运算的形式。
-    当创建表时，set成员值的尾部空格将自动被删除。</code></pre>
+    当创建表时，set成员值的尾部空格将自动被删除。
+</code></pre>
 <h1 id="选择类型"><a href="#选择类型" class="headerlink" title="选择类型"></a>选择类型</h1><pre><code class="sql">-- php角度
 1. 功能满足
 2. 存储空间尽量小，处理效率更高
@@ -657,7 +664,8 @@ set(val1, val2, val3...)
         然后用long2ip将整型转回ip字符串
     2) mysql函数转换(无符号整型，unsigned)
         inet_aton(&#39;127.0.0.1&#39;) 将ip转为整型
-        inet_ntoa(2130706433) 将整型转为ip</code></pre>
+        inet_ntoa(2130706433) 将整型转为ip
+</code></pre>
 <h1 id="列属性（列约束）"><a href="#列属性（列约束）" class="headerlink" title="列属性（列约束）"></a>列属性（列约束）</h1><pre><code class="sql">1. primary 主键
     - 能唯一标识记录的字段，可以作为主键。
     - 一个表只能有一个主键。
@@ -705,7 +713,8 @@ set(val1, val2, val3...)
     1. cascade，级联操作。主表数据被更新（主键值更新），从表也被更新（外键值更新）。主表记录被删除，从表相关记录也被删除。
     2. set null，设置为null。主表数据被更新（主键值更新），从表的外键被设置为null。主表记录被删除，从表相关记录外键被设置成null。但注意，要求该外键列，没有not null属性约束。
     3. restrict，拒绝父表删除和更新。
-    注意，外键只被innodb存储引擎所支持。其他引擎是不支持的。</code></pre>
+    注意，外键只被innodb存储引擎所支持。其他引擎是不支持的。
+</code></pre>
 <h1 id="建表规范"><a href="#建表规范" class="headerlink" title="建表规范"></a>建表规范</h1><pre><code class="sql">-- normal format, nf
     - 每个表保存一个实体信息
     - 每个具有一个id字段作为主键
@@ -718,7 +727,8 @@ set(val1, val2, val3...)
 -- 3nf, 第三范式
     满足第二范式的前提下，不能出现传递依赖。
     某个字段依赖于主键，而有其他字段依赖于该字段。这就是传递依赖。
-    将一个实体信息的数据放在一个表内实现。</code></pre>
+    将一个实体信息的数据放在一个表内实现。
+</code></pre>
 <h1 id="select"><a href="#select" class="headerlink" title="select"></a>select</h1><pre><code class="sql">select [all|distinct] select_expr from -&gt; where -&gt; group by [合计函数] -&gt; having -&gt; order by -&gt; limit
 a. select_expr
     -- 可以用 * 表示所有字段。
@@ -777,14 +787,16 @@ g. limit 子句，限制结果数量子句
     省略第一个参数，表示从索引0开始。limit 获取条数
 h. distinct, all 选项
     distinct 去除重复记录
-    默认为 all, 全部记录</code></pre>
+    默认为 all, 全部记录
+</code></pre>
 <h1 id="union"><a href="#union" class="headerlink" title="union"></a>union</h1><pre><code class="sql">将多个select查询的结果组合成一个结果集合。
 select ... union [all|distinct] select ...
 默认 distinct 方式，即所有返回的行都是唯一的
 建议，对每个select查询加上小括号包裹。
 order by 排序时，需加上 limit 进行结合。
 需要各select查询的字段数量一样。
-每个select查询的字段列表(数量、类型)应一致，因为结果中的字段名以第一条select语句为准。</code></pre>
+每个select查询的字段列表(数量、类型)应一致，因为结果中的字段名以第一条select语句为准。
+</code></pre>
 <h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><pre><code>    - 子查询需用括号包裹。
 -- from型
     from后要求是一个表，必须给子查询结果取个别名。
@@ -812,7 +824,8 @@ order by 排序时，需加上 limit 进行结合。
     != all()    相当于 not in
     = some()    相当于 in。any 是 some 的别名
     != some()   不等同于 not in，不等于其中某一个。
-    all, some 可以配合其他运算符一起使用。</code></pre><h1 id="连接查询-join"><a href="#连接查询-join" class="headerlink" title="连接查询(join)"></a>连接查询(join)</h1><pre><code class="sql">    将多个表的字段进行连接，可以指定连接条件。
+    all, some 可以配合其他运算符一起使用。
+</code></pre><h1 id="连接查询-join"><a href="#连接查询-join" class="headerlink" title="连接查询(join)"></a>连接查询(join)</h1><pre><code class="sql">    将多个表的字段进行连接，可以指定连接条件。
 -- 内连接(inner join)
     - 默认就是内连接，可省略inner。
     - 只有数据存在时才能发送连接。即连接结果不能出现空行。
@@ -854,7 +867,8 @@ fields  控制字段格式
         from test_table;
 lines   控制行格式
 默认：lines terminated by &#39;\n&#39;
-    terminated by &#39;string&#39;  -- 终止</code></pre>
+    terminated by &#39;string&#39;  -- 终止
+</code></pre>
 <h1 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h1><pre><code class="sql">select语句获得的数据可以用insert插入。
 可以省略对列的指定，要求 values () 括号内，提供给了按照列顺序出现的所有字段的值。
     或者使用set语法。
@@ -868,7 +882,8 @@ lines   控制行格式
 可以通过一个查询的结果，作为需要插入的值。
     insert into tbl_name select ...;
 可以指定在插入的值出现主键（或唯一索引）冲突时，更新其他非主键列的信息。
-    insert into tbl_name values/set/select on duplicate key update 字段=值, …;</code></pre>
+    insert into tbl_name values/set/select on duplicate key update 字段=值, …;
+</code></pre>
 <h1 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h1><pre><code class="sql">delete from tbl_name [where where_definition] [order by ...] [limit row_count]
 按照条件删除。where
 指定删除的最多记录数。limit
@@ -883,7 +898,8 @@ truncate [table] tbl_name
 1，truncate 是删除表再创建，delete 是逐条删除
 2，truncate 重置auto_increment的值。而delete不会
 3，truncate 不知道删除了几条，而delete知道。
-4，当被用于带分区的表时，truncate 会保留分区</code></pre>
+4，当被用于带分区的表时，truncate 会保留分区
+</code></pre>
 <h1 id="备份与还原"><a href="#备份与还原" class="headerlink" title="备份与还原"></a>备份与还原</h1><pre><code class="sql">备份，将数据的结构与表内数据保存起来。
 利用 mysqldump 指令完成。
 -- 导出
@@ -903,7 +919,8 @@ mysqldump [options] --all--database
 1. 在登录mysql的情况下：
 　　source  备份文件
 2. 在不登录的情况下
-　　mysql -u用户名 -p密码 库名 &lt; 备份文件</code></pre>
+　　mysql -u用户名 -p密码 库名 &lt; 备份文件
+</code></pre>
 <h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><pre><code class="sql">什么是视图：
     视图是一个虚拟表，其内容由查询定义。同真实的表一样，视图包含一系列带有名称的列和行数据。但是，视图并不在数据库中以存储的数据值集形式存在。行和列数据来自由定义视图的查询所引用的表，并且在引用视图时动态生成。
     视图具有表结构文件，但不存在数据文件。
@@ -932,7 +949,8 @@ create [or replace] [algorithm = {undefined | merge | temptable}] view view_name
         将视图的查询语句，与外部查询需要先合并再执行！
     temptable   临时表
         将视图执行完毕后，形成临时表，再做外层查询！
-    undefined   未定义(默认)，指的是mysql自主去选择相应的算法。</code></pre>
+    undefined   未定义(默认)，指的是mysql自主去选择相应的算法。
+</code></pre>
 <h1 id="事务-transaction"><a href="#事务-transaction" class="headerlink" title="事务(transaction)"></a>事务(transaction)</h1><pre><code class="sql">事务是指逻辑上的一组操作，组成这组操作的各个单元，要不全成功要不全失败。
     - 支持连续sql的集体成功或集体撤销。
     - 事务是数据库在数据晚自习方面的一个功能。
@@ -977,13 +995,15 @@ create [or replace] [algorithm = {undefined | merge | temptable}] view view_name
     - 如果关闭了，那普通操作的结果对其他客户端也不可见，需要commit提交后才能持久化数据操作。
     - 也可以关闭自动提交来开启事务。但与start transaction不同的是，
         set autocommit是永久改变服务器的设置，直到下次再次修改该设置。(针对当前连接)
-        而start transaction记录开启前的状态，而一旦事务提交或回滚后就需要再次开启事务。(针对当前事务)</code></pre>
+        而start transaction记录开启前的状态，而一旦事务提交或回滚后就需要再次开启事务。(针对当前事务)
+</code></pre>
 <h1 id="锁表"><a href="#锁表" class="headerlink" title="锁表"></a>锁表</h1><pre><code class="sql">表锁定只用于防止其它客户端进行不正当地读取和写入
 myisam 支持表锁，innodb 支持行锁
 -- 锁定
     lock tables tbl_name [as alias]
 -- 解锁
     unlock tables
+
 </code></pre>
 <h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><pre><code class="sql">    触发程序是与表有关的命名数据库对象，当该表出现特定事件时，将激活该对象
     监听：记录的增加、修改、删除。
@@ -1031,7 +1051,8 @@ end
     如果没有重复记录，会触发 before insert, after insert;
     如果有重复记录并更新，会触发 before insert, before update, after update;
     如果有重复记录但是没有发生更新，则触发 before insert, before update
-3. replace 语法 如果有记录，则执行 before insert, before delete, after delete, after insert</code></pre>
+3. replace 语法 如果有记录，则执行 before insert, before delete, after delete, after insert
+</code></pre>
 <h1 id="SQL编程"><a href="#SQL编程" class="headerlink" title="SQL编程"></a>SQL编程</h1><pre><code class="sql">--// 局部变量 ----------
 -- 变量声明
     declare var_name[,...] type [default value]
@@ -1160,7 +1181,8 @@ create procedure sp_name (参数列表)
 in，表示输入型
 out，表示输出型
 inout，表示混合型
-注意，没有返回值。</code></pre>
+注意，没有返回值。
+</code></pre>
 <h1 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h1><pre><code class="sql">存储过程是一段可执行性代码的集合。相比函数，更偏向于业务逻辑。
 调用：call 过程名
 -- 注意
@@ -1175,7 +1197,8 @@ inout   输入输出：既可输入，也可输出
 create procedure 过程名 (参数列表)
 begin
     过程体
-end</code></pre>
+end
+</code></pre>
 <h1 id="用户和权限管理"><a href="#用户和权限管理" class="headerlink" title="用户和权限管理"></a>用户和权限管理</h1><pre><code class="sql">-- root密码重置
 1. 停止mysql服务
 2.  [linux] /usr/local/mysql/bin/safe_mysqld --skip-grant-tables &amp;
@@ -1251,14 +1274,16 @@ shutdown    -- 允许使用mysqladmin shutdown
 super   -- 允许使用change master, kill, purge master logs和set global语句，mysqladmin debug命令；允许您连接（一次），即使已达到max_connections。
 update  -- 允许使用update
 usage   -- “无权限”的同义词
-grant option    -- 允许授予权限</code></pre>
+grant option    -- 允许授予权限
+</code></pre>
 <h1 id="表维护"><a href="#表维护" class="headerlink" title="表维护"></a>表维护</h1><pre><code class="sql">-- 分析和存储表的关键字分布
 analyze [local | no_write_to_binlog] table 表名 ...
 -- 检查一个或多个表是否有错误
 check table tbl_name [, tbl_name] ... [option] ...
 option = {quick | fast | medium | extended | changed}
 -- 整理数据文件的碎片
-optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pre>
+optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
+</code></pre>
 <h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><pre><code class="sql">1. 可用反引号（`）为标识符（库名、表名、字段名、索引、别名）包裹，以避免与关键字重名！中文也可以作为标识符！
 2. 每个库目录存在一个保存当前数据库的选项文件db.opt。
 3. 注释：
@@ -1271,7 +1296,8 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
     单引号需要进行转义 \&#39;
 5. cmd命令行内的语句结束符可以为 &quot;;&quot;, &quot;\g&quot;, &quot;\g&quot;，仅影响显示结果。其他地方还是用分号结束。delimiter 可修改当前对话的语句结束符。
 6. sql对大小写不敏感
-7. 清除已有语句：\c</code></pre>
+7. 清除已有语句：\c
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -1386,7 +1412,7 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1398,10 +1424,10 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -1446,7 +1472,7 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -1457,24 +1483,6 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -1484,9 +1492,9 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -1605,6 +1613,22 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -1832,10 +1856,9 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1864,7 +1887,7 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1876,20 +1899,5 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...</code></pr
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

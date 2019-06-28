@@ -408,7 +408,8 @@ hexo g
 hexo d
 
 # 启动服务器预览
-hexo s</code></pre>
+hexo s
+</code></pre>
 <h1 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h1><pre><code class="shell"># 安装hexo
 npm install hexo -g
 
@@ -426,59 +427,66 @@ npm -v
 # 查看git版本号
 git --version
 # 查看hexo版本号
-hexo -v</code></pre>
+hexo -v
+</code></pre>
 <h1 id="插件安装和卸载"><a href="#插件安装和卸载" class="headerlink" title="插件安装和卸载"></a>插件安装和卸载</h1><pre><code class="shell"># 安装插件
 npm install hexo-xxx-xxx --save
 
 # 卸载插件
-npm uninstall hexo-xxx-xxx --save</code></pre>
+npm uninstall hexo-xxx-xxx --save
+</code></pre>
 <h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><table>
 <thead>
 <tr>
-<th align="center">指令</th>
-<th align="center">简写</th>
-<th align="center">描述</th>
+<th style="text-align:center">指令</th>
+<th style="text-align:center">简写</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">hexo new</td>
-<td align="center">hexo n</td>
-<td align="center">新建文章</td>
+<tbody>
+<tr>
+<td style="text-align:center">hexo new</td>
+<td style="text-align:center">hexo n</td>
+<td style="text-align:center">新建文章</td>
 </tr>
 <tr>
-<td align="center">hexo generate</td>
-<td align="center">hexo g</td>
-<td align="center">生成静态文件</td>
+<td style="text-align:center">hexo generate</td>
+<td style="text-align:center">hexo g</td>
+<td style="text-align:center">生成静态文件</td>
 </tr>
 <tr>
-<td align="center">hexo deploy</td>
-<td align="center">hexo d</td>
-<td align="center">部署</td>
+<td style="text-align:center">hexo deploy</td>
+<td style="text-align:center">hexo d</td>
+<td style="text-align:center">部署</td>
 </tr>
 <tr>
-<td align="center">hexo server</td>
-<td align="center">hexo s</td>
-<td align="center">启动服务预览</td>
+<td style="text-align:center">hexo server</td>
+<td style="text-align:center">hexo s</td>
+<td style="text-align:center">启动服务预览</td>
 </tr>
 <tr>
-<td align="center">hexo publish</td>
-<td align="center">hexo p</td>
-<td align="center">发表草稿</td>
+<td style="text-align:center">hexo publish</td>
+<td style="text-align:center">hexo p</td>
+<td style="text-align:center">发表草稿</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>注: <code>hexo clean</code> 没有简写, <code>git --version</code> 没有简写</strong></p>
 <h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><pre><code class="shell"># 新建一个网站
-$ hexo init [folder]</code></pre>
+$ hexo init [folder]
+</code></pre>
 <p>如果没有设置<code>folder</code>，Hexo默认在<strong>当前文件夹</strong>建立网站</p>
 <h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><pre><code class="shell"># 新建一篇文章,文章名称和标题为 [title],文章采用 [layout] 布局
-$ hexo new [layout] &lt;title&gt;</code></pre>
-<p>会在目录<code>source/_posts</code>下生成 [title].md 文件，[title].md文件的顶部会使用<code>---</code>分割区域，也称作<strong>Front matter</strong>区
-如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">_config.yml</a> 中的 <code>default_layout</code> 参数代替（一般默认是<code>post</code>）。<br>如果标题包含空格的话，请使用<strong>引号</strong>括起来。</p>
+$ hexo new [layout] &lt;title&gt;
+</code></pre>
+<p>会在目录<code>source/_posts</code>下生成 [title].md 文件，[title].md文件的顶部会使用<code>---</code>分割区域，也称作<strong>Front matter</strong>区<br>如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">_config.yml</a> 中的 <code>default_layout</code> 参数代替（一般默认是<code>post</code>）。<br>如果标题包含空格的话，请使用<strong>引号</strong>括起来。</p>
 <pre><code class="shell"># eg
-$ hexo new &quot;post title with whitespace&quot;</code></pre>
+$ hexo new &quot;post title with whitespace&quot;
+</code></pre>
 <h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><pre><code class="shell"># 生成静态文件
 $ hexo generate
-$ hexo g</code></pre>
+$ hexo g
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -486,7 +494,8 @@ $ hexo g</code></pre>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-d</code>, <code>--deploy</code></td>
 <td>文件生成后立即部署网站</td>
 </tr>
@@ -494,14 +503,17 @@ $ hexo g</code></pre>
 <td><code>-w</code>, <code>--watch</code></td>
 <td>监视文件变动</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>执行 <code>$ hexo g</code>后会在站点根目录下生成<code>public</code>文件夹, hexo会将<code>/blog/source/</code>下面的<code>.md</code>后缀的文件编译为<code>.html后</code>缀的文件,存放在<code>/blog/public/</code>路径下</p>
 <h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><pre><code class="shell"># 发表草稿
-$ hexo publish [layout] &lt;filename&gt;</code></pre>
+$ hexo publish [layout] &lt;filename&gt;
+</code></pre>
 <p><code>hexo publish [layout] &lt;title&gt;</code> 通过 <code>publish</code> 命令将草稿移动到 <code>source/_posts</code> 文件夹<br>如:<code>$ hexo publish [layout] &lt;title&gt;</code>，草稿默认是不会显示在页面中的，可在执行时加上 <code>--draft</code> 参数，或是把 <code>render_drafts</code> 参数设为 <code>true</code>来预览草稿。</p>
 <h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><pre><code class="shell"># 启动服务器（常用于调试）
 $ hexo server
-$ hexo s</code></pre>
+$ hexo s
+</code></pre>
 <p>默认情况下，访问网址为： <code>http://localhost:4000/</code>。Hexo 会监视文件变动并自动更新，除修改<strong>站点配置文件</strong>外,无须重启服务器,直接刷新网页即可生效。</p>
 <table>
 <thead>
@@ -511,7 +523,8 @@ $ hexo s</code></pre>
 <th>eg</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-p</code>, <code>--port</code></td>
 <td>重设端口</td>
 <td>hexo s -p 5000</td>
@@ -531,10 +544,12 @@ $ hexo s</code></pre>
 <td>自定义IP</td>
 <td>hexo s -i 192.168.1.1</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><pre><code class="shell"># 部署网站,将本地数据部署到远端服务器(如github、coding)
 $ hexo deploy
-$ hexo d</code></pre>
+$ hexo d
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -542,40 +557,55 @@ $ hexo d</code></pre>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-g</code>, <code>--generate</code></td>
 <td>部署之前预先生成静态文件</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><pre><code># 渲染文件
-$ hexo render &lt;file1&gt; [file2] ...</code></pre><table>
+$ hexo render &lt;file1&gt; [file2] ...
+</code></pre><table>
 <thead>
 <tr>
 <th>参数</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-o</code>, <code>--output</code></td>
 <td>设置输出路径</td>
 </tr>
-</tbody></table>
-<h2 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h2><pre><code class="shell">$ hexo migrate &lt;type&gt;</code></pre>
+</tbody>
+</table>
+<h2 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h2><pre><code class="shell">$ hexo migrate &lt;type&gt;
+</code></pre>
 <p>从其他博客系统 <a href="https://hexo.io/zh-cn/docs/migration" target="_blank" rel="noopener">迁移内容</a>。</p>
 <h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><pre><code class="shell"># 清除缓存,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹
-$ hexo clean</code></pre>
+$ hexo clean
+</code></pre>
 <p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
 <p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
 <h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><pre><code class="shell"># 列出网站资料
-$ hexo list &lt;type&gt;</code></pre>
+$ hexo list &lt;type&gt;
+</code></pre>
 <h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><pre><code class="shell"># 显示 Hexo 版本
-$ hexo version</code></pre>
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h3><pre><code>$ hexo --safe</code></pre><p>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</p>
-<h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><pre><code>$ hexo --debug</code></pre><p>在终端中显示调试信息并记录到 <code>debug.log</code>。当您碰到问题时，可以尝试用调试模式重新执行一次，并 <a href="https://github.com/hexojs/hexo/issues/new" target="_blank" rel="noopener">提交调试信息到 GitHub</a>。</p>
-<h3 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h3><pre><code>$ hexo --silent</code></pre><p>隐藏终端信息。</p>
-<h3 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h3><pre><code>$ hexo --config custom.yml</code></pre><p>自定义配置文件的路径，执行后将不再使用 <code>_config.yml</code>。</p>
-<h3 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h3><pre><code>$ hexo --draft</code></pre><p>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
-<h3 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h3><pre><code>$ hexo --cwd /path/to/cwd</code></pre><p>自定义当前工作目录（Current working directory）的路径。</p>
+$ hexo version
+</code></pre>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h3><pre><code>$ hexo --safe
+</code></pre><p>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</p>
+<h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><pre><code>$ hexo --debug
+</code></pre><p>在终端中显示调试信息并记录到 <code>debug.log</code>。当您碰到问题时，可以尝试用调试模式重新执行一次，并 <a href="https://github.com/hexojs/hexo/issues/new" target="_blank" rel="noopener">提交调试信息到 GitHub</a>。</p>
+<h3 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h3><pre><code>$ hexo --silent
+</code></pre><p>隐藏终端信息。</p>
+<h3 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h3><pre><code>$ hexo --config custom.yml
+</code></pre><p>自定义配置文件的路径，执行后将不再使用 <code>_config.yml</code>。</p>
+<h3 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h3><pre><code>$ hexo --draft
+</code></pre><p>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+<h3 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h3><pre><code>$ hexo --cwd /path/to/cwd
+</code></pre><p>自定义当前工作目录（Current working directory）的路径。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">hexo官方文档</a></li>
 <li><a href="https://segmentfault.com/a/1190000002632530#articleHeader1" target="_blank" rel="noopener">hexo常用命令笔记</a></li>
@@ -694,7 +724,7 @@ $ hexo version</code></pre>
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -706,10 +736,10 @@ $ hexo version</code></pre>
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -754,7 +784,7 @@ $ hexo version</code></pre>
 				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
 				<span style="color: #b9b9b9;">
 					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
+					<a href="https://github.com/xiongtianci-tc/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
 					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
 					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
 					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
@@ -765,24 +795,6 @@ $ hexo version</code></pre>
 	<!-- .site-info -->
 </footer>
 
-<!-- 百度统计自动推送 -->
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
 <!-- <script src="/js/tocbot.js"></script> -->
 <script type="text/javascript" src="/js/lib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -792,9 +804,9 @@ $ hexo version</code></pre>
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 
 <!-- Valine -->
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
-<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+<!-- <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script> -->
+<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
 
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -913,6 +925,22 @@ $ hexo version</code></pre>
 	}else{
 		document.getElementById('busuanzi_container').hidden;
 	}
+</script>
+<!-- 百度统计自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+	var scriptList = document.getElementsByTagName("script");
+    var s = scriptList[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
     <div class="openNav no-select" style="height: 50px;">
@@ -1140,10 +1168,9 @@ $ hexo version</code></pre>
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
 <button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
 <!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<script src="./js/aplayer/APlayer.min.js"></script>
 <style>
   .aplayer .aplayer-lrc {
     height: 35px;
@@ -1172,7 +1199,7 @@ $ hexo version</code></pre>
 </style>
 <div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
 <!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script src="./js/aplayer/Meting.min.js"></script>
 <script>
   $(function(){
     $('body').on('click', '.aplayer', function(){
@@ -1184,20 +1211,5 @@ $ hexo version</code></pre>
     })
   });
 </script></div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
