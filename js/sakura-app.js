@@ -1108,7 +1108,8 @@ var home = location.href,
     },
     MJ: function () {
       if (mashiro_option.mathjax == '1') {
-        $.getScript('//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', function () {
+        //$.getScript('//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', function () {
+		$.getScript('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML', function () {
           MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}})
           var math = document.getElementsByClassName('entry-content')[0]
           MathJax.Hub.Queue(['Typeset', MathJax.Hub, math])
