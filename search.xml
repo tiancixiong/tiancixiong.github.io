@@ -1753,7 +1753,7 @@
       <link href="/2019/01/03/SQL%E4%B8%ADlimit%E7%9A%84%E7%94%A8%E6%B3%95/"/>
       <url>/2019/01/03/SQL%E4%B8%ADlimit%E7%9A%84%E7%94%A8%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>limit子句用于限制查询结果返回的数量</p></blockquote><p><strong>格式：</strong></p><pre><code class="sql">select * from tableName limit i,n# tableName：表名# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i# n：为查询结果返回的数量# i与n之间使用英文逗号&quot;,&quot;隔开</code></pre><p>栗子：</p><pre><code class="sql">select * from Customer LIMIT 10;# 检索前10行数据，显示1-10条数据select * from Customer LIMIT 1,10;# 检索从第2行开始，累加10条id记录，共显示id为2....11select * from Customer limit 5,10;# 检索从第6行开始向前加10条数据，共显示id为6,7....15select * from Customer limit 6,10;# 检索从第7行开始向前加10条记录，显示id为7,8...16</code></pre><p>注意：</p><blockquote><p>limit n 等同于 limit 0,n</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>limit子句用于限制查询结果返回的数量，常用与分页查询数据</p></blockquote><p><strong>格式：</strong></p><pre><code class="sql">select * from tableName limit i,n# tableName：表名# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i# n：为查询结果返回的数量# i与n之间使用英文逗号&quot;,&quot;隔开# limit n 等同于 limit 0,n</code></pre><p>栗子：</p><pre><code class="sql"># 查询10条数据，索引从0到9select * from t_user limit 10;# 查询10条记录，索引从1到11(1+10)select * from t_user limit 1,10;# 查询10条记录，索引从5到15(5+10)select * from t_user limit 5,10;# 查询10条记录，索引从6到16(6+10)select * from t_user limit 6,10;</code></pre>]]></content>
       
       
       <categories>
