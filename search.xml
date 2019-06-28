@@ -335,9 +335,9 @@
       
       <categories>
           
-          <category> 生活 </category>
-          
           <category> 随想 </category>
+          
+          <category> 生活 </category>
           
       </categories>
       
@@ -1923,9 +1923,9 @@
       
         <tags>
             
-            <tag> SpringMVC </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
             
         </tags>
       
