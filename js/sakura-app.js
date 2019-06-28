@@ -698,7 +698,7 @@ var pjaxInit = function () {
   smileBoxToggle()
   timeSeriesReload()
   add_copyright()
-  console.log($('#myscript').text())
+  //console.log($('#myscript').text())
 }
 $(document).on('click', '.sm', function () {
   var msg = '您真的要设为私密吗？'
