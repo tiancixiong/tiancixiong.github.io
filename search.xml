@@ -335,9 +335,9 @@
       
       <categories>
           
-          <category> 随想 </category>
-          
           <category> 生活 </category>
+          
+          <category> 随想 </category>
           
       </categories>
       
@@ -722,9 +722,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> 脚本 </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -1389,9 +1389,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2490,9 +2490,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
