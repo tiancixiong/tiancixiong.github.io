@@ -176,7 +176,7 @@ function imgError (ele, type) {
       }
       break
     case 2:
-      ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_gavatar.jpg'
+      ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_gavatar.png'
       break
     case 3:
 
@@ -809,6 +809,8 @@ function grin (tag, type, before, after) {
     myField.focus()
   }
 }
+
+
 // if ($("div").hasClass("popcontainer")) {
 //     loadBotui();
 // }
@@ -816,31 +818,49 @@ function grin (tag, type, before, after) {
 //     loadBotui();
 // });
 
-function add_copyright () {
-  document.body.addEventListener('copy', function (e) {
-    if (!mashiro_global.is_user_logged_in && window.getSelection().toString().length > 30) {
-      setClipboardText(e)
+//function add_copyright () {
+//  document.body.addEventListener('copy', function (e) {
+//    if (!mashiro_global.is_user_logged_in && window.getSelection().toString().length > 30) {
+//      setClipboardText(e)
+//    }
+//  })
+//
+//  function setClipboardText (event) {
+//    event.preventDefault()
+//    var htmlData = '' + '著作权归作者所有。<br>' + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>' + '作者：' + mashiro_option.author_name + '<br>' + '链接：' + window.location.href + '<br>' + '来源：' + mashiro_option.site_name + '<br><br>' + window.getSelection().toString().replace(/\r\n/g, '<br>')
+//    var textData = '' + '著作权归作者所有。\n' + '商业转载请联系作者获得授权，非商业转载请注明出处。\n' + '' + mashiro_option.author_name + '\n' + '链接：' + window.location.href + '\n' + '来源：' + mashiro_option.site_name + '\n\n' + window.getSelection().toString().replace(/\r\n/g, '\n')
+//    if (event.clipboardData) {
+//      event.clipboardData.setData('text/html', htmlData)
+//      event.clipboardData.setData('text/plain', textData)
+//      addComment.createButterbar('复制成功！<br>Copied to clipboard successfully!', 1000)
+//    } else if (window.clipboardData) {
+//      return window.clipboardData.setData('text', textData)
+//    }
+//  }
+//}
+function add_copyright() {
+    document.body.addEventListener("copy", function(e) {
+        if (!mashiro_global.is_user_logged_in && window.getSelection().toString().length > 30) {
+            setClipboardText(e);
+        }
+        addComment.createButterbar("复制成功！<br>Copied to clipboard successfully!", 1000);
+    });
+    function setClipboardText(event) {
+        event.preventDefault();
+        var htmlData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)<br>" + "# 作者(Author)：" + mashiro_option.author_name + "<br>" + "# 链接(URL)：" + window.location.href + "<br>" + "# 来源(Source)：" + mashiro_option.site_name + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");
+        ;var textData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。\n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)\n" + "# 作者(Author)：" + mashiro_option.author_name + "\n" + "# 链接(URL)：" + window.location.href + "\n" + "# 来源(Source)：" + mashiro_option.site_name + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
+        if (event.clipboardData) {
+            event.clipboardData.setData("text/html", htmlData);
+            event.clipboardData.setData("text/plain", textData);
+        } else if (window.clipboardData) {
+            return window.clipboardData.setData("text", textData);
+        }
     }
-  })
-
-  function setClipboardText (event) {
-    event.preventDefault()
-    var htmlData = '' + '著作权归作者所有。<br>' + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>' + '作者：' + mashiro_option.author_name + '<br>' + '链接：' + window.location.href + '<br>' + '来源：' + mashiro_option.site_name + '<br><br>' + window.getSelection().toString().replace(/\r\n/g, '<br>')
-    var textData = '' + '著作权归作者所有。\n' + '商业转载请联系作者获得授权，非商业转载请注明出处。\n' + '' + mashiro_option.author_name + '\n' + '链接：' + window.location.href + '\n' + '来源：' + mashiro_option.site_name + '\n\n' + window.getSelection().toString().replace(/\r\n/g, '\n')
-    if (event.clipboardData) {
-      event.clipboardData.setData('text/html', htmlData)
-      event.clipboardData.setData('text/plain', textData)
-      addComment.createButterbar('复制成功！<br>Copied to clipboard successfully!', 1000)
-    } else if (window.clipboardData) {
-      return window.clipboardData.setData('text', textData)
-    }
-  }
 }
-add_copyright()
+add_copyright();
 $(function () {
-  inlojv_js_getqqinfo()
+  inlojv_js_getqqinfo();
 })
-
 function inlojv_js_getqqinfo () {
   var is_get_by_qq = false
   var qq_test = /^[0-9]+$/
@@ -1101,8 +1121,12 @@ var home = location.href,
           el: '#vcomments',
           appId: mashiro_option.v_appId,
           appKey: mashiro_option.v_appKey,
+		  notify: mashiro_option.v_notify,
+		  verify: mashiro_option.v_verify,
           path: window.location.pathname,
-          placeholder: '你是我一生只会遇见一次的惊喜 ...'
+		  placeholder: mashiro_option.v_placeholder,
+		  avatar: mashiro_option.v_avatar,
+		  pageSize: mashiro_option.v_pageSize
         })
       }
     },
@@ -1664,8 +1688,17 @@ $(document).ready(function () {
       $('.changeSkin-gear').css('visibility', 'visible')
     }
     $('p').remove('.head-copyright')
-  }, 0)
+  }, 0);
+  
+  // 提交评论
+  $('button[class="vsubmit vbtn"]').on('click',function(){
+	  valine_commit(this);
+  });
 })
+
+function valine_commit(comment){
+	console.log(commet)
+}
 
 // function aplayerF() {
 //     'use strict';

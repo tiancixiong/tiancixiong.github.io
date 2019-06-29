@@ -42,9 +42,14 @@
   mashiro_option.site_name = "トトロ天赐";
   mashiro_option.author_name = "天赐";
   mashiro_option.site_url = "/";
-  mashiro_option.v_appId = "";
-  mashiro_option.v_appKey = "";
-  mashiro_option.mathjax = "1";
+  mashiro_option.v_appId = "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz";
+  mashiro_option.v_appKey = "7zPSYnuDLeyCNoSQpgTXdC1v";
+  mashiro_option.v_notify = false;
+  mashiro_option.v_verify = false;
+  mashiro_option.v_placeholder = "你是我一生只会遇见一次的惊喜 ...";
+  mashiro_option.v_avatar = "monsterid";
+  mashiro_option.v_pageSize = "5" || 10;
+  mashiro_option.mathjax = "0";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -88,7 +93,7 @@
         <p>Viva La Vida</p>
         <div class="top-social_v2">
           <li id="bg-pre">
-            <img class="flipx" src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/other/next-b.svg">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
           </li>
           
             
@@ -129,7 +134,7 @@
             
           
           <li id="bg-next">
-            <img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/other/next-b.svg">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
           </li>
         </div>
       </div>
@@ -492,7 +497,8 @@
         path: window.location.pathname,
         placeholder: "你是我一生只会遇见一次的惊喜 ...",
 		avatar: "monsterid",
-		pageSize: "10" || 10
+		//meta: [nick,mail,link],
+		pageSize: "5" || 10
       });
 	//增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#vcomments .info');
