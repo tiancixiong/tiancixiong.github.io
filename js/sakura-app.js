@@ -698,7 +698,7 @@ var pjaxInit = function () {
   smileBoxToggle()
   timeSeriesReload()
   add_copyright()
-  console.log($('#myscript').text())
+  //console.log($('#myscript').text())
 }
 $(document).on('click', '.sm', function () {
   var msg = '您真的要设为私密吗？'
@@ -1688,17 +1688,8 @@ $(document).ready(function () {
       $('.changeSkin-gear').css('visibility', 'visible')
     }
     $('p').remove('.head-copyright')
-  }, 0);
-  
-  // 提交评论
-  $('button[class="vsubmit vbtn"]').on('click',function(){
-	  valine_commit(this);
-  });
+  }, 0)
 })
-
-function valine_commit(comment){
-	console.log(commet)
-}
 
 // function aplayerF() {
 //     'use strict';
