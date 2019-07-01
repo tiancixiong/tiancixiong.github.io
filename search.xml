@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>重置MySQL自增id</title>
+      <link href="/2019/07/01/%E9%87%8D%E7%BD%AEMySQL%E8%87%AA%E5%A2%9Eid/"/>
+      <url>/2019/07/01/%E9%87%8D%E7%BD%AEMySQL%E8%87%AA%E5%A2%9Eid/</url>
+      
+        <content type="html"><![CDATA[<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><pre><code class="sql"># 删除所有数据delete from user;# 重置自增序列alter table user auto_increment=1;</code></pre><h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><pre><code class="sql"># 删除user表后重建表truncate table user;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Notepad++正则的使用</title>
       <link href="/2019/06/26/Notepad++%E6%AD%A3%E5%88%99%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
       <url>/2019/06/26/Notepad++%E6%AD%A3%E5%88%99%E7%9A%84%E4%BD%BF%E7%94%A8/</url>

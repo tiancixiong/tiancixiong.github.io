@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2019/07/01/重置MySQL自增id/
 https://www.xiongtianci.com/2019/06/26/Notepad++正则的使用/
 https://www.xiongtianci.com/2019/06/24/CSS-hover选择器的使用/
 https://www.xiongtianci.com/2019/06/21/LeanCloud域名更换-恢复Sakura主题Valine评论/

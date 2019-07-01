@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-06-26T03:11:29.585Z</updated>
+  <updated>2019-07-01T06:53:44.469Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>重置MySQL自增id</title>
+    <link href="https://www.xiongtianci.com/2019/07/01/%E9%87%8D%E7%BD%AEMySQL%E8%87%AA%E5%A2%9Eid/"/>
+    <id>https://www.xiongtianci.com/2019/07/01/重置MySQL自增id/</id>
+    <published>2019-07-01T06:36:42.000Z</published>
+    <updated>2019-07-01T06:53:44.469Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="MySQL" scheme="https://www.xiongtianci.com/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Notepad++正则的使用</title>
@@ -464,31 +487,6 @@
       <category term="Mysql" scheme="https://www.xiongtianci.com/tags/Mysql/"/>
     
       <category term="Navicat" scheme="https://www.xiongtianci.com/tags/Navicat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>POI导入Excel异常Cannot get a text value from a numeric cell</title>
-    <link href="https://www.xiongtianci.com/2019/04/23/POI%E5%AF%BC%E5%85%A5Excel%E5%BC%82%E5%B8%B8Cannot-get-a-text-value-from-a-numeric-cell/"/>
-    <id>https://www.xiongtianci.com/2019/04/23/POI导入Excel异常Cannot-get-a-text-value-from-a-numeric-cell/</id>
-    <published>2019-04-23T09:37:03.000Z</published>
-    <updated>2019-06-18T08:53:22.639Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="POI" scheme="https://www.xiongtianci.com/tags/POI/"/>
-    
-      <category term="Excel" scheme="https://www.xiongtianci.com/tags/Excel/"/>
     
   </entry>
   
