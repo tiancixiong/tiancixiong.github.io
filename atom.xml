@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-07-01T06:53:44.469Z</updated>
+  <updated>2019-07-03T03:31:41.660Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>win10日语输入法罗马音与假名不对应</title>
+    <link href="https://www.xiongtianci.com/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E7%BD%97%E9%A9%AC%E9%9F%B3%E4%B8%8E%E5%81%87%E5%90%8D%E4%B8%8D%E5%AF%B9%E5%BA%94/"/>
+    <id>https://www.xiongtianci.com/2019/07/03/win10日语输入法罗马音与假名不对应/</id>
+    <published>2019-07-03T03:15:29.000Z</published>
+    <updated>2019-07-03T03:31:41.660Z</updated>
+    
+    <summary type="html">
+    
+      win10中使用日语输入法罗马音与假名不对应问题
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="生活" scheme="https://www.xiongtianci.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
+    
+      <category term="日语" scheme="https://www.xiongtianci.com/tags/%E6%97%A5%E8%AF%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>重置MySQL自增id</title>
@@ -462,31 +486,6 @@
       <category term="黑马" scheme="https://www.xiongtianci.com/tags/%E9%BB%91%E9%A9%AC/"/>
     
       <category term="乐优商城" scheme="https://www.xiongtianci.com/tags/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>navicat操作mysql的时候，如何输入null值？</title>
-    <link href="https://www.xiongtianci.com/2019/05/05/navicat%E6%93%8D%E4%BD%9Cmysql%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5null%E5%80%BC%EF%BC%9F/"/>
-    <id>https://www.xiongtianci.com/2019/05/05/navicat操作mysql的时候，如何输入null值？/</id>
-    <published>2019-05-05T03:47:07.000Z</published>
-    <updated>2019-06-18T08:53:14.999Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Mysql" scheme="https://www.xiongtianci.com/tags/Mysql/"/>
-    
-      <category term="Navicat" scheme="https://www.xiongtianci.com/tags/Navicat/"/>
     
   </entry>
   
