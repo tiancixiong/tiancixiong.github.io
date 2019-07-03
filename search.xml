@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>win10输入法输入罗马字母n无法打出假名</title>
+      <link href="/2019/07/03/win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/"/>
+      <url>/2019/07/03/win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用win10输入法输入罗马字母<code>n</code>时，打出的结果为：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703-win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/1562135519625.png" alt="1562135519625"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>连续<strong>按两下n</strong>就可以打出<code>ん</code>或<code>ン</code>了<br>另：在有些情况<strong>输入一个n</strong>后直接输入打下一个假名，<code>ん</code>或<code>ン</code>也会随之显示出来</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> win10 </tag>
+            
+            <tag> 日语 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>win10日语输入法罗马音与假名不对应</title>
       <link href="/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E7%BD%97%E9%A9%AC%E9%9F%B3%E4%B8%8E%E5%81%87%E5%90%8D%E4%B8%8D%E5%AF%B9%E5%BA%94/"/>
       <url>/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E7%BD%97%E9%A9%AC%E9%9F%B3%E4%B8%8E%E5%81%87%E5%90%8D%E4%B8%8D%E5%AF%B9%E5%BA%94/</url>
@@ -1424,9 +1453,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2525,9 +2554,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       

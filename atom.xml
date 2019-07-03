@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-07-03T03:43:47.397Z</updated>
+  <updated>2019-07-03T06:41:35.889Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>win10输入法输入罗马字母n无法打出假名</title>
+    <link href="https://www.xiongtianci.com/2019/07/03/win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/"/>
+    <id>https://www.xiongtianci.com/2019/07/03/win10输入法输入罗马字母n无法打出假名/</id>
+    <published>2019-07-03T06:27:05.000Z</published>
+    <updated>2019-07-03T06:41:35.889Z</updated>
+    
+    <summary type="html">
+    
+      win10输入法输入罗马字母n无法打出对应的假名んン
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="生活" scheme="https://www.xiongtianci.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
+    
+      <category term="日语" scheme="https://www.xiongtianci.com/tags/%E6%97%A5%E8%AF%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>win10日语输入法罗马音与假名不对应</title>
@@ -461,31 +485,6 @@
       <category term="软件" scheme="https://www.xiongtianci.com/tags/%E8%BD%AF%E4%BB%B6/"/>
     
       <category term="Chrome" scheme="https://www.xiongtianci.com/tags/Chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>黑马乐优商城</title>
-    <link href="https://www.xiongtianci.com/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/"/>
-    <id>https://www.xiongtianci.com/2019/05/07/黑马乐优商城/</id>
-    <published>2019-05-07T03:50:27.000Z</published>
-    <updated>2019-06-18T08:53:07.304Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="资源" scheme="https://www.xiongtianci.com/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-      <category term="黑马" scheme="https://www.xiongtianci.com/tags/%E9%BB%91%E9%A9%AC/"/>
-    
-      <category term="乐优商城" scheme="https://www.xiongtianci.com/tags/%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/"/>
     
   </entry>
   

@@ -7,10 +7,10 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="天赐,tianci,xiongtianci,tiancixiong,xtc,tcx,博客">
+  <meta name="keywords" content="win10,日语输入法,罗马字母n打不出假名,天赐,tianci,xiongtianci,tiancixiong,xtc,tcx,博客">
   
   
-  <title itemprop="name">CollectionUtils工具类使用指南 | 天赐</title>
+  <title itemprop="name">win10输入法输入罗马字母n无法打出假名 | 天赐</title>
   
     <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
   
@@ -369,15 +369,15 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1506321860950-7f0db99491ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1506321860950-7f0db99491ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1541692006500-53b23526bd26?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1541692006500-53b23526bd26?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      CollectionUtils工具类使用指南</h1>
+      win10输入法输入罗马字母n无法打出假名</h1>
       <p class="entry-census">
         <span>
           <a href="https://www.xiongtianci.com">
-            <img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg">
+            <img src>
           </a>
         </span>
         <span>
@@ -385,7 +385,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2018-12-20<span class="bull">
+        2019-7-3<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -399,135 +399,10 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>CollectionUtils提供很多对集合的操作方法，常用的方法如下：</p>
-<pre><code class="java">//并集  
-Collection&lt;String&gt; union = CollectionUtils.union(a, b);  
-//交集  
-Collection&lt;String&gt; intersection = CollectionUtils.intersection(a, b);  
-//交集的补集  
-Collection&lt;String&gt; disjunction = CollectionUtils.disjunction(a, b);  
-//集合相减 
-Collection&lt;String&gt; subtract = CollectionUtils.subtract(a, b);  
-//判断集合是否为空
-Boolean boolean = CollectionUtils.isEmpty(Collection&lt;?&gt; collection);
-//判断集合是否不为空
-Boolean boolean = CollectionUtils.isNotEmpty(Collection&lt;?&gt; collection);
-</code></pre>
-<h4 id="并集"><a href="#并集" class="headerlink" title="并集"></a>并集</h4><pre><code class="java">@Test
-public void testUnion(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //2个数组取并集 
-    System.out.println(ArrayUtils.toString(CollectionUtils.union(listA, listB)));
-    //[A, B, C, D, E, F, G, H, K]
-}
-</code></pre>
-<h4 id="交集"><a href="#交集" class="headerlink" title="交集"></a>交集</h4><pre><code class="java">@Test
-public void testIntersection(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //2个数组取交集 
-    System.out.println(ArrayUtils.toString(CollectionUtils.intersection(listA, listB)));
-    //[B, D, F]
-}
-</code></pre>
-<h4 id="交集的补集（析取）"><a href="#交集的补集（析取）" class="headerlink" title="交集的补集（析取）"></a>交集的补集（析取）</h4><pre><code class="java">@Test
-public void testDisjunction(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //2个数组取交集 的补集
-    System.out.println(ArrayUtils.toString(CollectionUtils.disjunction(listA, listB)));
-    //[A, C, E, G, H, K]
-}
-</code></pre>
-<h4 id="差集（扣除）"><a href="#差集（扣除）" class="headerlink" title="差集（扣除）"></a>差集（扣除）</h4><pre><code class="java">@Test
-public void testSubtract(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //arrayA扣除arrayB
-    System.out.println(ArrayUtils.toString(CollectionUtils.subtract(listA, listB)));
-    //[A, C, E]
-}
-</code></pre>
-<h4 id="集合是否为空"><a href="#集合是否为空" class="headerlink" title="集合是否为空"></a>集合是否为空</h4><pre><code class="java">@Test
-public void testIsEmpty(){
+          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用win10输入法输入罗马字母<code>n</code>时，打出的结果为：</p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703-win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/1562135519625.png" alt="1562135519625"></p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>连续<strong>按两下n</strong>就可以打出<code>ん</code>或<code>ン</code>了<br>另：在有些情况<strong>输入一个n</strong>后直接输入打下一个假名，<code>ん</code>或<code>ン</code>也会随之显示出来</p>
 
-    class Person{}
-    class Girl extends Person{}
-
-    List&lt;Integer&gt; first = new ArrayList&lt;&gt;();
-    List&lt;Integer&gt; second = null;
-    List&lt;Person&gt; boy = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy.add(new Girl());
-    //判断集合是否为空
-    System.out.println(CollectionUtils.isEmpty(first));   //true
-    System.out.println(CollectionUtils.isEmpty(second));   //true
-    System.out.println(CollectionUtils.isEmpty(boy));   //false
-
-    //判断集合是否不为空
-    System.out.println(CollectionUtils.isNotEmpty(first));   //false
-    System.out.println(CollectionUtils.isNotEmpty(second));   //false
-    System.out.println(CollectionUtils.isNotEmpty(boy));   //true
-}
-</code></pre>
-<h4 id="集合是否相等"><a href="#集合是否相等" class="headerlink" title="集合是否相等"></a>集合是否相等</h4><pre><code class="java">@Test
-public void testIsEqual(){
-
-    class Person{}
-    class Girl extends Person{
-    }
-
-    List&lt;Integer&gt; first = new ArrayList&lt;&gt;();
-    List&lt;Integer&gt; second = new ArrayList&lt;&gt;();
-    first.add(1);
-    first.add(2);
-    second.add(2);
-    second.add(1);
-    Girl goldGirl = new Girl();
-    List&lt;Person&gt; boy1 = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy1.add(new Girl());
-    List&lt;Person&gt; boy2 = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy2.add(new Girl());
-    //比较两集合值
-    System.out.println(CollectionUtils.isEqualCollection(first,second));   //true
-    System.out.println(CollectionUtils.isEqualCollection(first,boy1));   //false
-    System.out.println(CollectionUtils.isEqualCollection(boy1,boy2));   //false
-
-    List&lt;Person&gt; boy3 = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy3.add(goldGirl);
-    List&lt;Person&gt; boy4 = new ArrayList&lt;&gt;();
-    boy4.add(goldGirl);
-    System.out.println(CollectionUtils.isEqualCollection(boy3,boy4));   //true
-}
-</code></pre>
-<h4 id="不可修改的集合"><a href="#不可修改的集合" class="headerlink" title="不可修改的集合"></a>不可修改的集合</h4><p>我们对c进行操作，s也同样获得了和c相同的内容，这样就可以避免其他人员修改这个s对象。有时候需要对它进行保护，避免返回结果被人修改。</p>
-<pre><code class="java">@Test
-public void testUnmodifiableCollection(){
-    Collection&lt;String&gt; c = new ArrayList&lt;&gt;();
-    Collection&lt;String&gt; s = CollectionUtils.unmodifiableCollection(c);
-    c.add(&quot;boy&quot;);
-    c.add(&quot;love&quot;);
-    c.add(&quot;girl&quot;);
-    //! s.add(&quot;have a error&quot;);
-    System.out.println(s);
-}
-</code></pre>
-<p>Collections.unmodifiableCollection可以得到一个集合的镜像，它的返回结果是不可直接被改变，否则会提示错误</p>
-<pre><code>java.lang.UnsupportedOperationException
-at org.apache.commons.collections.collection.UnmodifiableCollection.add(UnmodifiableCollection.java:75)
-</code></pre>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -554,36 +429,19 @@ at org.apache.commons.collections.collection.UnmodifiableCollection.add(Unmodifi
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2018/12/21/跨域问题-cors解决跨域/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1559549865-f09372d2aa3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                跨域问题&amp;cors解决跨域</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2018/12/20/通用Mapper的select(T t)的使用/" rel="next">
+            <a href="/2019/07/03/win10日语输入法罗马音与假名不对应/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1554979074-84e874bcff5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                通用Mapper的select(T t)的使用</h3>
+                win10日语输入法罗马音与假名不对应</h3>
                 <hr>
               </div>
             </a>
@@ -620,7 +478,7 @@ at org.apache.commons.collections.collection.UnmodifiableCollection.add(Unmodifi
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
+          <a href="https://www.xiongtianci.com" class="profile gravatar"><img src itemprop="image" alt="天赐" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
@@ -629,7 +487,7 @@ at org.apache.commons.collections.collection.UnmodifiableCollection.add(Unmodifi
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+        <p><i class="iconfont icon-write"></i>Viva La Vida</p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->
