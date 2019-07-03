@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>win10输入法输入罗马字母n无法打出假名</title>
-      <link href="/2019/07/03/win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/"/>
-      <url>/2019/07/03/win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/</url>
+      <title>win10日语输入法输入罗马字母n无法打出假名</title>
+      <link href="/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/"/>
+      <url>/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/</url>
       
-        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用win10输入法输入罗马字母<code>n</code>时，打出的结果为：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703-win10%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/1562135519625.png" alt="1562135519625"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>连续<strong>按两下n</strong>就可以打出<code>ん</code>或<code>ン</code>了<br>另：在有些情况<strong>输入一个n</strong>后直接输入打下一个假名，<code>ん</code>或<code>ン</code>也会随之显示出来</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用win10输入法输入罗马字母<code>n</code>时，打出的结果为：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703/1562135519625.png" alt="1562135519625"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>连续<strong>按两下n</strong>就可以打出<code>ん</code>或<code>ン</code>了<br>另：在有些情况<strong>输入一个n</strong>后直接输入打下一个假名，<code>ん</code>或<code>ン</code>也会随之显示出来</p>]]></content>
       
       
       <categories>
@@ -37,7 +37,7 @@
       <link href="/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E7%BD%97%E9%A9%AC%E9%9F%B3%E4%B8%8E%E5%81%87%E5%90%8D%E4%B8%8D%E5%AF%B9%E5%BA%94/"/>
       <url>/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E7%BD%97%E9%A9%AC%E9%9F%B3%E4%B8%8E%E5%81%87%E5%90%8D%E4%B8%8D%E5%AF%B9%E5%BA%94/</url>
       
-        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win10中使用日语输入法时，输入罗马音<code>a</code>，打出的却是<code>ち</code>，输入其他罗马音也是这种情况<br>出现这种情况是因为你无意中输入方式设置成了<strong>假名输入</strong>，我们需要改成<strong>罗马字输入</strong></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在win10任务栏中的日语图标上：<code>右键</code> -&gt; <code>Input Method</code> -&gt; 勾选<code>Romaji Input</code></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703-win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E7%BD%97%E9%A9%AC%E9%9F%B3%E4%B8%8E%E5%81%87%E5%90%8D%E4%B8%8D%E5%AF%B9%E5%BA%94/1562124157875.png" alt="1562124157875"></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703-win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E7%BD%97%E9%A9%AC%E9%9F%B3%E4%B8%8E%E5%81%87%E5%90%8D%E4%B8%8D%E5%AF%B9%E5%BA%94/1562124165162.png" alt="1562124165162"></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://zhidao.baidu.com/question/151047919.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/151047919.html</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win10中使用日语输入法时，输入罗马音<code>a</code>，打出的却是<code>ち</code>，输入其他罗马音也是这种情况<br>出现这种情况是因为你无意中输入方式设置成了<strong>假名输入</strong>，我们需要改成<strong>罗马字输入</strong></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在win10任务栏中的日语图标上：<code>右键</code> -&gt; <code>Input Method</code> -&gt; 勾选<code>Romaji Input</code></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703/1562124157875.png" alt="1562124157875"></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190703/1562124165162.png" alt="1562124165162"></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://zhidao.baidu.com/question/151047919.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/151047919.html</a></li></ul>]]></content>
       
       
       <categories>
