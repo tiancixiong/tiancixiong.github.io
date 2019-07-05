@@ -438,6 +438,8 @@
           
           <category> 生活 </category>
           
+          <category> 随想 </category>
+          
       </categories>
       
       
@@ -823,9 +825,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> 脚本 </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
