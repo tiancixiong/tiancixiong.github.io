@@ -825,9 +825,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -2697,6 +2697,8 @@
           <category> 技术 </category>
           
           <category> 笔记 </category>
+          
+          <category> Linux </category>
           
       </categories>
       
