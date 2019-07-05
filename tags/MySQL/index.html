@@ -222,20 +222,6 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/电影/">
-                          <i class="fa fa-film" aria-hidden="true"></i>
-                          电影
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/日语/">
-                          <i class="fa fa-language" aria-hidden="true"></i>
-                          日语
-                        </a>
-                      </li>
-                    
-                      <li>
                         <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
@@ -254,40 +240,33 @@
               </li>
             
               <li>
-                <a href="javascript:;">
+                <a href="/archives">
                   <span class="faa-parent animated-hover">
-                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
-                    清单
+                    <i class="fa  fa-slack faa-shake" aria-hidden="true"></i>
+                    爱好
                   </span>
                 </a>
                 
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/tags/悦读/">
-                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
-                          书单
+                        <a href="/categories/电影/">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/bangumi/">
-                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
-                          影视
+                        <a href="/categories/旅行/">
+                          <i class="fa fa-plane" aria-hidden="true"></i>
+                          旅行
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/music/">
-                          <i class="fa fa-headphones" aria-hidden="true"></i>
-                          歌单
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/tags/图集/">
-                          <i class="fa fa-photo" aria-hidden="true"></i>
-                          图集
+                        <a href="/categories/日语/">
+                          <i class="fa fa-language" aria-hidden="true"></i>
+                          日语
                         </a>
                       </li>
                     
@@ -739,20 +718,6 @@
               </li>
             
               <li>
-                <a href="/categories/电影/">
-                  <i class="fa fa-film" aria-hidden="true"></i>
-                  电影
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/日语/">
-                  <i class="fa fa-language" aria-hidden="true"></i>
-                  日语
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -771,40 +736,33 @@
       </li>
     
       <li>
-        <a href="javascript:;">
+        <a href="/archives">
           <span class="faa-parent animated-hover">
-            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
-            清单
+            <i class="fa  fa-slack faa-shake" aria-hidden="true"></i>
+            爱好
           </span>
         </a>
         
           <ul class="sub-menu">
             
               <li>
-                <a href="/tags/悦读/">
-                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
-                  书单
+                <a href="/categories/电影/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  电影
                 </a>
               </li>
             
               <li>
-                <a href="/bangumi/">
-                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
-                  影视
+                <a href="/categories/旅行/">
+                  <i class="fa fa-plane" aria-hidden="true"></i>
+                  旅行
                 </a>
               </li>
             
               <li>
-                <a href="/music/">
-                  <i class="fa fa-headphones" aria-hidden="true"></i>
-                  歌单
-                </a>
-              </li>
-            
-              <li>
-                <a href="/tags/图集/">
-                  <i class="fa fa-photo" aria-hidden="true"></i>
-                  图集
+                <a href="/categories/日语/">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  日语
                 </a>
               </li>
             
@@ -929,7 +887,22 @@
   });
 </script></div>
 </body>
-</html>erHTML = "已在风雨中运行 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+</html>time = time.split(':');
+		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
+		
+		today = new Date();
+		timeold = (today.getTime() - BirthDay.getTime());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		e_daysold = timeold / msPerDay
+		daysold = Math.floor(e_daysold);
+		e_hrsold = (e_daysold - daysold) * 24;
+		hrsold = setzero(Math.floor(e_hrsold));
+		e_minsold = (e_hrsold - hrsold) * 60;
+		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
 	}
 
 	function setzero(i) {
@@ -1052,20 +1025,6 @@
               </li>
             
               <li>
-                <a href="/categories/电影/">
-                  <i class="fa fa-film" aria-hidden="true"></i>
-                  电影
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/日语/">
-                  <i class="fa fa-language" aria-hidden="true"></i>
-                  日语
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -1084,40 +1043,33 @@
       </li>
     
       <li>
-        <a href="javascript:;">
+        <a href="/archives">
           <span class="faa-parent animated-hover">
-            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
-            清单
+            <i class="fa  fa-slack faa-shake" aria-hidden="true"></i>
+            爱好
           </span>
         </a>
         
           <ul class="sub-menu">
             
               <li>
-                <a href="/tags/悦读/">
-                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
-                  书单
+                <a href="/categories/电影/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  电影
                 </a>
               </li>
             
               <li>
-                <a href="/bangumi/">
-                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
-                  影视
+                <a href="/categories/旅行/">
+                  <i class="fa fa-plane" aria-hidden="true"></i>
+                  旅行
                 </a>
               </li>
             
               <li>
-                <a href="/music/">
-                  <i class="fa fa-headphones" aria-hidden="true"></i>
-                  歌单
-                </a>
-              </li>
-            
-              <li>
-                <a href="/tags/图集/">
-                  <i class="fa fa-photo" aria-hidden="true"></i>
-                  图集
+                <a href="/categories/日语/">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  日语
                 </a>
               </li>
             

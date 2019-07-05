@@ -1367,7 +1367,7 @@
 .fa-volume-up:before {
     content: "\f028"
 }
-
+/*二维码*/
 .fa-qrcode:before {
     content: "\f029"
 }
@@ -1395,7 +1395,7 @@
 .fa-print:before {
     content: "\f02f"
 }
-
+/*相机*/
 .fa-camera:before {
     content: "\f030"
 }
@@ -1455,7 +1455,7 @@
 .fa-photo:before,.fa-image:before,.fa-picture-o:before {
     content: "\f03e"
 }
-
+/*铅笔*/
 .fa-pencil:before {
     content: "\f040"
 }
@@ -1643,7 +1643,7 @@
 .fa-warning:before,.fa-exclamation-triangle:before {
     content: "\f071"
 }
-
+/*飞机*/
 .fa-plane:before {
     content: "\f072"
 }
@@ -1707,7 +1707,7 @@
 .fa-facebook-square:before {
     content: "\f082"
 }
-
+/*复古相机*/
 .fa-camera-retro:before {
     content: "\f083"
 }
@@ -2239,7 +2239,7 @@
 .fa-flag-checkered:before {
     content: "\f11e"
 }
-
+/*终端*/
 .fa-terminal:before {
     content: "\f120"
 }
@@ -3115,7 +3115,7 @@
 .fa-ioxhost:before {
     content: "\f208"
 }
-
+/*耶 剪刀手*/
 .fa-angellist:before {
     content: "\f209"
 }
@@ -3439,7 +3439,7 @@
 .fa-gg-circle:before {
     content: "\f261"
 }
-
+/*猫头鹰*/
 .fa-tripadvisor:before {
     content: "\f262"
 }
@@ -3495,7 +3495,7 @@
 .fa-amazon:before {
     content: "\f270"
 }
-
+/*日历*/
 .fa-calendar-plus-o:before {
     content: "\f271"
 }
