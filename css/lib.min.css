@@ -1247,7 +1247,7 @@
 .fa-user:before {
     content: "\f007"
 }
-
+/*电影*/
 .fa-film:before {
     content: "\f008"
 }
@@ -1351,7 +1351,7 @@
 .fa-flag:before {
     content: "\f024"
 }
-
+/*头戴耳机*/
 .fa-headphones:before {
     content: "\f025"
 }
@@ -2763,7 +2763,7 @@
 .fa-joomla:before {
     content: "\f1aa"
 }
-
+/*日语*/
 .fa-language:before {
     content: "\f1ab"
 }

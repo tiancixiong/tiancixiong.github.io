@@ -17,6 +17,8 @@
           
           <category> 生活 </category>
           
+          <category> 日语 </category>
+          
       </categories>
       
       
@@ -46,6 +48,8 @@
           
           <category> 生活 </category>
           
+          <category> 日语 </category>
+          
       </categories>
       
       
@@ -74,6 +78,8 @@
           <category> 技术 </category>
           
           <category> 生活 </category>
+          
+          <category> 日语 </category>
           
       </categories>
       
@@ -238,6 +244,8 @@
       <categories>
           
           <category> 资源 </category>
+          
+          <category> 电影 </category>
           
       </categories>
       
@@ -1484,9 +1492,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2585,9 +2593,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
