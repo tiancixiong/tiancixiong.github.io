@@ -7546,7 +7546,7 @@ to {
     margin-left:-10px;
     border-width:10px;
     border-style:solid;
-    border-color:#fff transparent transparent transparent
+    border-color:#fff transparent transparent;
 }
 .skin-menu .row-container {
     height:auto;
