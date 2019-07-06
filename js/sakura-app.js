@@ -537,7 +537,7 @@ $(document).ready(function () {
     mashiro_global.variables.skinSecter = true
     mashiro_global.variables.isNight = true
     //$('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png)')
-	$('body').css('background-image', 'url(./cosmic-galaxy1_看图王.jpg)')
+	$('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/themebg/cosmic-galaxy.jpg)')
 	$('body').css('background-size','100%')
 
     $('.blank').css('background-color', 'rgba(255,255,255,.8)')
