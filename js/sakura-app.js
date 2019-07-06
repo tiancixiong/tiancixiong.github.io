@@ -468,6 +468,12 @@ if (mashiro_global.variables.isNight) {
   $('.changeSkin-gear, .toc').css('background', 'none')
 }
 $(document).ready(function () {
+  if (mashiro_global.variables.isNight) {
+    $('.changeSkin-gear, .toc').css('background', 'rgba(255,255,255,0.8)')
+  } else {
+    $('.changeSkin-gear, .toc').css('background', 'none')
+  }
+
   function changeBG (tagid, url) {
     $('.skin-menu ' + tagid).click(function () {
       mashiro_global.variables.skinSecter = true
