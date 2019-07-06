@@ -485,6 +485,9 @@ $(document).ready(function () {
       $('.headertop-bar').removeClass('headertop-bar').addClass('headertop-bar-sakura')
       $('#banner_wave_1').addClass('banner_wave_hide_fit_skin')
       $('#banner_wave_2').addClass('banner_wave_hide_fit_skin')
+	  //---
+	  $('body').css('background-size','auto')
+	  //---
       closeSkinMenu()
       setCookie('bgImgSetting', url, 30)
     })
@@ -501,6 +504,9 @@ $(document).ready(function () {
       $('.headertop-bar').removeClass('headertop-bar').addClass('headertop-bar-sakura')
       $('#banner_wave_1').addClass('banner_wave_hide_fit_skin')
       $('#banner_wave_2').addClass('banner_wave_hide_fit_skin')
+	  //---
+	  $('body').css('background-size','auto')
+	  //---
       closeSkinMenu()
       setCookie('bgImgSetting', url, 30)
     })
@@ -521,6 +527,9 @@ $(document).ready(function () {
     $('.headertop-bar-sakura').removeClass('headertop-bar-sakura').addClass('headertop-bar')
     $('#banner_wave_1').removeClass('banner_wave_hide_fit_skin')
     $('#banner_wave_2').removeClass('banner_wave_hide_fit_skin')
+	//---
+	$('body').css('background-size','auto')
+	//---
     closeSkinMenu()
     setCookie('bgImgSetting', '', 30)
   })
@@ -528,10 +537,8 @@ $(document).ready(function () {
     mashiro_global.variables.skinSecter = true
     mashiro_global.variables.isNight = true
     //$('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png)')
-	$('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/themebg/cosmic-galaxy.jpg)')
-    $('body').css('background-repeat','no-repeat')
-	$('body').css('background-size','100% auto')
-	$('body').css('-moz-background-size','100% 100%')
+	$('body').css('background-image', 'url(./cosmic-galaxy1_看图王.jpg)')
+	$('body').css('background-size','100%')
 
     $('.blank').css('background-color', 'rgba(255,255,255,.8)')
     $('#night-mode-cover').css('visibility', 'visible')
