@@ -589,32 +589,30 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
 				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/wordpress-rotating-ball-o.svg">
 				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/disqus-preloader.svg">
 			</div>
-			<!-- color: #666666; -->
-			<p style="color: #b9b9b9;">&copy; 2018 -
-				2019
-				天赐
+			<p class="foo-logo" style="background-image: url('https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sakura.svg');">
 			</p>
+			<div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none">
+				<i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i>
+			</div>
+			<!-- color: #666666; -->
+			<div style="color: #b9b9b9;">&copy;
+				2018-2019&nbsp;天赐&nbsp;鄂ICP备18030098号
+			</div>
 		</div>
-		
-		<div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none">
-			<i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i>
-		</div>
-		
-		<!-- 访客统计 -->		
-		<div id="busuanzi_container"></div>
-		
+		<!-- 访客统计 -->
+		<!--<div id="busuanzi_container"></div>-->
 		<!-- 已运行的时间-容器 -->
 		<div id="days"></div>
 		<div class="footer-device">
-			<p style="font-family: 'Ubuntu', sans-serif;">
-				<!--<span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>-->
-				<span style="color: #b9b9b9;">
-					Theme 
-					<a href="https://github.com/tiancixiong/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a>
-					<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>
-					, Powered by <a href="https://hexo.io/zh-cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hexo</a>
-					, Hosted by <a href="https://coding.net/pages" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Coding Pages</a>
-				</span>
+			<p id="footer-sponsor">
+				<!-- <a href="https://pages.github.com/" target="_blank" alt="GitHub Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/GitHub.svg" alt="GitHub Pages"
+						style="height: 2em; max-height: 2em;" title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<!-- <a href="https://coding.net/pages" target="_blank" alt="Coding Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/Coding.png" alt="Coding Pages"
+						style="height: 1.3em; max-height: 1.3em;padding-bottom: 0px;margin-bottom: 0.35em;"
+						title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<a href="https://www.jsdelivr.com/" target="_blank" alt="Free CDN" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/JsDelivr_Logo.svg" alt="jsDelivr" style="height: 2em; max-height: 2em;padding-bottom: 0px;"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.google.com/intl/ja/analytics/" target="_blank" alt="Analytics solution" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/Google.svg" alt="Google Analytics" style="height: 1.7em; max-height: 1.7em;padding-bottom: 0px;"></a>
 			</p>
 		</div>
 	</div>
@@ -639,7 +637,7 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
 <script type="text/javascript">
 	/* <![CDATA[ */
-	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 		var Poi = {
 			"pjax": "1",
 			"movies": {
@@ -668,12 +666,12 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
 			"formpostion": "bottom"
 		};
 	}
-	/* ]]> */
+		/* ]]> */
 </script>
 <script>
-	$(document).ready(function() {
-		if($(".toc").length > 0 && document.body.clientWidth > 1200) {
-			if($(".pattern-center").length > 0) { //有图的情况
+	$(document).ready(function () {
+		if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+			if ($(".pattern-center").length > 0) { //有图的情况
 				tocbot.init({
 					// Where to render the table of contents.
 					tocSelector: '.toc', // 放置目录的容器
@@ -699,9 +697,9 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
 				});
 			}
 			var offsetTop = $('.toc').offset().top - 95;
-			window.onscroll = function() {
+			window.onscroll = function () {
 				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-				if(scrollTop >= offsetTop) {
+				if (scrollTop >= offsetTop) {
 					$('.toc').addClass('toc-fixed');
 				} else {
 					$('.toc').removeClass('toc-fixed');
@@ -720,7 +718,7 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
 		time = time.replace(/\//g, ':').replace(' ', ':');
 		time = time.split(':');
 		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
-		
+
 		today = new Date();
 		timeold = (today.getTime() - BirthDay.getTime());
 		sectimeold = timeold / 1000
@@ -737,7 +735,7 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
 	}
 
 	function setzero(i) {
-		if(i < 10) {
+		if (i < 10) {
 			i = "0" + i
 		};
 		return i;
@@ -745,30 +743,30 @@ public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos
 	show_date_time();
 </script>
 <!-- 访客统计-js -->
-<script>
-	if(true){
-		document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
-	}else{
-		document.getElementById('busuanzi_container').hidden;
-	}
-</script>
+<!--<script>
+		if(true){
+			document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
+		}else{
+			document.getElementById('busuanzi_container').hidden;
+		}
+	</script>-->
 <!-- 百度统计自动推送 -->
 <!--<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-	var scriptList = document.getElementsByTagName("script");
-    var s = scriptList[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
--->
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var scriptList = document.getElementsByTagName("script");
+		var s = scriptList[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+	-->
     <div class="openNav no-select" style="height: 50px;">
       <div class="iconflat no-select" style="width: 50px; height: 50px;">
         <div class="icon"></div>
