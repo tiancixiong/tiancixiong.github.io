@@ -414,17 +414,27 @@ $ git remote add origin git@github.xxx.git
 
 # 本地分支和远程分支建立联系(使用git branch -vv  可以查看本地分支和远程分支的关联关系)
 $ git branch --set-upstream-to=origin/远程分支 本地分支   
-</code></pre>
-<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><pre><code class="shell">
 
-# 查看工作目录和暂存区的状态
+# 首次提交,推送到master并关联此分支
+git push -u origin master
+</code></pre>
+<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><pre><code class="shell"># 合并指定分支到当前分支
+$ git merge [branch-name]
+
+# 查看分支的合并情况
+$ git log --graph --pretty=oneline --abbrev-commit
+$ git log --graph
+</code></pre>
+<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><pre><code class="shell"># 查看工作目录和暂存区的状态
 $ git status
 
 # 查看工作区与暂存区的差异
 $ git diff
+# 查看某个文件的工作区与暂存区的差异
+$ git diff file.txt
 
-# 查看提交历史
-$ git log
+# 查看提交历史[简略信息]
+$ git log [--pretty=oneline]
 
 # 查看命令历史
 $ git reflog
@@ -459,6 +469,11 @@ $ git branch --set-upstream-to=origin/远程分支 本地分支
 # 查看git 配置
 $ git config -l
 
+# 把远程分支迁到本地分支
+git checkout develop origin/develop
+# 把远程分支迁到本地顺便切换到该分支
+git checkout -b develop origin/develop
+
 # 修改远程仓库地址
 $ git remote set-url origin git@github.xxx.git
 
@@ -468,6 +483,19 @@ $ git reset --hard &lt;commit ID号&gt;
 # 强制推送到远程分支
 $ git push -f origin &lt;branch name&gt;
 </code></pre>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><pre><code class="shell"># 回退到上一个版本 HEAD表示当前版本
+$ git reset --hard HEAD^
+$ git reset --hard HEAD~1
+
+# 回退到指定版本(版本号可以只写前几位,一般写前4位即可)
+$ git reset --hard 56db0ffa425e86bd999683e6b9903e1196290def
+
+
+# 放弃工作区某个文件的修改
+git checkout -- file
+# 把暂存区某个文件的修改撤销掉
+git reset HEAD &lt;file&gt;
+</code></pre>
 <h2 id="删除commit记录"><a href="#删除commit记录" class="headerlink" title="删除commit记录"></a>删除commit记录</h2><p>何时需要删除Git提交的历史记录</p>
 <ol>
 <li>当历史记录中出现过<strong>密码</strong>等敏感信息在历史记录中, 需要删除历史记录时</li>
@@ -475,22 +503,22 @@ $ git push -f origin &lt;branch name&gt;
 <li>当你想要一个全新的项目的时候, 并且想保持项目代码不变</li>
 </ol>
 <pre><code class="shell"># 1. 创建全新的孤立分支 latest_branch
-git checkout --orphan latest_branch
+$ git checkout --orphan latest_branch
 
 # 2. 暂存所有文件
-git add -A
+$ git add -A
 
 # 3. 提交所有文件的修改到latest_branch
-git commit -am &quot;del all history&quot;
+$ git commit -am &quot;del all history&quot;
 
 # 4. 删除原来的master分支
-git branch -D master
+$ git branch -D master
 
 # 5. 修改latest_branch分支名为master
-git branch -m master
+$ git branch -m master
 
 # 6. 强制更新远程服务器的master分支, 至此清空git所有历史
-git push -f origin master
+$ git push -f origin master
 </code></pre>
 <h1 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h1><pre><code class="shell"># 在当前目录新建一个Git代码库
 $ git init
@@ -851,6 +879,9 @@ $ git remote show [remote]
 
 # 增加一个新的远程仓库，并命名
 $ git remote add [shortname] [url]
+
+# 修改远程仓库地址
+$ git remote set-url origin git@github.xxx.git
 
 # 取回远程仓库的变化，并与本地分支合并
 $ git pull [remote] [branch]
