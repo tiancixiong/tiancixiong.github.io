@@ -813,13 +813,22 @@ git tag [tag]
 # 新建一个tag在指定commit
 git tag [tag] [commit]
 
+# 新建带有说明的标签；通过 git show [tag] 查看
+# -a 指定标签名；-m 指定说明文字
+git tag -a [tag] -m [说明] [commit]
+
+# 删除标签(删除本地)
+git tag -d [tag]
+# 删除标签(删除远程,先删除本地)
+git push origin :refs/tags/[tag]
+
 # 查看tag信息
 git show [tag]
 
-# 提交指定tag
+# 提交指定tag到远程
 git push [remote] [tag]
 
-# 提交所有tag
+# 提交所有tag到远程
 git push [remote] --tags
 
 # 新建一个分支，指向某个tag
@@ -837,6 +846,7 @@ git push --tags
 git tag v0.0.1
 git push origin master --tags
 </code></pre>
+<p><strong>注意：</strong>标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签。</p>
 <h1 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h1><pre><code class="shell"># 显示有变更的文件
 git status
 
@@ -983,6 +993,12 @@ git reset --keep [commit]
 # 后者的所有变化都将被前者抵消，并且应用到当前分支
 git revert [commit]
 </code></pre>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><pre><code class="shell"># 强制添加到Git
+git add -f &lt;filename&gt;
+
+# 查看某文件在.gitignore对应的过滤规则
+git check-ignore -v &lt;filename&gt;
+</code></pre>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><pre><code class="shell"># 生成一个可供发布的压缩包
 git archive
 </code></pre>
@@ -1105,7 +1121,7 @@ git archive
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1117,10 +1133,10 @@ git archive
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
