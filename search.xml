@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决IDEA中@Autowired抛红问题</title>
+      <link href="/2019/07/16/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD-Autowired%E6%8A%9B%E7%BA%A2%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/07/16/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD-Autowired%E6%8A%9B%E7%BA%A2%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在IDEA中通过<code>@Autowired</code>注入时在变量名下方一直有红色的标记线进行提示</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ul><li>在IDEA中：<strong>File</strong> -&gt; <strong>Settings</strong> 打开设置页面</li><li>搜索<code>inspections</code> -&gt; 搜索<code>autowiring</code> -&gt; <code>Autowiring for Bean Class</code> -&gt; 将<code>Error</code>修改为<code>Warning</code> -&gt; 点击<code>OK</code></li></ul><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190716/1563271187782.png" alt="1563271187782"></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190716/1563271341095.png" alt="1563271341095"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>win10永久数字权利激活工具</title>
       <link href="/2019/07/06/win10%E6%B0%B8%E4%B9%85%E6%95%B0%E5%AD%97%E6%9D%83%E5%88%A9%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7/"/>
       <url>/2019/07/06/win10%E6%B0%B8%E4%B9%85%E6%95%B0%E5%AD%97%E6%9D%83%E5%88%A9%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7/</url>
@@ -838,9 +863,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> 脚本 </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -1189,9 +1214,9 @@
       
         <tags>
             
-            <tag> 踩坑 </tag>
-            
             <tag> MyBatis </tag>
+            
+            <tag> 踩坑 </tag>
             
             <tag> MySQL </tag>
             
@@ -2039,9 +2064,9 @@
       
         <tags>
             
-            <tag> 面试题 </tag>
-            
             <tag> SpringMVC </tag>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       

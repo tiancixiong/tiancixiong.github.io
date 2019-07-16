@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-07-06T04:25:17.298Z</updated>
+  <updated>2019-07-16T10:04:39.608Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决IDEA中@Autowired抛红问题</title>
+    <link href="https://www.xiongtianci.com/2019/07/16/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD-Autowired%E6%8A%9B%E7%BA%A2%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.xiongtianci.com/2019/07/16/解决IDEA中-Autowired抛红问题/</id>
+    <published>2019-07-16T09:42:03.000Z</published>
+    <updated>2019-07-16T10:04:39.608Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>win10永久数字权利激活工具</title>
@@ -457,30 +480,6 @@
     
     
       <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重新搭建博客</title>
-    <link href="https://www.xiongtianci.com/2019/05/20/%E9%87%8D%E6%96%B0%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://www.xiongtianci.com/2019/05/20/重新搭建博客/</id>
-    <published>2019-05-20T12:49:00.000Z</published>
-    <updated>2019-06-18T08:52:38.190Z</updated>
-    
-    <summary type="html">
-    
-      记录一次重构个人博客
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="生活" scheme="https://www.xiongtianci.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
-    
-      <category term="博客" scheme="https://www.xiongtianci.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
