@@ -1913,7 +1913,7 @@
       <link href="/2019/01/03/SQL%E4%B8%ADlimit%E7%9A%84%E7%94%A8%E6%B3%95/"/>
       <url>/2019/01/03/SQL%E4%B8%ADlimit%E7%9A%84%E7%94%A8%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>limit子句用于限制查询结果返回的数量，常用与分页查询数据</p></blockquote><p><strong>格式：</strong></p><pre><code class="sql">select * from tableName limit i,n# tableName：表名# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i# n：为查询结果返回的数量# i与n之间使用英文逗号&quot;,&quot;隔开# limit n 等同于 limit 0,n</code></pre><p>栗子：</p><pre><code class="sql"># 查询10条数据，索引从0到9select * from t_user limit 10;# 查询10条记录，索引从1到11(1+10)select * from t_user limit 1,10;# 查询10条记录，索引从5到15(5+10)select * from t_user limit 5,10;# 查询10条记录，索引从6到16(6+10)select * from t_user limit 6,10;</code></pre>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>limit子句用于限制查询结果返回的数量，常用于分页查询</p></blockquote><p><strong>格式：</strong></p><pre><code class="sql">select * from tableName limit i,n# tableName：表名# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i# n：为查询结果返回的数量# i与n之间使用英文逗号&quot;,&quot;隔开# limit n 等同于 limit 0,n</code></pre><p>栗子：</p><pre><code class="sql"># 查询10条数据，索引从0到9，第1条记录到第10条记录select * from t_user limit 10;select * from t_user limit 0,10;# 查询8条数据，索引从5到12，第6条记录到第13条记录select * from t_user limit 5,8;</code></pre>]]></content>
       
       
       <categories>

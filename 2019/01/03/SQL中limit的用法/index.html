@@ -407,7 +407,7 @@
         
         <div class="entry-content">
           <blockquote>
-<p>limit子句用于限制查询结果返回的数量，常用与分页查询数据</p>
+<p>limit子句用于限制查询结果返回的数量，常用于分页查询</p>
 </blockquote>
 <p><strong>格式：</strong></p>
 <pre><code class="sql">select * from tableName limit i,n
@@ -420,17 +420,12 @@
 limit n 等同于 limit 0,n
 </code></pre>
 <p>栗子：</p>
-<pre><code class="sql"># 查询10条数据，索引从0到9
+<pre><code class="sql"># 查询10条数据，索引从0到9，第1条记录到第10条记录
 select * from t_user limit 10;
+select * from t_user limit 0,10;
 
-# 查询10条记录，索引从1到11(1+10)
-select * from t_user limit 1,10;
-
-# 查询10条记录，索引从5到15(5+10)
-select * from t_user limit 5,10;
-
-# 查询10条记录，索引从6到16(6+10)
-select * from t_user limit 6,10;
+# 查询8条数据，索引从5到12，第6条记录到第13条记录
+select * from t_user limit 5,8;
 </code></pre>
 
         </div>
