@@ -415,13 +415,13 @@
 <li>我们需要提前在nginx中配置好反向代理的规则，不同的请求，交给不同的真实服务器处理</li>
 <li>当请求到达nginx，nginx会根据已经定义的规则进行请求的转发，从而实现路由功能</li>
 </ul>
-<p>利用反向代理，就可以解决我们前面所说的端口问题，如图：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220170949726.png" alt="在这里插入图片描述"></p>
-<h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装非常简单，把课前资料提供的nginx直接解压即可，绿色免安装，舒服！<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171122796.gif" alt="在这里插入图片描述"></p>
+<p>利用反向代理，就可以解决我们前面所说的端口问题，如图：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/20181220170949726.png" alt="在这里插入图片描述"></p>
+<h2 id="安装和使用"><a href="#安装和使用" class="headerlink" title="安装和使用"></a>安装和使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装非常简单，把课前资料提供的nginx直接解压即可，绿色免安装，舒服！<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/20181220171122796.gif" alt="在这里插入图片描述"></p>
 <blockquote>
 <p>下载nginx：<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
 </blockquote>
-<p>我们在本地安装一台nginx：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171233798.png" alt="在这里插入图片描述"></p>
-<p>解压后，目录结构：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171247576.png" alt="在这里插入图片描述"></p>
+<p>我们在本地安装一台nginx：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/20181220171233798.png" alt="在这里插入图片描述"></p>
+<p>解压后，目录结构：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/20181220171247576.png" alt="在这里插入图片描述"></p>
 <ol>
 <li>conf：配置目录</li>
 <li>contrib：第三方依赖</li>
@@ -429,7 +429,7 @@
 <li>logs：日志目录</li>
 <li>nginx.exe：启动程序。可双击运行，但不建议这么做。</li>
 </ol>
-<h3 id="反向代理配置"><a href="#反向代理配置" class="headerlink" title="反向代理配置"></a>反向代理配置</h3><p>示例：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171320144.png" alt="在这里插入图片描述"></p>
+<h3 id="反向代理配置"><a href="#反向代理配置" class="headerlink" title="反向代理配置"></a>反向代理配置</h3><p>示例：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/20181220171320144.png" alt="在这里插入图片描述"></p>
 <p>nginx中的每个server就是一个反向代理配置，可以有多个server</p>
 <p>完整配置：</p>
 <pre><code class="nginx">#user  nobody;
@@ -483,8 +483,8 @@ http {
 <li>停止：<code>nginx.exe -s stop</code></li>
 <li>重新加载：<code>nginx.exe -s reload</code></li>
 </ul>
-<p>启动过程会闪烁一下，启动成功后，任务管理器中会有两个nginx进程：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181222113315892.png" alt="在这里插入图片描述"></p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>启动nginx，然后用域名访问后台管理系统：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/2018122017160322.png" alt="在这里插入图片描述"><br>现在实现了域名访问网站了，中间的流程是怎样的呢？<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220-%E4%BD%BF%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/20181220171624185.png" alt="在这里插入图片描述"></p>
+<p>启动过程会闪烁一下，启动成功后，任务管理器中会有两个nginx进程：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/20181222113315892.png" alt="在这里插入图片描述"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>启动nginx，然后用域名访问后台管理系统：<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/2018122017160322.png" alt="在这里插入图片描述"><br>现在实现了域名访问网站了，中间的流程是怎样的呢？<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181220/20181220171624185.png" alt="在这里插入图片描述"></p>
 <ol>
 <li>浏览器准备发起请求，访问 <code>http://mamage.leyou.com</code>，但需要进行域名解析</li>
 <li>优先进行本地域名解析，因为我们修改了hosts，所以解析成功，得到地址：<code>127.0.0.1</code></li>

@@ -415,7 +415,7 @@
 <li>创建一个用于封装HTTP请求消息的<code>HttpServletRequest</code>对象和一个代表HTTP响应消息的<code>HttpServletResponse</code>对象，然后调用Servlet的<code>service()</code>方法并将请求和响应对象作为参数传递进去</li>
 <li>WEB应用程序被停止或重新启动之前，Servlet引擎将卸载Servlet，并在卸载之前调用Servlet的<code>destroy()</code>方法</li>
 </ol>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181116-Servlet%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/20181116103539879.png" alt="在这里插入图片描述"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181116/20181116103539879.png" alt="在这里插入图片描述"></p>
 <h2 id="三、Servlet的生命周期"><a href="#三、Servlet的生命周期" class="headerlink" title="三、Servlet的生命周期"></a>三、Servlet的生命周期</h2><p>Servlet运行在Servlet容器中，其生命周期由容器来管理。Servlet的生命周期通过javax.servlet.Servlet接口中的<code>init()</code>、<code>service()</code>和<code>destroy()</code>方法来表示<br>Servlet的生命周期包含了下面4个阶段：</p>
 <ol>
 <li><strong>加载和实例化</strong>：第一次请求时创建，通过服务器反射机制创建Servlet对象</li>

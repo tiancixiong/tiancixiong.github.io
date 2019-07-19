@@ -407,10 +407,10 @@
         
         <div class="entry-content">
           <h1 id="Java线程状态"><a href="#Java线程状态" class="headerlink" title="Java线程状态"></a>Java线程状态</h1><p>网上流传了很久的线程具备5种状态，这样是不贴切JDK中描述的，JDK中描述线程状态只有6种，而网络流传的5种<br>状态就是进程的五态模型。那张广为流传的来自网络的图如下：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/1542897157060.png" alt="1542897157060"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1542897157060.png" alt="1542897157060"></p>
 <p>很明显这是操作系统中进程的5种状态，在很多操作系统书中也由介绍分别为new，ready，running，waiting，<br>terminated。不幸的是，有很多的书上常常把这些进程状态，线程状态与Java线程状态混在一起谈。</p>
 <p>进程与线程的区分总图：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/1542897357723.png" alt="1542897357723"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1542897357723.png" alt="1542897357723"></p>
 <blockquote>
 <ol>
 <li>很多人觉得在JVM线程中应该有，Running运行状态。对JAVA而言，Runnable包含了就绪与运行，那为<br>什么JAVA不区分开呢？这跟CPU分配的时间片有关，而且JAVA进行的是抢占式轮转调度，由于我们的JVM线程是服务于监控，线程又是切换的如此之快，那么区分ready与running又没有多大意义了。<br>再者，我们都知道现在使用的很多JVM底层都将线程映射到操作系统上了，JVM本身没有做什么调度，因为虚拟机看到的都是底层的映射与封装，故而将ready与running映射来也没有太大意义，不如统一为Runnable</li>
@@ -419,7 +419,7 @@
 </ol>
 </blockquote>
 <p>我们先来看下，这里先列出各个线程状态发生的条件，下面将会对每种状态进行详细解析</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/1543039901810.png" alt="1543039901810"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1543039901810.png" alt="1543039901810"></p>
 <table>
 <thead>
 <tr>
@@ -837,7 +837,7 @@ public class WaitingTest {
           
             <a href="/2018/11/30/Flex布局/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Flex%E5%B8%83%E5%B1%80/bg2015071002.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/bg2015071002.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Next Post</span>

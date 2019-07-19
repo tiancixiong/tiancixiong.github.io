@@ -463,7 +463,7 @@
 </li>
 <li>注意：每当 vm 实例对象，监听到 data 中数据发生了变化，就会立即 重新解析 执行 el 区域内，所有的代码；</li>
 </ol>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/1540830117063.png" alt="1540830117063"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1540830117063.png" alt="1540830117063"></p>
 <p>mvvm是前端思想，mvc是后台思想</p>
 <h1 id="5-Vue调试工具vue-devtools的安装和使用"><a href="#5-Vue调试工具vue-devtools的安装和使用" class="headerlink" title="5. Vue调试工具vue-devtools的安装和使用"></a>5. Vue调试工具<code>vue-devtools</code>的安装和使用</h1><p><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=zh-CN" target="_blank" rel="noopener">Vue.js devtools - 翻墙安装方式 - 推荐</a></p>
 <h1 id="6-快速入门"><a href="#6-快速入门" class="headerlink" title="6. 快速入门"></a>6. 快速入门</h1><h1 id="7-Vue实例"><a href="#7-Vue实例" class="headerlink" title="7. Vue实例"></a>7. Vue实例</h1><h2 id="7-1-创建Vue实例"><a href="#7-1-创建Vue实例" class="headerlink" title="7.1 创建Vue实例"></a>7.1 创建Vue实例</h2><p>每个 Vue 应用都是通过用 <code>Vue</code> 函数创建一个新的 <strong>Vue 实例</strong>开始的：</p>
@@ -561,8 +561,8 @@
 </code></pre>
 <h2 id="7-5-生命周期"><a href="#7-5-生命周期" class="headerlink" title="7.5 生命周期"></a>7.5 生命周期</h2><h3 id="7-5-1-生命周期"><a href="#7-5-1-生命周期" class="headerlink" title="7.5.1 生命周期"></a>7.5.1 生命周期</h3><p>每个 Vue 实例在被创建时都要经过一系列的初始化过程 ：创建实例，装载模板，渲染模板等等。Vue为生命周期中的每个状态都设置了钩子函数（监听函数）。每当Vue实例处于不同的生命周期时，对应的函数就会被触发调用。</p>
 <p>生命周期：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/lifecycle.png" alt="Vue life cycle"></p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/1540850010193.png" alt="1540850010193"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/lifecycle.png" alt="Vue life cycle"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1540850010193.png" alt="1540850010193"></p>
 <h3 id="7-5-2-钩子函数"><a href="#7-5-2-钩子函数" class="headerlink" title="7.5.2 钩子函数"></a>7.5.2 钩子函数</h3><p><strong>钩子函数</strong>：生命周期函数的别名；</p>
 <ul>
 <li>生命周期钩子 = 生命周期函数 = 生命周期事件</li>
@@ -611,7 +611,7 @@
 &lt;/script&gt;
 </code></pre>
 <p>结果：</p>
-<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/1540845983254.png" alt="1540845983254"></p>
+<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1540845983254.png" alt="1540845983254"></p>
 <ul>
 <li>例2：</li>
 </ul>
@@ -693,7 +693,7 @@
 })
 </code></pre>
 <p> 控制台的输出：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130-Vue%E5%9F%BA%E7%A1%80-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/1540846042618.png" alt="1540846042618"></p>
+<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1540846042618.png" alt="1540846042618"></p>
 <h1 id="8-指令"><a href="#8-指令" class="headerlink" title="8. 指令"></a>8. 指令</h1><p><strong>指令</strong> (Directives)： 是带有 <code>v-</code> 前缀的特殊特性。指令特性的预期值是：<strong>单个 JavaScript 表达式</strong>。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。 </p>
 <p>例如我们在入门案例中的v-on，代表绑定事件。</p>
 <h2 id="8-1-插值表达式"><a href="#8-1-插值表达式" class="headerlink" title="8.1 插值表达式"></a>8.1 插值表达式</h2><h3 id="8-1-1-大括号-u007B-u007B"><a href="#8-1-1-大括号-u007B-u007B" class="headerlink" title="8.1.1 大括号 u007B;u007B;"></a>8.1.1 大括号 u007B;u007B;</h3><ol>
