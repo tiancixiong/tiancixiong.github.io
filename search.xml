@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>解决.gitignore过滤规则不起作用问题</title>
+      <link href="/2019/07/22/%E8%A7%A3%E5%86%B3.gitignore%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/07/22/%E8%A7%A3%E5%86%B3.gitignore%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在<code>Git</code>使用<code>.gitignore</code>进行过滤时不起作用</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><pre><code class="shell"># 最后是一个&quot;.&quot;git rm -r --cached .</code></pre><p>如果出现：<strong>use -f to force removal</strong>，则使用<code>git rm -rf --cached .</code></p><p><img src="20190722-解决IDEA中使用-gitignore过滤规则不起作用/1563764670532.png" alt="1563764670532"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 踩坑 </tag>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决IDEA中@Autowired抛红问题</title>
       <link href="/2019/07/16/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD-Autowired%E6%8A%9B%E7%BA%A2%E9%97%AE%E9%A2%98/"/>
       <url>/2019/07/16/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD-Autowired%E6%8A%9B%E7%BA%A2%E9%97%AE%E9%A2%98/</url>
@@ -863,9 +892,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -1214,9 +1243,9 @@
       
         <tags>
             
-            <tag> MyBatis </tag>
-            
             <tag> 踩坑 </tag>
+            
+            <tag> MyBatis </tag>
             
             <tag> MySQL </tag>
             
@@ -1530,9 +1559,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2631,9 +2660,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       

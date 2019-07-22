@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-07-16T10:04:39.608Z</updated>
+  <updated>2019-07-22T03:06:20.152Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决.gitignore过滤规则不起作用问题</title>
+    <link href="https://www.xiongtianci.com/2019/07/22/%E8%A7%A3%E5%86%B3.gitignore%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.xiongtianci.com/2019/07/22/解决.gitignore过滤规则不起作用问题/</id>
+    <published>2019-07-22T02:56:37.000Z</published>
+    <updated>2019-07-22T03:06:20.152Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="踩坑" scheme="https://www.xiongtianci.com/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+      <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>解决IDEA中@Autowired抛红问题</title>
@@ -457,29 +484,6 @@
     
     
       <category term="MySQL" scheme="https://www.xiongtianci.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npm install hexo-renderer-sass时报错</title>
-    <link href="https://www.xiongtianci.com/2019/05/20/npm-install-hexo-renderer-sass%E6%97%B6%E6%8A%A5%E9%94%99/"/>
-    <id>https://www.xiongtianci.com/2019/05/20/npm-install-hexo-renderer-sass时报错/</id>
-    <published>2019-05-20T15:37:42.000Z</published>
-    <updated>2019-06-18T08:52:46.664Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
     
   </entry>
   
