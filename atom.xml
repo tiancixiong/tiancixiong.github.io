@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-07-23T01:13:02.756Z</updated>
+  <updated>2019-07-25T03:49:18.500Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有趣的代码注释</title>
+    <link href="https://www.xiongtianci.com/2019/07/25/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A/"/>
+    <id>https://www.xiongtianci.com/2019/07/25/有趣的代码注释/</id>
+    <published>2019-07-25T03:41:36.000Z</published>
+    <updated>2019-07-25T03:49:18.500Z</updated>
+    
+    <summary type="html">
+    
+      绝对&quot;牛X&quot;的代码注释
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="转载" scheme="https://www.xiongtianci.com/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+      <category term="注释" scheme="https://www.xiongtianci.com/tags/%E6%B3%A8%E9%87%8A/"/>
+    
+  </entry>
   
   <entry>
     <title>解决.gitignore过滤规则不起作用问题</title>
@@ -460,30 +482,6 @@
     
     
       <category term="生活" scheme="https://www.xiongtianci.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一千行MySQL学习笔记</title>
-    <link href="https://www.xiongtianci.com/2019/06/05/%E4%B8%80%E5%8D%83%E8%A1%8CMySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://www.xiongtianci.com/2019/06/05/一千行MySQL学习笔记/</id>
-    <published>2019-06-05T09:41:17.000Z</published>
-    <updated>2019-06-18T08:52:29.462Z</updated>
-    
-    <summary type="html">
-    
-      SQL笔记
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="笔记" scheme="https://www.xiongtianci.com/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="转载" scheme="https://www.xiongtianci.com/categories/%E8%BD%AC%E8%BD%BD/"/>
-    
-    
-      <category term="MySQL" scheme="https://www.xiongtianci.com/tags/MySQL/"/>
     
   </entry>
   

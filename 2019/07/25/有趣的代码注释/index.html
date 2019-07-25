@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  
+  <!-- 关键字 keywords -->
+  
+  <meta name="keywords" content="转载,注释,天赐,tianci,xiongtianci,tiancixiong,xtc,tcx,博客">
+  
+  
+  <title itemprop="name">有趣的代码注释 | 天赐</title>
+  
+    <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "トトロ天赐";
+  mashiro_option.author_name = "天赐";
+  mashiro_option.site_url = "/";
+  mashiro_option.v_appId = "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz";
+  mashiro_option.v_appKey = "7zPSYnuDLeyCNoSQpgTXdC1v";
+  mashiro_option.v_notify = false;
+  mashiro_option.v_verify = false;
+  mashiro_option.v_placeholder = "你是我一生只会遇见一次的惊喜 ...";
+  mashiro_option.v_avatar = "monsterid";
+  mashiro_option.v_pageSize = "5" || 10;
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+  console.info("%c Blog %c", "background:#24272A; color:#ffffff", "", "https://www.xiongtianci.com");
+  console.info("%c GitHub %c", "background:#24272A; color:#ffffff", "", "https://github.com/tiancixiong");
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/5cm1.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/5cm2.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero2.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero3.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero4.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/from.up.on.poppy.hill1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kazetachinu1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki2.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki3.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona2.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona3.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona4.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona5.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi1.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi2.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi3.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi4.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi5.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/mimi.wo.sumaseba1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/mimi.wo.sumaseba2.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/paperman1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/paperman2.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/ponyo1.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/ponyo2.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro1.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro2.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/totoro1.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <!--首页背景图下方的波浪线-->
+  <!--<div id="banner_wave_1"></div>-->
+  <!--<div id="banner_wave_2"></div>-->
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="/">
+          <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Viva La Vida</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/tiancixiong" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:tiancixiong@163.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="javascript:void(0);">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/wechat.jpg">
+                  </div>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/6338246468?is_all=1" target="_blank" class="social-github" title="sina">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/sina.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">トトロ</span>
+            <span class="shironeko">天赐</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+                    极客
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/Linux/">
+                          <i class="fa fa-linux" aria-hidden="true"></i>
+                          Linux
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+                    爱好
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/电影/">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          电影
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/日语/">
+                          <i class="fa fa-language" aria-hidden="true"></i>
+                          日语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1534179639155-4910efc143c0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1534179639155-4910efc143c0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      有趣的代码注释</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://www.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://www.xiongtianci.com">天赐</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-7-25<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <blockquote>
+<p>作者：<a href="https://github.com/Blankj/" target="_blank" rel="noopener">Blankj</a><br>原链：<a href="https://github.com/Blankj/awesome-comment" target="_blank" rel="noopener">https://github.com/Blankj/awesome-comment</a></p>
+</blockquote>
+<h1 id="awesome-comment"><a href="#awesome-comment" class="headerlink" title="awesome-comment"></a>awesome-comment</h1><p>欢迎提交issue来完善这个神级注释</p>
+<blockquote>
+<p>写在前面的话：一时兴起就收集了以下神注释，希望能为广大ITer带来快乐，缓解你们工作中的压力，下面开车，先自爆头像，下文会给出制作链接。</p>
+</blockquote>
+<pre><code>/***　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+ *　　　　　　　　　瓦瓦　　　　　　　　　　　　十　　　　　　　　　　　　　
+ *　　　　　　　　十齱龠己　　　　　　　　　亅瓦車己　　　　　　　　　　　　
+ *　　　　　　　　乙龍龠毋日丶　　　　　　丶乙己毋毋丶　　　　　　　　　　　
+ *　　　　　　　　十龠馬鬼車瓦　　　　　　己十瓦毋毋　　　　　　　　　　　　
+ *　　　　　　　　　鬼馬龠馬龠十　　　　己己毋車毋瓦　　　　　　　　　　　　
+ *　　　　　　　　　毋龠龠龍龠鬼乙丶丶乙車乙毋鬼車己　　　　　　　　　　　　
+ *　　　　　　　　　乙龠龍龍鬼龍瓦　十瓦毋乙瓦龠瓦亅　　　　　　　　　　　　
+ *　　　　　　　　　　馬齱龍馬鬼十丶日己己己毋車乙丶　　　　　　　　　　　　
+ *　　　　　　　　　　己齱馬鬼車十十毋日乙己己乙乙　　　　　　　　　　　　　
+ *　　　　　　　　　　　車馬齱齱日乙毋瓦己乙瓦日亅　　　　　　　　　　　　　
+ *　　　　　　　　　　　亅車齺龖瓦乙車龖龍乙乙十　　　　　　　　　　　　　　
+ *　　　　　　　　　　　　日龠龠十亅車龍毋十十　　　　　　　　　　　　　　　
+ *　　　　　　　　　　　　日毋己亅　己己十亅亅　　　　　　　　　　　　　　　
+ *　　　　　　　　　　　丶己十十乙　　丶丶丶丶丶　　　　　　　　　　　　　　
+ *　　　　　　　　　　　亅己十龍龖瓦　　丶　丶　乙十　　　　　　　　　　　　
+ *　　　　　　　　　　　亅己十龠龖毋　丶丶　　丶己鬼鬼瓦亅　　　　　　　　　
+ *　　　　　　　　　　　十日十十日亅丶亅丶　丶十日毋鬼馬馬車乙　　　　　　　
+ *　　　　　　　　　　　十日乙十亅亅亅丶　　十乙己毋鬼鬼鬼龍齺馬乙　　　　　
+ *　　　　　　　　　　　丶瓦己乙十十亅丶亅乙乙乙己毋鬼鬼鬼龍齱齺齺鬼十　　　
+ *　　　　　　　　　　　　乙乙十十十亅乙瓦瓦己日瓦毋鬼鬼龠齱齱龍龍齱齱毋丶　
+ *　　　　　　　　　　　　亅十十十十乙瓦車毋瓦瓦日車馬龠龍龍龍龍龍龠龠龠馬亅
+ *　　　　　　　　　　　　　十十十十己毋車瓦瓦瓦瓦鬼馬龠龍龠龠龍龠龠龠馬龠車
+ *　　　　　　　　　　　　　　亅十十日毋瓦日日瓦鬼鬼鬼龠龠馬馬龠龍龍龠馬馬車
+ *　　　　　　　　　　　　　　亅亅亅乙瓦瓦毋車車車馬龍龠鬼鬼馬龠龍龍龠馬馬鬼
+ *　　　　　　　　　　　　丶丶乙亅亅乙車鬼鬼鬼毋車龍龍龠鬼馬馬龠龍齱齱龍馬鬼
+ *　　　　　　　　　　　亅己十十己十日鬼鬼車瓦毋龠龍龠馬馬龠龠龠齱齺齺齱龠鬼
+ *　　　　　　　　　　　　亅乙乙乙十車馬車毋馬齱齱龍龠龠龠馬龠龍齱龍龠龠鬼瓦
+ *　　　　　　　　　　　　　　　　丶毋龠鬼車瓦車馬龠龍龠龠龍齱齱龠馬馬鬼毋日
+ *　　　　　　　　　　　　　　　　十乙己日十　　丶己鬼龍齱齺齱龍馬馬馬車毋己
+ *　　　　　　　　　　　　　　丶十己乙亅丶　　　　　　亅瓦馬龠龍龠龠馬毋瓦乙
+ *　　　　　　　　　　　　　丶十十乙亅十　　　　　　　　亅己瓦車馬龠鬼車瓦乙
+ *　　　　　　　　　　　　　丶十乙十十丶　　　　　　　　　丶丶亅十瓦鬼車瓦己
+ *　　　　　　　　　　　　　　丶亅亅丶　　　　　　　　　　　　　　　亅日瓦日
+ *　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　丶
+ */
+</code></pre><p><del>就不卖关子了，图片转字符可以上这个<a href="http://ku.cndesign.com/pic/" target="_blank" rel="noopener">传送门</a>，白底的话会按空格补全，否则都为字符。</del></p>
+<p>前面的传送门貌似出了点问题，下面再补上个<a href="http://www.makepic.net/Tool/Image2ascii.html" target="_blank" rel="noopener">新的传送门</a>，也是很好用的，可以选择质量。</p>
+<p>这不，下面的两只doge和一头滑稽就是产自于它，have fun，快去制作专属的字符注释吧。</p>
+<p>再补上一个好玩的网站<a href="http://www.asciiworld.com/" target="_blank" rel="noopener">Ascii World</a>，由于这网站的图形太多了，我就不贴上来了。</p>
+<pre><code>/***                                                                          
+ *          .,:,,,                                        .::,,,::.          
+ *        .::::,,;;,                                  .,;;:,,....:i:         
+ *        :i,.::::,;i:.      ....,,:::::::::,....   .;i:,.  ......;i.        
+ *        :;..:::;::::i;,,:::;:,,,,,,,,,,..,.,,:::iri:. .,:irsr:,.;i.        
+ *        ;;..,::::;;;;ri,,,.                    ..,,:;s1s1ssrr;,.;r,        
+ *        :;. ,::;ii;:,     . ...................     .;iirri;;;,,;i,        
+ *        ,i. .;ri:.   ... ............................  .,,:;:,,,;i:        
+ *        :s,.;r:... ....................................... .::;::s;        
+ *        ,1r::. .............,,,.,,:,,........................,;iir;        
+ *        ,s;...........     ..::.,;:,,.          ...............,;1s        
+ *       :i,..,.              .,:,,::,.          .......... .......;1,       
+ *      ir,....:rrssr;:,       ,,.,::.     .r5S9989398G95hr;. ....,.:s,      
+ *     ;r,..,s9855513XHAG3i   .,,,,,,,.  ,S931,.,,.;s;s&amp;BHHA8s.,..,..:r:     
+ *    :r;..rGGh,  :SAG;;G@BS:.,,,,,,,,,.r83:      hHH1sXMBHHHM3..,,,,.ir.    
+ *   ,si,.1GS,   sBMAAX&amp;MBMB5,,,,,,:,,.:&amp;8       3@HXHBMBHBBH#X,.,,,,,,rr    
+ *   ;1:,,SH:   .A@&amp;&amp;B#&amp;8H#BS,,,,,,,,,.,5XS,     3@MHABM&amp;59M#As..,,,,:,is,   
+ *  .rr,,,;9&amp;1   hBHHBB&amp;8AMGr,,,,,,,,,,,:h&amp;&amp;9s;   r9&amp;BMHBHMB9:  . .,,,,;ri.  
+ *  :1:....:5&amp;XSi;r8BMBHHA9r:,......,,,,:ii19GG88899XHHH&amp;GSr.      ...,:rs.  
+ *  ;s.     .:sS8G8GG889hi.        ....,,:;:,.:irssrriii:,.        ...,,i1,  
+ *  ;1,         ..,....,,isssi;,        .,,.                      ....,.i1,  
+ *  ;h:               i9HHBMBBHAX9:         .                     ...,,,rs,  
+ *  ,1i..            :A#MBBBBMHB##s                             ....,,,;si.  
+ *  .r1,..        ,..;3BMBBBHBB#Bh.     ..                    ....,,,,,i1;   
+ *   :h;..       .,..;,1XBMMMMBXs,.,, .. :: ,.               ....,,,,,,ss.   
+ *    ih: ..    .;;;, ;;:s58A3i,..    ,. ,.:,,.             ...,,,,,:,s1,    
+ *    .s1,....   .,;sh,  ,iSAXs;.    ,.  ,,.i85            ...,,,,,,:i1;     
+ *     .rh: ...     rXG9XBBM#M#MHAX3hss13&amp;&amp;HHXr         .....,,,,,,,ih;      
+ *      .s5: .....    i598X&amp;&amp;A&amp;AAAAAA&amp;XG851r:       ........,,,,:,,sh;       
+ *      . ihr, ...  .         ..                    ........,,,,,;11:.       
+ *         ,s1i. ...  ..,,,..,,,.,,.,,.,..       ........,,.,,.;s5i.         
+ *          .:s1r,......................       ..............;shs,           
+ *          . .:shr:.  ....                 ..............,ishs.             
+ *              .,issr;,... ...........................,is1s;.               
+ *                 .,is1si;:,....................,:;ir1sr;,                  
+ *                    ..:isssssrrii;::::::;;iirsssssr;:..                    
+ *                         .,::iiirsssssssssrri;;:.                      
+ */                         
+
+
+/***
+ *               ii.                                         ;9ABH,          
+ *              SA391,                                    .r9GG35&amp;G          
+ *              &amp;#ii13Gh;                               i3X31i;:,rB1         
+ *              iMs,:,i5895,                         .5G91:,:;:s1:8A         
+ *               33::::,,;5G5,                     ,58Si,,:::,sHX;iH1        
+ *                Sr.,:;rs13BBX35hh11511h5Shhh5S3GAXS:.,,::,,1AG3i,GG        
+ *                .G51S511sr;;iiiishS8G89Shsrrsh59S;.,,,,,..5A85Si,h8        
+ *               :SB9s:,............................,,,.,,,SASh53h,1G.       
+ *            .r18S;..,,,,,,,,,,,,,,,,,,,,,,,,,,,,,....,,.1H315199,rX,       
+ *          ;S89s,..,,,,,,,,,,,,,,,,,,,,,,,....,,.......,,,;r1ShS8,;Xi       
+ *        i55s:.........,,,,,,,,,,,,,,,,.,,,......,.....,,....r9&amp;5.:X1       
+ *       59;.....,.     .,,,,,,,,,,,...        .............,..:1;.:&amp;s       
+ *      s8,..;53S5S3s.   .,,,,,,,.,..      i15S5h1:.........,,,..,,:99       
+ *      93.:39s:rSGB@A;  ..,,,,.....    .SG3hhh9G&amp;BGi..,,,,,,,,,,,,.,83      
+ *      G5.G8  9#@@@@@X. .,,,,,,.....  iA9,.S&amp;B###@@Mr...,,,,,,,,..,.;Xh     
+ *      Gs.X8 S@@@@@@@B:..,,,,,,,,,,. rA1 ,A@@@@@@@@@H:........,,,,,,.iX:    
+ *     ;9. ,8A#@@@@@@#5,.,,,,,,,,,... 9A. 8@@@@@@@@@@M;    ....,,,,,,,,S8    
+ *     X3    iS8XAHH8s.,,,,,,,,,,...,..58hH@@@@@@@@@Hs       ...,,,,,,,:Gs   
+ *    r8,        ,,,...,,,,,,,,,,.....  ,h8XABMMHX3r.          .,,,,,,,.rX:  
+ *   :9, .    .:,..,:;;;::,.,,,,,..          .,,.               ..,,,,,,.59  
+ *  .Si      ,:.i8HBMMMMMB&amp;5,....                    .            .,,,,,.sMr
+ *  SS       :: h@@@@@@@@@@#; .                     ...  .         ..,,,,iM5
+ *  91  .    ;:.,1&amp;@@@@@@MXs.                            .          .,,:,:&amp;S
+ *  hS ....  .:;,,,i3MMS1;..,..... .  .     ...                     ..,:,.99
+ *  ,8; ..... .,:,..,8Ms:;,,,...                                     .,::.83
+ *   s&amp;: ....  .sS553B@@HX3s;,.    .,;13h.                            .:::&amp;1
+ *    SXr  .  ...;s3G99XA&amp;X88Shss11155hi.                             ,;:h&amp;,
+ *     iH8:  . ..   ,;iiii;,::,,,,,.                                 .;irHA  
+ *      ,8X5;   .     .......                                       ,;iihS8Gi
+ *         1831,                                                 .,;irrrrrs&amp;@
+ *           ;5A8r.                                            .:;iiiiirrss1H
+ *             :X@H3s.......                                .,:;iii;iiiiirsrh
+ *              r#h:;,...,,.. .,,:;;;;;:::,...              .:;;;;;;iiiirrss1
+ *             ,M8 ..,....,.....,,::::::,,...         .     .,;;;iiiiiirss11h
+ *             8B;.,,,,,,,.,.....          .           ..   .:;;;;iirrsss111h
+ *            i@5,:::,,,,,,,,.... .                   . .:::;;;;;irrrss111111
+ *            9Bi,:,,,,......                        ..r91;;;;;iirrsss1ss1111
+ */
+
+
+/***                                                                    
+ *            .,,       .,:;;iiiiiiiii;;:,,.     .,,                   
+ *          rGB##HS,.;iirrrrriiiiiiiiiirrrrri;,s&amp;##MAS,                
+ *         r5s;:r3AH5iiiii;;;;;;;;;;;;;;;;iiirXHGSsiih1,               
+ *            .;i;;s91;;;;;;::::::::::::;;;;iS5;;;ii:                  
+ *          :rsriii;;r::::::::::::::::::::::;;,;;iiirsi,               
+ *       .,iri;;::::;;;;;;::,,,,,,,,,,,,,..,,;;;;;;;;iiri,,.           
+ *    ,9BM&amp;,            .,:;;:,,,,,,,,,,,hXA8:            ..,,,.       
+ *   ,;&amp;@@#r:;;;;;::::,,.   ,r,,,,,,,,,,iA@@@s,,:::;;;::,,.   .;.      
+ *    :ih1iii;;;;;::::;;;;;;;:,,,,,,,,,,;i55r;;;;;;;;;iiirrrr,..       
+ *   .ir;;iiiiiiiiii;;;;::::::,,,,,,,:::::,,:;;;iiiiiiiiiiiiri         
+ *   iriiiiiiiiiiiiiiii;;;::::::::::::::::;;;iiiiiiiiiiiiiiiir;        
+ *  ,riii;;;;;;;;;;;;;:::::::::::::::::::::::;;;;;;;;;;;;;;iiir.       
+ *  iri;;;::::,,,,,,,,,,:::::::::::::::::::::::::,::,,::::;;iir:       
+ * .rii;;::::,,,,,,,,,,,,:::::::::::::::::,,,,,,,,,,,,,::::;;iri       
+ * ,rii;;;::,,,,,,,,,,,,,:::::::::::,:::::,,,,,,,,,,,,,:::;;;iir.      
+ * ,rii;;i::,,,,,,,,,,,,,:::::::::::::::::,,,,,,,,,,,,,,::i;;iir.      
+ * ,rii;;r::,,,,,,,,,,,,,:,:::::,:,:::::::,,,,,,,,,,,,,::;r;;iir.      
+ * .rii;;rr,:,,,,,,,,,,,,,,:::::::::::::::,,,,,,,,,,,,,:,si;;iri       
+ *  ;rii;:1i,,,,,,,,,,,,,,,,,,:::::::::,,,,,,,,,,,,,,,:,ss:;iir:       
+ *  .rii;;;5r,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,sh:;;iri        
+ *   ;rii;:;51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.:hh:;;iir,        
+ *    irii;::hSr,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.,sSs:;;iir:         
+ *     irii;;:iSSs:.,,,,,,,,,,,,,,,,,,,,,,,,,,,..:135;:;;iir:          
+ *      ;rii;;:,r535r:...,,,,,,,,,,,,,,,,,,..,;sS35i,;;iirr:           
+ *       :rrii;;:,;1S3Shs;:,............,:is533Ss:,;;;iiri,            
+ *        .;rrii;;;:,;rhS393S55hh11hh5S3393Shr:,:;;;iirr:              
+ *          .;rriii;;;::,:;is1h555555h1si;:,::;;;iirri:.               
+ *            .:irrrii;;;;;:::,,,,,,,,:::;;;;iiirrr;,                  
+ *               .:irrrriiiiii;;;;;;;;iiiiiirrrr;,.                    
+ *                  .,:;iirrrrrrrrrrrrrrrrri;:.                        
+ *                        ..,:::;;;;:::,,.                             
+ */                                                                     
+
+
+/***
+ * ┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐
+ * │Esc│   │ F1│ F2│ F3│ F4│ │ F5│ F6│ F7│ F8│ │ F9│F10│F11│F12│ │P/S│S L│P/B│  ┌┐    ┌┐    ┌┐
+ * └───┘   └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┘  └┘    └┘    └┘
+ * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐
+ * │~ `│! 1│@ 2│# 3│$ 4│% 5│^ 6│&amp; 7│* 8│( 9│) 0│_ -│+ =│ BacSp │ │Ins│Hom│PUp│ │N L│ / │ * │ - │
+ * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤ ├───┼───┼───┤ ├───┼───┼───┼───┤
+ * │ Tab │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │{ [│} ]│ | \ │ │Del│End│PDn│ │ 7 │ 8 │ 9 │   │
+ * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤ └───┴───┴───┘ ├───┼───┼───┤ + │
+ * │ Caps │ A │ S │ D │ F │ G │ H │ J │ K │ L │: ;│&quot; &#39;│ Enter  │               │ 4 │ 5 │ 6 │   │
+ * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤     ┌───┐     ├───┼───┼───┼───┤
+ * │ Shift  │ Z │ X │ C │ V │ B │ N │ M │&lt; ,│&gt; .│? /│  Shift   │     │ ↑ │     │ 1 │ 2 │ 3 │   │
+ * ├─────┬──┴─┬─┴──┬┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤ ┌───┼───┼───┐ ├───┴───┼───┤ E││
+ * │ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│
+ * └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
+ */
+
+
+/***
+ *                    _ooOoo_
+ *                   o8888888o
+ *                   88&quot; . &quot;88
+ *                   (| -_- |)
+ *                    O\ = /O
+ *                ____/`---&#39;\____
+ *              .   &#39; \\| |// `.
+ *               / \\||| : |||// \
+ *             / _||||| -:- |||||- \
+ *               | | \\\ - /// | |
+ *             | \_| &#39;&#39;\---/&#39;&#39; | |
+ *              \ .-\__ `-` ___/-. /
+ *           ___`. .&#39; /--.--\ `. . __
+ *        .&quot;&quot; &#39;&lt; `.___\_&lt;|&gt;_/___.&#39; &gt;&#39;&quot;&quot;.
+ *       | | : `- \`.;`\ _ /`;.`/ - ` : | |
+ *         \ \ `-. \_ __\ /__ _/ .-` / /
+ * ======`-.____`-.___\_____/___.-`____.-&#39;======
+ *                    `=---=&#39;
+ *
+ * .............................................
+ *          佛祖保佑             永无BUG
+ */
+
+
+/***
+ *  佛曰:
+ *          写字楼里写字间，写字间里程序员；
+ *          程序人员写程序，又拿程序换酒钱。
+ *          酒醒只在网上坐，酒醉还来网下眠；
+ *          酒醉酒醒日复日，网上网下年复年。
+ *          但愿老死电脑间，不愿鞠躬老板前；
+ *          奔驰宝马贵者趣，公交自行程序员。
+ *          别人笑我忒疯癫，我笑自己命太贱；
+ *          不见满街漂亮妹，哪个归得程序员？
+ */
+
+
+/***
+ * _ooOoo_
+ * o8888888o
+ * 88&quot; . &quot;88
+ * (| -_- |)
+ *  O\ = /O
+ * ___/`---&#39;\____
+ * .   &#39; \\| |// `.
+ * / \\||| : |||// \
+ * / _||||| -:- |||||- \
+ * | | \\\ - /// | |
+ * | \_| &#39;&#39;\---/&#39;&#39; | |
+ * \ .-\__ `-` ___/-. /
+ * ___`. .&#39; /--.--\ `. . __
+ * .&quot;&quot; &#39;&lt; `.___\_&lt;|&gt;_/___.&#39; &gt;&#39;&quot;&quot;.
+ * | | : `- \`.;`\ _ /`;.`/ - ` : | |
+ * \ \ `-. \_ __\ /__ _/ .-` / /
+ * ======`-.____`-.___\_____/___.-`____.-&#39;======
+ * `=---=&#39;
+ *          .............................................
+ *           佛曰：bug泛滥，我已瘫痪！
+ */
+
+
+/***
+ *
+ *   █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+ * ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+ * ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+ * ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+ * ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+ *  ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+ *  ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
+ *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
+ *           ░     ░ ░      ░  ░
+ */
+
+
+/***
+ *                    .::::.
+ *                  .::::::::.
+ *                 :::::::::::  FUCK YOU
+ *             ..:::::::::::&#39;
+ *           &#39;::::::::::::&#39;
+ *             .::::::::::
+ *        &#39;::::::::::::::..
+ *             ..::::::::::::.
+ *           ``::::::::::::::::
+ *            ::::``:::::::::&#39;        .:::.
+ *           ::::&#39;   &#39;:::::&#39;       .::::::::.
+ *         .::::&#39;      ::::     .:::::::&#39;::::.
+ *        .:::&#39;       :::::  .:::::::::&#39; &#39;:::::.
+ *       .::&#39;        :::::.:::::::::&#39;      &#39;:::::.
+ *      .::&#39;         ::::::::::::::&#39;         ``::::.
+ *  ...:::           ::::::::::::&#39;              ``::.
+ * ```` &#39;:.          &#39;:::::::::&#39;                  ::::..
+ *                    &#39;.:::::&#39;                    &#39;:&#39;````..
+ */
+
+
+/***
+ *      ┌─┐       ┌─┐
+ *   ┌──┘ ┴───────┘ ┴──┐
+ *   │                 │
+ *   │       ───       │
+ *   │  ─┬┘       └┬─  │
+ *   │                 │
+ *   │       ─┴─       │
+ *   │                 │
+ *   └───┐         ┌───┘
+ *       │         │
+ *       │         │
+ *       │         │
+ *       │         └──────────────┐
+ *       │                        │
+ *       │                        ├─┐
+ *       │                        ┌─┘
+ *       │                        │
+ *       └─┐  ┐  ┌───────┬──┐  ┌──┘
+ *         │ ─┤ ─┤       │ ─┤ ─┤
+ *         └──┴──┘       └──┴──┘
+ *                神兽保佑
+ *               代码无BUG!
+ */
+
+
+/***
+ *      ┌─┐       ┌─┐
+ *   ┌──┘ ┴───────┘ ┴──┐
+ *   │                 │
+ *   │       ───       │
+ *   │   &gt;        &lt;    │
+ *   │                 │
+ *   │   ...  ⌒  ...   │
+ *   │                 │
+ *   └───┐         ┌───┘
+ *       │         │
+ *       │         │
+ *       │         │
+ *       │         └──────────────┐
+ *       │                        │
+ *       │                        ├─┐
+ *       │                        ┌─┘
+ *       │                        │
+ *       └─┐  ┐  ┌───────┬──┐  ┌──┘
+ *         │ ─┤ ─┤       │ ─┤ ─┤
+ *         └──┴──┘       └──┴──┘
+ *                神兽保佑
+ *               代码无BUG!
+ */
+
+
+/***
+ *      ┌─┐       ┌─┐ + +
+ *   ┌──┘ ┴───────┘ ┴──┐++
+ *   │                 │
+ *   │       ───       │++ + + +
+ *   ███████───███████ │+
+ *   │                 │+
+ *   │       ─┴─       │
+ *   │                 │
+ *   └───┐         ┌───┘
+ *       │         │
+ *       │         │   + +
+ *       │         │
+ *       │         └──────────────┐
+ *       │                        │
+ *       │                        ├─┐
+ *       │                        ┌─┘
+ *       │                        │
+ *       └─┐  ┐  ┌───────┬──┐  ┌──┘  + + + +
+ *         │ ─┤ ─┤       │ ─┤ ─┤
+ *         └──┴──┘       └──┴──┘  + + + +
+ *                神兽保佑
+ *               代码无BUG!
+ */
+
+
+/***
+ *                  ___====-_  _-====___
+ *            _--^^^#####//      \\#####^^^--_
+ *         _-^##########// (    ) \\##########^-_
+ *        -############//  |\^^/|  \\############-
+ *      _/############//   (@::@)   \\############\_
+ *     /#############((     \\//     ))#############\
+ *    -###############\\    (oo)    //###############-
+ *   -#################\\  / VV \  //#################-
+ *  -###################\\/      \//###################-
+ * _#/|##########/\######(   /\   )######/\##########|\#_
+ * |/ |#/\#/\#/\/  \#/\##\  |  |  /##/\#/  \/\#/\#/\#| \|
+ * `  |/  V  V  `   V  \#\| |  | |/#/  V   &#39;  V  V  \|  &#39;
+ *    `   `  `      `   / | |  | | \   &#39;      &#39;  &#39;   &#39;
+ *                     (  | |  | |  )
+ *                    __\ | |  | | /__
+ *                   (vvv(VVV)(VVV)vvv)                
+ *                        神兽保佑
+ *                       代码无BUG!
+ */
+
+
+/***
+ *
+ *
+ *                                                    __----~~~~~~~~~~~------___
+ *                                   .  .   ~~//====......          __--~ ~~
+ *                   -.            \_|//     |||\\  ~~~~~~::::... /~
+ *                ___-==_       _-~o~  \/    |||  \\            _/~~-
+ *        __---~~~.==~||\=_    -_--~/_-~|-   |\\   \\        _/~
+ *    _-~~     .=~    |  \\-_    &#39;-~7  /-   /  ||    \      /
+ *  .~       .~       |   \\ -_    /  /-   /   ||      \   /
+ * /  ____  /         |     \\ ~-_/  /|- _/   .||       \ /
+ * |~~    ~~|--~~~~--_ \     ~==-/   | \~--===~~        .\
+ *          &#39;         ~-|      /|    |-~\~~       __--~~
+ *                      |-~~-_/ |    |   ~\_   _-~            /\
+ *                           /  \     \__   \/~                \__
+ *                       _--~ _/ | .-~~____--~-/                  ~~==.
+ *                      ((-&gt;/~   &#39;.|||&#39; -_|    ~~-/ ,              . _||
+ *                                 -_     ~\      ~~---l__i__i__i--~~_/
+ *                                 _-~-__   ~)  \--______________--~~
+ *                               //.-~~~-~_--~- |-------~~~~~~~~
+ *                                      //.-~~~--\
+ *                               神兽保佑
+ *                              代码无BUG!
+ */
+
+
+/***                              _
+ *  _._ _..._ .-&#39;,     _.._(`))
+ * &#39;-. `     &#39;  /-._.-&#39;    &#39;,/
+ *    )         \            &#39;.
+ *   / _    _    |             \
+ *  |  a    a    /              |
+ *  \   .-.                     ;
+ *   &#39;-(&#39;&#39; ).-&#39;       ,&#39;       ;
+ *      &#39;-;           |      .&#39;
+ *         \           \    /
+ *         | 7  .__  _.-\   \
+ *         | |  |  ``/  /`  /
+ *        /,_|  |   /,_/   /
+ *           /,_/      &#39;`-&#39;
+ */
+
+
+/***
+ **************************************************************
+ *                                                            *
+ *   .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.       *
+ *    |                     ______                     |      *
+ *    |                  .-&quot;      &quot;-.                  |      *
+ *    |                 /            \                 |      *
+ *    |     _          |              |          _     |      *
+ *    |    ( \         |,  .-.  .-.  ,|         / )    |      *
+ *    |     &gt; &quot;=._     | )(__/  \__)( |     _.=&quot; &lt;     |      *
+ *    |    (_/&quot;=._&quot;=._ |/     /\     \| _.=&quot;_.=&quot;\_)    |      *
+ *    |           &quot;=._&quot;(_     ^^     _)&quot;_.=&quot;           |      *
+ *    |               &quot;=\__|IIIIII|__/=&quot;               |      *
+ *    |              _.=&quot;| \IIIIII/ |&quot;=._              |      *
+ *    |    _     _.=&quot;_.=&quot;\          /&quot;=._&quot;=._     _    |      *
+ *    |   ( \_.=&quot;_.=&quot;     `--------`     &quot;=._&quot;=._/ )   |      *
+ *    |    &gt; _.=&quot;                            &quot;=._ &lt;    |      *
+ *    |   (_/                                    \_)   |      *
+ *    |                                                |      *
+ *    &#39;-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=&#39;      *
+ *                                                            *
+ *           LASCIATE OGNI SPERANZA, VOI CH&#39;ENTRATE           *
+ **************************************************************
+ */
+
+
+/***
+ *                                         ,s555SB@@&amp;                          
+ *                                      :9H####@@@@@Xi                        
+ *                                     1@@@@@@@@@@@@@@8                       
+ *                                   ,8@@@@@@@@@B@@@@@@8                      
+ *                                  :B@@@@X3hi8Bs;B@@@@@Ah,                   
+ *             ,8i                  r@@@B:     1S ,M@@@@@@#8;                 
+ *            1AB35.i:               X@@8 .   SGhr ,A@@@@@@@@S                
+ *            1@h31MX8                18Hhh3i .i3r ,A@@@@@@@@@5               
+ *            ;@&amp;i,58r5                 rGSS:     :B@@@@@@@@@@A               
+ *             1#i  . 9i                 hX.  .: .5@@@@@@@@@@@1               
+ *              sG1,  ,G53s.              9#Xi;hS5 3B@@@@@@@B1                
+ *               .h8h.,A@@@MXSs,           #@H1:    3ssSSX@1                  
+ *               s ,@@@@@@@@@@@@Xhi,       r#@@X1s9M8    .GA981               
+ *               ,. rS8H#@@@@@@@@@@#HG51;.  .h31i;9@r    .8@@@@BS;i;          
+ *                .19AXXXAB@@@@@@@@@@@@@@#MHXG893hrX#XGGXM@@@@@@@@@@MS        
+ *                s@@MM@@@hsX#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&amp;,      
+ *              :GB@#3G@@Brs ,1GM@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@B,     
+ *            .hM@@@#@@#MX 51  r;iSGAM@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8     
+ *          :3B@@@@@@@@@@@&amp;9@h :Gs   .;sSXH@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:    
+ *      s&amp;HA#@@@@@@@@@@@@@@M89A;.8S.       ,r3@@@@@@@@@@@@@@@@@@@@@@@@@@@r    
+ *   ,13B@@@@@@@@@@@@@@@@@@@5 5B3 ;.         ;@@@@@@@@@@@@@@@@@@@@@@@@@@@i    
+ *  5#@@#&amp;@@@@@@@@@@@@@@@@@@9  .39:          ;@@@@@@@@@@@@@@@@@@@@@@@@@@@;    
+ *  9@@@X:MM@@@@@@@@@@@@@@@#;    ;31.         H@@@@@@@@@@@@@@@@@@@@@@@@@@:    
+ *   SH#@B9.rM@@@@@@@@@@@@@B       :.         3@@@@@@@@@@@@@@@@@@@@@@@@@@5    
+ *     ,:.   9@@@@@@@@@@@#HB5                 .M@@@@@@@@@@@@@@@@@@@@@@@@@B    
+ *           ,ssirhSM@&amp;1;i19911i,.             s@@@@@@@@@@@@@@@@@@@@@@@@@@S   
+ *              ,,,rHAri1h1rh&amp;@#353Sh:          8@@@@@@@@@@@@@@@@@@@@@@@@@#:  
+ *            .A3hH@#5S553&amp;@@#h   i:i9S          #@@@@@@@@@@@@@@@@@@@@@@@@@A.
+ *
+ *
+ *    又看源码，看你妹妹呀！
+ */
+
+
+/***
+ *_______________#########_______________________
+ *______________############_____________________
+ *______________#############____________________
+ *_____________##__###########___________________
+ *____________###__######_#####__________________
+ *____________###_#######___####_________________
+ *___________###__##########_####________________
+ *__________####__###########_####_______________
+ *________#####___###########__#####_____________
+ *_______######___###_########___#####___________
+ *_______#####___###___########___######_________
+ *______######___###__###########___######_______
+ *_____######___####_##############__######______
+ *____#######__#####################_#######_____
+ *____#######__##############################____
+ *___#######__######_#################_#######___
+ *___#######__######_######_#########___######___
+ *___#######____##__######___######_____######___
+ *___#######________######____#####_____#####____
+ *____######________#####_____#####_____####_____
+ *_____#####________####______#####_____###______
+ *______#####______;###________###______#________
+ *________##_______####________####______________
+ */
+
+
+/***
+ *             ,%%%%%%%%,
+ *           ,%%/\%%%%/\%%
+ *          ,%%%\c &quot;&quot; J/%%%
+ * %.       %%%%/ o  o \%%%
+ * `%%.     %%%%    _  |%%%
+ *  `%%     `%%%%(__Y__)%%&#39;
+ *  //       ;%%%%`\-/%%%&#39;
+ * ((       /  `%%%%%%%&#39;
+ *  \\    .&#39;          |
+ *   \\  /       \  | |
+ *    \\/         ) | |
+ *     \         /_ | |__
+ *     (___________))))))) 攻城湿
+ *
+ *        _       _
+ * __   _(_)_   _(_) __ _ _ __
+ * \ \ / / \ \ / / |/ _` |&#39;_ \
+ *  \ V /| |\ V /| | (_| | | | |
+ *   \_/ |_| \_/ |_|\__,_|_| |_|
+ */
+
+
+/***
+ * https://gold.xitu.io/
+ *　　　　１１１　　　　　　　　　　　　　　　　　　　　　　　　　１　　　　　　　　　　　
+ *　　　　１１１　１１１１１１１１１１１１　　　　　　　　　　　１１１　　　　　　　　　　
+ *　　　　１１　　１１１１１１１１１１１１　　　　　　　　　　１１１１１　　　　　　　　　
+ *　　　　１１　　１１１　　　　　　　１１　　　　　　　　　１１１１１１１　　　　　　　　
+ *　　１１１１　１　１１１１１１１１１１１　　　　　　　　　１１１　１１１１　　　　　　　
+ *　　１１１１１１　１１１１１１１１１１１　　　　　　　１１１１　　　１１１１１　　　　　
+ *　　１１１１１１　１１　　　　　　　　　　　　　　　１１１１　　　　　１１１１１１　　　
+ *　　　　１１　　　１１１１１１１１　１１　　　　１１１１１１１１１１１１１１１１１１　　
+ *　　　　１１　　　１１１１１１１１１１１　　　１１１１１１１１１１１１１１１１１１１　　
+ *　　　　１１１１１１１１１　１１　　１１　　　　１１　　　　　　１１　　　　　　　　　　
+ *　　１１１１１１１１１１１１１１１１１１　　　　　　　　　　　　１１　　　　　　　　　　
+ *　　１１１１　　１１１１１１１１１１１１　　　　　　１１１１１１１１１１１１１１　　　　
+ *　　１１１１　　１１　　　　１１　　　　　　　　　　１１１１１１１１１１１１１１　　　　
+ *　　　　１１　　１１　１１　１１　　１１１　　　　　　１１　　　１１　　１１１　　　　　
+ *　　　　１１　　１１　１１　１１　　１１　　　　　　　１１１　　１１　　１１１　　　　　
+ *　　　　１１　１１１　１１　１１　　１１　　　　　　　　１１１　１１　１１１　　　　　　
+ *　　１１１１　１１１　１１１１１１１１１　　　　　１１　１１１　１１　１１１１１１１　　
+ *　　　１１１１１１　　１１１１１１１１１１　　　　１１１１１１１１１１１１１１１１１　　
+ *　　　１１　１１１　　　　　　　　　１１１　　　　１１１１１１１１１１１１１１１１１　　
+ */
+
+
+/***
+ * https://www.zhihu.com/
+ *           _____                    _____                    _____                    _____          
+ *          /\    \                  /\    \                  /\    \                  /\    \         
+ *         /::\____\                /::\    \                /::\    \                /::\    \        
+ *        /:::/    /                \:::\    \              /::::\    \              /::::\    \       
+ *       /:::/    /                  \:::\    \            /::::::\    \            /::::::\    \      
+ *      /:::/    /                    \:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+ *     /:::/____/                      \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \    
+ *    /::::\    \                      /::::\    \      /::::\   \:::\    \      /::::\   \:::\    \   
+ *   /::::::\    \   _____    ____    /::::::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \  
+ *  /:::/\:::\    \ /\    \  /\   \  /:::/\:::\    \  /:::/\:::\   \:::\____\  /:::/\:::\   \:::\    \
+ * /:::/  \:::\    /::\____\/::\   \/:::/  \:::\____\/:::/  \:::\   \:::|    |/:::/__\:::\   \:::\____\
+ * \::/    \:::\  /:::/    /\:::\  /:::/    \::/    /\::/   |::::\  /:::|____|\:::\   \:::\   \::/    /
+ *  \/____/ \:::\/:::/    /  \:::\/:::/    / \/____/  \/____|:::::\/:::/    /  \:::\   \:::\   \/____/
+ *           \::::::/    /    \::::::/    /                 |:::::::::/    /    \:::\   \:::\    \     
+ *            \::::/    /      \::::/____/                  |::|\::::/    /      \:::\   \:::\____\    
+ *            /:::/    /        \:::\    \                  |::| \::/____/        \:::\   \::/    /    
+ *           /:::/    /          \:::\    \                 |::|  ~|               \:::\   \/____/     
+ *          /:::/    /            \:::\    \                |::|   |                \:::\    \         
+ *         /:::/    /              \:::\____\               \::|   |                 \:::\____\        
+ *         \::/    /                \::/    /                \:|   |                  \::/    /        
+ *          \/____/                  \/____/                  \|___|                   \/____/         
+ */
+
+
+/***
+ * http://www.freebuf.com/
+ *           _.._        ,------------.
+ *        ,&#39;      `.    ( We want you! )
+ *       /  __) __` \    `-,----------&#39;
+ *      (  (`-`(-&#39;)  ) _.-&#39;
+ *      /)  \  = /  (
+ *     /&#39;    |--&#39; .  \
+ *    (  ,---|  `-.)__`
+ *     )(  `-.,--&#39;   _`-.
+ *    &#39;/,&#39;          (  Uu&quot;,
+ *     (_       ,    `/,-&#39; )
+ *     `.__,  : `-&#39;/  /`--&#39;
+ *       |     `--&#39;  |
+ *       `   `-._   /
+ *        \        (
+ *        /\ .      \.  freebuf
+ *       / |` \     ,-\
+ *      /  \| .)   /   \
+ *     ( ,&#39;|\    ,&#39;     :
+ *     | \,`.`--&quot;/      }
+ *     `,&#39;    \  |,&#39;    /
+ *    / &quot;-._   `-/      |
+ *    &quot;-.   &quot;-.,&#39;|     ;
+ *   /        _/[&quot;---&#39;&quot;&quot;]
+ *  :        /  |&quot;-     &#39;
+ *  &#39;           |      /
+ *              `      |
+ */
+
+
+/***
+ * https://campus.alibaba.com/
+ *                                 `:::::::::::,
+ *                             `::;:::::::;:::::::,  `
+ *                          `::;;:::::::@@@@;:::::::`
+ *                        ,:::::::::::::@    #@&#39;:::::`
+ *                      :::::::::::::::&#39;@@      @;::::
+ *                    ::::::::::::&#39;@@@@&#39;```      .+:::`
+ *                  ::::::::::;@@@#.              ,:::,
+ *                .::::::::+@#@`                   ::::
+ *               :::::::+@@&#39;                       ::::
+ *             `:::::&#39;@@:                         `:::.
+ *            ,::::@@:  `                         ::::
+ *           ;::::::@                            .:::;
+ *          :;:::::;@`        `                  :::;
+ *         :::::::::@`        @                 ;::::
+ *        :::::::::#`          @`              ,::::
+ *       :::::::::@`         +@ @             .::::`
+ *      .::::::&#39;@@`       `@@&#39;  @             ::::,
+ *      :::::::++@@@@@@@@@@.                 ::::;
+ *     ;:::::::+,   `..`                    :::::
+ *    ,::::::::&#39;,                          :::::
+ *    :::::::::+,                         :::::`
+ *   :::::::::+@.                        ,::::.`                     `,
+ *   ::::::;;@+                         .::;::                     `;
+ *  :::::::@@                          `:::;:                   `::``
+ *  ::::::#@                           ;::::                  .::`
+ *  :::::;@                           :::::`               .;::`
+ *  :::::@                           `:;:::            `::::;
+ *  :::::#                           :::::.        `,;:::::
+ *  ::::::                    `      ::::::,.,::::::::::.
+ *  ,::::::`              .::        ::::::::::::::::;`
+ *   ;::::::::,````.,:::::,          ::::::::::::::.
+ *    :::::::::::::::::: `           `::::::::::`
+ *     `::::::::::::,                  .:::.
+ *         `..`
+ */
+
+
+/***
+ * http://www.flvcd.com/
+ *  .--,       .--,
+ * ( (  \.---./  ) )
+ *  &#39;.__/o   o\__.&#39;
+ *     {=  ^  =}
+ *      &gt;  -  &lt;
+ *     /       \
+ *    //       \\
+ *   //|   .   |\\
+ *   &quot;&#39;\       /&#39;&quot;_.-~^`&#39;-.
+ *      \  _  /--&#39;         `
+ *    ___)( )(___
+ *   (((__) (__)))    高山仰止,景行行止.虽不能至,心向往之。
+ */
+
+
+/***
+ * 頂頂頂頂頂頂頂頂頂　頂頂頂頂頂頂頂頂頂
+ * 頂頂頂頂頂頂頂　　　　　頂頂　　　　　
+ * 　　　頂頂　　　頂頂頂頂頂頂頂頂頂頂頂
+ * 　　　頂頂　　　頂頂頂頂頂頂頂頂頂頂頂
+ * 　　　頂頂　　　頂頂　　　　　　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　　　　　頂頂頂　
+ * 　　　頂頂　　　　　　頂頂　頂頂　頂頂
+ * 　頂頂頂頂　　　頂頂頂頂頂　頂頂頂頂頂
+ * 　頂頂頂頂　　　頂頂頂頂　　　頂頂頂頂
+ */
+
+
+/***
+ * ░░░░░░░░░░░░░░░░░░░░░░░░▄░░
+ * ░░░░░░░░░▐█░░░░░░░░░░░▄▀▒▌░
+ * ░░░░░░░░▐▀▒█░░░░░░░░▄▀▒▒▒▐
+ * ░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐
+ * ░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐
+ * ░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌
+ * ░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒
+ * ░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐
+ * ░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄
+ * ░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒
+ * ▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒
+ * 单身狗就这样默默地看着你，一句话也不说。
+ */
+
+
+/***
+ *                   /88888888888888888888888888\
+ *                   |88888888888888888888888888/
+ *                    |~~____~~~~~~~~~&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;|
+ *                   / \_________/&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;\
+ *                  /  |              \         \
+ *                 /   |  88    88     \         \
+ *                /    |  88    88      \         \
+ *               /    /                  \        |
+ *              /     |   ________        \       |
+ *              \     |   \______/        /       |
+ *   /&quot;\         \     \____________     /        |
+ *   | |__________\_        |  |        /        /
+ * /&quot;&quot;&quot;&quot;\           \_------&#39;  &#39;-------/       --
+ * \____/,___________\                 -------/
+ * ------*            |                    \
+ *   ||               |                     \
+ *   ||               |                 ^    \
+ *   ||               |                | \    \
+ *   ||               |                |  \    \
+ *   ||               |                |   \    \
+ *   \|              /                /&quot;&quot;&quot;\/    /
+ *      -------------                |    |    /
+ *      |\--_                        \____/___/
+ *      |   |\-_                       |
+ *      |   |   \_                     |
+ *      |   |     \                    |
+ *      |   |      \_                  |
+ *      |   |        ----___           |
+ *      |   |               \----------|
+ *      /   |                     |     ----------&quot;&quot;\
+ * /&quot;\--&quot;--_|                     |               |  \
+ * |_______/                      \______________/    )
+ *                                               \___/
+ */
+
+
+/***
+ *                        d*##$.
+ *  zP&quot;&quot;&quot;&quot;&quot;$e.           $&quot;    $o
+ * 4$       &#39;$          $&quot;      $
+ * &#39;$        &#39;$        J$       $F
+ *  &#39;b        $k       $&gt;       $
+ *   $k        $r     J$       d$
+ *   &#39;$         $     $&quot;       $~
+ *    &#39;$        &quot;$   &#39;$E       $
+ *     $         $L   $&quot;      $F ...
+ *      $.       4B   $      $$$*&quot;&quot;&quot;*b
+ *      &#39;$        $.  $$     $$      $F
+ *       &quot;$       R$  $F     $&quot;      $
+ *        $k      ?$ u*     dF      .$
+ *        ^$.      $$&quot;     z$      u$$$$e
+ *         #$b             $E.dW@e$&quot;    ?$
+ *          #$           .o$$# d$$$$c    ?F
+ *           $      .d$$#&quot; . zo$&gt;   #$r .uF
+ *           $L .u$*&quot;      $&amp;$$$k   .$$d$$F
+ *            $$&quot;            &quot;&quot;^&quot;$$$P&quot;$P9$
+ *           JP              .o$$$$u:$P $$
+ *           $          ..ue$&quot;      &quot;&quot;  $&quot;
+ *          d$          $F              $
+ *          $$     ....udE             4B
+ *           #$    &quot;&quot;&quot;&quot;` $r            @$
+ *            ^$L        &#39;$            $F
+ *              RN        4N           $
+ *               *$b                  d$
+ *                $$k                 $F
+ *                 $$b                $F
+ *                  $&quot;&quot;               $F
+ *                  &#39;$                $
+ *                   $L               $
+ *                   &#39;$               $
+ *                    $               $
+ */
+
+
+/***
+ *              ,----------------,              ,---------,
+ *         ,-----------------------,          ,&quot;        ,&quot;|
+ *       ,&quot;                      ,&quot;|        ,&quot;        ,&quot;  |
+ *      +-----------------------+  |      ,&quot;        ,&quot;    |
+ *      |  .-----------------.  |  |     +---------+      |
+ *      |  |                 |  |  |     | -==----&#39;|      |
+ *      |  |  I LOVE DOS!    |  |  |     |         |      |
+ *      |  |  Bad command or |  |  |/----|`---=    |      |
+ *      |  |  C:\&gt;_          |  |  |   ,/|==== ooo |      ;
+ *      |  |                 |  |  |  // |(((( [33]|    ,&quot;
+ *      |  `-----------------&#39;  |,&quot; .;&#39;| |((((     |  ,&quot;
+ *      +-----------------------+  ;;  | |         |,&quot;
+ *         /_)______________(_/  //&#39;   | +---------+
+ *    ___________________________/___  `,
+ *   /  oooooooooooooooo  .o.  oooo /,   \,&quot;-----------
+ *  / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,&quot;
+ * /_==__==========__==_ooo__ooo=_/&#39;   /___________,&quot;
+ *
+ */
+
+
+/***
+ *                 .-~~~~~~~~~-._       _.-~~~~~~~~~-.
+ *             __.&#39;              ~.   .~              `.__
+ *           .&#39;//                  \./                  \\`.
+ *         .&#39;//                     |                     \\`.
+ *       .&#39;// .-~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~~~~-._     |     _,-~~~~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~-. \\`.
+ *     .&#39;//.-&quot;                 `-.  |  .-&#39;                 &quot;-.\\`.
+ *   .&#39;//______.============-..   \ | /   ..-============.______\\`.
+ * .&#39;______________________________\|/______________________________`.
+ *
+ */
+
+
+/***             无可奉告 一颗赛艇
+ *  uJjYJYYLLv7r7vJJ5kqSFFFUUjJ7rrr7LLYLJLJ7
+ *  JuJujuYLrvuEM@@@B@@@B@B@B@@@MG5Y7vLjYjJL
+ *  JYjYJvr7XM@BB8GOOE8ZEEO8GqM8OBBBMu77LLJ7
+ *  LJLY7ru@@@BOZ8O8NXFFuSkSu25X0OFZ8MZJ;vLv
+ *  YvL7i5@BM8OGGqk22uvriiriii;r7LuSZXEMXrvr
+ *  vv7iU@BMNkF1uY7v7rr;iiii:i:i:ii7JEPNBPir
+ *  L7iL@BM8Xjuujvv77rr;ri;i;:iiiii:iLXFOBJ:
+ *  7ri@B@MOFuUS2Y7L7777rii;:::::i:iirjPG@O:
+ *  7:1B@BBOPjXXSJvrL7rr7iiii:i::::i;iv5MBB,
+ *  r:0@BBM8SFPX2Y77rri::iirri:::::iii75O@G.
+ *  7:SB@BBGqXPk0122UJL::i::r:::i:i;i:v2@Bk.
+ *  ri:MB@BBEqEMGq2JLLL1u7.iX51u77LF27iSB@r,
+ *  ri,v@B@MB8@qqNEqN1u:5B8BOFE0S7ii7qMB@F::
+ *  ii,J80Eq1MZkqPPX5YkPE@B@iXPE52j7:vBjE7::
+ *  ii:7MSqkS0PvLv7rrii0@L.Z1iLr::ir:rO,vi::
+ *  ii::EZXPSkquLvii:iF@N:.,BUi7ri,::UY;r:::
+ *  i::.2ONXqkPXS5FUUEOPP;..iSPXkjLYLLrr:::,
+ *  :::,iMXNP0NPLriiLGZ@BB1P87;JuL7r:7ri:::,
+ *  :::,.UGqNX0EZF2uUjUuULr:::,:7uuvv77::::.
+ *  ::::..5OXqXNJ50NSY;i:.,,,:i77Yvr;v;,,::.
+ *  :::,:.jOEPqPJiqBMMMO8NqP0SYLJriirv:.:,:.
+ *  ,:,,,.,Zq0P0X7vPFqF1ujLv7r:irrr7j7.,,::.
+ *  ,,,....0qk0080v75ujLLv7ri:i:rvj2J...,,,.
+ *  ......8@UXqZEMNvJjr;ii::,:::7uuv...,.,,.
+ *  .....B@BOvX88GMGk52vririiirJS1i.......,.
+ *  .JEMB@B@BMvL0MOMMMO8PE8GPqSk2L:.........
+ *  @B@@@B@M@B@L:7PGBOO8MOMOEP0Xri@B@Mk7,...
+ *  B@B@BBMBB@B@0::rJP8MO0uvvu7..,B@B@B@B@Z7
+ *  MMBM@BBB@B@B@Br:i,..:Lur:....7@OMMBM@B@@
+ *  8OOMMMOMMMMBB@B:....,PZENNi..JBOZ8GMOOOO
+ */
+</code></pre><p>以上为魔性图</p>
+<hr>
+<p>以下为神注释</p>
+<pre><code>/***
+ * 这个公司没有年终奖的,兄弟别指望了,也别来了,我准备辞职了
+ * 另外这个项目有很多*Bug* 你坚持不了多久的,拜拜!
+ */
+</code></pre><pre><code>/***
+ * 1只羊 == one sheep
+ * 2只羊 == two sheeps
+ * 3只羊 == three sheeps
+ * 4只羊 == four sheeps
+ * 5只羊 == five sheeps
+ * 6只羊 == six sheeps
+ * 7只羊 == seven sheeps
+ * 8只羊 == eight sheeps
+ * 9只羊 == nine sheeps
+ * 10只羊 == ten sheeps
+ * 11只羊 == eleven sheeps
+ * 12只羊 == twelve sheeps
+ * 13只羊 == thirteen sheeps
+ * 14只羊 == fourteen sheeps
+ * 15只羊 == fifteen sheeps
+ * 16只羊 == sixteen sheeps
+ * 17只羊 == seventeen sheeps
+ * 18只羊 == eighteen sheeps
+ * 19只羊 == nineteen sheeps
+ * 20只羊 == twenty sheeps
+ * 21只羊 == twenty one sheeps
+ * 22只羊 == twenty two sheeps
+ * 23只羊 == twenty three sheeps
+ * 24只羊 == twenty four sheeps
+ * 25只羊 == twenty five sheeps
+ * 26只羊 == twenty six sheeps
+ * 27只羊 == twenty seven sheeps
+ * 28只羊 == twenty eight sheeps
+ * 29只羊 == twenty nine sheeps
+ * 30只羊 == thirty sheeps
+ * 现在瞌睡了吧，好了，不要再改下面的代码了，睡觉咯~~
+ */
+</code></pre><pre><code>/***
+ * You may think you know what the following code does.
+ * But you dont. Trust me.
+ * Fiddle with it, and youll spend many a sleepless
+ * night cursing the moment you thought youd be clever
+ * enough to &quot;optimize&quot; the code below.
+ * Now close this file and go play with something else.
+ */
+/***
+ * 你可能会认为你读得懂以下的代码。但是你不会懂的，相信我吧。
+ * 要是你尝试玩弄这段代码的话，你将会在无尽的通宵中不断地咒骂自己为什么会认为自己聪明到可以优化这段代码。
+ * 现在请关闭这个文件去玩点别的吧。
+ */
+</code></pre><pre><code>/***
+ * somedev1 -  6/7/02 Adding temporary tracking of Login screen
+ * somedev2 -  5/22/07 Temporary my ass
+ */
+/***
+ * 一些修改1 - 2002/6/7 增加临时的跟踪登录界面
+ * 一些修改2 - 2007/5/22 我临时的犯傻
+ */
+</code></pre><pre><code>/***
+ * 程序员1（于2010年6月7日）：在这个坑临时加入一些调料
+ * 程序员2（于2011年5月22日）：临你个屁啊
+ * 程序员3（于2012年7月23日）：楼上都是狗屎，鉴定完毕
+ * 程序员4（于2013年8月2日）：fuck 楼上，三年了，这坑还在！！！
+ * 程序员5（于2014年8月21日）：哈哈哈，这坑居然坑了这么多人，幸好我也不用填了，系统终止运行了，you&#39;re died
+ */
+</code></pre><pre><code>/***
+ * For the brave souls who get this far: You are the chosen ones,
+ * the valiant knights of programming who toil away, without rest,
+ * fixing our most awful code. To you, true saviors, kings of men,
+ * I say this: never gonna give you up, never gonna let you down,
+ * never gonna run around and desert you. Never gonna make you cry,
+ * never gonna say goodbye. Never gonna tell a lie and hurt you.
+ */
+/***
+ * 致终于来到这里的勇敢的人：
+ * 你是被上帝选中的人，是英勇的、不敌辛苦的、不眠不休的来修改我们这最棘手的代码的编程骑士。
+ * 你，我们的救世主，人中之龙，我要对你说：永远不要放弃，永远不要对自己失望，永远不要逃走，辜负了自己，
+ * 永远不要哭啼，永远不要说再见，永远不要说谎来伤害自己。
+ */
+</code></pre><pre><code>/***
+ * Dear maintainer:
+ *
+ * Once you are done trying to &#39;optimize&#39; this routine,
+ * and have realized what a terrible mistake that was,
+ * please increment the following counter as a warning
+ * to the next guy:
+ *
+ * total_hours_wasted_here = 42
+ */
+/***
+ * 亲爱的维护者：
+ *
+ * 如果你尝试了对这段程序进行&#39;优化&#39;
+ * 下面这个计数器的个数用来对后来人进行警告
+ *
+ * 浪费在这里的总时间 = 42h
+ */
+</code></pre><pre><code>Exception up = new Exception(&quot;Something is really wrong.&quot;);
+throw up;  //ha ha
+</code></pre><pre><code>/***
+ * When I wrote this, only God and I understood what I was doing
+ * Now, God only knows
+ */
+/***
+* 写这段代码的时候，只有上帝和我知道它是干嘛的
+* 现在，只有上帝知道
+*/
+</code></pre><pre><code>stop(); // Hammertime!
+</code></pre><pre><code>// Autogenerated, do not edit. All changes will be undone.
+</code></pre><pre><code>// sometimes I believe compiler ignores all my comments
+// 有时候我相信编译器忽略了我所有的注释
+</code></pre><pre><code>/***
+ * I dedicate all this code, all my work, to my wife, Darlene, who will
+ * have to support me and our three children and the dog once it gets
+ * released into the public.
+ */
+</code></pre><pre><code>// drunk, fix later
+// 有点晕了，以后再修改
+</code></pre><pre><code>// Magic. Do not touch.
+// 麻鸡。勿动。
+</code></pre><pre><code>#define TRUE FALSE// Happy debugging suckers
+</code></pre><pre><code>// I&#39;m sorry.
+</code></pre><pre><code>return 1; # returns 1
+</code></pre><pre><code>/***
+ * Always returns true.
+ */
+public boolean isAvailable() {
+    return false;
+}
+</code></pre><pre><code>&lt;!-- Here be dragons --&gt;
+&lt;!-- 前方高能 --&gt;
+</code></pre><pre><code>double penetration; // ouch
+// 自行了解，不方便解释
+</code></pre><pre><code>/////////////////////////////////////// this is a well commented line
+</code></pre><pre><code>// To understand recursion, see the bottom of this file
+At the bottom of the file:
+// To understand recursion, see the top of this file
+// 想要明白递归须看文件末尾
+到了文末
+// 想要明白递归须看文件顶部
+</code></pre><pre><code>/* Please work */
+</code></pre><pre><code>long long ago; /* in a galaxy far far away */
+// 很久很久以前 在一个遥远的银河中（出自星球大战）
+</code></pre><pre><code>// This code sucks, you know it and I know it.  
+// Move on and call me an idiot later.
+// 你我都知道这代码很烂
+// 先不要骂我2B了，请先继续往下看
+</code></pre><pre><code>// I am not sure why this works but it fixes the problem.
+// 虽然我不知道为什么这样管用，但它却是修复了问题
+</code></pre><pre><code>// If this comment is removed the program will blow up
+// 如果删了此处注释程序就炸了
+</code></pre><pre><code>// This function has been here since 1987. DON&#39;T FXXKING TOUCH IT
+// 这函数1987年就这在了，别他娘动它
+</code></pre><pre><code>// if i ever see this again i&#39;m going to start bringing guns to work
+// 如果要是再让我看见这样的代码，也许我会带着一把枪来上班
+</code></pre><pre><code>// no comments for you
+// it was hard to write
+// so it should be hard to read
+// 难写的代码，肯定很难读。因此，我没有注释留给你。
+</code></pre><pre><code>// I will give you two of my seventy-two virgins if you can fix this.
+// 要是你能修正这个问题的话，我会在我的七十二个处女中挑两个送你
+</code></pre><pre><code>// I am not responsible of this code.
+// They made me write it, against my will.
+// 下面的代码，我不负责。因为是他们逼我写的，违背了我的意愿。
+</code></pre><pre><code>/* You are not expected to understand this */
+/* 你绝不会明白的 */
+</code></pre><pre><code>// I have to find a better job
+// 看来我需要找份更好的工作了
+</code></pre><pre><code>/***
+ * 这个类是Object的子类
+ */
+</code></pre><p>如果有更好地可以留言或者到<a href="https://github.com/Blankj/awesome-comment" target="_blank" rel="noopener">传送门</a>提issue，如果看到这能带给你快乐的话，那就点个稀饭吧，谢谢大佬们赏脸，愿所有的程序都永无Bug。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2019/07/22/解决.gitignore过滤规则不起作用问题/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                解决.gitignore过滤规则不起作用问题</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
+        appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		pageSize: "5" || 10
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://www.xiongtianci.com" itemprop="url" rel="author">天赐</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>Viva La Vida</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 天赐<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-info">
+		<div class="footertext">
+			<div class="img-preload">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/wordpress-rotating-ball-o.svg">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/disqus-preloader.svg">
+			</div>
+			<p class="foo-logo" style="background-image: url('https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sakura.svg');">
+			</p>
+			<div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none;margin-top:0.7em;">
+				<i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i>
+			</div>
+			<!-- color: #666666; -->
+			<div style="color: #b9b9b9;">&copy;
+				2018-2019&nbsp;天赐&nbsp;鄂ICP备18030098号
+			</div>
+		</div>
+		<!-- 访客统计 -->
+		<!--<div id="busuanzi_container"></div>-->
+		<!-- 已运行的时间-容器 -->
+		<div id="days"></div>
+		<div class="footer-device">
+			<p id="footer-sponsor">
+				<!-- <a href="https://pages.github.com/" target="_blank" alt="GitHub Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/GitHub.svg" alt="GitHub Pages"
+						style="height: 2em; max-height: 2em;" title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<!-- <a href="https://coding.net/pages" target="_blank" alt="Coding Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/Coding.png" alt="Coding Pages"
+						style="height: 1.3em; max-height: 1.3em;padding-bottom: 0px;margin-bottom: 0.35em;"
+						title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<a href="https://www.jsdelivr.com/" target="_blank" alt="Free CDN" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/JsDelivr_Logo.svg" alt="jsDelivr" style="height: 2em; max-height: 2em;padding-bottom: 0px;"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.google.com/intl/ja/analytics/" target="_blank" alt="Analytics solution" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/Google.svg" alt="Google Analytics" style="height: 1.7em; max-height: 1.7em;padding-bottom: 0px;"></a>
+			</p>
+		</div>
+	</div>
+	<!-- .site-info -->
+</footer>
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+
+<!-- Valine -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "close"
+			},
+			"windowheight": "fixed",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	} else {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "open"
+			},
+			"windowheight": "auto",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	}
+		/* ]]> */
+</script>
+<script>
+	$(document).ready(function () {
+		if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+			if ($(".pattern-center").length > 0) { //有图的情况
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -400,
+					scrollSmoothOffset: -85
+				});
+			} else {
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -85,
+					scrollSmoothOffset: -85
+				});
+			}
+			var offsetTop = $('.toc').offset().top - 95;
+			window.onscroll = function () {
+				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+				if (scrollTop >= offsetTop) {
+					$('.toc').addClass('toc-fixed');
+				} else {
+					$('.toc').removeClass('toc-fixed');
+				}
+			}
+		}
+	});
+</script>
+<!-- 已运行的时间-js -->
+<script>
+	function show_date_time() {
+		window.setTimeout("show_date_time()", 1000);
+
+		// 获得建站时间
+		var time = "28/11/2018 15:36:06";
+		time = time.replace(/\//g, ':').replace(' ', ':');
+		time = time.split(':');
+		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
+
+		today = new Date();
+		timeold = (today.getTime() - BirthDay.getTime());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		e_daysold = timeold / msPerDay
+		daysold = Math.floor(e_daysold);
+		e_hrsold = (e_daysold - daysold) * 24;
+		hrsold = setzero(Math.floor(e_hrsold));
+		e_minsold = (e_hrsold - hrsold) * 60;
+		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+	}
+
+	function setzero(i) {
+		if (i < 10) {
+			i = "0" + i
+		};
+		return i;
+	}
+	show_date_time();
+</script>
+<!-- 访客统计-js -->
+<!--<script>
+		if(true){
+			document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
+		}else{
+			document.getElementById('busuanzi_container').hidden;
+		}
+	</script>-->
+<!-- 百度统计自动推送 -->
+<!--<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var scriptList = document.getElementsByTagName("script");
+		var s = scriptList[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+	-->
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white-bg"><i class="fa fa-television" aria-hidden="true"></i></li>
+            <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+            <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+            <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+            <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+            <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+            <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+            <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</div>
+
+<canvas id="night-mode-cover"></canvas>
+<style>
+#mainskin{
+    position: fixed;
+}
+</style> 
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换主题 | SCHEME TOOL &nbsp;
+	<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+</div>
+  
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">トトロ天赐</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/tiancixiong" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="https://weibo.com/u/6338246468?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+            极客
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/Linux/">
+                  <i class="fa fa-linux" aria-hidden="true"></i>
+                  Linux
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+            爱好
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/电影/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  电影
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/日语/">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  日语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
+<!--<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script></div>
+</body>
+</html>
