@@ -435,6 +435,7 @@ git diff file.txt
 
 # 查看提交历史[简略信息]
 git log [--pretty=oneline]
+git log --graph --pretty=oneline --abbrev-commit
 
 # 查看命令历史
 git reflog
@@ -965,7 +966,7 @@ git diff topic..master
 # 查看自从topic分支建立以后，master分支发生的变化
 git diff topic...master
 </code></pre>
-<h1 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h1><pre><code class="shell"># 恢复暂存区的指定文件到工作区
+<h1 id="版本回退-1"><a href="#版本回退-1" class="headerlink" title="版本回退"></a>版本回退</h1><pre><code class="shell"># 恢复暂存区的指定文件到工作区
 git checkout [file]
 
 # 恢复某个commit的指定文件到工作区
@@ -1121,7 +1122,7 @@ git archive
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1133,10 +1134,10 @@ git archive
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
