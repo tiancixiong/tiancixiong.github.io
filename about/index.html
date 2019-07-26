@@ -494,6 +494,11 @@
 					content: "都是一些日常（灌水）内容，会不定时记录自己遇到的技术问题和生活片段，也会转载一下有意思的博文~"
 				}).then(function() {
 					botui.message.add({
+						delay: 1E3,
+						content: "关于版权：本博客部分为原创文章，部分为转载文章，若转载文章侵犯到您的版权，请联系我删除"
+					})
+				}).then(function() {
+					botui.message.add({
 						delay: 1600,
 						content: "那么，仔细看看我的博客吧~ ^_^"
 					})
