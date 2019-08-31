@@ -490,7 +490,7 @@ throws InterruptedException {
 <pre><code class="java">public final native void wait(long timeout) throws InterruptedException;
 </code></pre>
 <p>join()的调用位于main Thread的main()中，所以这里当然就是阻塞main Thread了。所以thread1.join()调用后，main Thread会阻塞起来。</p>
-<h3 id="方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务"><a href="#方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务" class="headerlink" title="方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务"></a>方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务</h3><p>利用并发包里的<code>Excutors</code>的<code>newSingleThreadExecuto</code>产生一个单线程的线程池，而这个线程池的底层原理就是一个先进先出（FIFO）的队列。代码中<code>executor.submit</code>依次添加了123线程，按照FIFO的特性，执行顺序也就是123的执行结果，从而保证了执行顺序</p>
+<h3 id="方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务"><a href="#方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务" class="headerlink" title="方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务"></a>方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务</h3><p>利用并发包里的<code>Executors</code>的<code>newSingleThreadExecutor()</code>产生一个单线程的线程池，而这个线程池的底层原理就是一个先进先出（FIFO）的队列。代码中<code>executor.submit</code>依次添加了123线程，按照FIFO的特性，执行顺序也就是123的执行结果，从而保证了执行顺序</p>
 <pre><code class="java">static ExecutorService executorService = Executors.newSingleThreadExecutor();
 public static void main(String[] args) throws Exception {
     executorService.submit(thread1);

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-08-02T07:09:42.090Z</updated>
+  <updated>2019-08-31T02:36:58.368Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关闭QQ弹出的腾讯网迷你版</title>
+    <link href="https://www.xiongtianci.com/2019/08/31/%E5%85%B3%E9%97%ADQQ%E5%BC%B9%E5%87%BA%E7%9A%84%E8%85%BE%E8%AE%AF%E7%BD%91%E8%BF%B7%E4%BD%A0%E7%89%88/"/>
+    <id>https://www.xiongtianci.com/2019/08/31/关闭QQ弹出的腾讯网迷你版/</id>
+    <published>2019-08-31T02:24:07.000Z</published>
+    <updated>2019-08-31T02:36:58.368Z</updated>
+    
+    <summary type="html">
+    
+      关闭QQ弹出的腾讯网迷你版
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="软件" scheme="https://www.xiongtianci.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>关于int和Integer之间的装箱机制问题</title>
@@ -459,26 +479,6 @@
       <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
     
       <category term="博客" scheme="https://www.xiongtianci.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git常用命名汇总</title>
-    <link href="https://www.xiongtianci.com/2019/06/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/"/>
-    <id>https://www.xiongtianci.com/2019/06/12/git常用命名汇总/</id>
-    <published>2019-06-12T01:24:41.000Z</published>
-    <updated>2019-07-25T08:35:39.743Z</updated>
-    
-    <summary type="html">
-    
-      git命令汇总
-    
-    </summary>
-    
-      <category term="笔记" scheme="https://www.xiongtianci.com/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
     
   </entry>
   
