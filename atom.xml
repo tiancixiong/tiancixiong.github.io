@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-08-31T03:02:55.420Z</updated>
+  <updated>2019-09-16T14:53:05.522Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有趣的网站</title>
+    <link href="https://www.xiongtianci.com/2019/09/16/%E6%9C%89%E8%B6%A3%E7%9A%84%E7%BD%91%E7%AB%99/"/>
+    <id>https://www.xiongtianci.com/2019/09/16/有趣的网站/</id>
+    <published>2019-09-16T13:06:29.000Z</published>
+    <updated>2019-09-16T14:53:05.522Z</updated>
+    
+    <summary type="html">
+    
+      分享一些有趣的网站
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>关闭QQ弹出的腾讯网迷你版</title>
@@ -76,9 +94,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -123,9 +141,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="踩坑" scheme="https://www.xiongtianci.com/tags/%E8%B8%A9%E5%9D%91/"/>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
     
@@ -457,28 +475,6 @@
       <category term="踩坑" scheme="https://www.xiongtianci.com/tags/%E8%B8%A9%E5%9D%91/"/>
     
       <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo常用命名汇总</title>
-    <link href="https://www.xiongtianci.com/2019/06/12/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/"/>
-    <id>https://www.xiongtianci.com/2019/06/12/hexo常用命名汇总/</id>
-    <published>2019-06-12T01:32:47.000Z</published>
-    <updated>2019-06-20T09:15:32.085Z</updated>
-    
-    <summary type="html">
-    
-      hexo命令汇总
-    
-    </summary>
-    
-      <category term="笔记" scheme="https://www.xiongtianci.com/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
-    
-      <category term="博客" scheme="https://www.xiongtianci.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

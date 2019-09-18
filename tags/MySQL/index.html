@@ -113,25 +113,6 @@
                 </li>
               
             
-              
-                <li class="wechat">
-                  <a href="javascript:void(0);">
-                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/wechat.png">
-                  </a>
-                  <div class="wechatInner">
-                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/wechat.jpg">
-                  </div>
-                </li>
-              
-            
-              
-                <li>
-                  <a href="http://weibo.com/6338246468?is_all=1" target="_blank" class="social-github" title="sina">
-                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/sina.png">
-                  </a>
-                </li>
-              
-            
           
           <li id="bg-next">
             <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
@@ -690,8 +671,6 @@
       
         <a href="http://github.com/tiancixiong" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
       
-        <a href="https://weibo.com/u/6338246468?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
-      
     
   </p>
   <ul id="menu-new-1" class="menu">
@@ -914,7 +893,12 @@
   });
 </script></div>
 </body>
-</html>ld = Math.floor(e_daysold);
+</html>());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		e_daysold = timeold / msPerDay
+		daysold = Math.floor(e_daysold);
 		e_hrsold = (e_daysold - daysold) * 24;
 		hrsold = setzero(Math.floor(e_hrsold));
 		e_minsold = (e_hrsold - hrsold) * 60;
@@ -1002,8 +986,6 @@
     
       
         <a href="http://github.com/tiancixiong" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
-      
-        <a href="https://weibo.com/u/6338246468?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
       
     
   </p>

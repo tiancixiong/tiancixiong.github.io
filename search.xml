@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>有趣的网站</title>
+      <link href="/2019/09/16/%E6%9C%89%E8%B6%A3%E7%9A%84%E7%BD%91%E7%AB%99/"/>
+      <url>/2019/09/16/%E6%9C%89%E8%B6%A3%E7%9A%84%E7%BD%91%E7%AB%99/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>分享一些有趣的网站<br>持续更新中….</p></blockquote><ol><li><p><a href="chrome://dino/" target="_blank" rel="noopener">Chrome街机游戏(小恐龙)</a></p><p>就是进去后会是下面内容（一般Chrome浏览器在未连接互联网状态也会呈现），按空格键开始，按&uarr;键(或空格)进行跳，&darr;键进行蹲</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190916/1568639382624.png" alt="1568639382624"></p></li></ol><ol start="2"><li><p><a href="http://weavesilk.com/" target="_blank" rel="noopener">Silk – Interactive Generative Art</a></p><p>可以随手画出对称的炫酷图案</p></li><li><p><a href="http://www.extractpdf.com/" target="_blank" rel="noopener">Free online PDF Extractor</a></p><p>可以将PDF文件中的图片提取出来，PDF文件大小不能超过14M</p></li><li><p><a href="https://zh.wikihow.com" target="_blank" rel="noopener">wikiHow</a></p><p>里面包含大量高质量的指导手册</p></li><li><p><a href="http://lackar.com/aa" target="_blank" rel="noopener">AnywhereAnything</a></p><p>这个网站收录了非常多的精品网站</p></li><li><ul><li><a href="https://www.pdflibr.com" target="_blank" rel="noopener">临时接受短信的手机号</a></li><li><a href="http://mail.bccto.me" target="_blank" rel="noopener">十分钟邮箱</a>、<a href="http://24mail.chacuo.net/" target="_blank" rel="noopener">24小时邮箱</a></li></ul></li><li><p><a href="https://cn.office-converter.com/" target="_blank" rel="noopener">转换格式大全</a></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关闭QQ弹出的腾讯网迷你版</title>
       <link href="/2019/08/31/%E5%85%B3%E9%97%ADQQ%E5%BC%B9%E5%87%BA%E7%9A%84%E8%85%BE%E8%AE%AF%E7%BD%91%E8%BF%B7%E4%BD%A0%E7%89%88/"/>
       <url>/2019/08/31/%E5%85%B3%E9%97%ADQQ%E5%BC%B9%E5%87%BA%E7%9A%84%E8%85%BE%E8%AE%AF%E7%BD%91%E8%BF%B7%E4%BD%A0%E7%89%88/</url>
@@ -74,9 +93,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -128,9 +147,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 踩坑 </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> Git </tag>
             
@@ -772,7 +791,7 @@
       <link href="/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/"/>
       <url>/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/</url>
       
-        <content type="html"><![CDATA[<p>链接：<a href="https://pan.baidu.com/s/1m7rrEPFwlcnrkq_ovBs3cw" target="_blank" rel="noopener">乐优商城（19 天+资料+源码+笔记）</a><br>密码：<code>java</code></p><blockquote><p>本资源是博主在网上寻找乐优商城资料时，一位好人所赠</p><font color="hotpink">注意：找乐优商城资料的同学应该知道，乐优商城的视频有win和mac版本之分，此资源中的视频是mac版本。资料中的课件是完整的，但是与视频会有所出入</font></blockquote><blockquote><p><font color="red">PS：如果链接失效，可通过<a href="mailto:tiancixiong@163.com" target="_blank" rel="noopener">邮件</a>联系获取</font></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<p>链接：<a href="https://pan.baidu.com/s/1V8aoo0zILLFDGQHOJ8nlrQ" target="_blank" rel="noopener">乐优商城（19 天+资料+源码+笔记）</a></p><blockquote><p>本资源是博主在网上寻找乐优商城资料时，一位好人所赠</p><font color="hotpink">注意：找乐优商城资料的同学应该知道，乐优商城的视频有win和mac版本之分，此资源中的视频是mac版本。资料中的课件是完整的，但是与视频会有所出入</font></blockquote><blockquote><p><font color="red">PS：如果链接失效，可通过<a href="mailto:tiancixiong@163.com" target="_blank" rel="noopener">邮件</a>联系获取</font></p></blockquote>]]></content>
       
       
       <categories>
@@ -1000,9 +1019,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -1667,9 +1686,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2768,9 +2787,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
