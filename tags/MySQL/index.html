@@ -277,16 +277,6 @@
               </li>
             
               <li>
-                <a href="/comment/">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
-                    留言板
-                  </span>
-                </a>
-                
-              </li>
-            
-              <li>
                 <a href="/links/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
@@ -784,16 +774,6 @@
       </li>
     
       <li>
-        <a href="/comment/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
-            留言板
-          </span>
-        </a>
-        
-      </li>
-    
-      <li>
         <a href="/links/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
@@ -893,7 +873,13 @@
   });
 </script></div>
 </body>
-</html>());
+</html>/2018 15:36:06";
+		time = time.replace(/\//g, ':').replace(' ', ':');
+		time = time.split(':');
+		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
+
+		today = new Date();
+		timeold = (today.getTime() - BirthDay.getTime());
 		sectimeold = timeold / 1000
 		secondsold = Math.floor(sectimeold);
 		msPerDay = 24 * 60 * 60 * 1000
@@ -1096,16 +1082,6 @@
               </li>
             
           </ul>
-        
-      </li>
-    
-      <li>
-        <a href="/comment/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
-            留言板
-          </span>
-        </a>
         
       </li>
     
