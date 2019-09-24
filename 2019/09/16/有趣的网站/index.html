@@ -384,6 +384,8 @@
 <p>分享一些有趣的网站<br>持续更新中….</p>
 </blockquote>
 <ol>
+<li><p><a href="https://www.yikm.net/" target="_blank" rel="noopener">小游戏</a></p>
+</li>
 <li><p><a href="chrome://dino/" target="_blank" rel="noopener">Chrome街机游戏(小恐龙)</a></p>
 <p>就是进去后会是下面内容（一般Chrome浏览器在未连接互联网状态也会呈现），按空格键开始，按&uarr;键(或空格)进行跳，&darr;键进行蹲</p>
 <p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190916/1568639382624.png" alt="1568639382624"></p>
@@ -457,32 +459,6 @@
         
       </section>
       <!-- 评论插件valine -->
-
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
-        appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
-		notify: false,
-		verify: false,
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ...",
-		avatar: "monsterid",
-		//meta: [nick,mail,link],
-		pageSize: "5" || 10
-      });
-	//增加以下六行代码去除 power by valine
-    var infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-      infoEle.childNodes.forEach(function(item) {
-        item.parentNode.removeChild(item);
-      });
-    }
-  }
-</script>
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">

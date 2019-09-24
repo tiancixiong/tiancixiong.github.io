@@ -521,32 +521,6 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
       </section>
       <!-- 评论插件valine -->
 
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "NjsQAuL1k29JMFf121E0AJHF-gzGzoHsz",
-        appKey: "7zPSYnuDLeyCNoSQpgTXdC1v",
-		notify: false,
-		verify: false,
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ...",
-		avatar: "monsterid",
-		//meta: [nick,mail,link],
-		pageSize: "5" || 10
-      });
-	//增加以下六行代码去除 power by valine
-    var infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-      infoEle.childNodes.forEach(function(item) {
-        item.parentNode.removeChild(item);
-      });
-    }
-  }
-</script>
-
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
