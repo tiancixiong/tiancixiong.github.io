@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-09-20T09:39:42.660Z</updated>
+  <updated>2019-11-01T13:01:58.550Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决IDEA中Vue项目出现红色波浪线问题</title>
+    <link href="https://www.xiongtianci.com/2019/11/01/%E8%A7%A3%E5%86%B3IDEA%E4%B8%ADVue%E9%A1%B9%E7%9B%AE%E5%87%BA%E7%8E%B0%E7%BA%A2%E8%89%B2%E6%B3%A2%E6%B5%AA%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.xiongtianci.com/2019/11/01/解决IDEA中Vue项目出现红色波浪线问题/</id>
+    <published>2019-11-01T12:56:20.000Z</published>
+    <updated>2019-11-01T13:01:58.550Z</updated>
+    
+    <summary type="html">
+    
+      解决IDEA中Vue项目出现红色波浪线问题
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>有趣的网站</title>
@@ -94,9 +112,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -141,9 +159,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="踩坑" scheme="https://www.xiongtianci.com/tags/%E8%B8%A9%E5%9D%91/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="踩坑" scheme="https://www.xiongtianci.com/tags/%E8%B8%A9%E5%9D%91/"/>
     
       <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
     
@@ -450,31 +468,6 @@
       <category term="博客" scheme="https://www.xiongtianci.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="Pages" scheme="https://www.xiongtianci.com/tags/Pages/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git push报错：The current branch master has no upstream branch</title>
-    <link href="https://www.xiongtianci.com/2019/06/12/git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/"/>
-    <id>https://www.xiongtianci.com/2019/06/12/git-push报错：The-current-branch-master-has-no-upstream-branch/</id>
-    <published>2019-06-12T06:22:18.000Z</published>
-    <updated>2019-07-19T05:09:51.506Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="踩坑" scheme="https://www.xiongtianci.com/tags/%E8%B8%A9%E5%9D%91/"/>
-    
-      <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
     
   </entry>
   

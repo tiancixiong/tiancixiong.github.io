@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2019/11/01/解决IDEA中Vue项目出现红色波浪线问题/
 https://www.xiongtianci.com/2019/09/16/有趣的网站/
 https://www.xiongtianci.com/2019/08/31/关闭QQ弹出的腾讯网迷你版/
 https://www.xiongtianci.com/2019/08/02/关于int和Integer之间的装箱机制问题/
