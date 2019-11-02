@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-11-02T09:05:29.772Z</updated>
+  <updated>2019-11-02T13:05:05.432Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用git.io设置GitHub项目的短链接</title>
+    <link href="https://www.xiongtianci.com/2019/11/02/%E4%BD%BF%E7%94%A8git-io%E8%AE%BE%E7%BD%AEGitHub%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%9F%AD%E9%93%BE%E6%8E%A5/"/>
+    <id>https://www.xiongtianci.com/2019/11/02/使用git-io设置GitHub项目的短链接/</id>
+    <published>2019-11-02T12:27:07.000Z</published>
+    <updated>2019-11-02T13:05:05.432Z</updated>
+    
+    <summary type="html">
+    
+      使用git.io设置GitHub项目的短链接
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>启动项目报错：The Tomcat connector configured to listen on port 8080 failed to start.</title>
+    <link href="https://www.xiongtianci.com/2019/11/02/%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9AThe-Tomcat-connector-configured-to-listen-on-port-8080-failed-to-start/"/>
+    <id>https://www.xiongtianci.com/2019/11/02/启动项目报错：The-Tomcat-connector-configured-to-listen-on-port-8080-failed-to-start/</id>
+    <published>2019-11-02T09:37:36.000Z</published>
+    <updated>2019-11-02T09:51:26.408Z</updated>
+    
+    <summary type="html">
+    
+      启动项目报错：The Tomcat connector configured to listen on port 8080 failed to start.
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>使用Postman测试上传图片接口报错：the request was rejected because no multipart boundary was found</title>
@@ -416,50 +452,6 @@
       <category term="google扩展" scheme="https://www.xiongtianci.com/tags/google%E6%89%A9%E5%B1%95/"/>
     
       <category term="Octotree" scheme="https://www.xiongtianci.com/tags/Octotree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>电影资源网址-珍藏</title>
-    <link href="https://www.xiongtianci.com/2019/06/15/%E7%94%B5%E5%BD%B1%E8%B5%84%E6%BA%90%E7%BD%91%E5%9D%80-%E7%8F%8D%E8%97%8F/"/>
-    <id>https://www.xiongtianci.com/2019/06/15/电影资源网址-珍藏/</id>
-    <published>2019-06-15T13:55:43.000Z</published>
-    <updated>2019-09-12T11:08:37.671Z</updated>
-    
-    <summary type="html">
-    
-      影视搜索网址集合
-    
-    </summary>
-    
-      <category term="资源" scheme="https://www.xiongtianci.com/categories/%E8%B5%84%E6%BA%90/"/>
-    
-      <category term="电影" scheme="https://www.xiongtianci.com/categories/%E7%94%B5%E5%BD%B1/"/>
-    
-    
-      <category term="电影" scheme="https://www.xiongtianci.com/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Typora锚点-页内跳转</title>
-    <link href="https://www.xiongtianci.com/2019/06/13/Typora%E9%94%9A%E7%82%B9-%E9%A1%B5%E5%86%85%E8%B7%B3%E8%BD%AC/"/>
-    <id>https://www.xiongtianci.com/2019/06/13/Typora锚点-页内跳转/</id>
-    <published>2019-06-13T06:54:02.000Z</published>
-    <updated>2019-06-18T08:51:41.315Z</updated>
-    
-    <summary type="html">
-    
-      Typora中锚点使用
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="软件" scheme="https://www.xiongtianci.com/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-      <category term="Typora" scheme="https://www.xiongtianci.com/tags/Typora/"/>
     
   </entry>
   
