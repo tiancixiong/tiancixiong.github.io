@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>查看IDEA中已安装的plugin插件</title>
+      <link href="/2019/11/03/%E6%9F%A5%E7%9C%8BIDEA%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84plugin%E6%8F%92%E4%BB%B6/"/>
+      <url>/2019/11/03/%E6%9F%A5%E7%9C%8BIDEA%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84plugin%E6%8F%92%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<p>Settings -&gt; Plugins -&gt; 在Show下拉框中选中<code>Custom</code>：</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20191103/1572766987018.png" alt="1572766987018"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用git.io设置GitHub项目的短链接</title>
       <link href="/2019/11/02/%E4%BD%BF%E7%94%A8git-io%E8%AE%BE%E7%BD%AEGitHub%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%9F%AD%E9%93%BE%E6%8E%A5/"/>
       <url>/2019/11/02/%E4%BD%BF%E7%94%A8git-io%E8%AE%BE%E7%BD%AEGitHub%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%9F%AD%E9%93%BE%E6%8E%A5/</url>
@@ -169,9 +196,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1095,9 +1122,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -1762,9 +1789,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2863,9 +2890,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       

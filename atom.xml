@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-11-02T13:05:05.432Z</updated>
+  <updated>2019-11-03T07:45:40.898Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>查看IDEA中已安装的plugin插件</title>
+    <link href="https://www.xiongtianci.com/2019/11/03/%E6%9F%A5%E7%9C%8BIDEA%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84plugin%E6%8F%92%E4%BB%B6/"/>
+    <id>https://www.xiongtianci.com/2019/11/03/查看IDEA中已安装的plugin插件/</id>
+    <published>2019-11-03T07:40:04.000Z</published>
+    <updated>2019-11-03T07:45:40.898Z</updated>
+    
+    <summary type="html">
+    
+      查看IDEA中已安装的plugin插件
+    
+    </summary>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>使用git.io设置GitHub项目的短链接</title>
@@ -39,7 +61,7 @@
     <link href="https://www.xiongtianci.com/2019/11/02/%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9AThe-Tomcat-connector-configured-to-listen-on-port-8080-failed-to-start/"/>
     <id>https://www.xiongtianci.com/2019/11/02/启动项目报错：The-Tomcat-connector-configured-to-listen-on-port-8080-failed-to-start/</id>
     <published>2019-11-02T09:37:36.000Z</published>
-    <updated>2019-11-02T09:51:26.408Z</updated>
+    <updated>2019-11-03T07:44:16.895Z</updated>
     
     <summary type="html">
     
@@ -166,9 +188,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -427,31 +449,6 @@
       <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
     
       <category term="Valine" scheme="https://www.xiongtianci.com/tags/Valine/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Octotree访问私有仓库：Error: Private repository</title>
-    <link href="https://www.xiongtianci.com/2019/06/18/Octotree%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%EF%BC%9AError-Private-repository/"/>
-    <id>https://www.xiongtianci.com/2019/06/18/Octotree访问私有仓库：Error-Private-repository/</id>
-    <published>2019-06-18T07:52:34.000Z</published>
-    <updated>2019-07-19T05:11:40.639Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="google扩展" scheme="https://www.xiongtianci.com/tags/google%E6%89%A9%E5%B1%95/"/>
-    
-      <category term="Octotree" scheme="https://www.xiongtianci.com/tags/Octotree/"/>
     
   </entry>
   
