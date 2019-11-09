@@ -1,3 +1,5 @@
+https://www.xiongtianci.com/2019/11/09/Linux中使用vim编辑文件时报错E325-ATTETION/
+https://www.xiongtianci.com/2019/11/06/CentOS6-5安装JDK1-8教程/
 https://www.xiongtianci.com/2019/11/03/查看IDEA中已安装的plugin插件/
 https://www.xiongtianci.com/2019/11/02/使用git-io设置GitHub项目的短链接/
 https://www.xiongtianci.com/2019/11/02/启动项目报错：The-Tomcat-connector-configured-to-listen-on-port-8080-failed-to-start/

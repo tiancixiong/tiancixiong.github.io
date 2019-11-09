@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-11-03T07:45:40.898Z</updated>
+  <updated>2019-11-09T06:11:02.763Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux中使用vim编辑文件时报错E325:ATTETION</title>
+    <link href="https://www.xiongtianci.com/2019/11/09/Linux%E4%B8%AD%E4%BD%BF%E7%94%A8vim%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E6%97%B6%E6%8A%A5%E9%94%99E325-ATTETION/"/>
+    <id>https://www.xiongtianci.com/2019/11/09/Linux中使用vim编辑文件时报错E325-ATTETION/</id>
+    <published>2019-11-09T05:34:22.000Z</published>
+    <updated>2019-11-09T06:11:02.763Z</updated>
+    
+    <summary type="html">
+    
+      Linux中使用vim编辑文件时报错E325:ATTETION
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS6.5安装JDK1.8教程</title>
+    <link href="https://www.xiongtianci.com/2019/11/06/CentOS6-5%E5%AE%89%E8%A3%85JDK1-8%E6%95%99%E7%A8%8B/"/>
+    <id>https://www.xiongtianci.com/2019/11/06/CentOS6-5安装JDK1-8教程/</id>
+    <published>2019-11-06T14:42:51.000Z</published>
+    <updated>2019-11-06T15:38:52.558Z</updated>
+    
+    <summary type="html">
+    
+      CentOS6.5安装JDK1.8教程
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>查看IDEA中已安装的plugin插件</title>
     <link href="https://www.xiongtianci.com/2019/11/03/%E6%9F%A5%E7%9C%8BIDEA%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84plugin%E6%8F%92%E4%BB%B6/"/>
     <id>https://www.xiongtianci.com/2019/11/03/查看IDEA中已安装的plugin插件/</id>
     <published>2019-11-03T07:40:04.000Z</published>
-    <updated>2019-11-03T07:45:40.898Z</updated>
+    <updated>2019-11-07T02:00:40.293Z</updated>
     
     <summary type="html">
     
@@ -32,9 +68,9 @@
       <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -79,7 +115,7 @@
     <link href="https://www.xiongtianci.com/2019/11/02/%E4%BD%BF%E7%94%A8Postman%E6%B5%8B%E8%AF%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E6%8E%A5%E5%8F%A3%E6%8A%A5%E9%94%99%EF%BC%9Athe-request-was-rejected-because-no-multipart-boundary-was-found/"/>
     <id>https://www.xiongtianci.com/2019/11/02/使用Postman测试上传图片接口报错：the-request-was-rejected-because-no-multipart-boundary-was-found/</id>
     <published>2019-11-02T08:54:56.000Z</published>
-    <updated>2019-11-02T09:05:29.772Z</updated>
+    <updated>2019-11-08T01:09:12.994Z</updated>
     
     <summary type="html">
     
@@ -188,9 +224,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -400,55 +436,6 @@
       <category term="正则" scheme="https://www.xiongtianci.com/tags/%E6%AD%A3%E5%88%99/"/>
     
       <category term="Notepad++" scheme="https://www.xiongtianci.com/tags/Notepad/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS :hover选择器的使用</title>
-    <link href="https://www.xiongtianci.com/2019/06/24/CSS-hover%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://www.xiongtianci.com/2019/06/24/CSS-hover选择器的使用/</id>
-    <published>2019-06-24T08:49:29.000Z</published>
-    <updated>2019-06-24T09:11:14.718Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="笔记" scheme="https://www.xiongtianci.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="CSS" scheme="https://www.xiongtianci.com/tags/CSS/"/>
-    
-      <category term="选择器" scheme="https://www.xiongtianci.com/tags/%E9%80%89%E6%8B%A9%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeanCloud域名更换-恢复Sakura主题Valine评论</title>
-    <link href="https://www.xiongtianci.com/2019/06/21/LeanCloud%E5%9F%9F%E5%90%8D%E6%9B%B4%E6%8D%A2-%E6%81%A2%E5%A4%8DSakura%E4%B8%BB%E9%A2%98Valine%E8%AF%84%E8%AE%BA/"/>
-    <id>https://www.xiongtianci.com/2019/06/21/LeanCloud域名更换-恢复Sakura主题Valine评论/</id>
-    <published>2019-06-21T09:32:56.000Z</published>
-    <updated>2019-07-19T05:12:01.809Z</updated>
-    
-    <summary type="html">
-    
-      LeanCloud域名更换导致Valine无法评论的解决方案
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.xiongtianci.com/tags/Hexo/"/>
-    
-      <category term="Valine" scheme="https://www.xiongtianci.com/tags/Valine/"/>
     
   </entry>
   
