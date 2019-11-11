@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>解决IDEA中安装CodeGlance插件后不起作用问题</title>
+      <link href="/2019/11/11/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD%E5%AE%89%E8%A3%85CodeGlance%E6%8F%92%E4%BB%B6%E5%90%8E%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/11/11/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD%E5%AE%89%E8%A3%85CodeGlance%E6%8F%92%E4%BB%B6%E5%90%8E%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>IDEA安装<code>CodeGlance</code>插件后不起作用</p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20191111/1573481644955.png" alt="1573481644955"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>一、查看IDEA中是否已安装了<code>CodeGlance</code></p><p>Ctrl+Alt+S -&gt; Plugins -&gt; 搜索<code>CodeGlance</code></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20191111/1573480165020.png" alt="1573480165020"></p><p>二、Settings -&gt; 搜索<code>CodeGlance</code> -&gt; 取消勾选<code>Disabled</code> -&gt; 点击<code>OK</code></p><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20191111/1573481583021.png" alt="1573481583021"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+            <tag> CodeGlance </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux中使用vim编辑文件时报错E325:ATTETION</title>
       <link href="/2019/11/09/Linux%E4%B8%AD%E4%BD%BF%E7%94%A8vim%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E6%97%B6%E6%8A%A5%E9%94%99E325-ATTETION/"/>
       <url>/2019/11/09/Linux%E4%B8%AD%E4%BD%BF%E7%94%A8vim%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6%E6%97%B6%E6%8A%A5%E9%94%99E325-ATTETION/</url>
@@ -58,9 +85,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -234,9 +261,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -362,9 +389,9 @@
       
       <categories>
           
-          <category> 日语 </category>
-          
           <category> 资源 </category>
+          
+          <category> 日语 </category>
           
       </categories>
       
@@ -1160,9 +1187,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -1513,9 +1540,9 @@
             
             <tag> 踩坑 </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> MyBatis </tag>
+            
+            <tag> MySQL </tag>
             
             <tag> 乱码 </tag>
             
@@ -1827,9 +1854,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2928,9 +2955,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       

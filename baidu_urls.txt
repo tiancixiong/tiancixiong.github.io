@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2019/11/11/解决IDEA中安装CodeGlance插件后不起作用问题/
 https://www.xiongtianci.com/2019/11/09/Linux中使用vim编辑文件时报错E325-ATTETION/
 https://www.xiongtianci.com/2019/11/06/CentOS6-5安装JDK1-8教程/
 https://www.xiongtianci.com/2019/11/03/查看IDEA中已安装的plugin插件/
