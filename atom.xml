@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2019-11-11T14:17:57.746Z</updated>
+  <updated>2019-11-12T02:23:50.201Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git修改已提交的commit注释</title>
+    <link href="https://www.xiongtianci.com/2019/11/12/Git%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84commit%E6%B3%A8%E9%87%8A/"/>
+    <id>https://www.xiongtianci.com/2019/11/12/Git修改已提交的commit注释/</id>
+    <published>2019-11-12T01:34:11.000Z</published>
+    <updated>2019-11-12T02:23:50.201Z</updated>
+    
+    <summary type="html">
+    
+      Git修改已提交的commit注释
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>解决IDEA中安装CodeGlance插件后不起作用问题</title>
@@ -359,9 +379,9 @@
     
     </summary>
     
-      <category term="资源" scheme="https://www.xiongtianci.com/categories/%E8%B5%84%E6%BA%90/"/>
-    
       <category term="日语" scheme="https://www.xiongtianci.com/categories/%E6%97%A5%E8%AF%AD/"/>
+    
+      <category term="资源" scheme="https://www.xiongtianci.com/categories/%E8%B5%84%E6%BA%90/"/>
     
     
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
@@ -411,29 +431,6 @@
       <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
     
       <category term="日语" scheme="https://www.xiongtianci.com/tags/%E6%97%A5%E8%AF%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重置MySQL自增id</title>
-    <link href="https://www.xiongtianci.com/2019/07/01/%E9%87%8D%E7%BD%AEMySQL%E8%87%AA%E5%A2%9Eid/"/>
-    <id>https://www.xiongtianci.com/2019/07/01/重置MySQL自增id/</id>
-    <published>2019-07-01T06:36:42.000Z</published>
-    <updated>2019-07-01T06:53:44.469Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="MySQL" scheme="https://www.xiongtianci.com/tags/MySQL/"/>
     
   </entry>
   
