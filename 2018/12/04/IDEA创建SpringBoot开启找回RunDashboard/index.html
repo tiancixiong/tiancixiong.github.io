@@ -372,21 +372,21 @@
         <div class="entry-content">
           <h1 id="Run-Dashboard-面板"><a href="#Run-Dashboard-面板" class="headerlink" title="Run Dashboard 面板"></a>Run Dashboard 面板</h1><p><strong>Run Dashboard</strong>：微服务项目的开发过程中，工程会非常多，经常要启动很多个服务，才能完成一项测试。启动的多了，容易给开发者带来错乱的感觉，很不方便管理。IDEA开发工具推荐了一个很好用的功能–Run Dashboard。他是 Run 的升级版</p>
 <p>我们可以对比一下这个是Run Dashboard的窗口</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181204/1543905902634.png" alt="1543905902634"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204/1543905902634.png" alt="1543905902634"> </p>
 <p>普通的Run窗口：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181204/1543905965611.png" alt="1543905965611"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204/1543905965611.png" alt="1543905965611"> </p>
 <p>显然如果启动多个端口Run Dashboard窗口显得更好管理。<br>一般有时候创建springboot项目的时候右下角可以提示你打开Run Dashboard，但是如果不提醒就需要自己配置了。</p>
 <h1 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>新建项目或者通过 <code>open</code> 打开项目时，可能会弹出提示 “Multiple Spring Boot run configurations were detected. Run Dashboard allows to manage multiple run configurations at once.” 见下图：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181204/1543906387601.png" alt="1543906387601"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204/1543906387601.png" alt="1543906387601"> </p>
 <p>点击 <code>Show run configurations in Run Dashboard</code> ，<code>Run Dashboard</code> 面板重新在底部区域展示了出来。</p>
 <p>如没有此提示，请选择方式二或方式三</p>
 <h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>打开Run Dashboard：View –&gt; Tool Windows –&gt; Run Dashboard</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181204/1543906576903.png" alt="1543906576903"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204/1543906576903.png" alt="1543906576903"></p>
 <h2 id="方式三"><a href="#方式三" class="headerlink" title="方式三"></a>方式三</h2><p>如果上述的方式都没有打开 <code>Run Dashboard</code> 面板，可以在工程目录下找 <code>.idea</code> 文件夹下的 <code>workspace.xml</code>文件，通过修改此文件可达到打开 <code>Run Dashboard</code> 面板的目的</p>
 <ol>
-<li><p>找到当前项目中 <code>.idea</code> 文件下的 <code>workspace.xml</code> 文件，双击打开<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181204/1543906852844.png" alt="1543906852844"> </p>
+<li><p>找到当前项目中 <code>.idea</code> 文件下的 <code>workspace.xml</code> 文件，双击打开<br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204/1543906852844.png" alt="1543906852844"> </p>
 </li>
-<li><p>接下来找到 <code>&lt;component name=&quot;RunDashboard&quot;&gt;</code><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181204/1543907062997.png" alt="1543907062997"> </p>
+<li><p>接下来找到 <code>&lt;component name=&quot;RunDashboard&quot;&gt;</code><br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204/1543907062997.png" alt="1543907062997"> </p>
 </li>
 <li><p>加入如下配置：</p>
 <pre><code class="xml">&lt;option name=&quot;configurationTypes&quot;&gt;
@@ -449,7 +449,7 @@
           
             <a href="/2018/12/04/IDEA常用快捷键/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181204-IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/image.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204-IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/image.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Previous Post</span>

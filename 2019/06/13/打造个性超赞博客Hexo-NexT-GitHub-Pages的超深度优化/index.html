@@ -340,7 +340,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/Coldplay.jpg);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/Coldplay.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/Coldplay.jpg);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/Coldplay.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -621,7 +621,7 @@ Already up to date.
 <h2 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h2><p>不过还有一件事要先说一说，就是选择合适自己的主题，这是搭建好博客后最重要的一件事。默认的主题功能少，而且不太好看（个人感觉），而一些主题则有很多功能，也比较美观。</p>
 <p>我选择的是 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">NexT</a>（<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">最新版</a>），简洁且功能不少，也是在 GitHub 上<a href="https://github.com/search?o=desc&amp;q=topic%3Ahexo-theme&amp;s=stars&amp;type=Repositories" target="_blank" rel="noopener">被 Star 最多</a><code>[2017.11.17]</code>的一个 Hexo 主题。第二多的是 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">hexo-theme-yilia</a>，第三多的是 <a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="noopener">hexo-theme-material</a>（还有一个很棒的 Material Design 风格主题 <a href="https://github.com/yscoder/hexo-theme-indigo/tree/card" target="_blank" rel="noopener">hexo-theme-material-indigo</a>），还有一个我感觉比较有特色的，叫 <a href="https://github.com/probberechts/cactus-dark" target="_blank" rel="noopener">Cactus Dark</a>，这几个我感觉都不错，可以点开链接看看长啥样。要是我上面说的还是没有合你胃口的😅，咋办？去 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo Themes</a> 慢慢找。</p>
 <p>至于换主题，很简单，我拿 NexT 主题举个栗子。首先在这个主题的 GitHub 页面的右上方复制链接，如下图：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/hexo-next-optimization-1.png" alt="hexo-next-optimization-1.png"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/hexo-next-optimization-1.png" alt="hexo-next-optimization-1.png"></p>
 <p>然后：</p>
 <pre><code class="shell"># 所在目录：~/blog/themes/
 git clone https://github.com/theme-next/hexo-theme-next.git next
@@ -761,13 +761,13 @@ deploy:
   branch: master
 </code></pre>
 <h2 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a>主题配置文件</h2><p>如果你的主题不是 NexT，那么请另 Google。建议先查看 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT 官方文档</a>（<a href="https://theme-next.org/docs/" target="_blank" rel="noopener">最新版</a>），写得很好，多逗留会没坏处。由于文件过长，为了保证文章阅读效果，我把文件放在了 <a href="https://github.com/reuixiy/blog-files/blob/master/_config.yml" target="_blank" rel="noopener">GitHub</a>。另外，我把我没有配置的差不多都删了，有问题可以多 Google。如果里面有些设置你还想进一步自定义，比如进一步自定义页脚文字的顺序，折腾完本文<a href="https://io-oi.me/tech/hexo-next-optimization.html#%E8%BF%9B%E9%98%B6-%E9%AB%98%E7%BA%A7%E5%8A%9F%E8%83%BD%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener">第 5 节</a>你就会了😉。</p>
-<h2 id="动态背景"><a href="#动态背景" class="headerlink" title="动态背景"></a>动态背景</h2><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/hexo-next-optimization-2.gif" alt="效果图"></p>
+<h2 id="动态背景"><a href="#动态背景" class="headerlink" title="动态背景"></a>动态背景</h2><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/hexo-next-optimization-2.gif" alt="效果图"></p>
 <p>在<strong>主题</strong>配置文件中，靠后面，改<code>canvas_nest: true</code>，想要更改颜色和数量？修改文件：</p>
 <pre><code class="shell"># 文件位置
 ~/blog/themes/next/source/lib/canvas-nest/canvas-nest.min.js
 </code></pre>
 <p>怎么修改？参考 <a href="https://github.com/hustcc/canvas-nest.js/blob/master/README-zh.md" target="_blank" rel="noopener">README</a>。</p>
-<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/hexo-next-optimization-footnotes.jpg" alt="Hexo 插件页面"></p>
+<h2 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h2><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/hexo-next-optimization-footnotes.jpg" alt="Hexo 插件页面"></p>
 <p>在 Hexo 插件搜索footnotes，发现目前有两种插件，右边的可以实现鼠标放在上面悬浮显示注释的功能，但是亲测有一个 Bug，有时对页面宽度有影响，强迫症难以忍受。我安装的是左边的，先进入站点文件夹根目录，然后：</p>
 <pre><code class="shell"># 所在目录：~/blog/
 npm install hexo-footnotes --save
@@ -900,7 +900,7 @@ font:
 {% endif %}
 </a></a></div></div></code></pre>
 <p>自己改单词请注意：是 <em>prev</em> 不是 <em>perv</em>，之前自己搞错了，然后盯着电脑屏幕尴尬半天，不停想特么老子哪里错了，怎么特么就是达不到效果！？？？</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/heirenwenhaolian.jpg" alt="heirenwenhaolian.jpg"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/heirenwenhaolian.jpg" alt="heirenwenhaolian.jpg"></p>
 <h2 id="移动端显示-back-to-top-按钮和侧栏"><a href="#移动端显示-back-to-top-按钮和侧栏" class="headerlink" title="移动端显示 back-to-top 按钮和侧栏"></a>移动端显示 back-to-top 按钮和侧栏</h2><p>今天更新一下 NexT 主题，发现已经添加这功能，前提是主题的设计模版是 Muse 或 Mist，然后可以直接在<strong>主题</strong>配置文件中配置：</p>
 <pre><code class="yml"># 文件位置：~/blog/themes/next/_config.yml
 # Enable sidebar on narrow view
@@ -911,7 +911,7 @@ onmobile: true
 <h3 id="博客推广"><a href="#博客推广" class="headerlink" title="博客推广"></a>博客推广</h3><p>博客推广第一步，手动推广。你可以多浏览别人的博客并留下你的爪印（博客地址），比如评论；你可以去 <a href="https://github.com/iissnan/hexo-theme-next#live-preview" target="_blank" rel="noopener">README.md</a> 中提到的这个 <a href="https://github.com/iissnan/hexo-theme-next/issues/119" target="_blank" rel="noopener">issue</a> 留下你的爪印；你可以去 <a href="https://github.com/iissnan/hexo-theme-next/issues" target="_blank" rel="noopener">Issues</a>（<a href="https://github.com/theme-next/hexo-theme-next/issues" target="_blank" rel="noopener">最新版</a>）页面试着回答下大家的问题并留下你的爪印。</p>
 <h3 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h3><p>博客推广第二步，<a href="https://baike.baidu.com/item/SEO" target="_blank" rel="noopener">SEO</a>（Search Engine Optimization）。搜索引擎是互联网上寻找资源的重要手段，而要让别人能够在搜索结果中看到自己的博客文章链接，就必须让搜索引擎收录，怎么操作呢？</p>
 <p>直接参考<a href="http://www.ehcoo.com/seo.html" target="_blank" rel="noopener">这篇文章</a>，学会使用站长工具抓取自己的网页，然后请求搜索引擎收录。博主也是刚接触不久，不太懂，但推荐提交次数尽量多，而且每天尽量都提交一次。我没有弄百度的，只弄了 Google 的，但是前几天百度<code>hexo next 优化</code>（其它关键字没试），发现第一页就有自己文章，而且文章图片也在上面，很显眼，让我非常惊喜😆！</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/hexo-next-optimization-3.jpg" alt="hexo-next-optimization-3.jpg"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/hexo-next-optimization-3.jpg" alt="hexo-next-optimization-3.jpg"></p>
 <p>看到<a href="https://segmentfault.com/p/1210000011450995" target="_blank" rel="noopener">链接</a>是 SegmentFault 的，恍然大悟，原来是这个<a href="http://shenzekun.cn/" target="_blank" rel="noopener">大佬</a>推荐的，不仅帮我把此文推到了掘金，还有 SegmentFault，在此再次感谢大佬！这也给了一个启示，除了直接向搜索引擎提交自己的链接，还可以通过这种途径优化博客的 SEO。</p>
 <h3 id="间接影响"><a href="#间接影响" class="headerlink" title="间接影响"></a>间接影响</h3><p>另外，SEO 固然重要，但不要小看另一种影响，相比搜索引擎，这种可以称之为间接影响。这篇文章是一篇技术性的文章，而技术人员经常会用 Google，所以对这篇文章的浏览量，搜索引擎的功劳较大。但是，如果是其他的文章，比如一首诗，那么直接通过 Google 访问的读者几乎没有，那读者哪来？从其它文章上的读者「流」过来的。因为读者浏览着的不是一篇文章，而是一个博客。</p>
 <p>而想让博客上的几乎不可能被 Google 的一首诗被浏览，就要这样间接拉读者了，可以称之「引流」。首先对博客上的每篇文章来说，肯定是读者花在自己博客的时间越长，被读到的可能性越大。这就意味着你要尽可能把用户留在自己的博客上，怎么留？</p>
@@ -925,9 +925,9 @@ onmobile: true
 <h3 id="谷歌分析"><a href="#谷歌分析" class="headerlink" title="谷歌分析"></a>谷歌分析</h3><p>你怎么知道自己推广的效果？你怎么知道有没有人看了自己的博客？哪篇文章最受欢迎？此时有没有人正浏览着自己的博客？自己的文章有没有被引用？这时最常用的就是强大免费的 <a href="https://analytics.google.com/" target="_blank" rel="noopener">Google Analytics</a>，推荐博客建好后，就立即使用。</p>
 <p>如何使用？请务必自备梯子查看 <a href="https://analytics.google.com/analytics/academy/course/6" target="_blank" rel="noopener">Google 官方的教程</a>，开始使用后一定要按照里面的设置，先添加多份 view（数据视图）。</p>
 <p>ATTENTION：虽然有个复制 view 选项，但由 Google Analytics（分析）帮助中的<a href="https://support.google.com/analytics/answer/3256366?hl=zh-Hans" target="_blank" rel="noopener">具体复制内容</a>再加上我的实践，发现（用我这个外行人的话来说）：复制 view 时只会复制它的相关配置，不会复制数据！所以请使用后立即按照官方教程中的方式添加 view！</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/google-analytics-filter.png" alt="仅包含有效主机名"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/google-analytics-filter.png" alt="仅包含有效主机名"></p>
 <p>我们写文章，会在本地调试，这时 Google Analytics 也是会收集数据的，会影响数据分析，所以必须添加一个 filter（过滤器）。</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/google-analytics.png" alt="filter"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/google-analytics.png" alt="filter"></p>
 <p>ATTENTION：由 Google Analytics（分析）的<a href="https://support.google.com/analytics/answer/6383007" target="_blank" rel="noopener">工作原理</a>可知，filter 是在数据处理时生效的（如上图），也就是说添加 filter 后只能过滤添加它之后的数据，而无法过滤添加它之前的数据（处理后），而 view 是利用处理后的数据生成的，所以要想去除自己在本地调试时的影响（在 view 中看不到自己在本地调试时的访问），请添加 view 之后就立即添加 filter！</p>
 <h2 id="时间轴页面的年份分隔"><a href="#时间轴页面的年份分隔" class="headerlink" title="时间轴页面的年份分隔"></a>时间轴页面的年份分隔</h2><p>在 Archives（归档）页面，文章之间有年份分隔，而某一个 category 和 tag 的时间轴页面却没有。怎么办呢？修改两个文件，加代码即可😌～</p>
 <h3 id="category"><a href="#category" class="headerlink" title="category"></a>category</h3><p>加到哪？要加两个位置：</p>
@@ -1763,7 +1763,7 @@ npm install hexo-tag-aplayer --save
 {% endaplayerlist %}
 </code></pre>
 <p>里面的详细参数见 <a href="https://github.com/MoePlayer/hexo-tag-aplayer" target="_blank" rel="noopener">README</a> 和这插件的「母亲」Aplayer 的<a href="https://aplayer.js.org/" target="_blank" rel="noopener">官方文档</a>。关于 <a href="https://baike.baidu.com/item/lrc/46935" target="_blank" rel="noopener">LRC</a>歌词，可以用<a href="https://www.zhihu.com/question/27638171" target="_blank" rel="noopener">工具</a>下载网易云音乐的歌词，另发现暂时不支持<code>offset</code>参数。当然，如果那歌词很操蛋，有错误（比如字母大小写和标点符号乱加）或者时间完全对不上，然后你也和我一样是个完美主义者，那接下来就是令人窒息的操作了，一句一句自己查看修改……</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190613/lingrenzhixidecaozuo.jpg" alt="lingrenzhixidecaozuo.jpg"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190613/lingrenzhixidecaozuo.jpg" alt="lingrenzhixidecaozuo.jpg"></p>
 <p>什么，你想把网易云的几百首歌手动同步到博客😨？慢慢慢，有一种<a href="https://github.com/MoePlayer/hexo-tag-aplayer#meingjs-support-new-in-30" target="_blank" rel="noopener">非常简单的方法</a>，此这种方法也支持单曲，将参数里的<code>playlist</code>更改为<code>song</code>即可，非常建议食用！更多功能请仔细阅读 README。</p>
 <h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p>1）直接用 HTML 的标签，写法如下：</p>
 <pre><code class="html">&lt;video poster=&quot;https://封面图.jpg&quot; src=&quot;https://什么什么什么.mp4&quot; style=&quot;max-height :100%; max-width: 100%; display: block; margin-left: auto; margin-right: auto;&quot; controls=&quot;controls&quot; loop=&quot;loop&quot; preload=&quot;meta&quot;&gt;Your browser does not support the video tag.&lt;/video&gt;

@@ -389,7 +389,7 @@
 <ul>
 <li>服务器操作系统的优选CentOS</li>
 </ul>
-<h1 id="2、Linux安装【重点】"><a href="#2、Linux安装【重点】" class="headerlink" title="2、Linux安装【重点】"></a>2、Linux安装【重点】</h1><h2 id="2-1、虚拟机、Linux安装"><a href="#2-1、虚拟机、Linux安装" class="headerlink" title="2.1、虚拟机、Linux安装"></a>2.1、虚拟机、Linux安装</h2><h2 id="2-2、CentOS安装jdk、tomcat、mysql"><a href="#2-2、CentOS安装jdk、tomcat、mysql" class="headerlink" title="2.2、CentOS安装jdk、tomcat、mysql"></a>2.2、CentOS安装jdk、tomcat、mysql</h2><h2 id="2-3、Linux目录介绍"><a href="#2-3、Linux目录介绍" class="headerlink" title="2.3、Linux目录介绍"></a>2.3、Linux目录介绍</h2><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1538621186769.png" alt="1538621186769"></p>
+<h1 id="2、Linux安装【重点】"><a href="#2、Linux安装【重点】" class="headerlink" title="2、Linux安装【重点】"></a>2、Linux安装【重点】</h1><h2 id="2-1、虚拟机、Linux安装"><a href="#2-1、虚拟机、Linux安装" class="headerlink" title="2.1、虚拟机、Linux安装"></a>2.1、虚拟机、Linux安装</h2><h2 id="2-2、CentOS安装jdk、tomcat、mysql"><a href="#2-2、CentOS安装jdk、tomcat、mysql" class="headerlink" title="2.2、CentOS安装jdk、tomcat、mysql"></a>2.2、CentOS安装jdk、tomcat、mysql</h2><h2 id="2-3、Linux目录介绍"><a href="#2-3、Linux目录介绍" class="headerlink" title="2.3、Linux目录介绍"></a>2.3、Linux目录介绍</h2><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538621186769.png" alt="1538621186769"></p>
 <ul>
 <li><p><strong>/</strong>：<strong>Linux系统根目录</strong></p>
 </li>
@@ -416,12 +416,12 @@
 </ul>
 <p>以上建议并不是强制性约束</p>
 <h2 id="2-4-网络三种连接方式"><a href="#2-4-网络三种连接方式" class="headerlink" title="2.4 网络三种连接方式"></a>2.4 网络三种连接方式</h2><h3 id="2-4-1-桥接模式"><a href="#2-4-1-桥接模式" class="headerlink" title="2.4.1 桥接模式"></a>2.4.1 桥接模式</h3><p><strong>桥接模式</strong>(Bridged)：虚拟机是一台独立的电脑，直接连接到实际的网络上，与宿主机没有任何联系。</p>
-<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1543535328477.png" alt="1543535328477"></p>
+<p> <img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1543535328477.png" alt="1543535328477"></p>
 <h3 id="2-4-2-仅主机模式"><a href="#2-4-2-仅主机模式" class="headerlink" title="2.4.2 仅主机模式"></a>2.4.2 仅主机模式</h3><blockquote>
 <p>这种方式下，虚拟机的网卡连接到宿主的 VMnet1 上，但系统并不为虚拟机提供任何路由服务，因此虚拟机只能和宿主机进行通信，而不能连接到实际网络上。</p>
 </blockquote>
 <p> <strong>仅主机模式</strong>(host-only)：虚拟机可以访问宿主机，宿主机无法访问虚拟机，虚拟机无法上网</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1543535410144.png" alt="1543535410144"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1543535410144.png" alt="1543535410144"></p>
 <h3 id="2-4-3-NAT-模式"><a href="#2-4-3-NAT-模式" class="headerlink" title="2.4.3 NAT 模式"></a>2.4.3 NAT 模式</h3><blockquote>
 <p>这种方式下，虚拟机的网卡连接到宿主的 VMnet8 上。此时系统的 VMWare NAT Service 服务就充当了路由器的作用，负责将虚拟机发到 VMnet8 的包进行地址转换之后发到实际的网络上，再将实际网络上返回的包进行地址转换后通过 VMnet8 发送给虚拟机。VMWare DHCP Service 负责为虚拟机提供 DHCP 服务。</p>
 </blockquote>
@@ -434,7 +434,7 @@
 <li><p>宿主机可以配置254个虚拟机 </p>
 </li>
 </ul>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1543535431117.png" alt="1543535431117"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1543535431117.png" alt="1543535431117"></p>
 <h1 id="3、常用命令【重点】"><a href="#3、常用命令【重点】" class="headerlink" title="3、常用命令【重点】"></a>3、常用命令【重点】</h1><p>Linux命令中参数，一般都是无序的。特殊情况下除外</p>
 <p>注意：Linux中的命令<strong>严格区分大小写</strong>的！</p>
 <h2 id="3-1、磁盘管理命令"><a href="#3-1、磁盘管理命令" class="headerlink" title="3.1、磁盘管理命令"></a>3.1、磁盘管理命令</h2><h3 id="ls-列出目录内容"><a href="#ls-列出目录内容" class="headerlink" title="ls 列出目录内容"></a><em>ls</em> 列出目录内容</h3><ol>
@@ -513,8 +513,8 @@ mkdir -p 文件夹名称
 </li>
 <li><p>注意：</p>
 <p>使用<code>mkdir</code>创建带后缀的文件时，创建的是<strong>目录</strong>，不是文件（创建文件使用<code>touch</code>命令）</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1539658915126.png" alt="1539658915126"> </p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1539659032657.png" alt="1539659032657"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539658915126.png" alt="1539658915126"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539659032657.png" alt="1539659032657"> </p>
 </li>
 <li><p>eg:</p>
 <pre><code class="shell"># 1
@@ -539,9 +539,9 @@ mkdir -p 文件夹名称
 </li>
 <li><p>Tab代码补全<br>使用tab键可以快速输入指令<br>比如：我要输入shutdown指令，这时，我们可以只输入shut然后按下tab键，即可自动把shutdown补全</p>
 <p><strong>注意</strong>：使用两下Tab补全时，如果匹配的结果有多个，这时候将会把所有匹配的结果展示出来。当结果很多时将会出现以下结果：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1539654279277.png" alt="1539654279277"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539654279277.png" alt="1539654279277"> </p>
 <p>按<code>y</code>之后会列出所有匹配的结果，但因为129个比较多，而在电脑中无法一次全显示出来，所以先显示一部分：（More代表还有更多，这时按<code>回车</code>就可以向下滚动，按下<code>Ctrl+C</code>将会退出）</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1539654354678.png" alt="1539654354678"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539654354678.png" alt="1539654354678"> </p>
 </li>
 </ol>
 <h2 id="3-2、文件浏览-管理-命令"><a href="#3-2、文件浏览-管理-命令" class="headerlink" title="3.2、文件浏览(管理)命令"></a>3.2、文件浏览(管理)命令</h2><p>日志文件,XML,properties文件</p>
@@ -613,7 +613,7 @@ tail[必要参数][选择参数][文件]
 </code></pre>
 </li>
 <li><p>eg：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/clip_image001.png" alt="img"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/clip_image001.png" alt="img"></p>
 <ul>
 <li>&amp; 表示后台运行，否则占用终端</li>
 <li>ctrl + c 退出</li>
@@ -626,7 +626,7 @@ tail[必要参数][选择参数][文件]
 </li>
 <li><p>目录与文件的区别</p>
 <p>当我们使用ls命令列出目录中的所有子目录和文件时，如何区分哪些是文件哪些是目录？<br>可以通过详细信息中第一列的信息来区分：以 <code>d</code> 开头的是目录，以 <code>-</code> 开头的是文件</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1539658318279.png" alt="1539658318279"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539658318279.png" alt="1539658318279"> </p>
 </li>
 </ol>
 <h3 id="touch创建文件"><a href="#touch创建文件" class="headerlink" title="touch创建文件"></a><em>touch</em>创建文件</h3><ol>
@@ -791,7 +791,7 @@ rm –rf /*    删除Linux系统 根目录 下所有内容
 <li>按下 “<strong>esc</strong>” 从“插入模式”退出到“一般模式”</li>
 <li>在“一般模式”下，输入 “<strong>:wq</strong>”，退出编辑</li>
 </ul>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1538637143785.png" alt="1538637143785"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538637143785.png" alt="1538637143785"></p>
 </li>
 <li></li>
 </ol>
@@ -803,7 +803,7 @@ rm –rf /*    删除Linux系统 根目录 下所有内容
 <li>按下 “<strong>esc</strong>” 从“插入模式”退出到“一般模式”</li>
 <li>在“一般模式”下，输入 “<strong>:wq</strong>”，退出编辑</li>
 </ul>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1538637143785.png" alt="1538637143785"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538637143785.png" alt="1538637143785"></p>
 </li>
 <li><ul>
 <li><strong>一般(命令)</strong>模式:<ul>
@@ -840,7 +840,7 @@ grep -i 需要搜索的字符串 搜索的文件
 </ol>
 <h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a><em>管道</em></h3><ol>
 <li><p>管道命令： 可以连接多个Linux命令，其作用是<strong>将一个命令的输出用在另一个命令的输入</strong></p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1538638149167.png" alt="1538638149167"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538638149167.png" alt="1538638149167"></p>
 </li>
 <li><p>格式：</p>
 <pre><code class="seh">命令1 | 命令2 | 命令3……
@@ -867,7 +867,7 @@ grep -i 需要搜索的字符串 搜索的文件
 <p>将输出内容追加到目标文件中。如果文件不存在，就创建文件；如果文件存在，则将新的内容追加到那个文件的末尾，该文件中的原有内容不受影响</p>
 </li>
 </ul>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1539671830735.png" alt="1539671830735"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539671830735.png" alt="1539671830735"></p>
 </li>
 <li><p>格式：</p>
 <p>注意：</p>
@@ -923,7 +923,7 @@ tar -zxvf hehe.tar.gz -C t5
 <h4 id="服务与端口"><a href="#服务与端口" class="headerlink" title="服务与端口"></a>服务与端口</h4><p>每个服务软件一般在运行时都会对应一个端口。<br>查看监听的端口：</p>
 <pre><code class="shell">ss –lntp
 </code></pre>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1539792074690.png" alt="1539792074690"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539792074690.png" alt="1539792074690"></p>
 <h4 id="防火墙及防火墙设置"><a href="#防火墙及防火墙设置" class="headerlink" title="防火墙及防火墙设置"></a>防火墙及防火墙设置</h4><p>CentOS 7.0默认使用的是<code>firewall</code>作为防火墙，使用<code>iptables</code>必须重新设置一下</p>
 <p>查看防火墙状态：</p>
 <pre><code class="shell">firewall-cmd --state
@@ -1025,19 +1025,19 @@ NETMASK=255.255.255.0       #子网掩码
 </li>
 <li><p>setup设置</p>
 <ol>
-<li><p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/clip_image002-1538642819190.jpg?raw=true" alt="img"> </p>
+<li><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/clip_image002-1538642819190.jpg?raw=true" alt="img"> </p>
 </li>
 <li><p>选择“网络配置”</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/clip_image002-1538642858562.jpg?raw=true" alt="img"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/clip_image002-1538642858562.jpg?raw=true" alt="img"> </p>
 </li>
 <li><p>选择“设备配置”</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/clip_image001-1538642873407.png" alt="img"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/clip_image001-1538642873407.png" alt="img"> </p>
 </li>
 <li><p>选择“第一块网卡”</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1538642891449.png" alt="1538642891449"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538642891449.png" alt="1538642891449"> </p>
 </li>
 <li><p>设置IP地址等详细信息</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/clip_image001.png" alt="img"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/clip_image001.png" alt="img"> </p>
 </li>
 </ol>
 </li>
@@ -1058,10 +1058,10 @@ cp    复制文件或目录（copy）
 <li><p>查看帮助文档</p>
 <ul>
 <li><p>内部命令：help + 命令（eg：help cd）</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1538643143565.png" alt="1538643143565"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538643143565.png" alt="1538643143565"> </p>
 </li>
 <li><p>外部命令：man + 命令（eg：man ls）</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/1538643159745.png" alt="1538643159745"> </p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538643159745.png" alt="1538643159745"> </p>
 </li>
 </ul>
 </li>
@@ -1100,7 +1100,7 @@ cp    复制文件或目录（copy）
           
             <a href="/2018/11/30/Flex布局/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20181130/bg2015071002.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/bg2015071002.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Previous Post</span>

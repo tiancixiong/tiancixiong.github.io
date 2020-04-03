@@ -374,13 +374,13 @@
 <h1 id="2、卸载自带JDK"><a href="#2、卸载自带JDK" class="headerlink" title="2、卸载自带JDK"></a>2、卸载自带JDK</h1><p>先检查是否有安装JDK：</p>
 <pre><code class="bash">rpm -qa | grep jdk
 </code></pre>
-<p><img src="20191106-CentOS6-5安装JDK1-8教程/1573051627969.png" alt="1573051627969"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20191106/1573051627969.png" alt="1573051627969"></p>
 <p>卸载系统自带的JDK：</p>
 <pre><code class="bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64
 rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64
 </code></pre>
 <p>在执行<code>rpm -qa | grep jdk</code>命令，可以看见自带的JDK已卸载干净</p>
-<p><img src="20191106-CentOS6-5安装JDK1-8教程/1573051709156.png" alt="1573051709156"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20191106/1573051709156.png" alt="1573051709156"></p>
 <h1 id="3、解压"><a href="#3、解压" class="headerlink" title="3、解压"></a>3、解压</h1><p>新建<code>/usr/local/java</code>目录：</p>
 <pre><code class="bash">sudo mkdir /usr/local/java
 </code></pre>

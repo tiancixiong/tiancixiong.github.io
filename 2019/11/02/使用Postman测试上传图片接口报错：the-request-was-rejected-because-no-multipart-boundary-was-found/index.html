@@ -371,8 +371,8 @@
         
         <div class="entry-content">
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用Postman测试上传接口，如下：</p>
-<p> <img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20191102/1572685108871.png" alt="1572685108871"></p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20191102/1572685150224.png" alt="1572685150224"></p>
+<p> <img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20191102/1572685108871.png" alt="1572685108871"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20191102/1572685150224.png" alt="1572685150224"></p>
 <p>请求，报错：</p>
 <pre><code class="text">org.apache.tomcat.util.http.fileupload.FileUploadException: the request was rejected because no multipart boundary was found
     at org.apache.tomcat.util.http.fileupload.FileUploadBase$FileItemIteratorImpl.&lt;init&gt;(FileUploadBase.java:831) ~[tomcat-embed-core-8.5.29.jar:8.5.29]
@@ -382,7 +382,7 @@
     ...
 </code></pre>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>出现这个的原因是因为Postman会自动加上<code>Content-Type:multipart/form-data</code>这对请求头信息，不需要我们手动添加，将其删除即可：</p>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20191102/1572685416677.png" alt="1572685416677"></p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20191102/1572685416677.png" alt="1572685416677"></p>
 
         </div>
         <!-- .entry-content -->

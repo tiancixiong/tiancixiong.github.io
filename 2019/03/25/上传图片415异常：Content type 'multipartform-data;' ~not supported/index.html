@@ -373,7 +373,7 @@
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
 <p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p>
 </blockquote>
-<p><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190325/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190325/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p>
 <pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
 public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {
     try {

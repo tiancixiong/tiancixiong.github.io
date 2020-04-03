@@ -370,14 +370,14 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>每次打开迅雷都会自动检查是否是最新版本，如果不是最新版本，迅雷会一直重复弹窗弹出<strong>更新到新版本</strong>的提示：<img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117/20190117081555322.png" alt="在这里插入图片描述"></p>
+          <p>每次打开迅雷都会自动检查是否是最新版本，如果不是最新版本，迅雷会一直重复弹窗弹出<strong>更新到新版本</strong>的提示：<img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190117/20190117081555322.png" alt="在这里插入图片描述"></p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>简介：迅雷提示升级是因为每次迅雷主程序启动时都会同时启动一个叫<code>XLLiveUD.exe</code>的程序，这个程序会检查更新，所以如果不想让他检查更新，就只需要把他替换掉就可以了（因为如果删除它，每次迅雷启动时都会弹出一个错误对话框，提示找不到文件<code>XLLiveUD.exe</code>）</p>
 <hr>
 
 <ol>
-<li><p>进入迅雷安装目录，找到<code>XLLiveUD.exe</code>( 可直接在迅雷安装目录中搜索这个文件 )，将其删除。这个就是自动升级的程序，但是删除之后下次开启迅雷会提示该文件丢失。<br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117/20190117082613245.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117/20190117082638473.png" alt="在这里插入图片描述"></p>
+<li><p>进入迅雷安装目录，找到<code>XLLiveUD.exe</code>( 可直接在迅雷安装目录中搜索这个文件 )，将其删除。这个就是自动升级的程序，但是删除之后下次开启迅雷会提示该文件丢失。<br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190117/20190117082613245.png" alt="在这里插入图片描述"><br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190117/20190117082638473.png" alt="在这里插入图片描述"></p>
 </li>
-<li><p>在同一个目录找到迅雷执行程序文件<code>Thunder.exe</code>，这个是就是迅雷桌面快捷方式指到的程序也就是迅雷开启程序。然后复制拷贝<code>Thunder.exe</code>副本，然后将副本文件名更改为迅雷更新执行程序名：<strong>XLLiveUD.exe</strong><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117/20190117082959128.png" alt="在这里插入图片描述"><br><img src="https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/blog/20190117/20190117083307505.gif" alt="在这里插入图片描述"></p>
+<li><p>在同一个目录找到迅雷执行程序文件<code>Thunder.exe</code>，这个是就是迅雷桌面快捷方式指到的程序也就是迅雷开启程序。然后复制拷贝<code>Thunder.exe</code>副本，然后将副本文件名更改为迅雷更新执行程序名：<strong>XLLiveUD.exe</strong><br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190117/20190117082959128.png" alt="在这里插入图片描述"><br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20190117/20190117083307505.gif" alt="在这里插入图片描述"></p>
 </li>
 <li><p>当迅雷程序调用检查更新的执行文件时，实际上相当于重复点击打开迅雷，而迅雷本身不允许重复打开。这样既不会报错也不会造成重复弹屏的问题。从而算是比较完美的解决了<strong>关闭迅雷更新到新版本提示</strong>的问题(❁´◡`❁)<em>✲ﾟ</em></p>
 </li>
