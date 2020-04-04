@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.xiongtianci.com/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/</loc>
+    <lastmod>2020-04-04</lastmod>
+  </url>  <url>
     <loc>https://www.xiongtianci.com/2020/04/04/%E7%A6%81%E7%94%A8win10%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/</loc>
     <lastmod>2020-04-04</lastmod>
   </url>  <url>
@@ -228,9 +231,6 @@
   </url>  <url>
     <loc>https://www.xiongtianci.com/2019/11/12/Git%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84commit%E6%B3%A8%E9%87%8A/</loc>
     <lastmod>2020-04-03</lastmod>
-  </url>  <url>
-    <loc>https://www.xiongtianci.com/2019/05/07/%E9%BB%91%E9%A9%AC%E4%B9%90%E4%BC%98%E5%95%86%E5%9F%8E/</loc>
-    <lastmod>2019-11-15</lastmod>
   </url>  <url>
     <loc>https://www.xiongtianci.com/2019/11/02/%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE%E6%8A%A5%E9%94%99%EF%BC%9AThe-Tomcat-connector-configured-to-listen-on-port-8080-failed-to-start/</loc>
     <lastmod>2019-11-03</lastmod>
