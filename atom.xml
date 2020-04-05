@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-04-04T02:13:03.266Z</updated>
+  <updated>2020-04-05T07:57:08.133Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IDEA2019.3在Plugins中搜索不到translation</title>
+    <link href="https://www.xiongtianci.com/2020/04/05/IDEA2019-3%E5%9C%A8Plugins%E4%B8%AD%E6%90%9C%E7%B4%A2%E4%B8%8D%E5%88%B0translation/"/>
+    <id>https://www.xiongtianci.com/2020/04/05/IDEA2019-3在Plugins中搜索不到translation/</id>
+    <published>2020-04-05T07:44:56.000Z</published>
+    <updated>2020-04-05T07:57:08.133Z</updated>
+    
+    <summary type="html">
+    
+      IDEA2019.3在Plugins中搜索不到translation
+    
+    </summary>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+  </entry>
   
   <entry>
     <title>禁用win10自动更新</title>
@@ -130,9 +152,9 @@
       <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -286,9 +308,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -405,28 +427,6 @@
     
     
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="日语" scheme="https://www.xiongtianci.com/tags/%E6%97%A5%E8%AF%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10日语输入法输入罗马字母n无法打出假名</title>
-    <link href="https://www.xiongtianci.com/2019/07/03/win10%E6%97%A5%E8%AF%AD%E8%BE%93%E5%85%A5%E6%B3%95%E8%BE%93%E5%85%A5%E7%BD%97%E9%A9%AC%E5%AD%97%E6%AF%8Dn%E6%97%A0%E6%B3%95%E6%89%93%E5%87%BA%E5%81%87%E5%90%8D/"/>
-    <id>https://www.xiongtianci.com/2019/07/03/win10日语输入法输入罗马字母n无法打出假名/</id>
-    <published>2019-07-03T06:27:05.000Z</published>
-    <updated>2020-04-03T23:21:01.013Z</updated>
-    
-    <summary type="html">
-    
-      win10日语输入法输入罗马字母n无法打出对应的假名んン
-    
-    </summary>
-    
-      <category term="日语" scheme="https://www.xiongtianci.com/categories/%E6%97%A5%E8%AF%AD/"/>
-    
-    
-      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
     
       <category term="日语" scheme="https://www.xiongtianci.com/tags/%E6%97%A5%E8%AF%AD/"/>
     

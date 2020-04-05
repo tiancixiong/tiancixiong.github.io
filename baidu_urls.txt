@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2020/04/05/IDEA2019-3在Plugins中搜索不到translation/
 https://www.xiongtianci.com/2020/04/04/禁用win10自动更新/
 https://www.xiongtianci.com/2019/11/12/Git修改已提交的commit注释/
 https://www.xiongtianci.com/2019/11/11/解决IDEA中安装CodeGlance插件后不起作用问题/
