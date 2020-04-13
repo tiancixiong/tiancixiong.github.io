@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>win10关机时提示需要结束程序</title>
+      <link href="/2020/04/13/win10%E5%85%B3%E6%9C%BA%E6%97%B6%E6%8F%90%E7%A4%BA%E9%9C%80%E8%A6%81%E7%BB%93%E6%9D%9F%E7%A8%8B%E5%BA%8F/"/>
+      <url>/2020/04/13/win10%E5%85%B3%E6%9C%BA%E6%97%B6%E6%8F%90%E7%A4%BA%E9%9C%80%E8%A6%81%E7%BB%93%E6%9D%9F%E7%A8%8B%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win10系统关机时被提示需要结束程序：</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200413/1586737763993.png" alt="1586737763993"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1、按下<code>win徽标+R</code>，输入<code>gpedit.msc</code>回车</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200413/1586738625213.png" alt="1586738625213"></p><p>2、选择<code>计算机配置 -&gt; 管理模块 -&gt; 系统 -&gt; 关机选项</code></p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200413/1586737998164.png" alt="1586737998164"></p><p>3、右键<code>关闭会阻止或取消关机的应用程序的自动终止功能</code>，选择<code>编辑</code></p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200413/1586738189588.png" alt="1586738189588"></p><p>4、选择<code>已禁用</code>，然后点击<code>确定</code>即可</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200413/1586738194758.png" alt="1586738194758"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> win10 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IDEA2019.3在Plugins中搜索不到translation</title>
       <link href="/2020/04/05/IDEA2019-3%E5%9C%A8Plugins%E4%B8%AD%E6%90%9C%E7%B4%A2%E4%B8%8D%E5%88%B0translation/"/>
       <url>/2020/04/05/IDEA2019-3%E5%9C%A8Plugins%E4%B8%AD%E6%90%9C%E7%B4%A2%E4%B8%8D%E5%88%B0translation/</url>
