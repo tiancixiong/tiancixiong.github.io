@@ -401,7 +401,14 @@ git diff file.txt
 
 # 查看提交历史[简略信息]
 git log [--pretty=oneline]
+# 输出概要日志,这条命令等同于
+# git log --pretty=oneline --abbrev-commit
+git log --oneline
+# 
 git log --graph --pretty=oneline --abbrev-commit
+# 提供类似GUI工具的 log 展示
+git log --graph --date=relative --pretty=tformat:&#39;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset&#39;
+
 
 # 查看命令历史
 git reflog
@@ -768,6 +775,9 @@ git branch --no-merged
 <h2 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h2><p>合并指定分支到当前分支</p>
 <pre><code class="shell"># 合并指定分支到当前分支
 git merge [branch]
+
+# 合并指定分支到当前分支(生成一个新的提交记录)
+git merge --no-ff [branch]
 </code></pre>
 <h2 id="git-cherry-pick"><a href="#git-cherry-pick" class="headerlink" title="git cherry-pick"></a>git cherry-pick</h2><p><code>git cherry-pick</code>命令”复制”一个提交节点并在当前分支做一次完全一样的新提交</p>
 <pre><code class="shell"># 选择一个commit，合并进当前分支
