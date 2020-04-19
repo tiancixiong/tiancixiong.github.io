@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Chrome播放视频时只有声音没有画面</title>
+      <link href="/2020/04/19/Chrome%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E6%97%B6%E5%8F%AA%E6%9C%89%E5%A3%B0%E9%9F%B3%E6%B2%A1%E6%9C%89%E7%94%BB%E9%9D%A2/"/>
+      <url>/2020/04/19/Chrome%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E6%97%B6%E5%8F%AA%E6%9C%89%E5%A3%B0%E9%9F%B3%E6%B2%A1%E6%9C%89%E7%94%BB%E9%9D%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win7下Chrome在线播放视频时只有声音，没有画面</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>打开Chrome，点击右上角菜单，选择<code>设置 -&gt; 高级 -&gt; 系统</code>，取消<code>使用硬件加速模式（如果可用）</code>：</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200419/1587289569038.png" alt="1587289569038"></p><p>重启Chrome即可</p><h1 id="另"><a href="#另" class="headerlink" title="另"></a>另</h1><p>如果Chrome所有页面全部黑屏，原因应该是因为显卡驱动没有支持新版本Chrome的GPU加速，此时需要通过命令行关闭Chrome浏览器的GPU加速</p><p>1、找到Chrome安装目录，默认是在<code>C:\Program Files (x86)\Google\Chrome\Application</code>目录下打开黑窗口</p><p>2、输入命令：<code>chrome.exe -disable-gpu</code>可暂时关闭GPU加速打开Chrome</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200419/20200419.gif" alt="20200419.gif"></p><p>3、然后在Chrome菜单中选择<code>设置 -&gt; 高级 -&gt; 系统</code>，取消<code>使用硬件加速模式（如果可用）</code><br>4、重启Chrome即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 踩坑 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Chrome </tag>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安装VMware时警告此产品安装程序不支持降级</title>
       <link href="/2020/04/18/%E5%AE%89%E8%A3%85VMware%E6%97%B6%E8%AD%A6%E5%91%8A%E6%AD%A4%E4%BA%A7%E5%93%81%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E4%B8%8D%E6%94%AF%E6%8C%81%E9%99%8D%E7%BA%A7/"/>
       <url>/2020/04/18/%E5%AE%89%E8%A3%85VMware%E6%97%B6%E8%AD%A6%E5%91%8A%E6%AD%A4%E4%BA%A7%E5%93%81%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E4%B8%8D%E6%94%AF%E6%8C%81%E9%99%8D%E7%BA%A7/</url>
@@ -72,9 +99,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -214,9 +241,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -390,9 +417,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -1316,9 +1343,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> 脚本 </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -1983,9 +2010,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2517,9 +2544,9 @@
       
         <tags>
             
-            <tag> 面试题 </tag>
-            
             <tag> SpringMVC </tag>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       
@@ -3084,9 +3111,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       

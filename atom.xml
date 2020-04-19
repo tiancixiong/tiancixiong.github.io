@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-04-19T00:40:18.541Z</updated>
+  <updated>2020-04-19T10:09:30.907Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Chrome播放视频时只有声音没有画面</title>
+    <link href="https://www.xiongtianci.com/2020/04/19/Chrome%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E6%97%B6%E5%8F%AA%E6%9C%89%E5%A3%B0%E9%9F%B3%E6%B2%A1%E6%9C%89%E7%94%BB%E9%9D%A2/"/>
+    <id>https://www.xiongtianci.com/2020/04/19/Chrome播放视频时只有声音没有画面/</id>
+    <published>2020-04-19T09:43:04.000Z</published>
+    <updated>2020-04-19T10:09:30.907Z</updated>
+    
+    <summary type="html">
+    
+      Chrome播放视频时只有声音没有画面
+    
+    </summary>
+    
+      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+      <category term="Chrome" scheme="https://www.xiongtianci.com/tags/Chrome/"/>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>安装VMware时警告此产品安装程序不支持降级</title>
@@ -74,9 +96,9 @@
       <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -194,9 +216,9 @@
       <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -350,9 +372,9 @@
       <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -402,29 +424,6 @@
       <category term="踩坑" scheme="https://www.xiongtianci.com/tags/%E8%B8%A9%E5%9D%91/"/>
     
       <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决IDEA中@Autowired抛红问题</title>
-    <link href="https://www.xiongtianci.com/2019/07/16/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD-Autowired%E6%8A%9B%E7%BA%A2%E9%97%AE%E9%A2%98/"/>
-    <id>https://www.xiongtianci.com/2019/07/16/解决IDEA中-Autowired抛红问题/</id>
-    <published>2019-07-16T09:42:03.000Z</published>
-    <updated>2020-04-03T23:21:25.440Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
