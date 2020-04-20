@@ -99,14 +99,6 @@
             
               
                 <li>
-                  <a href="https://github.com/tiancixiong" target="_blank" class="social-github" title="github">
-                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/github.png">
-                  </a>
-                </li>
-              
-            
-              
-                <li>
                   <a href="mailto:support@xiongtianci.com" target="_blank" class="social-github" title="email">
                     <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/email.svg">
                   </a>
@@ -399,16 +391,8 @@ git diff
 # 查看某个文件的工作区与暂存区的差异
 git diff file.txt
 
-# 查看提交历史[简略信息]
-git log [--pretty=oneline]
-# 输出概要日志,这条命令等同于
-# git log --pretty=oneline --abbrev-commit
-git log --oneline
-# 
-git log --graph --pretty=oneline --abbrev-commit
-# 提供类似GUI工具的 log 展示
-git log --graph --date=relative --pretty=tformat:&#39;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset&#39;
-
+# 查看日志，一个压缩后的每一条提交记录只占一行的输出
+git log --pretty=oneline
 
 # 查看命令历史
 git reflog
@@ -772,6 +756,10 @@ git branch --merged
 # 显示未合并到当前分支的分支
 git branch --no-merged
 </code></pre>
+<h3 id="拉取远程所有分支"><a href="#拉取远程所有分支" class="headerlink" title="拉取远程所有分支"></a>拉取远程所有分支</h3><pre><code class="shell">git branch -r | grep -v &#39;-&gt;&#39; | while read remote; do git branch --track &quot;${remote#origin/}&quot; &quot;$remote&quot;; done
+git fetch --all
+git pull --all
+</code></pre>
 <h2 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h2><p>合并指定分支到当前分支</p>
 <pre><code class="shell"># 合并指定分支到当前分支
 git merge [branch]
@@ -843,19 +831,6 @@ git push origin master --tags
 <h1 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h1><pre><code class="shell"># 显示有变更的文件
 git status
 
-# 显示当前分支的版本历史
-git log
-
-# 显示commit历史，以及每次commit发生变更的文件
-git log --stat
-
-# 显示某个文件的版本历史，包括文件改名
-git log --follow [file]
-git whatchanged [file]
-
-# 显示指定文件相关的每一次diff
-git log -p [file]
-
 # 显示指定文件是什么人在什么时间修改过
 git blame [file]
 
@@ -882,6 +857,36 @@ git show [commit]:[filename]
 
 # 显示当前分支的最近几次提交
 git reflog
+</code></pre>
+<h2 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h2><pre><code class="shell"># 显示当前分支的版本历史
+git log
+
+# 显示commit历史，以及每次commit发生变更的文件
+git log --stat
+
+# 显示某个文件的版本历史，包括文件改名
+git log --follow [file]
+git whatchanged [file]
+
+# 显示指定文件相关的每一次diff
+git log -p [file]
+
+# 查看提交历史[简略信息]
+git log [--pretty=oneline]
+# 输出概要日志,这条命令等同于
+# git log --pretty=oneline --abbrev-commit
+git log --oneline
+# 
+git log --graph --pretty=oneline --abbrev-commit
+# 通过ASCII艺术的树形结构来展示所有的分支, 每个分支都标示了他的名字和标签
+git log --graph --oneline --decorate --all
+# 提供类似GUI工具的 log 展示
+git log --graph --date=relative --pretty=tformat:&#39;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset&#39;
+# 只看某一个人的提交记录
+git log --author=username
+
+# 看看哪些文件改变了
+git log --name-status
 </code></pre>
 <h1 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h1><h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code><br><code>git remote</code>查看远程库的信息</p>
 <pre><code class="shell"># 下载远程仓库的所有变动
@@ -1134,7 +1139,7 @@ git archive
 			</div>
 			<!-- color: #666666; -->
 			<div style="color: #b9b9b9;">&copy;
-				2018-2020&nbsp;天赐&nbsp;鄂ICP备18030098号
+				2018-2020&nbsp;天赐&nbsp;
 			</div>
 		</div>
 		<!-- 访客统计 -->
@@ -1348,10 +1353,6 @@ git archive
   </div>
   <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">トトロ天赐</p>
   <p style="text-align: center; word-spacing: 20px;">
-    
-      
-        <a href="http://github.com/tiancixiong" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
-      
     
   </p>
   <ul id="menu-new-1" class="menu">
