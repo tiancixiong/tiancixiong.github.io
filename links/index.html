@@ -361,7 +361,25 @@
     
       <div class="links">
         
-          <h3 class="link-title"><span class="fake-title">1. 小伙伴们</span></h3>
+          <h3 class="link-title"><span class="fake-title">1. 个人项目</span></h3>
+          
+            <div class="link-description">充分说明这家伙是条咸鱼 <(￣︶￣)></(￣︶￣)></div>
+          
+          <ul class="link-items fontSmooth">
+            
+              <li class="link-item">
+                <a class="link-item-inner effect-apollo" href="https://nav.xiongtianci.com/" title="收录优质书签" target="_blank" rel="friend">
+                  <img class="lazyload" onerror="imgError(this,1)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tiancixiong/nav-blog@1.0/images/favicon.png">
+                  <span class="sitename">
+                  天赐の收藏夹</span>
+                  <div class="linkdes">
+                  收录优质书签</div>
+                </a>
+              </li>
+            
+          </ul>
+        
+          <h3 class="link-title"><span class="fake-title">2. 小伙伴们</span></h3>
           
             <div class="link-description">有空常来玩 ╮(￣▽￣)╭</div>
           
@@ -429,7 +447,7 @@
             
           </ul>
         
-          <h3 class="link-title"><span class="fake-title">2. 大佬博客</span></h3>
+          <h3 class="link-title"><span class="fake-title">3. 大佬博客</span></h3>
           
             <div class="link-description">啥都不说了，仰望...</div>
           
@@ -457,7 +475,7 @@
             
           </ul>
         
-          <h3 class="link-title"><span class="fake-title">3. 影视分享</span></h3>
+          <h3 class="link-title"><span class="fake-title">4. 影视分享</span></h3>
           
             <div class="link-description">看看电影，品品生活 ヽ(ﾟ∀ﾟ)ﾒ(ﾟ∀ﾟ)ﾉ</div>
           
@@ -475,7 +493,7 @@
             
           </ul>
         
-          <h3 class="link-title"><span class="fake-title">4. 旅行博主</span></h3>
+          <h3 class="link-title"><span class="fake-title">5. 旅行博主</span></h3>
           
             <div class="link-description">欢迎交换友链 ꉂ(ˊᗜˋ)</div>
           
@@ -493,7 +511,7 @@
             
           </ul>
         
-          <h3 class="link-title"><span class="fake-title">5. 其他</span></h3>
+          <h3 class="link-title"><span class="fake-title">6. 其他</span></h3>
           
             <div class="link-description">欢迎交换友链 ꉂ(ˊᗜˋ)</div>
           
@@ -551,7 +569,7 @@
             
           </ul>
         
-          <h3 class="link-title"><span class="fake-title">6. 阵亡将士</span></h3>
+          <h3 class="link-title"><span class="fake-title">7. 阵亡将士</span></h3>
           
             <div class="link-description">挂了的小伙伴们，下次清理时未恢复的将移除哦 (￣o￣)</div>
           
@@ -572,6 +590,26 @@
       </div>
     
     <!-- 评论插件valine -->
+
+<!-- 评论插件gitalk -->
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div id="gcomments"></div>
+<script>
+  // 截取字符串
+  var title = location.pathname.substr(0, 50);
+  var gitalk = new Gitalk({
+    clientID: '8eb6b03c5b46e99fd756',
+    clientSecret: '',
+    repo: 'tiancixiong.github.io',
+    owner: 'tiancixiong',
+    admin: ['tiancixiong'],
+    id: title,
+    distractionFreeMode: true
+  });
+  gitalk.render('gcomments'); // 渲染Gitalk评论组件
+</script>
 
     <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
     <footer class="post-footer">
@@ -639,7 +677,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -651,10 +689,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -365,7 +365,7 @@
           <p>今天（2020.04.27）的谷歌涂鸦：</p>
 <p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200427/stay-and-play-at-home-with-popular-past-google-doodles-coding-2017-6753651837108765-law.gif" alt="tay-and-play-at-home-with-popular-past-google-doodles-coding-2017-6753651837108765-la"></p>
 <blockquote>
-<p>Doodle名称: <strong>Stay and Play at Home with Popular Past Google Doodles: Coding (2017)</strong><br>Doodle展示日期: <strong>2020.04.27</strong><br>这是全球Doodle，所有国家访问Google首页都是此涂鸦<br>Doodle的关键字: 风靡一时的 Google 涂鸦游戏<br>Doodle图像的链接: <a href="http://www.google.com/logos/doodles/2020/stay-and-play-at-home-with-popular-past-google-doodles-coding-2017-6753651837108765-law.gif" target="_blank" rel="noopener">http://www.google.com/logos/doodles/2020/stay-and-play-at-home-with-popular-past-google-doodles-coding-2017-6753651837108765-law.gif</a></p>
+<p>Doodle名称: <strong>Stay and Play at Home with Popular Past Google Doodles: Coding (2017)</strong><br>展示日期: <strong>2020.04.27</strong><br>展示地区：全球所有国家<br>Doodle的关键字: 风靡一时的 Google 涂鸦游戏<br>Doodle图像的链接: <a href="http://www.google.com/logos/doodles/2020/stay-and-play-at-home-with-popular-past-google-doodles-coding-2017-6753651837108765-law.gif" target="_blank" rel="noopener">http://www.google.com/logos/doodles/2020/stay-and-play-at-home-with-popular-past-google-doodles-coding-2017-6753651837108765-law.gif</a></p>
 </blockquote>
 <p>点击进去是<strong>庆祝《Kids Coding（少儿编程）》问世 50 周年</strong>的编程游戏，挺有趣的</p>
 <p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200427/GoogleDoodle.gif" alt="oogleDoodl"></p>
@@ -426,6 +426,26 @@
       </section>
       <!-- 评论插件valine -->
 
+<!-- 评论插件gitalk -->
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div id="gcomments"></div>
+<script>
+  // 截取字符串
+  var title = location.pathname.substr(0, 50);
+  var gitalk = new Gitalk({
+    clientID: '8eb6b03c5b46e99fd756',
+    clientSecret: '',
+    repo: 'tiancixiong.github.io',
+    owner: 'tiancixiong',
+    admin: ['tiancixiong'],
+    id: title,
+    distractionFreeMode: true
+  });
+  gitalk.render('gcomments'); // 渲染Gitalk评论组件
+</script>
+
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
@@ -450,7 +470,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -462,10 +482,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

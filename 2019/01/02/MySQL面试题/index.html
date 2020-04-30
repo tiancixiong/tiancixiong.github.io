@@ -503,6 +503,26 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
       </section>
       <!-- 评论插件valine -->
 
+<!-- 评论插件gitalk -->
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div id="gcomments"></div>
+<script>
+  // 截取字符串
+  var title = location.pathname.substr(0, 50);
+  var gitalk = new Gitalk({
+    clientID: '8eb6b03c5b46e99fd756',
+    clientSecret: '',
+    repo: 'tiancixiong.github.io',
+    owner: 'tiancixiong',
+    admin: ['tiancixiong'],
+    id: title,
+    distractionFreeMode: true
+  });
+  gitalk.render('gcomments'); // 渲染Gitalk评论组件
+</script>
+
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
@@ -527,7 +547,7 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -539,10 +559,10 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
