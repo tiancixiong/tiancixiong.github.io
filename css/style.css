@@ -5,9 +5,9 @@
     width: 400px;
 }
 /* 评论背景 */
-/* background-image: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/comment-bg.png); */
+/* background-image: url(https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/theme/other/comment-bg.png); */
 #veditor {
-    background-image: url(https://dev.tencent.com/u/xiongtianci/p/myHexoBlog/git/raw/master/theme/other/comment-bg.png);
+    background-image: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/comment-bg.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
