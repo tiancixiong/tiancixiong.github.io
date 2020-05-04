@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2020/05/04/VMWare安装win10遇到的坑/
 https://www.xiongtianci.com/2020/04/27/Google涂鸦游戏-Coding for Carrots/
 https://www.xiongtianci.com/2020/04/19/Chrome播放视频时只有声音没有画面/
 https://www.xiongtianci.com/2020/04/18/安装VMware时警告此产品安装程序不支持降级/

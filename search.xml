@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>VMWare安装win10遇到的坑</title>
+      <link href="/2020/05/04/VMWare%E5%AE%89%E8%A3%85win10%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/"/>
+      <url>/2020/05/04/VMWare%E5%AE%89%E8%A3%85win10%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</url>
+      
+        <content type="html"><![CDATA[<h1 id><a href="#" class="headerlink" title=" "></a> </h1><p><strong>环境：</strong></p><blockquote><p>本地系统：Windows10_1909_x64<br>VMware：15.5.2</p></blockquote><h3 id="1-使用VMware12安装"><a href="#1-使用VMware12安装" class="headerlink" title="1.使用VMware12安装"></a>1.使用VMware12安装</h3><p><strong>问题：</strong>使用VMware12安装win10会出现错误页面<code>Your PC ran into a problem and needs to restart.We&#39;ll restart for you</code>，错误代码<code>KMODE EXCEPTION NOT HANDLED</code>，然后不断地重启报错。</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588550782911.png" alt="58855078291"></p><p>网上的说法是VMware12对此版win10的显卡不支持，换用VMware14/15进行安装</p><h3 id="2-此主机不知此64位…"><a href="#2-此主机不知此64位…" class="headerlink" title="2.此主机不知此64位…"></a>2.此主机不知此64位…</h3><p><strong>问题：</strong>新建虚拟机过程中报错<code>此主机不支持64位客户机操作系统，此系统无法运行。</code>：</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588567416288.png" alt="58856741628"></p><p>忽略它直接点击<code>下一步</code>，在时就会报如下错误：</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588567495639.png" alt="58856749563"></p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588567506791.png" alt="58856750679"></p><p><strong>原因：</strong>Windows10开启Hyper-V后与VMware Workstation冲突导致无法运行和新建虚拟机。但是本地电脑程序和功能中并没有开启<code>Hyper-V</code>：</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588571142149.png" alt="58857114214"></p><p><strong>解决：</strong></p><p>1、在本地电脑桌面左下角win徽标上<code>右键 -&gt; Windows PowerShell(管理员)(A)</code></p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588550057671.png" alt="58855005767"></p><p>2、输入命令<code>bcdedit /set hypervisorlaunchtype off</code>回车</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588550118438.png" alt="58855011843"></p><p>3、重启电脑</p><p><strong>PS：</strong>如果要重新开启Hyper-V，只需执行<code>bcdedit /set hypervisorlaunchtype auto</code>命令并重启电脑即可</p><h3 id="3-出现Boot-Manager"><a href="#3-出现Boot-Manager" class="headerlink" title="3.出现Boot Manager"></a>3.出现Boot Manager</h3><p><strong>问题：</strong>运行win10虚拟机时出现<code>Boot Manager</code>：</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588567952212.png" alt="58856795221"></p><p><strong>解决：</strong><br>要重新开始创建虚拟机，在新建虚拟机向导页面中选择Windows版本时需选择<code>Windows 10</code>而不能选择<code>Windows 10 x64</code>：</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200504/1588568025346.png" alt="58856802534"></p><hr><p>参考：1.<a href="https://communities.vmware.com/thread/605548" target="_blank" rel="noopener">Stop code: KMODE EXCEPTION NOT HANDLED</a>、2.<a href="https://www.cnblogs.com/-xuan/articles/10272846.html" target="_blank" rel="noopener">vmware 和 hyper-v不兼容</a>、3.<a href="https://blog.csdn.net/qq_40519543/article/details/81478224" target="_blank" rel="noopener">VMware14 虚拟机装win10 系统出现 BootManager</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VMware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Google涂鸦游戏-Coding for Carrots</title>
       <link href="/2020/04/27/Google%E6%B6%82%E9%B8%A6%E6%B8%B8%E6%88%8F-Coding%20for%20Carrots/"/>
       <url>/2020/04/27/Google%E6%B6%82%E9%B8%A6%E6%B8%B8%E6%88%8F-Coding%20for%20Carrots/</url>
