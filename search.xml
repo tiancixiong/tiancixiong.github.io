@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用Xftp6上传文件显示状态错误</title>
+      <link href="/2020/07/01/%E4%BD%BF%E7%94%A8Xftp6%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E9%94%99%E8%AF%AF/"/>
+      <url>/2020/07/01/%E4%BD%BF%E7%94%A8Xftp6%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E9%94%99%E8%AF%AF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在使用Xftp6上传文件到VMware中的CentOS6.5中时一直失败：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200701/1593579571191.png" alt="1593579571191"></p><p>网上说法是目录权限的问题</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>通过<code>chmod</code>命令修改目录权限。比如我现在需要将jdk安装包上传到CentOS下<code>/usr/local/java</code>目录下，现在就需要将<code>/usr/local/java</code>目录权限进行修改</p><pre><code class="shell"># 进入上一级目录cd /usr/local# 修改java目录权限chmod 777 java/</code></pre><p>再次进行上传，成功</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 踩坑 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOS </tag>
+            
+            <tag> Xftp6 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用VMware15安装Linux(CentOS6.5)</title>
       <link href="/2020/07/01/%E4%BD%BF%E7%94%A8VMware15%E5%AE%89%E8%A3%85Linux-CentOS6-5/"/>
       <url>/2020/07/01/%E4%BD%BF%E7%94%A8VMware15%E5%AE%89%E8%A3%85Linux-CentOS6-5/</url>
@@ -254,9 +281,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -361,25 +388,6 @@
     
     
     <entry>
-      <title>CentOS6.5安装JDK1.8教程</title>
-      <link href="/2019/11/06/CentOS6-5%E5%AE%89%E8%A3%85JDK1-8%E6%95%99%E7%A8%8B/"/>
-      <url>/2019/11/06/CentOS6-5%E5%AE%89%E8%A3%85JDK1-8%E6%95%99%E7%A8%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="1、准备"><a href="#1、准备" class="headerlink" title="1、准备"></a>1、准备</h1><p>先下载JDK1.8<br>官网：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p><h1 id="2、卸载自带JDK"><a href="#2、卸载自带JDK" class="headerlink" title="2、卸载自带JDK"></a>2、卸载自带JDK</h1><p>先检查是否有安装JDK：</p><pre><code class="bash">rpm -qa | grep jdk</code></pre><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20191106/1573051627969.png" alt="1573051627969"></p><p>卸载系统自带的JDK：</p><pre><code class="bash">rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64</code></pre><p>在执行<code>rpm -qa | grep jdk</code>命令，可以看见自带的JDK已卸载干净</p><p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20191106/1573051709156.png" alt="1573051709156"></p><h1 id="3、解压"><a href="#3、解压" class="headerlink" title="3、解压"></a>3、解压</h1><p>新建<code>/usr/local/java</code>目录：</p><pre><code class="bash">sudo mkdir /usr/local/java</code></pre><p>将下载的JDK1.8拷贝到java目录下，在java目录中执行解压命令：</p><pre><code class="bash">cd /usr/local/javasudo tar zxvf jdk-8u171-linux-x64.tar.gz</code></pre><h1 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h1><pre><code># java环境变量JAVA_HOME=/usr/local/java/jdk1.8.0_171JRE_HOME=/usr/local/java/jdk1.8.0_171/jreCLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/libPATH=$JAVA_HOME/bin:$PATHexport PATH JAVA_HOME CLASSPATH</code></pre><h1 id="5、"><a href="#5、" class="headerlink" title="5、"></a>5、</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>查看IDEA中已安装的plugin插件</title>
       <link href="/2019/11/03/%E6%9F%A5%E7%9C%8BIDEA%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84plugin%E6%8F%92%E4%BB%B6/"/>
       <url>/2019/11/03/%E6%9F%A5%E7%9C%8BIDEA%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84plugin%E6%8F%92%E4%BB%B6/</url>
@@ -396,9 +404,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -572,9 +580,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -1498,9 +1506,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -2165,9 +2173,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2699,9 +2707,9 @@
       
         <tags>
             
-            <tag> SpringMVC </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
             
         </tags>
       
@@ -3266,9 +3274,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       

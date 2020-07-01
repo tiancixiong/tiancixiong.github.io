@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2020/07/01/使用Xftp6上传文件显示状态错误/
 https://www.xiongtianci.com/2020/07/01/使用VMware15安装Linux-CentOS6-5/
 https://www.xiongtianci.com/2020/06/29/如何设置win10的视觉效果/
 https://www.xiongtianci.com/2020/06/16/隐藏win10资源管理器中显示的「DVD驱动器」/
@@ -13,7 +14,6 @@ https://www.xiongtianci.com/2020/04/04/禁用win10自动更新/
 https://www.xiongtianci.com/2019/11/12/Git修改已提交的commit注释/
 https://www.xiongtianci.com/2019/11/11/解决IDEA中安装CodeGlance插件后不起作用问题/
 https://www.xiongtianci.com/2019/11/09/Linux中使用vim编辑文件时报错E325-ATTETION/
-https://www.xiongtianci.com/2019/11/06/CentOS6-5安装JDK1-8教程/
 https://www.xiongtianci.com/2019/11/03/查看IDEA中已安装的plugin插件/
 https://www.xiongtianci.com/2019/11/02/使用git-io设置GitHub项目的短链接/
 https://www.xiongtianci.com/2019/11/02/启动项目报错：The-Tomcat-connector-configured-to-listen-on-port-8080-failed-to-start/

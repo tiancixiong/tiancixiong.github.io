@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-07-01T04:08:10.508Z</updated>
+  <updated>2020-07-01T05:07:34.022Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Xftp6上传文件显示状态错误</title>
+    <link href="https://www.xiongtianci.com/2020/07/01/%E4%BD%BF%E7%94%A8Xftp6%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E9%94%99%E8%AF%AF/"/>
+    <id>https://www.xiongtianci.com/2020/07/01/使用Xftp6上传文件显示状态错误/</id>
+    <published>2020-07-01T04:58:27.000Z</published>
+    <updated>2020-07-01T05:07:34.022Z</updated>
+    
+    <summary type="html">
+    
+      使用Xftp6上传文件显示状态错误
+    
+    </summary>
+    
+      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+      <category term="CentOS" scheme="https://www.xiongtianci.com/tags/CentOS/"/>
+    
+      <category term="Xftp6" scheme="https://www.xiongtianci.com/tags/Xftp6/"/>
+    
+  </entry>
   
   <entry>
     <title>使用VMware15安装Linux(CentOS6.5)</title>
@@ -235,9 +257,9 @@
       <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
@@ -322,24 +344,6 @@
   </entry>
   
   <entry>
-    <title>CentOS6.5安装JDK1.8教程</title>
-    <link href="https://www.xiongtianci.com/2019/11/06/CentOS6-5%E5%AE%89%E8%A3%85JDK1-8%E6%95%99%E7%A8%8B/"/>
-    <id>https://www.xiongtianci.com/2019/11/06/CentOS6-5安装JDK1-8教程/</id>
-    <published>2019-11-06T14:42:51.000Z</published>
-    <updated>2020-04-06T03:10:06.877Z</updated>
-    
-    <summary type="html">
-    
-      CentOS6.5安装JDK1.8教程
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>查看IDEA中已安装的plugin插件</title>
     <link href="https://www.xiongtianci.com/2019/11/03/%E6%9F%A5%E7%9C%8BIDEA%E4%B8%AD%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84plugin%E6%8F%92%E4%BB%B6/"/>
     <id>https://www.xiongtianci.com/2019/11/03/查看IDEA中已安装的plugin插件/</id>
@@ -355,9 +359,9 @@
       <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
