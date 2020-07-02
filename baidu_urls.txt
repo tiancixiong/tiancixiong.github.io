@@ -42,7 +42,6 @@ https://www.xiongtianci.com/2019/06/12/git-push报错：The-current-branch-maste
 https://www.xiongtianci.com/2019/06/12/hexo常用命名汇总/
 https://www.xiongtianci.com/2019/06/12/git常用命名汇总/
 https://www.xiongtianci.com/2019/06/10/常用正则表达式公式/
-https://www.xiongtianci.com/2019/06/10/致迷茫中的自己/
 https://www.xiongtianci.com/2019/06/05/一千行MySQL学习笔记/
 https://www.xiongtianci.com/2019/05/20/npm-install-hexo-renderer-sass时报错/
 https://www.xiongtianci.com/2019/05/20/重新搭建博客/
