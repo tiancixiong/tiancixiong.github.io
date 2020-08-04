@@ -372,7 +372,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="1-Linux介绍（了解）"><a href="#1-Linux介绍（了解）" class="headerlink" title="1. Linux介绍（了解）"></a>1. Linux介绍（了解）</h1><h2 id="1-1、Linux和Windows的区别"><a href="#1-1、Linux和Windows的区别" class="headerlink" title="1.1、Linux和Windows的区别"></a>1.1、Linux和Windows的区别</h2><p>Linux是一款操作系统。正规开发服务器项目部署都是放在Linux操作系统上。</p>
+          <h1 id="1-Linux介绍"><a href="#1-Linux介绍" class="headerlink" title="1 Linux介绍"></a>1 Linux介绍</h1><h2 id="1-1-Linux和Windows的区别"><a href="#1-1-Linux和Windows的区别" class="headerlink" title="1.1 Linux和Windows的区别"></a>1.1 Linux和Windows的区别</h2><p>Linux是一款操作系统。正规开发服务器项目部署都是放在Linux操作系统上。</p>
 <p>Windows一款操作系统，民用操作系统。娱乐、影音、上网。</p>
 <h2 id="1-2、Linux历史及使用场景"><a href="#1-2、Linux历史及使用场景" class="headerlink" title="1.2、Linux历史及使用场景"></a>1.2、Linux历史及使用场景</h2><p>Linux诞生90年代，仿制Unix操作系统。</p>
 <p>Linux是免费的，开源的</p>
@@ -437,11 +437,10 @@
 </li>
 </ul>
 <p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1543535431117.png" alt="1543535431117"></p>
-<h1 id="3、常用命令【重点】"><a href="#3、常用命令【重点】" class="headerlink" title="3、常用命令【重点】"></a>3、常用命令【重点】</h1><p>Linux命令中参数，一般都是无序的。特殊情况下除外</p>
+<h1 id="3-常用命令【重点】"><a href="#3-常用命令【重点】" class="headerlink" title="3 常用命令【重点】"></a>3 常用命令【重点】</h1><p>Linux命令中参数，一般都是无序的。特殊情况下除外</p>
 <p>注意：Linux中的命令<strong>严格区分大小写</strong>的！</p>
 <h2 id="3-1、磁盘管理命令"><a href="#3-1、磁盘管理命令" class="headerlink" title="3.1、磁盘管理命令"></a>3.1、磁盘管理命令</h2><h3 id="ls-列出目录内容"><a href="#ls-列出目录内容" class="headerlink" title="ls 列出目录内容"></a><em>ls</em> 列出目录内容</h3><ol>
-<li><p>ls（list）功能：列出目录内容</p>
-</li>
+<li>ls（list）功能：列出目录内容</li>
 <li><p>格式：</p>
 <pre><code class="shell">ls [参数] [文件或目录]
 
@@ -468,8 +467,7 @@ ll /home/    --&gt; 显示指定目录下的内容
 </code></pre></li>
 </ol>
 <h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a><em>cd</em> 切换目录</h3><ol>
-<li><p>cd(change directory) 功能：切换目录</p>
-</li>
+<li>cd(change directory) 功能：切换目录</li>
 <li><p>语法：</p>
 <pre><code class="shell"># 格式
 cd [目录]
@@ -502,8 +500,7 @@ cd            ，缺省当前用户目录
 <li>pwd(print working directory) 功能：显示工作目录(当前的所在目录)。返回绝对路径</li>
 </ul>
 <h3 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir 创建目录"></a><em>mkdir</em> 创建目录</h3><ol>
-<li><p>mkdir（make directoriy）功能： 创建目录</p>
-</li>
+<li>mkdir（make directoriy）功能： 创建目录</li>
 <li><p><strong>语法</strong>：</p>
 <pre><code class="shell"># 格式
 mkdir -p 文件夹名称
@@ -513,10 +510,7 @@ mkdir -p 文件夹名称
 -v    显示命令执行过程中的详细信息
 </code></pre>
 </li>
-<li><p>注意：</p>
-<p>使用<code>mkdir</code>创建带后缀的文件时，创建的是<strong>目录</strong>，不是文件（创建文件使用<code>touch</code>命令）</p>
-<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539658915126.png" alt="1539658915126"> </p>
-<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539659032657.png" alt="1539659032657"> </p>
+<li><p>注意：<br>使用<code>mkdir</code>创建带后缀的文件时，创建的是<strong>目录</strong>，不是文件（创建文件使用<code>touch</code>命令）<br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539658915126.png" alt="1539658915126"><br><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539659032657.png" alt="1539659032657"> </p>
 </li>
 <li><p>eg:</p>
 <pre><code class="shell"># 1
@@ -537,8 +531,7 @@ mkdir -p 文件夹名称
 <li>rmdir(remove directory) 功能：删除空目录</li>
 </ul>
 <h3 id="指令快捷键"><a href="#指令快捷键" class="headerlink" title="指令快捷键"></a>指令快捷键</h3><ol>
-<li><p>历史输入<br>使用上、下箭头可以找出上一条指令和下一条指令</p>
-</li>
+<li>历史输入<br>使用上、下箭头可以找出上一条指令和下一条指令</li>
 <li><p>Tab代码补全<br>使用tab键可以快速输入指令<br>比如：我要输入shutdown指令，这时，我们可以只输入shut然后按下tab键，即可自动把shutdown补全</p>
 <p><strong>注意</strong>：使用两下Tab补全时，如果匹配的结果有多个，这时候将会把所有匹配的结果展示出来。当结果很多时将会出现以下结果：</p>
 <p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1539654279277.png" alt="1539654279277"> </p>
@@ -558,8 +551,7 @@ cat 文件名
 </li>
 </ol>
 <h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a><em>more</em> 分页显示文件内容</h3><ol>
-<li><p>more功能：分页显示文件内容，还支持直接跳转行等功能</p>
-</li>
+<li>more功能：分页显示文件内容，还支持直接跳转行等功能</li>
 <li><p><strong>语法</strong>：</p>
 <pre><code>more 文件名
 </code></pre></li>
@@ -1008,6 +1000,7 @@ chmod 777 xxx        #给xxx目录添加所有权限
 <p><img src="https://raw.githubusercontent.com/xiongtianci-tc/myHexoBlog/master/img/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/1543568285232.png" alt="img"></p>
 </li>
 </ol>
+<p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4?raw=true" alt="img"></p>
 <h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><ol>
 <li><p>VIM命令配置</p>
 <ul>
@@ -1186,7 +1179,7 @@ cp    复制文件或目录（copy）
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1198,10 +1191,10 @@ cp    复制文件或目录（copy）
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

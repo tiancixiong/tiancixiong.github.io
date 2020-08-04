@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiongtianci.com/links/index.html</loc>
+    
+    <lastmod>2020-08-04T03:46:34.953Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/2018/11/30/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2020-08-04T03:07:16.065Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiongtianci.com/2018/09/30/Typora%E8%AE%BE%E7%BD%AE%E5%9B%BE%E7%89%87%E7%9A%84%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/</loc>
     
     <lastmod>2020-07-04T13:19:52.167Z</lastmod>
@@ -404,13 +418,6 @@
     <loc>https://www.xiongtianci.com/2019/03/27/SpringMVC%E6%B3%A8%E8%A7%A3@CrossOrigin%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-07-04T09:01:46.609Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/2018/11/30/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
-    
-    <lastmod>2020-07-04T09:01:02.799Z</lastmod>
     
   </url>
   
@@ -1013,13 +1020,6 @@
     <loc>https://www.xiongtianci.com/theme-sakura/index.html</loc>
     
     <lastmod>2020-07-03T09:20:10.431Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/links/index.html</loc>
-    
-    <lastmod>2020-04-30T02:08:00.066Z</lastmod>
     
   </url>
   
