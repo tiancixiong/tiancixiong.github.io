@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-07-04T08:28:46.844Z</updated>
+  <updated>2020-08-17T09:43:47.457Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电脑连接手机热点无法访问github</title>
+    <link href="https://www.xiongtianci.com/2020/08/17/%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E6%89%8B%E6%9C%BA%E7%83%AD%E7%82%B9%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEgithub/"/>
+    <id>https://www.xiongtianci.com/2020/08/17/电脑连接手机热点无法访问github/</id>
+    <published>2020-08-17T09:41:45.000Z</published>
+    <updated>2020-08-17T09:43:47.457Z</updated>
+    
+    <summary type="html">
+    
+      电脑连接手机热点无法访问github
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>使用Xftp6上传文件显示状态错误</title>
@@ -393,24 +411,6 @@
     <summary type="html">
     
       启动项目报错：The Tomcat connector configured to listen on port 8080 failed to start.
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用Postman测试上传图片接口报错：the request was rejected because no multipart boundary was found</title>
-    <link href="https://www.xiongtianci.com/2019/11/02/%E4%BD%BF%E7%94%A8Postman%E6%B5%8B%E8%AF%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E6%8E%A5%E5%8F%A3%E6%8A%A5%E9%94%99%EF%BC%9Athe-request-was-rejected-because-no-multipart-boundary-was-found/"/>
-    <id>https://www.xiongtianci.com/2019/11/02/使用Postman测试上传图片接口报错：the-request-was-rejected-because-no-multipart-boundary-was-found/</id>
-    <published>2019-11-02T08:54:56.000Z</published>
-    <updated>2020-07-04T08:53:17.194Z</updated>
-    
-    <summary type="html">
-    
-      使用Postman测试上传图片接口报错：the request was rejected because no multipart boundary was found
     
     </summary>
     

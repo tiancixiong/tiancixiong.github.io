@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2020/08/17/电脑连接手机热点无法访问github/
 https://www.xiongtianci.com/2020/07/01/使用Xftp6上传文件显示状态错误/
 https://www.xiongtianci.com/2020/07/01/使用VMware15安装Linux-CentOS6-5/
 https://www.xiongtianci.com/2020/06/29/如何设置win10的视觉效果/
@@ -39,7 +40,7 @@ https://www.xiongtianci.com/2019/06/15/电影资源网址-珍藏/
 https://www.xiongtianci.com/2019/06/13/Typora锚点-页内跳转/
 https://www.xiongtianci.com/2019/06/13/打造个性超赞博客Hexo-NexT-GitHub-Pages的超深度优化/
 https://www.xiongtianci.com/2019/06/12/git-push报错：The-current-branch-master-has-no-upstream-branch/
-https://www.xiongtianci.com/2019/06/12/hexo常用命名汇总/
+https://www.xiongtianci.com/2019/06/12/hexo常用命令汇总/
 https://www.xiongtianci.com/2019/06/12/git常用命名汇总/
 https://www.xiongtianci.com/2019/06/10/常用正则表达式公式/
 https://www.xiongtianci.com/2019/06/05/一千行MySQL学习笔记/

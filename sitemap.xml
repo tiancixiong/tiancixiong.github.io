@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiongtianci.com/2020/08/17/%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E6%89%8B%E6%9C%BA%E7%83%AD%E7%82%B9%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEgithub/</loc>
+    
+    <lastmod>2020-08-17T09:43:47.457Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/2019/06/12/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/</loc>
+    
+    <lastmod>2020-08-13T07:36:52.139Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiongtianci.com/links/index.html</loc>
     
     <lastmod>2020-08-04T03:46:34.953Z</lastmod>
@@ -12,6 +26,13 @@
     <loc>https://www.xiongtianci.com/2018/11/30/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2020-08-04T03:07:16.065Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/comment/index.html</loc>
+    
+    <lastmod>2020-07-31T04:31:13.420Z</lastmod>
     
   </url>
   
@@ -884,13 +905,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/2019/06/12/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/</loc>
-    
-    <lastmod>2020-07-04T08:41:47.256Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiongtianci.com/2019/06/10/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%85%AC%E5%BC%8F/</loc>
     
     <lastmod>2020-07-04T08:41:41.222Z</lastmod>
@@ -1111,13 +1125,6 @@
     <loc>https://www.xiongtianci.com/client/index.html</loc>
     
     <lastmod>2019-06-18T03:36:08.562Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/comment/index.html</loc>
-    
-    <lastmod>2019-06-18T03:35:20.910Z</lastmod>
     
   </url>
   
