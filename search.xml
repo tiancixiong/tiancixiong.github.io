@@ -8,14 +8,8 @@
       <link href="/2020/08/17/%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E6%89%8B%E6%9C%BA%E7%83%AD%E7%82%B9%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEgithub/"/>
       <url>/2020/08/17/%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E6%89%8B%E6%9C%BA%E7%83%AD%E7%82%B9%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEgithub/</url>
       
-        <content type="html"><![CDATA[<p><img src="assets/1597657310603.png" alt="1597657310603"></p><p><a href="https://zhuanlan.zhihu.com/p/53610736" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/53610736</a></p><p><a href="https://tool.chinaz.com/dns/" target="_blank" rel="noopener">https://tool.chinaz.com/dns/</a></p><p><img src="assets/1597657424941.png" alt="1597657424941"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>电脑连接手机热点后无法访问<code>github.com</code>，<code>ping</code>一下发现<strong>请求超时</strong>：<br><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200817/1598451310421.png" alt="1598451310421"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol><li><p>使用ip解析类网站获取ip地址，如下面使用<a href="https://tool.chinaz.com/dns/" target="_blank" rel="noopener">站长之家Dns检测</a><code>github.com</code>的ip地址：<br><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200817/1598451372729.png" alt="1598451372729"></p></li><li><p>选择一个ip地址设置到hosts文件中，格式如下：</p><pre><code># Windows中hosts位置：C:\Windows\System32\drivers\etc140.82.112.4 www.github.com140.82.112.4 github.com</code></pre></li><li><p>使用<code>ipconfig/flushdns</code>命令刷新DNS解析缓存<br><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200817/1598450604679.png" alt="1598450604679"></p></li></ol><p>以上，即可解决此类问题</p>]]></content>
       
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
       
       
     </entry>

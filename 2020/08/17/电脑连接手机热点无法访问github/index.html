@@ -7,7 +7,7 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="a,b...,天赐,天赐の小站,博客">
+  <meta name="keywords" content="热点,github,天赐,天赐の小站,博客">
   
   
   <title itemprop="name">电脑连接手机热点无法访问github | 天赐の小站</title>
@@ -342,7 +342,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1528164344705-47542687000d?w=540);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(//images.unsplash.com/photo-1534247847236-0e6c8fbe707e?w=540);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1534247847236-0e6c8fbe707e?w=540">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -372,10 +372,19 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p><img src="assets/1597657310603.png" alt="1597657310603"></p>
-<p><a href="https://zhuanlan.zhihu.com/p/53610736" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/53610736</a></p>
-<p><a href="https://tool.chinaz.com/dns/" target="_blank" rel="noopener">https://tool.chinaz.com/dns/</a></p>
-<p><img src="assets/1597657424941.png" alt="1597657424941"></p>
+          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>电脑连接手机热点后无法访问<code>github.com</code>，<code>ping</code>一下发现<strong>请求超时</strong>：<br><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200817/1598451310421.png" alt="1598451310421"></p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol>
+<li><p>使用ip解析类网站获取ip地址，如下面使用<a href="https://tool.chinaz.com/dns/" target="_blank" rel="noopener">站长之家Dns检测</a><code>github.com</code>的ip地址：<br><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200817/1598451372729.png" alt="1598451372729"></p>
+</li>
+<li><p>选择一个ip地址设置到hosts文件中，格式如下：</p>
+<pre><code># Windows中hosts位置：C:\Windows\System32\drivers\etc
+140.82.112.4 www.github.com
+140.82.112.4 github.com
+</code></pre></li>
+<li><p>使用<code>ipconfig/flushdns</code>命令刷新DNS解析缓存<br><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200817/1598450604679.png" alt="1598450604679"></p>
+</li>
+</ol>
+<p>以上，即可解决此类问题</p>
 
         </div>
         <!-- .entry-content -->
