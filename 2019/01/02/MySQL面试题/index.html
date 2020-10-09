@@ -738,14 +738,18 @@ truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二�
 		sectimeold = timeold / 1000
 		secondsold = Math.floor(sectimeold);
 		msPerDay = 24 * 60 * 60 * 1000
-		e_daysold = timeold / msPerDay
+		msPerYear = 365 * 24 * 60 * 60 * 1000
+		e_yearsold = timeold / msPerYear
+		yearsold = Math.floor(e_yearsold);
+		//e_daysold = timeold / msPerDay
+		e_daysold = timeold/msPerDay - yearsold*365;
 		daysold = Math.floor(e_daysold);
 		e_hrsold = (e_daysold - daysold) * 24;
 		hrsold = setzero(Math.floor(e_hrsold));
 		e_minsold = (e_hrsold - hrsold) * 60;
 		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
 		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
-		document.getElementById('days').innerHTML = "已在风雨中运行 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + yearsold + " 年 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
 	}
 
 	function setzero(i) {
