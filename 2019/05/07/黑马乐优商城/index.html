@@ -398,6 +398,12 @@
 <p>本资源是博主在网上寻找乐优商城资料时，一位好人所赠</p>
 <font color="hotpink">注意：找乐优商城资料的同学应该知道，乐优商城的视频有win和mac版本之分，此资源中的视频是mac版本。资料中的课件是完整的，但是与视频会有所出入</font>
 </blockquote>
+<blockquote>
+<ul>
+<li>如果链接失效，可通过<a href="mailto:support@xiongtianci.com" target="_blank" rel="noopener">邮件</a>联系获取</li>
+<li><a href="https://github.com/tiancixiong/leyou" target="_blank" rel="noopener">项目源码</a>是博主通过学习<strong><a href="https://github.com/tiancixiong/leyou/tree/notes" target="_blank" rel="noopener">笔记</a></strong>所编写，没有看视频</li>
+</ul>
+</blockquote>
 
         </div>
         <!-- .entry-content -->
@@ -688,14 +694,18 @@
 		sectimeold = timeold / 1000
 		secondsold = Math.floor(sectimeold);
 		msPerDay = 24 * 60 * 60 * 1000
-		e_daysold = timeold / msPerDay
+		msPerYear = 365 * 24 * 60 * 60 * 1000
+		e_yearsold = timeold / msPerYear
+		yearsold = Math.floor(e_yearsold);
+		//e_daysold = timeold / msPerDay
+		e_daysold = timeold/msPerDay - yearsold*365;
 		daysold = Math.floor(e_daysold);
 		e_hrsold = (e_daysold - daysold) * 24;
 		hrsold = setzero(Math.floor(e_hrsold));
 		e_minsold = (e_hrsold - hrsold) * 60;
 		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
 		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
-		document.getElementById('days').innerHTML = "已在风雨中运行 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + yearsold + " 年 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
 	}
 
 	function setzero(i) {
