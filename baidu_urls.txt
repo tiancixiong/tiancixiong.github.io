@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2020/10/10/安装完svn后在bin目录中没有svn-exe文件/
 https://www.xiongtianci.com/2020/09/21/Eclipse中Console控制台无法显示全部日志问题/
 https://www.xiongtianci.com/2020/08/17/电脑连接手机热点无法访问github/
 https://www.xiongtianci.com/2020/07/01/使用Xftp6上传文件显示状态错误/

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-09-21T09:52:21.561Z</updated>
+  <updated>2020-10-10T08:25:18.457Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装完svn后在bin目录中没有svn.exe文件</title>
+    <link href="https://www.xiongtianci.com/2020/10/10/%E5%AE%89%E8%A3%85%E5%AE%8Csvn%E5%90%8E%E5%9C%A8bin%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%B2%A1%E6%9C%89svn-exe%E6%96%87%E4%BB%B6/"/>
+    <id>https://www.xiongtianci.com/2020/10/10/安装完svn后在bin目录中没有svn-exe文件/</id>
+    <published>2020-10-10T08:07:24.000Z</published>
+    <updated>2020-10-10T08:25:18.457Z</updated>
+    
+    <summary type="html">
+    
+      安装完svn后在bin目录中没有svn.exe文件
+    
+    </summary>
+    
+      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+      <category term="SVN" scheme="https://www.xiongtianci.com/tags/SVN/"/>
+    
+  </entry>
   
   <entry>
     <title>Eclipse中Console无法显示全部日志问题</title>
@@ -398,24 +418,6 @@
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用git.io设置GitHub项目的短链接</title>
-    <link href="https://www.xiongtianci.com/2019/11/02/%E4%BD%BF%E7%94%A8git-io%E8%AE%BE%E7%BD%AEGitHub%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%9F%AD%E9%93%BE%E6%8E%A5/"/>
-    <id>https://www.xiongtianci.com/2019/11/02/使用git-io设置GitHub项目的短链接/</id>
-    <published>2019-11-02T12:27:07.000Z</published>
-    <updated>2020-07-04T08:52:52.500Z</updated>
-    
-    <summary type="html">
-    
-      使用git.io设置GitHub项目的短链接
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
     
   </entry>
   

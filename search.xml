@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>安装完svn后在bin目录中没有svn.exe文件</title>
+      <link href="/2020/10/10/%E5%AE%89%E8%A3%85%E5%AE%8Csvn%E5%90%8E%E5%9C%A8bin%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%B2%A1%E6%9C%89svn-exe%E6%96%87%E4%BB%B6/"/>
+      <url>/2020/10/10/%E5%AE%89%E8%A3%85%E5%AE%8Csvn%E5%90%8E%E5%9C%A8bin%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%B2%A1%E6%9C%89svn-exe%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>安装完<code>TortoiseSVN</code>后在<code>bin</code>目录中没有找到<code>svn.exe</code>文件</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>这是由于SVN在安装过程中默认不安装<code>command line client tools</code>，这时我们需要将其安装到本地</p><ol><li><p>双击执行TortoiseSVN的安装包</p></li><li><p>选择第一项<code>Modify</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201010/image-20201010161123665.png" alt="image-20201010161123665"></p></li><li><p>选择：<code>TortoiseSVN -&gt; command line client tools -&gt; Will beinstall on local hard drive</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201010/1598489923444.png" alt="1598489923444"></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201010/1598489934814.png" alt="1598489934814"></p></li><li><p>点击<code>Next</code>重新安装即可解决</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201010/image-20201010161647854.png" alt="image-20201010161647854"></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 踩坑 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SVN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Eclipse中Console无法显示全部日志问题</title>
       <link href="/2020/09/21/Eclipse%E4%B8%ADConsole%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E6%97%A5%E5%BF%97%E9%97%AE%E9%A2%98/"/>
       <url>/2020/09/21/Eclipse%E4%B8%ADConsole%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E6%97%A5%E5%BF%97%E9%97%AE%E9%A2%98/</url>
@@ -1517,9 +1542,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> 脚本 </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -1870,9 +1895,9 @@
             
             <tag> 踩坑 </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> MyBatis </tag>
+            
+            <tag> MySQL </tag>
             
             <tag> 乱码 </tag>
             
