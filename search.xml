@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>win10所有文件夹全变成只读</title>
+      <link href="/2020/10/12/win10%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%A8%E5%8F%98%E6%88%90%E5%8F%AA%E8%AF%BB/"/>
+      <url>/2020/10/12/win10%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%A8%E5%8F%98%E6%88%90%E5%8F%AA%E8%AF%BB/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>系统环境：Windows 10 专业版_v1909_x64 </p></blockquote><p>今天突然发现自己电脑中C、D、E盘中所有<code>文件夹</code>的全变成了<code>只读</code>状态。并且无论怎么取消<strong>只读</strong>，点击确认后都会自动恢复<strong>只读</strong>：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201012/image-20201012194422933.png" alt="image-20201012194422933"></p><p>但是所有<strong>文件夹</strong>里面的<code>文件</code>的属性并没有勾选<strong>只读</strong>：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201012/image-20201012194539376.png" alt="image-20201012194539376"></p><p>网上搜索一波，有的说是<a href="https://answers.microsoft.com/zh-hans/windows/forum/all/win10%E4%B8%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E8%87%AA/06943d12-2abe-4c48-9b5c-4d89c7bd1788" target="_blank" rel="noopener">文件共享</a>的问题，又有说是权限的问题，这些问题排除后问题还没解决，一度以为电脑中了病毒</p><p>最后发现两篇文章：<a href="https://answers.microsoft.com/zh-hans/windows/forum/all/win10%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8F%AA%E8%AF%BB/c0d26438-1dab-4e90-b65b-e9cba94b071f" target="_blank" rel="noopener">文章1</a>、<a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_10-files/win10%E7%B3%BB%E7%BB%9F%E8%BF%99%E5%8D%8A%E4%B8%AA/fe97cf93-d88d-4e62-949b-98355e35ca8b" target="_blank" rel="noopener">文章2</a>；原来属性中的<code>只读</code>有3种状态：</p><ul><li>实心小黑块<code>■</code>，就是我出现的情况</li><li>对勾<code>√</code>，这个才是正真选中了只读</li><li>空心框<code>□</code></li></ul><p>黑色方块并不是只读，黑色对勾才是只读。黑色方块只是表明，这个文件夹以及其子文件和子文件夹中允许存在具有只读属性的文件或子文件夹，并不说明这个文件夹本身只读。</p><hr><p>好吧，最后发现毛线问题都没有😬</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> win </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> win </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>everything无法搜索刚插入的硬盘中的文件</title>
+      <link href="/2020/10/12/everything%E6%97%A0%E6%B3%95%E6%90%9C%E7%B4%A2%E5%88%9A%E6%8F%92%E5%85%A5%E7%9A%84%E7%A1%AC%E7%9B%98%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/"/>
+      <url>/2020/10/12/everything%E6%97%A0%E6%B3%95%E6%90%9C%E7%B4%A2%E5%88%9A%E6%8F%92%E5%85%A5%E7%9A%84%E7%A1%AC%E7%9B%98%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在使用<code>everything</code>过程中，对于刚刚新增的文件或刚插入电脑的硬盘中的文件有时在<code>everything</code>中无法搜索到</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol><li><p>在菜单栏中选择：<code>工具 -&gt; 选项</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201012/image-20201012095327410.png" alt="image-20201012095327410"></p></li><li><p>在选项中选择<code>索引 -&gt; 强制重建</code>，然后点击<code>确定</code>：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201012/image-20201012095626597.png" alt="image-20201012095626597"></p></li><li><p>此时everything会开始扫描磁盘重建索引，需稍等一会：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201012/image-20201012095705343.png" alt="image-20201012095705343"></p></li><li><p>等到窗口下方出现<code>...个对象</code>就说明索引重建完成，再进行搜索就会发现有结果了</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201012/image-20201012095754237.png" alt="image-20201012095754237"></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Everything </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安装完svn后在bin目录中没有svn.exe文件</title>
       <link href="/2020/10/10/%E5%AE%89%E8%A3%85%E5%AE%8Csvn%E5%90%8E%E5%9C%A8bin%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%B2%A1%E6%9C%89svn-exe%E6%96%87%E4%BB%B6/"/>
       <url>/2020/10/10/%E5%AE%89%E8%A3%85%E5%AE%8Csvn%E5%90%8E%E5%9C%A8bin%E7%9B%AE%E5%BD%95%E4%B8%AD%E6%B2%A1%E6%9C%89svn-exe%E6%96%87%E4%BB%B6/</url>
@@ -1542,9 +1592,9 @@
       
         <tags>
             
-            <tag> 脚本 </tag>
-            
             <tag> bat </tag>
+            
+            <tag> 脚本 </tag>
             
         </tags>
       
@@ -2743,9 +2793,9 @@
       
         <tags>
             
-            <tag> 面试题 </tag>
-            
             <tag> SpringMVC </tag>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       
