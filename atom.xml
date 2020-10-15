@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-10-15T12:38:51.964Z</updated>
+  <updated>2020-10-15T12:45:17.177Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试数据1</title>
+    <link href="https://www.xiongtianci.com/2020/10/15/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE1/"/>
+    <id>https://www.xiongtianci.com/2020/10/15/测试数据1/</id>
+    <published>2020-10-15T12:45:17.000Z</published>
+    <updated>2020-10-15T12:45:17.177Z</updated>
+    
+    <summary type="html">
+    
+      测试数据1
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>测试数据</title>
@@ -371,9 +389,9 @@
       <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -394,26 +412,6 @@
     
     
       <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git修改已提交的commit注释</title>
-    <link href="https://www.xiongtianci.com/2019/11/12/Git%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84commit%E6%B3%A8%E9%87%8A/"/>
-    <id>https://www.xiongtianci.com/2019/11/12/Git修改已提交的commit注释/</id>
-    <published>2019-11-12T01:34:11.000Z</published>
-    <updated>2020-07-04T09:04:09.641Z</updated>
-    
-    <summary type="html">
-    
-      Git修改已提交的commit注释
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
     
   </entry>
   
