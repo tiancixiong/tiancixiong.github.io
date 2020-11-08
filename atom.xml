@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>天赐の小站</title>
   
-  <subtitle>Viva La Vida</subtitle>
+  <subtitle>You Only Live Once</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-10-12T12:13:22.756Z</updated>
+  <updated>2020-11-08T03:06:31.822Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,142 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS7设置静态IP并成功上网</title>
+    <link href="https://www.xiongtianci.com/2020/11/08/CentOS7%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81IP%E5%B9%B6%E6%88%90%E5%8A%9F%E4%B8%8A%E7%BD%91/"/>
+    <id>https://www.xiongtianci.com/2020/11/08/CentOS7设置静态IP并成功上网/</id>
+    <published>2020-11-08T01:19:07.000Z</published>
+    <updated>2020-11-08T03:06:31.822Z</updated>
+    
+    <summary type="html">
+    
+      CentOS7设置静态IP并成功上网
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.xiongtianci.com/categories/Linux/"/>
+    
+    
+      <category term="CentOS7" scheme="https://www.xiongtianci.com/tags/CentOS7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VMWare中CentOS7扩容</title>
+    <link href="https://www.xiongtianci.com/2020/11/07/VMWare%E4%B8%ADCentOS7%E6%89%A9%E5%AE%B9/"/>
+    <id>https://www.xiongtianci.com/2020/11/07/VMWare中CentOS7扩容/</id>
+    <published>2020-11-07T12:58:46.000Z</published>
+    <updated>2020-11-08T03:07:40.527Z</updated>
+    
+    <summary type="html">
+    
+      VMWare中CentOS7扩容
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.xiongtianci.com/categories/Linux/"/>
+    
+    
+      <category term="VMware" scheme="https://www.xiongtianci.com/tags/VMware/"/>
+    
+      <category term="CentOS7" scheme="https://www.xiongtianci.com/tags/CentOS7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA启动警告「OpenJDK 64-Bit Server VM warning」</title>
+    <link href="https://www.xiongtianci.com/2020/10/31/IDEA%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E3%80%8COpenJDK%2064-Bit%20Server%20VM%20warning%E3%80%8D/"/>
+    <id>https://www.xiongtianci.com/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/</id>
+    <published>2020-10-31T02:43:07.000Z</published>
+    <updated>2020-10-31T02:58:18.792Z</updated>
+    
+    <summary type="html">
+    
+      IDEA启动警告「OpenJDK 64-Bit Server VM warning」
+    
+    </summary>
+    
+      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>黑马十次方微服务项目资源</title>
+    <link href="https://www.xiongtianci.com/2020/10/30/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"/>
+    <id>https://www.xiongtianci.com/2020/10/30/黑马十次方微服务项目资源/</id>
+    <published>2020-10-30T11:00:43.000Z</published>
+    <updated>2020-11-08T07:59:02.952Z</updated>
+    
+    <summary type="html">
+    
+      黑马十次方微服务项目资源
+    
+    </summary>
+    
+      <category term="资料" scheme="https://www.xiongtianci.com/categories/%E8%B5%84%E6%96%99/"/>
+    
+    
+      <category term="十次方" scheme="https://www.xiongtianci.com/tags/%E5%8D%81%E6%AC%A1%E6%96%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker常用命令</title>
+    <link href="https://www.xiongtianci.com/2020/10/26/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://www.xiongtianci.com/2020/10/26/Docker常用命令/</id>
+    <published>2020-10-26T02:33:22.000Z</published>
+    <updated>2020-10-26T10:02:48.854Z</updated>
+    
+    <summary type="html">
+    
+      Docker常用命令
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Docker常用命令</title>
+    <link href="https://www.xiongtianci.com/2020/10/25/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://www.xiongtianci.com/2020/10/25/Docker常用命令/</id>
+    <published>2020-10-25T04:17:34.000Z</published>
+    <updated>2020-10-25T04:23:55.836Z</updated>
+    
+    <summary type="html">
+    
+      Docker常用命令
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins安装Maven Integration失败</title>
+    <link href="https://www.xiongtianci.com/2020/10/25/Jenkins%E5%AE%89%E8%A3%85Maven-Integration%E5%A4%B1%E8%B4%A5/"/>
+    <id>https://www.xiongtianci.com/2020/10/25/Jenkins安装Maven-Integration失败/</id>
+    <published>2020-10-25T02:44:56.000Z</published>
+    <updated>2020-10-25T02:50:54.095Z</updated>
+    
+    <summary type="html">
+    
+      Jenkins安装Maven Integration失败
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>win10所有文件夹全变成只读</title>
@@ -270,154 +406,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Chrome播放视频时只有声音没有画面</title>
-    <link href="https://www.xiongtianci.com/2020/04/19/Chrome%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E6%97%B6%E5%8F%AA%E6%9C%89%E5%A3%B0%E9%9F%B3%E6%B2%A1%E6%9C%89%E7%94%BB%E9%9D%A2/"/>
-    <id>https://www.xiongtianci.com/2020/04/19/Chrome播放视频时只有声音没有画面/</id>
-    <published>2020-04-19T09:43:04.000Z</published>
-    <updated>2020-07-04T08:31:11.023Z</updated>
-    
-    <summary type="html">
-    
-      Chrome播放视频时只有声音没有画面
-    
-    </summary>
-    
-      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-      <category term="Chrome" scheme="https://www.xiongtianci.com/tags/Chrome/"/>
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安装VMware时警告此产品安装程序不支持降级</title>
-    <link href="https://www.xiongtianci.com/2020/04/18/%E5%AE%89%E8%A3%85VMware%E6%97%B6%E8%AD%A6%E5%91%8A%E6%AD%A4%E4%BA%A7%E5%93%81%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E4%B8%8D%E6%94%AF%E6%8C%81%E9%99%8D%E7%BA%A7/"/>
-    <id>https://www.xiongtianci.com/2020/04/18/安装VMware时警告此产品安装程序不支持降级/</id>
-    <published>2020-04-18T06:22:22.000Z</published>
-    <updated>2020-07-04T08:31:53.535Z</updated>
-    
-    <summary type="html">
-    
-      安装VMware时警告此产品安装程序不支持降级
-    
-    </summary>
-    
-      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="VMware" scheme="https://www.xiongtianci.com/tags/VMware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10关机时提示需要结束程序</title>
-    <link href="https://www.xiongtianci.com/2020/04/13/win10%E5%85%B3%E6%9C%BA%E6%97%B6%E6%8F%90%E7%A4%BA%E9%9C%80%E8%A6%81%E7%BB%93%E6%9D%9F%E7%A8%8B%E5%BA%8F/"/>
-    <id>https://www.xiongtianci.com/2020/04/13/win10关机时提示需要结束程序/</id>
-    <published>2020-04-13T00:41:04.000Z</published>
-    <updated>2020-07-04T08:32:02.801Z</updated>
-    
-    <summary type="html">
-    
-      win10关机时提示需要结束程序
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA2019.3在Plugins中搜索不到translation</title>
-    <link href="https://www.xiongtianci.com/2020/04/05/IDEA2019-3%E5%9C%A8Plugins%E4%B8%AD%E6%90%9C%E7%B4%A2%E4%B8%8D%E5%88%B0translation/"/>
-    <id>https://www.xiongtianci.com/2020/04/05/IDEA2019-3在Plugins中搜索不到translation/</id>
-    <published>2020-04-05T07:44:56.000Z</published>
-    <updated>2020-07-04T08:32:11.786Z</updated>
-    
-    <summary type="html">
-    
-      IDEA2019.3在Plugins中搜索不到translation
-    
-    </summary>
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>禁用win10自动更新</title>
-    <link href="https://www.xiongtianci.com/2020/04/04/%E7%A6%81%E7%94%A8win10%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
-    <id>https://www.xiongtianci.com/2020/04/04/禁用win10自动更新/</id>
-    <published>2020-04-04T01:49:12.000Z</published>
-    <updated>2020-07-04T08:53:22.415Z</updated>
-    
-    <summary type="html">
-    
-      禁用win10自动更新
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git修改已提交的commit注释</title>
-    <link href="https://www.xiongtianci.com/2019/11/12/Git%E4%BF%AE%E6%94%B9%E5%B7%B2%E6%8F%90%E4%BA%A4%E7%9A%84commit%E6%B3%A8%E9%87%8A/"/>
-    <id>https://www.xiongtianci.com/2019/11/12/Git修改已提交的commit注释/</id>
-    <published>2019-11-12T01:34:11.000Z</published>
-    <updated>2020-07-04T09:04:09.641Z</updated>
-    
-    <summary type="html">
-    
-      Git修改已提交的commit注释
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Git" scheme="https://www.xiongtianci.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决IDEA中安装CodeGlance插件后不起作用问题</title>
-    <link href="https://www.xiongtianci.com/2019/11/11/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD%E5%AE%89%E8%A3%85CodeGlance%E6%8F%92%E4%BB%B6%E5%90%8E%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E9%97%AE%E9%A2%98/"/>
-    <id>https://www.xiongtianci.com/2019/11/11/解决IDEA中安装CodeGlance插件后不起作用问题/</id>
-    <published>2019-11-11T13:44:20.000Z</published>
-    <updated>2020-07-04T09:04:20.621Z</updated>
-    
-    <summary type="html">
-    
-      解决IDEA中安装CodeGlance插件后不起作用问题
-    
-    </summary>
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
-      <category term="CodeGlance" scheme="https://www.xiongtianci.com/tags/CodeGlance/"/>
     
   </entry>
   
