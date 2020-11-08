@@ -1,5 +1,5 @@
 https://www.xiongtianci.com/2020/11/08/CentOS7设置静态IP并成功上网/
-https://www.xiongtianci.com/2020/11/07/VMWare中CentOS7扩容/
+https://www.xiongtianci.com/2020/11/07/VMware中CentOS7扩容/
 https://www.xiongtianci.com/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/
 https://www.xiongtianci.com/2020/10/30/黑马十次方微服务项目资源/
 https://www.xiongtianci.com/2020/10/26/Docker常用命令/

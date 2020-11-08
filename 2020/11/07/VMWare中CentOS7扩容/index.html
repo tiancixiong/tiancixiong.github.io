@@ -10,7 +10,7 @@
   <meta name="keywords" content="centos7,vmware,扩容,天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">VMWare中CentOS7扩容 | 天赐の小站</title>
+  <title itemprop="name">VMware中CentOS7扩容 | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
   
@@ -346,7 +346,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      VMWare中CentOS7扩容</h1>
+      VMware中CentOS7扩容</h1>
       <p class="entry-census">
         <span>
           <a href="https://www.xiongtianci.com">
@@ -380,16 +380,15 @@
 </ul>
 </blockquote>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>需要对VMware中的Centos7进行扩容</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>首先需要关闭系统，如果有快照则需要删除所有快照：</p>
-<p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211422429.png" alt="image-20201107211422429"></p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>首先需要关闭系统（如果有快照则需要删除所有快照），选择 <strong>编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</strong> ，扩展需要的大小后保存设置：</p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211229161.png" alt="image-20201107211229161"></p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211532161.png" alt="image-20201107211532161"></p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211602317.png" alt="image-20201107211602317"></p>
-<p>使用<code>df -lh</code>命令</p>
+<p>启动系统，以root用户登录进行操作，使用 <code>df -lh</code> 命令查看磁盘使用情况，发现此时磁盘空间仍然是20G，并不是修改后的30G大小：</p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211954263.png" alt="image-20201107211954263"></p>
-<p>使用<code>fdisk -l</code>命令</p>
+<p>使用 <code>fdisk -l</code> 命令列出磁盘分区表，</p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107212205359.png" alt="image-20201107212205359"></p>
-<p>使用<code>fdisk /dev/sda</code>命令</p>
+<p>使用 <code>fdisk /dev/sda</code> 命令创建一个新的分区</p>
 <pre><code class="shell">分区： 
 [root@localhost]# fdisk /dev/sda
 p　　　　　　  #查看已分区数量（我看到有两个 /dev/sda1 /dev/sda2） 
@@ -405,20 +404,23 @@ w　　　　　  　#写分区表
 q　　　　　  　#完成，退出fdisk命令
 </code></pre>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107212510266.png" alt="image-20201107212510266"></p>
-<p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107212856559.png" alt="image-20201107212856559"></p>
-<p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213037551.png" alt="image-20201107213037551"></p>
-<p>重启机器</p>
-<p><code>ls /dev | grep sda</code></p>
+<p>具体流程：</p>
+<ul>
+<li><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213037551.png" alt="image-20201107213037551"></p>
+</li>
+</ul>
+<p>写入磁盘后，需要<strong>重启系统</strong>，才能找到新创建的磁盘</p>
+<p>重启后通过 <code>ls /dev | grep sda</code> 查看此时的分区</p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213415748.png" alt="image-20201107213415748"></p>
 <p><code>mkfs.xfs /dev/sda3</code></p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213340970.png" alt="image-20201107213340970"></p>
-<p><code>vgdisplay</code></p>
+<p>使用 <code>vgdisplay</code> 查看VG</p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213641615.png" alt="image-20201107213641615"></p>
 <pre><code>#将初始化过的分区加入到虚拟卷组centos (卷和卷组的命令可以通过 vgdisplay查看)
 lvm&gt; vgextend centos /dev/sda3
 </code></pre><p><code>vgdisplay -v</code></p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214055539.png" alt="image-20201107214055539"></p>
-<p><code>lvdisplay</code></p>
+<p>使用 <code>lvdisplay</code> 查看LV信息</p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214225518.png" alt="image-20201107214225518"></p>
 <p><code>vgdisplay</code></p>
 <p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214435144.png" alt="image-20201107214435144"></p>
@@ -476,7 +478,7 @@ lvm&gt; vgextend centos /dev/sda3
           
             <a href="/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1527067829737-402993088e6b?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
               <span class="label">
               Next Post</span>

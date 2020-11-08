@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.xiongtianci.com/2020/10/30/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://www.xiongtianci.com/2020/10/25/Jenkins%E5%AE%89%E8%A3%85Maven-Integration%E5%A4%B1%E8%B4%A5/</loc>
     
-    <lastmod>2020-11-08T07:59:02.952Z</lastmod>
+    <lastmod>2020-11-08T13:40:14.685Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/2020/11/07/VMWare%E4%B8%ADCentOS7%E6%89%A9%E5%AE%B9/</loc>
+    <loc>https://www.xiongtianci.com/2020/10/31/IDEA%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E3%80%8COpenJDK%2064-Bit%20Server%20VM%20warning%E3%80%8D/</loc>
     
-    <lastmod>2020-11-08T03:07:40.527Z</lastmod>
+    <lastmod>2020-11-08T13:39:11.177Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/2020/11/07/VMware%E4%B8%ADCentOS7%E6%89%A9%E5%AE%B9/</loc>
+    
+    <lastmod>2020-11-08T13:35:38.181Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xiongtianci.com/2020/10/30/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/</loc>
+    
+    <lastmod>2020-11-08T07:59:02.952Z</lastmod>
     
   </url>
   
@@ -30,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://www.xiongtianci.com/2020/10/31/IDEA%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E3%80%8COpenJDK%2064-Bit%20Server%20VM%20warning%E3%80%8D/</loc>
-    
-    <lastmod>2020-10-31T02:58:18.792Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xiongtianci.com/2020/10/26/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2020-10-26T10:02:48.854Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>https://www.xiongtianci.com/2020/10/25/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2020-10-25T04:23:55.836Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xiongtianci.com/2020/10/25/Jenkins%E5%AE%89%E8%A3%85Maven-Integration%E5%A4%B1%E8%B4%A5/</loc>
-    
-    <lastmod>2020-10-25T02:50:54.095Z</lastmod>
     
   </url>
   
