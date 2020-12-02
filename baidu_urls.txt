@@ -1,10 +1,6 @@
 https://www.xiongtianci.com/2020/11/08/CentOS7设置静态IP并成功上网/
-https://www.xiongtianci.com/2020/11/07/VMware中CentOS7扩容/
 https://www.xiongtianci.com/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/
 https://www.xiongtianci.com/2020/10/30/黑马十次方微服务项目资源/
-https://www.xiongtianci.com/2020/10/26/Docker常用命令/
-https://www.xiongtianci.com/2020/10/25/Docker常用命令/
-https://www.xiongtianci.com/2020/10/25/Jenkins安装Maven-Integration失败/
 https://www.xiongtianci.com/2020/10/12/win10所有文件夹全变成只读/
 https://www.xiongtianci.com/2020/10/12/everything无法搜索刚插入的硬盘中的文件/
 https://www.xiongtianci.com/2020/10/10/安装完svn后在bin目录中没有svn-exe文件/

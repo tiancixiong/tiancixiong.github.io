@@ -29,33 +29,6 @@
     
     
     <entry>
-      <title>VMware中CentOS7扩容</title>
-      <link href="/2020/11/07/VMware%E4%B8%ADCentOS7%E6%89%A9%E5%AE%B9/"/>
-      <url>/2020/11/07/VMware%E4%B8%ADCentOS7%E6%89%A9%E5%AE%B9/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>环境：</p><ul><li>VMware 15</li><li>CentOS 7.3.1611</li></ul></blockquote><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>需要对VMware中的Centos7进行扩容</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>首先需要关闭系统（如果有快照则需要删除所有快照），选择 <strong>编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</strong> ，扩展需要的大小后保存设置：</p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211229161.png" alt="image-20201107211229161"></p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211532161.png" alt="image-20201107211532161"></p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211602317.png" alt="image-20201107211602317"></p><p>启动系统，以root用户登录进行操作，使用 <code>df -lh</code> 命令查看磁盘使用情况，发现此时磁盘空间仍然是20G，并不是修改后的30G大小：</p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107211954263.png" alt="image-20201107211954263"></p><p>使用 <code>fdisk -l</code> 命令列出磁盘分区表，</p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107212205359.png" alt="image-20201107212205359"></p><p>使用 <code>fdisk /dev/sda</code> 命令创建一个新的分区</p><pre><code class="shell">分区： [root@localhost]# fdisk /dev/sdap　　　　　　  #查看已分区数量（我看到有两个 /dev/sda1 /dev/sda2） n　　　　　　　#新增加一个分区p　　　　　　　#分区类型我们选择为主分区 　　　　　　   #分区号输入3（因为1,2已经用过了,sda1是分区1,sda2是分区2,sda3分区3） 回车　　　　　  #默认（起始扇区）回车　　　　　  #默认（结束扇区）t　　　　　　　 #修改分区类型 　　　　　　   #选分区38e　　　　　 　#修改为LVM（8e就是LVM）w　　　　　  　#写分区表q　　　　　  　#完成，退出fdisk命令</code></pre><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107212510266.png" alt="image-20201107212510266"></p><p>具体流程：</p><ul><li><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213037551.png" alt="image-20201107213037551"></p></li></ul><p>写入磁盘后，需要<strong>重启系统</strong>，才能找到新创建的磁盘</p><p>重启后通过 <code>ls /dev | grep sda</code> 查看此时的分区</p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213415748.png" alt="image-20201107213415748"></p><p><code>mkfs.xfs /dev/sda3</code></p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213340970.png" alt="image-20201107213340970"></p><p>使用 <code>vgdisplay</code> 查看VG</p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107213641615.png" alt="image-20201107213641615"></p><pre><code>#将初始化过的分区加入到虚拟卷组centos (卷和卷组的命令可以通过 vgdisplay查看)lvm&gt; vgextend centos /dev/sda3</code></pre><p><code>vgdisplay -v</code></p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214055539.png" alt="image-20201107214055539"></p><p>使用 <code>lvdisplay</code> 查看LV信息</p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214225518.png" alt="image-20201107214225518"></p><p><code>vgdisplay</code></p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214435144.png" alt="image-20201107214435144"></p><p><code>lvextend -l+2559 /dev/mapper/cl-root</code></p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214523062.png" alt="image-20201107214523062"></p><p><code>xfs_growfs /dev/cl/root</code> <code>df -lh</code></p><p><img src="20201107-VMWare中CentOS7扩容.assets/image-20201107214640343.png" alt="image-20201107214640343"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> VMware </tag>
-            
-            <tag> CentOS7 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>IDEA启动警告「OpenJDK 64-Bit Server VM warning」</title>
       <link href="/2020/10/31/IDEA%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E3%80%8COpenJDK%2064-Bit%20Server%20VM%20warning%E3%80%8D/"/>
       <url>/2020/10/31/IDEA%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E3%80%8COpenJDK%2064-Bit%20Server%20VM%20warning%E3%80%8D/</url>
@@ -85,7 +58,7 @@
       <link href="/2020/10/30/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"/>
       <url>/2020/10/30/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/</url>
       
-        <content type="html"><![CDATA[<table><thead><tr><th style="text-align:center">链接</th><th style="text-align:center">提取码</th></tr></thead><tbody><tr><td style="text-align:center"><a href="https://pan.baidu.com/s/10QZsnY1ltMb2T-17oD_okw" target="_blank" rel="noopener">视频</a></td><td style="text-align:center"><code>java</code></td></tr><tr><td style="text-align:center"><a href="https://pan.baidu.com/s/1nk3F1JKODRpmQ4kf4aBmTg" target="_blank" rel="noopener">资料</a></td><td style="text-align:center"><code>java</code></td></tr></tbody></table><blockquote><p>后端源码：<a href="https://github.com/tiancixiong/tensquare" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/tiancixiong/tensquare" target="_blank" rel="noopener">Gitee</a></p></blockquote>]]></content>
+        <content type="html"><![CDATA[<table><thead><tr><th style="text-align:center">链接</th><th style="text-align:center">提取码</th></tr></thead><tbody><tr><td style="text-align:center"><a href="https://pan.baidu.com/s/10QZsnY1ltMb2T-17oD_okw" target="_blank" rel="noopener">视频</a></td><td style="text-align:center"><code>java</code></td></tr><tr><td style="text-align:center"><a href="https://pan.baidu.com/s/1nk3F1JKODRpmQ4kf4aBmTg" target="_blank" rel="noopener">资料</a></td><td style="text-align:center"><code>java</code></td></tr></tbody></table><blockquote><p>解压密码：<code>52studyit_com_20181111</code></p><p>后端源码：<a href="https://github.com/tiancixiong/tensquare" target="_blank" rel="noopener">Github</a>、<a href="https://gitee.com/tiancixiong/tensquare" target="_blank" rel="noopener">Gitee</a></p></blockquote>]]></content>
       
       
       <categories>
@@ -100,63 +73,6 @@
             <tag> 十次方 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Docker常用命令</title>
-      <link href="/2020/10/26/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-      <url>/2020/10/26/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<h1 id="操作容器"><a href="#操作容器" class="headerlink" title="操作容器"></a>操作容器</h1><p>查看容器</p><pre><code class="shell"># 列出当前所有正在运行的containerdocker ps# 用一行列出所有正在运行的container(容器多的时候非常清晰)docker ps | less -S# 列出所有的containerdocker ps -a# 列出最近一次启动的containerdocker ps -l</code></pre><pre><code class="shell"># 启动docker start Name/ID# 停止docker stop Name/ID# 重启docker restart name/ID# 删除单个容器docker rm Name/ID# 删除所有容器docker rm `docker ps -a -q`</code></pre><pre><code class="shell"># docker run --name 容器名 -d -p 3306:3306 mysql  docker 启动容器run（创建并运行一个容器） -d 放在后台 -p 端口映射 :docker的容器端口-P 随机分配端口-v 源地址(宿主机):目标地址(容器</code></pre><p>查看容器日志</p><pre><code class="shell"># 查看容器日志docker logs &lt;id/container_name&gt;# 实时查看日志输出docker logs -f &lt;id/container_name&gt; (类似 tail -f) (带上时间戳-t）</code></pre><h1 id="操作镜像"><a href="#操作镜像" class="headerlink" title="操作镜像"></a>操作镜像</h1><pre><code class="shell"># 列出镜像docker imagesdocker image ls</code></pre><pre><code class="shell"># 显示一个镜像的历史docker history image_name# 发布docker镜像docker push new_image_name</code></pre><pre><code class="shell"># 下载imagedocker pull image_name# 删除一个或者多个镜像docker rmi image_name</code></pre><h1 id="网络操作"><a href="#网络操作" class="headerlink" title="网络操作"></a>网络操作</h1><pre><code class="shell"># 查看docker0的网络(宿主机上操作)ip a show docker0# 查看容器的IP地址docker inspect -f &#39;{{ .NetworkSettings.IPAddress }}&#39; &lt;id、container_name&gt;# 附着到容器内部查看其内部ipip a show eth0</code></pre><h1 id="基础信息"><a href="#基础信息" class="headerlink" title="基础信息"></a>基础信息</h1><pre><code class="shell"># 查看docker版本docker version# 查看docker系统的信息docker info</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Docker常用命令</title>
-      <link href="/2020/10/25/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-      <url>/2020/10/25/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<p>删除images：</p><pre><code># 强制删除docker rmi -f 8f5116cbc201</code></pre><pre><code>Error response from daemon: conflict: unable to delete 7ff403fde9e3 (cannot be forced) - image has dependent child images</code></pre><p>查询依赖：<a href="https://blog.csdn.net/sin_geek/article/details/86736417" target="_blank" rel="noopener">https://blog.csdn.net/sin_geek/article/details/86736417</a></p><pre><code>docker image inspect --format=&#39;{{.RepoTags}} {{.Id}} {{.Parent}}&#39; $(docker image ls -q --filter since=XXX) # XXX指镜像ID</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Jenkins安装Maven Integration失败</title>
-      <link href="/2020/10/25/Jenkins%E5%AE%89%E8%A3%85Maven-Integration%E5%A4%B1%E8%B4%A5/"/>
-      <url>/2020/10/25/Jenkins%E5%AE%89%E8%A3%85Maven-Integration%E5%A4%B1%E8%B4%A5/</url>
-      
-        <content type="html"><![CDATA[<p><img src="20201025-Jenkins安装Maven-Integration失败.assets/image-20201025104536183.png" alt="image-20201025104536183"></p><pre><code>java.io.IOException: Maven Integration plugin v3.7 failed to load. - You must update Jenkins from v2.83 to v2.176.4 or later to run this plugin. - Jenkins JSch dependency plugin v0.1.55.2 failed to load. Fix this plugin first.    at hudson.PluginWrapper.resolvePluginDependencies(PluginWrapper.java:626)    at hudson.PluginManager.dynamicLoad(PluginManager.java:865)Caused: java.io.IOException: Failed to install maven-plugin plugin    at hudson.PluginManager.dynamicLoad(PluginManager.java:875)    at hudson.PluginManager.dynamicLoad(PluginManager.java:814)    at hudson.model.UpdateCenter$InstallationJob._run(UpdateCenter.java:1889)Caused: java.io.IOException: Failed to dynamically deploy this plugin    at hudson.model.UpdateCenter$InstallationJob._run(UpdateCenter.java:1893)    at hudson.model.UpdateCenter$DownloadJob.run(UpdateCenter.java:1651)    at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)    at java.util.concurrent.FutureTask.run(FutureTask.java:266)    at hudson.remoting.AtmostOneThreadExecutor$Worker.run(AtmostOneThreadExecutor.java:110)    at java.lang.Thread.run(Thread.java:748)</code></pre><p><a href="http://updates.jenkins-ci.org/download/plugins/maven-plugin/" target="_blank" rel="noopener">http://updates.jenkins-ci.org/download/plugins/maven-plugin/</a></p><p><img src="20201025-Jenkins安装Maven-Integration失败.assets/image-20201025104705410.png" alt="image-20201025104705410"></p><p><img src="20201025-Jenkins安装Maven-Integration失败.assets/image-20201025105007871.png" alt="image-20201025105007871"></p><p><img src="20201025-Jenkins安装Maven-Integration失败.assets/image-20201025105052669.png" alt="image-20201025105052669"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
       
     </entry>
     
@@ -2104,9 +2020,9 @@
             
             <tag> 踩坑 </tag>
             
-            <tag> MyBatis </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> MyBatis </tag>
             
             <tag> 乱码 </tag>
             
