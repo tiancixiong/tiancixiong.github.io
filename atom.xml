@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-12-08T10:08:16.368Z</updated>
+  <updated>2020-12-30T06:18:21.021Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx停止后仍然生效(win)</title>
+    <link href="https://www.xiongtianci.com/2020/12/24/nginx%E5%81%9C%E6%AD%A2%E5%90%8E%E4%BB%8D%E7%84%B6%E7%94%9F%E6%95%88(win)/"/>
+    <id>https://www.xiongtianci.com/2020/12/24/nginx停止后仍然生效(win)/</id>
+    <published>2020-12-24T07:47:57.000Z</published>
+    <updated>2020-12-30T06:18:21.021Z</updated>
+    
+    <summary type="html">
+    
+      nginx停止后仍然生效(win)
+    
+    </summary>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Eclipse常用快捷键</title>
@@ -394,26 +412,6 @@
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="VMware" scheme="https://www.xiongtianci.com/tags/VMware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10关机时提示需要结束程序</title>
-    <link href="https://www.xiongtianci.com/2020/04/13/win10%E5%85%B3%E6%9C%BA%E6%97%B6%E6%8F%90%E7%A4%BA%E9%9C%80%E8%A6%81%E7%BB%93%E6%9D%9F%E7%A8%8B%E5%BA%8F/"/>
-    <id>https://www.xiongtianci.com/2020/04/13/win10关机时提示需要结束程序/</id>
-    <published>2020-04-13T00:41:04.000Z</published>
-    <updated>2020-07-04T08:32:02.801Z</updated>
-    
-    <summary type="html">
-    
-      win10关机时提示需要结束程序
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
     
   </entry>
   

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>nginx停止后仍然生效(win)</title>
+      <link href="/2020/12/24/nginx%E5%81%9C%E6%AD%A2%E5%90%8E%E4%BB%8D%E7%84%B6%E7%94%9F%E6%95%88(win)/"/>
+      <url>/2020/12/24/nginx%E5%81%9C%E6%AD%A2%E5%90%8E%E4%BB%8D%E7%84%B6%E7%94%9F%E6%95%88(win)/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>今天在任务管理器中将nginx结束任务后，发现nginx服务无法停止</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201224/image-20201230135658712.png" alt="image-20201230135658712"></p><p>访问<code>http://127.0.0.1/</code>仍能看到欢迎页：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201224/image-20201224154810411.png" alt="image-20201224154810411"></p><p>此时尝试使用命令<code>nginx.exe -s stop</code>停止服务发现报错：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201224/image-20201224155307560.png" alt="image-20201224155307560"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>由于我本地的nginx有监听<strong>8099</strong>端口，所以使用 <code>netstat -ano | findstr &quot;8099&quot;</code> 查看占用<strong>8099</strong>端口的进程的PID</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201224/image-20201224155124048.png" alt="image-20201224155124048"></p><p>拿到上面的PID，通过 <code>tasklist | findstr &quot;PID&quot;</code> 命令找到nginx进程信息</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201224/image-20201224155205370.png" alt="image-20201224155205370"></p><p>然后通过 <code>taskkill /f /t /im nginx.exe</code> 结束nginx进程</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201224/image-20201224155244186.png" alt="image-20201224155244186"></p><p>然后再次访问 <code>http://127.0.0.1/</code> 发现nginx服务已成功停止</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20201224/image-20201224154830113.png" alt="image-20201224154830113"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Eclipse常用快捷键</title>
       <link href="/2020/12/03/Eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
       <url>/2020/12/03/Eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
@@ -2893,9 +2912,9 @@
       
         <tags>
             
-            <tag> SpringMVC </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
             
         </tags>
       
