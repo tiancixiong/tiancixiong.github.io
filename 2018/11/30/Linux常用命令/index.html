@@ -966,7 +966,38 @@ kill 9 表示强制终止
 <li>Linux centos重启命令：<strong>reboot</strong></li>
 <li>Linux centos关机命令：<strong>halt</strong></li>
 </ol>
-<h2 id="3-8-其他命令（了解）"><a href="#3-8-其他命令（了解）" class="headerlink" title="3.8 其他命令（了解）"></a>3.8 其他命令（了解）</h2><h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><pre><code class="shell"># 显示日期与时间
+<h3 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h3><pre><code class="shell"># 格式
+shutdown [-krhc] [时间] [警告讯息]
+
+选项与参数：
+-k：不要真的关机，只是发送警告讯息出去！
+-r：在将系统的服务停掉之后就重新开机（常用）
+-h：将系统的服务停掉后，立即关机（常用）
+-c：取消已经在进行的 shutdown 指令内容。
+时间：指定系统关机的时间
+
+特殊：
+shutdown -h now    #立刻关机，其中 now 相当于时间为 0 的状态
+shutdown -h 20:25 #系统在今天的20:25关机，若在21:25才下达此指令，则隔天才关机
+shutdown -h +10 #系统再过十分钟后自动关机
+shutdown -r now #系统立刻重新开机
+shutdown -r +30 &#39;The system will reboot&#39; #再过三十分钟系统会重新开机，并显示后面的讯息给所有在线上的使用者
+shutdown -k now &#39;This system will reboot&#39; #仅发出警告信件的参数！系统并不会关机啦！吓唬人！
+</code></pre>
+<p>其他关机或重启的命令</p>
+<pre><code class="shell">reboot        #直接重启系统
+poweroff    #系统关机，所以没有提供额外的电力，屏幕空白
+halt        #系统停止，屏幕可能会保留系统已经停止的讯息
+</code></pre>
+<p>其实上面这些命令都是调用了 <strong>systemctl</strong> 这个指令，这个指令跟关机有关的语法如下：</p>
+<pre><code class="shell">systemctl [指令]
+指令：
+halt        进入系统停止的模式，屏幕可能会保留已有些讯息，这与你的电源管理模式有关
+poweroff    进入系统关机模式，直接关机没有提供电力
+reboot        直接重新开机
+suspend        进入休眠模式
+</code></pre>
+<h2 id="3-8-其他命令"><a href="#3-8-其他命令" class="headerlink" title="3.8 其他命令"></a>3.8 其他命令</h2><h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><pre><code class="shell"># 显示日期与时间
 date [+%Y/%m/%d]
 
 # 显示日历
@@ -986,6 +1017,12 @@ quit
 
 
 </code></pre>
+<h3 id="热键"><a href="#热键" class="headerlink" title="热键"></a>热键</h3><ul>
+<li><code>Tab</code> 命令补全<strong>、</strong>文件补齐</li>
+<li><code>Ctrl+C</code> 中断目前的程序</li>
+<li><code>Ctrl+D</code> 相当于输入<strong>exit</strong></li>
+<li><code>Shift+PgUp/PgDn</code> 向前/后翻页</li>
+</ul>
 <h3 id="chmod-文件权限"><a href="#chmod-文件权限" class="headerlink" title="chmod 文件权限"></a><em>chmod</em> 文件权限</h3><ol>
 <li><p>hmod(change mode) 功能：变更文件或目录的权限</p>
 </li>
@@ -1071,26 +1108,130 @@ NETMASK=255.255.255.0       #子网掩码
 <pre><code>cd   切换目录（change directory）
 pwd  显示当前工作目录（print working directory）
 help 帮助
-
 </code></pre></li>
 <li><p>外部命令：独立于Shell解析器之外的文件程序（独立的可执行文件）</p>
 <pre><code>ls    显示文件和目录列表（list）
 mkdir 创建目录（make directoriy）
 cp    复制文件或目录（copy）
-
 </code></pre></li>
 <li><p>查看帮助文档</p>
 <ul>
 <li><p>内部命令：help + 命令（eg：help cd）</p>
 <p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538643143565.png" alt="1538643143565"> </p>
 </li>
-<li><p>外部命令：man + 命令（eg：man ls）</p>
+<li><p>外部命令：man + 命令（eg：man ls）；在man中<strong>空格键</strong>为翻页，按<strong>q</strong>离开</p>
 <p><img src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181130/1538643159745.png" alt="1538643159745"> </p>
 </li>
 </ul>
 </li>
-<li><p>不用特意记忆命令分类，开发中，如果需要查看命令参数，先使用<strong>man</strong>，如果没有结果，再使用<strong>help</strong></p>
+<li><p>不用特意记忆命令分类，开发中，如果需要查看命令参数，先使用<code>man</code>，如果没有结果，再使用<code>help</code></p>
 </li>
+</ul>
+<h2 id="man-page"><a href="#man-page" class="headerlink" title="man page"></a>man page</h2><pre><code class="shell"># 格式
+man [命令]    # 查看某个命令的操作说明
+</code></pre>
+<p>举个栗子👇：</p>
+<pre><code class="shell"># 语法：`man + 命令`
+[root@localhost ~]$ man date
+DATE(1)         User Commands             DATE(1)
+Name
+...
+SYNOPSIS
+...
+</code></pre>
+<p><strong>DATE(1)</strong>中括号内的数字具体表示内容如下：</p>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>代表内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>使用者在shell环境中可以操作的指令或可执行文件【重要】</td>
+</tr>
+<tr>
+<td>2</td>
+<td>系统核心可调用的函数与工具等</td>
+</tr>
+<tr>
+<td>3</td>
+<td>一些常用的函数（function）与函数库（library），大部分为C的函数库（libc）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>设备文件的说明，通常在/dev下的文件</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>配置文件或者是某些文件的格式【重要】</td>
+</tr>
+<tr>
+<td>6</td>
+<td>游戏（games）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>惯例与协定等，例如Linux文件系统、网络协定、ASCII code等等的说明</td>
+</tr>
+<tr>
+<td><code>8</code></td>
+<td>系统管理员可用的管理指令【重要】</td>
+</tr>
+<tr>
+<td>9</td>
+<td>跟kernel有关的文件</td>
+</tr>
+</tbody>
+</table>
+<p>man page的内容以 <strong>NAME</strong> 作为开始介绍，最后还有个 <strong>SEE ALSO</strong> 来作为结束，大致分成下面这几个部分：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内容说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NAME</td>
+<td>简短的指令、数据名称说明</td>
+</tr>
+<tr>
+<td>SYNOPSIS</td>
+<td>简短的指令下达语法（syntax）简介</td>
+</tr>
+<tr>
+<td>DESCRIPTION</td>
+<td>较为完整的说明，这部分最好仔细看看！</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>针对 SYNOPSIS 部分中，有列举的所有可用的选项说明</td>
+</tr>
+<tr>
+<td>COMMANDS</td>
+<td>当这个程序（软件）在执行的时候，可以在此程序（软件）中下达的指令</td>
+</tr>
+<tr>
+<td>FILES</td>
+<td>这个程序或数据所使用或参考或链接到的某些文件</td>
+</tr>
+<tr>
+<td>SEE ALSO</td>
+<td>可以参考的，跟这个指令或数据有相关的其他说明！</td>
+</tr>
+<tr>
+<td>EXAMPLE</td>
+<td>一些可以参考的范例</td>
+</tr>
+</tbody>
+</table>
+<p>在man page当中可以使用 <strong>PgUp/PgDn</strong> 来翻页，可以输入 <code>/word</code> 来查询关键字，按下 <code>q</code> 可以退出</p>
+<h1 id="参考资料与延伸阅读"><a href="#参考资料与延伸阅读" class="headerlink" title="参考资料与延伸阅读"></a>参考资料与延伸阅读</h1><ul>
+<li><a href="http://linux.vbird.org/linux_basic/" target="_blank" rel="noopener">鸟哥的Linux私房菜 : 基础学习篇 第四版</a></li>
 </ul>
 
         </div>
