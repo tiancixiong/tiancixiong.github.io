@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2020-12-30T06:18:21.021Z</updated>
+  <updated>2021-01-05T03:02:58.938Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VMware中网络三种连接方式</title>
+    <link href="https://www.xiongtianci.com/2021/01/05/VMware%E4%B8%AD%E7%BD%91%E7%BB%9C%E4%B8%89%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/"/>
+    <id>https://www.xiongtianci.com/2021/01/05/VMware中网络三种连接方式/</id>
+    <published>2021-01-05T03:02:09.000Z</published>
+    <updated>2021-01-05T03:02:58.938Z</updated>
+    
+    <summary type="html">
+    
+      VMware中网络三种连接方式
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>nginx停止后仍然生效(win)</title>
@@ -390,28 +408,6 @@
       <category term="Chrome" scheme="https://www.xiongtianci.com/tags/Chrome/"/>
     
       <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安装VMware时警告此产品安装程序不支持降级</title>
-    <link href="https://www.xiongtianci.com/2020/04/18/%E5%AE%89%E8%A3%85VMware%E6%97%B6%E8%AD%A6%E5%91%8A%E6%AD%A4%E4%BA%A7%E5%93%81%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F%E4%B8%8D%E6%94%AF%E6%8C%81%E9%99%8D%E7%BA%A7/"/>
-    <id>https://www.xiongtianci.com/2020/04/18/安装VMware时警告此产品安装程序不支持降级/</id>
-    <published>2020-04-18T06:22:22.000Z</published>
-    <updated>2020-07-04T08:31:53.535Z</updated>
-    
-    <summary type="html">
-    
-      安装VMware时警告此产品安装程序不支持降级
-    
-    </summary>
-    
-      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="VMware" scheme="https://www.xiongtianci.com/tags/VMware/"/>
     
   </entry>
   
