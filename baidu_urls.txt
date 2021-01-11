@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2021/01/05/Linux中ls-l输出内容介绍/
 https://www.xiongtianci.com/2021/01/05/VMware中网络三种连接方式/
 https://www.xiongtianci.com/2020/12/24/nginx停止后仍然生效(win)/
 https://www.xiongtianci.com/2020/12/03/Eclipse常用快捷键/

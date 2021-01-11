@@ -7,10 +7,10 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="天赐,天赐の小站,博客">
+  <meta name="keywords" content="a,b...,天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">天赐の小站</title>
+  <title itemprop="name">《鸟哥Linux私房菜-基础版》学习笔记 | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
   
@@ -336,462 +336,307 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
-<div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">進撃の巨人最终季热播中，献上心脏吧！！！</div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1528164344705-47542687000d?w=540);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      《鸟哥Linux私房菜-基础版》学习笔记</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://www.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://www.xiongtianci.com">天赐</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-1-5<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  
-  <!--首页startdash-->
-<!--<div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-</div>-->
+
+<div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
-      
-  <!-- 首页默认获取最新文章集 -->
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/05/Linux中ls-l输出内容介绍/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-5 11:01</div>
-      <a href="/2021/01/05/Linux中ls-l输出内容介绍/" class="post-title">
-        <h3>《鸟哥Linux私房菜-基础版》学习笔记</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>Linux中ls -l输出内容介绍</p>
-        <div class="post-bottom">
-          <a href="/2021/01/05/Linux中ls-l输出内容介绍/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+        <div class="entry-content">
+          <h2 id="Linux文件权限概念"><a href="#Linux文件权限概念" class="headerlink" title="Linux文件权限概念"></a>Linux文件权限概念</h2><p><img src="20210105-Linux中ls-l输出内容介绍.assets/image-20210105114831203.png" alt="image-20210105114831203"></p>
+<p>1 文件类型，其由十个字符组合而成：</p>
+<ul>
+<li>第一个字符代表这个文件是“目录、文件或链接文件等等”：<ul>
+<li>[d] 表示是<strong>目录</strong></li>
+<li>[-] 表示是<strong>文件</strong></li>
+<li>[l] 表示是<strong>链接文件</strong>(link file)</li>
+<li>[b] 表示为设备文件里面的可供储存的周边设备（可随机存取设备）</li>
+<li>[c] 表示为设备文件里面的序列埠设备，例如键盘、鼠标（一次性读取设备）</li>
+</ul>
+</li>
+<li>接下来的字符中，以三个为一组，且均为 <strong>rwx</strong> 的三个参数的组合。其中，[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)。 要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号[ - ]而已<ul>
+<li>第一组(第2-4位)为<strong>文件拥有者可具备的权限</strong></li>
+<li>第二组(第5-7位)为<strong>加入此群组之帐号的权限</strong></li>
+<li>第三组(第8-10位)为<strong>非本人且没有加入本群组之其他帐号的权限</strong></li>
+</ul>
+</li>
+</ul>
+<p>2 第二栏表示有多少文件名链接到此节点（i-node）<br>3 第三栏表示这个文件（或目录）的“拥有者帐号”<br>4 第四栏表示这个文件的所属群组<br>5 第五栏为这个文件的容量大小，默认单位为字节<br>6 第六栏为这个文件的创建日期或者是最近的修改日期；这一栏的内容分别为日期（月/日）及时间。如果这个文件被修改的时间距离现在太久了，那么时间部分会仅显示年份而已。<br>7 第七栏为这个文件的文件名；如果文件名是以”<code>.</code>“开头，则代表这个文件为 <strong>隐藏文件</strong></p>
+<h2 id="Linux目录配置"><a href="#Linux目录配置" class="headerlink" title="Linux目录配置"></a>Linux目录配置</h2><p>FHS(英文：Filesystem Hierarchy Standard 中文:文件系统层次结构标准)，多数Linux版本采用这种文件组织形式，FHS定义了系统中每个区域的用途、所需要的最小构成的文件和目录同时还给出了例外处理与矛盾处理</p>
+<p>主要几个目录：</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>根目录</td>
+</tr>
+<tr>
+<td>/bin</td>
+<td>执行文件目录，主要有 cat、chmod、chown、date、mv、mkdir、cp、bash 等常用的命令</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>开机文件目录，Linux内核文件(以vmlinuz开头)以及开机菜单与开机所需配置文件</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>驱动设备目录，任何设备与接口设备都是以文件的形式存在于这个目录当中的</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>配置文件目录，系统主要的配置文件几乎都放置在这个目录内</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>用户主文件夹，</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>系统函数库，</td>
+</tr>
+<tr>
+<td>/media</td>
+<td>媒体设备暂挂区，放置可移除的设备(软盘、光盘、DVD等)</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>额外设备暂挂区，暂时挂载某些额外的设备</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>第三方软件安装目录</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>管理员主文件夹</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>重要系统执行文件</td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>服务数据存放目录</td>
+</tr>
+<tr>
+<td>/sys</td>
+<td>虚拟文件系统目录，记录核心与系统硬件信息较相关的信息</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>临时文件存放目录</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>系统软件资源目录，FHS 建议所有软件开发者应该将他们的数据合理地分别放置到这个目录下的子目录，而不要自行新建该软件的独立目录</td>
+</tr>
+<tr>
+<td>/usr/bin/</td>
+<td>绝大部分的用户可使用命令都放在这里，另外，FHS 要求在此目录下不应该有子目录</td>
+</tr>
+<tr>
+<td>/usr/include/</td>
+<td>C/C++等程序语言的头文件（header）与包含文件（include）放置处</td>
+</tr>
+<tr>
+<td>/usr/lib/</td>
+<td>与 <code>/lib</code> 功能相同，包含各应用软件的函数库、目标文件以及一些不被一般用户惯用的执行文件或脚本</td>
+</tr>
+<tr>
+<td><strong>/usr/local/</strong></td>
+<td>系统管理员在本机自行安装下载的软件建议安装到此目录</td>
+</tr>
+<tr>
+<td>/usr/sbin/</td>
+<td>非系统正常运行所需的系统命令，基本功能与 <code>/sbin</code> 也差不多</td>
+</tr>
+<tr>
+<td>/usr/share/</td>
+<td>放置共享文件的地方</td>
+</tr>
+<tr>
+<td>/usr/src/</td>
+<td>一般源码建议放置到这里</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>该目录主要针对常态性可变动文件，包括缓存(cache)、登录文件(log file)以及某些软件运行所产生的文件，包括程序文件(lock file、run file)，例如MySQL的文件等</td>
+</tr>
+<tr>
+<td>/var/cache/</td>
+<td>应用程序本身运行过程中会产生的一些暂存文件</td>
+</tr>
+<tr>
+<td>/var/lib/</td>
+<td>程序本身执行的过程中，需要使用到的数据文件放置的目录，不同软件应要有各自的目录，如MySQL的<code>/var/lib/mysql/</code>、rpm的<code>/var/lib/rpm</code></td>
+</tr>
+<tr>
+<td>/var/lock/</td>
+<td>目录下的文件资源一次只能被一个应用程序所使用</td>
+</tr>
+<tr>
+<td>/var/log/</td>
+<td>放置登录文件的目录，比较重要的文件：<code>/var/log/messages</code>、<code>/var/log/wtmp</code>(记录登陆者的信息)等</td>
+</tr>
+<tr>
+<td>/var/mail/</td>
+<td>放置个人电子邮件信箱的目录，这个目录也被放置到<code>/var/spool/mail/</code>目录中</td>
+</tr>
+<tr>
+<td>/var/run/</td>
+<td>放置某些程序或服务启动后的PID</td>
+</tr>
+<tr>
+<td>/var/spool/</td>
+<td>放置排队等待其他应用程程序使用的数据</td>
+</tr>
+</tbody>
+</table>
+<h2 id="目录与路径"><a href="#目录与路径" class="headerlink" title="目录与路径"></a>目录与路径</h2><h3 id="特殊目录"><a href="#特殊目录" class="headerlink" title="特殊目录"></a>特殊目录</h3><ul>
+<li><code>.</code> 代表此层目录</li>
+<li><code>..</code> 代表上一层目录</li>
+<li><code>-</code> 代表前一个工作目录</li>
+<li><code>~</code> 代表”目前使用者身份”所在的主文件夹</li>
+<li><code>~account</code> 代表 account 这个使用者的主文件夹（account是个帐号名称）</li>
+</ul>
+<h2 id="常见的压缩命令"><a href="#常见的压缩命令" class="headerlink" title="常见的压缩命令"></a>常见的压缩命令</h2><p>常见的压缩文件扩展名：</p>
+<pre><code>*.Z         compress 程序压缩的文件；
+*.zip         zip 程序压缩的文件；
+*.gz         gzip 程序压缩的文件；
+*.bz2         bzip2 程序压缩的文件；
+*.xz         xz 程序压缩的文件；
+*.tar         tar 程序打包的数据，并没有压缩过；
+*.tar.gz     tar 程序打包的文件，其中并且经过 gzip 的压缩
+*.tar.bz2     tar 程序打包的文件，其中并且经过 bzip2 的压缩
+*.tar.xz     tar 程序打包的文件，其中并且经过 xz 的压缩
+</code></pre>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/05/VMware中网络三种连接方式/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1414438992182-69e404046f80?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-5 11:01</div>
-      <a href="/2021/01/05/VMware中网络三种连接方式/" class="post-title">
-        <h3>VMware中网络三种连接方式</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/VMware/">VMware<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/软件/">软件</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>VMware中网络三种连接方式</p>
-        <div class="post-bottom">
-          <a href="/2021/01/05/VMware中网络三种连接方式/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/12/24/nginx停止后仍然生效(win)/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1502646434673-f914c2b11728?w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-12-24 15:12</div>
-      <a href="/2020/12/24/nginx停止后仍然生效(win)/" class="post-title">
-        <h3>nginx停止后仍然生效(win)</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
         
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
+        
           
-            <a href="/categories/工具/">工具</a>
+            <div class="post-nepre full next">
           
-        </span>
-      </div>
-      <div class="float-content">
-        <p>nginx停止后仍然生效(win)</p>
-        <div class="post-bottom">
-          <a href="/2020/12/24/nginx停止后仍然生效(win)/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+            <a href="/2021/01/05/VMware中网络三种连接方式/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1414438992182-69e404046f80?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                VMware中网络三种连接方式</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://www.xiongtianci.com" itemprop="url" rel="author">天赐</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/12/03/Eclipse常用快捷键/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1528214096798-37891d32174c?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-12-3 10:12</div>
-      <a href="/2020/12/03/Eclipse常用快捷键/" class="post-title">
-        <h3>Eclipse常用快捷键</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/Eclipse/">Eclipse<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/IDE/">IDE</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>Eclipse常用快捷键</p>
-        <div class="post-bottom">
-          <a href="/2020/12/03/Eclipse常用快捷键/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/11/08/CentOS7设置静态IP并成功上网/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1501607087079-27057d2fdc93?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-11-8 09:11</div>
-      <a href="/2020/11/08/CentOS7设置静态IP并成功上网/" class="post-title">
-        <h3>CentOS7设置静态IP并成功上网</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/CentOS7/">CentOS7<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/Linux/">Linux</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>CentOS7设置静态IP并成功上网</p>
-        <div class="post-bottom">
-          <a href="/2020/11/08/CentOS7设置静态IP并成功上网/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1527067829737-402993088e6b?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-10-31 10:10</div>
-      <a href="/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/" class="post-title">
-        <h3>IDEA启动警告「OpenJDK 64-Bit Server VM warning」</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/IDEA/">IDEA<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/踩坑/">踩坑</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>IDEA启动警告「OpenJDK 64-Bit Server VM warning」</p>
-        <div class="post-bottom">
-          <a href="/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/10/30/黑马十次方微服务项目资源/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1543352449-2109a4fa225b?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-10-30 19:10</div>
-      <a href="/2020/10/30/黑马十次方微服务项目资源/" class="post-title">
-        <h3>黑马十次方微服务项目资源</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/十次方/">十次方<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资料/">资料</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>黑马十次方微服务项目资源</p>
-        <div class="post-bottom">
-          <a href="/2020/10/30/黑马十次方微服务项目资源/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/10/12/win10所有文件夹全变成只读/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1510041883570-1c5b27d85cb8?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-10-12 19:10</div>
-      <a href="/2020/10/12/win10所有文件夹全变成只读/" class="post-title">
-        <h3>win10所有文件夹全变成只读</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/win/">win<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/win/">win</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>win10所有盘符的目录全变成只读</p>
-        <div class="post-bottom">
-          <a href="/2020/10/12/win10所有文件夹全变成只读/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/10/12/everything无法搜索刚插入的硬盘中的文件/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1453230806017-56d81464b6c5?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-10-12 09:10</div>
-      <a href="/2020/10/12/everything无法搜索刚插入的硬盘中的文件/" class="post-title">
-        <h3>everything无法搜索刚插入的硬盘中的文件</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/Everything/">Everything<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/工具/">工具</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>everything无法搜索刚插入的硬盘中的文件</p>
-        <div class="post-bottom">
-          <a href="/2020/10/12/everything无法搜索刚插入的硬盘中的文件/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/10/10/安装完svn后在bin目录中没有svn-exe文件/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1516708470135-b682ea011b4c?w=540">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-10-10 16:10</div>
-      <a href="/2020/10/10/安装完svn后在bin目录中没有svn-exe文件/" class="post-title">
-        <h3>安装完svn后在bin目录中没有svn.exe文件</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/SVN/">SVN<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/踩坑/">踩坑</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>安装完svn后在bin目录中没有svn.exe文件</p>
-        <div class="post-bottom">
-          <a href="/2020/10/10/安装完svn后在bin目录中没有svn-exe文件/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">Next</a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/2/" class>Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
 
     </div>    
     <div class="ins-search">
