@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>Eclipse在模块上右键没有gradle菜单选项</title>
+      <link href="/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/"/>
+      <url>/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Eclipse：Neon.2 Release (4.6.2)<br>插件：Gradle IDE Pack 3.8.x+1.0.x<br><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304155359090.png" alt="image-20210304155359090"></p></blockquote><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>正常情况下，在模块上右键弹出的菜单应该会有 <code>Gradle(STS)</code> 选项，可以用于gradle有关操作：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304153454671.png" alt="image-20210304153454671"></p><p>但是我今天更新代码后，项目模块的右键菜单上没有了 <code>Gradle(STS)</code> 选项：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304160049427.png" alt="image-20210304160049427"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在项目模块上右键，选择：<code>Configure</code>-&gt;<code>Convert to Gradle(STS) Project</code> 即可</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304160402238.png" alt="image-20210304160402238"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Eclipse </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Eclipse右键team显示的是git菜单,怎么切换成svn菜单?</title>
       <link href="/2021/03/04/Eclipse%E5%8F%B3%E9%94%AEteam%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AFgit%E8%8F%9C%E5%8D%95-%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E6%88%90svn%E8%8F%9C%E5%8D%95/"/>
       <url>/2021/03/04/Eclipse%E5%8F%B3%E9%94%AEteam%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AFgit%E8%8F%9C%E5%8D%95-%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E6%88%90svn%E8%8F%9C%E5%8D%95/</url>
       
-        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>由于这个项目我同时使用了<code>svn</code>和<code>git</code>，在<strong>Import</strong>新的模块后，右键中<code>Team</code>下的菜单全是<strong>git</strong>的功能，现在需要将其改成<strong>svn选项</strong></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095602826.png" alt="image-20210304095602826"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1.先右键此模块，选择：<code>Team</code> -&gt; <code>Disconnect</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095758102.png" alt="image-20210304095758102"></p><p>2.再右键此模块，选择：<code>Team</code> -&gt; <code>Share Project</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095911702.png" alt="image-20210304095911702"></p><p>3.在弹出框中选择<code>SVN</code>，点击<strong>Next</strong>，点击<strong>Finish</strong>，就完成了</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095953177.png" alt="image-20210304095953177"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>由于这个项目我同时使用了 <code>svn</code> 和 <code>git</code>，在 <strong>Import</strong> 新的模块后，右键中 <code>Team</code> 下的菜单全是 <strong>git</strong> 的功能，现在需要将其改成 <strong>svn选项</strong></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095602826.png" alt="image-20210304095602826"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1.先右键此模块，选择：<code>Team</code> -&gt; <code>Disconnect</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095758102.png" alt="image-20210304095758102"></p><p>2.再右键此模块，选择：<code>Team</code> -&gt; <code>Share Project</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095911702.png" alt="image-20210304095911702"></p><p>3.在弹出框中选择 <code>SVN</code>，点击 <strong>Next</strong>，点击 <strong>Finish</strong>，就完成了</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210304/image-20210304095953177.png" alt="image-20210304095953177"></p>]]></content>
       
       
       <categories>
@@ -2114,9 +2139,9 @@
             
             <tag> 踩坑 </tag>
             
-            <tag> MyBatis </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> MyBatis </tag>
             
             <tag> 乱码 </tag>
             

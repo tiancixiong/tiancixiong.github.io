@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2021-03-04T02:17:49.117Z</updated>
+  <updated>2021-03-04T08:07:55.805Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Eclipse在模块上右键没有gradle菜单选项</title>
+    <link href="https://www.xiongtianci.com/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/"/>
+    <id>https://www.xiongtianci.com/2021/03/04/Eclipse在模块上右键没有gradle菜单选项/</id>
+    <published>2021-03-04T07:32:04.000Z</published>
+    <updated>2021-03-04T08:07:55.805Z</updated>
+    
+    <summary type="html">
+    
+      Eclipse在模块上右键没有gradle菜单选项
+    
+    </summary>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Eclipse右键team显示的是git菜单,怎么切换成svn菜单?</title>
     <link href="https://www.xiongtianci.com/2021/03/04/Eclipse%E5%8F%B3%E9%94%AEteam%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AFgit%E8%8F%9C%E5%8D%95-%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E6%88%90svn%E8%8F%9C%E5%8D%95/"/>
     <id>https://www.xiongtianci.com/2021/03/04/Eclipse右键team显示的是git菜单-怎么切换成svn菜单/</id>
     <published>2021-03-04T01:51:16.000Z</published>
-    <updated>2021-03-04T02:17:49.117Z</updated>
+    <updated>2021-03-04T07:58:50.111Z</updated>
     
     <summary type="html">
     
@@ -392,22 +412,6 @@
     
     
       <category term="VMware" scheme="https://www.xiongtianci.com/tags/VMware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google涂鸦游戏-Coding for Carrots</title>
-    <link href="https://www.xiongtianci.com/2020/04/27/Google%E6%B6%82%E9%B8%A6%E6%B8%B8%E6%88%8F-Coding%20for%20Carrots/"/>
-    <id>https://www.xiongtianci.com/2020/04/27/Google涂鸦游戏-Coding for Carrots/</id>
-    <published>2020-04-27T11:26:54.000Z</published>
-    <updated>2020-07-04T08:31:01.991Z</updated>
-    
-    <summary type="html">
-    
-      Google涂鸦游戏-Coding for Carrots
-    
-    </summary>
-    
     
   </entry>
   
