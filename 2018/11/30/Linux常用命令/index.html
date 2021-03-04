@@ -909,45 +909,9 @@ ls -al &gt;&gt; a.txt
 </ul>
 </li>
 </ol>
-<h2 id="2-6-压缩-解压"><a href="#2-6-压缩-解压" class="headerlink" title="2.6 压缩 / 解压"></a>2.6 压缩 / 解压</h2><ol>
-<li><p>Linux常见压缩包： <em>.tar        打包，大小不会进行压缩<br>​              </em>.tar.gz   打包并压缩文件大小</p>
-</li>
-<li><p><strong>压缩</strong>：(<strong>参数顺序不变</strong>)</p>
-<pre><code># 格式
-tar -zcvf 压缩包名字.tar.gz 需要压缩的内容
-
-# 参数
--z 是否需要用 gzip 压缩
--c 建立一个压缩文件的参数指令（create）--压缩
--v 压缩的过程中显示文件（verbose）
--f 使用档案名称，在 f 之后要立即接档名（file）
-
-</code></pre><p>eg：</p>
-<pre><code>例如：tar -zcvf hehe.tar.gz *   将当前目录下所有内容进行打包压缩，文件名hehe.tar.gz
-</code></pre></li>
-<li><p><strong>解压</strong>：(<strong>参数顺序不变</strong>)</p>
-<pre><code># 解压到当前目录
-tar -zxvf 需要解压的压缩包名称 解压到当前目录
-# 解压到指定目录
-tar -zxvf 需要解压的压缩包名称 -C 指定压缩路径  解压到指定目录中
-
-# 参数
--z 是否需要用 gzip 压缩
--x 解开一个压缩文件的参数指令（extract）--解压
--v 压缩的过程中显示文件（verbose）
--f 使用档名，在 f 之后要立即接档名（file）
-
-</code></pre><p>eg：</p>
-<pre><code>需求：需要把/root/t5/hehe.tar.gz  压缩包 解压到 指定目录中。指定目录/root/t5/t5
-位置：/root/t5
-命令：tar -zxvf hehe.tar.gz -C /root/t5/t5
-tar -zxvf hehe.tar.gz -C t5
-
-</code></pre></li>
-</ol>
-<h3 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a><em>gzip</em></h3><pre><code class="shell"># 格式
+<h2 id="2-6-压缩-解压"><a href="#2-6-压缩-解压" class="headerlink" title="2.6 压缩 / 解压"></a>2.6 压缩 / 解压</h2><h3 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a><em>gzip</em></h3><pre><code class="shell"># 格式
 gzip [-cdtv#] 文件名
-选项与参数：
+# 选项与参数：
 -c ：将压缩的数据输出到屏幕上，可通过数据流重导向来处理；
 -d ：解压缩的参数；
 -t ：可以用来检验一个压缩文件的一致性～看看文件有无错误；
@@ -958,9 +922,98 @@ gzip [-cdtv#] 文件名
 gzip -v services #压缩
 gzip -d services.gz #解压
 zcat services.gz #查看压缩文件的内容
-
 </code></pre>
 <p>使用 <strong>gzip</strong> 进行压缩时，在默认的状态下原本的文件会被压缩成为 <code>.gz</code> 的文件名，原始文件就不再存在了；与 <strong>gzip</strong> 相反， <strong>gzip -d</strong> 会将原本的 <code>.gz</code> 删除</p>
+<h3 id="bzip2"><a href="#bzip2" class="headerlink" title="bzip2"></a><em>bzip2</em></h3><pre><code class="shell"># 格式
+bzip2 [-cdkzv#] 文件名
+# 选项与参数：
+-c ：将压缩的过程产生的数据输出到屏幕上！
+-d ：解压缩的参数
+-k ：保留原始文件，而不会删除原始的文件喔！
+-z ：压缩的参数 （默认值，可以不加）
+-v ：可以显示出原文件/压缩文件的压缩比等信息；
+-# ：与 gzip 同样的，都是在计算压缩比的参数， -9 最佳， -1 最快！
+
+# 例子
+bzip2 -v services #压缩
+bzip2 -d services.bz2 #解压
+bzcat services.bz2 #查看压缩文件的内容
+</code></pre>
+<p><strong>bzip2</strong> 的<strong>压缩率</strong>比 <strong>gzip</strong> 要好些。不过，对于大容量文件来说，<strong>bzip2</strong> 的<strong>压缩时间</strong>会比 <strong>gzip</strong> 要更久一些</p>
+<h3 id="xz"><a href="#xz" class="headerlink" title="xz"></a><em>xz</em></h3><pre><code class="shell"># 格式
+xz [-dtlkc#] 文件名
+# 选项与参数：
+-d ：就是解压缩啊！
+-t ：测试压缩文件的完整性，看有没有错误
+-l ：列出压缩文件的相关信息
+-k ：保留原本的文件不删除～
+-c ：同样的，就是将数据由屏幕上输出的意思！
+-v ：可以显示出原文件/压缩文件的压缩比等信息；
+-# ：同样的，也有较佳的压缩比的意思！
+
+# 例子
+xz -v services #压缩
+xz -d services.xz #解压
+xzcat services.xz #查看压缩文件的内容
+</code></pre>
+<p>压缩率从高到低：<em>xz</em> &gt; <em>bzip2</em> &gt; <em>gzip</em><br>压缩时间从长到短：<em>xz</em> &gt; <em>bzip2</em> &gt; <em>gzip</em></p>
+<h3 id="tar-打包"><a href="#tar-打包" class="headerlink" title="tar 打包"></a><em>tar</em> 打包</h3><p>打包：将多个文件或目录包成一个大文件</p>
+<ol>
+<li>Linux常见压缩包： <em>.tar        打包，大小不会进行压缩<br>​              </em>.tar.gz   打包并压缩文件大小</li>
+</ol>
+<pre><code class="shell"># 格式
+tar [-j|-z] [cv] [-f 创建的档名] filename...        #打包与压缩
+tar [-j|-z] [tv] [-f 创建的档名]                    #察看档名
+tar [-j|-z] [xv] [-f 创建的档名] [-C 目录]        #解压缩
+# 选项与参数：
+-c  ：创建打包文件，可搭配 -v 来察看过程中被打包的档名(filename)
+-t  ：查看打包文件的内容含有哪些档名，重点在察看『档名』就是了；
+-x  ：解打包或解压缩的功能，可以搭配 -C (大写) 在特定目录解开
+      特别留意的是， -c, -t, -x 不可同时出现在一串命令列中。
+-z  ：通过 gzip  的支持进行压缩/解压缩：此时档名最好为 *.tar.gz
+-j  ：通过 bzip2 的支持进行压缩/解压缩：此时档名最好为 *.tar.bz2
+-J ：通过 xz 的支持进行压缩/解压缩：此时文件名最好为 *.tar.xz
+特别留意， -z, -j, -J 不可以同时出现在一串命令行中
+-v  ：在压缩/解压缩的过程中，将正在处理的档名显示出来！
+-f filename：-f 后面要立刻接要被处理的档名！建议 -f 单独写一个选项罗！
+-C 目录    ：这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项。
+</code></pre>
+<p>tar 并不会主动的产生创建的文件名，如果不加 [-z|-j|-J] 的话，文件名最好取为 .tar 即可</p>
+<ol>
+<li><p><strong>压缩</strong>：(<strong>参数顺序不变</strong>)</p>
+<pre><code class="shell"># 格式
+tar -zcvf 压缩包名字.tar.gz 需要压缩的内容
+
+# 选项与参数：
+-z 是否需要用 gzip 压缩
+-c 建立一个压缩文件的参数指令（create）--压缩
+-v 压缩的过程中显示文件（verbose）
+-f 使用档案名称，在 f 之后要立即接档名（file）
+
+</code></pre>
+<p>eg：</p>
+<pre><code>例如：tar -zcvf hehe.tar.gz *   将当前目录下所有内容进行打包压缩，文件名hehe.tar.gz
+</code></pre></li>
+<li><p><strong>解压</strong>：(<strong>参数顺序不变</strong>)</p>
+<pre><code class="shell"># 解压到当前目录
+tar -zxvf 需要解压的压缩包名称 解压到当前目录
+# 解压到指定目录
+tar -zxvf 需要解压的压缩包名称 -C 指定压缩路径  解压到指定目录中
+
+# 参数
+-z 是否需要用 gzip 压缩
+-x 解开一个压缩文件的参数指令（extract）--解压
+-v 压缩的过程中显示文件（verbose）
+-f 使用档名，在 f 之后要立即接档名（file）
+
+</code></pre>
+<p>eg：</p>
+<pre><code class="shell"># 把 /root/t5/abc.tar.gz 解压到 /root/t5/t5 目录中
+tar -zxvf /root/t5/abc.tar.gz -C /root/t5/t5
+tar -zxvf hehe.tar.gz -C t5
+</code></pre>
+</li>
+</ol>
 <h2 id="2-7-系统命令"><a href="#2-7-系统命令" class="headerlink" title="2.7 系统命令"></a>2.7 系统命令</h2><h3 id="系统服务"><a href="#系统服务" class="headerlink" title="系统服务"></a>系统服务</h3><p>服务，是指常期运行，常驻内存中的进程，比如，apache、mysql、ssh等</p>
 <h4 id="服务与端口"><a href="#服务与端口" class="headerlink" title="服务与端口"></a>服务与端口</h4><p>每个服务软件一般在运行时都会对应一个端口。<br>查看监听的端口：</p>
 <pre><code class="shell">ss –lntp
