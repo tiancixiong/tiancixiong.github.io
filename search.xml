@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title>IDEA格式化代码后,方法顺序被改变</title>
+      <link href="/2021/07/13/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81%E5%90%8E-%E6%96%B9%E6%B3%95%E9%A1%BA%E5%BA%8F%E8%A2%AB%E6%94%B9%E5%8F%98/"/>
+      <url>/2021/07/13/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81%E5%90%8E-%E6%96%B9%E6%B3%95%E9%A1%BA%E5%BA%8F%E8%A2%AB%E6%94%B9%E5%8F%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><blockquote><p>IDEA版本：2019.3</p></blockquote><p>使用<code>IDEA</code>编写java代码时，使用 <code>Ctrl+Alt+L</code>(win) 格式化代码操作之后发现代码中的方法顺序被改变了：</p><p>格式化前：</p><p><img src="20210713-IDEA格式化代码后-方法顺序被改变.assets/image-20210713114640170.png" alt="image-20210713114640170"></p><p>格式化后：</p><p><img src="20210713-IDEA格式化代码后-方法顺序被改变.assets/image-20210713114315313.png" alt="image-20210713114315313"></p><blockquote><p>method01 被移动到 test01 上方</p></blockquote><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>使用 <code>Shift+Ctrl+Alt+L</code>(win) 进行格式化，在弹出的选项中取消 <code>Rearrange code</code> 的勾选即可</p><p><img src="20210713-IDEA格式化代码后-方法顺序被改变.assets/image-20210713114535526.png" alt="image-20210713114535526"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>安装MongoDB服务报错“Error connecting to the Service Control Manager: 拒绝访问”(Windows)</title>
+      <link href="/2021/05/24/%E5%AE%89%E8%A3%85MongoDB%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%E2%80%9CError-connecting-to-the-Service-Control-Manager-%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E2%80%9D-Windows/"/>
+      <url>/2021/05/24/%E5%AE%89%E8%A3%85MongoDB%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%E2%80%9CError-connecting-to-the-Service-Control-Manager-%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E2%80%9D-Windows/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>创建的<code>mongod.cfg</code>配置文件内容：</p><pre><code class="yml">systemLog: destination: file path: D:\Java\MongoDB\data\log\mongod.logstorage: dbPath: D:\Java\MongoDB\data\db</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Eclipse在模块上右键没有gradle菜单选项</title>
       <link href="/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/"/>
       <url>/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/</url>
@@ -588,9 +632,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -711,9 +755,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -887,9 +931,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -2453,9 +2497,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> RunDashboard </tag>
             
@@ -2987,9 +3031,9 @@
       
         <tags>
             
-            <tag> 面试题 </tag>
-            
             <tag> SpringMVC </tag>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       
@@ -3554,9 +3598,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -4005,7 +4049,7 @@
       <link href="/2018/11/20/==%E5%92%8Cequals%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
       <url>/2018/11/20/==%E5%92%8Cequals%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
       
-        <content type="html"><![CDATA[<p>equals 和 == 最大的区别是一个是方法一个是运算符</p><ul><li><strong>==</strong>：如果比较的对象是==基本数据类型==，则比较的是<strong>数值</strong>是否相等；如果比较的是==引用数据类型==，则比较的是对象的<strong>地址值</strong>是否相等。</li><li><strong>equals()</strong>：用来比较方法两个对象的内容是否相等。<br>注意：equals 方法不能用于基本数据类型的变量，如果没有对equals方法进行重写，则比较的是==引用类型==的变量所指向的<strong>对象的地址</strong>。</li></ul>]]></content>
+        <content type="html"><![CDATA[<h3 id="1、"><a href="#1、" class="headerlink" title="1、=="></a>1、==</h3><p><code>==</code>是运算符</p><ul><li><p>在对==基本数据类型==进行比较时，是判断<strong>数值</strong>是否相等</p></li><li><p>对==引用数据类型==进行比较时，判断的是对象的<strong>地址值(内存地址)</strong>是否相等</p></li></ul><pre><code class="java">int i1 = 1;int i2 = 1;System.out.println(i1 == i2); //trueInteger i3 = new Integer(1);Integer i4 = new Integer(1);System.out.println(i3 == i4); //false</code></pre><h3 id="2、equals"><a href="#2、equals" class="headerlink" title="2、equals()"></a>2、equals()</h3><p><code>equals()</code>是<code>Object</code>中的方法，不能用于基本数据类型的比较，比较的是==引用类型==的变量所指向的<strong>对象的地址</strong><br>由于<code>String</code>类重写了equals方法，比较的是属性的值</p><pre><code class="java">String s1 = new String(&quot;a&quot;);String s2 = new String(&quot;a&quot;);System.out.println(s1 == s2); //false，s1和s2的内存地址不相等System.out.println(s1.equals(s2)); //true，s1和s2的值相等</code></pre>]]></content>
       
       
       <categories>
