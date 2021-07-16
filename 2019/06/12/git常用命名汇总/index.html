@@ -10,7 +10,7 @@
   <meta name="keywords" content="天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">git常用命名汇总 | 天赐の小站</title>
+  <title itemprop="name">Git常用命名汇总 | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
   
@@ -346,7 +346,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      git常用命名汇总</h1>
+      Git常用命名汇总</h1>
       <p class="entry-census">
         <span>
           <a href="https://www.xiongtianci.com">
@@ -458,11 +458,13 @@ git reset --hard HEAD~1
 # 回退到指定版本(版本号可以只写前几位,一般写前4位即可)
 git reset --hard 56db0ffa425e86bd999683e6b9903e1196290def
 
-
 # 放弃工作区某个文件的修改
 git checkout -- file
 # 把暂存区某个文件的修改撤销掉
 git reset HEAD &lt;file&gt;
+
+# 删除未跟踪的目录和文件
+git clean -d -f
 </code></pre>
 <h2 id="删除commit记录"><a href="#删除commit记录" class="headerlink" title="删除commit记录"></a>删除commit记录</h2><p>何时需要删除Git提交的历史记录</p>
 <ol>
@@ -1013,6 +1015,9 @@ git check-ignore -v &lt;filename&gt;
 </code></pre>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><pre><code class="shell"># 生成一个可供发布的压缩包
 git archive
+
+# 删除未跟踪的目录和文件
+git clean -d -f
 </code></pre>
 <p><code>HEAD</code>表示当前版本，也就是最新的提交。上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，<br>往上100个版本写100个<code>^</code> 比较容易数不过来，所以写成<code>HEAD~100</code>。<code>HEAD~2</code>相当于<code>HEAD^^</code></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
