@@ -10,7 +10,7 @@
   <meta name="keywords" content="天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">Git常用命名汇总 | 天赐の小站</title>
+  <title itemprop="name">git常用命名汇总 | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
   
@@ -346,7 +346,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Git常用命名汇总</h1>
+      git常用命名汇总</h1>
       <p class="entry-census">
         <span>
           <a href="https://www.xiongtianci.com">
@@ -463,8 +463,6 @@ git checkout -- file
 # 把暂存区某个文件的修改撤销掉
 git reset HEAD &lt;file&gt;
 
-# 删除未跟踪的目录和文件
-git clean -d -f
 </code></pre>
 <h2 id="删除commit记录"><a href="#删除commit记录" class="headerlink" title="删除commit记录"></a>删除commit记录</h2><p>何时需要删除Git提交的历史记录</p>
 <ol>
@@ -1016,7 +1014,7 @@ git check-ignore -v &lt;filename&gt;
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><pre><code class="shell"># 生成一个可供发布的压缩包
 git archive
 
-# 删除未跟踪的目录和文件
+# 删除未跟踪的目录和文件【慎用】
 git clean -d -f
 </code></pre>
 <p><code>HEAD</code>表示当前版本，也就是最新的提交。上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，<br>往上100个版本写100个<code>^</code> 比较容易数不过来，所以写成<code>HEAD~100</code>。<code>HEAD~2</code>相当于<code>HEAD^^</code></p>
@@ -1139,7 +1137,7 @@ git clean -d -f
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -1151,10 +1149,10 @@ git clean -d -f
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
