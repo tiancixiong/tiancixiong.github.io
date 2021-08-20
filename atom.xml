@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2021-08-09T10:55:43.749Z</updated>
+  <updated>2021-08-20T03:32:02.854Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决SVN每次commit后文件属性都变为只读</title>
+    <link href="https://www.xiongtianci.com/2021/08/20/%E8%A7%A3%E5%86%B3SVN%E6%AF%8F%E6%AC%A1commit%E5%90%8E%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E9%83%BD%E5%8F%98%E4%B8%BA%E5%8F%AA%E8%AF%BB/"/>
+    <id>https://www.xiongtianci.com/2021/08/20/解决SVN每次commit后文件属性都变为只读/</id>
+    <published>2021-08-20T03:06:39.000Z</published>
+    <updated>2021-08-20T03:32:02.854Z</updated>
+    
+    <summary type="html">
+    
+      解决SVN每次commit后文件属性都变为只读
+    
+    </summary>
+    
+      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+    
+    
+      <category term="SVN" scheme="https://www.xiongtianci.com/tags/SVN/"/>
+    
+      <category term="Eclispe" scheme="https://www.xiongtianci.com/tags/Eclispe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA格式化后注释无法和代码自动对齐</title>
+    <link href="https://www.xiongtianci.com/2021/08/12/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E6%B3%A8%E9%87%8A%E6%97%A0%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/"/>
+    <id>https://www.xiongtianci.com/2021/08/12/IDEA格式化后注释无法和代码自动对齐/</id>
+    <published>2021-08-12T06:58:58.000Z</published>
+    <updated>2021-08-12T07:32:40.664Z</updated>
+    
+    <summary type="html">
+    
+      IDEA格式化后注释无法和代码自动对齐
+    
+    </summary>
+    
+      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+    
+    
+      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+    
+  </entry>
   
   <entry>
     <title>Eclipse设置护眼背景色和字体颜色并导入导出</title>
@@ -367,50 +409,6 @@
       <category term="CentOS" scheme="https://www.xiongtianci.com/tags/CentOS/"/>
     
       <category term="Xftp6" scheme="https://www.xiongtianci.com/tags/Xftp6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用VMware15安装Linux(CentOS6.5)</title>
-    <link href="https://www.xiongtianci.com/2020/07/01/%E4%BD%BF%E7%94%A8VMware15%E5%AE%89%E8%A3%85Linux-CentOS6-5/"/>
-    <id>https://www.xiongtianci.com/2020/07/01/使用VMware15安装Linux-CentOS6-5/</id>
-    <published>2020-07-01T02:40:20.000Z</published>
-    <updated>2020-07-04T08:29:06.772Z</updated>
-    
-    <summary type="html">
-    
-      VMware15安装Linux(CentOS6.5)步骤记录
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Linux" scheme="https://www.xiongtianci.com/tags/Linux/"/>
-    
-      <category term="CentOS" scheme="https://www.xiongtianci.com/tags/CentOS/"/>
-    
-      <category term="VMware" scheme="https://www.xiongtianci.com/tags/VMware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何设置win10的视觉效果</title>
-    <link href="https://www.xiongtianci.com/2020/06/29/%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEwin10%E7%9A%84%E8%A7%86%E8%A7%89%E6%95%88%E6%9E%9C/"/>
-    <id>https://www.xiongtianci.com/2020/06/29/如何设置win10的视觉效果/</id>
-    <published>2020-06-29T02:21:56.000Z</published>
-    <updated>2020-07-04T08:29:17.634Z</updated>
-    
-    <summary type="html">
-    
-      Windows10中视觉效果的设置
-    
-    </summary>
-    
-      <category term="操作" scheme="https://www.xiongtianci.com/categories/%E6%93%8D%E4%BD%9C/"/>
-    
-    
-      <category term="win10" scheme="https://www.xiongtianci.com/tags/win10/"/>
     
   </entry>
   

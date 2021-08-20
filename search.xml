@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>解决SVN每次commit后文件属性都变为只读</title>
+      <link href="/2021/08/20/%E8%A7%A3%E5%86%B3SVN%E6%AF%8F%E6%AC%A1commit%E5%90%8E%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E9%83%BD%E5%8F%98%E4%B8%BA%E5%8F%AA%E8%AF%BB/"/>
+      <url>/2021/08/20/%E8%A7%A3%E5%86%B3SVN%E6%AF%8F%E6%AC%A1commit%E5%90%8E%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E9%83%BD%E5%8F%98%E4%B8%BA%E5%8F%AA%E8%AF%BB/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>环境：win10、Eclipse Neno.2、TortoiseSVN 1.14.0、Subclipse 4.3.3(eclipse插件)</p></blockquote><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>将svn中的项目的 <strong>Checkout</strong> 到本地使用eclipse开发过程中，发现每次 <strong>commit</strong> 后文件属性都变为 <strong>只读</strong> 属性，并且对刚刚提交后的文件进行编辑时就提示需要先锁定文件才能编辑</p><blockquote><p>笔者在eclipse中是使用的 Subclipse 对svn进行操作</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210820/image-20210820111409567.png" alt="image-20210820111409567"></p></blockquote><p>commit后编辑文件提示需要锁定：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210820/image-20210820112455733.png" alt="commit后编辑文件提示需要锁定"></p><p>文件属性变为只读：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210820/image-20210820112646097.png" alt="image-20210820112646097"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1.在项目根目录中 <code>鼠标右键</code>-&gt;<code>TortoiseSVN</code>-&gt;<code>Properties</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210820/image-20210820111954147.png" alt="image-20210820111954147"></p><p>2.在弹出的属性设置框中点击：<code>New</code>-&gt;<code>Needs-Lock</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210820/image-20210820112148846.png" alt="image-20210820112148846"></p><p>3.选择 <code>No locking required</code>，点击 <code>OK</code> 即可解决</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210820/image-20210820112234887.png" alt="image-20210820112234887"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SVN </tag>
+            
+            <tag> Eclispe </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>IDEA格式化后注释无法和代码自动对齐</title>
+      <link href="/2021/08/12/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E6%B3%A8%E9%87%8A%E6%97%A0%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/"/>
+      <url>/2021/08/12/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E6%B3%A8%E9%87%8A%E6%97%A0%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用idea对java代码进行格式化后，行注释靠在最左边没有和代码自动对齐：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210812/image-20210812150534134.png" alt="image-20210812150534134"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>打开设置窗口，依次选择 <code>Code Style -&gt; Java</code>，在右侧找到 <code>Comment af first column</code> 并取消其勾选状态即可解决</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210812/image-20210812150649391.png" alt="image-20210812150649391"></p><p>另外</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Eclipse设置护眼背景色和字体颜色并导入导出</title>
       <link href="/2021/08/09/Eclipse%E8%AE%BE%E7%BD%AE%E6%8A%A4%E7%9C%BC%E8%83%8C%E6%99%AF%E8%89%B2%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E5%B9%B6%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
       <url>/2021/08/09/Eclipse%E8%AE%BE%E7%BD%AE%E6%8A%A4%E7%9C%BC%E8%83%8C%E6%99%AF%E8%89%B2%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E5%B9%B6%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</url>
@@ -682,9 +734,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -805,9 +857,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -981,9 +1033,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -2233,9 +2285,9 @@
             
             <tag> 踩坑 </tag>
             
-            <tag> MyBatis </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> MyBatis </tag>
             
             <tag> 乱码 </tag>
             
@@ -2547,9 +2599,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> RunDashboard </tag>
             
@@ -3648,9 +3700,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
