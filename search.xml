@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用Adobe Acrobat打开pdf文件,系统任务栏中其图标异常问题(win)</title>
+      <link href="/2021/08/25/%E4%BD%BF%E7%94%A8Adobe-Acrobat%E6%89%93%E5%BC%80pdf%E6%96%87%E4%BB%B6-%E7%B3%BB%E7%BB%9F%E4%BB%BB%E5%8A%A1%E6%A0%8F%E4%B8%AD%E5%85%B6%E5%9B%BE%E6%A0%87%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98-win/"/>
+      <url>/2021/08/25/%E4%BD%BF%E7%94%A8Adobe-Acrobat%E6%89%93%E5%BC%80pdf%E6%96%87%E4%BB%B6-%E7%B3%BB%E7%BB%9F%E4%BB%BB%E5%8A%A1%E6%A0%8F%E4%B8%AD%E5%85%B6%E5%9B%BE%E6%A0%87%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98-win/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>环境：win10<br>参考：<a href="https://zhidao.baidu.com/question/564521412432737964.html" target="_blank" rel="noopener">百度知道</a></p></blockquote><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用 Acrobat 打开pdf文件后，Acrobat 在win系统任务栏上面显示的图标异常：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210825/image-20210825113749515.png" alt="image-20210825113749515"></p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1.首先先关闭掉 Acrobat，然后在资源管理器打开此目录： <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs</code>，找到 <code>Adobe Acrobat DC</code>，将其<strong>删除</strong></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210825/image-20210825114024709.png" alt="image-20210825114024709"></p><p>2.找到 Acrobat 安装目录中找到启动程序并启动，就可以看到图标回复正常了</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210825/image-20210825115044500.png" alt="image-20210825115044500"></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210825/image-20210825115343201.png" alt="image-20210825115343201"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Adobe </tag>
+            
+            <tag> Acrobat </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决SVN每次commit后文件属性都变为只读</title>
       <link href="/2021/08/20/%E8%A7%A3%E5%86%B3SVN%E6%AF%8F%E6%AC%A1commit%E5%90%8E%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E9%83%BD%E5%8F%98%E4%B8%BA%E5%8F%AA%E8%AF%BB/"/>
       <url>/2021/08/20/%E8%A7%A3%E5%86%B3SVN%E6%AF%8F%E6%AC%A1commit%E5%90%8E%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E9%83%BD%E5%8F%98%E4%B8%BA%E5%8F%AA%E8%AF%BB/</url>
@@ -125,25 +152,6 @@
             <tag> IDEA </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>安装MongoDB服务报错“Error connecting to the Service Control Manager: 拒绝访问”(Windows)</title>
-      <link href="/2021/05/24/%E5%AE%89%E8%A3%85MongoDB%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%E2%80%9CError-connecting-to-the-Service-Control-Manager-%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E2%80%9D-Windows/"/>
-      <url>/2021/05/24/%E5%AE%89%E8%A3%85MongoDB%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%E2%80%9CError-connecting-to-the-Service-Control-Manager-%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E2%80%9D-Windows/</url>
-      
-        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>创建的<code>mongod.cfg</code>配置文件内容：</p><pre><code class="yml">systemLog: destination: file path: D:\Java\MongoDB\data\log\mongod.logstorage: dbPath: D:\Java\MongoDB\data\db</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
       
     </entry>
     
