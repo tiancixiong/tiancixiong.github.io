@@ -375,8 +375,12 @@
           <h1 id="Cron表达式"><a href="#Cron表达式" class="headerlink" title="Cron表达式"></a>Cron表达式</h1><blockquote>
 <p>Cron表达式是一个字符串，包括6~7个时间元素，在SpringTask中可以用于指定任务的执行时间。</p>
 </blockquote>
-<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>Cron的语法格式：秒(Seconds) 分(Minutes) 小时(Hours) 日期(DayofMonth) 月份(Month) 星期(DayofWeek) [年(Year)]</p>
-<table>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>Cron的语法格式：</p>
+<pre><code>Seconds Minutes Hours DayofMonth Month DayofWeek [Year]
+   秒      分     小时     日期     月份    星期      [年]
+
+例：0/2 * * * * ?、0 15 10 ? * 6L 2020-2021
+</code></pre><table>
 <thead>
 <tr>
 <th>时间元素</th>
@@ -575,7 +579,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -587,10 +591,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
