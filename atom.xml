@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2021-08-25T06:31:39.590Z</updated>
+  <updated>2021-09-13T09:48:01.136Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cron的语法格式</title>
+    <link href="https://www.xiongtianci.com/2021/09/13/Cron%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F/"/>
+    <id>https://www.xiongtianci.com/2021/09/13/Cron的语法格式/</id>
+    <published>2021-09-13T08:25:40.000Z</published>
+    <updated>2021-09-13T09:48:01.136Z</updated>
+    
+    <summary type="html">
+    
+      Cron的语法格式
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Spring" scheme="https://www.xiongtianci.com/tags/Spring/"/>
+    
+      <category term="SpringTask" scheme="https://www.xiongtianci.com/tags/SpringTask/"/>
+    
+      <category term="Cron" scheme="https://www.xiongtianci.com/tags/Cron/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Adobe Acrobat打开pdf文件,系统任务栏中其图标异常问题(win)</title>
@@ -391,28 +415,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>使用Xftp6上传文件显示状态错误</title>
-    <link href="https://www.xiongtianci.com/2020/07/01/%E4%BD%BF%E7%94%A8Xftp6%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA%E7%8A%B6%E6%80%81%E9%94%99%E8%AF%AF/"/>
-    <id>https://www.xiongtianci.com/2020/07/01/使用Xftp6上传文件显示状态错误/</id>
-    <published>2020-07-01T04:58:27.000Z</published>
-    <updated>2020-07-04T08:28:46.844Z</updated>
-    
-    <summary type="html">
-    
-      使用Xftp6上传文件显示状态错误
-    
-    </summary>
-    
-      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-      <category term="CentOS" scheme="https://www.xiongtianci.com/tags/CentOS/"/>
-    
-      <category term="Xftp6" scheme="https://www.xiongtianci.com/tags/Xftp6/"/>
     
   </entry>
   
