@@ -7,10 +7,10 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="a,b...,天赐,天赐の小站,博客">
+  <meta name="keywords" content="天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">安装MongoDB服务报错“Error connecting to the Service Control Manager: 拒绝访问”(Windows) | 天赐の小站</title>
+  <title itemprop="name">Category: 技术 | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
   
@@ -309,6 +309,13 @@
                   <ul class="sub-menu">
                     
                       <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
                         <a href="/theme-sakura/">
                           <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
                           主题
@@ -336,160 +343,110 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1528164344705-47542687000d?w=540);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      安装MongoDB服务报错“Error connecting to the Service Control Manager: 拒绝访问”(Windows)</h1>
-      <p class="entry-census">
-        <span>
-          <a href="https://www.xiongtianci.com">
-            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="https://www.xiongtianci.com">天赐</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2021-5-24<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img data-src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/banner/coding.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">野生技术协会</h1>
+    <span class="cat-des">
+      <p>Geek – Only for Love</p>
+    </span>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>创建的<code>mongod.cfg</code>配置文件内容：</p>
-<pre><code class="yml">systemLog:
- destination: file
- path: D:\Java\MongoDB\data\log\mongod.log
-storage:
- dbPath: D:\Java\MongoDB\data\db
-</code></pre>
-
+      
+  <!-- category默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2018/09/30/Typora设置图片的相对路径（win系统）/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏<div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <!--<div class="toc" style="background: none;"></div>-->
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2021/07/13/IDEA格式化代码后-方法顺序被改变/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1532459961501-cc0b315f1e5d?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                IDEA格式化代码后,方法顺序被改变</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2021/03/04/Eclipse在模块上右键没有gradle菜单选项/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1580172933335-1dab8ae65065?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                Eclipse在模块上右键没有gradle菜单选项</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
-      <!-- 评论插件valine -->
+        <img width="150" height="150" src="https://images.unsplash.com/photo-1465385621528-53653983a38f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt>
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2018/09/30/Typora设置图片的相对路径（win系统）/">
+    Typora设置图片的相对路径（win系统）</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2018-9-30</div>
+    <p>
+    </p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2018/09/30/Typora设置图片的相对路径（win系统）/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
 
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
-        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
-		notify: false,
-		verify: false,
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ...",
-		avatar: "monsterid",
-		//meta: [nick,mail,link],
-		visitor: true,
-        recordIP: "true",
-		pageSize: "5" || 10
-      });
-	//增加以下六行代码去除 power by valine
-    var infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-      infoEle.childNodes.forEach(function(item) {
-        item.parentNode.removeChild(item);
-      });
-    }
-  }
-</script>
 
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="https://www.xiongtianci.com" itemprop="url" rel="author">天赐</a>
-            </h3>
-          </div>
-        </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>YOLO</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+      <div class="clearer">
+      </div>
+    </main>
+    <!-- 
+      <nav class="navigator">
+        
+        <a class="extend prev" rel="prev" href="/categories/技术/page/11/">Prev</a><a class="page-number" href="/categories/技术/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/技术/page/10/">10</a><a class="page-number" href="/categories/技术/page/11/">11</a><span class="page-number current">12</span>
+      </nav>
+     -->
+    
+  </div>
 </div>
 
+<!-- 
+  
+    <article class="post post-list" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2018/09/30/Typora设置图片的相对路径（win系统）/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
+        </div>
+        <img width="150" height="150" src="https://images.unsplash.com/photo-1465385621528-53653983a38f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt>
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2018/09/30/Typora设置图片的相对路径（win系统）/">
+    Typora设置图片的相对路径（win系统）</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2018-9-30</div>
+    <p>
+    </p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2018/09/30/Typora设置图片的相对路径（win系统）/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
 
+ -->
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
@@ -910,6 +867,13 @@ storage:
         </a>
         
           <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
             
               <li>
                 <a href="/theme-sakura/">

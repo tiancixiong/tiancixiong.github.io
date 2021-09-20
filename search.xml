@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title>隐藏IDEA项目目录后面显示的文件路径地址</title>
+      <link href="/2021/09/20/%E9%9A%90%E8%97%8FIDEA%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%90%8E%E9%9D%A2%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9D%80/"/>
+      <url>/2021/09/20/%E9%9A%90%E8%97%8FIDEA%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%90%8E%E9%9D%A2%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9D%80/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>环境：win10、IDEA 2019.3</p></blockquote><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>IDEA左侧的Project目录中，在项目名称后面显示了项目的文件路径地址：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210920/image-20210920151440109.png" alt="image-20210920151440109"></p><p>现在需要将其隐藏掉</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>选择：<code>Help</code>-&gt;<code>Edit Custom Properties...</code> 打开配置文件，添加以下配置：</p><pre><code class="properties">project.tree.structure.show.url=falseide.tree.horizontal.default.autoscrolling=false</code></pre><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20210920/image-20210920152200254.png" alt="image-20210920152200254"></p><p>保存更改后重启IDEA，就可以看见文件路径被隐藏了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> IDE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IDEA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git忽略规则(.gitignore)汇总</title>
+      <link href="/2021/09/16/Git%E5%BF%BD%E7%95%A5%E8%A7%84%E5%88%99-gitignore-%E6%B1%87%E6%80%BB/"/>
+      <url>/2021/09/16/Git%E5%BF%BD%E7%95%A5%E8%A7%84%E5%88%99-gitignore-%E6%B1%87%E6%80%BB/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/900004590234208" target="_blank" rel="noopener">.gitignore介绍</a></p><p>优先级</p><p>在 .gitingore 文件中，每一行指定一个忽略规则，Git检查忽略规则的时候有多个来源，它的优先级如下（由高到低）：<br>1）从命令行中读取可用的忽略规则<br>2）当前目录定义的规则<br>3）父级目录定义的规则，依次递推<br>4）$GIT_DIR/info/exclude 文件中定义的规则<br>5）core.excludesfile中定义的全局规则</p><p>特殊符合：</p><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>空格</td><td>不匹配任意文件，可作为分隔符，可用反斜杠转义</td><td></td></tr><tr><td>#</td><td>匹配0个或多个任意字符</td><td></td></tr><tr><td><code>/</code>开头</td><td>匹配项目跟目录</td><td></td></tr><tr><td><code>/</code>结束</td><td>只匹配文件夹以及在该文件夹路径下的内容，但是不匹配该文件</td><td></td></tr><tr><td>*</td><td>匹配多个任意字符</td><td></td></tr><tr><td>**</td><td>匹配任意中间目录</td><td></td></tr><tr><td>?</td><td>匹配一个任意字符</td><td></td></tr><tr><td>[]</td><td>匹配任何一个列在方括号中的字符</td><td></td></tr><tr><td>!</td><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table><p>git对于.ignore配置文件是按行从上到下进行规则匹配的，意味着如果前面的规则匹配的范围更大，则后面的规则将不会生效</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Cron的语法格式</title>
       <link href="/2021/09/13/Cron%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F/"/>
       <url>/2021/09/13/Cron%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F/</url>
@@ -771,9 +815,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -894,9 +938,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -1070,9 +1114,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
@@ -2636,9 +2680,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
             <tag> RunDashboard </tag>
             
@@ -3170,9 +3214,9 @@
       
         <tags>
             
-            <tag> SpringMVC </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
             
         </tags>
       
@@ -3737,9 +3781,9 @@
       
         <tags>
             
-            <tag> IDEA </tag>
-            
             <tag> 工具 </tag>
+            
+            <tag> IDEA </tag>
             
         </tags>
       
