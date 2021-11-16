@@ -777,7 +777,10 @@ git branch --merged
 # 显示未合并到当前分支的分支
 git branch --no-merged
 </code></pre>
-<h3 id="拉取远程所有分支"><a href="#拉取远程所有分支" class="headerlink" title="拉取远程所有分支"></a>拉取远程所有分支</h3><pre><code class="shell">git branch -r | grep -v &#39;-&gt;&#39; | while read remote; do git branch --track &quot;${remote#origin/}&quot; &quot;$remote&quot;; done
+<h3 id="拉取远程所有分支"><a href="#拉取远程所有分支" class="headerlink" title="拉取远程所有分支"></a>拉取远程所有分支</h3><blockquote>
+<p><a href="http://stackoverflow.com/questions/10312521/how-to-fetch-all-git-branches" target="_blank" rel="noopener">Stack Overflow</a></p>
+</blockquote>
+<pre><code class="shell">git branch -r | grep -v &#39;-&gt;&#39; | while read remote; do git branch --track &quot;${remote#origin/}&quot; &quot;$remote&quot;; done
 git fetch --all
 git pull --all
 </code></pre>
@@ -794,6 +797,7 @@ git cherry-pick [commit]
 </code></pre>
 <h2 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h2><pre><code class="shell"># 把未提交的修改(工作区和暂存区)储藏起来
 git stash
+git stash save &quot;描述&quot;
 
 # 查看stash内容
 git stash list

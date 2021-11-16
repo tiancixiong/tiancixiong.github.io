@@ -389,7 +389,7 @@ net start mysql
 sc create mysql binpath= mysqld_bin_path
 </code></pre>
 <h1 id="连接与断开服务器"><a href="#连接与断开服务器" class="headerlink" title="连接与断开服务器"></a>连接与断开服务器</h1><pre><code class="sql">-- 连接（地址、端口可不填，默认为localhost:3306）
-mysql -h 地址 -p 端口 -u 用户名 -p 密码
+mysql -h 地址 -P 端口 -u 用户名 -p 密码
 -- 显示哪些线程正在运行
 show processlist
 -- 显示系统变量信息
@@ -724,6 +724,35 @@ set(val1, val2, val3...)
     某个字段依赖于主键，而有其他字段依赖于该字段。这就是传递依赖。
     将一个实体信息的数据放在一个表内实现。
 </code></pre>
+<p><strong>部分依赖指的是某个（或多个）列依赖于别的列，且和其他的列没有任何直接关系</strong>。当表的设计中有部分依赖时，我们需要将一张表拆分成多张表，这些表包括基本信息表和关系表，从而消除数据的部分依赖。这和设计模式中常说的耦合是一个原则，要尽可能实现低耦合高内聚（low in coupling and high in cohesion)。</p>
+<p>比如下面这张学生信息表：</p>
+<table>
+<thead>
+<tr>
+<th>学生编号</th>
+<th>学生姓名</th>
+<th>学生性别</th>
+<th>老师名称</th>
+<th>老师性别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>李小桐</td>
+<td>男</td>
+<td>张三</td>
+<td>男</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>徐小盼</td>
+<td>女</td>
+<td>张三</td>
+<td>男</td>
+</tr>
+</tbody>
+</table>
 <h1 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h1><h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><pre><code class="sql">select [all|distinct] select_expr from -&gt; where -&gt; group by [合计函数] -&gt; having -&gt; order by -&gt; limit
 a. select_expr
     -- 可以用 * 表示所有字段。

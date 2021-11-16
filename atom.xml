@@ -37,24 +37,6 @@
   </entry>
   
   <entry>
-    <title>Git忽略规则(.gitignore)汇总</title>
-    <link href="https://www.xiongtianci.com/2021/09/16/Git%E5%BF%BD%E7%95%A5%E8%A7%84%E5%88%99-gitignore-%E6%B1%87%E6%80%BB/"/>
-    <id>https://www.xiongtianci.com/2021/09/16/Git忽略规则-gitignore-汇总/</id>
-    <published>2021-09-16T11:30:50.000Z</published>
-    <updated>2021-09-16T11:41:02.465Z</updated>
-    
-    <summary type="html">
-    
-      Git忽略规则(.gitignore)汇总
-    
-    </summary>
-    
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Cron的语法格式</title>
     <link href="https://www.xiongtianci.com/2021/09/13/Cron%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F/"/>
     <id>https://www.xiongtianci.com/2021/09/13/Cron的语法格式/</id>
@@ -417,6 +399,26 @@
     
     
       <category term="SVN" scheme="https://www.xiongtianci.com/tags/SVN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Eclipse中Console无法显示全部日志问题</title>
+    <link href="https://www.xiongtianci.com/2020/09/21/Eclipse%E4%B8%ADConsole%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E6%97%A5%E5%BF%97%E9%97%AE%E9%A2%98/"/>
+    <id>https://www.xiongtianci.com/2020/09/21/Eclipse中Console控制台无法显示全部日志问题/</id>
+    <published>2020-09-21T09:42:32.000Z</published>
+    <updated>2020-09-21T09:52:21.561Z</updated>
+    
+    <summary type="html">
+    
+      「Eclipse」Console控制台日志覆盖之前的日志
+    
+    </summary>
+    
+      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
