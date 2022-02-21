@@ -414,7 +414,7 @@ alter database 库名 选项信息
 drop database[ if exists] 数据库名
     -- 同时删除该数据库相关的目录及其目录内容
 </code></pre>
-<h1 id="表的操作"><a href="#表的操作" class="headerlink" title="表的操作"></a>表的操作</h1><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><pre><code class="sql">-- 创建表
+<h1 id="表的操作"><a href="#表的操作" class="headerlink" title="表的操作"></a>表的操作</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><pre><code class="sql">-- 创建表
 create [temporary] table [if not exists] [库名.]表名 (表的结构定义) [表选项]
     每个字段必须有数据类型
     最后一个字段后不能有逗号
@@ -445,13 +445,13 @@ create [temporary] table [if not exists] [库名.]表名 (表的结构定义) [�
         -- 分区选项
             partition by ... (详细见手册)
 </code></pre>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code class="sql">-- 删除表
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre><code class="sql">-- 删除表
 drop table[ if exists] 表名 ...
 
 -- 清空表数据
 truncate [table] 表名
 </code></pre>
-<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><pre><code class="sql">-- 查看所有表
+<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><pre><code class="sql">-- 查看所有表
 show tables [like &#39;pattern&#39;]
 show tables from 表名
 
@@ -460,7 +460,7 @@ show create table 表名 （信息更详细）
 desc 表名 / describe 表名 / explain 表名 / show columns from 表名 [like &#39;pattern&#39;]
 show table status [from db_name] [like &#39;pattern&#39;]
 </code></pre>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><pre><code class="sql">-- 复制表结构
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><pre><code class="sql">-- 复制表结构
 create table 表名 like 要复制的表名
 -- 复制表结构和数据
 create table 表名 [as] select * from 要复制的表名
@@ -475,7 +475,7 @@ repair [local | no_write_to_binlog] table tbl_name [, tbl_name] ... [quick] [ext
 -- 分析表
 analyze [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
 </code></pre>
-<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><pre><code class="sql">-- ### 修改表 ###
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><pre><code class="sql">-- ### 修改表 ###
 -- 修改表本身的选项
 alter table 表名 表的选项
 eg: alter table 表名 engine=myisam;
@@ -540,7 +540,7 @@ set names gbk;  -- 相当于完成以上三个设置
     charset 字符集编码     设置字符集编码
     collate 校对集编码     设置校对集编码
 </code></pre>
-<h1 id="数据类型-列类型"><a href="#数据类型-列类型" class="headerlink" title="数据类型(列类型)"></a>数据类型(列类型)</h1><h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><pre><code class="sql">1. 数值类型
+<h1 id="数据类型-列类型"><a href="#数据类型-列类型" class="headerlink" title="数据类型(列类型)"></a>数据类型(列类型)</h1><h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><pre><code class="sql">1. 数值类型
 -- ### a.整型 ###
 类型         字节     范围（有符号位）
 tinyint     1字节    -128 ~ 127      无符号位：0 ~ 255
@@ -575,7 +575,7 @@ decimal(m, d)   m也表示总位数，d表示小数位数。
 保存一个精确的数值，不会发生数据的改变，不同于浮点数的四舍五入。
 将浮点数转换为字符串来保存，每9位数字保存为4个字节。
 </code></pre>
-<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><pre><code class="sql">2. 字符串类型
+<h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><pre><code class="sql">2. 字符串类型
 -- ### a. char/varchar ###
     char    定长字符串，速度快，但浪费空间
     varchar 变长字符串，速度慢，但节省空间
@@ -602,7 +602,7 @@ decimal(m, d)   m也表示总位数，d表示小数位数。
     类似于char和varchar，用于保存二进制字符串，也就是保存字节字符串而非字符字符串。
     char, varchar, text 对应 binary, varbinary, blob.
 </code></pre>
-<h3 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h3><pre><code class="sql">3. 日期时间类型
+<h2 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h2><pre><code class="sql">3. 日期时间类型
 一般用整型保存时间戳，因为php可以很方便的将时间戳进行格式化。
 datetime    8字节    日期及时间    1000-01-01 00:00:00 到 9999-12-31 23:59:59
 date        3字节    日期         1000-01-01 到 9999-12-31
@@ -630,7 +630,7 @@ year        yyyy
             yyyy
             yy
 </code></pre>
-<h3 id="枚举和集合"><a href="#枚举和集合" class="headerlink" title="枚举和集合"></a>枚举和集合</h3><pre><code class="sql">4. 枚举和集合
+<h2 id="枚举和集合"><a href="#枚举和集合" class="headerlink" title="枚举和集合"></a>枚举和集合</h2><pre><code class="sql">4. 枚举和集合
 -- 枚举(enum) ----------
 enum(val1, val2, val3...)
     在已知的值中进行单选。最大数量为65535.
@@ -1465,7 +1465,7 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2021 天赐<br>
+      &copy; 2022 天赐<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1484,7 +1484,7 @@ optimize [local | no_write_to_binlog] table tbl_name [, tbl_name] ...
 			</div>
 			<!-- color: #666666; -->
 			<div style="color: #b9b9b9;">&copy;
-				2018-2021&nbsp;天赐&nbsp;
+				2018-2022&nbsp;天赐&nbsp;
 			</div>
 		</div>
 		<!-- 访客统计 -->

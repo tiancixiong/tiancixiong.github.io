@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2021-09-20T07:32:32.280Z</updated>
+  <updated>2022-02-21T03:04:40.568Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.xiongtianci.com/2022/02/21/IDEA-%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85-%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://www.xiongtianci.com/2022/02/21/IDEA-首次安装-的常用设置/</id>
+    <published>2022-02-20T16:00:00.000Z</published>
+    <updated>2022-02-21T03:04:40.568Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>隐藏IDEA项目目录后面显示的文件路径地址</title>
@@ -399,26 +418,6 @@
     
     
       <category term="SVN" scheme="https://www.xiongtianci.com/tags/SVN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Eclipse中Console无法显示全部日志问题</title>
-    <link href="https://www.xiongtianci.com/2020/09/21/Eclipse%E4%B8%ADConsole%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E6%97%A5%E5%BF%97%E9%97%AE%E9%A2%98/"/>
-    <id>https://www.xiongtianci.com/2020/09/21/Eclipse中Console控制台无法显示全部日志问题/</id>
-    <published>2020-09-21T09:42:32.000Z</published>
-    <updated>2020-09-21T09:52:21.561Z</updated>
-    
-    <summary type="html">
-    
-      「Eclipse」Console控制台日志覆盖之前的日志
-    
-    </summary>
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
