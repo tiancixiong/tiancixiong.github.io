@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  
+  <!-- 关键字 keywords -->
+  
+  <meta name="keywords" content="天赐,天赐の小站,博客">
+  
+  
+  <title itemprop="name">同源策略与JS跨域 | 天赐の小站</title>
+  
+    <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "天赐の小站";
+  mashiro_option.author_name = "天赐の小站";
+  mashiro_option.site_url = "/";
+  mashiro_option.v_appId = "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI";
+  mashiro_option.v_appKey = "F5kjyHdh4akqc7SDmfzQP8Qi";
+  mashiro_option.v_notify = false;
+  mashiro_option.v_verify = false;
+  mashiro_option.v_placeholder = "你是我一生只会遇见一次的惊喜 ...";
+  mashiro_option.v_avatar = "monsterid";
+  mashiro_option.v_pageSize = "5" || 10;
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+  console.info("%c Blog %c", "background:#24272A; color:#ffffff", "", "https://www.xiongtianci.com");
+  console.info("%c GitHub %c", "background:#24272A; color:#ffffff", "", "https://github.com/tiancixiong");
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/5cm_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/5cm_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Atonement_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Coco_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Coco_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/HarryPotter_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/HarryPotter_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/HarryPotter_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Hauru.no.ugoku.shiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Into.the.Wild_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki_05.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki_06.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_02.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_06.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi_03.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Kotonoha.no.Niwa_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/La.La.Land_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Mimi.wo.sumaseba_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Mr.Bean.Holiday_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Paperman_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Piper_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Ponyo_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Ponyo_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Ready.Player.One_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Reply.1988_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Reply.1988_02.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_09.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/The.Girl.Who.Leapt.Through.Time_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/TheLonelyAndGreatGod_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Titanic_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Titanic_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/totoro1.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/WALL·E_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/WALL·E_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Zootopia_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_02.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_03.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_04.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_05.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_06.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_07.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_08.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_09.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/shingeki_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Begonia_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/My.Sassy.Girl_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Before.Sunrise_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Before.Sunrise_02.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Friends_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Friends_02.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Friends_03.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <!--首页背景图下方的波浪线-->
+  <!--<div id="banner_wave_1"></div>-->
+  <!--<div id="banner_wave_2"></div>-->
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="/">
+          <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>You Only Live Once</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="mailto:support@xiongtianci.com" target="_blank" class="social-github" title="E-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">天赐の小站</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+                    极客
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/Linux/">
+                          <i class="fa fa-linux" aria-hidden="true"></i>
+                          Linux
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+                    爱好
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/电影/">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          电影
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/日语/">
+                          <i class="fa fa-language" aria-hidden="true"></i>
+                          日语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1527937738552-7eb8023fa9a1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1527937738552-7eb8023fa9a1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      同源策略与JS跨域</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://www.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://www.xiongtianci.com">天赐</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2018-11-19<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="为什么要跨域"><a href="#为什么要跨域" class="headerlink" title="为什么要跨域"></a>为什么要跨域</h1><p>为了用户的信息安全，浏览器就引入了同源策略<br>那么同源策略是如何保证用户的信息安全的呢？</p>
+<ul>
+<li>如果没有同源策略，你打开了你的银行账户页面A，又打开了另一个不相关的页面B，这时候如果B是恶意网站，B可以通过Javascript轻松访问和修改A页面中的内容</li>
+<li>现在我们广泛的使用cookie来维护用户的登录状态，而如果没有同源策略，这些cookie信息就会泄露，其他网站就可以冒充这个登录用户</li>
+</ul>
+<p>由此可以看出，同源策略确实是必不可少的，那么它会带来哪些限制呢？</p>
+<blockquote>
+<ol>
+<li>Cookie、LocalStorage和IndexDB无法读取</li>
+<li>DOM无法获得</li>
+<li>AJAX请求不能发送</li>
+</ol>
+</blockquote>
+<p>有时候我们需要突破上述限制，就需要用跨域的方法来解决</p>
+<h1 id="跨域是什么？"><a href="#跨域是什么？" class="headerlink" title="跨域是什么？"></a>跨域是什么？</h1><ol>
+<li>什么叫做不同的域？<br>协议（http）、域名（<a href="http://www.a.com）、端口（8000）三者中有一个不同就叫不同的域" target="_blank" rel="noopener">www.a.com）、端口（8000）三者中有一个不同就叫不同的域</a></li>
+<li>跨域就是不同的域间相互访问时使用某些方法来突破上述限制</li>
+<li>协议或者端口的不同，只能通过后台来解决<h1 id="如何实现跨域？"><a href="#如何实现跨域？" class="headerlink" title="如何实现跨域？"></a>如何实现跨域？</h1><h3 id="一、解决上面提到的1、2两点限制："><a href="#一、解决上面提到的1、2两点限制：" class="headerlink" title="一、解决上面提到的1、2两点限制："></a>一、解决上面提到的1、2两点限制：</h3><h4 id="1-通过document-domain跨子域"><a href="#1-通过document-domain跨子域" class="headerlink" title="1. 通过document.domain跨子域"></a>1. 通过document.domain跨子域</h4><blockquote>
+<p>适用范围：</p>
+<ol>
+<li>两个域只是子域不同</li>
+<li>只适用于iframe窗口与父窗口之间互相获取cookie和DOM节点，不能突破LocalStorage和IndexDB的限制</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<p>当两个不同的域只是子域不同时，可以通过把document.domain设置为他们共同的父域来解决</p>
+<blockquote>
+<p>eg:<br>A: <a href="http://www.example.com/a.html" target="_blank" rel="noopener">http://www.example.com/a.html</a><br>B: <a href="http://example.com/b.html" target="_blank" rel="noopener">http://example.com/b.html</a></p>
+</blockquote>
+<p>当A、B想要获取对方的<code>cookie</code>或者<code>DOM节点</code>时，可以设置:</p>
+<blockquote>
+<p>document.domain=’example.com’;</p>
+</blockquote>
+<p>这时A网页通过脚本设置:</p>
+<blockquote>
+<p>document.cookie = “testA=hello”;</p>
+</blockquote>
+<p>B网页就可以拿到这个cookie：</p>
+<blockquote>
+<p>var aCookie = document.cookie;</p>
+</blockquote>
+<h4 id="2-通过window-name跨域"><a href="#2-通过window-name跨域" class="headerlink" title="2. 通过window.name跨域"></a>2. 通过window.name跨域</h4><blockquote>
+<p>使用范围：</p>
+<ol>
+<li>可以是两个完全不同源的域</li>
+<li>同一个窗口内：即同一个标签页内先后打开的窗口</li>
+</ol>
+</blockquote>
+<p>window.name属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的。</p>
+<p>基于这个思想，我们可以在某个页面设置好 window.name 的值，然后在本标签页内跳转到另外一个域下的页面。在这个页面中就可以获取到我们刚刚设置的 window.name 了。</p>
+<p>结合iframe还有更高级的用法：</p>
+<p>父窗口先打开一个与自己不同源的子窗口，在这个子窗口里设置：</p>
+<blockquote>
+<p>window.name = data;</p>
+</blockquote>
+<p>然后让子窗口跳转到一个与父窗口同域的网址：</p>
+<blockquote>
+<p>location=’<a href="http://www.parent.com/a.html&#39;" target="_blank" rel="noopener">http://www.parent.com/a.html&#39;</a>;</p>
+</blockquote>
+<p>这时，因为同域并且同一窗口window.name是不变的，所以父窗口可以获取到子窗口下的window.name。</p>
+<blockquote>
+<p>var data = document.getElementById(‘myFrame’).contentWindow.name;</p>
+</blockquote>
+<p>优点：window.name容量很大，可以放置非常长的字符串；缺点：必须监听子窗口window.name属性的变化，影响网页性能。</p>
+<h4 id="3-使用HTML5的window-postMessage跨域"><a href="#3-使用HTML5的window-postMessage跨域" class="headerlink" title="3. 使用HTML5的window.postMessage跨域"></a>3. 使用HTML5的window.postMessage跨域</h4><p>window.postMessage(message,targetOrigin) 方法是html5新引进的特性，可以使用它来向其它的window对象发送消息，无论这个window对象是属于同源或不同源，目前IE8+、FireFox、Chrome、Opera等浏览器都已经支持window.postMessage方法。</p>
+<p>otherWindow.postMessage(message, targetOrigin);</p>
+<p>otherWindow:接受消息页面的window的引用。可以是页面中iframe的contentWindow属性；window.open的返回值；通过name或下标从window.frames取到的值。<br>message:所要发送的数据，string类型。<br>targetOrigin:用于限制otherWindow，*表示不做限制。</p>
+<h5 id="eg1"><a href="#eg1" class="headerlink" title="eg1:"></a>eg1:</h5><p>在父页面中嵌入子页面，通过postMessage发送数据。<br>parent.com/index.html中的代码：</p>
+<pre><code>&lt;iframe id=&quot;ifr&quot; src=&quot;child.com/index.html&quot;&gt;&lt;/iframe&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+window.onload = function() {
+    var ifr = document.getElementById(&#39;ifr&#39;);
+    var targetOrigin = &#39;http://child.com&#39;; 
+    // 若写成&#39;http://child.com/c/proxy.html&#39;效果一样
+    // 若写成&#39;http://c.com&#39;就不会执行postMessage了
+    ifr.contentWindow.postMessage(&#39;I was there!&#39;, targetOrigin);
+};
+&lt;/script&gt;
+</code></pre><p>在子页面中通过message事件监听父页面发送来的消息并显示。<br>child.com/index.html中的代码：</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+window.addEventListener(&#39;message&#39;, function(event){
+    // 通过origin属性判断消息来源地址
+    if (event.origin == &#39;http://parent.com&#39;) {
+        alert(event.data);    // 弹出&quot;I was there!&quot;
+        alert(event.source);  
+        // 对parent.com、index.html中window对象的引用
+        // 但由于同源策略，这里event.source不可以访问window对象
+    }
+}, false);
+&lt;/script&gt;
+</code></pre><h5 id="eg2"><a href="#eg2" class="headerlink" title="eg2:"></a>eg2:</h5><p>假设在a.html里嵌套个</p>
+<pre><code>&lt;iframe src=&quot;http://www.child.com/b.html&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+</code></pre><p>在这两个页面里互相通信</p>
+<p><strong>a.html</strong></p>
+<pre><code>window.onload = function() {
+    window.addEventListener(&quot;message&quot;, function(e) {
+        alert(e.data);
+    });
+
+    window.frames[0].postMessage(&quot;b data&quot;, &quot;http://www.child.com/b.html&quot;);
+}
+</code></pre><p><strong>b.html</strong></p>
+<pre><code>window.onload = function() {
+    window.addEventListener(&quot;message&quot;, function(e) {
+        alert(e.data);
+    });
+    window.parent.postMessage(&quot;a data&quot;, &quot;http://www.parent.com/a.html&quot;);
+}
+</code></pre><p>这样打开a页面，首先监听到了b.html通过postMessage传来的消息，就先弹出 a data，然后a通过postMessage传递消息给子页面b.html，这时会弹出 b data</p>
+<h3 id="二、解决第3点限制："><a href="#二、解决第3点限制：" class="headerlink" title="二、解决第3点限制："></a>二、解决第3点限制：</h3><blockquote>
+<p>AJAX请求不能发送</p>
+</blockquote>
+<h4 id="4-通过JSONP跨域"><a href="#4-通过JSONP跨域" class="headerlink" title="4. 通过JSONP跨域"></a>4. 通过JSONP跨域</h4><blockquote>
+<p>适用范围：</p>
+<ol>
+<li>可以是两个完全不同源的域；</li>
+<li>只支持HTTP请求中的GET方式；</li>
+<li>老式浏览器全部支持；</li>
+<li>需要服务端支持</li>
+</ol>
+</blockquote>
+<p>JSONP(JSON with Padding)是资料格式JSON的一种使用模式，可以让网页从别的网域要资料。</p>
+<p>由于浏览器的同源策略，在网页端出现了这个“跨域”的问题，然而我们发现，所有的 src 属性并没有受到相关的限制，比如 img / script 等。</p>
+<p>JSONP 的原理就要从 script 说起。script 可以引用其他域的脚本文件，比如这样：</p>
+<pre><code>a.html
+...
+&lt;script&gt;
+    function callback(data) {
+        console.log(data.url)
+    }
+&lt;/script&gt;
+&lt;script src=&#39;b.js&#39;&gt;&lt;/script&gt;
+...
+
+b.js
+callback({url: &#39;http://www.rccoder.net&#39;})
+</code></pre><p>这就类似于JSONP的原理了。</p>
+<p>JSONP的基本思想是：先在网页上添加一个script标签，设置这个script标签的src属性用于向服务器请求JSON数据 ，需要注意的是，src属性的查询字符串一定要加一个callback参数，用来指定回调函数的名字 。而这个函数是在资源加载之前就已经在前端定义好的，这个函数接受一个参数并利用这个参数做一些事情。向服务器请求后，服务器会将JSON数据放在一个指定名字的回调函数里作为其参数传回来。这时，因为函数已经在前端定义好了，所以会直接调用。</p>
+<p>eg：</p>
+<pre><code>function addScriptTag(src) {
+    var script = document.createElement(&#39;script&#39;);
+    script.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);
+    script.src = src;
+    document.body.appendChild(script);
+}
+
+window.onload = function () {
+    addScriptTag(&#39;http://example.com/ip?callback=foo&#39;);//请求服务器数据并规定回调函数为foo
+}
+
+function foo(data) {
+    console.log(&#39;Your public IP address is: &#39; + data.ip);
+};
+</code></pre><p>向服务器example.com请求数据，这时服务器会先生成JSON数据，这里是{“ip”: “8.8.8.8”}，然后以JS语法的方式生成一个函数，函数名就是传递上来的callback参数的值，最后将数据放在函数的参数中返回：</p>
+<pre><code>foo({
+    &quot;ip&quot;: &quot;8.8.8.8&quot;
+});
+</code></pre><p>客户端解析script标签，执行返回的JS代码，调用函数。</p>
+<h5 id="5-通过CORS跨域"><a href="#5-通过CORS跨域" class="headerlink" title="5. 通过CORS跨域"></a>5. 通过CORS跨域</h5><blockquote>
+<p>适用范围：</p>
+<ol>
+<li>可以是两个完全不同源的域；</li>
+<li>支持所有类型的HTTP请求；</li>
+<li>被绝大多数现代浏览器支持，老式浏览器不支持；</li>
+<li>需要服务端支持</li>
+</ol>
+</blockquote>
+<p>对于前端开发者来说，跨域的CORS通信与同源的AJAX通信没有差别，代码完全一样。因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</p>
+<p>浏览器将CORS请求分成两类：简单请求（simple request）和非简单请求（not-so-simple request）。</p>
+<p>只要同时满足以下两大条件，就属于简单请求。</p>
+<pre><code>（1) 请求方法是以下三种方法之一：
+HEAD
+GET
+POST
+（2）HTTP的头信息不超出以下几种字段：
+Accept
+Accept-Language
+Content-Language
+Last-Event-ID
+Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+</code></pre><p>凡是不同时满足上面两个条件，就属于非简单请求。<br>浏览器对这两种请求的处理，是不一样的。</p>
+<p>简单请求：<br>下面是一次跨源AJAX请求，浏览器发现它是简单请求，就会直接在头信息中加一个origin字段：</p>
+<pre><code>GET /cors HTTP/1.1
+Origin: http://api.bob.com
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre><p>服务器收到这条请求，如果这个origin指定的源在许可范围内，那么服务器返回的头信息中会包含Access-Control-Allow-Origin字段，值与origin的值相同，以及其他几个相关字段：</p>
+<pre><code>Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Credentials: true
+Access-Control-Expose-Headers: FooBar
+</code></pre><p>Access-Control-Allow-Origin: 该字段是必须的。要么与origin相同，要么为*<br>Access-Control-Allow-Credentials: 该字段可选。设为true表示服务器允许发送cookie<br>Access-Control-Expose-Headers: 该字段可选。CORS请求时，XMLHttpRequest对象的getResponseHeader()方法只能拿到6个基本字段：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。上面的例子指定，getResponseHeader(‘FooBar’)可以返回FooBar字段的值。</p>
+<p>想要发送cookie，这里还有两点需要额外注意：</p>
+<p>1）开发者必须在AJAX请求中打开withCredentials属性。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+</code></pre><p>否则即使服务器允许，客户端也不会发送。</p>
+<p>2）Access-Control-Allow-Origin不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且（跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。</p>
+<p>非简单请求：<br>1.预检请求：</p>
+<p>非简单请求会在正式通信前加一次预检（preflight）请求。作用是浏览器先询问服务器当前网页所在域名是否在服务器的许可名单中，以及可以使用哪些HTTP方法以及头信息字段。只有得到肯定答复，浏览器才会发送XMLHttpRequest，否则报错。<br>一个例子：</p>
+<pre><code>var url = &#39;http://api.alice.com/cors&#39;;
+var xhr = new XMLHttpRequest();
+xhr.open(&#39;PUT&#39;, url, true);
+xhr.setRequestHeader(&#39;X-Custom-Header&#39;, &#39;value&#39;);
+xhr.send();
+</code></pre><p>HTTP请求方法为PUT，并发送一个自定义头信息”X-Custom-Header”，浏览器发现这是一个非简单请求，就会自动发送一个预检请求，预检请求的HTTP头信息如下：</p>
+<pre><code>OPTIONS /cors HTTP/1.1
+Origin: http://api.bob.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: X-Custom-Header
+Host: api.alice.com
+Accept-Language: en-US
+Connection: keep-alive
+User-Agent: Mozilla/5.0...
+</code></pre><p>请求方法是OPTIONS，表示这个请求是用来询问的，头信息中的关键信息有3个：</p>
+<p>（1）表示请求来自哪个源</p>
+<pre><code>Origin: http://api.bob.com
+</code></pre><p>（2）列出浏览器的CORS请求会用到哪些HTTP方法</p>
+<pre><code>Access-Control-Request-Method: PUT
+</code></pre><p>（3）指定浏览器CORS请求会额外发送的头信息字段</p>
+<pre><code>Access-Control-Request-Headers: X-Custom-Header
+</code></pre><p>2.预检请求的回应（有两种情况：A允许、B不允许）</p>
+<p>A.服务器允许这次跨域请求</p>
+<pre><code>HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Content-Type: text/html; charset=utf-8
+Content-Encoding: gzip
+Content-Length: 0
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Content-Type: text/plain
+Access-Control-Allow-Credentials: true
+Access-Control-Max-Age: 1728000
+</code></pre><p>服务器返回中要注意的字段：</p>
+<p>（1）服务器同意的跨域请求源：</p>
+<pre><code>Access-Control-Allow-Origin: http://api.bob.com
+</code></pre><p>（2）服务器支持的所有跨域请求的方法：</p>
+<pre><code>Access-Control-Allow-Methods: GET, POST, PUT
+</code></pre><p>（3）表明服务器支持的所有头信息字段：</p>
+<pre><code>Access-Control-Allow-Headers: X-Custom-Header
+</code></pre><p>（4）指定本次预检请求的有效期，单位为秒，即允许请求该条回应在有效期之前都不用再发送预检请求：</p>
+<pre><code>Access-Control-Max-Age: 1728000
+</code></pre><p>B.服务器不允许这次跨域请求<br>即origin指定的源不在许可范围内，服务器会返回一个正常的HTTP回应。但是头信息中没有包含Access-Control-Allow-Origin字段，就知道出错了，从而抛出一个错误，被XMLHttpRequest的onerror回调函数捕获。但是要注意的是，这种HTTP回应的状态码很有可能是200，所以无法通过状态码识别这种错误。</p>
+<p>3.正式请求<br>过了预检请求，非简单请求的正式请求就与简单请求一样了。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2018/11/20/String、StringBuffer、StringBuilder以及对String不变性的理解/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                String、StringBuffer、StringBuilder以及对String不变性的理解</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2018/11/16/电商项目中的SPU和SKU概念/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1514920735211-8c697444a248?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                电商项目中的SPU和SKU概念</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://www.xiongtianci.com" itemprop="url" rel="author">天赐</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 天赐<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-info">
+		<div class="footertext">
+			<div class="img-preload">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/wordpress-rotating-ball-o.svg">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/disqus-preloader.svg">
+			</div>
+			<p class="foo-logo" style="background-image: url('https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sakura.svg');">
+			</p>
+			<div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none;margin-top:0.7em;">
+				<i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i>
+			</div>
+			<!-- color: #666666; -->
+			<div style="color: #b9b9b9;">&copy;
+				2018-2022&nbsp;天赐&nbsp;
+			</div>
+		</div>
+		<!-- 访客统计 -->
+		<!--<div id="busuanzi_container"></div>-->
+		<!-- 已运行的时间-容器 -->
+		<div id="days"></div>
+		<div class="footer-device">
+			<p id="footer-sponsor">
+				<!-- <a href="https://pages.github.com/" target="_blank" alt="GitHub Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/GitHub.svg" alt="GitHub Pages"
+						style="height: 2em; max-height: 2em;" title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<!-- <a href="https://coding.net/pages" target="_blank" alt="Coding Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/Coding.png" alt="Coding Pages"
+						style="height: 1.3em; max-height: 1.3em;padding-bottom: 0px;margin-bottom: 0.35em;"
+						title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<a href="https://www.jsdelivr.com/" target="_blank" alt="Free CDN" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/JsDelivr_Logo.svg" alt="jsDelivr" style="height: 2em; max-height: 2em;padding-bottom: 0px;"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.google.com/intl/ja/analytics/" target="_blank" alt="Analytics solution" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/Google.svg" alt="Google Analytics" style="height: 1.7em; max-height: 1.7em;padding-bottom: 0px;"></a>
+			</p>
+		</div>
+	</div>
+	<!-- .site-info -->
+</footer>
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!--浏览器搞笑标题-->
+<!--<script type="text/javascript" src="/js/title_change.js"></script>-->
+<script type="text/javascript" src="/js/volantis.min.js"></script>
+<!-- Valine -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!--<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>-->
+<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "close"
+			},
+			"windowheight": "fixed",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	} else {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "open"
+			},
+			"windowheight": "auto",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	}
+		/* ]]> */
+</script>
+<script>
+	$(document).ready(function () {
+		if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+			if ($(".pattern-center").length > 0) { //有图的情况
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -400,
+					scrollSmoothOffset: -85
+				});
+			} else {
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -85,
+					scrollSmoothOffset: -85
+				});
+			}
+			var offsetTop = $('.toc').offset().top - 95;
+			window.onscroll = function () {
+				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+				if (scrollTop >= offsetTop) {
+					$('.toc').addClass('toc-fixed');
+				} else {
+					$('.toc').removeClass('toc-fixed');
+				}
+			}
+		}
+	});
+</script>
+<!-- 已运行的时间-js -->
+<script>
+	function show_date_time() {
+		window.setTimeout("show_date_time()", 1000);
+		// 获得建站时间
+		var time = "28/11/2018 15:36:06";
+		time = time.replace(/\//g, ':').replace(' ', ':');
+		time = time.split(':');
+		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
+
+		today = new Date();
+		timeold = (today.getTime() - BirthDay.getTime());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		msPerYear = 365 * 24 * 60 * 60 * 1000
+		e_yearsold = timeold / msPerYear
+		yearsold = Math.floor(e_yearsold);
+		//e_daysold = timeold / msPerDay
+		e_daysold = timeold/msPerDay - yearsold*365;
+		daysold = Math.floor(e_daysold);
+		e_hrsold = (e_daysold - daysold) * 24;
+		hrsold = setzero(Math.floor(e_hrsold));
+		e_minsold = (e_hrsold - hrsold) * 60;
+		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + yearsold + " 年 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+	}
+
+	function setzero(i) {
+		if (i < 10) {
+			i = "0" + i
+		};
+		return i;
+	}
+	show_date_time();
+</script>
+<!-- 访客统计-js -->
+<!--<script>
+		if(true){
+			document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
+		}else{
+			document.getElementById('busuanzi_container').hidden;
+		}
+	</script>-->
+<!-- 百度统计自动推送 -->
+<!--<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var scriptList = document.getElementsByTagName("script");
+		var s = scriptList[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+	-->
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white-bg"><i class="fa fa-television" aria-hidden="true"></i></li>
+            <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+            <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+            <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+            <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+            <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+            <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+            <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</div>
+
+<canvas id="night-mode-cover"></canvas>
+<style>
+#mainskin{
+    position: fixed;
+}
+</style> 
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换主题 | SCHEME TOOL &nbsp;
+	<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+</div>
+  
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">天赐の小站</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+            极客
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/Linux/">
+                  <i class="fa fa-linux" aria-hidden="true"></i>
+                  Linux
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+            爱好
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/电影/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  电影
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/日语/">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  日语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  /*.aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }*/
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.5" data-mutex="true" data-listfolded="false" < div>
+<!-- Meting 一个支持各种音乐平台(腾讯、网易...)的音乐 API 框架 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script></div>
+</body>
+</html>

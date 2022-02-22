@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  
+  <!-- 关键字 keywords -->
+  
+  <meta name="keywords" content="天赐,天赐の小站,博客">
+  
+  
+  <title itemprop="name">git常用命名汇总 | 天赐の小站</title>
+  
+    <link rel="shortcut icon" href="//www.xiongtianci.com/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "天赐の小站";
+  mashiro_option.author_name = "天赐の小站";
+  mashiro_option.site_url = "/";
+  mashiro_option.v_appId = "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI";
+  mashiro_option.v_appKey = "F5kjyHdh4akqc7SDmfzQP8Qi";
+  mashiro_option.v_notify = false;
+  mashiro_option.v_verify = false;
+  mashiro_option.v_placeholder = "你是我一生只会遇见一次的惊喜 ...";
+  mashiro_option.v_avatar = "monsterid";
+  mashiro_option.v_pageSize = "5" || 10;
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+  console.info("%c Blog %c", "background:#24272A; color:#ffffff", "", "https://www.xiongtianci.com");
+  console.info("%c GitHub %c", "background:#24272A; color:#ffffff", "", "https://github.com/tiancixiong");
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/5cm_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/5cm_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Atonement_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/bighero_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Coco_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Coco_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/HarryPotter_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/HarryPotter_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/HarryPotter_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Hauru.no.ugoku.shiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Into.the.Wild_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki_05.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiki_06.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_02.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_06.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/kiminona_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/koenokatachi_03.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Kotonoha.no.Niwa_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/La.La.Land_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Mimi.wo.sumaseba_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Mr.Bean.Holiday_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Paperman_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Piper_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Ponyo_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Ponyo_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Ready.Player.One_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Reply.1988_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Reply.1988_02.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/sentochihiro_09.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/The.Girl.Who.Leapt.Through.Time_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/TheLonelyAndGreatGod_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Titanic_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Titanic_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/totoro1.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/WALL·E_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/WALL·E_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v2.0/img/cover/Zootopia_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_02.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_03.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_04.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_05.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_06.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_07.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_08.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Digimon_09.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/shingeki_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Begonia_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/My.Sassy.Girl_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Before.Sunrise_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Before.Sunrise_02.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Friends_01.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Friends_02.jpg,https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/theme/cover/Friends_03.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <!--首页背景图下方的波浪线-->
+  <!--<div id="banner_wave_1"></div>-->
+  <!--<div id="banner_wave_2"></div>-->
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="/">
+          <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>You Only Live Once</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="mailto:support@xiongtianci.com" target="_blank" class="social-github" title="E-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">天赐の小站</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+                    极客
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/Linux/">
+                          <i class="fa fa-linux" aria-hidden="true"></i>
+                          Linux
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+                    爱好
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/电影/">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          电影
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/日语/">
+                          <i class="fa fa-language" aria-hidden="true"></i>
+                          日语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1499463217683-ee3c9ce038f1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1499463217683-ee3c9ce038f1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      git常用命名汇总</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://www.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://www.xiongtianci.com">天赐</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-6-12<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h1><h2 id="将本地项目初始化"><a href="#将本地项目初始化" class="headerlink" title="将本地项目初始化"></a>将本地项目初始化</h2><pre><code class="bash"># 
+git init
+
+# 给项目添加远程仓库
+git remote add origin git@github.xxx.git
+
+# 本地分支和远程分支建立联系(使用git branch -vv  可以查看本地分支和远程分支的关联关系)
+git branch --set-upstream-to=origin/远程分支 本地分支   
+
+# 首次提交,推送到master并关联此分支
+git push -u origin master
+</code></pre>
+<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><pre><code class="shell"># 合并指定分支到当前分支
+git merge [branch-name]
+
+# 查看分支的合并情况
+# 简略信息
+git log --graph --pretty=oneline --abbrev-commit
+# 详细信息
+git log --graph
+</code></pre>
+<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><pre><code class="shell"># 查看工作目录和暂存区的状态
+git status
+
+# 查看工作区与暂存区的差异
+git diff
+# 查看某个文件的工作区与暂存区的差异
+git diff file.txt
+
+# 查看日志，一个压缩后的每一条提交记录只占一行的输出
+git log --pretty=oneline
+
+# 查看命令历史
+git reflog
+
+# ----分支
+# 查看git本地分支
+git branch
+# 查看git远程分支
+git branch -r
+# 查看所有本地分支和远程分支，远程分支为红色
+git branch -a
+# 查看每个本地分支的最后一次提交
+git branch -v
+# 查看本地分支和远程分支联系
+git branch -vv
+# 切换git分支
+git checkout branch-name
+# 创建分支
+git branch branch-name
+# 新建并切换git分支
+git checkout -b branch-name
+# 删除git分支
+git branch -d branch-name
+# 强制删除git分支
+git branch -D branch-name
+# 删除git远程分支
+git push origin -d branch-name
+# 本地分支和远程分支建立联系
+git branch --set-upstream-to=origin/远程分支 本地分支
+
+
+# 查看git 配置
+git config -l
+
+# 把远程分支迁到本地分支
+git checkout develop origin/develop
+# 把远程分支迁到本地顺便切换到该分支
+git checkout -b develop origin/develop
+
+# 修改远程仓库地址
+git remote set-url origin git@github.xxx.git
+
+# 本地分支回滚到指定版本
+git reset --hard &lt;commit ID号&gt;
+
+# 强制推送到远程分支
+git push -f origin &lt;branch name&gt;
+</code></pre>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><pre><code class="shell"># 回退到上一个版本 HEAD表示当前版本
+git reset --hard HEAD^
+git reset --hard HEAD~1
+
+# 回退到指定版本(版本号可以只写前几位,一般写前4位即可)
+git reset --hard 56db0ffa425e86bd999683e6b9903e1196290def
+
+# 放弃工作区某个文件的修改
+git checkout -- file
+# 把暂存区某个文件的修改撤销掉
+git reset HEAD &lt;file&gt;
+
+</code></pre>
+<h2 id="删除commit记录"><a href="#删除commit记录" class="headerlink" title="删除commit记录"></a>删除commit记录</h2><p>何时需要删除Git提交的历史记录</p>
+<ol>
+<li>当历史记录中出现过<strong>密码</strong>等敏感信息在历史记录中, 需要删除历史记录时</li>
+<li>当项目因历史记录过多, 导致历史记录占用了<strong>大量内存</strong>时, 比如<strong>Github仓库个人总容量时1GB不够用时</strong></li>
+<li>当你想要一个全新的项目的时候, 并且想保持项目代码不变</li>
+</ol>
+<pre><code class="bash"># 1. 创建全新的孤立分支 latest_branch
+git checkout --orphan latest_branch
+
+# 2. 暂存所有文件
+git add -A
+
+# 3. 提交所有文件的修改到latest_branch
+git commit -am &quot;del all history&quot;
+
+# 4. 删除原来的master分支
+git branch -D master
+
+# 5. 修改latest_branch分支名为master
+git branch -m master
+
+# 6. 强制更新远程服务器的master分支, 至此清空git所有历史
+git push -f origin master
+</code></pre>
+<h2 id="修改commit注释"><a href="#修改commit注释" class="headerlink" title="修改commit注释"></a>修改commit注释</h2><pre><code class="bash"># 修改最近一次
+git commit --amend
+
+# 修改最近多次
+# pick -&gt; edit
+git rebase -i HEAD~n
+# 编辑注释信息
+git commit --amend
+# 保存
+git rebase --continue
+</code></pre>
+<blockquote>
+<p>修改完后通过<code>git push -f remote branch</code>强制更新到远程仓库</p>
+</blockquote>
+<h1 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h1><pre><code class="shell"># 在当前目录新建一个Git代码库
+git init
+
+# 新建一个目录，将其初始化为Git代码库
+git init [project-name]
+
+# 下载一个项目和它的整个代码历史
+git clone [url]
+</code></pre>
+<h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p><code>git init</code>命令将当前目录转为git仓库<br>它会在当前目录下生成一个<code>.git</code>子目录，在其中写入git的配置和项目的快照</p>
+<pre><code class="shell"># 在当前目录新建一个Git代码库
+git init
+
+# 新建一个目录，将其初始化为Git代码库
+git init [project-name]
+</code></pre>
+<h2 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h2><p><code>git clone</code>命令用于克隆远程分支</p>
+<pre><code class="shell"># 下载一个项目和它的整个代码历史
+git clone [url]
+
+# 将alpha目录（必须是git代码仓库），克隆到delta目录
+# bare参数表示delta目录只有仓库区，没有工作区和暂存区，即delta目录中就是.git目录的内容
+git clone alpha delta --bare
+</code></pre>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><pre><code class="shell"># 显示当前的Git配置
+git config --list
+
+# 编辑Git配置文件
+git config -e [--global]
+
+# 设置提交代码时的用户信息
+git config [--global] user.name &quot;[name]&quot;
+git config [--global] user.email &quot;[email address]&quot;
+</code></pre>
+<h2 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h2><p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下，也可以在项目目录下</p>
+<pre><code class="shell"># 显示当前的Git配置
+git config --list 
+git config -l
+
+# 编辑Git配置文件
+git config -e [--global]
+
+# 设置提交代码时的用户信息
+# 参数
+# 1.系统级别：--system
+# 2.用户全局：--global
+# 3.单独一个项目：--local
+git config --global user.name &quot;xxxx&quot; #用户名
+git config --global user.email &quot;xxxx@xxx.com&quot; #邮箱
+git config --global core.editor vim #编辑器
+
+git config --global alias.st status #按这种方法，配置别名
+</code></pre>
+<h1 id="增加-删除文件"><a href="#增加-删除文件" class="headerlink" title="增加/删除文件"></a>增加/删除文件</h1><pre><code class="shell"># 添加指定文件到暂存区
+git add [file1] [file2] ...
+
+# 添加指定目录到暂存区，包括子目录
+git add [dir]
+
+# 添加当前目录的所有文件到暂存区
+git add .
+
+# 删除工作区文件，并且将这次删除放入暂存区
+git rm [file1] [file2] ...
+
+# 停止追踪指定文件，但该文件会保留在工作区
+git rm --cached [file]
+
+# 改名文件，并且将这个改名放入暂存区
+git mv [file-original] [file-renamed]
+</code></pre>
+<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><p><code>git add</code>命令用于将变化的文件，从工作区提交到暂存区。它的作用就是告诉 Git，下一次哪些变化需要保存到仓库区。用户可以使用<code>git status</code>命令查看目前的暂存区放置了哪些文件。</p>
+<pre><code class="shell"># 添加指定文件到暂存区
+git add [file1] [file2] ...
+
+# 添加指定目录到暂存区，包括子目录
+git add [dir]
+
+# 添加当前目录的所有文件到暂存区
+# 会把当前目录中所有有改动的文件（不包括.gitignore中要忽略的文件）都添加到git缓冲区以待提交
+git add .
+
+# 会把当前目录中所有有改动的文件（包括.gitignore中要忽略的文件）都添加到git缓冲区以待提交
+git add *        #&lt;不推荐&gt;
+</code></pre>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>-u</code>参数表示只添加暂存区已有的文件（包括删除操作），但不添加新增的文件。</p>
+<pre><code class="shell">git add -u
+</code></pre>
+<p><code>-A</code>或者<code>--all</code>参数表示追踪所有操作，包括新增、修改和删除</p>
+<blockquote>
+<p>Git 2.0 版开始，<code>-A</code>参数成为默认，即<code>git add .</code>等同于<code>git add -A</code></p>
+</blockquote>
+<pre><code class="shell">git add -A
+</code></pre>
+<p> <code>-f</code>参数表示强制添加某个文件，不管<code>.gitignore</code>是否包含了这个文件。</p>
+<pre><code class="shell">git add -f &lt;fileName&gt;
+</code></pre>
+<p><code>-p</code>参数表示进入交互模式，指定哪些修改需要添加到暂存区。即使是同一个文件，也可以只提交部分变动。</p>
+<pre><code class="shell"># 添加每个变化前，都会要求确认，对于同一个文件的多处变化，可以实现分次提交
+git add -p
+</code></pre>
+<p>注意，Git 2.0 版以前，<code>git add</code>默认不追踪删除操作。即在工作区删除一个文件后，<code>git add</code>命令不会将这个变化提交到暂存区，导致这个文件继续存在于历史中。<code>Git 2.0</code> 改变了这个行为。</p>
+<h2 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h2><p><code>git rm</code>命令用于删除文件。</p>
+<pre><code class="shell"># 删除工作区文件，并且将这次删除放入暂存区
+git rm [file1] [file2] ...
+
+# 停止追踪指定文件，但该文件会保留在工作区
+git rm --cached [file]
+</code></pre>
+<h2 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h2><pre><code class="shell"># 改名文件，并且将这个改名放入暂存区
+git mv [file-original] [file-renamed]
+</code></pre>
+<h1 id="代码提交"><a href="#代码提交" class="headerlink" title="代码提交"></a>代码提交</h1><pre><code class="shell"># 提交暂存区到仓库区
+git commit -m [message]
+
+# 提交暂存区的指定文件到仓库区
+git commit [file1] [file2] ... -m [message]
+
+# 提交工作区自上次commit之后的变化，直接到仓库区
+git commit -a
+
+# 提交时显示所有diff信息
+git commit -v
+
+# 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+git commit --amend -m [message]
+
+# 重做上一次commit，并包括指定文件的新变化
+git commit --amend &lt;file1&gt; &lt;file2&gt; ...
+</code></pre>
+<h2 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h2><p><code>git commit</code>命令用于将<code>暂存区</code>中的变化提交到<code>仓库区</code>。<br><code>-m</code>参数用于指定 commit 信息，是<strong>必需</strong>的。如果省略<code>-m</code>参数，<code>git commit</code>会自动打开文本编辑器，要求输入。</p>
+<pre><code class="shell"># 提交暂存区到仓库区
+git commit -m &quot;message&quot;
+
+# 提交暂存区的指定文件到仓库区
+# 将工作区中指定文件的变化，先添加到暂存区，然后再将暂存区提交到仓库区
+git commit [file1] [file2] ... -m [message]
+</code></pre>
+<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><h4 id="m"><a href="#m" class="headerlink" title="-m"></a>-m</h4><p><code>-m</code>参数用于添加提交说明<br>如果没有指定提交说明，运行 commit 会直接打开默认的文本编辑器，让用户撰写提交说明</p>
+<pre><code class="shell">git commit -m &quot;message&quot;
+</code></pre>
+<h4 id="a"><a href="#a" class="headerlink" title="-a"></a>-a</h4><p><code>-a</code>参数用于先将所有<code>工作区</code>的变动文件，提交到<code>暂存区</code>，再运行<code>git commit</code>。<br>用了<code>-a</code>参数，就不用执行<code>git add .</code>命令了。</p>
+<pre><code class="shell"># 提交工作区自上次commit之后的变化，直接到仓库区
+git commit -am &quot;message&quot;
+</code></pre>
+<h4 id="–allow-empty"><a href="#–allow-empty" class="headerlink" title="–allow-empty"></a>–allow-empty</h4><p><code>--allow-empty</code>参数用于没有提交信息的 commit</p>
+<pre><code class="shell">git commit --allow-empty
+</code></pre>
+<h4 id="–amend"><a href="#–amend" class="headerlink" title="–amend"></a>–amend</h4><p>–amend参数用于撤销上一次 commit，然后生成一个新的 commit</p>
+<pre><code class="shell"># 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+git commit --amend -m [message]
+
+# 重做上一次commit，并包括指定文件的新变化
+git commit --amend &lt;file1&gt; &lt;file2&gt; ...
+</code></pre>
+<h4 id="–fixup"><a href="#–fixup" class="headerlink" title="–fixup"></a>–fixup</h4><p><code>--fixup</code>参数的含义是，当前添加的 commit 是以前某一个 commit 的<strong>修正</strong>。<br>以后执行互动式的<code>git rebase</code>的时候，这两个 commit 将会<strong>合并</strong>成一个。</p>
+<pre><code class="shell"># 提交说明将自动生成，即在目标 commit 的提交说明的最前面，添加&quot;fixup!&quot;这个词
+git commit --fixup &lt;commit&gt;
+</code></pre>
+<h4 id="–squash"><a href="#–squash" class="headerlink" title="–squash"></a>–squash</h4><p><code>--squash</code>参数的作用与<code>--fixup</code>类似，表示当前添加的 commit 应该与以前某一个 commit 合并成一个，以后执行互动式的<code>git rebase</code>的时候，这两个 commit 将会合并成一个。</p>
+<pre><code class="shell">git commit --squash &lt;commit&gt;
+</code></pre>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><pre><code class="shell"># 列出所有本地分支
+git branch
+
+# 列出所有远程分支
+git branch -r
+
+# 列出所有本地分支和远程分支
+git branch -a
+
+# 新建一个分支，但依然停留在当前分支
+git branch [branch-name]
+
+# 新建一个分支，并切换到该分支
+git checkout -b [branch-name]
+
+# 新建一个分支，指向指定commit
+git branch [branch-name] [commit]
+
+# 新建一个分支，与指定的远程分支建立追踪关系
+git branch --track [branch-name] [remote-branch]
+
+# 切换到指定分支，并更新工作区
+git checkout [branch-name]
+
+# 建立追踪关系，在现有分支与指定的远程分支之间
+git branch --set-upstream [branch-name] [remote-branch]
+
+# 合并指定分支到当前分支
+git merge [branch-name]
+
+# 选择一个commit，合并进当前分支
+git cherry-pick [commit]
+
+# 删除分支
+git branch -d [branch-name]
+
+# 删除远程分支
+git push origin --delete &lt;branch-name&gt;
+git branch -dr &lt;remote/branch&gt;
+</code></pre>
+<h2 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h2><p><code>git branch</code>是分支操作命令</p>
+<pre><code class="shell"># 列出所有本地分支
+git branch
+
+# 列出所有远程分支
+git branch -r
+
+# 列出所有本地分支和远程分支
+git branch -a
+</code></pre>
+<h3 id="新建一个分支"><a href="#新建一个分支" class="headerlink" title="新建一个分支"></a>新建一个分支</h3><p>直接在<code>git branch</code>后面跟上分支名，就表示新建该分支</p>
+<pre><code class="shell"># 新建一个分支，但依然停留在当前分支
+git branch branch-name
+</code></pre>
+<p>新建一个分支，指向当前 commit。本质是在<code>refs/heads/</code>目录中生成一个文件，文件名为分支名，内容为当前 commit 的哈希值</p>
+<blockquote>
+<p>注意：创建后，还是停留在原来分支，需要用<code>git checkout</code>切换到新建分支</p>
+</blockquote>
+<pre><code class="shell"># 切换到指定分支，并更新工作区
+git checkout branch-name
+</code></pre>
+<p>使用<code>-b</code>参数，可以新建的同时，切换到新分支</p>
+<pre><code class="shell"># 新建一个分支，并切换到该分支
+git checkout -b NewBranch MyBranch
+</code></pre>
+<h4 id="新建一个空分支"><a href="#新建一个空分支" class="headerlink" title="新建一个空分支"></a>新建一个空分支</h4><pre><code class="bash"># 使用 --orphan 参数创建一个没有父级与其他分支断开的空分支
+git checkout --orphan branch-name
+
+# 删除所有文件
+git rm -rf .
+</code></pre>
+<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><p><code>-d</code>参数用来删除一个分支，<strong>前提</strong>是该分支没有未合并的变动</p>
+<pre><code class="shell"># 删除分支
+git branch -d &lt;branch-name分支名&gt;
+</code></pre>
+<p><strong>强制删除</strong>一个分支，不管有没有未合并变化</p>
+<pre><code class="shell">git branch -D &lt;branch-name分支名&gt;
+</code></pre>
+<p>删除<strong>远程分支</strong></p>
+<pre><code class="shell"># 删除远程分支
+git push origin --delete &lt;branch-name&gt;
+git branch -dr &lt;remote/branch&gt;
+</code></pre>
+<h3 id="分支改名"><a href="#分支改名" class="headerlink" title="分支改名"></a>分支改名</h3><pre><code class="shell"># 新建一个分支
+git checkout -b twitter-experiment feature132
+# 删除原来的分支，使用新的分支，从而达到重命名操作
+git branch -d feature132
+</code></pre>
+<p>另一种写法</p>
+<pre><code class="shell"># 为当前分支改名
+git branch -m twitter-experiment
+
+# 为指定分支改名
+git branch -m feature132 twitter-experiment
+
+# 如果有重名分支，强制改名
+git branch -m feature132 twitter-experiment
+</code></pre>
+<h3 id="查看-merge-情况"><a href="#查看-merge-情况" class="headerlink" title="查看 merge 情况"></a>查看 merge 情况</h3><pre><code class="shell"># 显示全部合并到当前分支的分支
+git branch --merged
+
+# 显示未合并到当前分支的分支
+git branch --no-merged
+</code></pre>
+<h3 id="拉取远程所有分支"><a href="#拉取远程所有分支" class="headerlink" title="拉取远程所有分支"></a>拉取远程所有分支</h3><blockquote>
+<p><a href="http://stackoverflow.com/questions/10312521/how-to-fetch-all-git-branches" target="_blank" rel="noopener">Stack Overflow</a></p>
+</blockquote>
+<pre><code class="shell">git branch -r | grep -v &#39;-&gt;&#39; | while read remote; do git branch --track &quot;${remote#origin/}&quot; &quot;$remote&quot;; done
+git fetch --all
+git pull --all
+</code></pre>
+<h2 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h2><p>合并指定分支到当前分支</p>
+<pre><code class="shell"># 合并指定分支到当前分支
+git merge [branch]
+
+# 合并指定分支到当前分支(生成一个新的提交记录)
+git merge --no-ff [branch]
+</code></pre>
+<h2 id="git-cherry-pick"><a href="#git-cherry-pick" class="headerlink" title="git cherry-pick"></a>git cherry-pick</h2><p><code>git cherry-pick</code>命令”复制”一个提交节点并在当前分支做一次完全一样的新提交</p>
+<pre><code class="shell"># 选择一个commit，合并进当前分支
+git cherry-pick [commit]
+</code></pre>
+<h2 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h2><pre><code class="shell"># 把未提交的修改(工作区和暂存区)储藏起来
+git stash
+git stash save &quot;描述&quot;
+
+# 查看stash内容
+git stash list
+
+# 恢复stash内容
+git stash pop
+# 恢复指定stash内容
+git stash apply stash@{0}
+
+# 删除stash内容
+git stash drop
+</code></pre>
+<h1 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h1><pre><code class="shell"># 列出所有tag
+git tag
+
+# 新建一个tag在当前commit
+git tag [tag]
+
+# 新建一个tag在指定commit
+git tag [tag] [commit]
+
+# 新建带有说明的标签；通过 git show [tag] 查看
+# -a 指定标签名；-m 指定说明文字
+git tag -a [tag] -m [说明] [commit]
+
+# 删除标签(删除本地)
+git tag -d [tag]
+# 删除标签(删除远程,先删除本地)
+git push origin :refs/tags/[tag]
+
+# 查看tag信息
+git show [tag]
+
+# 提交指定tag到远程
+git push [remote] [tag]
+
+# 提交所有tag到远程
+git push [remote] --tags
+
+# 新建一个分支，指向某个tag
+git checkout -b [branch] [tag]
+</code></pre>
+<h2 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h2><p><code>git tag</code>命令用于为 commit 打标签<br>Tag 分两种：普通tag和注解tag<br>只有<code>annotated tag</code>(注解tag) 才会产生 object</p>
+<pre><code class="shell">git tag tmp # 生成.git/refs/tags/tmp
+git tag -a release
+git tag -a [VERSION] -m &quot;released [VERSION]&quot;
+</code></pre>
+<p>上面代码表示为<strong>当前commit</strong>打上一个带注解的标签，标签名为<strong>release</strong><br>普通标签的写法</p>
+<pre><code class="shell">git tag 1.0.0
+git push --tags
+
+git tag v0.0.1
+git push origin master --tags
+</code></pre>
+<p><strong>注意：</strong>标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签。</p>
+<h1 id="查看信息"><a href="#查看信息" class="headerlink" title="查看信息"></a>查看信息</h1><pre><code class="shell"># 显示有变更的文件
+git status
+
+# 显示指定文件是什么人在什么时间修改过
+git blame [file]
+
+# 显示暂存区和工作区的差异
+git diff
+
+# 显示暂存区和上一个commit的差异
+git diff --cached [&lt;file&gt;]
+
+# 显示工作区与当前分支最新commit之间的差异
+git diff HEAD
+
+# 显示两次提交之间的差异
+git diff [first-branch]...[second-branch]
+
+# 显示某次提交的元数据和内容变化
+git show [commit]
+
+# 显示某次提交发生变化的文件
+git show --name-only [commit]
+
+# 显示某次提交时，某个文件的内容
+git show [commit]:[filename]
+
+# 显示当前分支的最近几次提交
+git reflog
+</code></pre>
+<h2 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h2><pre><code class="shell"># 显示当前分支的版本历史
+git log
+
+# 显示commit历史，以及每次commit发生变更的文件
+git log --stat
+
+# 显示某个文件的版本历史，包括文件改名
+git log --follow [file]
+git whatchanged [file]
+
+# 显示指定文件相关的每一次diff
+git log -p [file]
+
+# 查看提交历史[简略信息]
+git log [--pretty=oneline]
+# 输出概要日志,这条命令等同于
+# git log --pretty=oneline --abbrev-commit
+git log --oneline
+# 
+git log --graph --pretty=oneline --abbrev-commit
+# 通过ASCII艺术的树形结构来展示所有的分支, 每个分支都标示了他的名字和标签
+git log --graph --oneline --decorate --all
+# 提供类似GUI工具的 log 展示
+git log --graph --date=relative --pretty=tformat:&#39;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset&#39;
+# 只看某一个人的提交记录
+git log --author=username
+
+# 看看哪些文件改变了
+git log --name-status
+</code></pre>
+<h1 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h1><h2 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code><br><code>git remote</code>查看远程库的信息</p>
+<pre><code class="shell"># 下载远程仓库的所有变动
+git fetch [remote]
+
+# 查看远程库详细信息
+# 显示可以抓取(fetch)和推送(push)的origin的地址；如果没有推送权限，就看不到push的地址
+git remote -v
+
+# 显示某个远程仓库的信息
+git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+git remote add [shortname] [url]
+
+# 修改远程仓库地址
+git remote set-url origin git@github.xxx.git
+
+# 取回远程仓库的变化，并与本地分支合并
+git pull [remote] [branch]
+
+# 上传本地指定分支到远程仓库
+git push [remote] [branch]
+
+# 强行推送当前分支到远程仓库，即使有冲突
+git push [remote] --force
+
+# 推送所有分支到远程仓库
+git push [remote] --all
+</code></pre>
+<h1 id="查看版本改动"><a href="#查看版本改动" class="headerlink" title="查看版本改动"></a>查看版本改动</h1><h2 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h2><p><code>git diff</code>命令用于查看文件之间的差异</p>
+<p>在git提交环节，存在三大部分：<strong>working tree</strong>（工作区）, <strong>index file</strong>（暂存区：stage）, <strong>commit</strong>（分支：master）</p>
+<pre><code class="shell"># 查看工作区与暂存区的差异
+git diff
+
+# 查看某个文件的工作区与暂存区的差异
+git diff file.txt
+
+# 查看暂存区与当前 commit 的差异
+git diff --cached
+
+# 查看两个commit的差异
+git diff &lt;commitBefore&gt; &lt;commitAfter&gt;
+
+# 查看暂存区与仓库区的差异
+git diff --cached
+
+# 查看工作区与上一次commit之间的差异
+# 即如果执行 git commit -a，将提交的文件
+git diff HEAD
+
+# 查看工作区与某个 commit 的差异
+git diff &lt;commit&gt;
+
+# 显示两次提交之间的差异
+git diff [first-branch]...[second-branch]
+
+# 查看工作区与当前分支上一次提交的差异，但是局限于test文件
+git diff HEAD -- ./test
+
+# 查看当前分支上一次提交与上上一次提交之间的差异
+git diff HEAD -- ./test
+
+# 生成patch
+git format-patch master --stdout &gt; mypatch.patch
+</code></pre>
+<p>比较两个分支</p>
+<pre><code class="shell"># 查看topic分支与master分支最新提交之间的差异
+git diff topic master
+
+# 与上一条命令相同
+git diff topic..master
+
+# 查看自从topic分支建立以后，master分支发生的变化
+git diff topic...master
+</code></pre>
+<h1 id="版本回退-1"><a href="#版本回退-1" class="headerlink" title="版本回退"></a>版本回退</h1><pre><code class="shell"># 恢复暂存区的指定文件到工作区
+git checkout [file]
+
+# 恢复某个commit的指定文件到工作区
+git checkout [commit] [file]
+
+# 恢复上一个commit的所有文件到工作区
+git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+git revert [commit]
+</code></pre>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><pre><code class="shell"># 强制添加到Git
+git add -f &lt;filename&gt;
+
+# 查看某文件在.gitignore对应的过滤规则
+git check-ignore -v &lt;filename&gt;
+</code></pre>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><pre><code class="shell"># 生成一个可供发布的压缩包
+git archive
+
+# 删除未跟踪的目录和文件【慎用】
+git clean -d -f
+</code></pre>
+<p><code>HEAD</code>表示当前版本，也就是最新的提交。上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，<br>往上100个版本写100个<code>^</code> 比较容易数不过来，所以写成<code>HEAD~100</code>。<code>HEAD~2</code>相当于<code>HEAD^^</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰官方网站</a>、<a href="https://www.bookstack.cn/books/git-tutorial" target="_blank" rel="noopener">阮一峰 Git 教程</a></p>
+</blockquote>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/06/12/hexo常用命令汇总/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1494587416117-f102a2ac0a8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                hexo常用命令汇总</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/06/10/常用正则表达式公式/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1543268956-75970fe7c955?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                常用正则表达式公式</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="https://www.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/xiongtianci-tc/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="天赐" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://www.xiongtianci.com" itemprop="url" rel="author">天赐</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 天赐<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-info">
+		<div class="footertext">
+			<div class="img-preload">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/wordpress-rotating-ball-o.svg">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/disqus-preloader.svg">
+			</div>
+			<p class="foo-logo" style="background-image: url('https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/images/sakura.svg');">
+			</p>
+			<div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none;margin-top:0.7em;">
+				<i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i>
+			</div>
+			<!-- color: #666666; -->
+			<div style="color: #b9b9b9;">&copy;
+				2018-2022&nbsp;天赐&nbsp;
+			</div>
+		</div>
+		<!-- 访客统计 -->
+		<!--<div id="busuanzi_container"></div>-->
+		<!-- 已运行的时间-容器 -->
+		<div id="days"></div>
+		<div class="footer-device">
+			<p id="footer-sponsor">
+				<!-- <a href="https://pages.github.com/" target="_blank" alt="GitHub Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/GitHub.svg" alt="GitHub Pages"
+						style="height: 2em; max-height: 2em;" title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<!-- <a href="https://coding.net/pages" target="_blank" alt="Coding Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/Coding.png" alt="Coding Pages"
+						style="height: 1.3em; max-height: 1.3em;padding-bottom: 0px;margin-bottom: 0.35em;"
+						title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<a href="https://www.jsdelivr.com/" target="_blank" alt="Free CDN" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/JsDelivr_Logo.svg" alt="jsDelivr" style="height: 2em; max-height: 2em;padding-bottom: 0px;"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.google.com/intl/ja/analytics/" target="_blank" alt="Analytics solution" rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/moezx/cdn@3.0.8/img/logo/Google.svg" alt="Google Analytics" style="height: 1.7em; max-height: 1.7em;padding-bottom: 0px;"></a>
+			</p>
+		</div>
+	</div>
+	<!-- .site-info -->
+</footer>
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<!--浏览器搞笑标题-->
+<!--<script type="text/javascript" src="/js/title_change.js"></script>-->
+<script type="text/javascript" src="/js/volantis.min.js"></script>
+<!-- Valine -->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!--<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>-->
+<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "close"
+			},
+			"windowheight": "fixed",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	} else {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "open"
+			},
+			"windowheight": "auto",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	}
+		/* ]]> */
+</script>
+<script>
+	$(document).ready(function () {
+		if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+			if ($(".pattern-center").length > 0) { //有图的情况
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -400,
+					scrollSmoothOffset: -85
+				});
+			} else {
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -85,
+					scrollSmoothOffset: -85
+				});
+			}
+			var offsetTop = $('.toc').offset().top - 95;
+			window.onscroll = function () {
+				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+				if (scrollTop >= offsetTop) {
+					$('.toc').addClass('toc-fixed');
+				} else {
+					$('.toc').removeClass('toc-fixed');
+				}
+			}
+		}
+	});
+</script>
+<!-- 已运行的时间-js -->
+<script>
+	function show_date_time() {
+		window.setTimeout("show_date_time()", 1000);
+		// 获得建站时间
+		var time = "28/11/2018 15:36:06";
+		time = time.replace(/\//g, ':').replace(' ', ':');
+		time = time.split(':');
+		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
+
+		today = new Date();
+		timeold = (today.getTime() - BirthDay.getTime());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		msPerYear = 365 * 24 * 60 * 60 * 1000
+		e_yearsold = timeold / msPerYear
+		yearsold = Math.floor(e_yearsold);
+		//e_daysold = timeold / msPerDay
+		e_daysold = timeold/msPerDay - yearsold*365;
+		daysold = Math.floor(e_daysold);
+		e_hrsold = (e_daysold - daysold) * 24;
+		hrsold = setzero(Math.floor(e_hrsold));
+		e_minsold = (e_hrsold - hrsold) * 60;
+		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + yearsold + " 年 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+	}
+
+	function setzero(i) {
+		if (i < 10) {
+			i = "0" + i
+		};
+		return i;
+	}
+	show_date_time();
+</script>
+<!-- 访客统计-js -->
+<!--<script>
+		if(true){
+			document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
+		}else{
+			document.getElementById('busuanzi_container').hidden;
+		}
+	</script>-->
+<!-- 百度统计自动推送 -->
+<!--<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var scriptList = document.getElementsByTagName("script");
+		var s = scriptList[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+	-->
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin" style="position: fixed">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white-bg"><i class="fa fa-television" aria-hidden="true"></i></li>
+            <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+            <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+            <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+            <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+            <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+            <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+            <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</div>
+
+<canvas id="night-mode-cover"></canvas>
+<style>
+#mainskin{
+    position: fixed;
+}
+</style> 
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换主题 | SCHEME TOOL &nbsp;
+	<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+</div>
+  
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">天赐の小站</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+            极客
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/Linux/">
+                  <i class="fa fa-linux" aria-hidden="true"></i>
+                  Linux
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+            爱好
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/电影/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  电影
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/日语/">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  日语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/css/aplayer/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/APlayer.min.js"></script>
+
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  /*.aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }*/
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="7040682880" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.5" data-mutex="true" data-listfolded="false" < div>
+<!-- Meting 一个支持各种音乐平台(腾讯、网易...)的音乐 API 框架 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.1/js/aplayer/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script></div>
+</body>
+</html>
