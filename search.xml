@@ -4,11 +4,49 @@
   
     
     <entry>
+      <title>nacos启动报错问题列表</title>
+      <link href="/2022/02/27/nacos%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%88%97%E8%A1%A8/"/>
+      <url>/2022/02/27/nacos%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%88%97%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="win下启动"><a href="#win下启动" class="headerlink" title="win下启动"></a>win下启动</h1><h2 id="Caused-by-java-net-UnknownHostException-jmenv-tbsite-net"><a href="#Caused-by-java-net-UnknownHostException-jmenv-tbsite-net" class="headerlink" title="Caused by: java.net.UnknownHostException: jmenv.tbsite.net"></a>Caused by: java.net.UnknownHostException: jmenv.tbsite.net</h2><h3 id="单机模式启动"><a href="#单机模式启动" class="headerlink" title="单机模式启动"></a>单机模式启动</h3><p>修改 <code>bin/</code> 目录下的 <code>startup.cmd</code> 文件，将 <code>set MODE=&quot;cluster&quot;</code> 一行改成 <code>set MODE=&quot;standalone&quot;</code>，然后再运行 <code>bin/startup.cmd</code></p><hr><p>参考：<a href="https://zifangsky.cn/1585.html" target="_blank" rel="noopener">1</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>安装Nacos,初始化sql报错：index column size too large. the maximum column size is 767 bytes</title>
+      <link href="/2022/02/27/%E5%AE%89%E8%A3%85Nacos-%E5%88%9D%E5%A7%8B%E5%8C%96sql%E6%8A%A5%E9%94%99%EF%BC%9Aindex-column-size-too-large-the-maximum-column-size-is-767-bytes/"/>
+      <url>/2022/02/27/%E5%AE%89%E8%A3%85Nacos-%E5%88%9D%E5%A7%8B%E5%8C%96sql%E6%8A%A5%E9%94%99%EF%BC%9Aindex-column-size-too-large-the-maximum-column-size-is-767-bytes/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>安装 Nacos Windows，执行 <code>conf/nacos-mysql.sql</code> 初始化脚本时报错：</p><pre><code>Index column size too large. The maximum column size is 767 bytes</code></pre><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>对脚本进行修改，添加 <code>ROW_FORMAT=DYNAMIC</code>：</p><pre><code class="sql">create table test (........) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;</code></pre><hr><p>参考：<a href="https://stackoverflow.com/questions/30761867/mysql-error-the-maximum-column-size-is-767-bytes" target="_blank" rel="noopener">MySQL error: The maximum column size is 767 bytes</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IDEA(首次安装)的常用设置</title>
       <link href="/2022/02/21/IDEA-%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85-%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/"/>
       <url>/2022/02/21/IDEA-%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85-%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>本文基于 IntelliJ IDEA v2019.3.4、Windows 10 环境</p></blockquote><p>进入配置页：</p><ol><li><p>首次安装完，可以在欢迎页直接进入：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221094336698.png" alt="image-20220221094336698"></p></li><li><p>如果错过了欢迎页，可以通过：<code>File</code> -&gt; <code>Settings...</code>，进入配置页：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221105340010.png" alt="image-20220221105340010"></p></li></ol><h1 id="字符编码设置：UTF-8"><a href="#字符编码设置：UTF-8" class="headerlink" title="字符编码设置：UTF-8"></a>字符编码设置：UTF-8</h1><p><code>Editor</code> -&gt; <code>File Encodings</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221094927287.png" alt="image-20220221094927287"></p><h1 id="编辑通用设置：控制字体-帮助"><a href="#编辑通用设置：控制字体-帮助" class="headerlink" title="编辑通用设置：控制字体+帮助"></a>编辑通用设置：控制字体+帮助</h1><p><code>Editor</code> -&gt; <code>General</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221095647945.png" alt="image-20220221095647945"></p><h1 id="自动导包设置"><a href="#自动导包设置" class="headerlink" title="自动导包设置"></a>自动导包设置</h1><p><code>Editor</code> -&gt; <code>General</code> -&gt; <code>Auto Import</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221100254085.png" alt="image-20220221100254085"></p><h1 id="通用编辑外貌设置：行号-分隔线"><a href="#通用编辑外貌设置：行号-分隔线" class="headerlink" title="通用编辑外貌设置：行号+分隔线"></a>通用编辑外貌设置：行号+分隔线</h1><p><code>Editor</code> -&gt; <code>General</code> -&gt; <code>Appearance</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221100845418.png" alt="image-20220221100845418"></p><h1 id="通用编辑补全设置"><a href="#通用编辑补全设置" class="headerlink" title="通用编辑补全设置"></a>通用编辑补全设置</h1><p><code>Editor</code> -&gt; <code>General</code> -&gt; <code>Code Completion</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221101318356.png" alt="image-20220221101318356"></p><h1 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h1><p>第一步：<code>Keymap</code> -&gt; <code>Main menu</code> -&gt; <code>Code</code> -&gt; <code>Completion</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221101617640.png" alt="image-20220221101617640"></p><p>第二步：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102043303.png" alt="image-20220221102043303"></p><p>第三步：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102201773.png" alt="image-20220221102201773"></p><p>第四步：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102308631.png" alt="image-20220221102308631"></p><p>最后，点击 <code>Apply</code></p><h1 id="开发环境JDK设置"><a href="#开发环境JDK设置" class="headerlink" title="开发环境JDK设置"></a>开发环境JDK设置</h1><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102615476.png" alt="image-20220221102615476"></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102701009.png" alt="image-20220221102701009"></p><h1 id="修改内存大小"><a href="#修改内存大小" class="headerlink" title="修改内存大小"></a>修改内存大小</h1><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221103413921.png" alt="image-20220221103413921"></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221104622143.png" alt="image-20220221104622143"></p><h1 id="显示内存占用情况"><a href="#显示内存占用情况" class="headerlink" title="显示内存占用情况"></a>显示内存占用情况</h1><p>效果：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221104922959.png" alt="image-20220221104922959"></p><p>设置：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221105025338.png" alt="image-20220221105025338"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote><p>本文基于 IntelliJ IDEA v2019.3.4、Windows 10 环境</p></blockquote><p>进入配置页：</p><ol><li><p>首次安装完，可以在欢迎页直接进入：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221094336698.png" alt="image-20220221094336698"></p></li><li><p>如果错过了欢迎页，可以通过：<code>File</code> -&gt; <code>Settings...</code>，进入配置页：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221105340010.png" alt="image-20220221105340010"></p></li></ol><h1 id="字符编码设置：UTF-8"><a href="#字符编码设置：UTF-8" class="headerlink" title="字符编码设置：UTF-8"></a>字符编码设置：UTF-8</h1><p><code>Editor</code> -&gt; <code>File Encodings</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221094927287.png" alt="image-20220221094927287"></p><h1 id="编辑通用设置：控制字体-帮助"><a href="#编辑通用设置：控制字体-帮助" class="headerlink" title="编辑通用设置：控制字体+帮助"></a>编辑通用设置：控制字体+帮助</h1><p><code>Editor</code> -&gt; <code>General</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221095647945.png" alt="image-20220221095647945"></p><h1 id="自动导包设置"><a href="#自动导包设置" class="headerlink" title="自动导包设置"></a>自动导包设置</h1><p><code>Editor</code> -&gt; <code>General</code> -&gt; <code>Auto Import</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221100254085.png" alt="image-20220221100254085"></p><h1 id="通用编辑外貌设置：行号-分隔线"><a href="#通用编辑外貌设置：行号-分隔线" class="headerlink" title="通用编辑外貌设置：行号+分隔线"></a>通用编辑外貌设置：行号+分隔线</h1><p><code>Editor</code> -&gt; <code>General</code> -&gt; <code>Appearance</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221100845418.png" alt="image-20220221100845418"></p><h1 id="通用编辑补全设置"><a href="#通用编辑补全设置" class="headerlink" title="通用编辑补全设置"></a>通用编辑补全设置</h1><p><code>Editor</code> -&gt; <code>General</code> -&gt; <code>Code Completion</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221101318356.png" alt="image-20220221101318356"></p><h1 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h1><p>第一步：<code>Keymap</code> -&gt; <code>Main menu</code> -&gt; <code>Code</code> -&gt; <code>Completion</code></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221101617640.png" alt="image-20220221101617640"></p><p>第二步：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102043303.png" alt="image-20220221102043303"></p><p>第三步：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102201773.png" alt="image-20220221102201773"></p><p>第四步：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102308631.png" alt="image-20220221102308631"></p><p>最后，点击 <code>Apply</code></p><h1 id="开发环境JDK设置"><a href="#开发环境JDK设置" class="headerlink" title="开发环境JDK设置"></a>开发环境JDK设置</h1><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102615476.png" alt="image-20220221102615476"></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221102701009.png" alt="image-20220221102701009"></p><h1 id="修改内存大小"><a href="#修改内存大小" class="headerlink" title="修改内存大小"></a>修改内存大小</h1><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221103413921.png" alt="image-20220221103413921"></p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221104622143.png" alt="image-20220221104622143"></p><h1 id="显示内存占用情况"><a href="#显示内存占用情况" class="headerlink" title="显示内存占用情况"></a>显示内存占用情况</h1><p>效果：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221104922959.png" alt="image-20220221104922959"></p><p>设置：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220221105025338.png" alt="image-20220221105025338"></p><h1 id="显示方法的注释"><a href="#显示方法的注释" class="headerlink" title="显示方法的注释"></a>显示方法的注释</h1><h2 id="调用方法时"><a href="#调用方法时" class="headerlink" title="调用方法时"></a>调用方法时</h2><p>Editor -&gt; General -&gt; Code Completion：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220225152336958.png" alt="image-20220225152336958"></p><h2 id="鼠标移至方法上时"><a href="#鼠标移至方法上时" class="headerlink" title="鼠标移至方法上时"></a>鼠标移至方法上时</h2><p>Editor -&gt; General：</p><p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220221/image-20220225152531083.png" alt="image-20220225152531083"></p>]]></content>
       
       
       <categories>
@@ -821,9 +859,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -944,9 +982,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1120,9 +1158,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -2372,9 +2410,9 @@
             
             <tag> 踩坑 </tag>
             
-            <tag> MyBatis </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> MyBatis </tag>
             
             <tag> 乱码 </tag>
             
@@ -2686,9 +2724,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -3220,9 +3258,9 @@
       
         <tags>
             
-            <tag> SpringMVC </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
             
         </tags>
       
@@ -3787,9 +3825,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
