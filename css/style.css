@@ -3966,7 +3966,8 @@ li.feature-2 {
     background-repeat:no-repeat;
     background-attachment:fixed;
     background-size:cover;
-    z-index:-1
+    z-index:-1;
+    background-position: 50% 50%;
 }
 @media(max-width:560px) {
     #bgvideo {
