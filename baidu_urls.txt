@@ -1,3 +1,4 @@
+https://www.xiongtianci.com/2022/04/24/使用驱动人生后系统开机出现选择应急系统/
 https://www.xiongtianci.com/2022/02/27/nacos启动报错问题列表/
 https://www.xiongtianci.com/2022/02/27/安装Nacos-初始化sql报错：index-column-size-too-large-the-maximum-column-size-is-767-bytes/
 https://www.xiongtianci.com/2022/02/21/IDEA-首次安装-的常用设置/

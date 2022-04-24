@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2022-02-27T07:52:07.210Z</updated>
+  <updated>2022-04-24T11:30:45.508Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用驱动人生后系统开机出现选择应急系统</title>
+    <link href="https://www.xiongtianci.com/2022/04/24/%E4%BD%BF%E7%94%A8%E9%A9%B1%E5%8A%A8%E4%BA%BA%E7%94%9F%E5%90%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E6%9C%BA%E5%87%BA%E7%8E%B0%E9%80%89%E6%8B%A9%E5%BA%94%E6%80%A5%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://www.xiongtianci.com/2022/04/24/使用驱动人生后系统开机出现选择应急系统/</id>
+    <published>2022-04-24T01:03:56.000Z</published>
+    <updated>2022-04-24T11:30:45.508Z</updated>
+    
+    <summary type="html">
+    
+      使用驱动人生后系统开机出现选择应急系统
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="软件" scheme="https://www.xiongtianci.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>nacos启动报错问题列表</title>
@@ -395,26 +415,6 @@
     
     
       <category term="十次方" scheme="https://www.xiongtianci.com/tags/%E5%8D%81%E6%AC%A1%E6%96%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>win10所有文件夹全变成只读</title>
-    <link href="https://www.xiongtianci.com/2020/10/12/win10%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%A4%B9%E5%85%A8%E5%8F%98%E6%88%90%E5%8F%AA%E8%AF%BB/"/>
-    <id>https://www.xiongtianci.com/2020/10/12/win10所有文件夹全变成只读/</id>
-    <published>2020-10-12T11:40:12.000Z</published>
-    <updated>2020-10-12T12:13:22.756Z</updated>
-    
-    <summary type="html">
-    
-      win10所有盘符的目录全变成只读
-    
-    </summary>
-    
-      <category term="win" scheme="https://www.xiongtianci.com/categories/win/"/>
-    
-    
-      <category term="win" scheme="https://www.xiongtianci.com/tags/win/"/>
     
   </entry>
   
