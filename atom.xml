@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2022-04-24T11:30:45.508Z</updated>
+  <updated>2022-05-15T07:38:13.893Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>配置CentOS6.5静态ip导致xshell连接失败</title>
+    <link href="https://www.xiongtianci.com/2022/05/15/%E9%85%8D%E7%BD%AECentOS6-5%E9%9D%99%E6%80%81ip%E5%AF%BC%E8%87%B4xshell%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/"/>
+    <id>https://www.xiongtianci.com/2022/05/15/配置CentOS6-5静态ip导致xshell连接失败/</id>
+    <published>2022-05-15T07:15:23.000Z</published>
+    <updated>2022-05-15T07:38:13.893Z</updated>
+    
+    <summary type="html">
+    
+      配置CentOS6.5静态ip导致xshell连接失败
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS6.5中yum源失效的解决方案</title>
+    <link href="https://www.xiongtianci.com/2022/05/15/CentOS6.5%E4%B8%ADyum%E6%BA%90%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>https://www.xiongtianci.com/2022/05/15/CentOS6.5中yum源失效的解决方案/</id>
+    <published>2022-05-15T05:11:48.000Z</published>
+    <updated>2022-05-15T06:04:21.860Z</updated>
+    
+    <summary type="html">
+    
+      CentOS6.5中yum源失效的解决方案
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.xiongtianci.com/categories/Linux/"/>
+    
+    
+      <category term="CentOS6.5" scheme="https://www.xiongtianci.com/tags/CentOS6-5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>使用驱动人生后系统开机出现选择应急系统</title>
     <link href="https://www.xiongtianci.com/2022/04/24/%E4%BD%BF%E7%94%A8%E9%A9%B1%E5%8A%A8%E4%BA%BA%E7%94%9F%E5%90%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E6%9C%BA%E5%87%BA%E7%8E%B0%E9%80%89%E6%8B%A9%E5%BA%94%E6%80%A5%E7%B3%BB%E7%BB%9F/"/>
     <id>https://www.xiongtianci.com/2022/04/24/使用驱动人生后系统开机出现选择应急系统/</id>
     <published>2022-04-24T01:03:56.000Z</published>
-    <updated>2022-04-24T11:30:45.508Z</updated>
+    <updated>2022-04-24T11:34:13.118Z</updated>
     
     <summary type="html">
     
@@ -375,46 +413,6 @@
     
     
       <category term="CentOS7" scheme="https://www.xiongtianci.com/tags/CentOS7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA启动警告「OpenJDK 64-Bit Server VM warning」</title>
-    <link href="https://www.xiongtianci.com/2020/10/31/IDEA%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E3%80%8COpenJDK%2064-Bit%20Server%20VM%20warning%E3%80%8D/"/>
-    <id>https://www.xiongtianci.com/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/</id>
-    <published>2020-10-31T02:43:07.000Z</published>
-    <updated>2020-11-08T13:39:11.177Z</updated>
-    
-    <summary type="html">
-    
-      IDEA启动警告「OpenJDK 64-Bit Server VM warning」
-    
-    </summary>
-    
-      <category term="踩坑" scheme="https://www.xiongtianci.com/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>黑马十次方微服务项目资源</title>
-    <link href="https://www.xiongtianci.com/2020/10/30/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"/>
-    <id>https://www.xiongtianci.com/2020/10/30/黑马十次方微服务项目资源/</id>
-    <published>2020-10-30T11:00:43.000Z</published>
-    <updated>2020-12-02T09:55:18.711Z</updated>
-    
-    <summary type="html">
-    
-      黑马十次方微服务项目资源
-    
-    </summary>
-    
-      <category term="资料" scheme="https://www.xiongtianci.com/categories/%E8%B5%84%E6%96%99/"/>
-    
-    
-      <category term="十次方" scheme="https://www.xiongtianci.com/tags/%E5%8D%81%E6%AC%A1%E6%96%B9/"/>
     
   </entry>
   
