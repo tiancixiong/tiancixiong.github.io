@@ -349,7 +349,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1528164344705-47542687000d?w=540);" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(//images.unsplash.com/photo-1565839494949-469f79dc37f4?w=540);" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1565839494949-469f79dc37f4?w=540">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -417,16 +417,16 @@ NETMASK=255.255.255.0
 GATEWAY=192.168.56.2
 </code></pre>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在我本地电脑上配置：控制面板 -&gt; 网络和共享中心 -&gt; 更改适配器设置 -&gt; 右键 VMware Network Adapter <strong>VMnet8</strong> 进入<strong>属性</strong>设置</p>
-<p><img src="./asstes/image-20220515152402465.png" alt="image-20220515152402465"></p>
+<p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220515/image-20220515152402465.png" alt="image-20220515152402465"></p>
 <p>选中 <code>Internet 协议版本4(TCP/IPv4)</code> 点击 <code>属性</code>：</p>
-<p><img src="assets/image-20220515152918800.png" alt="image-20220515152918800"></p>
+<p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220515/image-20220515152918800.png" alt="image-20220515152918800"></p>
 <p>默认是自动获得IP地址，勾选 <code>使用下面的IP地址</code> 进行自定义IP：</p>
 <ul>
 <li>①配置IP地址，前三位同虚拟机系统的IP前三位相同，最后一位自定义</li>
 <li>②中的配置系统自动补齐</li>
 <li>③中的网关配置为和虚拟机系统的网关一致</li>
 </ul>
-<p><img src="assets/image-20220515153402322.png" alt="image-20220515153402322"></p>
+<p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220515/image-20220515153402322.png" alt="image-20220515153402322"></p>
 <hr>
 <p>配置后使用xshell重新连接虚拟机即可</p>
 
