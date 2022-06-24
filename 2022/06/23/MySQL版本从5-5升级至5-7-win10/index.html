@@ -7,10 +7,10 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="天赐,天赐の小站,博客">
+  <meta name="keywords" content="mysql5.5,msql5.7,mysql升级,天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">天赐の小站</title>
+  <title itemprop="name">MySQL版本从5.5升级至5.7(win10) | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/favicon.ico">
   
@@ -343,474 +343,201 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(//images.unsplash.com/photo-1516849841032-87cbac4d88f7v?w=540);" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1516849841032-87cbac4d88f7v?w=540">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      MySQL版本从5.5升级至5.7(win10)</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://blog.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://blog.xiongtianci.com">木浅</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2022-6-23<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
-  
-  <!--首页startdash-->
-<!--<div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-</div>-->
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
-      
-  <!-- 首页默认获取最新文章集 -->
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/11/01/解决IDEA中Vue项目出现红色波浪线问题/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1517928260182-5688aead3066?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-11-1 20:11</div>
-      <a href="/2019/11/01/解决IDEA中Vue项目出现红色波浪线问题/" class="post-title">
-        <h3>解决IDEA中Vue项目出现红色波浪线问题</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>解决IDEA中Vue项目出现红色波浪线问题</p>
-        <div class="post-bottom">
-          <a href="/2019/11/01/解决IDEA中Vue项目出现红色波浪线问题/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+        <div class="entry-content">
+          <p>当前版本：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220623200143170.png" alt="image-20220623200143170"></p>
+<p>升级后的版本：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624090800083.png" alt="image-20220624090800083"></p>
+<h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><ul>
+<li>官网：<a href="https://dev.mysql.com/downloads/mysql/5.7.html" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/5.7.html</a></li>
+</ul>
+<p>下载压缩包：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624083044966.png" alt="image-20220624083044966"></p>
+<h2 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h2><p>将mysql5.5安装目录下的 <strong>data</strong> 目录备份：</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1、删除mysql5-5服务"><a href="#1、删除mysql5-5服务" class="headerlink" title="1、删除mysql5.5服务"></a>1、删除mysql5.5服务</h3><p>按键盘的 win+R—&gt;输入<code>services.msc</code> 后确定进入服务列表，找到现有 msql 服务并关闭服务：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220623200436400.png" alt="image-20220623200436400"></p>
+<p>在cmd中输入：<code>mysqld -remove xxx</code> 将 mysql5.5 服务移除。xxx为要卸载的mysql服务，可以在服务中查看，我这里为 <strong>MySQL</strong></p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220623200506483.png" alt="image-20220623200506483"></p>
+<h3 id="2、完全卸载mysql5-5"><a href="#2、完全卸载mysql5-5" class="headerlink" title="2、完全卸载mysql5.5"></a>2、完全卸载mysql5.5</h3><p>我这里使用 <a href="https://geekuninstaller.com/" target="_blank" rel="noopener">geek</a> 的进行卸载，这个工具可以卸载软件后自动扫描注册表并提示删除</p>
+<h3 id="3、配置my-ini"><a href="#3、配置my-ini" class="headerlink" title="3、配置my.ini"></a>3、配置my.ini</h3><p>在mysql5.7目录中创建 <code>my.ini</code> 文件，并配置如下信息（注意替换路径）：</p>
+<pre><code class="ini">[client]
+port=3306
+default-character-set=utf8
+
+[mysqld]
+#设置3306端口
+port = 3306
+# 设置mysql的安装目录，替换成你本地的路径
+basedir=D:\Java\MySQL\mysql-5.7.38-winx64\
+# 设置mysql数据库的数据的存放目录，替换成你本地的路径
+datadir=D:\Java\MySQL\mysql-5.7.38-winx64\data\
+#设置跳过密码直接进入mysql，需要重新mysql服务
+skip-grant-tables
+</code></pre>
+<h3 id="4、配置环境变量"><a href="#4、配置环境变量" class="headerlink" title="4、配置环境变量"></a>4、配置环境变量</h3><p>删除mysql原5.5版本的环境变量：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624080905199.png" alt="image-20220624080905199"></p>
+<p>新建5.7版本的环境变量：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624080833804.png" alt="image-20220624080833804"></p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624080934420.png" alt="image-20220624080934420"></p>
+<h3 id="5、添加mysql5-7服务，并初始化"><a href="#5、添加mysql5-7服务，并初始化" class="headerlink" title="5、添加mysql5.7服务，并初始化"></a>5、添加mysql5.7服务，并初始化</h3><p>启动管理员模式下的CMD，并将路径切换至mysql下的bin目录，添加mysql5.7服务：</p>
+<pre><code class="bash">mysqld --install mysql5.7
+</code></pre>
+<p>使用 <code>mysqld --initialize-insecure --user=mysql</code> 进行初始化数据文件，然后输入 <code>net start mysql5.7</code> 再次启动mysql：</p>
+<p><img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220623203152210.png" alt="image-20220623203152210"></p>
+<h3 id="6、更改root账户密码"><a href="#6、更改root账户密码" class="headerlink" title="6、更改root账户密码"></a>6、更改root账户密码</h3><p>用下面命令进入  mysql 管理界面，因为上面在 <code>my.ini</code> 中设置了跳过密码，所以密码处不输入直接按下Enter：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624082005949.png" alt="image-20220624082005949"></p>
+<p>更改 root 账户密码：</p>
+<pre><code class="bash"># 更改root密码
+mysql&gt; update mysql.user set authentication_string=password(&#39;1234&#39;) where user=&#39;root&#39; and Host = &#39;localhost&#39;;
+
+# 刷新权限
+mysql&gt; flush privileges;
+# 退出
+mysql&gt; exit
+</code></pre>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624082121254.png" alt="image-20220624082121254"></p>
+<h3 id="7、更新my-ini"><a href="#7、更新my-ini" class="headerlink" title="7、更新my.ini"></a>7、更新my.ini</h3><p>注释掉 <code>my.ini</code> 中的配置 <code>skip-grant-tables</code>：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624082212167.png" alt="image-20220624082212167"></p>
+<h3 id="8、迁移数据"><a href="#8、迁移数据" class="headerlink" title="8、迁移数据"></a>8、迁移数据</h3><p>先停止服务：<code>net stop mysql5.7</code></p>
+<p>将之前备份的 5.5 版本中的数据(data)覆盖到 5.7 的 data 目录中：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624082658510.png" alt="image-20220624082658510"></p>
+<p>重启 mysql 服务：<code>net start mysql5.7</code></p>
+<p>进入到 mysql，查看现在的版本：</p>
+<p> <img src="//tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20220623/image-20220624090551778.png" alt="image-20220624090551778"></p>
+<p>完毕。</p>
+<hr>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.cnblogs.com/appium/p/12877499.html" target="_blank" rel="noopener">https://www.cnblogs.com/appium/p/12877499.html</a></li>
+</ul>
+
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/09/16/有趣的网站/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1547995657-19120b5c0805?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-9-16 21:09</div>
-      <a href="/2019/09/16/有趣的网站/" class="post-title">
-        <h3>有趣的网站</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>分享一些有趣的网站</p>
-        <div class="post-bottom">
-          <a href="/2019/09/16/有趣的网站/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/08/31/关闭QQ弹出的腾讯网迷你版/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1516319915504-015b432d407c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-8-31 10:08</div>
-      <a href="/2019/08/31/关闭QQ弹出的腾讯网迷你版/" class="post-title">
-        <h3>关闭QQ弹出的腾讯网迷你版</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
         
-            <a href="/tags/软件/">软件<em>·</em></a>
+        
           
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
+            <div class="post-nepre full next">
           
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>关闭QQ弹出的腾讯网迷你版</p>
-        <div class="post-bottom">
-          <a href="/2019/08/31/关闭QQ弹出的腾讯网迷你版/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+            <a href="/2022/05/15/配置CentOS6-5静态ip导致xshell连接失败/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1565839494949-469f79dc37f4?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                配置CentOS6.5静态ip导致xshell连接失败</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10,
+		serverURLs: "https://VeenC2gY.api.lncldglobal.com"
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="https://blog.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="木浅" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://blog.xiongtianci.com" itemprop="url" rel="author">木浅</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/08/02/关于int和Integer之间的装箱机制问题/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1526638684360-95cdcee762ce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-8-2 10:08</div>
-      <a href="/2019/08/02/关于int和Integer之间的装箱机制问题/" class="post-title">
-        <h3>关于int和Integer之间的装箱机制问题</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-            <a href="/tags/JavaSE/">JavaSE<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-            <a href="/categories/面试/">面试</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>关于int和Integer之间的装箱机制问题</p>
-        <div class="post-bottom">
-          <a href="/2019/08/02/关于int和Integer之间的装箱机制问题/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/28/IDEA中修改项目包结构后导包报错/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1538036723558-f58a6c33d38d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-28 20:07</div>
-      <a href="/2019/07/28/IDEA中修改项目包结构后导包报错/" class="post-title">
-        <h3>IDEA中修改项目包结构后导包报错</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/工具/">工具<em>·</em></a>
-          
-            <a href="/tags/IDEA/">IDEA<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>IDEA中修改项目包结构后类无法引入</p>
-        <div class="post-bottom">
-          <a href="/2019/07/28/IDEA中修改项目包结构后导包报错/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/25/有趣的代码注释/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1534179639155-4910efc143c0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-25 11:07</div>
-      <a href="/2019/07/25/有趣的代码注释/" class="post-title">
-        <h3>有趣的代码注释</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/转载/">转载<em>·</em></a>
-          
-            <a href="/tags/注释/">注释<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>绝对&#34;牛X&#34;的代码注释</p>
-        <div class="post-bottom">
-          <a href="/2019/07/25/有趣的代码注释/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/22/解决.gitignore过滤规则不起作用问题/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-22 10:07</div>
-      <a href="/2019/07/22/解决.gitignore过滤规则不起作用问题/" class="post-title">
-        <h3>解决.gitignore过滤规则不起作用问题</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/工具/">工具<em>·</em></a>
-          
-            <a href="/tags/踩坑/">踩坑<em>·</em></a>
-          
-            <a href="/tags/Git/">Git<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/07/22/解决.gitignore过滤规则不起作用问题/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/16/解决IDEA中-Autowired抛红问题/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1513116917658-bdc8f9e49348?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-16 17:07</div>
-      <a href="/2019/07/16/解决IDEA中-Autowired抛红问题/" class="post-title">
-        <h3>解决IDEA中@Autowired抛红问题</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/工具/">工具<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/07/16/解决IDEA中-Autowired抛红问题/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/06/win10永久数字权利激活工具/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-6 10:07</div>
-      <a href="/2019/07/06/win10永久数字权利激活工具/" class="post-title">
-        <h3>win10永久数字权利激活工具</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/win10/">win10<em>·</em></a>
-          
-            <a href="/tags/激活/">激活<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>win10永久激活</p>
-        <div class="post-bottom">
-          <a href="/2019/07/06/win10永久数字权利激活工具/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/03/新标准日本语App破解版-安卓/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1517815558311-868d35dee98c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-3 17:07</div>
-      <a href="/2019/07/03/新标准日本语App破解版-安卓/" class="post-title">
-        <h3>新标准日本语App破解版(安卓)</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/工具/">工具<em>·</em></a>
-          
-            <a href="/tags/日语/">日语<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/资源/">资源</a>
-          
-            <a href="/categories/日语/">日语</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>新标准日本语App破解版(安卓),包含初级和中级,没有高级</p>
-        <div class="post-bottom">
-          <a href="/2019/07/03/新标准日本语App破解版-安卓/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/page/4/">Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">Next</a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/6/" class>Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
 
     </div>    
     <div class="ins-search">
