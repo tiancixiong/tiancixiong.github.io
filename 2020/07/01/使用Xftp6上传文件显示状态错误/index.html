@@ -381,7 +381,7 @@
         
         <div class="entry-content">
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在使用Xftp6上传文件到VMware中的CentOS6.5中时一直失败：</p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20200701/1593579571191.png" alt="1593579571191"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200701/1593579571191.png" alt="1593579571191"></p>
 <p>网上说法是目录权限的问题</p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>通过<code>chmod</code>命令修改目录权限。比如我现在需要将jdk安装包上传到CentOS下<code>/usr/local/java</code>目录下，现在就需要将<code>/usr/local/java</code>目录权限进行修改</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入上一级目录</span></span><br><span class="line">cd /usr/local</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改java目录权限</span></span><br><span class="line">chmod 777 java/</span><br></pre></td></tr></table></figure>
@@ -504,7 +504,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -516,10 +516,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

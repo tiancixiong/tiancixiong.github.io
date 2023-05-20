@@ -381,19 +381,19 @@
         
         <div class="entry-content">
           <p>当前版本：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220623200143170.png" alt="image-20220623200143170"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220623200143170.png" alt="image-20220623200143170"></p>
 <p>升级后的版本：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624090800083.png" alt="image-20220624090800083"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624090800083.png" alt="image-20220624090800083"></p>
 <h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><ul>
 <li>官网：<a href="https://dev.mysql.com/downloads/mysql/5.7.html">https://dev.mysql.com/downloads/mysql/5.7.html</a></li>
 </ul>
 <p>下载压缩包：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624083044966.png" alt="image-20220624083044966"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624083044966.png" alt="image-20220624083044966"></p>
 <h2 id="备份数据"><a href="#备份数据" class="headerlink" title="备份数据"></a>备份数据</h2><p>将mysql5.5安装目录下的 <strong>data</strong> 目录备份：</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1、删除mysql5-5服务"><a href="#1、删除mysql5-5服务" class="headerlink" title="1、删除mysql5.5服务"></a>1、删除mysql5.5服务</h3><p>按键盘的 win+R—&gt;输入<code>services.msc</code> 后确定进入服务列表，找到现有 msql 服务并关闭服务：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220623200436400.png" alt="image-20220623200436400"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220623200436400.png" alt="image-20220623200436400"></p>
 <p>在cmd中输入：<code>mysqld -remove xxx</code> 将 mysql5.5 服务移除。xxx为要卸载的mysql服务，可以在服务中查看，我这里为 <strong>MySQL</strong></p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220623200506483.png" alt="image-20220623200506483"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220623200506483.png" alt="image-20220623200506483"></p>
 <h3 id="2、完全卸载mysql5-5"><a href="#2、完全卸载mysql5-5" class="headerlink" title="2、完全卸载mysql5.5"></a>2、完全卸载mysql5.5</h3><p>我这里使用 <a href="https://geekuninstaller.com/">geek</a> 的进行卸载，这个工具可以卸载软件后自动扫描注册表并提示删除</p>
 <h3 id="3、配置my-ini"><a href="#3、配置my-ini" class="headerlink" title="3、配置my.ini"></a>3、配置my.ini</h3><p>在mysql5.7目录中创建 <code>my.ini</code> 文件，并配置如下信息（注意替换路径）：</p>
 <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br><span class="line"></span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">#设置3306端口</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">3306</span></span><br><span class="line"><span class="comment"># 设置mysql的安装目录，替换成你本地的路径</span></span><br><span class="line"><span class="attr">basedir</span>=D:\Java\MySQL\mysql-<span class="number">5.7</span>.<span class="number">38</span>-winx64\</span><br><span class="line"><span class="comment"># 设置mysql数据库的数据的存放目录，替换成你本地的路径</span></span><br><span class="line"><span class="attr">datadir</span>=D:\Java\MySQL\mysql-<span class="number">5.7</span>.<span class="number">38</span>-winx64\data\</span><br><span class="line"><span class="comment">#设置跳过密码直接进入mysql，需要重新mysql服务</span></span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
@@ -401,29 +401,29 @@
 
 
 <h3 id="4、配置环境变量"><a href="#4、配置环境变量" class="headerlink" title="4、配置环境变量"></a>4、配置环境变量</h3><p>删除mysql原5.5版本的环境变量：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624080905199.png" alt="image-20220624080905199"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624080905199.png" alt="image-20220624080905199"></p>
 <p>新建5.7版本的环境变量：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624080833804.png" alt="image-20220624080833804"></p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624080934420.png" alt="image-20220624080934420"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624080833804.png" alt="image-20220624080833804"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624080934420.png" alt="image-20220624080934420"></p>
 <h3 id="5、添加mysql5-7服务，并初始化"><a href="#5、添加mysql5-7服务，并初始化" class="headerlink" title="5、添加mysql5.7服务，并初始化"></a>5、添加mysql5.7服务，并初始化</h3><p>启动管理员模式下的CMD，并将路径切换至mysql下的bin目录，添加mysql5.7服务：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysqld --install mysql5.7</span><br></pre></td></tr></table></figure>
 
 <p>使用 <code>mysqld --initialize-insecure --user=mysql</code> 进行初始化数据文件，然后输入 <code>net start mysql5.7</code> 再次启动mysql：</p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220623203152210.png" alt="image-20220623203152210"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220623203152210.png" alt="image-20220623203152210"></p>
 <h3 id="6、更改root账户密码"><a href="#6、更改root账户密码" class="headerlink" title="6、更改root账户密码"></a>6、更改root账户密码</h3><p>用下面命令进入  mysql 管理界面，因为上面在 <code>my.ini</code> 中设置了跳过密码，所以密码处不输入直接按下Enter：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624082005949.png" alt="image-20220624082005949"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624082005949.png" alt="image-20220624082005949"></p>
 <p>更改 root 账户密码：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更改root密码</span></span><br><span class="line">mysql&gt; update mysql.user <span class="built_in">set</span> authentication_string=password(<span class="string">&#x27;1234&#x27;</span>) <span class="built_in">where</span> user=<span class="string">&#x27;root&#x27;</span> and Host = <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新权限</span></span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line">mysql&gt; <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
 
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624082121254.png" alt="image-20220624082121254"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624082121254.png" alt="image-20220624082121254"></p>
 <h3 id="7、更新my-ini"><a href="#7、更新my-ini" class="headerlink" title="7、更新my.ini"></a>7、更新my.ini</h3><p>注释掉 <code>my.ini</code> 中的配置 <code>skip-grant-tables</code>：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624082212167.png" alt="image-20220624082212167"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624082212167.png" alt="image-20220624082212167"></p>
 <h3 id="8、迁移数据"><a href="#8、迁移数据" class="headerlink" title="8、迁移数据"></a>8、迁移数据</h3><p>先停止服务：<code>net stop mysql5.7</code></p>
 <p>将之前备份的 5.5 版本中的数据(data)覆盖到 5.7 的 data 目录中：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624082658510.png" alt="image-20220624082658510"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624082658510.png" alt="image-20220624082658510"></p>
 <p>重启 mysql 服务：<code>net start mysql5.7</code></p>
 <p>进入到 mysql，查看现在的版本：</p>
-<p> <img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220623/image-20220624090551778.png" alt="image-20220624090551778"></p>
+<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220623/image-20220624090551778.png" alt="image-20220624090551778"></p>
 <p>完毕。</p>
 <hr>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
@@ -529,7 +529,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -541,10 +541,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

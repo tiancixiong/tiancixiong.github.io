@@ -384,14 +384,14 @@
 <p>环境：Windows 10、Eclipse Neon.2</p>
 </blockquote>
 <p>eclipse每次新建一个工作空间后，都需要重新设置编码格式，否则在导入代码后很有可能会出现中文乱码的情况</p>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="修改工作空间默认编码"><a href="#修改工作空间默认编码" class="headerlink" title="修改工作空间默认编码"></a>修改工作空间默认编码</h2><p>打开首选项对话框：<code>Window</code> -&gt; <code>Preferences</code><br><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20210809/image-20210809105357568.png" alt="image-20210809105357568"></p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="修改工作空间默认编码"><a href="#修改工作空间默认编码" class="headerlink" title="修改工作空间默认编码"></a>修改工作空间默认编码</h2><p>打开首选项对话框：<code>Window</code> -&gt; <code>Preferences</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210809/image-20210809105357568.png" alt="image-20210809105357568"></p>
 <p>在首选项对话框左侧导航中找到：<code>General</code> -&gt; <code>Workspace</code><br>设置 <strong>Text file encoding</strong> 编码为 <strong>Other: UTF-8</strong></p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20210809/image-20210809110000773.png" alt="image-20210809110000773"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210809/image-20210809110000773.png" alt="image-20210809110000773"></p>
 <h2 id="修改某文件类型的编码"><a href="#修改某文件类型的编码" class="headerlink" title="修改某文件类型的编码"></a>修改某文件类型的编码</h2><p>在首选项对话框左侧导航中找到：<code>General</code> -&gt; <code>Content Types</code><br>点击右侧中的节点，在下面 <strong>Default encoding</strong> 中输入 <code>UTF-8</code>(不区分大小写)，点击 <strong>Update</strong>，<strong>把每个父节点和子节点都设置一下</strong>，都设置好后点击 <strong>OK</strong></p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20210809/image-20210809110627752.png" alt="image-20210809110627752"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210809/image-20210809110627752.png" alt="image-20210809110627752"></p>
 <h2 id="修改项目的编码"><a href="#修改项目的编码" class="headerlink" title="修改项目的编码"></a>修改项目的编码</h2><p>步骤：选择项目 -&gt; 右键 -&gt; Properties -&gt; Resource -&gt; 如果右侧的 <em>Text file encoding</em> 不是UTF-8格式，则需要设置为 <strong>UTF-8</strong>：</p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20210809/image-20210809140050394.png" alt="image-20210809140050394"></p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20210809/image-20210809140137359.png" alt="image-20210809140137359"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210809/image-20210809140050394.png" alt="image-20210809140050394"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210809/image-20210809140137359.png" alt="image-20210809140137359"></p>
 
         </div>
         <!-- .entry-content -->
@@ -509,7 +509,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -521,10 +521,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

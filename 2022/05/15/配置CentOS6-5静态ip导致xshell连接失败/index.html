@@ -395,16 +395,16 @@
 
 
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在我本地电脑上配置：控制面板 -&gt; 网络和共享中心 -&gt; 更改适配器设置 -&gt; 右键 VMware Network Adapter <strong>VMnet8</strong> 进入<strong>属性</strong>设置</p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220515/image-20220515152402465.png" alt="image-20220515152402465"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220515/image-20220515152402465.png" alt="image-20220515152402465"></p>
 <p>选中 <code>Internet 协议版本4(TCP/IPv4)</code> 点击 <code>属性</code>：</p>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220515/image-20220515152918800.png" alt="image-20220515152918800"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220515/image-20220515152918800.png" alt="image-20220515152918800"></p>
 <p>默认是自动获得IP地址，勾选 <code>使用下面的IP地址</code> 进行自定义IP：</p>
 <ul>
 <li>①配置IP地址，前三位同虚拟机系统的IP前三位相同，最后一位自定义</li>
 <li>②中的配置系统自动补齐</li>
 <li>③中的网关配置为和虚拟机系统的网关一致</li>
 </ul>
-<p><img src="//gitee.com/tiancixiong/BlogIMG/raw/master/blog/20220515/image-20220515153402322.png" alt="image-20220515153402322"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220515/image-20220515153402322.png" alt="image-20220515153402322"></p>
 <hr>
 <p>配置后使用xshell重新连接虚拟机即可</p>
 
@@ -524,7 +524,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -536,10 +536,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
