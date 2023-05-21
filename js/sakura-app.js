@@ -176,7 +176,7 @@ function imgError (ele, type) {
       }
       break
     case 2:
-      ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_gavatar.jpg'
+      ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_gavatar.png'
       break
     case 3:
 
@@ -468,6 +468,12 @@ if (mashiro_global.variables.isNight) {
   $('.changeSkin-gear, .toc').css('background', 'none')
 }
 $(document).ready(function () {
+  if (mashiro_global.variables.isNight) {
+    $('.changeSkin-gear, .toc').css('background', 'rgba(255,255,255,0.8)')
+  } else {
+    $('.changeSkin-gear, .toc').css('background', 'none')
+  }
+
   function changeBG (tagid, url) {
     $('.skin-menu ' + tagid).click(function () {
       mashiro_global.variables.skinSecter = true
@@ -479,6 +485,9 @@ $(document).ready(function () {
       $('.headertop-bar').removeClass('headertop-bar').addClass('headertop-bar-sakura')
       $('#banner_wave_1').addClass('banner_wave_hide_fit_skin')
       $('#banner_wave_2').addClass('banner_wave_hide_fit_skin')
+	  //---
+	  $('body').css('background-size','auto')
+	  //---
       closeSkinMenu()
       setCookie('bgImgSetting', url, 30)
     })
@@ -495,6 +504,9 @@ $(document).ready(function () {
       $('.headertop-bar').removeClass('headertop-bar').addClass('headertop-bar-sakura')
       $('#banner_wave_1').addClass('banner_wave_hide_fit_skin')
       $('#banner_wave_2').addClass('banner_wave_hide_fit_skin')
+	  //---
+	  $('body').css('background-size','auto')
+	  //---
       closeSkinMenu()
       setCookie('bgImgSetting', url, 30)
     })
@@ -515,13 +527,19 @@ $(document).ready(function () {
     $('.headertop-bar-sakura').removeClass('headertop-bar-sakura').addClass('headertop-bar')
     $('#banner_wave_1').removeClass('banner_wave_hide_fit_skin')
     $('#banner_wave_2').removeClass('banner_wave_hide_fit_skin')
+	//---
+	$('body').css('background-size','auto')
+	//---
     closeSkinMenu()
     setCookie('bgImgSetting', '', 30)
   })
   $('.skin-menu #dark-bg').click(function () {
     mashiro_global.variables.skinSecter = true
     mashiro_global.variables.isNight = true
-    $('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png)')
+    //$('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png)')
+	$('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/themebg/cosmic-galaxy.jpg)')
+	$('body').css('background-size','100%')
+
     $('.blank').css('background-color', 'rgba(255,255,255,.8)')
     $('#night-mode-cover').css('visibility', 'visible')
     $('.pattern-center').removeClass('pattern-center').addClass('pattern-center-sakura')
@@ -555,16 +573,16 @@ $(document).ready(function () {
   })
   add_upload_tips()
 })
-
+/*首页背景-下一张*/
 function nextBG () {
   bgindex = bgindex + 1
-  console.log(bg[Math.abs(bgindex % bg.length)])
+  //console.log(bg[Math.abs(bgindex % bg.length)])
   $('.centerbg').css('background-image', 'url("' + bg[Math.abs(bgindex % bg.length)] + '")')
 }
-
+/*首页背景-上一张*/
 function preBG () {
   bgindex = bgindex - 1
-  console.log(bg[Math.abs(bgindex % bg.length)])
+  //console.log(bg[Math.abs(bgindex % bg.length)])
   $('.centerbg').css('background-image', 'url("' + bg[Math.abs(bgindex % bg.length)] + '")')
 }
 $(document).ready(function () {
@@ -698,7 +716,7 @@ var pjaxInit = function () {
   smileBoxToggle()
   timeSeriesReload()
   add_copyright()
-  console.log($('#myscript').text())
+  //console.log($('#myscript').text())
 }
 $(document).on('click', '.sm', function () {
   var msg = '您真的要设为私密吗？'
@@ -809,6 +827,8 @@ function grin (tag, type, before, after) {
     myField.focus()
   }
 }
+
+
 // if ($("div").hasClass("popcontainer")) {
 //     loadBotui();
 // }
@@ -816,31 +836,51 @@ function grin (tag, type, before, after) {
 //     loadBotui();
 // });
 
-function add_copyright () {
-  document.body.addEventListener('copy', function (e) {
-    if (!mashiro_global.is_user_logged_in && window.getSelection().toString().length > 30) {
-      setClipboardText(e)
+//function add_copyright () {
+//  document.body.addEventListener('copy', function (e) {
+//    if (!mashiro_global.is_user_logged_in && window.getSelection().toString().length > 30) {
+//      setClipboardText(e)
+//    }
+//  })
+//
+//  function setClipboardText (event) {
+//    event.preventDefault()
+//    var htmlData = '' + '著作权归作者所有。<br>' + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>' + '作者：' + mashiro_option.author_name + '<br>' + '链接：' + window.location.href + '<br>' + '来源：' + mashiro_option.site_name + '<br><br>' + window.getSelection().toString().replace(/\r\n/g, '<br>')
+//    var textData = '' + '著作权归作者所有。\n' + '商业转载请联系作者获得授权，非商业转载请注明出处。\n' + '' + mashiro_option.author_name + '\n' + '链接：' + window.location.href + '\n' + '来源：' + mashiro_option.site_name + '\n\n' + window.getSelection().toString().replace(/\r\n/g, '\n')
+//    if (event.clipboardData) {
+//      event.clipboardData.setData('text/html', htmlData)
+//      event.clipboardData.setData('text/plain', textData)
+//      addComment.createButterbar('复制成功！<br>Copied to clipboard successfully!', 1000)
+//    } else if (window.clipboardData) {
+//      return window.clipboardData.setData('text', textData)
+//    }
+//  }
+//}
+function add_copyright() {
+    document.body.addEventListener("copy", function(e) {
+        if (!mashiro_global.is_user_logged_in && window.getSelection().toString().length > 30) {
+            setClipboardText(e);
+        }
+        addComment.createButterbar("复制成功！<br>Copied to clipboard successfully!", 1000);
+    });
+    function setClipboardText(event) {
+        event.preventDefault();
+        //var htmlData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。<br>" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.<br>" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)<br>" + "# 作者(Author)：" + mashiro_option.author_name + "<br>" + "# 链接(URL)：" + window.location.href + "<br>" + "# 来源(Source)：" + mashiro_option.site_name + "<br><br>" + window.getSelection().toString().replace(/\r\n/g, "<br>");
+        //;var textData = "# 商业转载请联系作者获得授权，非商业转载请注明出处。\n" + "# For commercial use, please contact the author for authorization. For non-commercial use, please indicate the source.\n" + "# 协议(License)：署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)\n" + "# 作者(Author)：" + mashiro_option.author_name + "\n" + "# 链接(URL)：" + window.location.href + "\n" + "# 来源(Source)：" + mashiro_option.site_name + "\n\n" + window.getSelection().toString().replace(/\r\n/g, "\n");
+		var htmlData = window.getSelection().toString().replace(/\r\n/g, "<br>");
+        var textData = window.getSelection().toString().replace(/\r\n/g, "\n");
+        if (event.clipboardData) {
+            event.clipboardData.setData("text/html", htmlData);
+            event.clipboardData.setData("text/plain", textData);
+        } else if (window.clipboardData) {
+            return window.clipboardData.setData("text", textData);
+        }
     }
-  })
-
-  function setClipboardText (event) {
-    event.preventDefault()
-    var htmlData = '' + '著作权归作者所有。<br>' + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>' + '作者：' + mashiro_option.author_name + '<br>' + '链接：' + window.location.href + '<br>' + '来源：' + mashiro_option.site_name + '<br><br>' + window.getSelection().toString().replace(/\r\n/g, '<br>')
-    var textData = '' + '著作权归作者所有。\n' + '商业转载请联系作者获得授权，非商业转载请注明出处。\n' + '' + mashiro_option.author_name + '\n' + '链接：' + window.location.href + '\n' + '来源：' + mashiro_option.site_name + '\n\n' + window.getSelection().toString().replace(/\r\n/g, '\n')
-    if (event.clipboardData) {
-      event.clipboardData.setData('text/html', htmlData)
-      event.clipboardData.setData('text/plain', textData)
-      addComment.createButterbar('复制成功！<br>Copied to clipboard successfully!', 1000)
-    } else if (window.clipboardData) {
-      return window.clipboardData.setData('text', textData)
-    }
-  }
 }
-add_copyright()
+add_copyright();
 $(function () {
-  inlojv_js_getqqinfo()
+  inlojv_js_getqqinfo();
 })
-
 function inlojv_js_getqqinfo () {
   var is_get_by_qq = false
   var qq_test = /^[0-9]+$/
@@ -1046,9 +1086,6 @@ mashiro_global.ini.normalize()
 var home = location.href,
   s = $('#bgvideo')[0],
   Siren = {
-    BSZ: function() {
-      $.getScript('//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
-    },
     TOC: function () {
       if ($('.toc').length > 0 && document.body.clientWidth > 1200) {
         if ($(".pattern-center").length > 0) { //有图的情况
@@ -1090,10 +1127,10 @@ var home = location.href,
     },
     AB: function () {
       if (window.location.pathname.indexOf('about') > -1) {
-        $.getScript('/js/botui.js', function () {
-          if (typeof(botui) == undefined && !botui.message) {
+        $.getScript('//cdn.jsdelivr.net/vue/latest/vue.min.js', function () {
+          $.getScript('//unpkg.com/botui/build/botui.min.js', function () {
             bot_ui_ini()
-          }
+          })
         })
       }
     },
@@ -1104,8 +1141,12 @@ var home = location.href,
           el: '#vcomments',
           appId: mashiro_option.v_appId,
           appKey: mashiro_option.v_appKey,
+		  notify: mashiro_option.v_notify,
+		  verify: mashiro_option.v_verify,
           path: window.location.pathname,
-          placeholder: '你是我一生只会遇见一次的惊喜 ...'
+		  placeholder: mashiro_option.v_placeholder,
+		  avatar: mashiro_option.v_avatar,
+		  pageSize: mashiro_option.v_pageSize
         })
       }
     },
@@ -1547,7 +1588,6 @@ $(function () {
       Siren.MJ()
       Siren.AB()
       Siren.TOC()
-      Siren.BSZ()
       if (mashiro_option.NProgressON) NProgress.done()
       mashiro_global.ini.pjax()
       $('#loading').fadeOut(500)
@@ -1609,9 +1649,11 @@ $(function () {
   $(document).on('click', '.specsZan', function () {
     $(this).postLike()
   })
+  /**
   console.log('%c Mashiro %c', 'background:#24272A; color:#ffffff', '', 'https://2heng.xin/')
   console.log('%c hojun %c', 'background:#24272A; color:#ffffff', '', 'https://www.hojun.cn/')
   console.log('%c Github %c', 'background:#24272A; color:#ffffff', '', 'https://github.com/honjun/hexo-theme-sakura')
+  **/
 })
 var isWebkit = navigator.userAgent.toLowerCase().indexOf('webkit') > -1,
   isOpera = navigator.userAgent.toLowerCase().indexOf('opera') > -1,
