@@ -6,7 +6,7 @@
   <link href="https://www.xiongtianci.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2023-05-20T23:47:23.287Z</updated>
+  <updated>2023-05-21T10:41:56.299Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Zuul网关实现限流</title>
+    <link href="https://www.xiongtianci.com/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/"/>
+    <id>https://www.xiongtianci.com/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/</id>
+    <published>2023-05-21T06:10:12.000Z</published>
+    <updated>2023-05-21T10:41:56.299Z</updated>
+    
+    
+    <summary type="html">Zuul网关实现限流</summary>
+    
+    
+    
+    <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="微服务" scheme="https://www.xiongtianci.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL版本从5.5升级至5.7(win10)</title>
@@ -374,25 +393,6 @@
     
     <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Eclipse常用快捷键</title>
-    <link href="https://www.xiongtianci.com/2020/12/03/Eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>https://www.xiongtianci.com/2020/12/03/Eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
-    <published>2020-12-03T02:51:21.000Z</published>
-    <updated>2020-12-08T10:08:16.368Z</updated>
-    
-    
-    <summary type="html">Eclipse常用快捷键</summary>
-    
-    
-    
-    <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
-    
-    
-    <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
