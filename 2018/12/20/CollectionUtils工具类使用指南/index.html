@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>CollectionUtils提供很多对集合的操作方法，常用的方法如下：</p>
 <pre><code class="java">//并集  
 Collection&lt;String&gt; union = CollectionUtils.union(a, b);  
@@ -510,135 +509,6 @@ public void testUnmodifiableCollection(){
 at org.apache.commons.collections.collection.UnmodifiableCollection.add(UnmodifiableCollection.java:75)
 </code></pre>
         </div>
-		<text ><p>CollectionUtils提供很多对集合的操作方法，常用的方法如下：</p>
-<pre><code class="java">//并集  
-Collection&lt;String&gt; union = CollectionUtils.union(a, b);  
-//交集  
-Collection&lt;String&gt; intersection = CollectionUtils.intersection(a, b);  
-//交集的补集  
-Collection&lt;String&gt; disjunction = CollectionUtils.disjunction(a, b);  
-//集合相减 
-Collection&lt;String&gt; subtract = CollectionUtils.subtract(a, b);  
-//判断集合是否为空
-Boolean boolean = CollectionUtils.isEmpty(Collection&lt;?&gt; collection);
-//判断集合是否不为空
-Boolean boolean = CollectionUtils.isNotEmpty(Collection&lt;?&gt; collection);
-</code></pre>
-<h4 id="并集"><a href="#并集" class="headerlink" title="并集"></a>并集</h4><pre><code class="java">@Test
-public void testUnion(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //2个数组取并集 
-    System.out.println(ArrayUtils.toString(CollectionUtils.union(listA, listB)));
-    //[A, B, C, D, E, F, G, H, K]
-}
-</code></pre>
-<h4 id="交集"><a href="#交集" class="headerlink" title="交集"></a>交集</h4><pre><code class="java">@Test
-public void testIntersection(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //2个数组取交集 
-    System.out.println(ArrayUtils.toString(CollectionUtils.intersection(listA, listB)));
-    //[B, D, F]
-}
-</code></pre>
-<h4 id="交集的补集（析取）"><a href="#交集的补集（析取）" class="headerlink" title="交集的补集（析取）"></a>交集的补集（析取）</h4><pre><code class="java">@Test
-public void testDisjunction(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //2个数组取交集 的补集
-    System.out.println(ArrayUtils.toString(CollectionUtils.disjunction(listA, listB)));
-    //[A, C, E, G, H, K]
-}
-</code></pre>
-<h4 id="差集（扣除）"><a href="#差集（扣除）" class="headerlink" title="差集（扣除）"></a>差集（扣除）</h4><pre><code class="java">@Test
-public void testSubtract(){
-    String[] arrayA = new String[] { &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot; };  
-    String[] arrayB = new String[] { &quot;B&quot;, &quot;D&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot;, &quot;K&quot; };
-    List&lt;String&gt; listA = Arrays.asList(arrayA);
-    List&lt;String&gt; listB = Arrays.asList(arrayB);
-    //arrayA扣除arrayB
-    System.out.println(ArrayUtils.toString(CollectionUtils.subtract(listA, listB)));
-    //[A, C, E]
-}
-</code></pre>
-<h4 id="集合是否为空"><a href="#集合是否为空" class="headerlink" title="集合是否为空"></a>集合是否为空</h4><pre><code class="java">@Test
-public void testIsEmpty(){
-
-    class Person{}
-    class Girl extends Person{}
-
-    List&lt;Integer&gt; first = new ArrayList&lt;&gt;();
-    List&lt;Integer&gt; second = null;
-    List&lt;Person&gt; boy = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy.add(new Girl());
-    //判断集合是否为空
-    System.out.println(CollectionUtils.isEmpty(first));   //true
-    System.out.println(CollectionUtils.isEmpty(second));   //true
-    System.out.println(CollectionUtils.isEmpty(boy));   //false
-
-    //判断集合是否不为空
-    System.out.println(CollectionUtils.isNotEmpty(first));   //false
-    System.out.println(CollectionUtils.isNotEmpty(second));   //false
-    System.out.println(CollectionUtils.isNotEmpty(boy));   //true
-}
-</code></pre>
-<h4 id="集合是否相等"><a href="#集合是否相等" class="headerlink" title="集合是否相等"></a>集合是否相等</h4><pre><code class="java">@Test
-public void testIsEqual(){
-
-    class Person{}
-    class Girl extends Person{
-    }
-
-    List&lt;Integer&gt; first = new ArrayList&lt;&gt;();
-    List&lt;Integer&gt; second = new ArrayList&lt;&gt;();
-    first.add(1);
-    first.add(2);
-    second.add(2);
-    second.add(1);
-    Girl goldGirl = new Girl();
-    List&lt;Person&gt; boy1 = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy1.add(new Girl());
-    List&lt;Person&gt; boy2 = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy2.add(new Girl());
-    //比较两集合值
-    System.out.println(CollectionUtils.isEqualCollection(first,second));   //true
-    System.out.println(CollectionUtils.isEqualCollection(first,boy1));   //false
-    System.out.println(CollectionUtils.isEqualCollection(boy1,boy2));   //false
-
-    List&lt;Person&gt; boy3 = new ArrayList&lt;&gt;();
-    //每个男孩心里都装着一个女孩
-    boy3.add(goldGirl);
-    List&lt;Person&gt; boy4 = new ArrayList&lt;&gt;();
-    boy4.add(goldGirl);
-    System.out.println(CollectionUtils.isEqualCollection(boy3,boy4));   //true
-}
-</code></pre>
-<h4 id="不可修改的集合"><a href="#不可修改的集合" class="headerlink" title="不可修改的集合"></a>不可修改的集合</h4><p>我们对c进行操作，s也同样获得了和c相同的内容，这样就可以避免其他人员修改这个s对象。有时候需要对它进行保护，避免返回结果被人修改。</p>
-<pre><code class="java">@Test
-public void testUnmodifiableCollection(){
-    Collection&lt;String&gt; c = new ArrayList&lt;&gt;();
-    Collection&lt;String&gt; s = CollectionUtils.unmodifiableCollection(c);
-    c.add(&quot;boy&quot;);
-    c.add(&quot;love&quot;);
-    c.add(&quot;girl&quot;);
-    //! s.add(&quot;have a error&quot;);
-    System.out.println(s);
-}
-</code></pre>
-<p>Collections.unmodifiableCollection可以得到一个集合的镜像，它的返回结果是不可直接被改变，否则会提示错误</p>
-<pre><code>java.lang.UnsupportedOperationException
-at org.apache.commons.collections.collection.UnmodifiableCollection.add(UnmodifiableCollection.java:75)
-</code></pre></text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -754,7 +624,7 @@ at org.apache.commons.collections.collection.UnmodifiableCollection.add(Unmodifi
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -766,10 +636,10 @@ at org.apache.commons.collections.collection.UnmodifiableCollection.add(Unmodifi
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

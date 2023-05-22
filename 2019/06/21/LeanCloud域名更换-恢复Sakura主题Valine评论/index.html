@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h2 id="LeanCloud域名更换"><a href="#LeanCloud域名更换" class="headerlink" title="LeanCloud域名更换"></a>LeanCloud域名更换</h2><p>使用<strong>Valine</strong>评论插件注册过<strong>LeanCloud</strong>的小伙伴们从昨天起应该都收到过一封邮件和一条短信，告知了<strong>LeanCloud对域名进行更换</strong>：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190621/1561110383597.png" alt="1561110383597"></p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190621/1561110973461.png" alt="1561110973461"></p>
@@ -397,22 +396,6 @@ Possible causes: the network is offline, Origin is not allowed by Access-Control
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190621/1561111361081.png" alt="1561111361081"></p>
 
         </div>
-		<text ><h2 id="LeanCloud域名更换"><a href="#LeanCloud域名更换" class="headerlink" title="LeanCloud域名更换"></a>LeanCloud域名更换</h2><p>使用<strong>Valine</strong>评论插件注册过<strong>LeanCloud</strong>的小伙伴们从昨天起应该都收到过一封邮件和一条短信，告知了<strong>LeanCloud对域名进行更换</strong>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190621/1561110383597.png" alt="1561110383597"></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190621/1561110973461.png" alt="1561110973461"></p>
-<p>从而导致好多小伙伴们的Valine评论插件报错<code>Code -1: Request has been terminated</code>：</p>
-<pre><code>Code -1: Request has been terminated
-Possible causes: the network is offline, Origin is not allowed by Access-Control-Allow-Origin, the page is being unloaded, etc.
-</code></pre><p>Valine插件作者在今天下午解决了这个问题：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190621/1561110735524.png" alt="1561110735524"></p>
-<h2 id="恢复Valine评论"><a href="#恢复Valine评论" class="headerlink" title="恢复Valine评论"></a>恢复Valine评论</h2><p>博主的<strong>Hexo主题</strong>是<a href="https://github.com/mashirozx/Sakura/" target="_blank" rel="noopener">Sakura</a><br>下面是博主恢复Valine评论的记录：</p>
-<ul>
-<li>1、打开文件<code>/themes/sakura/layout/_partial/footer.ejs</code></li>
-<li>2、搜索<a href="mailto:`unpkg.com/valine@1.3.4" target="_blank" rel="noopener">`unpkg.com/valine@1.3.4</a>/dist/Valine.min.js<code>，将此路径替换为</code><a href="mailto:unpkg.com/valine@1.3.7" target="_blank" rel="noopener">unpkg.com/valine@1.3.7</a>/dist/Valine.min.js`</li>
-<li>3、将<code>&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</code><strong>删除</strong>或<strong>注释</strong>掉即可</li>
-</ul>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190621/1561111361081.png" alt="1561111361081"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -528,7 +511,7 @@ Possible causes: the network is offline, Origin is not allowed by Access-Control
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -540,10 +523,10 @@ Possible causes: the network is offline, Origin is not allowed by Access-Control
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

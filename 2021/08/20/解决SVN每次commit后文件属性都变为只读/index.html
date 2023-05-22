@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>环境：win10、Eclipse Neno.2、TortoiseSVN 1.14.0、Subclipse 4.3.3(eclipse插件)</p>
 </blockquote>
@@ -400,25 +399,6 @@
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112234887.png" alt="image-20210820112234887"></p>
 
         </div>
-		<text ><blockquote>
-<p>环境：win10、Eclipse Neno.2、TortoiseSVN 1.14.0、Subclipse 4.3.3(eclipse插件)</p>
-</blockquote>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>将svn中的项目的 <strong>Checkout</strong> 到本地使用eclipse开发过程中，发现每次 <strong>commit</strong> 后文件属性都变为 <strong>只读</strong> 属性，并且对刚刚提交后的文件进行编辑时就提示需要先锁定文件才能编辑</p>
-<blockquote>
-<p>笔者在eclipse中是使用的 Subclipse 对svn进行操作</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820111409567.png" alt="image-20210820111409567"></p>
-</blockquote>
-<p>commit后编辑文件提示需要锁定：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112455733.png" alt="commit后编辑文件提示需要锁定"></p>
-<p>文件属性变为只读：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112646097.png" alt="image-20210820112646097"></p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1.在项目根目录中 <code>鼠标右键</code>-&gt;<code>TortoiseSVN</code>-&gt;<code>Properties</code></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820111954147.png" alt="image-20210820111954147"></p>
-<p>2.在弹出的属性设置框中点击：<code>New</code>-&gt;<code>Needs-Lock</code></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112148846.png" alt="image-20210820112148846"></p>
-<p>3.选择 <code>No locking required</code>，点击 <code>OK</code> 即可解决</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112234887.png" alt="image-20210820112234887"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -534,7 +514,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -546,10 +526,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

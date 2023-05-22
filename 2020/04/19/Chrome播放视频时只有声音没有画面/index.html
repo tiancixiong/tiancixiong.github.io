@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win7下Chrome在线播放视频时只有声音，没有画面</p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>打开Chrome，点击右上角菜单，选择<code>设置 -&gt; 高级 -&gt; 系统</code>，取消<code>使用硬件加速模式（如果可用）</code>：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200419/1587289569038.png" alt="1587289569038"></p>
@@ -391,16 +390,6 @@
 <p>3、然后在Chrome菜单中选择<code>设置 -&gt; 高级 -&gt; 系统</code>，取消<code>使用硬件加速模式（如果可用）</code><br>4、重启Chrome即可</p>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win7下Chrome在线播放视频时只有声音，没有画面</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>打开Chrome，点击右上角菜单，选择<code>设置 -&gt; 高级 -&gt; 系统</code>，取消<code>使用硬件加速模式（如果可用）</code>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200419/1587289569038.png" alt="1587289569038"></p>
-<p>重启Chrome即可</p>
-<h1 id="另"><a href="#另" class="headerlink" title="另"></a>另</h1><p>如果Chrome所有页面全部黑屏，原因应该是因为显卡驱动没有支持新版本Chrome的GPU加速，此时需要通过命令行关闭Chrome浏览器的GPU加速</p>
-<p>1、找到Chrome安装目录，默认是在<code>C:\Program Files (x86)\Google\Chrome\Application</code>目录下打开黑窗口</p>
-<p>2、输入命令：<code>chrome.exe -disable-gpu</code>可暂时关闭GPU加速打开Chrome</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200419/20200419.gif" alt="20200419.gif"></p>
-<p>3、然后在Chrome菜单中选择<code>设置 -&gt; 高级 -&gt; 系统</code>，取消<code>使用硬件加速模式（如果可用）</code><br>4、重启Chrome即可</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -516,7 +505,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -528,10 +517,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

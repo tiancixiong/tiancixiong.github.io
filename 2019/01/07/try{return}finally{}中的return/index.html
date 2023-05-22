@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>try 中的 return 语句调用的函数先于 finally 中调用的函数执行，也就是说 return 语句先执行，finally 语句后执行，但 return 并不是让函数马上返回结果，而是 return 语句执行后，将把返回结果放置进函数栈中，此时函数并不是马上返回结果，它要执行 finally 语句后才真正开始返回，，但此时finally块中的代码已经影响不了return返回的值了</p>
 </blockquote>
@@ -439,64 +438,6 @@ class Test{
 </code></pre><p>返回的是对象的引用</p>
 
         </div>
-		<text ><blockquote>
-<p>try 中的 return 语句调用的函数先于 finally 中调用的函数执行，也就是说 return 语句先执行，finally 语句后执行，但 return 并不是让函数马上返回结果，而是 return 语句执行后，将把返回结果放置进函数栈中，此时函数并不是马上返回结果，它要执行 finally 语句后才真正开始返回，，但此时finally块中的代码已经影响不了return返回的值了</p>
-</blockquote>
-<pre><code class="java">public class Demo {
-    public static void main(String[] args) {
-        System.out.println(num());
-    }
-
-    public static int num(){
-        int i = 0;
-        try {
-            i = 1;
-            return i;
-        }catch (Exception e){
-
-        }finally {
-            i = 2;
-        }
-        return i;
-    }
-}
-</code></pre>
-<pre><code>打印结果：1
-</code></pre><p>返回的是基本数据类型，直接返回值<br><br></p>
-<pre><code class="java">public class Demo {
-    public static void main(String[] args) {
-        System.out.println(num().getI());
-    }
-
-    public static Test num() {
-        Test t = new Test();
-        try {
-            t.setI(1);
-            return t;
-        } catch (Exception e) {
-
-        } finally {
-            t.setI(2);
-        }
-        return t;
-    }
-}
-
-class Test{
-    private int i ;
-
-    public int getI() {
-        return i;
-    }
-
-    public void setI(int i) {
-        this.i = i;
-    }
-}
-</code></pre>
-<pre><code>打印结果：2
-</code></pre><p>返回的是对象的引用</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -612,7 +553,7 @@ class Test{
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -624,10 +565,10 @@ class Test{
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>IDEA启动SpingBoot项目时警告：</p>
 <pre><code>OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
 </code></pre><p>具体如下图：</p>
@@ -392,17 +391,6 @@
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201031/image-20201031104459917.png" alt="image-20201031104459917"></p>
 
         </div>
-		<text ><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>IDEA启动SpingBoot项目时警告：</p>
-<pre><code>OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
-</code></pre><p>具体如下图：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201031/image-20201031104319352.png" alt="image-20201031104319352"></p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>1.快捷键<code>Ctrl+Alt+S</code>；或选择IDEA左上角的菜单<code>File -&gt; Settings</code>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201031/image-20201031104815491.png" alt="image-20201031104815491"></p>
-<p>2.搜索<code>async</code>，选择<code>Async Stack Traces</code>，将右侧面板中<code>Instrumenting agent (requires debugger restart)</code>前面的对勾去掉，保存设置</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201031/image-20201031105120705.png" alt="image-20201031105120705"></p>
-<p>3.重启项目即可</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201031/image-20201031104459917.png" alt="image-20201031104459917"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -518,7 +506,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -530,10 +518,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

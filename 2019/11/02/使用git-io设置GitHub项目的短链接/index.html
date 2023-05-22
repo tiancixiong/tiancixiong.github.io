@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>工具：</p>
 </blockquote>
@@ -399,24 +398,6 @@ curl -i https://git.io -F url=&quot;https://github.com/tiancixiong&quot; -F &quo
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572698632702.png" alt="1572698632702"></p>
 
         </div>
-		<text ><blockquote>
-<p>工具：</p>
-</blockquote>
-<p>在桌面或目录中右键 -&gt; Git Bash Here</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572697736879.png" alt="1572697736879"></p>
-<p>输入命令：</p>
-<pre><code class="bash"># url为github项目地址
-# code为短链码
-curl -i https://git.io -F url=&quot;https://github.com/tiancixiong&quot; -F &quot;code=tianci&quot;
-</code></pre>
-<p>访问地址：<a href="https://git.io/tianci" target="_blank" rel="noopener">https://git.io/tianci</a></p>
-<p>一个url只能对应一个code，如果你想多个code，那就在url上加参数：</p>
-<pre><code class="bash">curl -i https://git.io -F url=&quot;https://github.com/tiancixiong?v=1&quot; -F &quot;code=xiong&quot;
-</code></pre>
-<p>访问地址：<a href="https://git.io/xiong" target="_blank" rel="noopener">https://git.io/xiong</a></p>
-<p>如果出现<code>&quot;XXX&quot; already is</code>表明此短链已被抢先注册：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572698632702.png" alt="1572698632702"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -532,7 +513,7 @@ curl -i https://git.io -F url=&quot;https://github.com/tiancixiong&quot; -F &quo
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -544,10 +525,10 @@ curl -i https://git.io -F url=&quot;https://github.com/tiancixiong&quot; -F &quo
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

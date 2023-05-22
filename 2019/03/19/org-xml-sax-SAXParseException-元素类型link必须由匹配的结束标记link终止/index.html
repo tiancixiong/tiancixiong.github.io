@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><code>SpringBoot</code>使用<code>thymeleaf</code>模板引擎时报错：</p>
 <blockquote>
 <p>org.xml.sax.SAXParseException: 元素类型 “link” 必须由匹配的结束标记 “&lt;&#47;link&gt;” 终止</p>
@@ -398,23 +397,6 @@
 </code></pre>
 
         </div>
-		<text ><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><code>SpringBoot</code>使用<code>thymeleaf</code>模板引擎时报错：</p>
-<blockquote>
-<p>org.xml.sax.SAXParseException: 元素类型 “link” 必须由匹配的结束标记 “&lt;&#47;link&gt;” 终止</p>
-</blockquote>
-<p>or</p>
-<blockquote>
-<p>org.xml.sax.SAXParseException: 元素类型 “meta” 必须由匹配的结束标记 “&lt;&#47;meta&gt;” 终止</p>
-</blockquote>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>解决方法是在<code>pom.xml</code>文件中指定具体的<code>thymeleaf</code>版本具体如下</p>
-<pre><code class="xml">&lt;properties&gt;
-    &lt;java.version&gt;1.8&lt;/java.version&gt;
-    &lt;!--添加下面两项指定thymeleaf的版本--&gt;
-    &lt;thymeleaf.version&gt;3.0.2.RELEASE&lt;/thymeleaf.version&gt;
-    &lt;thymeleaf-layout-dialect.version&gt;2.0.5&lt;/thymeleaf-layout-dialect.version&gt;
-&lt;/properties&gt;
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -530,7 +512,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -542,10 +524,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

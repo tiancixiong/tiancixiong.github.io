@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>环境：</p>
 <ul>
@@ -483,108 +482,6 @@ DNS2=&quot;223.5.5.5&quot;
 </code></pre>
 
         </div>
-		<text ><blockquote>
-<p>环境：</p>
-<ul>
-<li>VMware 15</li>
-<li>CentOS 7.3.1611</li>
-</ul>
-</blockquote>
-<h3 id="查看网卡信息"><a href="#查看网卡信息" class="headerlink" title="查看网卡信息"></a>查看网卡信息</h3><p>通过<code>ip addr</code>查看当前网卡的配置信息：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108092133554.png" alt="image-20201108092133554"></p>
-<p>从图中可以看出, 当前设备网卡名称为： <strong>ens33</strong> (不同设备这个可能不同)，当前主机的ip为<strong>192.168.220.134</strong><br>CentOS7默认网卡设备文件存放于<code>/etc/sysconfig/network-scripts/</code>目录中，其中名为 <code>ifcfg-网卡名称</code> 的文件就是设备的默认网卡，我这里的网卡名为<code>ifcfg-ens33</code></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108092522876.png" alt="image-20201108092522876"></p>
-<h3 id="配置网卡为静态IP"><a href="#配置网卡为静态IP" class="headerlink" title="配置网卡为静态IP"></a>配置网卡为静态IP</h3><p>通过<code>cat /etc/sysconfig/network-scripts/ifcfg-ens33</code>查看默认网卡设备配置信息：</p>
-<pre><code class="shell">TYPE=&quot;Ethernet&quot;            # 网卡类型为：以太网
-PROXY_METHOD=&quot;none&quot;        # 代理方式：关闭状态
-BROWSER_ONLY=&quot;no&quot;        # 只是浏览器：否
-BOOTPROTO=&quot;dhcp&quot;        # 网卡的引导协议：DHCP[中文名称: 动态主机配置协议]
-DEFROUTE=&quot;yes&quot;            # 默认路由：是, 深入了解可以百度关键词 `默认路由` 
-PEERDNS=&quot;yes&quot;            # 是否允许DHCP获得的DNS覆盖本地的DNS
-PEERROUTES=&quot;yes&quot;        # 是否从DHCP服务器获取用于定义接口的默认网关的信息的路由表条目
-IPV4_FAILURE_FATAL=&quot;no&quot;    # 是否开启IPV4致命错误检测：否
-IPV6INIT=&quot;yes&quot;            # IPV6是否自动初始化: 是[不会有任何影响, 现在还没用到IPV6]
-IPV6_AUTOCONF=&quot;yes&quot;        # IPV6是否自动配置：是[不会有任何影响, 现在还没用到IPV6]
-IPV6_DEFROUTE=&quot;yes&quot;        # IPV6是否可以为默认路由：是[不会有任何影响, 现在还没用到IPV6]
-IPV6_PEERDNS=&quot;yes&quot;        
-IPV6_PEERROUTES=&quot;yes&quot;
-IPV6_FAILURE_FATAL=&quot;no&quot;    # 是否开启IPV6致命错误检测：否
-IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;        # IPV6地址生成模型：stable-privacy [这只一种生成IPV6的策略]
-NAME=&quot;ens33&quot;            # 网卡物理设备名称
-UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;    # 通用唯一识别码,每一个网卡都会有,不能重复,否则两台linux只有一台网卡可用
-DEVICE=&quot;ens33&quot;            # 网卡设备名称, 必须和 `NAME` 值一样
-ONBOOT=&quot;no&quot;            # 是否开机启动,要想网卡开机就启动或通过 `systemctl restart network`控制网卡,必须设置为 `yes` 
-</code></pre>
-<p>通过<code>vi /etc/sysconfig/network-scripts/ifcfg-ens33</code>命令编辑 <strong>ifcfg-ens33</strong> 文件设置静态IP：</p>
-<blockquote>
-<p>设置网卡引导协议为 <code>静态</code></p>
-</blockquote>
-<pre><code class="shell">BOOTPROTO=&quot;static&quot;
-</code></pre>
-<blockquote>
-<p>设置网卡启动方式为 <code>开机启动</code> 并且可以通过系统服务管理器 <code>systemctl</code> 控制网卡</p>
-</blockquote>
-<pre><code class="shell">ONBOOT=&quot;yes&quot;
-</code></pre>
-<blockquote>
-<p>配置「IP/子网掩码/网关」</p>
-</blockquote>
-<pre><code class="shell">IPADDR=&quot;192.168.220.132&quot;    # 指定静态IP
-NETMASK=&quot;255.255.255.0&quot;        # 子网掩码
-GATEWAY=&quot;192.168.220.2&quot;        # 网关
-</code></pre>
-<blockquote>
-<p><strong>注意</strong>：网关必须和虚机的网关地址一样，否则无法上网，网关可以在虚拟网络编辑器中找到</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108101030577.png" alt="image-20201108101030577"></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108101049070.png" alt="image-20201108101049070"></p>
-</blockquote>
-<p>按住 <code>Esc</code> 输入 <code>Shift + :</code>  接着输入 <code>wq</code> 回车保存编辑并退出，设置完后通过<code>service network restart</code>命令重启网卡：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108093757485.png" alt="image-20201108093757485"></p>
-<blockquote>
-<p>这个时候如果是使用xshell之类工具连接着，则会断开连接，因为此时主机ip已经变为修改之后的地址，需修改xshell上配置的主机地址后再进行连接</p>
-</blockquote>
-<p>重启完成，查看此时的ip，发现修改成功：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108093944183.png" alt="image-20201108093944183"></p>
-<h3 id="连上外网"><a href="#连上外网" class="headerlink" title="连上外网"></a>连上外网</h3><p>那么现在已经成功修改成静态ip了，但是通过 <code>ping baidu.com</code> 发现连不上外网：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108094037580.png" alt="image-20201108094037580"></p>
-<p>这是因为当前CentOS还解析不了域名，我们需要修改 <code>ifcfg-ens33</code> 文件加入<strong>DNS</strong>解析</p>
-<pre><code class="shell">DNS1=&quot;114.114.114.114&quot;        # 114DNS
-DNS2=&quot;223.5.5.5&quot;            # 阿里DNS
-</code></pre>
-<blockquote>
-<p><code>8.8.8.8</code> 是谷歌提供的DNS服务，国内无节点，不推荐</p>
-</blockquote>
-<p>通过<code>service network restart</code>重启网卡，通过<code>cat /etc/resolv.conf</code>命令可以看到设置的DNS解析已生效，然后再来ping百度，可以ping通：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108094404164.png" alt="image-20201108094404164"></p>
-<blockquote>
-<p>如果还是ping不通，则可以换个DNS地址再试试</p>
-</blockquote>
-<hr>
-<p>最终网卡设备配置详情表</p>
-<pre><code class="text">TYPE=&quot;Ethernet&quot;
-BOOTPROTO=&quot;static&quot;
-DEFROUTE=&quot;yes&quot;
-PEERDNS=&quot;yes&quot;
-PEERROUTES=&quot;yes&quot;
-IPV4_FAILURE_FATAL=&quot;no&quot;
-IPV6INIT=&quot;yes&quot;
-IPV6_AUTOCONF=&quot;yes&quot;
-IPV6_DEFROUTE=&quot;yes&quot;
-IPV6_PEERDNS=&quot;yes&quot;
-IPV6_PEERROUTES=&quot;yes&quot;
-IPV6_FAILURE_FATAL=&quot;no&quot;
-IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;
-NAME=&quot;ens33&quot;
-UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;
-DEVICE=&quot;ens33&quot;
-ONBOOT=&quot;yes&quot;
-IPADDR=&quot;192.168.220.132&quot;
-NETMASK=&quot;255.255.255.0&quot;
-GATEWAY=&quot;192.168.220.2&quot;
-DNS1=&quot;114.114.114.114&quot;
-DNS2=&quot;223.5.5.5&quot;
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -700,7 +597,7 @@ DNS2=&quot;223.5.5.5&quot;
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -712,10 +609,10 @@ DNS2=&quot;223.5.5.5&quot;
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

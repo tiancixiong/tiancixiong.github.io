@@ -379,12 +379,9 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>数据库事务(Transanction)正确执行的四个基本要素：<br>1、<strong>原子性（Atomicity）</strong>：事务开始后所有操作，要么全部完成，要么全部不完成，不可能停滞在中间环节。事务执行过程中出错，会回滚（Rollback）到事务开始前的状态，所有的操作就像没有发生一样。也就是说事务是一个不可分割的整体，就像化学中学过的原子，是物质构成的基本单位<br>2、<strong>一致性（Consistency）</strong>：事务开始前和结束后，数据库的完整性约束没有被破坏 。比如A向B转账，不可能A扣了钱，B却没收到<br>3、<strong>隔离性（Isolation）</strong>：同一时间，只允许一个事务请求同一数据，不同的事务之间彼此没有任何干扰。比如A正在从一张银行卡中取钱，在A取钱的过程结束前，B不能向这张卡转账<br>4、<strong>持久性（Durability）</strong>：事务完成后，该事务所对数据库所作的更改将被保存到数据库之中，不能回滚</p>
 
         </div>
-		<text ><p>数据库事务(Transanction)正确执行的四个基本要素：<br>1、<strong>原子性（Atomicity）</strong>：事务开始后所有操作，要么全部完成，要么全部不完成，不可能停滞在中间环节。事务执行过程中出错，会回滚（Rollback）到事务开始前的状态，所有的操作就像没有发生一样。也就是说事务是一个不可分割的整体，就像化学中学过的原子，是物质构成的基本单位<br>2、<strong>一致性（Consistency）</strong>：事务开始前和结束后，数据库的完整性约束没有被破坏 。比如A向B转账，不可能A扣了钱，B却没收到<br>3、<strong>隔离性（Isolation）</strong>：同一时间，只允许一个事务请求同一数据，不同的事务之间彼此没有任何干扰。比如A正在从一张银行卡中取钱，在A取钱的过程结束前，B不能向这张卡转账<br>4、<strong>持久性（Durability）</strong>：事务完成后，该事务所对数据库所作的更改将被保存到数据库之中，不能回滚</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -500,7 +497,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -512,10 +509,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

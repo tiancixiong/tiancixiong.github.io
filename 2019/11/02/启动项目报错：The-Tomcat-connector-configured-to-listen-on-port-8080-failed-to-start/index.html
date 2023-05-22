@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>启动SpringBoot项目，报错：</p>
 <pre><code>org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
     ....
@@ -410,35 +409,6 @@ Caused by: java.net.BindException: Address already in use: bind
 <p>转载：<a href="https://blog.csdn.net/q343509740/article/details/80821409" target="_blank" rel="noopener">https://blog.csdn.net/q343509740/article/details/80821409</a></p>
 
         </div>
-		<text ><p>启动SpringBoot项目，报错：</p>
-<pre><code>org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
-    ....
-
-Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
-    ....
-
-Caused by: java.net.BindException: Address already in use: bind
-    ....
-</code></pre><p>错误描述：</p>
-<pre><code>The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
-</code></pre><p>意思就是说<code>8080</code>端口一直被占用着，从而无法启动项目。此时很懵啊，因为本地并没有其他项目跑着…</p>
-<p><strong>解决</strong>：</p>
-<ol>
-<li><p>cmd打开黑窗口，输入下面指令显示所有端口和PID进程ID</p>
-<pre><code class="shell">netstat -ano
-</code></pre>
-</li>
-<li><p>找到8080端口对应的PID，通过<code>tasklist</code>指令找到对应的进程</p>
-<pre><code class="bash">tasklist | findstr &quot;7676&quot;
-</code></pre>
-</li>
-<li><p>通过杀死此进程</p>
-<pre><code class="bash">taskkill /f /t /im java.exe 
-</code></pre>
-</li>
-</ol>
-<p>转载：<a href="https://blog.csdn.net/q343509740/article/details/80821409" target="_blank" rel="noopener">https://blog.csdn.net/q343509740/article/details/80821409</a></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -554,7 +524,7 @@ Caused by: java.net.BindException: Address already in use: bind
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -566,10 +536,10 @@ Caused by: java.net.BindException: Address already in use: bind
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

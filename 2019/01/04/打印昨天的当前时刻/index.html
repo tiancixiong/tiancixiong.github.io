@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h4 id="方式一：通过Calendar实现"><a href="#方式一：通过Calendar实现" class="headerlink" title="方式一：通过Calendar实现"></a>方式一：通过Calendar实现</h4><pre><code class="java">Calendar cal = Calendar.getInstance();
 cal.add(Calendar.DATE,-1);
 System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(cal.getTime()));
@@ -390,15 +389,6 @@ System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(
 </code></pre>
 
         </div>
-		<text ><h4 id="方式一：通过Calendar实现"><a href="#方式一：通过Calendar实现" class="headerlink" title="方式一：通过Calendar实现"></a>方式一：通过Calendar实现</h4><pre><code class="java">Calendar cal = Calendar.getInstance();
-cal.add(Calendar.DATE,-1);
-System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(cal.getTime()));
-</code></pre>
-<h4 id="方式二：通过Date实现"><a href="#方式二：通过Date实现" class="headerlink" title="方式二：通过Date实现"></a>方式二：通过Date实现</h4><pre><code class="java">// 1天的时间 = 24小时 x 60分钟 x 60秒 x 1000毫秒 单位是L
-Date yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
-System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(yesterday));
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -514,7 +504,7 @@ System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -526,10 +516,10 @@ System.out.println(new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;).format(
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

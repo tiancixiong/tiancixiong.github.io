@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><blockquote>
 <p>IDEA版本：2019.3</p>
 </blockquote>
@@ -395,20 +394,6 @@
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210713/image-20210713114535526.png" alt="image-20210713114535526"></p>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><blockquote>
-<p>IDEA版本：2019.3</p>
-</blockquote>
-<p>使用<code>IDEA</code>编写java代码时，使用 <code>Ctrl+Alt+L</code>(win) 格式化代码操作之后发现代码中的方法顺序被改变了：</p>
-<p>格式化前：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210713/image-20210713114640170.png" alt="image-20210713114640170"></p>
-<p>格式化后：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210713/image-20210713114315313.png" alt="image-20210713114315313"></p>
-<blockquote>
-<p>method01 被移动到 test01 上方</p>
-</blockquote>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>使用 <code>Shift+Ctrl+Alt+L</code>(win) 进行格式化，在弹出的选项中取消 <code>Rearrange code</code> 的勾选即可</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210713/image-20210713114535526.png" alt="image-20210713114535526"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -524,7 +509,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -536,10 +521,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

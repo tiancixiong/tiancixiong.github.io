@@ -379,18 +379,12 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>记一次踩坑经历：<br><code>Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: (was java.lang.NullPointerException); nested exception is com.fasterxml.jackson.databind.JsonMappingException: (was java.lang.NullPointerException) (through reference chain: com.renqijie.pojo.vo.IndexBean[&quot;images&quot;]-&gt;java.util.ArrayList[0]-&gt;com.renqijie.pojo.Image[&quot;id&quot;])]</code></p>
 <blockquote>
 <p>原因：<br>JavaBean类<code>Image</code>中有一个属性类型刚开始设置成<code>int</code>类型，生成<code>getter/setter</code>方法后，又将其改成了<code>Integer</code>类型，结果就出现了上述情况</p>
 </blockquote>
 
         </div>
-		<text ><p>记一次踩坑经历：<br><code>Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: (was java.lang.NullPointerException); nested exception is com.fasterxml.jackson.databind.JsonMappingException: (was java.lang.NullPointerException) (through reference chain: com.renqijie.pojo.vo.IndexBean[&quot;images&quot;]-&gt;java.util.ArrayList[0]-&gt;com.renqijie.pojo.Image[&quot;id&quot;])]</code></p>
-<blockquote>
-<p>原因：<br>JavaBean类<code>Image</code>中有一个属性类型刚开始设置成<code>int</code>类型，生成<code>getter/setter</code>方法后，又将其改成了<code>Integer</code>类型，结果就出现了上述情况</p>
-</blockquote>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -506,7 +500,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -518,10 +512,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

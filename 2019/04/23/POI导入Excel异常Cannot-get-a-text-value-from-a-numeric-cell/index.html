@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><code>POI</code>操作<code>Excel</code>时偶尔会出现<code>Cannot get a text value from a numeric cell</code>的异常错误</p>
 <blockquote>
 <p>java.lang.IllegalStateException: Cannot get a text value from a numeric cell</p>
@@ -397,22 +396,6 @@ for (int j = 0; j &lt; row.getPhysicalNumberOfCells(); j++) {
 </code></pre>
 
         </div>
-		<text ><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p><code>POI</code>操作<code>Excel</code>时偶尔会出现<code>Cannot get a text value from a numeric cell</code>的异常错误</p>
-<blockquote>
-<p>java.lang.IllegalStateException: Cannot get a text value from a numeric cell</p>
-</blockquote>
-<p>异常原因：Excel数据cell有不同的类型，当我们试图从一个数字类型的Cell读取出一个字符串并写入数据库时，就会出现Cannot get a text value from a numeric cell的异常错误。</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>通过<code>setCellType()</code>设置<code>cell</code>类型，统一设置成String类型，然后再获取</p>
-<pre><code class="java">Row row = sheet.getRow(i);
-for (int j = 0; j &lt; row.getPhysicalNumberOfCells(); j++) {
-    // 
-    row.getCell(j).setCellType(Cell.CELL_TYPE_STRING);
-    // 
-    String cellValue = row.getCell(j).getStringCellValue();
-    System.out.println(cellValue);
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -528,7 +511,7 @@ for (int j = 0; j &lt; row.getPhysicalNumberOfCells(); j++) {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -540,10 +523,10 @@ for (int j = 0; j &lt; row.getPhysicalNumberOfCells(); j++) {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

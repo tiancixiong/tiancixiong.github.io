@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>limit子句用于限制查询结果返回的数量，常用于分页查询</p>
 </blockquote>
@@ -403,28 +402,6 @@ select * from t_user limit 5,8;
 </code></pre>
 
         </div>
-		<text ><blockquote>
-<p>limit子句用于限制查询结果返回的数量，常用于分页查询</p>
-</blockquote>
-<p><strong>格式：</strong></p>
-<pre><code class="sql">select * from tableName limit i,n
-# tableName：表名
-# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i
-# n：为查询结果返回的数量
-# i与n之间使用英文逗号&quot;,&quot;隔开
-
-# 
-limit n 等同于 limit 0,n
-</code></pre>
-<p>栗子：</p>
-<pre><code class="sql"># 查询10条数据，索引从0到9，第1条记录到第10条记录
-select * from t_user limit 10;
-select * from t_user limit 0,10;
-
-# 查询8条数据，索引从5到12，第6条记录到第13条记录
-select * from t_user limit 5,8;
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -540,7 +517,7 @@ select * from t_user limit 5,8;
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -552,10 +529,10 @@ select * from t_user limit 5,8;
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

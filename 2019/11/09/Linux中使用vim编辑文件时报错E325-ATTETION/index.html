@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>在CentOS下使用<code>vim</code>编辑文件时出现<code>E325：ATTENTION</code>的警告。</p>
 <p>这是由于在编辑该文件的时候异常退出了，因为<code>vim</code>在编辑文件时会创建一个交换文件<code>swap file</code>以保证文件的安全性。</p>
 <p>删除这个<code>swp</code>文件即可去除警告</p>
@@ -390,15 +389,6 @@ rm -rf 文件.swp
 </code></pre>
 
         </div>
-		<text ><p>在CentOS下使用<code>vim</code>编辑文件时出现<code>E325：ATTENTION</code>的警告。</p>
-<p>这是由于在编辑该文件的时候异常退出了，因为<code>vim</code>在编辑文件时会创建一个交换文件<code>swap file</code>以保证文件的安全性。</p>
-<p>删除这个<code>swp</code>文件即可去除警告</p>
-<pre><code class="bash"># 查看此目录下全部文件，找到swp文件
-ls -a
-# 删除此swp文件即可
-rm -rf 文件.swp
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -514,7 +504,7 @@ rm -rf 文件.swp
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -526,10 +516,10 @@ rm -rf 文件.swp
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

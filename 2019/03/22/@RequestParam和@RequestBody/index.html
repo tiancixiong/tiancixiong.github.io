@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="一、-RequestParam"><a href="#一、-RequestParam" class="headerlink" title="一、@RequestParam"></a>一、@RequestParam</h3><blockquote>
 <p>GET和POST请求传的参数会自动转换赋值到<code>@RequestParam</code>所注解的变量上</p>
 </blockquote>
@@ -414,39 +413,6 @@ public void requestBodyDemo(@RequestBody User user){
 </code></pre>
 
         </div>
-		<text ><h3 id="一、-RequestParam"><a href="#一、-RequestParam" class="headerlink" title="一、@RequestParam"></a>一、@RequestParam</h3><blockquote>
-<p>GET和POST请求传的参数会自动转换赋值到<code>@RequestParam</code>所注解的变量上</p>
-</blockquote>
-<pre><code class="html">&lt;form action=&quot;/requestParamDemo&quot; method=&quot;get&quot;&gt;
-    用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
-    用户昵称：&lt;input type=&quot;text&quot; name=&quot;usernick&quot;&gt;&lt;br&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-&lt;/form&gt;
-</code></pre>
-<pre><code class="java">@RequestMapping(value = &quot;/requestParamDemo&quot;, method = RequestMethod.GET)
-public void requestParamDemo(@RequestParam(value = &quot;username&quot;) String userName, @RequestParam(value = &quot;usernick&quot;) String userNick) {
-    System.out.println(&quot;username: &quot; + userName);
-    System.out.println(&quot;usernick: &quot; + userNick);
-}
-</code></pre>
-<h3 id="二、-RequestBody"><a href="#二、-RequestBody" class="headerlink" title="二、@RequestBody"></a>二、@RequestBody</h3><blockquote>
-<p><code>@RequestBody</code>注解可以接收<code>json</code>格式的数据，并将其转换成对应的数据类型</p>
-</blockquote>
-<pre><code class="json">// 通过ajax发送json数据
-{
-    &quot;id&quot;:1,
-    &quot;username&quot;:&quot;jack&quot;,
-    &quot;password&quot;:&quot;1234&quot;
-}
-</code></pre>
-<pre><code class="java">@RequestMapping(value=&quot;/requestBodyDemo&quot;, method = RequestMethod.POST)
-public void requestBodyDemo(@RequestBody User user){
-    System.out.println(&quot;id: &quot; + user.getId());
-    System.out.println(&quot;name: &quot; + user.getName());
-    System.out.println(&quot;password: &quot; + user.getPassword());
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -562,7 +528,7 @@ public void requestBodyDemo(@RequestBody User user){
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -574,10 +540,10 @@ public void requestBodyDemo(@RequestBody User user){
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

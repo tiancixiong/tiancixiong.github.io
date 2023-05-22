@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h2 id="创建线程方式一"><a href="#创建线程方式一" class="headerlink" title="创建线程方式一"></a>创建线程方式一</h2><blockquote>
 <p>通过<strong>继承</strong><code>Thread</code>类来创建并启动多线程</p>
 </blockquote>
@@ -475,100 +474,6 @@ public class Demo02 {
 </code></pre>
 
         </div>
-		<text ><h2 id="创建线程方式一"><a href="#创建线程方式一" class="headerlink" title="创建线程方式一"></a>创建线程方式一</h2><blockquote>
-<p>通过<strong>继承</strong><code>Thread</code>类来创建并启动多线程</p>
-</blockquote>
-<p>Java使用<code>java.lang.Thread</code>类代表线程，所有的线程对象都必须是<code>Thread</code>类或其子类的实例。每个线程的作用是完成一定的任务，实际上就是执行一段程序流即一段顺序执行的代码。Java使用线程执行体来代表这段程序流。<br>Java中通过<strong>继承Thread类</strong>来创建并启动多线程的步骤如下：</p>
-<ol>
-<li>定义Thread类的子类，并重写该类的<code>run()</code>方法，该run()方法的方法体就代表了线程需要完成的任务,因此把run()方法称为线程执行体</li>
-<li>创建Thread子类的实例，即创建了线程对象</li>
-<li>调用线程对象的start()方法来启动该线程</li>
-</ol>
-<p>自定义线程类：</p>
-<pre><code class="java">/**
- * 自定义线程类
- */
-public class MyThread extends Thread {
-    public MyThread(String name){
-        super(name);
-    }
-
-    @Override
-    public void run() {
-        for(int i = 1; i &lt;= 20; i++){
-            System.out.println(getName() + &quot; &quot; + i);
-        }
-    }
-}
-</code></pre>
-<p>测试类：</p>
-<pre><code class="java">/**
- * 创建线程方式一：
- *  1. 创建自定义类继承Thread类
- *  2. 重写run方法(run方法就是新的线程要执行的代码)
- *  3. 创建自定义类对象(线程对象)
- *  4. 调用start方法开启新的线程
- */
-public class Demo01 {
-    public static void main(String[] args) {
-        System.out.println(&quot;main线程开启&quot;);
-        // 创建线程对象
-        MyThread myThread = new MyThread(&quot;线程A&quot;);
-        // 开启新的线程myThread
-        myThread.start();
-
-        // 这个循环在main线程中执行
-        for (int i = 1; i &lt;= 20; i++) {
-            System.out.println(&quot;mian线程 &quot; + i);
-        }
-    }
-}
-</code></pre>
-<p><br></p>
-<h2 id="创建线程方式二"><a href="#创建线程方式二" class="headerlink" title="创建线程方式二"></a>创建线程方式二</h2><blockquote>
-<p>通过<strong>实现</strong><code>Runnable</code>类来创建并启动多线程</p>
-</blockquote>
-<p>采用java.lang.Runnable 也是非常常见的一种，我们只需要重写run方法即可<br>步骤如下：</p>
-<ol>
-<li>定义Runnable接口的实现类，并重写该接口的run()方法，该run()方法的方法体同样是该线程的线程执行体</li>
-<li>创建Runnable实现类的实例，并以此实例作为Thread的target来创建Thread对象，该Thread对象才是真正<br>的线程对象</li>
-<li>调用线程对象的start()方法来启动线程</li>
-</ol>
-<p>代码如下：</p>
-<pre><code class="java">public class MyRunnable implements Runnable {
-
-    @Override
-    public void run() {
-        for (int i = 1; i &lt;= 20; i++) {
-            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i);
-        }
-    }
-}
-</code></pre>
-<pre><code class="java">/**
- * 创建线程方式二：
- *  1. 定义自定义类实现Runnable接口
- *  2. 重写run方法
- *  3. 创建自定义对象
- *  4. 创建Threed对象的时候，作为构造方法的参数进行传递
- *  5. 启动线程start方法
- */
-public class Demo02 {
-    public static void main(String[] args) {
-        // 创建线程任务对象
-        MyRunnable myRunnable = new MyRunnable();
-
-        // 创建线程对象
-        Thread t1 = new Thread(myRunnable, &quot;线程A&quot;);
-        Thread t2 = new Thread(myRunnable, &quot;线程B&quot;);
-
-        // 开启线程
-        t1.start();
-        t2.start();
-    }
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -684,7 +589,7 @@ public class Demo02 {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -696,10 +601,10 @@ public class Demo02 {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

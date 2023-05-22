@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p><code>thymeleaf</code>推荐使用<code>@Controller</code>进行页面跳转<br>如果用<code>@RestController</code>，则可以通过<code>ModelAndView</code>进行页面跳转<br>eg</p>
 <pre><code class="java">/**
  * 跳转到goods_editor.html页面
@@ -394,19 +393,6 @@ public ModelAndView goodsEditor(){
 </code></pre>
 
         </div>
-		<text ><p><code>thymeleaf</code>推荐使用<code>@Controller</code>进行页面跳转<br>如果用<code>@RestController</code>，则可以通过<code>ModelAndView</code>进行页面跳转<br>eg</p>
-<pre><code class="java">/**
- * 跳转到goods_editor.html页面
- * @return
- */
-@GetMapping(&quot;/goodsEditor&quot;)
-public ModelAndView goodsEditor(){
-    ModelAndView mv = new ModelAndView();
-    mv.setViewName(&quot;/goods/goods_editor&quot;);
-    return mv;
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -522,7 +508,7 @@ public ModelAndView goodsEditor(){
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -534,10 +520,10 @@ public ModelAndView goodsEditor(){
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

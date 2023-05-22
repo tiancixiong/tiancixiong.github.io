@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>一般的，只要网站的【协议名protocol】、【主机host】、【端口号port】这三个中的任意一个不同，网站间的数据请求与传输便构成了跨域调用<br>跨域：浏览同源策略的造成，是浏览器对JavaScript施加的安全限制<br>CORS是一种可以解决跨域问题的技术</p>
 </blockquote>
@@ -423,48 +422,6 @@ public List&lt;User&gt; findAll(){
 </code></pre>
 
         </div>
-		<text ><blockquote>
-<p>一般的，只要网站的【协议名protocol】、【主机host】、【端口号port】这三个中的任意一个不同，网站间的数据请求与传输便构成了跨域调用<br>跨域：浏览同源策略的造成，是浏览器对JavaScript施加的安全限制<br>CORS是一种可以解决跨域问题的技术</p>
-</blockquote>
-<h3 id="SprinMVC通过-CrossOrigin注解解决跨域"><a href="#SprinMVC通过-CrossOrigin注解解决跨域" class="headerlink" title="SprinMVC通过@CrossOrigin注解解决跨域"></a>SprinMVC通过@CrossOrigin注解解决跨域</h3><blockquote>
-<p>在Spring MVC<code>4.2</code>之后推出了<code>@CrossOrigin</code>注解来解决跨域问题，而在4.2之前我们都是通过定义注册<code>过滤器</code>的方式来解决跨域问题的</p>
-</blockquote>
-<p><strong>@CrossOrigin的参数：</strong><br>1、origins：允许可访问的域列表；*表示可以是任何来源<br>2、maxAge：准备响应前的缓存持续的最大时间（单位：秒）</p>
-<p><strong>@CrossOrigin使用在Controller层：</strong><br>1、类上，此类中所有方法启用跨域支持</p>
-<pre><code class="java">// 开启跨域支持
-@CrossOrigin
-@RestController
-@RequestMapping(&quot;/user&quot;)
-public class UserController {
-}
-</code></pre>
-<p>2、方法上，仅此方法启用跨域支持</p>
-<pre><code class="java">// 开启跨域支持
-@CrossOrigin
-@RequestMapping(value = &quot;/findAll&quot;, method = RequestMethod.GET)
-public List&lt;User&gt; findAll(){
-    return userService.findAll();
-}
-</code></pre>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、注解失效问题：此时Controlle的方法上<code>@RequestMapping</code>注解中需要声明<code>请求方式</code>即增加<code>method=RequestMethod.XXX</code></p>
-<p>2、添加注解后session失效问题：此时对的ajax请求中需要添加<code>xhrFields:{withCredentials:true}</code>（每个ajax中都需要加此属性，以保证session一致）</p>
-<pre><code class="js">$.ajax({
-    type: &quot;post&quot;,
-    url: &#39;/user/login&#39;,
-    xhrFields: {withCredentials: true},
-    data: {
-        username: username,
-        password: password
-    },
-    success: function (msg) {
-        console.log(&#39;登录成功&#39;);
-    },
-    error: function (msg) {
-        console.log(&#39;请求报错！&#39;);
-    }
-})
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -580,7 +537,7 @@ public List&lt;User&gt; findAll(){
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -592,10 +549,10 @@ public List&lt;User&gt; findAll(){
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

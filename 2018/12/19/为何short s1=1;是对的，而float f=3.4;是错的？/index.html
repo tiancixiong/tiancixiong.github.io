@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>在Java中，没小数点的默认是<code>int</code> ,有小数点的默认是 <code>double</code></p>
 </blockquote>
@@ -387,12 +386,6 @@
 <p>short类型变量的初始化语句，只要不超过short范围( -215 ~ 215-1 )的就可以直接初始化，所以short s1 = 1;是对的；<br>而对于小数，默认情况下：<code>float f=3.4;</code>中的小数3.4此时为double类型。此时，等式<code>float f=3.4;</code>左边为float类型，等式右边为double类型，将涉及到强制类型转换，所以<code>float f=3.4;</code>这个写法是错误的，</p>
 
         </div>
-		<text ><blockquote>
-<p>在Java中，没小数点的默认是<code>int</code> ,有小数点的默认是 <code>double</code></p>
-</blockquote>
-<p>编译器可以自动向上转型，如 int 转成 long 系统自动转换没有问题，因为后者精度更高 ；但如果是向下转型，就需要强制类型转换</p>
-<p>short类型变量的初始化语句，只要不超过short范围( -215 ~ 215-1 )的就可以直接初始化，所以short s1 = 1;是对的；<br>而对于小数，默认情况下：<code>float f=3.4;</code>中的小数3.4此时为double类型。此时，等式<code>float f=3.4;</code>左边为float类型，等式右边为double类型，将涉及到强制类型转换，所以<code>float f=3.4;</code>这个写法是错误的，</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -508,7 +501,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -520,10 +513,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

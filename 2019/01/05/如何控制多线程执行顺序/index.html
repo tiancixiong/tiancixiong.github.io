@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><pre><code class="java">public class Test02 {
     static Thread thread1 = new Thread(new Runnable() {
         @Override
@@ -475,100 +474,6 @@ public static void main(String[] args) throws Exception {
 </code></pre>
 
         </div>
-		<text ><h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><pre><code class="java">public class Test02 {
-    static Thread thread1 = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            System.out.println(&quot;thread1&quot;);
-        }
-    });
-
-    static Thread thread2 = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            System.out.println(&quot;thread2&quot;);
-        }
-    });
-
-    static Thread thread3 = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            System.out.println(&quot;thread3&quot;);
-        }
-    });
-
-    public static void main(String[] args) {
-        thread1.start();
-        thread2.start();
-        thread3.start();
-    }
-}
-</code></pre>
-<p>上面的代码执行结果：</p>
-<pre><code class="java">// 线程执行顺序是随机的
-thread1
-thread3
-thread2
-</code></pre>
-<blockquote>
-<p>原因：start()方法只是让子线程处于就绪状态，最终执行状态是不可控的</p>
-</blockquote>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案一：使用join控制多线程执行顺序"><a href="#方案一：使用join控制多线程执行顺序" class="headerlink" title="方案一：使用join控制多线程执行顺序"></a>方案一：使用join控制多线程执行顺序</h3><blockquote>
-<p>join()：让主线程等待子线程结束以后才能继续运行</p>
-</blockquote>
-<pre><code class="java">public static void main(String[] args) throws Exception {
-    thread1.start();
-    thread1.join();  // 让主线程放弃cpu执行权，让给子线程执行
-    thread2.start();
-    thread2.join();
-    thread3.start();
-}
-</code></pre>
-<p>结果：</p>
-<pre><code>thread1
-thread2
-thread3
-</code></pre><p>join方法的原理就是调用相应线程的<code>wait</code>方法进行等待操作的，例如A线程中调用了B线程的join方法，则相当于在A线程中调用了B线程的wait方法，当B线程执行完（或者到达等待时间），B线程会自动调用自身的notifyAll( 调用了JVM底层lock.notify_all(thread)方法来唤醒 )方法唤醒A线程，从而达到同步的目的</p>
-<p>jion()源码：</p>
-<pre><code class="java">public final synchronized void join(long millis)
-throws InterruptedException {
-    long base = System.currentTimeMillis();
-    long now = 0;
-
-    if (millis &lt; 0) {
-        throw new IllegalArgumentException(&quot;timeout value is negative&quot;);
-    }
-
-    if (millis == 0) {
-        while (isAlive()) {
-            wait(0);
-        }
-    } else {
-        while (isAlive()) {
-            long delay = millis - now;
-            if (delay &lt;= 0) {
-                break;
-            }
-            wait(delay);
-            now = System.currentTimeMillis() - base;
-        }
-    }
-}
-</code></pre>
-<p>最终是调用object的wait方法</p>
-<pre><code class="java">public final native void wait(long timeout) throws InterruptedException;
-</code></pre>
-<p>join()的调用位于main Thread的main()中，所以这里当然就是阻塞main Thread了。所以thread1.join()调用后，main Thread会阻塞起来。</p>
-<h3 id="方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务"><a href="#方案二：利用单线程化线程池-newSingleThreadExecutor-串行执行所有任务" class="headerlink" title="方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务"></a>方案二：利用单线程化线程池(newSingleThreadExecutor)串行执行所有任务</h3><p>利用并发包里的<code>Executors</code>的<code>newSingleThreadExecutor()</code>产生一个单线程的线程池，而这个线程池的底层原理就是一个先进先出（FIFO）的队列。代码中<code>executor.submit</code>依次添加了123线程，按照FIFO的特性，执行顺序也就是123的执行结果，从而保证了执行顺序</p>
-<pre><code class="java">static ExecutorService executorService = Executors.newSingleThreadExecutor();
-public static void main(String[] args) throws Exception {
-    executorService.submit(thread1);
-    executorService.submit(thread2);
-    executorService.submit(thread3);
-    executorService.shutdown();
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -684,7 +589,7 @@ public static void main(String[] args) throws Exception {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -696,10 +601,10 @@ public static void main(String[] args) throws Exception {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

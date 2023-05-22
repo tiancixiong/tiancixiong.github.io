@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p><font color="hotpink">方法重载：</font></p>
 <ol>
@@ -400,25 +399,6 @@
 </blockquote>
 
         </div>
-		<text ><blockquote>
-<p><font color="hotpink">方法重载：</font></p>
-<ol>
-<li>方法名相同，参数列表【参数的顺序，类型，个数】不同</li>
-<li>重载与方法的返回值无关，发生在同一类中</li>
-<li>是编译时的多态性</li>
-</ol>
-</blockquote>
-<blockquote>
-<p><font color="hotpink">方法重写：</font></p>
-<ol>
-<li>参数列表和返回值类型必须相同</li>
-<li>重写发生在子类与父类之间</li>
-<li>子类抛出的异常不能超过父类相应方法抛出的异常</li>
-<li>子类方法的的访问级别不能低于父类相应方法的访问级别</li>
-<li>是运行时的多态性</li>
-</ol>
-</blockquote>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -534,7 +514,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -546,10 +526,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

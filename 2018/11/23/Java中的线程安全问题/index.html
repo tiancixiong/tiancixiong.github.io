@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><p><strong>线程安全</strong>：如果有多个线程在<strong>同时</strong>运行，而这些线程可能会<strong>同时运行这段代码</strong>。程序每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，此时我们就称之为是线程安全的。</p>
 <p>我们通过一个案例，演示线程的安全问题：</p>
 <pre><code>电影院卖票，使用了A、B、C三个窗口进行卖票，电影票总数为100张
@@ -533,158 +532,6 @@ public class Ticket implements Runnable{
 <p>当使用了同步代码块后，上述的线程的安全问题即可解决</p>
 
         </div>
-		<text ><h1 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h1><p><strong>线程安全</strong>：如果有多个线程在<strong>同时</strong>运行，而这些线程可能会<strong>同时运行这段代码</strong>。程序每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，此时我们就称之为是线程安全的。</p>
-<p>我们通过一个案例，演示线程的安全问题：</p>
-<pre><code>电影院卖票，使用了A、B、C三个窗口进行卖票，电影票总数为100张
-</code></pre><p>采用线程对象来模拟卖票窗口A、B、C；使用Runnable接口的子类来模拟买的电影票</p>
-<p>模拟电影票：</p>
-<pre><code class="java">public class Ticket implements Runnable{
-    // 在成员位置 定义票的总数100
-    int ticket = 100;
-
-    @Override
-    public void run() {
-        // 模拟买票窗口
-        // 买票窗口永远开启
-        while (true){
-            // 判断是否还有票可以卖
-            if(ticket &gt; 0){
-                // 使用sleep增加“程序的时间”--每张票卖50ms
-                try {
-                    Thread.sleep(50);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                // 获得线程名称 即买票窗口名称
-                String name = Thread.currentThread().getName();
-                System.out.println(name + &quot;卖掉第&quot; + ticket-- + &quot;票&quot;);
-            }
-        }
-    }
-}
-</code></pre>
-<p>模拟买票：</p>
-<pre><code class="java">/**
- * 模拟买票操作
- *    假设一场电影有100张票
- *    三个窗口同时买票
- *
- *    窗口  线程对象
- *    买票  线程任务 实现runnable接口
- */
-public class Demo {
-    public static void main(String[] args) {
-        // 创建买票任务对象
-        Ticket ticket = new Ticket();
-
-        // 创建三个窗口
-        Thread t1 = new Thread(ticket, &quot;窗口A&quot;);
-        Thread t2 = new Thread(ticket, &quot;窗口B&quot;);
-        Thread t3 = new Thread(ticket, &quot;窗口C&quot;);
-
-        // 开启线程
-        t1.start();
-        t2.start();
-        t3.start();
-    }
-}
-</code></pre>
-<p>运行结果：</p>
-<pre><code>窗口A卖掉第100张票
-窗口C卖掉第98张票
-窗口B卖掉第99张票
-窗口A卖掉第97张票
-窗口B卖掉第95张票
-窗口C卖掉第96张票
-窗口C卖掉第94张票 ⇐
-窗口B卖掉第94张票 ⇐
-窗口A卖掉第94张票 ⇐
-...
-窗口C卖掉第1张票
-窗口A卖掉第0张票
-窗口B卖掉第-1张票 ⇐
-</code></pre><p>发现程序出现了两个问题：</p>
-<pre><code> 1. 相同的票数被卖了多次，如第94张被三个窗口都卖了
- 2. 卖出了不存在的票，如窗口B卖掉了第-1张票
-</code></pre><p>此时，几个窗口(线程)票数不同步了，这种问题称为线程不安全。</p>
-<blockquote>
-<p>线程安全问题都是有全局变量即静态变量引起的。若每个线程中对全局变量、静态变量只有读操作，而无写操作。一般来说，这个全局变量是线程安全的；若有多个线程同时执行写操作，一般都需要考虑线程同步，否则的话就可能影响线程安全</p>
-</blockquote>
-<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><p>当我们使用多个线程访问同一资源的时候，且多个线程中对资源有些的操作，就容易出现<strong>线程安全</strong>问题<br>要解决上述多想成并发访问一个资源的安全性问题：也就是解决重复卖同一张票和卖不存在的票问题，Java中提供了同步机制(synchronized)来解决<br>根据案例简述：</p>
-<pre><code>窗口A线程进入操作(买票)的时候，窗口B和窗口C线程只能在外等着，
-窗口A操作结束，窗口A、窗口B和窗口C(CPU分配内存是随机的，所以还有可能是窗口A进入)才有机会进入代码去执行。
-也就是说，在某个线程修改共享资源的时候，其他线程不能修改该资源，
-等待修改完毕同步之后，才能去抢夺CPU资源，完成对应的操作，保证了数据的同步性，解决了线程不安全的现象。
-</code></pre><p>为了保证每个线程都能正常执行原子操作，Java引入了线程同步机制。</p>
-<p>有三种方式完成同步操作：</p>
-<pre><code> 1. 同步代码块
- 2. 同步方法
- 3. 锁机制
-</code></pre><h1 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h1><p><strong>同步代码块</strong>：<code>synchronized</code> 关键字可以用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问。</p>
-<p>格式：</p>
-<pre><code class="java">synchronized(同步锁){
-    // 需要同步的操作的代码
-}
-</code></pre>
-<p><strong>同步锁</strong>：</p>
-<p>对象的同步锁只是一个概念，可以想象为在对象上标记了一个锁。</p>
-<pre><code> 1. 锁对象可以是任意类型
- 2. 多个线程对象要使用同一把锁
-</code></pre><blockquote>
-<p>注意：在任何时候，最多允许一个线程拥有同步锁，谁拿到就进入代码块，其他的线程只能在外等着</p>
-</blockquote>
-<p>使用同步代码块解决卖票问题：</p>
-<pre><code class="java">/**
- * synchronized(锁对象){
- *
- * }
- * 1. 锁对象可以是任意类型
- * 2. 互斥线程需要使用同一把锁
- */
-public class Ticket implements Runnable{
-    // 在成员位置 定义票的总数100
-    int ticket = 100;
-
-    Object obj = new Object();
-
-    @Override
-    public void run() {
-        // 模拟买票窗口
-        // 买票窗口永远开启
-        while (true){
-            // 同步锁
-            synchronized (obj){
-                // 判断是否还有票可以卖
-                if(ticket &gt; 0){
-                    // 使用sleep增加“程序的时间”--每张票卖50ms
-                    try {
-                        Thread.sleep(50);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    // 获得线程名称 即买票窗口名称
-                    String name = Thread.currentThread().getName();
-                    System.out.println(name + &quot;卖掉第&quot; + ticket-- + &quot;票&quot;);
-                }
-            }
-
-        }
-    }
-}
-</code></pre>
-<p>执行结果：</p>
-<pre><code>窗口A卖掉第100票
-窗口C卖掉第99票
-窗口B卖掉第98票
-窗口B卖掉第97票
-...
-窗口C卖掉第4票
-窗口A卖掉第3票
-窗口A卖掉第2票
-窗口A卖掉第1票
-</code></pre><p>此时，每张票都只会被卖掉一次，不会存在卖掉不存在的电影票的问题。</p>
-<p>当使用了同步代码块后，上述的线程的安全问题即可解决</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -800,7 +647,7 @@ public class Ticket implements Runnable{
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -812,10 +659,10 @@ public class Ticket implements Runnable{
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

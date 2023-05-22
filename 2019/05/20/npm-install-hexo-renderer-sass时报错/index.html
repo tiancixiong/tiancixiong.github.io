@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用<code>hexo</code>搭建博客时，需安装<code>hexo-renderer-sass</code>：</p>
 <pre><code class="shell">$ npm install hexo-renderer-sass
 </code></pre>
@@ -392,17 +391,6 @@ $ npm config set registry https://registry.npm.taobao.org
 </code></pre>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用<code>hexo</code>搭建博客时，需安装<code>hexo-renderer-sass</code>：</p>
-<pre><code class="shell">$ npm install hexo-renderer-sass
-</code></pre>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>改用淘宝镜像：</p>
-<pre><code class="shell">$ npm install -g cnpm --registry=https://registry.npm.taobao.org
-$ npm config set registry https://registry.npm.taobao.org
-</code></pre>
-<p>再次安装：</p>
-<pre><code class="shell">$ cnpm install hexo-renderer-sass --save
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -518,7 +506,7 @@ $ npm config set registry https://registry.npm.taobao.org
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -530,10 +518,10 @@ $ npm config set registry https://registry.npm.taobao.org
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h3><table>
 <thead>
 <tr>
@@ -407,32 +406,6 @@
 </ol>
 
         </div>
-		<text ><h3 id="下载资源"><a href="#下载资源" class="headerlink" title="下载资源"></a>下载资源</h3><table>
-<thead>
-<tr>
-<th>链接</th>
-<th>解压密码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://pan-yz.chaoxing.com/share/info/faf464c5b3683fba" target="_blank" rel="noopener">XMind8+破解补丁</a></td>
-<td>xiongtianci.com</td>
-</tr>
-</tbody>
-</table>
-<h3 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h3><p>安装好XMind8后，接下来进行破解</p>
-<ol>
-<li><p>将<strong>破解补丁</strong>中的<code>XMindCrack.jar</code>拷贝到一个目录下( 注意：这个位置要是一个不会移动的位置，我就复制在XMind的安装目录下 )，如图 ：<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/20190112113708377.png" alt="在这里插入图片描述"></p>
-</li>
-<li><p>修改XMind的配置文件<br>打开XMind的配置文件<code>XMind.ini</code>，增加内容：<code>-javaagent:刚刚XMindCrack.jar放置的位置</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/20190112113935256.png" alt="在这里插入图片描述"><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/20190112114234667.png" alt="在这里插入图片描述"></p>
-</li>
-<li><p>修改电脑的<code>hosts</code>文件，切断Xmind访问网络<br><code>hosts</code>文件目录：<code>C:\Windows\System32\drivers\etc</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/20190112114632247.png" alt="在这里插入图片描述"><br>添加内容：<code>0.0.0.0 www.xmind.net</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/20190112114747686.png" alt="在这里插入图片描述"></p>
-</li>
-<li><p>添加序列号<br>启动XMind，在<strong>帮助</strong>里面找到<strong>序列号</strong>，填写序列号<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/20190112115023565.png" alt="在这里插入图片描述"><br>邮箱任意，将<strong>破解补丁</strong>内<strong>序列号.txt</strong>文件中的内容复制到<strong>序列号</strong>中，点击验证<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/20190112115122390.png" alt="在这里插入图片描述"><br>出现下面内容证明激活成功了<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190112/2019011211523843.png" alt="在这里插入图片描述"><br>ヾ(๑╹◡╹)ﾉ”ヾ(●´∀｀●) </p>
-</li>
-</ol>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -548,7 +521,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -560,10 +533,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h2 id="SPU"><a href="#SPU" class="headerlink" title="SPU"></a>SPU</h2><p><strong>SPU</strong>：Standard Product Unit，标准产品单位。</p>
 <blockquote>
 <p>概念：SPU 是商品信息聚合的最小单位【即：商品共同的属性】，是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。<br>通俗点讲，属性值、特性相同的货品就可以称为一个 SPU</p>
@@ -392,17 +391,6 @@
 <p>SKU是用来定价和管理库存的<br>iphone8 有很多颜色，很多配置，每个颜色和配置的组合都会形成新的产品，这时就产生很多SKU<br>例如：银色 64G 的 iphone8 就是一个SKU；纺织品中一个 SKU 通常表示：规格、颜色、款式</p>
 
         </div>
-		<text ><h2 id="SPU"><a href="#SPU" class="headerlink" title="SPU"></a>SPU</h2><p><strong>SPU</strong>：Standard Product Unit，标准产品单位。</p>
-<blockquote>
-<p>概念：SPU 是商品信息聚合的最小单位【即：商品共同的属性】，是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。<br>通俗点讲，属性值、特性相同的货品就可以称为一个 SPU</p>
-</blockquote>
-<p>SPU是用来定位的<br>例如：iphone8 就是一个 SPU，与商家、颜色、款式、套餐都无关</p>
-<h2 id="SKU"><a href="#SKU" class="headerlink" title="SKU"></a>SKU</h2><p><strong>SKU</strong>：Stock Keeping Unit，库存量单位。</p>
-<blockquote>
-<p>概念：SKU 即库存进出计量的单位， 可以是以件、盒、托盘等为单位，是物理上不可分割的最小存货单元。<br>在使用时要根据不同业务，不同管理模式来处理</p>
-</blockquote>
-<p>SKU是用来定价和管理库存的<br>iphone8 有很多颜色，很多配置，每个颜色和配置的组合都会形成新的产品，这时就产生很多SKU<br>例如：银色 64G 的 iphone8 就是一个SKU；纺织品中一个 SKU 通常表示：规格、颜色、款式</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -518,7 +506,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -530,10 +518,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

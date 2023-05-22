@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <pre><code class="sql">CREATE TABLE `wx_user` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `openid` varchar(28) DEFAULT NULL COMMENT &#39;小程序用户的openid&#39;,
@@ -397,22 +396,6 @@
 </code></pre>
 
         </div>
-		<text ><pre><code class="sql">CREATE TABLE `wx_user` (
-  `id` int(20) NOT NULL AUTO_INCREMENT,
-  `openid` varchar(28) DEFAULT NULL COMMENT &#39;小程序用户的openid&#39;,
-  `nickname` varchar(100) DEFAULT NULL COMMENT &#39;用户头像&#39;,
-  `avatarurl` varchar(100) DEFAULT NULL COMMENT &#39;用户头像&#39;,
-  `gender` tinyint(1) DEFAULT NULL COMMENT &#39;性别  0-男、1-女&#39;,
-  `country` varchar(100) DEFAULT NULL COMMENT &#39;所在国家&#39;,
-  `province` varchar(100) DEFAULT NULL COMMENT &#39;省份&#39;,
-  `city` varchar(100) DEFAULT NULL COMMENT &#39;城市&#39;,
-  `language` varchar(100) DEFAULT NULL COMMENT &#39;语种&#39;,
-  `ctime` datetime DEFAULT NULL COMMENT &#39;创建/注册时间&#39;,
-  `mobile` varchar(50) DEFAULT NULL COMMENT &#39;手机号码&#39;,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=&#39;小程序用户表&#39;;
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -528,7 +511,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -540,10 +523,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

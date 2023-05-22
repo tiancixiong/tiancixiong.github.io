@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>将CentOS6.5虚拟机配置为静态IP后，Xshell连接失败。</p>
 <p>我本地ip：</p>
 <pre><code class="bash">C:\Users\Administrator&gt;ipconfig
@@ -432,57 +431,6 @@ GATEWAY=192.168.56.2
 <p>配置后使用xshell重新连接虚拟机即可</p>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>将CentOS6.5虚拟机配置为静态IP后，Xshell连接失败。</p>
-<p>我本地ip：</p>
-<pre><code class="bash">C:\Users\Administrator&gt;ipconfig
-无线局域网适配器 WLAN:
-   连接特定的 DNS 后缀 . . . . . . . : DHCP HOST
-   本地链接 IPv6 地址. . . . . . . . : fe80::acf9:f5ef:1ce:3bc1%7
-   IPv4 地址 . . . . . . . . . . . . : 192.168.0.102
-   子网掩码  . . . . . . . . . . . . : 255.255.255.0
-   默认网关. . . . . . . . . . . . . : 192.168.0.1
-</code></pre>
-<p>虚拟机配置的静态ip为 <code>192.168.56.101</code>，其可以正常访问外网和我本地主机：</p>
-<pre><code class="bash">[root@Levi ~]# ping baidu.com
-PING baidu.com (220.181.38.251) 56(84) bytes of data.
-64 bytes from 220.181.38.251: icmp_seq=1 ttl=128 time=41.1 ms
-
-[root@Levi ~]# ping 192.168.0.102
-PING 192.168.0.102 (192.168.0.102) 56(84) bytes of data.
-64 bytes from 192.168.0.102: icmp_seq=1 ttl=128 time=1.11 ms
-</code></pre>
-<p>虚拟机网络信息：</p>
-<pre><code class="bash">[root@Levi ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0 
-DEVICE=eth0
-TYPE=Ethernet
-ONBOOT=yes
-NM_CONTROLLED=yes
-BOOTPROTO=static
-DEFROUTE=yes
-PEERDNS=yes
-PEERROUTES=yes
-IPV4_FAILURE_FATAL=yes
-IPV6INIT=no
-NAME=&quot;System eth0&quot;
-DNS1=8.8.8.8
-IPADDR=192.168.56.101
-NETMASK=255.255.255.0
-GATEWAY=192.168.56.2
-</code></pre>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在我本地电脑上配置：控制面板 -&gt; 网络和共享中心 -&gt; 更改适配器设置 -&gt; 右键 VMware Network Adapter <strong>VMnet8</strong> 进入<strong>属性</strong>设置</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220515/image-20220515152402465.png" alt="image-20220515152402465"></p>
-<p>选中 <code>Internet 协议版本4(TCP/IPv4)</code> 点击 <code>属性</code>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220515/image-20220515152918800.png" alt="image-20220515152918800"></p>
-<p>默认是自动获得IP地址，勾选 <code>使用下面的IP地址</code> 进行自定义IP：</p>
-<ul>
-<li>①配置IP地址，前三位同虚拟机系统的IP前三位相同，最后一位自定义</li>
-<li>②中的配置系统自动补齐</li>
-<li>③中的网关配置为和虚拟机系统的网关一致</li>
-</ul>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20220515/image-20220515153402322.png" alt="image-20220515153402322"></p>
-<hr>
-<p>配置后使用xshell重新连接虚拟机即可</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -598,7 +546,7 @@ GATEWAY=192.168.56.2
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -610,10 +558,10 @@ GATEWAY=192.168.56.2
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在卸载<strong>VMware15</strong>后重新安装<strong>VMware12</strong>时报错：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200418/1587191075686.png" alt="1587191075686"></p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>下载<code>Windows Installer Clean Up</code>：</p>
@@ -404,29 +403,6 @@
 <p>最后重启电脑，再安装VMware时就不会警告了</p>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在卸载<strong>VMware15</strong>后重新安装<strong>VMware12</strong>时报错：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200418/1587191075686.png" alt="1587191075686"></p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>下载<code>Windows Installer Clean Up</code>：</p>
-<table>
-<thead>
-<tr>
-<th>链接</th>
-<th>解压密码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://ww.lanzous.com/ibl0g8b" target="_blank" rel="noopener">Windows Installer Clean Up</a></td>
-<td>xiongtianci.com</td>
-</tr>
-</tbody>
-</table>
-<p>以管理员身份进行安装，默认安装路径为<code>C:\Program Files (x86)\Windows Installer Clean Up</code>，以管理员身份运行<code>msicuu.exe</code></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200418/1587191376387.png" alt="1587191376387"></p>
-<p>选中带<code>VMware</code>字样的的程序，然后点击<code>Remove</code>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200418/1587255030668.png" alt="1587255030668"></p>
-<p>最后重启电脑，再安装VMware时就不会警告了</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -542,7 +518,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -554,10 +530,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

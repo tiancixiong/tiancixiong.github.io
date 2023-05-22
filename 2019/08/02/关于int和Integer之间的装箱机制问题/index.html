@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="装箱-拆箱机制"><a href="#装箱-拆箱机制" class="headerlink" title="装箱/拆箱机制"></a>装箱/拆箱机制</h1><p><code>Integer</code>是<code>int</code>的包装类就是，从 Java 5 开始引入了自动<strong>装箱/拆箱机制</strong>，使得二者可以相互转换。</p>
 <p>Java 为每个原始类型提供了包装类型：</p>
 <table>
@@ -503,128 +502,6 @@ private static class IntegerCache {
 <p>从上面可看出，在范围 <strong>-128 &le; i &le;127</strong> 之内的数值不会使用<code>new</code>创建新的<code>Integer</code>对象，直接引用常量池中的<code>Integer</code>对象；而超出这个范围将使用<code>new</code>创建新的<code>Integer</code>对象</p>
 
         </div>
-		<text ><h1 id="装箱-拆箱机制"><a href="#装箱-拆箱机制" class="headerlink" title="装箱/拆箱机制"></a>装箱/拆箱机制</h1><p><code>Integer</code>是<code>int</code>的包装类就是，从 Java 5 开始引入了自动<strong>装箱/拆箱机制</strong>，使得二者可以相互转换。</p>
-<p>Java 为每个原始类型提供了包装类型：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">原始类型</th>
-<th style="text-align:center">包装类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">Byte</td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center">Short</td>
-</tr>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">Integer</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">Long</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">Float</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">Double</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">Character</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">Boolean</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="java">public class AutoUnboxingTest {
-    public static void main(String[] args) {
-        int a = 1;
-        Integer b = a;                      // int 类型的1自动装箱成 Integer 类型
-        Integer c = new Integer(1);
-
-        System.out.println(b == a);         // true -&gt; b自动拆箱成 int 类型再和c比较
-        System.out.println(c == b);         // false-&gt; 两个引用没有指向同一对象
-    }
-}
-</code></pre>
-<h1 id="装箱本质-Integer-valueOf"><a href="#装箱本质-Integer-valueOf" class="headerlink" title="装箱本质 Integer.valueOf()"></a>装箱本质 Integer.valueOf()</h1><p>先看个例题：</p>
-<pre><code class="java">public class Test01 {
-    public static void main(String[] args) {
-        Integer i1 = 100, i2 = 100, i3 = 150, i4 = 150;
-
-        System.out.println(i1 == i2);    // true
-        System.out.println(i3 == i4);    // false
-    }
-}
-</code></pre>
-<p>i1、i2、i3、i4都是<code>Integer</code>对象引用，<code>==</code>比较的是引用而不是值</p>
-<p>当我们给一个<code>Integer</code>对象赋一个<code>int</code>值的时候，会调用<code>Integer</code>类的静态方法<strong>valueOf</strong>，下面我们来看看 <strong>valueOf</strong> 方法</p>
-<pre><code class="java">// 源码
-public static Integer valueOf(int i) {
-    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
-        return IntegerCache.cache[i + (-IntegerCache.low)];
-    return new Integer(i);
-}
-</code></pre>
-<p><code>IntegerCache</code>是<code>Integer</code>的内部类</p>
-<pre><code class="java">/**
- * Cache to support the object identity semantics of autoboxing for values between
- * -128 and 127 (inclusive) as required by JLS.
- *
- * The cache is initialized on first usage.  The size of the cache
- * may be controlled by the {@code -XX:AutoBoxCacheMax=&lt;size&gt;} option.
- * During VM initialization, java.lang.Integer.IntegerCache.high property
- * may be set and saved in the private system properties in the
- * sun.misc.VM class.
- */
-
-private static class IntegerCache {
-    static final int low = -128;
-    static final int high;
-    static final Integer cache[];
-
-    static {
-        // high value may be configured by property
-        int h = 127;
-        String integerCacheHighPropValue =
-            sun.misc.VM.getSavedProperty(&quot;java.lang.Integer.IntegerCache.high&quot;);
-        if (integerCacheHighPropValue != null) {
-            try {
-                int i = parseInt(integerCacheHighPropValue);
-                i = Math.max(i, 127);
-                // Maximum array size is Integer.MAX_VALUE
-                h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
-            } catch( NumberFormatException nfe) {
-                // If the property cannot be parsed into an int, ignore it.
-            }
-        }
-        high = h;
-
-        cache = new Integer[(high - low) + 1];
-        int j = low;
-        for(int k = 0; k &lt; cache.length; k++)
-            cache[k] = new Integer(j++);
-
-        // range [-128, 127] must be interned (JLS7 5.1.7)
-        assert IntegerCache.high &gt;= 127;
-    }
-
-    private IntegerCache() {}
-}
-</code></pre>
-<p>从上面可看出，在范围 <strong>-128 &le; i &le;127</strong> 之内的数值不会使用<code>new</code>创建新的<code>Integer</code>对象，直接引用常量池中的<code>Integer</code>对象；而超出这个范围将使用<code>new</code>创建新的<code>Integer</code>对象</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -740,7 +617,7 @@ private static class IntegerCache {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -752,10 +629,10 @@ private static class IntegerCache {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

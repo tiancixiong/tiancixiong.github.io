@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>1、在SpringBoot的启动类上添加注解<code>@EnableCaching</code>，开启SpringCache缓存支持</p>
 <pre><code class="java">@SpringBootApplication
 // 开启SpringCache缓存支持
@@ -427,52 +426,6 @@ public void deleteById(String id) {
 </code></pre>
 
         </div>
-		<text ><p>1、在SpringBoot的启动类上添加注解<code>@EnableCaching</code>，开启SpringCache缓存支持</p>
-<pre><code class="java">@SpringBootApplication
-// 开启SpringCache缓存支持
-@EnableCaching
-public class GatheringApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(GatheringApplication.class, args);
-    }
-}
-</code></pre>
-<p>2、在service的方法上添加对应的注解</p>
-<pre><code class="java">/**
- * 根据ID查询
- *
- * @param id
- * @return
- */
-// 使用SpringCache进行缓存数据库查询
-@Cacheable(value = &quot;gathering&quot;, key = &quot;#id&quot;)
-public Gathering findById(String id) {
-    return gatheringDao.findById(id).get();
-}
-</code></pre>
-<pre><code class="java">/**
- * 修改
- *
- * @param gathering
- */
-// 修改数据库数据后需要删除redis中的缓存
-@CacheEvict(value = &quot;gathering&quot;, key = &quot;#gathering.id&quot;)
-public void update(Gathering gathering) {
-    gatheringDao.save(gathering);
-}
-
-/**
- * 删除
- *
- * @param id
- */
-// 删除数据库数据后需要删除redis中的缓存
-@CacheEvict(value = &quot;gathering&quot;, key = &quot;#id&quot;)
-public void deleteById(String id) {
-    gatheringDao.deleteById(id);
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -588,7 +541,7 @@ public void deleteById(String id) {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -600,10 +553,10 @@ public void deleteById(String id) {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="1、修改commit注释"><a href="#1、修改commit注释" class="headerlink" title="1、修改commit注释"></a>1、修改commit注释</h1><h2 id="1-1、修改最后一次commit注释"><a href="#1-1、修改最后一次commit注释" class="headerlink" title="1.1、修改最后一次commit注释"></a>1.1、修改最后一次commit注释</h2><p>通过<code>git log</code>查看提交历史信息：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523143139.png" alt="1573523143139"></p>
 <p>输入命令：</p>
@@ -418,43 +417,6 @@ git push -f remote branch
 </code></pre>
 
         </div>
-		<text ><h1 id="1、修改commit注释"><a href="#1、修改commit注释" class="headerlink" title="1、修改commit注释"></a>1、修改commit注释</h1><h2 id="1-1、修改最后一次commit注释"><a href="#1-1、修改最后一次commit注释" class="headerlink" title="1.1、修改最后一次commit注释"></a>1.1、修改最后一次commit注释</h2><p>通过<code>git log</code>查看提交历史信息：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523143139.png" alt="1573523143139"></p>
-<p>输入命令：</p>
-<pre><code class="bash">git commit --amend
-</code></pre>
-<p>进入修改注释界面：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573522695253.png" alt="1573522695253"></p>
-<p>第一行就是最后一次commit的注释信息，按<code>i</code>键进行编辑状态，修改注释信息后按<code>Esc</code>后再按<code>:wq</code>保存并退出</p>
-<p>再次通过<code>git log</code>查看，注释信息由<strong>add test.txt</strong>修改为<strong>新增test.txt</strong>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523236683.png" alt="1573523236683"></p>
-<h2 id="1-2、修改多次commit注释"><a href="#1-2、修改多次commit注释" class="headerlink" title="1.2、修改多次commit注释"></a>1.2、修改多次commit注释</h2><p>命令：</p>
-<pre><code class="bash"># n：需要修改的最近n此commit
-git rebase -i HEAD~n
-</code></pre>
-<p>比如我想要修改最近3次注释信息就使用<code>git rebase -i HEAD~3</code>，显示下面内容：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523831856.png" alt="1573523831856"></p>
-<blockquote>
-<p>这上面一行就是一次commit历史，按照提交的顺序进行排序，最下面的一行为最后一次commit</p>
-</blockquote>
-<p>按<code>i</code>进行编辑，需要修改那个注释，就将其前面的<code>pick</code>修改为<code>edit</code>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573524177642.png" alt="1573524177642"></p>
-<blockquote>
-<p>上面为修改第1行和第3行的注释信息</p>
-</blockquote>
-<p>然后按<code>Esc</code>后再按<code>:wq</code>保存并退出</p>
-<p>此时输入一下命令编辑第1条commit注释：</p>
-<pre><code class="bash">git commit --amend
-</code></pre>
-<p>编辑注释信息(按<code>i</code>进入编辑状态，按<code>Esc</code>和<code>:wq</code>保存并退出)，此时分支变为<code>master|REBASE-i 1/3</code>；再输入下面信息进行保存：</p>
-<pre><code class="bash">git rebase --continue
-</code></pre>
-<p>此时分支变为<code>master|REBASE-i 3/3</code>，现在只修改完第1条commit</p>
-<p>再通过<code>git commit --amend</code>和<code>git rebase --continue</code>修改第3条后分支状态变回<code>master</code>并提示<code>Successfully rebased and updated refs/heads/master.</code>说明已修改完成</p>
-<h1 id="2、提交到远程仓库"><a href="#2、提交到远程仓库" class="headerlink" title="2、提交到远程仓库"></a>2、提交到远程仓库</h1><pre><code class="bash"># 强制更新到远程仓库
-git push -f remote branch
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -570,7 +532,7 @@ git push -f remote branch
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -582,10 +544,10 @@ git push -f remote branch
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

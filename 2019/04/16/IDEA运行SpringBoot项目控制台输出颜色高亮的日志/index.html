@@ -379,14 +379,10 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>有时IDEA运行SpringBoot项目，控制台<code>Console</code>输出的日志颜色为白色的</p>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>配置启动类<code>application</code>的相关参数，添加：<code>-Dspring.output.ansi.enabled=ALWAYS</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190416/20190416160105555.png" alt="在这里插入图片描述"></p>
 
         </div>
-		<text ><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>有时IDEA运行SpringBoot项目，控制台<code>Console</code>输出的日志颜色为白色的</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>配置启动类<code>application</code>的相关参数，添加：<code>-Dspring.output.ansi.enabled=ALWAYS</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190416/20190416160105555.png" alt="在这里插入图片描述"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -502,7 +498,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -514,10 +510,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

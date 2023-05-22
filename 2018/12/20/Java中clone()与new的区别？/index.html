@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="为什么要使用clone-？"><a href="#为什么要使用clone-？" class="headerlink" title="为什么要使用clone()？"></a>为什么要使用clone()？</h3><p>在实际编程过程中，我们常常要遇到这种情况：有一个对象A，在某一时刻A 中已经包含了一些有效值，此时可能会需要一个和A 完全相同新对象B，并且此后对B 任何改动都不会影响到A 中的值，也就是说，A 与B 是两个独立的对象，但B 的初始值是由A 对象确定的。<br>在Java 语言中，用简单的赋值语句是不能满足这种需求的。要满足这种需求虽然有很多途径，但实现<code>clone()</code>方法是其中最简单，也是最高效的手段<br><br></p>
 <h3 id="clone-与new的区别"><a href="#clone-与new的区别" class="headerlink" title="clone()与new的区别"></a>clone()与new的区别</h3><ol>
 <li>clone()不会调用构造方法；new会调用构造方法</li>
@@ -387,12 +386,6 @@
 </ol>
 
         </div>
-		<text ><h3 id="为什么要使用clone-？"><a href="#为什么要使用clone-？" class="headerlink" title="为什么要使用clone()？"></a>为什么要使用clone()？</h3><p>在实际编程过程中，我们常常要遇到这种情况：有一个对象A，在某一时刻A 中已经包含了一些有效值，此时可能会需要一个和A 完全相同新对象B，并且此后对B 任何改动都不会影响到A 中的值，也就是说，A 与B 是两个独立的对象，但B 的初始值是由A 对象确定的。<br>在Java 语言中，用简单的赋值语句是不能满足这种需求的。要满足这种需求虽然有很多途径，但实现<code>clone()</code>方法是其中最简单，也是最高效的手段<br><br></p>
-<h3 id="clone-与new的区别"><a href="#clone-与new的区别" class="headerlink" title="clone()与new的区别"></a>clone()与new的区别</h3><ol>
-<li>clone()不会调用构造方法；new会调用构造方法</li>
-<li>clone()更快。clone()能快速创建一个已有对象的副本，即创建对象并且将已有对象中所有属性值克隆；new只能在JVM中申请一个空的内存区域，对象的属性值要通过构造方法赋值</li>
-</ol>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -508,7 +501,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -520,10 +513,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

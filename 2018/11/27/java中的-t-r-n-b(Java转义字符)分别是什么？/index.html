@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <table>
 <thead>
 <tr>
@@ -439,64 +438,6 @@
 </table>
 
         </div>
-		<text ><table>
-<thead>
-<tr>
-<th>转义序列</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>\b</code></td>
-<td>退格符(Backspace)</td>
-</tr>
-<tr>
-<td><code>\t</code></td>
-<td>水平制表符(相当于tab，缩进)</td>
-</tr>
-<tr>
-<td><code>\n</code></td>
-<td>换行符</td>
-</tr>
-<tr>
-<td><code>\f</code></td>
-<td>换页符</td>
-</tr>
-<tr>
-<td><code>\r</code></td>
-<td>回车符</td>
-</tr>
-<tr>
-<td><code>\&quot;</code></td>
-<td>转义<code>&quot;</code></td>
-</tr>
-<tr>
-<td><code>\\</code></td>
-<td>转义<code>\</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<table>
-<thead>
-<tr>
-<th>转义序列</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>\xxx</code></td>
-<td>转义Latin-1编码<br><strong>xxx</strong> 是八进制数，介于 <strong>000</strong> 到 <strong>377</strong> 之间。其中 <code>\x</code> 和 <code>\xx</code> 两种形式也是合法的，例如 <code>\0</code>，但不推荐这么用，因为转义序列只有一个数字，在字符串常量中会导致歧义。这种用法在 <code>\uxxxx</code> 中也不鼓励使用</td>
-</tr>
-<tr>
-<td><code>\uxxxx</code></td>
-<td>转义Unicode编码<br><strong>xxxx</strong> 是四个十六进制数</td>
-</tr>
-</tbody>
-</table>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -612,7 +553,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -624,10 +565,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

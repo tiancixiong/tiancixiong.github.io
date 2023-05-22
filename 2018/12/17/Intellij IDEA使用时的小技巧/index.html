@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="使用Inject-language编写JSON字符串"><a href="#使用Inject-language编写JSON字符串" class="headerlink" title="使用Inject language编写JSON字符串"></a>使用Inject language编写JSON字符串</h1><p>如果你使用IDEA在编写JSON字符串的时候，然后要一个一个<code>\</code>去转义双引号的话，就实在太不应该了，又烦又容易出错。在IDEA可以使用<code>Inject language</code>帮我们自动转义双引号</p>
 <ol>
 <li>在双引号内 <code>Alt+回车</code>，选择<code>Inject language or reference</code>，然后回车<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181217/20181217181824340.png" alt="在这里插入图片描述"></li>
@@ -393,18 +392,6 @@
 <hr>
 
         </div>
-		<text ><h1 id="使用Inject-language编写JSON字符串"><a href="#使用Inject-language编写JSON字符串" class="headerlink" title="使用Inject language编写JSON字符串"></a>使用Inject language编写JSON字符串</h1><p>如果你使用IDEA在编写JSON字符串的时候，然后要一个一个<code>\</code>去转义双引号的话，就实在太不应该了，又烦又容易出错。在IDEA可以使用<code>Inject language</code>帮我们自动转义双引号</p>
-<ol>
-<li>在双引号内 <code>Alt+回车</code>，选择<code>Inject language or reference</code>，然后回车<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181217/20181217181824340.png" alt="在这里插入图片描述"></li>
-<li>输入 <strong>json</strong>，在列表中选择 json组件，回车<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181217/20181217181753821.png" alt="在这里插入图片描述"></li>
-<li>选择完后，在双引号内<code>Alt+回车</code>，选择<code>Edit JSON Fragment</code>，回车<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181217/20181217181854421.png" alt="在这里插入图片描述"></li>
-<li>此时将弹出编辑JSON文件的视图了<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181217/20181217182000472.png" alt="在这里插入图片描述"></li>
-</ol>
-<p>可以看到IDEA确实帮我们自动转义双引号了。如果要退出编辑JSON信息的视图，只需要使用<code>Ctrl+F4</code>快捷键即可。</p>
-<hr>
-<h1 id="Structure展示一个类的所有方法"><a href="#Structure展示一个类的所有方法" class="headerlink" title="Structure展示一个类的所有方法"></a>Structure展示一个类的所有方法</h1><p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181217/20181217190146126.png" alt="在这里插入图片描述"><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181217/20181217190405526.png" alt="在这里插入图片描述"><br>或者使用<code>Ctrl+F12</code>弹框查看当前类的所有方法</p>
-<hr>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -520,7 +507,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -532,10 +519,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

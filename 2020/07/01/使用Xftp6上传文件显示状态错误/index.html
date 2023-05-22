@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在使用Xftp6上传文件到VMware中的CentOS6.5中时一直失败：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200701/1593579571191.png" alt="1593579571191"></p>
 <p>网上说法是目录权限的问题</p>
@@ -392,17 +391,6 @@ chmod 777 java/
 <p>再次进行上传，成功</p>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在使用Xftp6上传文件到VMware中的CentOS6.5中时一直失败：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200701/1593579571191.png" alt="1593579571191"></p>
-<p>网上说法是目录权限的问题</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>通过<code>chmod</code>命令修改目录权限。比如我现在需要将jdk安装包上传到CentOS下<code>/usr/local/java</code>目录下，现在就需要将<code>/usr/local/java</code>目录权限进行修改</p>
-<pre><code class="shell"># 进入上一级目录
-cd /usr/local
-# 修改java目录权限
-chmod 777 java/
-</code></pre>
-<p>再次进行上传，成功</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -518,7 +506,7 @@ chmod 777 java/
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -530,10 +518,10 @@ chmod 777 java/
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win10系统关机时被提示需要结束程序：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200413/1586737763993.png" alt="1586737763993"></p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1、按下<code>win徽标+R</code>，输入<code>gpedit.msc</code>回车</p>
@@ -392,17 +391,6 @@
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200413/1586738194758.png" alt="1586738194758"></p>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>win10系统关机时被提示需要结束程序：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200413/1586737763993.png" alt="1586737763993"></p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1、按下<code>win徽标+R</code>，输入<code>gpedit.msc</code>回车</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200413/1586738625213.png" alt="1586738625213"></p>
-<p>2、选择<code>计算机配置 -&gt; 管理模块 -&gt; 系统 -&gt; 关机选项</code></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200413/1586737998164.png" alt="1586737998164"></p>
-<p>3、右键<code>关闭会阻止或取消关机的应用程序的自动终止功能</code>，选择<code>编辑</code></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200413/1586738189588.png" alt="1586738189588"></p>
-<p>4、选择<code>已禁用</code>，然后点击<code>确定</code>即可</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20200413/1586738194758.png" alt="1586738194758"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -518,7 +506,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -530,10 +518,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

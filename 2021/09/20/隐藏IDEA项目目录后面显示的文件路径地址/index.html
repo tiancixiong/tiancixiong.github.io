@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>环境：win10、IDEA 2019.3</p>
 </blockquote>
@@ -394,19 +393,6 @@ ide.tree.horizontal.default.autoscrolling=false
 <p>保存更改后重启IDEA，就可以看见文件路径被隐藏了</p>
 
         </div>
-		<text ><blockquote>
-<p>环境：win10、IDEA 2019.3</p>
-</blockquote>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>IDEA左侧的Project目录中，在项目名称后面显示了项目的文件路径地址：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210920/image-20210920151440109.png" alt="image-20210920151440109"></p>
-<p>现在需要将其隐藏掉</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>选择：<code>Help</code>-&gt;<code>Edit Custom Properties...</code> 打开配置文件，添加以下配置：</p>
-<pre><code class="properties">project.tree.structure.show.url=false
-ide.tree.horizontal.default.autoscrolling=false
-</code></pre>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210920/image-20210920152200254.png" alt="image-20210920152200254"></p>
-<p>保存更改后重启IDEA，就可以看见文件路径被隐藏了</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -522,7 +508,7 @@ ide.tree.horizontal.default.autoscrolling=false
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -534,10 +520,10 @@ ide.tree.horizontal.default.autoscrolling=false
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

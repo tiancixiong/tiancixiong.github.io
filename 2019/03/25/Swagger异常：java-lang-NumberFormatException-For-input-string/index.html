@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>项目整合<code>Swagger</code>，访问<code>Swagger</code>首页时后台抛出下面异常：</p>
 <blockquote>
 <p>i.s.m.p.AbstractSerializableParameter    : Illegal DefaultValue null for parameter type integer<br>java.lang.NumberFormatException: For input string: “”</p>
@@ -406,31 +405,6 @@
 </code></pre>
 
         </div>
-		<text ><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>项目整合<code>Swagger</code>，访问<code>Swagger</code>首页时后台抛出下面异常：</p>
-<blockquote>
-<p>i.s.m.p.AbstractSerializableParameter    : Illegal DefaultValue null for parameter type integer<br>java.lang.NumberFormatException: For input string: “”</p>
-</blockquote>
-<p>原因好像是说<code>swagger2</code>本身引用的<code>swagger-models-1.5.20.jar</code>有<code>bug</code><br><br></p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>导入下面的<code>maven</code>坐标：</p>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
-    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
-    &lt;version&gt;2.9.2&lt;/version&gt;
-    &lt;exclusions&gt;
-        &lt;exclusion&gt;
-            &lt;groupId&gt;io.swagger&lt;/groupId&gt;
-            &lt;artifactId&gt;swagger-models&lt;/artifactId&gt;
-        &lt;/exclusion&gt;
-    &lt;/exclusions&gt;
-&lt;/dependency&gt;
-
-&lt;dependency&gt;
-    &lt;groupId&gt;io.swagger&lt;/groupId&gt;
-    &lt;artifactId&gt;swagger-models&lt;/artifactId&gt;
-    &lt;version&gt;1.5.21&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -546,7 +520,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -558,10 +532,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

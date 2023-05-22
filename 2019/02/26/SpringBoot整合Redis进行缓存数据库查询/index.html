@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>1、导入redis的启动器</p>
 <pre><code class="xml">&lt;!--redis启动器--&gt;
 &lt;dependency&gt;
@@ -443,68 +442,6 @@ redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.
 </code></pre>
 
         </div>
-		<text ><p>1、导入redis的启动器</p>
-<pre><code class="xml">&lt;!--redis启动器--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>2、在yml配置文件中配置redis连接信息</p>
-<pre><code class="yml">spring:
-  redis:
-    host: 192.168.206.128
-</code></pre>
-<p>3、在service中通过RedisTemplate操作redis，使用redis进行缓存数据库查询</p>
-<pre><code class="java">/**
- * 根据ID查询
- *
- * @param id
- * @return
- */
-public Article findById(String id) {
-    // 从redis缓存中提取数据
-    Article article = (Article) redisTemplate.opsForValue().get(&quot;article_&quot; + id);
-    // 如果缓存中没有，则从数据库中查询并放入缓存中
-    if(article == null){
-        article = articleDao.findById(id).get();
-        redisTemplate.opsForValue().set(&quot;article_&quot; + id, article);
-    }
-
-    // 返回从redis缓存中获得的数据
-    return article;
-}
-</code></pre>
-<p>4、对数据库进行删除或修改后删除redis中的缓存</p>
-<pre><code class="java">/**
- * 修改
- *
- * @param article
- */
-public void update(Article article) {
-    // 删除redis中的缓存
-    redisTemplate.delete(&quot;article_&quot; + article.getId());
-    // 修改操作
-    articleDao.save(article);
-}
-
-/**
- * 删除
- *
- * @param id
- */
-public void deleteById(String id) {
-    // 删除redis缓存数据
-    redisTemplate.delete(&quot;article_&quot; + id);
-    // 删除操作
-    articleDao.deleteById(id);
-}
-</code></pre>
-<p>5、缓存过期处理</p>
-<pre><code class="java">// 设置缓存过期时间为1天
-redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.DAYS);
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -620,7 +557,7 @@ redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -632,10 +569,10 @@ redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

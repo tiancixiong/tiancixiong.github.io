@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <ul>
 <li>String、StringBuffer、StringBuilder<ul>
 <li>都是<code>final</code> 类, 都不允许被继承<ul>
@@ -403,28 +402,6 @@
 </ul>
 
         </div>
-		<text ><ul>
-<li>String、StringBuffer、StringBuilder<ul>
-<li>都是<code>final</code> 类, 都不允许被继承<ul>
-<li>String 长度是不可变的, StringBuffer、StringBuilder 长度是可变的;</li>
-<li>StringBuffer 是线程安全的, StringBuilder 不是线程安全的，但它们两个中的所有方法都是相同的，StringBuffer在StringBuilder的方法之上添加了synchronized修饰，保证线程安全</li>
-<li>StringBuilder比StringBuffer拥有更好的性能</li>
-<li>如果一个String类型的字符串，在编译时就可以确定是一个字符串常量，则编译完成之后，字符串会自动拼接成一个常量。此时String的速度比StringBuffer和StringBuilder的性能好的多</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>String不变性的理解<ul>
-<li>String 类是被<code>final</code>进行修饰的，不能被继承</li>
-<li>在用+号链接字符串的时候会创建新的字符串；<strong>对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象</strong></li>
-<li>String s = new String(“Hello world”); 可能创建两个对象也可能创建一个对象。如果静态区中有“Hello world”字符串常量对象的话，则仅仅在堆中创建一个对象。如果静态区中没有“Hello world”对象，则堆上和静态区中都需要创建对象</li>
-<li>在java 中, 通过使用”+” 符号来串联字符串的时候, 实际上底层会转成通过StringBuilder 实例的append() 方法来实现</li>
-</ul>
-</li>
-</ul>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -540,7 +517,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -552,10 +529,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

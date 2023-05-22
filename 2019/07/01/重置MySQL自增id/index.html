@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><pre><code class="sql"># 删除所有数据
 delete from user;
 # 重置自增序列
@@ -390,15 +389,6 @@ truncate table user;
 </code></pre>
 
         </div>
-		<text ><h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><pre><code class="sql"># 删除所有数据
-delete from user;
-# 重置自增序列
-alter table user auto_increment=1;
-</code></pre>
-<h1 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h1><pre><code class="sql"># 删除user表后重建表
-truncate table user;
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -514,7 +504,7 @@ truncate table user;
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -526,10 +516,10 @@ truncate table user;
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

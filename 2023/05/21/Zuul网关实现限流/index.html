@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="spring-cloud-zuul-ratelimit"><a href="#spring-cloud-zuul-ratelimit" class="headerlink" title="spring-cloud-zuul-ratelimit"></a>spring-cloud-zuul-ratelimit</h1><p>RateLimiter是Google开源的实现了令牌桶算法的限流工具（速率限制器）。</p>
 <p>Spring Cloud Zuul RateLimiter结合Zuul对RateLimiter进行了封装，通过实现ZuulFilter提供了服务限流功能</p>
 <blockquote>
@@ -479,104 +478,6 @@ public class ErrorHandlerController implements ErrorController {
 </code></pre>
 
         </div>
-		<text ><h1 id="spring-cloud-zuul-ratelimit"><a href="#spring-cloud-zuul-ratelimit" class="headerlink" title="spring-cloud-zuul-ratelimit"></a>spring-cloud-zuul-ratelimit</h1><p>RateLimiter是Google开源的实现了令牌桶算法的限流工具（速率限制器）。</p>
-<p>Spring Cloud Zuul RateLimiter结合Zuul对RateLimiter进行了封装，通过实现ZuulFilter提供了服务限流功能</p>
-<blockquote>
-<p>官网：<a href="https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit" target="_blank" rel="noopener">https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit</a></p>
-</blockquote>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><p>在zuul服务引入坐标</p>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;com.marcosbarbero.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-zuul-ratelimit&lt;/artifactId&gt;
-    &lt;version&gt;2.2.3.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
-<h3 id="配置限流策略"><a href="#配置限流策略" class="headerlink" title="配置限流策略"></a>配置限流策略</h3><pre><code class="yml">zuul:
-  ratelimit:
-    enabled: true #开启限流功能
-    repository: redis #限流数据的存储方式
-    default-policy-list:
-      # 所有服务在3秒内只能有1次请求且所有请求时间总和不得超过2秒
-      - limit: 1 #单位时间内请求次数限制
-        quota: 2 #单位时间内累计请求时间限制（秒），非必要参数
-        refresh-interval: 3 #单位时间（秒），默认60秒
-
-spring:
-  redis:
-    host: 127.0.0.1
-    port: 6379
-</code></pre>
-<h3 id="处理返回信息"><a href="#处理返回信息" class="headerlink" title="处理返回信息"></a>处理返回信息</h3><p>我们可能需要对触发限流的情况做监控、报警等，需要识别由限流导致的异常返回</p>
-<ol>
-<li><del>推荐使用默认的 <code>RateLimiterErrorHandler</code>，直接写自己需要的处理就行</del><ul>
-<li>注意：RateLimiterErrorHandler无法捕获到限流异常信息429 TOO_MANY_REQUESTS，也就不能自定义异常返回信息</li>
-</ul>
-</li>
-<li>zuul触发限流后会抛出 http 429，可以针对这个错误码对response包装</li>
-<li>也可以在全局异常处理中，判断出现的异常是否是 <code>RateLimitExceededException</code></li>
-</ol>
-<pre><code class="java">import com.marcosbarbero.cloud.autoconfigure.zuul.ratelimit.support.RateLimitExceededException;
-import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.web.ErrorController;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@Slf4j
-@RestController
-public class ErrorHandlerController implements ErrorController {
-    @Override
-    public String getErrorPath() {
-        return &quot;/error&quot;;
-    }
-
-    @RequestMapping(&quot;/error&quot;)
-    public ResponseEntity error() {
-        RequestContext ctx = RequestContext.getCurrentContext();
-        ZuulException exception = (ZuulException) ctx.getThrowable();
-        if (exception != null &amp;&amp; exception.getCause() instanceof RateLimitExceededException) {
-            // 自定义返回封装
-            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(&quot;请稍后再试~&quot;);
-        }
-        // 其他类型的eror
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(&quot;服务异常&quot;);
-    }
-}
-</code></pre>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code class="yml">zuul:
-  #路由、重试等zuul其他配置省略
-  routes:
-
-  #限流
-  ratelimit:
-    enabled: true #开启限流功能
-    key-prefix: ${spring.application.name}-rate-limit #缓存key的前缀
-    repository: REDIS #存储类型。可选REDIS、CONSUL、JPA等，老版本还有本地内存可选
-    behind-proxy: true #开启则限流与业务访问是异步的，相当于rateLimitFilter先放过；默认是false
-    policy-list: #指定服务策略
-      myProject1:
-        - limit: 5 #这种配置方式相当于：10分钟内允许5个请求访问/api/test/info接口
-          refresh-interval: 10
-          type:
-            - url_pattern=/api/test/info
-      myProject2:
-        - limit: 3000
-          refresh-interval: 1 #更常见的配置是这种，1秒允许3k个，相当于配qps限制
-          type:
-            - url_pattern=/api/test2/info        
-        - limit: 300
-          refresh-interval: 1 #如果同一个服务有多个需要限流的url，可以这样
-          type:
-            - url_pattern=/api/test2/info2
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -675,7 +576,7 @@ public class ErrorHandlerController implements ErrorController {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -687,10 +588,10 @@ public class ErrorHandlerController implements ErrorController {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

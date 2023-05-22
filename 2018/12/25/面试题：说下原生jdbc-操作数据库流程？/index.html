@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>原生的jdbc操作数据库流程：<br>1.注册驱动程序：Class.forName(“com.mysql.jdbc.Driver”);<br>2.使用驱动管理类来获取数据连接对象：conn = DriverManager.getConnection(…);<br>3.获取数据库操作对象：Statement stmt = conn.createStatement();<br>4.定义操作的SQL语句<br>5.执行SQL：stmt.executeQuery(sql);<br>6.处理结果集：ResultSet，如果SQL前有参数值就设置参数值setXXX()<br>7.关闭对象，回收数据库资源（关闭结果集–&gt;关闭数据库操作对象–&gt;关闭连接）</p>
 </blockquote>
@@ -448,73 +447,6 @@
 </code></pre>
 
         </div>
-		<text ><blockquote>
-<p>原生的jdbc操作数据库流程：<br>1.注册驱动程序：Class.forName(“com.mysql.jdbc.Driver”);<br>2.使用驱动管理类来获取数据连接对象：conn = DriverManager.getConnection(…);<br>3.获取数据库操作对象：Statement stmt = conn.createStatement();<br>4.定义操作的SQL语句<br>5.执行SQL：stmt.executeQuery(sql);<br>6.处理结果集：ResultSet，如果SQL前有参数值就设置参数值setXXX()<br>7.关闭对象，回收数据库资源（关闭结果集–&gt;关闭数据库操作对象–&gt;关闭连接）</p>
-</blockquote>
-<pre><code class="java">public class JDBCTest {
-    /**
-     * 使用JDBC连接并操作mysql数据库
-     */
-    public static void main(String[] args) {
-        // 数据库驱动类名的字符串
-        String driver = &quot;com.mysql.jdbc.Driver&quot;;
-        // 数据库连接串
-        String url = &quot;jdbc:mysql://127.0.0.1:3306/jdbctest&quot;;
-        // 用户名
-        String username = &quot;root&quot;;
-        // 密码
-        String password = &quot;1234&quot;;
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        try {
-            // 1、加载数据库驱动（ 成功加载后，会将Driver类的实例注册到DriverManager类中）
-            Class.forName(driver);
-            // 2、获取数据库连接
-            conn = DriverManager.getConnection(url, username, password);
-            // 3、获取数据库操作对象
-            stmt = conn.createStatement();
-            // 4、定义操作的SQL语句
-            String sql = &quot;select * from user where id = 100&quot;;
-            // 5、执行数据库操作
-            rs = stmt.executeQuery(sql);
-            // 6、获取并操作结果集
-            while (rs.next()) {
-                System.out.println(rs.getInt(&quot;id&quot;));
-                System.out.println(rs.getString(&quot;name&quot;));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // 7、关闭对象，回收数据库资源
-            if (rs != null) { //关闭结果集对象
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (stmt != null) { // 关闭数据库操作对象
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (conn != null) { // 关闭数据库连接对象
-                try {
-                    if (!conn.isClosed()) {
-                        conn.close();
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -630,7 +562,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -642,10 +574,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

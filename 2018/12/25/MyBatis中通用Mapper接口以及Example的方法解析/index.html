@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="一、通用Mapper中的方法解析"><a href="#一、通用Mapper中的方法解析" class="headerlink" title="一、通用Mapper中的方法解析"></a>一、通用Mapper中的方法解析</h3><table><br>    <thead><br>    <tr><br>        <th>方法</th><br>        <th>功能说明</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>int countByExample(UserExample example) thorws SQLException</td><br>        <td>按条件计数</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键删除</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>String/Integer <font color="hotpink">insert</font>(User record) thorws SQLException</td><br>        <td>插入数据（返回值为ID）</td><br>    </tr><br>    <tr><br>        <td>User <font color="hotpink">selectByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键查询</td><br>    </tr><br>    <tr><br>        <td>List <font color="hotpink">selectByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>List selectByExampleWithBLOGs(UserExample example) thorws SQLException</td><br>        <td>按条件查询（包括BLOB字段）。只有当数据表中的字段类型有为二进制的才会产生。</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByPrimaryKey</font>(User record) thorws SQLException</td><br>        <td>按主键更新</td><br>    </tr><br>    <tr><br>        <td>int updateByPrimaryKeySelective(User record) thorws SQLException</td><br>        <td>按主键更新值不为null的字段</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByExample</font>(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新</td><br>    </tr><br>    <tr><br>        <td>int updateByExampleSelective(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新值不为null的字段</td><br>    </tr><br>    </tbody><br></table><br><br><br><br>### 二、Example实例解析<br>mybatis的逆向工程中会生成实例及实例对应的example，example用于添加条件，相当where后面的部分<br><br><code>java
 import tk.mybatis.mapper.entity.Example;
 
@@ -459,84 +458,6 @@ int count = XxxMapper.countByExample(example);
 </code></pre>
 
         </div>
-		<text ><h3 id="一、通用Mapper中的方法解析"><a href="#一、通用Mapper中的方法解析" class="headerlink" title="一、通用Mapper中的方法解析"></a>一、通用Mapper中的方法解析</h3><table><br>    <thead><br>    <tr><br>        <th>方法</th><br>        <th>功能说明</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>int countByExample(UserExample example) thorws SQLException</td><br>        <td>按条件计数</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键删除</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>String/Integer <font color="hotpink">insert</font>(User record) thorws SQLException</td><br>        <td>插入数据（返回值为ID）</td><br>    </tr><br>    <tr><br>        <td>User <font color="hotpink">selectByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键查询</td><br>    </tr><br>    <tr><br>        <td>List <font color="hotpink">selectByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>List selectByExampleWithBLOGs(UserExample example) thorws SQLException</td><br>        <td>按条件查询（包括BLOB字段）。只有当数据表中的字段类型有为二进制的才会产生。</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByPrimaryKey</font>(User record) thorws SQLException</td><br>        <td>按主键更新</td><br>    </tr><br>    <tr><br>        <td>int updateByPrimaryKeySelective(User record) thorws SQLException</td><br>        <td>按主键更新值不为null的字段</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByExample</font>(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新</td><br>    </tr><br>    <tr><br>        <td>int updateByExampleSelective(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新值不为null的字段</td><br>    </tr><br>    </tbody><br></table><br><br><br><br>### 二、Example实例解析<br>mybatis的逆向工程中会生成实例及实例对应的example，example用于添加条件，相当where后面的部分<br><br><code>java
-import tk.mybatis.mapper.entity.Example;
-
-Example example = new Example(JavaBean.class);
-Example.Criteria criteria = example.createCriteria();</code><br><table><br>    <thead><br>    <tr><br>        <th>方法</th><br>        <th>说明</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>example.setOrderByClause(“字段名 ASC”);</td><br>        <td>添加升序排列条件，DESC为降序</td><br>    </tr><br>    <tr><br>        <td>example.setDistinct(false)</td><br>        <td>去除重复，boolean型，true为选择不重复的记录。</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIsNull</td><br>        <td>添加字段xxx为null的条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIsNotNull</td><br>        <td>添加字段xxx不为null的条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxEqualTo(value)</td><br>        <td>添加xxx字段等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotEqualTo(value)</td><br>        <td>添加xxx字段不等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxGreaterThan(value)</td><br>        <td>添加xxx字段大于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxGreaterThanOrEqualTo(value)</td><br>        <td>添加xxx字段大于等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLessThan(value)</td><br>        <td>添加xxx字段小于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLessThanOrEqualTo(value)</td><br>        <td>添加xxx字段小于等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIn(List&lt;？&gt;)</td><br>        <td>添加xxx字段值在List&lt;？&gt;条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotIn(List&lt;？&gt;)</td><br>        <td>添加xxx字段值不在List&lt;？&gt;条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLike(“%”+value+”%”)</td><br>        <td>添加xxx字段值为value的模糊查询条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotLike(“%”+value+”%”)</td><br>        <td>添加xxx字段值不为value的模糊查询条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxBetween(value1,value2)</td><br>        <td>添加xxx字段值在value1和value2之间条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotBetween(value1,value2)</td><br>        <td>添加xxx字段值不在value1和value2之间条件</td><br>    </tr><br>    </tbody><br></table>
-
-<h3 id="三、使用案例"><a href="#三、使用案例" class="headerlink" title="三、使用案例"></a>三、使用案例</h3><h4 id="1-查询"><a href="#1-查询" class="headerlink" title="1.查询"></a>1.查询</h4><p>① selectByPrimaryKey() 按主键查询</p>
-<pre><code class="java">//相当于：select * from user where id = 100;
-User user = UserMapper.selectByPrimaryKey(100); 
-</code></pre>
-<p>② selectByExample() 和 selectByExampleWithBLOGs()</p>
-<pre><code class="java">//相当于：select * from user where username = &#39;wyw&#39; 
-// and  username is null order by username asc,email desc
-UserExample example = new UserExample();
-Criteria criteria = example.createCriteria();
-criteria.andUsernameEqualTo(&quot;wyw&quot;);
-criteria.andUsernameIsNull();
-example.setOrderByClause(&quot;username asc,email desc&quot;);
-List&lt;?&gt;list = XxxMapper.selectByExample(example);
-</code></pre>
-<h4 id="2-插入数据"><a href="#2-插入数据" class="headerlink" title="2.插入数据"></a>2.插入数据</h4><p>①insert()</p>
-<pre><code class="java">//相当于：insert into user(ID,username,password,email) values 
-//(&#39;dsfgsdfgdsfgds&#39;,&#39;jack&#39;,&#39;1234&#39;,&#39;hello@126.com&#39;);
-User user = new User();
-user.setId(&quot;dsfgsdfgdsfgds&quot;);
-user.setUsername(&quot;jack&quot;);
-user.setPassword(&quot;1234&quot;)
-user.setEmail(&quot;hello@163.com&quot;);
-XxxMapper.insert(user);
-</code></pre>
-<h4 id="3-更新数据"><a href="#3-更新数据" class="headerlink" title="3.更新数据"></a>3.更新数据</h4><p>①updateByPrimaryKey()</p>
-<pre><code class="java">//相当于：update user set username=&#39;rose&#39;, password=&#39;5678&#39;, 
-//email=&#39;hello@163.com&#39; where id=&#39;a01&#39;
-User user =new User();
-user.setId(&quot;a01&quot;);
-user.setUsername(&quot;rose&quot;);
-user.setPassword(&quot;5678&quot;);
-user.setEmail(&quot;hello@163.com&quot;);
-XxxMapper.updateByPrimaryKey(user);
-</code></pre>
-<p>②updateByPrimaryKeySelective()</p>
-<pre><code class="java">//相当于：update user set password=&#39;7890&#39; where id=&#39;a01&#39;
-User user = new User();
-user.setId(&quot;a01&quot;);
-user.setPassword(&quot;7890&quot;);
-XxxMapper.updateByPrimaryKey(user);
-</code></pre>
-<p>③ updateByExample() 和 updateByExampleSelective()</p>
-<pre><code class="java">//相当于：update user set password=&#39;6666&#39; where username=&#39;jack&#39;
-UserExample example = new UserExample();
-Criteria criteria = example.createCriteria();
-criteria.andUsernameEqualTo(&quot;jack&quot;);
-User user = new User();
-user.setPassword(&quot;6666&quot;);
-XxxMapper.updateByPrimaryKeySelective(user,example);
-</code></pre>
-<blockquote>
-<p>updateByExample()更新所有的字段，包括字段为null的也更新<br>建议使用 updateByExampleSelective()更新想更新的字段</p>
-</blockquote>
-<h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4.删除数据"></a>4.删除数据</h4><p>①deleteByPrimaryKey()</p>
-<pre><code class="java">//相当于：delete from user where id=1
-XxxMapper.deleteByPrimaryKey(1);  
-</code></pre>
-<p>②deleteByExample()</p>
-<pre><code class="java">//相当于：delete from user where username=&#39;jack&#39;
-UserExample example = new UserExample();
-Criteria criteria = example.createCriteria();
-criteria.andUsernameEqualTo(&quot;jack&quot;);
-XxxMapper.deleteByExample(example);
-</code></pre>
-<h4 id="5-查询数据数量"><a href="#5-查询数据数量" class="headerlink" title="5.查询数据数量"></a>5.查询数据数量</h4><p>①countByExample()</p>
-<pre><code class="java">//相当于：select count(*) from user where username=&#39;jack&#39;
-UserExample example = new UserExample();
-Criteria criteria = example.createCriteria();
-criteria.andUsernameEqualTo(&quot;jack&quot;);
-int count = XxxMapper.countByExample(example);
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -652,7 +573,7 @@ int count = XxxMapper.countByExample(example);
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -664,10 +585,10 @@ int count = XxxMapper.countByExample(example);
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

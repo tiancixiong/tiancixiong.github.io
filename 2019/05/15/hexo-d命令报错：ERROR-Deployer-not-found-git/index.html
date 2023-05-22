@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>使用<code>hexo d</code>或<code>hexo deploy</code>命令时报错：</p>
 <blockquote>
 <p>ERROR Deployer not found: git</p>
@@ -398,23 +397,6 @@
 </blockquote>
 
         </div>
-		<text ><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>使用<code>hexo d</code>或<code>hexo deploy</code>命令时报错：</p>
-<blockquote>
-<p>ERROR Deployer not found: git</p>
-</blockquote>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>安装<code>hexo-deployer-git</code>：</p>
-<pre><code class="shell">npm install --save hexo-deployer-git
-</code></pre>
-<p>在<code>_config.yml</code>配置中将<code>deploy</code>的<code>type</code>由<code>github</code>改为<code>git</code>：</p>
-<pre><code class="yml">deploy
-  type: git
-  repository: git@github.com:YOUR_ID/YOUR_ID.github.io.git
-  branch: master
-</code></pre>
-<blockquote>
-<p>将其中的<code>YOUR_ID</code>改成你自己的GitHub账号</p>
-</blockquote>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -530,7 +512,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -542,10 +524,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

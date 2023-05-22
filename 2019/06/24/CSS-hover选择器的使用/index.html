@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p><code>:hover</code> <strong>选择器</strong>，用于选择鼠标指针浮动在上面的元素</p>
 <p><code>:hover</code>选择器适用于所有元素</p>
 <h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="用法一"><a href="#用法一" class="headerlink" title="用法一"></a>用法一</h2><pre><code class="css">a:hover {
@@ -411,36 +410,6 @@
 </ul>
 
         </div>
-		<text ><h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p><code>:hover</code> <strong>选择器</strong>，用于选择鼠标指针浮动在上面的元素</p>
-<p><code>:hover</code>选择器适用于所有元素</p>
-<h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><h2 id="用法一"><a href="#用法一" class="headerlink" title="用法一"></a>用法一</h2><pre><code class="css">a:hover {
-    background-color: yellow;
-}
-</code></pre>
-<p>效果：当鼠标悬浮在a元素上时，a的背景颜色设置为黄色</p>
-<h2 id="用法二"><a href="#用法二" class="headerlink" title="用法二"></a>用法二</h2><p>使用 a 控制其他块的样式</p>
-<h3 id="子元素"><a href="#子元素" class="headerlink" title="子元素"></a>子元素</h3><p>使用 a 控制 a 的子元素 b ：</p>
-<pre><code class="css">a:hover b {
-    background-color:blue;
-}
-</code></pre>
-<h3 id="兄弟元素"><a href="#兄弟元素" class="headerlink" title="兄弟元素"></a>兄弟元素</h3><p>使用 a 控制 a 的兄弟元素 c(同级元素)</p>
-<pre><code class="css">a:hover + c {
-    background-color:blue;
-}
-</code></pre>
-<h3 id="就近元素"><a href="#就近元素" class="headerlink" title="就近元素"></a>就近元素</h3><p>使用 a 控制 a 的就近元素 d</p>
-<pre><code class="css">a:hover ~ d {
-    background-color:blue;
-}
-</code></pre>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>:hover</code>用于选择鼠标悬停其上时的元素</p>
-<ul>
-<li>空格：控制子元素</li>
-<li><code>+</code>：控制同级(兄弟)元素</li>
-<li><code>~</code>：控制就近元素</li>
-</ul>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -556,7 +525,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -568,10 +537,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

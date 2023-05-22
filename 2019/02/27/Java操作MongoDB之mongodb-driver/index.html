@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p><code>mongodb-driver</code>是mongo官方推出的java连接mongoDB的驱动包，相当于JDBC驱动。<br>通过一个入门的案例来了解<code>mongodb-driver</code>的基本使用：</p>
 <h3 id="1、查询全部记录"><a href="#1、查询全部记录" class="headerlink" title="1、查询全部记录"></a>1、查询全部记录</h3><h4 id="1-1、创建工程mongoDemo，引入依赖"><a href="#1-1、创建工程mongoDemo，引入依赖" class="headerlink" title="1.1、创建工程mongoDemo，引入依赖"></a>1.1、创建工程mongoDemo，引入依赖</h4><pre><code class="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
@@ -486,111 +485,6 @@
 </code></pre>
 
         </div>
-		<text ><p><code>mongodb-driver</code>是mongo官方推出的java连接mongoDB的驱动包，相当于JDBC驱动。<br>通过一个入门的案例来了解<code>mongodb-driver</code>的基本使用：</p>
-<h3 id="1、查询全部记录"><a href="#1、查询全部记录" class="headerlink" title="1、查询全部记录"></a>1、查询全部记录</h3><h4 id="1-1、创建工程mongoDemo，引入依赖"><a href="#1-1、创建工程mongoDemo，引入依赖" class="headerlink" title="1.1、创建工程mongoDemo，引入依赖"></a>1.1、创建工程mongoDemo，引入依赖</h4><pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
-    &lt;artifactId&gt;mongodb-driver&lt;/artifactId&gt;
-    &lt;version&gt;3.6.3&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<h4 id="1-2、创建测试类"><a href="#1-2、创建测试类" class="headerlink" title="1.2、创建测试类"></a>1.2、创建测试类</h4><pre><code class="java">public class MongoDemo1 {
-    public static void main(String[] args) {
-        // 创建连接
-        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
-        // 打开数据库spitdb
-        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
-        // 获取集合
-        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
-        // 查询记录，获取文档集
-        FindIterable&lt;Document&gt; documents = spit.find();
-        // 循环遍历
-        for (Document document : documents) {
-            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
-            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
-            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
-        }
-        // 关闭连接
-        client.close();
-    }
-}
-</code></pre>
-<h3 id="2、条件查询"><a href="#2、条件查询" class="headerlink" title="2、条件查询"></a>2、条件查询</h3><p><code>BasicDBObject</code>对象：表示一个具体的记录，BasicDBObject实现了DBObject，是<code>key/value</code>的数据结构，用起来和HashMap是基本一致的。</p>
-<h4 id="2-1、查询userid为1013的记录"><a href="#2-1、查询userid为1013的记录" class="headerlink" title="2.1、查询userid为1013的记录"></a>2.1、查询userid为1013的记录</h4><pre><code class="java">public class MongoDemo1 {
-    public static void main(String[] args) {
-        // 创建连接
-        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
-        // 打开数据库spitdb
-        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
-        // 获取集合
-        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
-
-        // 构建查询条件，通过userid进行查询
-        BasicDBObject bson = new BasicDBObject(&quot;userid&quot;, &quot;1013&quot;);
-
-        // 通过userid查询记录获取文档集
-        FindIterable&lt;Document&gt; documents = spit.find(bson);
-        // 循环遍历
-        for (Document document : documents) {
-            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
-            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
-            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
-        }
-        // 关闭连接
-        client.close();
-    }
-}
-</code></pre>
-<h4 id="2-2、查询浏览量大于1000的记录"><a href="#2-2、查询浏览量大于1000的记录" class="headerlink" title="2.2、查询浏览量大于1000的记录"></a>2.2、查询浏览量大于1000的记录</h4><pre><code class="java">public class MongoDemo2 {
-    public static void main(String[] args) {
-        // 创建连接
-        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
-        // 打开数据库spitdb
-        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
-        // 获取集合
-        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
-
-        // 构建查询条件，查询visits大于1000的结果
-        BasicDBObject bson = new BasicDBObject(&quot;visits&quot;, new BasicDBObject(&quot;$gt&quot;, 1000));
-
-        // 通过userid查询记录获取文档集
-        FindIterable&lt;Document&gt; documents = spit.find(bson);
-        // 循环遍历
-        for (Document document : documents) {
-            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
-            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
-            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
-        }
-        // 关闭连接
-        client.close();
-    }
-}
-</code></pre>
-<h3 id="3、插入数据"><a href="#3、插入数据" class="headerlink" title="3、插入数据"></a>3、插入数据</h3><pre><code class="java">public class MongoDemo3 {
-    public static void main(String[] args) {
-        // 创建连接
-        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
-        // 打开数据库spitdb
-        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
-        // 获取集合
-        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
-
-        // 准备数据
-        HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();
-        map.put(&quot;content&quot;, &quot;我要吐槽&quot;);
-        map.put(&quot;userid&quot;, &quot;9999&quot;);
-        map.put(&quot;visits&quot;, 123);
-        map.put(&quot;publishtime&quot;, new Date());
-        //
-        Document document = new Document(map);
-        // 插入一条数据
-        spit.insertOne(document);
-
-        // 关闭连接
-        client.close();
-    }
-}
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -706,7 +600,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -718,10 +612,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

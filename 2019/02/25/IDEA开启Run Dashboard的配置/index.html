@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>Run Dashboard面板：<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190225/20190225094527956.png" alt="在这里插入图片描述"><br>IDEA升级到 2017.3.1 版本后，发现找不到Run Dashboard面板了。通过下面步骤教你找回Run Dashboard：</p>
 <h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><ul>
 <li><ol>
@@ -427,52 +426,6 @@
 </code></pre>
 
         </div>
-		<text ><h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>Run Dashboard面板：<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190225/20190225094527956.png" alt="在这里插入图片描述"><br>IDEA升级到 2017.3.1 版本后，发现找不到Run Dashboard面板了。通过下面步骤教你找回Run Dashboard：</p>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><ul>
-<li><ol>
-<li>找到<code>.idea</code>文件下的<code>workspace.xml</code>，通过<code>Ctrl+F</code>搜索<code>RunDashboard</code></li>
-</ol>
-</li>
-</ul>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190225/20190225094806232.png" alt="在这里插入图片描述"><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190225/20190225094912778.png" alt="在这里插入图片描述"></p>
-<ul>
-<li><ol start="2">
-<li>加入如下配置，重启服务，Run Dashboard就自动就弹出来了</li>
-</ol>
-</li>
-</ul>
-<pre><code class="xml">&lt;option name=&quot;configurationTypes&quot;&gt;
-    &lt;set&gt;
-        &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;
-    &lt;/set&gt;
-&lt;/option&gt;
-</code></pre>
-<ul>
-<li><ol start="3">
-<li>最终配置如下：最终配置如下：</li>
-</ol>
-</li>
-</ul>
-<pre><code class="xml">&lt;component name=&quot;RunDashboard&quot;&gt;
-  &lt;option name=&quot;configurationTypes&quot;&gt;
-    &lt;set&gt;
-      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot; /&gt;
-    &lt;/set&gt;
-  &lt;/option&gt;
-  &lt;option name=&quot;ruleStates&quot;&gt;
-    &lt;list&gt;
-      &lt;RuleState&gt;
-        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot; /&gt;
-      &lt;/RuleState&gt;
-      &lt;RuleState&gt;
-        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot; /&gt;
-      &lt;/RuleState&gt;
-    &lt;/list&gt;
-  &lt;/option&gt;
-  &lt;option name=&quot;contentProportion&quot; value=&quot;0.20013662&quot; /&gt;
-&lt;/component&gt;
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -588,7 +541,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -600,10 +553,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

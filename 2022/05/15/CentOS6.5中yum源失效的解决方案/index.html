@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在 CentOS6.5 上执行 <code>yum install gcc</code> 报错：<code>YumRepo Error: All mirror URLs are not using ftp, http[s] or file</code>。出现这个的原因是因为目前官方已经停止对CentOS6的支持。并且下架了包括官方所有的CentOS6源，目前阿里、163、清华等CentOS6源已无法使用。</p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1、备份，便于进行恢复</p>
 <pre><code class="bash">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
@@ -460,85 +459,6 @@ Metadata Cache Created
 </ul>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在 CentOS6.5 上执行 <code>yum install gcc</code> 报错：<code>YumRepo Error: All mirror URLs are not using ftp, http[s] or file</code>。出现这个的原因是因为目前官方已经停止对CentOS6的支持。并且下架了包括官方所有的CentOS6源，目前阿里、163、清华等CentOS6源已无法使用。</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1、备份，便于进行恢复</p>
-<pre><code class="bash">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-</code></pre>
-<p>2、下载新的 CentOS-Base.repo 到 <code>/etc/yum.repos.d/</code></p>
-<p>我这里是CenOS6，其他版本可以在 <a href="https://mirrors.aliyun.com/repo/" target="_blank" rel="noopener">https://mirrors.aliyun.com/repo/</a> 中找到对应的文件</p>
-<pre><code># centos6
-wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
-</code></pre><p>如果出现错误：</p>
-<pre><code class="bash">[root@Levi ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
---2022-05-15 20:44:42--  https://mirrors.aliyun.com/repo/Centos-6.repo
-正在解析主机 mirrors.aliyun.com... 116.162.173.85, 116.153.65.218, 116.162.173.86, ...
-正在连接 mirrors.aliyun.com|116.162.173.85|:443... 已连接。
-错误: 证书通用名 “*.alicdn.com” 与所要求的主机名 “mirrors.aliyun.com” 不符。
-要以不安全的方式连接至 mirrors.aliyun.com，使用‘--no-check-certificate’。
-</code></pre>
-<p>使用命令：</p>
-<pre><code class="bash">wget --no-check-certificate -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
-</code></pre>
-<p>3、运行 <code>yum makecache</code> 生成缓存</p>
-<pre><code class="bash">[root@Levi ~]# yum makecache
-Loaded plugins: fastestmirror, security
-Loading mirror speeds from cached hostfile
- * base: mirrors.aliyun.com
- * extras: mirrors.aliyun.com
- * updates: mirrors.aliyun.com
-http://mirrors.aliyun.com/centos/6/os/x86_64/repodata/repomd.xml: [Errno 14] PYCURL ERROR 22 - &quot;The requested URL returned error: 404 Not Found&quot;
-Trying other mirror.
-...
-</code></pre>
-<p>4、替换源文件配置</p>
-<ol>
-<li><p>非阿里云ECS用户会出现 Couldn’t resolve host ‘mirrors.cloud.aliyuncs.com’ 信息，不影响使用。用户也可自行修改相关配置: </p>
-<pre><code class="bash">sed -i -e &#39;/mirrors.cloud.aliyuncs.com/d&#39; -e &#39;/mirrors.aliyuncs.com/d&#39; /etc/yum.repos.d/CentOS-Base.repo
-</code></pre>
-</li>
-<li><p>替换http成https</p>
-<pre><code class="bash">sed -i  &#39;s/http/https/g&#39; /etc/yum.repos.d/CentOS-Base.repo
-</code></pre>
-</li>
-<li><p>替换版本，<code>$releasever</code> 替换6.5，6.5是我用的版本</p>
-<pre><code class="bash">sed -i  &#39;s/$releasever/6.5/g&#39; /etc/yum.repos.d/CentOS-Base.repo
-</code></pre>
-</li>
-<li><p>替换centos为centos-vault</p>
-<pre><code class="bash">sed -i  &#39;s/centos/centos-vault/g&#39; /etc/yum.repos.d/CentOS-Base.repo
-</code></pre>
-</li>
-</ol>
-<p>5、执行 <code>yum clean all &amp;&amp; yum makecache</code></p>
-<pre><code class="bash">[root@Levi ~]# yum clean all &amp;&amp; yum makecache
-Loaded plugins: fastestmirror, security
-Cleaning repos: base extras updates
-Cleaning up Everything
-Cleaning up list of fastest mirrors
-Loaded plugins: fastestmirror, security
-Determining fastest mirrors
-base                                                     | 3.7 kB     00:00     
-base/group_gz                                            | 226 kB     00:00     
-base/filelists_db                                        | 6.4 MB     00:01     
-base/primary_db                                          | 4.7 MB     00:00     
-base/other_db                                            | 2.8 MB     00:00     
-extras                                                   | 3.4 kB     00:00     
-extras/filelists_db                                      |  38 kB     00:00     
-extras/prestodelta                                       | 1.3 kB     00:00     
-extras/primary_db                                        |  37 kB     00:00     
-extras/other_db                                          |  51 kB     00:00     
-updates                                                  | 3.4 kB     00:00     
-updates/filelists_db                                     | 3.5 MB     00:00     
-updates/prestodelta                                      | 390 kB     00:00     
-updates/primary_db                                       | 5.4 MB     00:00     
-updates/other_db                                         |  74 MB     00:13   
-Metadata Cache Created
-</code></pre>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://wiki.centos.org/zh/About/Product" target="_blank" rel="noopener">https://wiki.centos.org/zh/About/Product</a></li>
-<li><a href="https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6" target="_blank" rel="noopener">https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6</a></li>
-</ul>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -654,7 +574,7 @@ Metadata Cache Created
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -666,10 +586,10 @@ Metadata Cache Created
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

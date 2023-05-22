@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p><strong>问题：</strong><br>通过MyBatis向MySQL中插入或更新操作时，中文会显示成<code>???</code></p>
 <p><strong>解决：</strong><br>在配置文件<code>application.yml</code>中连接数据库的地址<code>url</code>后面加上<code>characterEncoding=utf8</code>即可</p>
 <pre><code class="yml">spring:
@@ -393,18 +392,6 @@
 </code></pre>
 
         </div>
-		<text ><p><strong>问题：</strong><br>通过MyBatis向MySQL中插入或更新操作时，中文会显示成<code>???</code></p>
-<p><strong>解决：</strong><br>在配置文件<code>application.yml</code>中连接数据库的地址<code>url</code>后面加上<code>characterEncoding=utf8</code>即可</p>
-<pre><code class="yml">spring:
-  application:
-    name: server # 服务名称
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db?characterEncoding=utf8
-    username: root # 数据库账号
-    password: root # 数据库密码
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -520,7 +507,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -532,10 +519,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

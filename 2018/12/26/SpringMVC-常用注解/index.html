@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h4 id="1、-RequestMapping"><a href="#1、-RequestMapping" class="headerlink" title="1、@RequestMapping"></a>1、@RequestMapping</h4><blockquote>
 <p>@RequestMapping：用于处理请求url映射，可以作用于类和方法上</p>
 <ul>
@@ -402,27 +401,6 @@
 </blockquote>
 
         </div>
-		<text ><h4 id="1、-RequestMapping"><a href="#1、-RequestMapping" class="headerlink" title="1、@RequestMapping"></a>1、@RequestMapping</h4><blockquote>
-<p>@RequestMapping：用于处理请求url映射，可以作用于类和方法上</p>
-<ul>
-<li><strong>value</strong>：定义request请求的映射地址(默认)</li>
-<li><strong>method</strong>：定义地request址请求的方式，包括【GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE, TRACE.】默认接受get请求，如果请求方式和定义的方式不一样则请求无法成功</li>
-<li><strong>params</strong>：定义request请求中必须包含的参数值。</li>
-<li><strong>headers</strong>：定义request请求中必须包含某些指定的请求头，如：RequestMapping(value = “/something”, headers = “content-type=text/*”)说明请求中必须要包含”text/html”, “text/plain”这中类型的Content-type头，才是一个匹配的请求。</li>
-<li><strong>consumes</strong>：定义请求提交内容的类型。</li>
-<li><strong>produces</strong>：指定返回的内容类型，仅当request请求头中的(Accept)类型中包含该指定类型才返回</li>
-</ul>
-</blockquote>
-<h4 id="2、-RequestParam"><a href="#2、-RequestParam" class="headerlink" title="2、@RequestParam"></a>2、@RequestParam</h4><blockquote>
-<p>用于<code>Controller</code>层，获取请求的参数。类似于：request.getParameter(“name”)</p>
-</blockquote>
-<h4 id="3、-RequestBody"><a href="#3、-RequestBody" class="headerlink" title="3、@RequestBody"></a>3、@RequestBody</h4><blockquote>
-<p>用于<code>Controller</code>层，将请求中的<code>json</code>格式的数据转换成<code>java对象</code></p>
-</blockquote>
-<h4 id="4、-ResponseBody"><a href="#4、-ResponseBody" class="headerlink" title="4、@ResponseBody"></a>4、@ResponseBody</h4><blockquote>
-<p>用于<code>Controller</code>层，将返回的对象转换成<code>json</code>格式</p>
-</blockquote>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -538,7 +516,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -550,10 +528,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

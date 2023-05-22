@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <p>@SpringCloudApplication 相当于：@EnableCircuitBreaker、@EnableDiscoveryClilent、@SpringBootApplication</p>
 <h3 id="熔断器状态的相关配置"><a href="#熔断器状态的相关配置" class="headerlink" title="熔断器状态的相关配置"></a>熔断器状态的相关配置</h3><p>@HystrixProperty相关配置在抽象类：package com.netflix.hystrix.HystrixCommandProperties 中</p>
 <p><strong>熔断器开启或者关闭的条件：</strong></p>
@@ -403,28 +402,6 @@
 </code></pre>
 
         </div>
-		<text ><p>@SpringCloudApplication 相当于：@EnableCircuitBreaker、@EnableDiscoveryClilent、@SpringBootApplication</p>
-<h3 id="熔断器状态的相关配置"><a href="#熔断器状态的相关配置" class="headerlink" title="熔断器状态的相关配置"></a>熔断器状态的相关配置</h3><p>@HystrixProperty相关配置在抽象类：package com.netflix.hystrix.HystrixCommandProperties 中</p>
-<p><strong>熔断器开启或者关闭的条件：</strong></p>
-<p>1、  当满足一定的阀值的时候（默认10秒内超过20个请求次数）</p>
-<p>2、  当失败率达到一定的时候（默认10秒内超过50%的请求失败）</p>
-<p>3、  到达以上阀值，断路器将会开启</p>
-<p>4、  当开启的时候，所有请求都不会进行转发</p>
-<p>5、  一段时间之后（默认是5秒），这个时候断路器是半开状态，会让其中一个请求进行转发。如果成功，断路器会关闭，若失败，继续开启。重复4和5。</p>
-<pre><code class="java">// 开启服务降级
-@HystrixCommand(
-        // 熔断器状态相关配置
-        commandProperties = {
-                // 当请求次数达到10次时才能开启熔断
-                @HystrixProperty(name = &quot;circuitBreaker.requestVolumeThreshold&quot;,value = &quot;10&quot;),
-                // 状态变换的时间，由开启 --&gt; 半开
-                @HystrixProperty(name = &quot;circuitBreaker.sleepWindowInMilliseconds&quot;,value = &quot;20000&quot;),
-                // 失败请求/所有请求=60% --&gt; 开启熔断器
-                @HystrixProperty(name = &quot;circuitBreaker.errorThresholdPercentage&quot;,value = &quot;60&quot;)
-        }
-)
-</code></pre>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -540,7 +517,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -552,10 +529,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <blockquote>
 <p>系统环境：Windows 10 专业版_v1909_x64 </p>
 </blockquote>
@@ -399,24 +398,6 @@
 <p>好吧，最后发现毛线问题都没有😬</p>
 
         </div>
-		<text ><blockquote>
-<p>系统环境：Windows 10 专业版_v1909_x64 </p>
-</blockquote>
-<p>今天突然发现自己电脑中C、D、E盘中所有<code>文件夹</code>的全变成了<code>只读</code>状态。并且无论怎么取消<strong>只读</strong>，点击确认后都会自动恢复<strong>只读</strong>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201012/image-20201012194422933.png" alt="image-20201012194422933"></p>
-<p>但是所有<strong>文件夹</strong>里面的<code>文件</code>的属性并没有勾选<strong>只读</strong>：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201012/image-20201012194539376.png" alt="image-20201012194539376"></p>
-<p>网上搜索一波，有的说是<a href="https://answers.microsoft.com/zh-hans/windows/forum/all/win10%E4%B8%AD%E6%96%87%E4%BB%B6%E5%A4%B9%E8%87%AA/06943d12-2abe-4c48-9b5c-4d89c7bd1788" target="_blank" rel="noopener">文件共享</a>的问题，又有说是权限的问题，这些都排除后问题还是没解决，一度以为电脑中了病毒</p>
-<p>最后发现两篇文章：<a href="https://answers.microsoft.com/zh-hans/windows/forum/all/win10%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8F%AA%E8%AF%BB/c0d26438-1dab-4e90-b65b-e9cba94b071f" target="_blank" rel="noopener">文章1</a>、<a href="https://answers.microsoft.com/zh-hans/windows/forum/windows_10-files/win10%E7%B3%BB%E7%BB%9F%E8%BF%99%E5%8D%8A%E4%B8%AA/fe97cf93-d88d-4e62-949b-98355e35ca8b" target="_blank" rel="noopener">文章2</a>；原来属性中的<code>只读</code>有3种状态：</p>
-<ul>
-<li>实心小黑块<code>■</code>，就是我出现的情况</li>
-<li>对勾<code>√</code>，这个才是正真选中了只读</li>
-<li>空心框<code>□</code></li>
-</ul>
-<p>黑色方块并不是只读，黑色对勾才是只读。黑色方块只是表明，这个文件夹以及其子文件和子文件夹中允许存在具有只读属性的文件或子文件夹，并不说明这个文件夹本身只读。</p>
-<hr>
-<p>好吧，最后发现毛线问题都没有😬</p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -532,7 +513,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -544,10 +525,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

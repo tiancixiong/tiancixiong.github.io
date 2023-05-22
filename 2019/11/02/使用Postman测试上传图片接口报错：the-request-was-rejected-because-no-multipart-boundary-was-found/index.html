@@ -379,7 +379,6 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用Postman测试上传接口，如下：</p>
 <p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572685108871.png" alt="1572685108871"></p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572685150224.png" alt="1572685150224"></p>
@@ -395,20 +394,6 @@
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572685416677.png" alt="1572685416677"></p>
 
         </div>
-		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>使用Postman测试上传接口，如下：</p>
-<p> <img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572685108871.png" alt="1572685108871"></p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572685150224.png" alt="1572685150224"></p>
-<p>请求，报错：</p>
-<pre><code class="text">org.apache.tomcat.util.http.fileupload.FileUploadException: the request was rejected because no multipart boundary was found
-    at org.apache.tomcat.util.http.fileupload.FileUploadBase$FileItemIteratorImpl.&lt;init&gt;(FileUploadBase.java:831) ~[tomcat-embed-core-8.5.29.jar:8.5.29]
-    at org.apache.tomcat.util.http.fileupload.FileUploadBase.getItemIterator(FileUploadBase.java:256) ~[tomcat-embed-core-8.5.29.jar:8.5.29]
-    at org.apache.tomcat.util.http.fileupload.FileUploadBase.parseRequest(FileUploadBase.java:280) ~[tomcat-embed-core-8.5.29.jar:8.5.29]
-    at org.apache.catalina.connector.Request.parseParts(Request.java:2868) ~[tomcat-embed-core-8.5.29.jar:8.5.29]
-    ...
-</code></pre>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>出现这个的原因是因为Postman会自动加上<code>Content-Type:multipart/form-data</code>这对请求头信息，不需要我们手动添加，将其删除即可：</p>
-<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191102/1572685416677.png" alt="1572685416677"></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -524,7 +509,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -536,10 +521,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

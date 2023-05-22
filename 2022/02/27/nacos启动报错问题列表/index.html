@@ -379,16 +379,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-		
           <h1 id="win下启动"><a href="#win下启动" class="headerlink" title="win下启动"></a>win下启动</h1><h2 id="Caused-by-java-net-UnknownHostException-jmenv-tbsite-net"><a href="#Caused-by-java-net-UnknownHostException-jmenv-tbsite-net" class="headerlink" title="Caused by: java.net.UnknownHostException: jmenv.tbsite.net"></a>Caused by: java.net.UnknownHostException: jmenv.tbsite.net</h2><h3 id="单机模式启动"><a href="#单机模式启动" class="headerlink" title="单机模式启动"></a>单机模式启动</h3><p>修改 <code>bin/</code> 目录下的 <code>startup.cmd</code> 文件，将 <code>set MODE=&quot;cluster&quot;</code> 一行改成 <code>set MODE=&quot;standalone&quot;</code>，然后再运行 <code>bin/startup.cmd</code></p>
 <hr>
 <p>参考：<a href="https://zifangsky.cn/1585.html" target="_blank" rel="noopener">1</a></p>
 
         </div>
-		<text ><h1 id="win下启动"><a href="#win下启动" class="headerlink" title="win下启动"></a>win下启动</h1><h2 id="Caused-by-java-net-UnknownHostException-jmenv-tbsite-net"><a href="#Caused-by-java-net-UnknownHostException-jmenv-tbsite-net" class="headerlink" title="Caused by: java.net.UnknownHostException: jmenv.tbsite.net"></a>Caused by: java.net.UnknownHostException: jmenv.tbsite.net</h2><h3 id="单机模式启动"><a href="#单机模式启动" class="headerlink" title="单机模式启动"></a>单机模式启动</h3><p>修改 <code>bin/</code> 目录下的 <code>startup.cmd</code> 文件，将 <code>set MODE=&quot;cluster&quot;</code> 一行改成 <code>set MODE=&quot;standalone&quot;</code>，然后再运行 <code>bin/startup.cmd</code></p>
-<hr>
-<p>参考：<a href="https://zifangsky.cn/1585.html" target="_blank" rel="noopener">1</a></p>
-</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -504,7 +499,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -516,10 +511,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
