@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,56 +379,166 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在 CentOS6.5 上执行 <code>yum install gcc</code> 报错：<code>YumRepo Error: All mirror URLs are not using ftp, http[s] or file</code>。出现这个的原因是因为目前官方已经停止对CentOS6的支持。并且下架了包括官方所有的CentOS6源，目前阿里、163、清华等CentOS6源已无法使用。</p>
 <h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1、备份，便于进行恢复</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+</code></pre>
 <p>2、下载新的 CentOS-Base.repo 到 <code>/etc/yum.repos.d/</code></p>
-<p>我这里是CenOS6，其他版本可以在 <a href="https://mirrors.aliyun.com/repo/">https://mirrors.aliyun.com/repo/</a> 中找到对应的文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># centos6</span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo</span><br></pre></td></tr></table></figure>
-
-<p>如果出现错误：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@Levi ~]<span class="comment"># wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo</span></span><br><span class="line">--2022-05-15 20:44:42--  https://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line">正在解析主机 mirrors.aliyun.com... 116.162.173.85, 116.153.65.218, 116.162.173.86, ...</span><br><span class="line">正在连接 mirrors.aliyun.com|116.162.173.85|:443... 已连接。</span><br><span class="line">错误: 证书通用名 “*.alicdn.com” 与所要求的主机名 “mirrors.aliyun.com” 不符。</span><br><span class="line">要以不安全的方式连接至 mirrors.aliyun.com，使用‘--no-check-certificate’。</span><br></pre></td></tr></table></figure>
-
+<p>我这里是CenOS6，其他版本可以在 <a href="https://mirrors.aliyun.com/repo/" target="_blank" rel="noopener">https://mirrors.aliyun.com/repo/</a> 中找到对应的文件</p>
+<pre><code># centos6
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
+</code></pre><p>如果出现错误：</p>
+<pre><code class="bash">[root@Levi ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
+--2022-05-15 20:44:42--  https://mirrors.aliyun.com/repo/Centos-6.repo
+正在解析主机 mirrors.aliyun.com... 116.162.173.85, 116.153.65.218, 116.162.173.86, ...
+正在连接 mirrors.aliyun.com|116.162.173.85|:443... 已连接。
+错误: 证书通用名 “*.alicdn.com” 与所要求的主机名 “mirrors.aliyun.com” 不符。
+要以不安全的方式连接至 mirrors.aliyun.com，使用‘--no-check-certificate’。
+</code></pre>
 <p>使用命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash">wget --no-check-certificate -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
+</code></pre>
 <p>3、运行 <code>yum makecache</code> 生成缓存</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@Levi ~]<span class="comment"># yum makecache</span></span><br><span class="line">Loaded plugins: fastestmirror, security</span><br><span class="line">Loading mirror speeds from cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">http://mirrors.aliyun.com/centos/6/os/x86_64/repodata/repomd.xml: [Errno 14] PYCURL ERROR 22 - <span class="string">&quot;The requested URL returned error: 404 Not Found&quot;</span></span><br><span class="line">Trying other mirror.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="bash">[root@Levi ~]# yum makecache
+Loaded plugins: fastestmirror, security
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+http://mirrors.aliyun.com/centos/6/os/x86_64/repodata/repomd.xml: [Errno 14] PYCURL ERROR 22 - &quot;The requested URL returned error: 404 Not Found&quot;
+Trying other mirror.
+...
+</code></pre>
 <p>4、替换源文件配置</p>
 <ol>
 <li><p>非阿里云ECS用户会出现 Couldn’t resolve host ‘mirrors.cloud.aliyuncs.com’ 信息，不影响使用。用户也可自行修改相关配置: </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i -e <span class="string">&#x27;/mirrors.cloud.aliyuncs.com/d&#x27;</span> -e <span class="string">&#x27;/mirrors.aliyuncs.com/d&#x27;</span> /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">sed -i -e &#39;/mirrors.cloud.aliyuncs.com/d&#39; -e &#39;/mirrors.aliyuncs.com/d&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
 </li>
 <li><p>替换http成https</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i  <span class="string">&#x27;s/http/https/g&#x27;</span> /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">sed -i  &#39;s/http/https/g&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
 </li>
 <li><p>替换版本，<code>$releasever</code> 替换6.5，6.5是我用的版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i  <span class="string">&#x27;s/$releasever/6.5/g&#x27;</span> /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">sed -i  &#39;s/$releasever/6.5/g&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
 </li>
 <li><p>替换centos为centos-vault</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i  <span class="string">&#x27;s/centos/centos-vault/g&#x27;</span> /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure></li>
+<pre><code class="bash">sed -i  &#39;s/centos/centos-vault/g&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
+</li>
 </ol>
 <p>5、执行 <code>yum clean all &amp;&amp; yum makecache</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@Levi ~]<span class="comment"># yum clean all &amp;&amp; yum makecache</span></span><br><span class="line">Loaded plugins: fastestmirror, security</span><br><span class="line">Cleaning repos: base extras updates</span><br><span class="line">Cleaning up Everything</span><br><span class="line">Cleaning up list of fastest mirrors</span><br><span class="line">Loaded plugins: fastestmirror, security</span><br><span class="line">Determining fastest mirrors</span><br><span class="line">base                                                     | 3.7 kB     00:00     </span><br><span class="line">base/group_gz                                            | 226 kB     00:00     </span><br><span class="line">base/filelists_db                                        | 6.4 MB     00:01     </span><br><span class="line">base/primary_db                                          | 4.7 MB     00:00     </span><br><span class="line">base/other_db                                            | 2.8 MB     00:00     </span><br><span class="line">extras                                                   | 3.4 kB     00:00     </span><br><span class="line">extras/filelists_db                                      |  38 kB     00:00     </span><br><span class="line">extras/prestodelta                                       | 1.3 kB     00:00     </span><br><span class="line">extras/primary_db                                        |  37 kB     00:00     </span><br><span class="line">extras/other_db                                          |  51 kB     00:00     </span><br><span class="line">updates                                                  | 3.4 kB     00:00     </span><br><span class="line">updates/filelists_db                                     | 3.5 MB     00:00     </span><br><span class="line">updates/prestodelta                                      | 390 kB     00:00     </span><br><span class="line">updates/primary_db                                       | 5.4 MB     00:00     </span><br><span class="line">updates/other_db                                         |  74 MB     00:13   </span><br><span class="line">Metadata Cache Created</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code class="bash">[root@Levi ~]# yum clean all &amp;&amp; yum makecache
+Loaded plugins: fastestmirror, security
+Cleaning repos: base extras updates
+Cleaning up Everything
+Cleaning up list of fastest mirrors
+Loaded plugins: fastestmirror, security
+Determining fastest mirrors
+base                                                     | 3.7 kB     00:00     
+base/group_gz                                            | 226 kB     00:00     
+base/filelists_db                                        | 6.4 MB     00:01     
+base/primary_db                                          | 4.7 MB     00:00     
+base/other_db                                            | 2.8 MB     00:00     
+extras                                                   | 3.4 kB     00:00     
+extras/filelists_db                                      |  38 kB     00:00     
+extras/prestodelta                                       | 1.3 kB     00:00     
+extras/primary_db                                        |  37 kB     00:00     
+extras/other_db                                          |  51 kB     00:00     
+updates                                                  | 3.4 kB     00:00     
+updates/filelists_db                                     | 3.5 MB     00:00     
+updates/prestodelta                                      | 390 kB     00:00     
+updates/primary_db                                       | 5.4 MB     00:00     
+updates/other_db                                         |  74 MB     00:13   
+Metadata Cache Created
+</code></pre>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://wiki.centos.org/zh/About/Product">https://wiki.centos.org/zh/About/Product</a></li>
-<li><a href="https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6">https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6</a></li>
+<li><a href="https://wiki.centos.org/zh/About/Product" target="_blank" rel="noopener">https://wiki.centos.org/zh/About/Product</a></li>
+<li><a href="https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6" target="_blank" rel="noopener">https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6</a></li>
 </ul>
 
         </div>
+		<text ><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在 CentOS6.5 上执行 <code>yum install gcc</code> 报错：<code>YumRepo Error: All mirror URLs are not using ftp, http[s] or file</code>。出现这个的原因是因为目前官方已经停止对CentOS6的支持。并且下架了包括官方所有的CentOS6源，目前阿里、163、清华等CentOS6源已无法使用。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1、备份，便于进行恢复</p>
+<pre><code class="bash">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+</code></pre>
+<p>2、下载新的 CentOS-Base.repo 到 <code>/etc/yum.repos.d/</code></p>
+<p>我这里是CenOS6，其他版本可以在 <a href="https://mirrors.aliyun.com/repo/" target="_blank" rel="noopener">https://mirrors.aliyun.com/repo/</a> 中找到对应的文件</p>
+<pre><code># centos6
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
+</code></pre><p>如果出现错误：</p>
+<pre><code class="bash">[root@Levi ~]# wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
+--2022-05-15 20:44:42--  https://mirrors.aliyun.com/repo/Centos-6.repo
+正在解析主机 mirrors.aliyun.com... 116.162.173.85, 116.153.65.218, 116.162.173.86, ...
+正在连接 mirrors.aliyun.com|116.162.173.85|:443... 已连接。
+错误: 证书通用名 “*.alicdn.com” 与所要求的主机名 “mirrors.aliyun.com” 不符。
+要以不安全的方式连接至 mirrors.aliyun.com，使用‘--no-check-certificate’。
+</code></pre>
+<p>使用命令：</p>
+<pre><code class="bash">wget --no-check-certificate -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-6.repo
+</code></pre>
+<p>3、运行 <code>yum makecache</code> 生成缓存</p>
+<pre><code class="bash">[root@Levi ~]# yum makecache
+Loaded plugins: fastestmirror, security
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+http://mirrors.aliyun.com/centos/6/os/x86_64/repodata/repomd.xml: [Errno 14] PYCURL ERROR 22 - &quot;The requested URL returned error: 404 Not Found&quot;
+Trying other mirror.
+...
+</code></pre>
+<p>4、替换源文件配置</p>
+<ol>
+<li><p>非阿里云ECS用户会出现 Couldn’t resolve host ‘mirrors.cloud.aliyuncs.com’ 信息，不影响使用。用户也可自行修改相关配置: </p>
+<pre><code class="bash">sed -i -e &#39;/mirrors.cloud.aliyuncs.com/d&#39; -e &#39;/mirrors.aliyuncs.com/d&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
+</li>
+<li><p>替换http成https</p>
+<pre><code class="bash">sed -i  &#39;s/http/https/g&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
+</li>
+<li><p>替换版本，<code>$releasever</code> 替换6.5，6.5是我用的版本</p>
+<pre><code class="bash">sed -i  &#39;s/$releasever/6.5/g&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
+</li>
+<li><p>替换centos为centos-vault</p>
+<pre><code class="bash">sed -i  &#39;s/centos/centos-vault/g&#39; /etc/yum.repos.d/CentOS-Base.repo
+</code></pre>
+</li>
+</ol>
+<p>5、执行 <code>yum clean all &amp;&amp; yum makecache</code></p>
+<pre><code class="bash">[root@Levi ~]# yum clean all &amp;&amp; yum makecache
+Loaded plugins: fastestmirror, security
+Cleaning repos: base extras updates
+Cleaning up Everything
+Cleaning up list of fastest mirrors
+Loaded plugins: fastestmirror, security
+Determining fastest mirrors
+base                                                     | 3.7 kB     00:00     
+base/group_gz                                            | 226 kB     00:00     
+base/filelists_db                                        | 6.4 MB     00:01     
+base/primary_db                                          | 4.7 MB     00:00     
+base/other_db                                            | 2.8 MB     00:00     
+extras                                                   | 3.4 kB     00:00     
+extras/filelists_db                                      |  38 kB     00:00     
+extras/prestodelta                                       | 1.3 kB     00:00     
+extras/primary_db                                        |  37 kB     00:00     
+extras/other_db                                          |  51 kB     00:00     
+updates                                                  | 3.4 kB     00:00     
+updates/filelists_db                                     | 3.5 MB     00:00     
+updates/prestodelta                                      | 390 kB     00:00     
+updates/primary_db                                       | 5.4 MB     00:00     
+updates/other_db                                         |  74 MB     00:13   
+Metadata Cache Created
+</code></pre>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://wiki.centos.org/zh/About/Product" target="_blank" rel="noopener">https://wiki.centos.org/zh/About/Product</a></li>
+<li><a href="https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6" target="_blank" rel="noopener">https://developer.aliyun.com/mirror/centos?spm=a2c6h.13651102.0.0.3e221b11shelh6</a></li>
+</ul>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -458,7 +567,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2022/05/15/%E9%85%8D%E7%BD%AECentOS6-5%E9%9D%99%E6%80%81ip%E5%AF%BC%E8%87%B4xshell%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/" rel="prev">
+            <a href="/2022/05/15/配置CentOS6-5静态ip导致xshell连接失败/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1565839494949-469f79dc37f4?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="//images.unsplash.com/photo-1565839494949-469f79dc37f4?w=540">
               </div>
@@ -476,7 +585,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2022/04/24/%E4%BD%BF%E7%94%A8%E9%A9%B1%E5%8A%A8%E4%BA%BA%E7%94%9F%E5%90%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E6%9C%BA%E5%87%BA%E7%8E%B0%E9%80%89%E6%8B%A9%E5%BA%94%E6%80%A5%E7%B3%BB%E7%BB%9F/" rel="next">
+            <a href="/2022/04/24/使用驱动人生后系统开机出现选择应急系统/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1479935685746-c916808570d7?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="//images.unsplash.com/photo-1479935685746-c916808570d7?w=540">
               </div>
@@ -545,7 +654,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -557,10 +666,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -842,7 +951,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -870,14 +979,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -898,28 +1007,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

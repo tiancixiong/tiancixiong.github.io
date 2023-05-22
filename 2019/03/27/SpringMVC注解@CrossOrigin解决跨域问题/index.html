@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,6 +379,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <blockquote>
 <p>一般的，只要网站的【协议名protocol】、【主机host】、【端口号port】这三个中的任意一个不同，网站间的数据请求与传输便构成了跨域调用<br>跨域：浏览同源策略的造成，是浏览器对JavaScript施加的安全限制<br>CORS是一种可以解决跨域问题的技术</p>
 </blockquote>
@@ -388,16 +388,83 @@
 </blockquote>
 <p><strong>@CrossOrigin的参数：</strong><br>1、origins：允许可访问的域列表；*表示可以是任何来源<br>2、maxAge：准备响应前的缓存持续的最大时间（单位：秒）</p>
 <p><strong>@CrossOrigin使用在Controller层：</strong><br>1、类上，此类中所有方法启用跨域支持</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 开启跨域支持</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">// 开启跨域支持
+@CrossOrigin
+@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+}
+</code></pre>
 <p>2、方法上，仅此方法启用跨域支持</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 开启跨域支持</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="meta">@RequestMapping(value = &quot;/findAll&quot;, method = RequestMethod.GET)</span></span><br><span class="line"><span class="keyword">public</span> List&lt;User&gt; <span class="title function_">findAll</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> userService.findAll();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">// 开启跨域支持
+@CrossOrigin
+@RequestMapping(value = &quot;/findAll&quot;, method = RequestMethod.GET)
+public List&lt;User&gt; findAll(){
+    return userService.findAll();
+}
+</code></pre>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、注解失效问题：此时Controlle的方法上<code>@RequestMapping</code>注解中需要声明<code>请求方式</code>即增加<code>method=RequestMethod.XXX</code></p>
-<p>2、添加注解后session失效问题：此时对的ajax请求中需要添加<code>xhrFields:&#123;withCredentials:true&#125;</code>（每个ajax中都需要加此属性，以保证session一致）</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">	<span class="attr">type</span>: <span class="string">&quot;post&quot;</span>,</span><br><span class="line">	<span class="attr">url</span>: <span class="string">&#x27;/user/login&#x27;</span>,</span><br><span class="line">	<span class="attr">xhrFields</span>: &#123;<span class="attr">withCredentials</span>: <span class="literal">true</span>&#125;,</span><br><span class="line">	<span class="attr">data</span>: &#123;</span><br><span class="line">		<span class="attr">username</span>: username,</span><br><span class="line">		<span class="attr">password</span>: password</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;登录成功&#x27;</span>);</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;请求报错！&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>2、添加注解后session失效问题：此时对的ajax请求中需要添加<code>xhrFields:{withCredentials:true}</code>（每个ajax中都需要加此属性，以保证session一致）</p>
+<pre><code class="js">$.ajax({
+    type: &quot;post&quot;,
+    url: &#39;/user/login&#39;,
+    xhrFields: {withCredentials: true},
+    data: {
+        username: username,
+        password: password
+    },
+    success: function (msg) {
+        console.log(&#39;登录成功&#39;);
+    },
+    error: function (msg) {
+        console.log(&#39;请求报错！&#39;);
+    }
+})
+</code></pre>
 
         </div>
+		<text ><blockquote>
+<p>一般的，只要网站的【协议名protocol】、【主机host】、【端口号port】这三个中的任意一个不同，网站间的数据请求与传输便构成了跨域调用<br>跨域：浏览同源策略的造成，是浏览器对JavaScript施加的安全限制<br>CORS是一种可以解决跨域问题的技术</p>
+</blockquote>
+<h3 id="SprinMVC通过-CrossOrigin注解解决跨域"><a href="#SprinMVC通过-CrossOrigin注解解决跨域" class="headerlink" title="SprinMVC通过@CrossOrigin注解解决跨域"></a>SprinMVC通过@CrossOrigin注解解决跨域</h3><blockquote>
+<p>在Spring MVC<code>4.2</code>之后推出了<code>@CrossOrigin</code>注解来解决跨域问题，而在4.2之前我们都是通过定义注册<code>过滤器</code>的方式来解决跨域问题的</p>
+</blockquote>
+<p><strong>@CrossOrigin的参数：</strong><br>1、origins：允许可访问的域列表；*表示可以是任何来源<br>2、maxAge：准备响应前的缓存持续的最大时间（单位：秒）</p>
+<p><strong>@CrossOrigin使用在Controller层：</strong><br>1、类上，此类中所有方法启用跨域支持</p>
+<pre><code class="java">// 开启跨域支持
+@CrossOrigin
+@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+}
+</code></pre>
+<p>2、方法上，仅此方法启用跨域支持</p>
+<pre><code class="java">// 开启跨域支持
+@CrossOrigin
+@RequestMapping(value = &quot;/findAll&quot;, method = RequestMethod.GET)
+public List&lt;User&gt; findAll(){
+    return userService.findAll();
+}
+</code></pre>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>1、注解失效问题：此时Controlle的方法上<code>@RequestMapping</code>注解中需要声明<code>请求方式</code>即增加<code>method=RequestMethod.XXX</code></p>
+<p>2、添加注解后session失效问题：此时对的ajax请求中需要添加<code>xhrFields:{withCredentials:true}</code>（每个ajax中都需要加此属性，以保证session一致）</p>
+<pre><code class="js">$.ajax({
+    type: &quot;post&quot;,
+    url: &#39;/user/login&#39;,
+    xhrFields: {withCredentials: true},
+    data: {
+        username: username,
+        password: password
+    },
+    success: function (msg) {
+        console.log(&#39;登录成功&#39;);
+    },
+    error: function (msg) {
+        console.log(&#39;请求报错！&#39;);
+    }
+})
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -426,7 +493,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/03/29/win10%E5%BC%80%E6%9C%BA%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" rel="prev">
+            <a href="/2019/03/29/win10开机运行脚本文件/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1483953896217-ddf477910200?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1483953896217-ddf477910200?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -444,7 +511,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/03/26/win%E7%B3%BB%E7%BB%9F%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84WIFI%E5%AF%86%E7%A0%81/" rel="next">
+            <a href="/2019/03/26/win系统查看连接过的WIFI密码/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1544077960-604201fe74bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1544077960-604201fe74bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80">
               </div>
@@ -513,7 +580,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -525,10 +592,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -810,7 +877,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -838,14 +905,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -866,28 +933,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

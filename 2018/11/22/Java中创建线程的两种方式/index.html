@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,6 +379,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <h2 id="创建线程方式一"><a href="#创建线程方式一" class="headerlink" title="创建线程方式一"></a>创建线程方式一</h2><blockquote>
 <p>通过<strong>继承</strong><code>Thread</code>类来创建并启动多线程</p>
 </blockquote>
@@ -390,12 +390,46 @@
 <li>调用线程对象的start()方法来启动该线程</li>
 </ol>
 <p>自定义线程类：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义线程类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyThread</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">20</span>; i++)&#123;</span><br><span class="line">            System.out.println(getName() + <span class="string">&quot; &quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * 自定义线程类
+ */
+public class MyThread extends Thread {
+    public MyThread(String name){
+        super(name);
+    }
 
+    @Override
+    public void run() {
+        for(int i = 1; i &lt;= 20; i++){
+            System.out.println(getName() + &quot; &quot; + i);
+        }
+    }
+}
+</code></pre>
 <p>测试类：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建线程方式一：</span></span><br><span class="line"><span class="comment"> *  1. 创建自定义类继承Thread类</span></span><br><span class="line"><span class="comment"> *  2. 重写run方法(run方法就是新的线程要执行的代码)</span></span><br><span class="line"><span class="comment"> *  3. 创建自定义类对象(线程对象)</span></span><br><span class="line"><span class="comment"> *  4. 调用start方法开启新的线程</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;main线程开启&quot;</span>);</span><br><span class="line">        <span class="comment">// 创建线程对象</span></span><br><span class="line">        <span class="type">MyThread</span> <span class="variable">myThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;线程A&quot;</span>);</span><br><span class="line">        <span class="comment">// 开启新的线程myThread</span></span><br><span class="line">        myThread.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这个循环在main线程中执行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">20</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;mian线程 &quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br/>
+<pre><code class="java">/**
+ * 创建线程方式一：
+ *  1. 创建自定义类继承Thread类
+ *  2. 重写run方法(run方法就是新的线程要执行的代码)
+ *  3. 创建自定义类对象(线程对象)
+ *  4. 调用start方法开启新的线程
+ */
+public class Demo01 {
+    public static void main(String[] args) {
+        System.out.println(&quot;main线程开启&quot;);
+        // 创建线程对象
+        MyThread myThread = new MyThread(&quot;线程A&quot;);
+        // 开启新的线程myThread
+        myThread.start();
 
+        // 这个循环在main线程中执行
+        for (int i = 1; i &lt;= 20; i++) {
+            System.out.println(&quot;mian线程 &quot; + i);
+        }
+    }
+}
+</code></pre>
+<p><br></p>
 <h2 id="创建线程方式二"><a href="#创建线程方式二" class="headerlink" title="创建线程方式二"></a>创建线程方式二</h2><blockquote>
 <p>通过<strong>实现</strong><code>Runnable</code>类来创建并启动多线程</p>
 </blockquote>
@@ -406,10 +440,135 @@
 <li>调用线程对象的start()方法来启动线程</li>
 </ol>
 <p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">20</span>; i++) &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">&quot; &quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class MyRunnable implements Runnable {
 
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建线程方式二：</span></span><br><span class="line"><span class="comment"> *  1. 定义自定义类实现Runnable接口</span></span><br><span class="line"><span class="comment"> *  2. 重写run方法</span></span><br><span class="line"><span class="comment"> *  3. 创建自定义对象</span></span><br><span class="line"><span class="comment"> *  4. 创建Threed对象的时候，作为构造方法的参数进行传递</span></span><br><span class="line"><span class="comment"> *  5. 启动线程start方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo02</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建线程任务对象</span></span><br><span class="line">        <span class="type">MyRunnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建线程对象</span></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable, <span class="string">&quot;线程A&quot;</span>);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable, <span class="string">&quot;线程B&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 开启线程</span></span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    @Override
+    public void run() {
+        for (int i = 1; i &lt;= 20; i++) {
+            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i);
+        }
+    }
+}
+</code></pre>
+<pre><code class="java">/**
+ * 创建线程方式二：
+ *  1. 定义自定义类实现Runnable接口
+ *  2. 重写run方法
+ *  3. 创建自定义对象
+ *  4. 创建Threed对象的时候，作为构造方法的参数进行传递
+ *  5. 启动线程start方法
+ */
+public class Demo02 {
+    public static void main(String[] args) {
+        // 创建线程任务对象
+        MyRunnable myRunnable = new MyRunnable();
+
+        // 创建线程对象
+        Thread t1 = new Thread(myRunnable, &quot;线程A&quot;);
+        Thread t2 = new Thread(myRunnable, &quot;线程B&quot;);
+
+        // 开启线程
+        t1.start();
+        t2.start();
+    }
+}
+</code></pre>
+
         </div>
+		<text ><h2 id="创建线程方式一"><a href="#创建线程方式一" class="headerlink" title="创建线程方式一"></a>创建线程方式一</h2><blockquote>
+<p>通过<strong>继承</strong><code>Thread</code>类来创建并启动多线程</p>
+</blockquote>
+<p>Java使用<code>java.lang.Thread</code>类代表线程，所有的线程对象都必须是<code>Thread</code>类或其子类的实例。每个线程的作用是完成一定的任务，实际上就是执行一段程序流即一段顺序执行的代码。Java使用线程执行体来代表这段程序流。<br>Java中通过<strong>继承Thread类</strong>来创建并启动多线程的步骤如下：</p>
+<ol>
+<li>定义Thread类的子类，并重写该类的<code>run()</code>方法，该run()方法的方法体就代表了线程需要完成的任务,因此把run()方法称为线程执行体</li>
+<li>创建Thread子类的实例，即创建了线程对象</li>
+<li>调用线程对象的start()方法来启动该线程</li>
+</ol>
+<p>自定义线程类：</p>
+<pre><code class="java">/**
+ * 自定义线程类
+ */
+public class MyThread extends Thread {
+    public MyThread(String name){
+        super(name);
+    }
+
+    @Override
+    public void run() {
+        for(int i = 1; i &lt;= 20; i++){
+            System.out.println(getName() + &quot; &quot; + i);
+        }
+    }
+}
+</code></pre>
+<p>测试类：</p>
+<pre><code class="java">/**
+ * 创建线程方式一：
+ *  1. 创建自定义类继承Thread类
+ *  2. 重写run方法(run方法就是新的线程要执行的代码)
+ *  3. 创建自定义类对象(线程对象)
+ *  4. 调用start方法开启新的线程
+ */
+public class Demo01 {
+    public static void main(String[] args) {
+        System.out.println(&quot;main线程开启&quot;);
+        // 创建线程对象
+        MyThread myThread = new MyThread(&quot;线程A&quot;);
+        // 开启新的线程myThread
+        myThread.start();
+
+        // 这个循环在main线程中执行
+        for (int i = 1; i &lt;= 20; i++) {
+            System.out.println(&quot;mian线程 &quot; + i);
+        }
+    }
+}
+</code></pre>
+<p><br></p>
+<h2 id="创建线程方式二"><a href="#创建线程方式二" class="headerlink" title="创建线程方式二"></a>创建线程方式二</h2><blockquote>
+<p>通过<strong>实现</strong><code>Runnable</code>类来创建并启动多线程</p>
+</blockquote>
+<p>采用java.lang.Runnable 也是非常常见的一种，我们只需要重写run方法即可<br>步骤如下：</p>
+<ol>
+<li>定义Runnable接口的实现类，并重写该接口的run()方法，该run()方法的方法体同样是该线程的线程执行体</li>
+<li>创建Runnable实现类的实例，并以此实例作为Thread的target来创建Thread对象，该Thread对象才是真正<br>的线程对象</li>
+<li>调用线程对象的start()方法来启动线程</li>
+</ol>
+<p>代码如下：</p>
+<pre><code class="java">public class MyRunnable implements Runnable {
+
+    @Override
+    public void run() {
+        for (int i = 1; i &lt;= 20; i++) {
+            System.out.println(Thread.currentThread().getName() + &quot; &quot; + i);
+        }
+    }
+}
+</code></pre>
+<pre><code class="java">/**
+ * 创建线程方式二：
+ *  1. 定义自定义类实现Runnable接口
+ *  2. 重写run方法
+ *  3. 创建自定义对象
+ *  4. 创建Threed对象的时候，作为构造方法的参数进行传递
+ *  5. 启动线程start方法
+ */
+public class Demo02 {
+    public static void main(String[] args) {
+        // 创建线程任务对象
+        MyRunnable myRunnable = new MyRunnable();
+
+        // 创建线程对象
+        Thread t1 = new Thread(myRunnable, &quot;线程A&quot;);
+        Thread t2 = new Thread(myRunnable, &quot;线程B&quot;);
+
+        // 开启线程
+        t1.start();
+        t2.start();
+    }
+}
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -438,7 +597,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2018/11/22/JS%E4%B8%ADCookie%E3%80%81LocalStorage%E4%B8%8ESessionStorage/" rel="prev">
+            <a href="/2018/11/22/JS中Cookie、LocalStorage与SessionStorage/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1540161148466-c5a4239532c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1540161148466-c5a4239532c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -456,7 +615,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2018/11/21/%E9%87%8D%E8%BD%BD(overload)%E5%92%8C%E9%87%8D%E5%86%99(override)%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F/" rel="next">
+            <a href="/2018/11/21/重载(overload)和重写(override)的区别？/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1504284992506-f6d82d0f2f2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1504284992506-f6d82d0f2f2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -525,7 +684,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -537,10 +696,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -822,7 +981,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -850,14 +1009,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -878,28 +1037,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

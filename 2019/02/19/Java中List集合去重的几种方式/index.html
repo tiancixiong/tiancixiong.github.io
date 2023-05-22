@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,16 +379,90 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <p>准备数据：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 准备数据</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">list.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;c&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;c&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;a&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-利用HashSet去重"><a href="#1-利用HashSet去重" class="headerlink" title="1. 利用HashSet去重"></a>1. 利用HashSet去重</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 利用list中的元素创建HashSet集合，此时set中进行了去重操作</span></span><br><span class="line"><span class="type">HashSet</span> <span class="variable">set</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashSet</span>(list);</span><br><span class="line"><span class="comment">// 清空list集合</span></span><br><span class="line">list.clear();</span><br><span class="line"><span class="comment">// 将去重后的元素重新添加到list中</span></span><br><span class="line">list.addAll(set);</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-通过List的contains-方法去重"><a href="#2-通过List的contains-方法去重" class="headerlink" title="2. 通过List的contains()方法去重"></a>2. 通过List的contains()方法去重</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建一个新的list集合，用于存储去重后的元素</span></span><br><span class="line"><span class="type">List</span> <span class="variable">listTemp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line"><span class="comment">// 遍历list集合</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">	<span class="comment">// 判断listTemp集合中是否包含list中的元素</span></span><br><span class="line">	<span class="keyword">if</span> (!listTemp.contains(list.get(i))) &#123;</span><br><span class="line">		<span class="comment">// 将未包含的元素添加进listTemp集合中</span></span><br><span class="line">		listTemp.add(list.get(i));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-循环List进行去重"><a href="#3-循环List进行去重" class="headerlink" title="3. 循环List进行去重"></a>3. 循环List进行去重</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 从list中索引为0开始往后遍历</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; list.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">	<span class="comment">// 从list中索引为 list.size()-1 开始往前遍历</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> list.size() - <span class="number">1</span>; j &gt; i; j--) &#123;</span><br><span class="line">		<span class="comment">// 进行比较</span></span><br><span class="line">		<span class="keyword">if</span> (list.get(j).equals(list.get(i))) &#123;</span><br><span class="line">			<span class="comment">// 去重</span></span><br><span class="line">			list.remove(j);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">// 准备数据
+List&lt;String&gt; list = new ArrayList();
+list.add(&quot;a&quot;);
+list.add(&quot;b&quot;);
+list.add(&quot;c&quot;);
+list.add(&quot;c&quot;);
+list.add(&quot;b&quot;);
+list.add(&quot;a&quot;);
+</code></pre>
+<h3 id="1-利用HashSet去重"><a href="#1-利用HashSet去重" class="headerlink" title="1. 利用HashSet去重"></a>1. 利用HashSet去重</h3><pre><code class="java">// 利用list中的元素创建HashSet集合，此时set中进行了去重操作
+HashSet set = new HashSet(list);
+// 清空list集合
+list.clear();
+// 将去重后的元素重新添加到list中
+list.addAll(set);
+</code></pre>
+<h3 id="2-通过List的contains-方法去重"><a href="#2-通过List的contains-方法去重" class="headerlink" title="2. 通过List的contains()方法去重"></a>2. 通过List的contains()方法去重</h3><pre><code class="java">// 创建一个新的list集合，用于存储去重后的元素
+List listTemp = new ArrayList();
+// 遍历list集合
+for (int i = 0; i &lt; list.size(); i++) {
+    // 判断listTemp集合中是否包含list中的元素
+    if (!listTemp.contains(list.get(i))) {
+        // 将未包含的元素添加进listTemp集合中
+        listTemp.add(list.get(i));
+    }
+}
+</code></pre>
+<h3 id="3-循环List进行去重"><a href="#3-循环List进行去重" class="headerlink" title="3. 循环List进行去重"></a>3. 循环List进行去重</h3><pre><code class="java">// 从list中索引为0开始往后遍历
+for (int i = 0; i &lt; list.size() - 1; i++) {
+    // 从list中索引为 list.size()-1 开始往前遍历
+    for (int j = list.size() - 1; j &gt; i; j--) {
+        // 进行比较
+        if (list.get(j).equals(list.get(i))) {
+            // 去重
+            list.remove(j);
+        }
+    }
+}
+</code></pre>
 
         </div>
+		<text ><p>准备数据：</p>
+<pre><code class="java">// 准备数据
+List&lt;String&gt; list = new ArrayList();
+list.add(&quot;a&quot;);
+list.add(&quot;b&quot;);
+list.add(&quot;c&quot;);
+list.add(&quot;c&quot;);
+list.add(&quot;b&quot;);
+list.add(&quot;a&quot;);
+</code></pre>
+<h3 id="1-利用HashSet去重"><a href="#1-利用HashSet去重" class="headerlink" title="1. 利用HashSet去重"></a>1. 利用HashSet去重</h3><pre><code class="java">// 利用list中的元素创建HashSet集合，此时set中进行了去重操作
+HashSet set = new HashSet(list);
+// 清空list集合
+list.clear();
+// 将去重后的元素重新添加到list中
+list.addAll(set);
+</code></pre>
+<h3 id="2-通过List的contains-方法去重"><a href="#2-通过List的contains-方法去重" class="headerlink" title="2. 通过List的contains()方法去重"></a>2. 通过List的contains()方法去重</h3><pre><code class="java">// 创建一个新的list集合，用于存储去重后的元素
+List listTemp = new ArrayList();
+// 遍历list集合
+for (int i = 0; i &lt; list.size(); i++) {
+    // 判断listTemp集合中是否包含list中的元素
+    if (!listTemp.contains(list.get(i))) {
+        // 将未包含的元素添加进listTemp集合中
+        listTemp.add(list.get(i));
+    }
+}
+</code></pre>
+<h3 id="3-循环List进行去重"><a href="#3-循环List进行去重" class="headerlink" title="3. 循环List进行去重"></a>3. 循环List进行去重</h3><pre><code class="java">// 从list中索引为0开始往后遍历
+for (int i = 0; i &lt; list.size() - 1; i++) {
+    // 从list中索引为 list.size()-1 开始往前遍历
+    for (int j = list.size() - 1; j &gt; i; j--) {
+        // 进行比较
+        if (list.get(j).equals(list.get(i))) {
+            // 去重
+            list.remove(j);
+        }
+    }
+}
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -418,7 +491,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/02/25/IDEA%E5%BC%80%E5%90%AFRun%20Dashboard%E7%9A%84%E9%85%8D%E7%BD%AE/" rel="prev">
+            <a href="/2019/02/25/IDEA开启Run Dashboard的配置/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://picjumbo.com/wp-content/uploads/coit-tower-alcatraz-and-part-of-san-francisco-bay-at-night.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://picjumbo.com/wp-content/uploads/coit-tower-alcatraz-and-part-of-san-francisco-bay-at-night.jpg">
               </div>
@@ -436,7 +509,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/01/17/%E5%85%B3%E9%97%AD%E8%BF%85%E9%9B%B7%E6%9B%B4%E6%96%B0%E5%88%B0%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%8F%90%E7%A4%BA/" rel="next">
+            <a href="/2019/01/17/关闭迅雷更新到新版本的提示/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://picjumbo.com/wp-content/uploads/sunny-bottom-view-of-high-tropical-palms_free_stock_photos_picjumbo_HNCK3076.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://picjumbo.com/wp-content/uploads/sunny-bottom-view-of-high-tropical-palms_free_stock_photos_picjumbo_HNCK3076.jpg">
               </div>
@@ -505,7 +578,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -517,10 +590,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -802,7 +875,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -830,14 +903,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -858,28 +931,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

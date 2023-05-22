@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,49 +379,61 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <h1 id="1-主键-超键-候选键-外键"><a href="#1-主键-超键-候选键-外键" class="headerlink" title="1. 主键 超键 候选键 外键"></a>1. 主键 超键 候选键 外键</h1><p><strong>主 键：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。</span><br><span class="line">一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）</span><br></pre></td></tr></table></figure>
-
-<p><strong>超 键：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在关系中能唯一标识元组的属性集称为关系模式的超键</span><br><span class="line">一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键</span><br><span class="line">超键包含候选键和主键。</span><br></pre></td></tr></table></figure>
-
-<p><strong>候选键：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">是最小超键，即没有冗余元素的超键。</span><br></pre></td></tr></table></figure>
-
-<p><strong>外 键：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在一个表中存在的另一个表的主键称此表的外键</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="2-数据库事务的四个特性及含义"><a href="#2-数据库事务的四个特性及含义" class="headerlink" title="2.数据库事务的四个特性及含义"></a>2.数据库事务的四个特性及含义</h1><blockquote>
+<pre><code>数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。
+一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）
+</code></pre><p><strong>超 键：</strong></p>
+<pre><code>在关系中能唯一标识元组的属性集称为关系模式的超键
+一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键
+超键包含候选键和主键。
+</code></pre><p><strong>候选键：</strong></p>
+<pre><code>是最小超键，即没有冗余元素的超键。
+</code></pre><p><strong>外 键：</strong></p>
+<pre><code>在一个表中存在的另一个表的主键称此表的外键
+</code></pre><h1 id="2-数据库事务的四个特性及含义"><a href="#2-数据库事务的四个特性及含义" class="headerlink" title="2.数据库事务的四个特性及含义"></a>2.数据库事务的四个特性及含义</h1><blockquote>
 <p>数据库事务( transanction )正确执行的四个基本要素( ACID )：原子性(Atomicity)、一致性(Correspondence)、隔离性(Isolation)、持久性(Durability)。</p>
 </blockquote>
 <p><strong>原子性</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">整个事务中的所有操作，要么全部完成，要么全部不完成，不可能停滞在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</span><br></pre></td></tr></table></figure>
-
-<p><strong>一致性</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。</span><br></pre></td></tr></table></figure>
-
-<p><strong>隔离性</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相同的时间内，执行 相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系统。这种属性有时称为串行化，为了防止事务操作间的混淆，必须串行化或序列化请求，使得在同一时间仅有一个请求用于同一数据。</span><br></pre></td></tr></table></figure>
-
-<p><strong>持久性</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中，并不会被回滚。</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="3-drop-delete与truncate的区别"><a href="#3-drop-delete与truncate的区别" class="headerlink" title="3.drop,delete与truncate的区别"></a>3.drop,delete与truncate的区别</h1><blockquote>
+<pre><code>整个事务中的所有操作，要么全部完成，要么全部不完成，不可能停滞在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。
+</code></pre><p><strong>一致性</strong>：</p>
+<pre><code>在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。
+</code></pre><p><strong>隔离性</strong>：</p>
+<pre><code>隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相同的时间内，执行 相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系统。这种属性有时称为串行化，为了防止事务操作间的混淆，必须串行化或序列化请求，使得在同一时间仅有一个请求用于同一数据。
+</code></pre><p><strong>持久性</strong>：</p>
+<pre><code>在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中，并不会被回滚。
+</code></pre><h1 id="3-drop-delete与truncate的区别"><a href="#3-drop-delete与truncate的区别" class="headerlink" title="3.drop,delete与truncate的区别"></a>3.drop,delete与truncate的区别</h1><blockquote>
 <p>drop直接删掉表<br>delete删除表中数据，可以加where字句<br>truncate删除表中数据，再插入时自增长id又从1开始</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1、DELETE语句执行删除的过程是每次从表中删除一行，并且同时将该行的删除操作作为事务记录在日志中保存以便进行回滚操作。TRUNCATE TABLE 则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存，删除的数据是不能恢复的。并且在删除的过程中不会激活与表有关的删除触发器。执行速度快。</span><br><span class="line"></span><br><span class="line">2、表和索引所占空间。当表被TRUNCATE 后，这个表和索引所占用的空间会恢复到初始大小，而DELETE操作不会减少表或索引所占用的空间。drop语句将表所占用的空间全释放掉。</span><br><span class="line"></span><br><span class="line">3、一般而言，drop &gt; truncate &gt; delete</span><br><span class="line"></span><br><span class="line">4、应用范围。truncate 只能对 table；delete 可以是table和view</span><br><span class="line"></span><br><span class="line">5、truncate 和 DELETE 只删除数据，而DROP则删除整个表（结构和数据）。</span><br><span class="line"></span><br><span class="line">6、truncate与不带where的delete ：只删除数据，而不删除表的结构（定义）drop语句将删除表的结构被依赖的约束（constrain),触发器（trigger)索引（index);依赖于该表的存储过程/函数将被保留，但其状态会变为：invalid。</span><br><span class="line"></span><br><span class="line">7、delete语句为DML（data maintain Language),这个操作会被放到 rollback segment中,事务提交后才生效。如果有相应的 tigger,执行的时候将被触发。</span><br><span class="line"></span><br><span class="line">8、truncate、drop是DLL（data define language),操作立即生效，原数据不放到 rollback segment中，不能回滚</span><br><span class="line"></span><br><span class="line">9、在没有备份情况下，谨慎使用 drop 与 truncate。要删除部分数据行采用delete且注意结合where来约束影响范围。回滚段要足够大。要删除表用drop;若想保留表而将表中数据删除，如果于事务无关，用truncate即可实现。如果和事务有关，或老师想触发trigger,还是用delete。</span><br><span class="line"></span><br><span class="line">10、Truncate table 表名 速度快,而且效率高,因为:</span><br><span class="line">truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二者均删除表中的全部行。但 TRUNCATE TABLE 比 DELETE 速度快，且使用的系统和事务日志资源少。DELETE 语句每次删除一行，并在事务日志中为所删除的每行记录一项。TRUNCATE TABLE 通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。</span><br><span class="line"></span><br><span class="line">11、TRUNCATE TABLE 删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用 DELETE。如果要删除表定义及其数据，请使用 DROP TABLE 语句。</span><br><span class="line"></span><br><span class="line">12、对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 WHERE 子句的 DELETE 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。</span><br></pre></td></tr></table></figure>
+<pre><code>1、DELETE语句执行删除的过程是每次从表中删除一行，并且同时将该行的删除操作作为事务记录在日志中保存以便进行回滚操作。TRUNCATE TABLE 则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存，删除的数据是不能恢复的。并且在删除的过程中不会激活与表有关的删除触发器。执行速度快。
 
+2、表和索引所占空间。当表被TRUNCATE 后，这个表和索引所占用的空间会恢复到初始大小，而DELETE操作不会减少表或索引所占用的空间。drop语句将表所占用的空间全释放掉。
 
+3、一般而言，drop &gt; truncate &gt; delete
 
-<h1 id="4-索引的工作原理及其种类"><a href="#4-索引的工作原理及其种类" class="headerlink" title="4.索引的工作原理及其种类"></a>4.索引的工作原理及其种类</h1><blockquote>
+4、应用范围。truncate 只能对 table；delete 可以是table和view
+
+5、truncate 和 DELETE 只删除数据，而DROP则删除整个表（结构和数据）。
+
+6、truncate与不带where的delete ：只删除数据，而不删除表的结构（定义）drop语句将删除表的结构被依赖的约束（constrain),触发器（trigger)索引（index);依赖于该表的存储过程/函数将被保留，但其状态会变为：invalid。
+
+7、delete语句为DML（data maintain Language),这个操作会被放到 rollback segment中,事务提交后才生效。如果有相应的 tigger,执行的时候将被触发。
+
+8、truncate、drop是DLL（data define language),操作立即生效，原数据不放到 rollback segment中，不能回滚
+
+9、在没有备份情况下，谨慎使用 drop 与 truncate。要删除部分数据行采用delete且注意结合where来约束影响范围。回滚段要足够大。要删除表用drop;若想保留表而将表中数据删除，如果于事务无关，用truncate即可实现。如果和事务有关，或老师想触发trigger,还是用delete。
+
+10、Truncate table 表名 速度快,而且效率高,因为:
+truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二者均删除表中的全部行。但 TRUNCATE TABLE 比 DELETE 速度快，且使用的系统和事务日志资源少。DELETE 语句每次删除一行，并在事务日志中为所删除的每行记录一项。TRUNCATE TABLE 通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。
+
+11、TRUNCATE TABLE 删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用 DELETE。如果要删除表定义及其数据，请使用 DROP TABLE 语句。
+
+12、对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 WHERE 子句的 DELETE 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
+</code></pre><h1 id="4-索引的工作原理及其种类"><a href="#4-索引的工作原理及其种类" class="headerlink" title="4.索引的工作原理及其种类"></a>4.索引的工作原理及其种类</h1><blockquote>
 <p><strong>数据库索引</strong>：是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。<strong>索引的实现通常使用B树及其变种B+树</strong>。<br>在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构，就是<strong>索引</strong>。</p>
 </blockquote>
 <p>为表设置索引要付出代价的：一是增加了数据库的存储空间，二是在插入和修改数据时要花费较多的时间(因为索引也要随之变动)。</p>
-<p><img src="/img/1546432394934.png" alt="1546432394934"></p>
+<p><img src="img/1546432394934.png" alt="1546432394934"></p>
 <p>图展示了一种可能的索引方式。左边是数据表，一共有两列七条记录，最左边的是数据记录的物理地址（注意逻辑上相邻的记录在磁盘上也并不是一定物理相邻的）。为了加快Col2的查找，可以维护一个右边所示的二叉查找树，每个节点分别包含索引键值和一个指向对应数据记录物理地址的指针，这样就可以运用二叉查找在O($log_2n$)的复杂度内获取到相应数据。</p>
 <p>创建索引可以大大提高系统的性能。</p>
 <p>第一，通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。</p>
@@ -440,13 +451,90 @@
 <p>第二，对于那些只有很少数据值的列也不应该增加索引。这是因为，由于这些列的取值很少，例如人事表的性别列，在查询的结果中，结果集的数据行占了表中数据行的很大比例，即需要在表中搜索的数据行的比例很大。增加索引，并不能明显加快检索速度。</p>
 <p>第三，对于那些定义为text, image和bit数据类型的列不应该增加索引。这是因为，这些列的数据量要么相当大，要么取值很少。</p>
 <p>第四，当修改性能远远大于检索性能时，不应该创建索引。这是因为，<strong>修改性能和检索性能是互相矛盾的</strong>。当增加索引时，会提高检索性能，但是会降低修改性能。当减少索引时，会提高修改性能，降低检索性能。因此，当修改性能远远大于检索性能时，不应该创建索引。</p>
-<p>根据数据库的功能，可以在<a href="http://www.2cto.com/database/">数据库设计</a>器中创建三种索引：<strong>唯一索引、主键索引和聚集索引</strong>。</p>
+<p>根据数据库的功能，可以在<a href="http://www.2cto.com/database/" target="_blank" rel="noopener">数据库设计</a>器中创建三种索引：<strong>唯一索引、主键索引和聚集索引</strong>。</p>
 <p><strong>唯一索引</strong></p>
 <p>唯一索引是不允许其中任何两行具有相同索引值的索引。</p>
 <p>当现有数据中存在重复的键值时，大多数数据库不允许将新创建的唯一索引与表一起保存。数据库还可能防止添加将在表中创建重复键值的新数据。例如，如果在employee表中职员的姓(lname)上创建了唯一索引，则任何两个员工都不能同姓。 <strong>主键索引</strong> 数据库表经常有一列或列组合，其值唯一标识表中的每一行。该列称为表的主键。 在数据库关系图中为表定义主键将自动创建主键索引，主键索引是唯一索引的特定类型。该索引要求主键中的每个值都唯一。当在查询中使用主键索引时，它还允许对数据的快速访问。 <strong>聚集索引</strong> 在聚集索引中，表中行的物理顺序与键值的逻辑（索引）顺序相同。<strong>一个表只能包含一个聚集索引。</strong></p>
 <p>如果某索引不是聚集索引，则表中行的物理顺序与键值的逻辑顺序不匹配。<strong>与非聚集索引相比，聚集索引通常提供更快的数据访问速度。</strong></p>
 
         </div>
+		<text ><h1 id="1-主键-超键-候选键-外键"><a href="#1-主键-超键-候选键-外键" class="headerlink" title="1. 主键 超键 候选键 外键"></a>1. 主键 超键 候选键 外键</h1><p><strong>主 键：</strong></p>
+<pre><code>数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。
+一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）
+</code></pre><p><strong>超 键：</strong></p>
+<pre><code>在关系中能唯一标识元组的属性集称为关系模式的超键
+一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键
+超键包含候选键和主键。
+</code></pre><p><strong>候选键：</strong></p>
+<pre><code>是最小超键，即没有冗余元素的超键。
+</code></pre><p><strong>外 键：</strong></p>
+<pre><code>在一个表中存在的另一个表的主键称此表的外键
+</code></pre><h1 id="2-数据库事务的四个特性及含义"><a href="#2-数据库事务的四个特性及含义" class="headerlink" title="2.数据库事务的四个特性及含义"></a>2.数据库事务的四个特性及含义</h1><blockquote>
+<p>数据库事务( transanction )正确执行的四个基本要素( ACID )：原子性(Atomicity)、一致性(Correspondence)、隔离性(Isolation)、持久性(Durability)。</p>
+</blockquote>
+<p><strong>原子性</strong>：</p>
+<pre><code>整个事务中的所有操作，要么全部完成，要么全部不完成，不可能停滞在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。
+</code></pre><p><strong>一致性</strong>：</p>
+<pre><code>在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。
+</code></pre><p><strong>隔离性</strong>：</p>
+<pre><code>隔离状态执行事务，使它们好像是系统在给定时间内执行的唯一操作。如果有两个事务，运行在相同的时间内，执行 相同的功能，事务的隔离性将确保每一事务在系统中认为只有该事务在使用系统。这种属性有时称为串行化，为了防止事务操作间的混淆，必须串行化或序列化请求，使得在同一时间仅有一个请求用于同一数据。
+</code></pre><p><strong>持久性</strong>：</p>
+<pre><code>在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中，并不会被回滚。
+</code></pre><h1 id="3-drop-delete与truncate的区别"><a href="#3-drop-delete与truncate的区别" class="headerlink" title="3.drop,delete与truncate的区别"></a>3.drop,delete与truncate的区别</h1><blockquote>
+<p>drop直接删掉表<br>delete删除表中数据，可以加where字句<br>truncate删除表中数据，再插入时自增长id又从1开始</p>
+</blockquote>
+<pre><code>1、DELETE语句执行删除的过程是每次从表中删除一行，并且同时将该行的删除操作作为事务记录在日志中保存以便进行回滚操作。TRUNCATE TABLE 则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存，删除的数据是不能恢复的。并且在删除的过程中不会激活与表有关的删除触发器。执行速度快。
+
+2、表和索引所占空间。当表被TRUNCATE 后，这个表和索引所占用的空间会恢复到初始大小，而DELETE操作不会减少表或索引所占用的空间。drop语句将表所占用的空间全释放掉。
+
+3、一般而言，drop &gt; truncate &gt; delete
+
+4、应用范围。truncate 只能对 table；delete 可以是table和view
+
+5、truncate 和 DELETE 只删除数据，而DROP则删除整个表（结构和数据）。
+
+6、truncate与不带where的delete ：只删除数据，而不删除表的结构（定义）drop语句将删除表的结构被依赖的约束（constrain),触发器（trigger)索引（index);依赖于该表的存储过程/函数将被保留，但其状态会变为：invalid。
+
+7、delete语句为DML（data maintain Language),这个操作会被放到 rollback segment中,事务提交后才生效。如果有相应的 tigger,执行的时候将被触发。
+
+8、truncate、drop是DLL（data define language),操作立即生效，原数据不放到 rollback segment中，不能回滚
+
+9、在没有备份情况下，谨慎使用 drop 与 truncate。要删除部分数据行采用delete且注意结合where来约束影响范围。回滚段要足够大。要删除表用drop;若想保留表而将表中数据删除，如果于事务无关，用truncate即可实现。如果和事务有关，或老师想触发trigger,还是用delete。
+
+10、Truncate table 表名 速度快,而且效率高,因为:
+truncate table 在功能上与不带 WHERE 子句的 DELETE 语句相同：二者均删除表中的全部行。但 TRUNCATE TABLE 比 DELETE 速度快，且使用的系统和事务日志资源少。DELETE 语句每次删除一行，并在事务日志中为所删除的每行记录一项。TRUNCATE TABLE 通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。
+
+11、TRUNCATE TABLE 删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用 DELETE。如果要删除表定义及其数据，请使用 DROP TABLE 语句。
+
+12、对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 WHERE 子句的 DELETE 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
+</code></pre><h1 id="4-索引的工作原理及其种类"><a href="#4-索引的工作原理及其种类" class="headerlink" title="4.索引的工作原理及其种类"></a>4.索引的工作原理及其种类</h1><blockquote>
+<p><strong>数据库索引</strong>：是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。<strong>索引的实现通常使用B树及其变种B+树</strong>。<br>在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构，就是<strong>索引</strong>。</p>
+</blockquote>
+<p>为表设置索引要付出代价的：一是增加了数据库的存储空间，二是在插入和修改数据时要花费较多的时间(因为索引也要随之变动)。</p>
+<p><img src="img/1546432394934.png" alt="1546432394934"></p>
+<p>图展示了一种可能的索引方式。左边是数据表，一共有两列七条记录，最左边的是数据记录的物理地址（注意逻辑上相邻的记录在磁盘上也并不是一定物理相邻的）。为了加快Col2的查找，可以维护一个右边所示的二叉查找树，每个节点分别包含索引键值和一个指向对应数据记录物理地址的指针，这样就可以运用二叉查找在O($log_2n$)的复杂度内获取到相应数据。</p>
+<p>创建索引可以大大提高系统的性能。</p>
+<p>第一，通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。</p>
+<p>第二，可以大大加快数据的检索速度，这也是创建索引的最主要的原因。</p>
+<p>第三，可以加速表和表之间的连接，特别是在实现数据的参考完整性方面特别有意义。</p>
+<p>第四，在使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序的时间。</p>
+<p>第五，通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。</p>
+<p>也许会有人要问：增加索引有如此多的优点，为什么不对表中的每一个列创建一个索引呢？因为，增加索引也有许多不利的方面。</p>
+<p>第一，创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加。</p>
+<p>第二，索引需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大。</p>
+<p>第三，当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，这样就降低了数据的维护速度。</p>
+<p>索引是建立在数据库表中的某些列的上面。在创建索引的时候，应该考虑在哪些列上可以创建索引，在哪些列上不能创建索引。<strong>一般来说，应该在这些列上创建索引：</strong>在经常需要搜索的列上，可以加快搜索的速度；在作为主键的列上，强制该列的唯一性和组织表中数据的排列结构；在经常用在连接的列上，这些列主要是一些外键，可以加快连接的速度；在经常需要根据范围进行搜索的列上创建索引，因为索引已经排序，其指定的范围是连续的；在经常需要排序的列上创建索引，因为索引已经排序，这样查询可以利用索引的排序，加快排序查询时间；在经常使用在WHERE子句中的列上面创建索引，加快条件的判断速度。</p>
+<p>同样，对于有些列不应该创建索引。<strong>一般来说，不应该创建索引的的这些列具有下列特点：</strong></p>
+<p>第一，对于那些在查询中很少使用或者参考的列不应该创建索引。这是因为，既然这些列很少使用到，因此有索引或者无索引，并不能提高查询速度。相反，由于增加了索引，反而降低了系统的维护速度和增大了空间需求。</p>
+<p>第二，对于那些只有很少数据值的列也不应该增加索引。这是因为，由于这些列的取值很少，例如人事表的性别列，在查询的结果中，结果集的数据行占了表中数据行的很大比例，即需要在表中搜索的数据行的比例很大。增加索引，并不能明显加快检索速度。</p>
+<p>第三，对于那些定义为text, image和bit数据类型的列不应该增加索引。这是因为，这些列的数据量要么相当大，要么取值很少。</p>
+<p>第四，当修改性能远远大于检索性能时，不应该创建索引。这是因为，<strong>修改性能和检索性能是互相矛盾的</strong>。当增加索引时，会提高检索性能，但是会降低修改性能。当减少索引时，会提高修改性能，降低检索性能。因此，当修改性能远远大于检索性能时，不应该创建索引。</p>
+<p>根据数据库的功能，可以在<a href="http://www.2cto.com/database/" target="_blank" rel="noopener">数据库设计</a>器中创建三种索引：<strong>唯一索引、主键索引和聚集索引</strong>。</p>
+<p><strong>唯一索引</strong></p>
+<p>唯一索引是不允许其中任何两行具有相同索引值的索引。</p>
+<p>当现有数据中存在重复的键值时，大多数数据库不允许将新创建的唯一索引与表一起保存。数据库还可能防止添加将在表中创建重复键值的新数据。例如，如果在employee表中职员的姓(lname)上创建了唯一索引，则任何两个员工都不能同姓。 <strong>主键索引</strong> 数据库表经常有一列或列组合，其值唯一标识表中的每一行。该列称为表的主键。 在数据库关系图中为表定义主键将自动创建主键索引，主键索引是唯一索引的特定类型。该索引要求主键中的每个值都唯一。当在查询中使用主键索引时，它还允许对数据的快速访问。 <strong>聚集索引</strong> 在聚集索引中，表中行的物理顺序与键值的逻辑（索引）顺序相同。<strong>一个表只能包含一个聚集索引。</strong></p>
+<p>如果某索引不是聚集索引，则表中行的物理顺序与键值的逻辑顺序不匹配。<strong>与非聚集索引相比，聚集索引通常提供更快的数据访问速度。</strong></p>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -475,7 +563,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/01/03/Mysql%E7%9A%84%E5%9B%9B%E7%A7%8D%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/" rel="prev">
+            <a href="/2019/01/03/Mysql的四种隔离级别/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1546593064-053d21199be1?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1546593064-053d21199be1?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80">
               </div>
@@ -493,7 +581,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2018/12/27/Google-Chrome%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="next">
+            <a href="/2018/12/27/Google-Chrome快捷键/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80">
               </div>
@@ -562,7 +650,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -574,10 +662,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -859,7 +947,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -887,14 +975,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -915,28 +1003,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

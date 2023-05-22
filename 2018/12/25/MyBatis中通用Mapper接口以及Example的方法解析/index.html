@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,165 +379,164 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="一、通用Mapper中的方法解析"><a href="#一、通用Mapper中的方法解析" class="headerlink" title="一、通用Mapper中的方法解析"></a>一、通用Mapper中的方法解析</h3><table>
-    <thead>
-    <tr>
-        <th>方法</th>
-        <th>功能说明</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>int countByExample(UserExample example) thorws SQLException</td>
-        <td>按条件计数</td>
-    </tr>
-    <tr>
-        <td>int <font color="hotpink">deleteByPrimaryKey</font>(Integer id) thorws SQLException</td>
-        <td>按主键删除</td>
-    </tr>
-    <tr>
-        <td>int <font color="hotpink">deleteByExample</font>(UserExample example) thorws SQLException</td>
-        <td>按条件查询</td>
-    </tr>
-    <tr>
-        <td>String/Integer <font color="hotpink">insert</font>(User record) thorws SQLException</td>
-        <td>插入数据（返回值为ID）</td>
-    </tr>
-    <tr>
-        <td>User <font color="hotpink">selectByPrimaryKey</font>(Integer id) thorws SQLException</td>
-        <td>按主键查询</td>
-    </tr>
-    <tr>
-        <td>List <font color="hotpink">selectByExample</font>(UserExample example) thorws SQLException</td>
-        <td>按条件查询</td>
-    </tr>
-    <tr>
-        <td>List selectByExampleWithBLOGs(UserExample example) thorws SQLException</td>
-        <td>按条件查询（包括BLOB字段）。只有当数据表中的字段类型有为二进制的才会产生。</td>
-    </tr>
-    <tr>
-        <td>int <font color="hotpink">updateByPrimaryKey</font>(User record) thorws SQLException</td>
-        <td>按主键更新</td>
-    </tr>
-    <tr>
-        <td>int updateByPrimaryKeySelective(User record) thorws SQLException</td>
-        <td>按主键更新值不为null的字段</td>
-    </tr>
-    <tr>
-        <td>int <font color="hotpink">updateByExample</font>(User record, UserExample example) thorws SQLException</td>
-        <td>按条件更新</td>
-    </tr>
-    <tr>
-        <td>int updateByExampleSelective(User record, UserExample example) thorws SQLException</td>
-        <td>按条件更新值不为null的字段</td>
-    </tr>
-    </tbody>
-</table>
-<br/>
+		
+          <h3 id="一、通用Mapper中的方法解析"><a href="#一、通用Mapper中的方法解析" class="headerlink" title="一、通用Mapper中的方法解析"></a>一、通用Mapper中的方法解析</h3><table><br>    <thead><br>    <tr><br>        <th>方法</th><br>        <th>功能说明</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>int countByExample(UserExample example) thorws SQLException</td><br>        <td>按条件计数</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键删除</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>String/Integer <font color="hotpink">insert</font>(User record) thorws SQLException</td><br>        <td>插入数据（返回值为ID）</td><br>    </tr><br>    <tr><br>        <td>User <font color="hotpink">selectByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键查询</td><br>    </tr><br>    <tr><br>        <td>List <font color="hotpink">selectByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>List selectByExampleWithBLOGs(UserExample example) thorws SQLException</td><br>        <td>按条件查询（包括BLOB字段）。只有当数据表中的字段类型有为二进制的才会产生。</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByPrimaryKey</font>(User record) thorws SQLException</td><br>        <td>按主键更新</td><br>    </tr><br>    <tr><br>        <td>int updateByPrimaryKeySelective(User record) thorws SQLException</td><br>        <td>按主键更新值不为null的字段</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByExample</font>(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新</td><br>    </tr><br>    <tr><br>        <td>int updateByExampleSelective(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新值不为null的字段</td><br>    </tr><br>    </tbody><br></table><br><br><br><br>### 二、Example实例解析<br>mybatis的逆向工程中会生成实例及实例对应的example，example用于添加条件，相当where后面的部分<br><br><code>java
+import tk.mybatis.mapper.entity.Example;
 
-<h3 id="二、Example实例解析"><a href="#二、Example实例解析" class="headerlink" title="二、Example实例解析"></a>二、Example实例解析</h3><p>mybatis的逆向工程中会生成实例及实例对应的example，example用于添加条件，相当where后面的部分 </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tk.mybatis.mapper.entity.Example;</span><br><span class="line"></span><br><span class="line"><span class="type">Example</span> <span class="variable">example</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Example</span>(JavaBean.class);</span><br><span class="line">Example.<span class="type">Criteria</span> <span class="variable">criteria</span> <span class="operator">=</span> example.createCriteria();</span><br></pre></td></tr></table></figure>
-<table>
-    <thead>
-    <tr>
-        <th>方法</th>
-        <th>说明</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>example.setOrderByClause(“字段名 ASC”);</td>
-        <td>添加升序排列条件，DESC为降序</td>
-    </tr>
-    <tr>
-        <td>example.setDistinct(false)</td>
-        <td>去除重复，boolean型，true为选择不重复的记录。</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxIsNull</td>
-        <td>添加字段xxx为null的条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxIsNotNull</td>
-        <td>添加字段xxx不为null的条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxEqualTo(value)</td>
-        <td>添加xxx字段等于value条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxNotEqualTo(value)</td>
-        <td>添加xxx字段不等于value条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxGreaterThan(value)</td>
-        <td>添加xxx字段大于value条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxGreaterThanOrEqualTo(value)</td>
-        <td>添加xxx字段大于等于value条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxLessThan(value)</td>
-        <td>添加xxx字段小于value条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxLessThanOrEqualTo(value)</td>
-        <td>添加xxx字段小于等于value条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxIn(List&lt;？&gt;)</td>
-        <td>添加xxx字段值在List&lt;？&gt;条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxNotIn(List&lt;？&gt;)</td>
-        <td>添加xxx字段值不在List&lt;？&gt;条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxLike(“%”+value+”%”)</td>
-        <td>添加xxx字段值为value的模糊查询条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxNotLike(“%”+value+”%”)</td>
-        <td>添加xxx字段值不为value的模糊查询条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxBetween(value1,value2)</td>
-        <td>添加xxx字段值在value1和value2之间条件</td>
-    </tr>
-    <tr>
-        <td>criteria.andXxxNotBetween(value1,value2)</td>
-        <td>添加xxx字段值不在value1和value2之间条件</td>
-    </tr>
-    </tbody>
-</table>
+Example example = new Example(JavaBean.class);
+Example.Criteria criteria = example.createCriteria();</code><br><table><br>    <thead><br>    <tr><br>        <th>方法</th><br>        <th>说明</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>example.setOrderByClause(“字段名 ASC”);</td><br>        <td>添加升序排列条件，DESC为降序</td><br>    </tr><br>    <tr><br>        <td>example.setDistinct(false)</td><br>        <td>去除重复，boolean型，true为选择不重复的记录。</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIsNull</td><br>        <td>添加字段xxx为null的条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIsNotNull</td><br>        <td>添加字段xxx不为null的条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxEqualTo(value)</td><br>        <td>添加xxx字段等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotEqualTo(value)</td><br>        <td>添加xxx字段不等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxGreaterThan(value)</td><br>        <td>添加xxx字段大于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxGreaterThanOrEqualTo(value)</td><br>        <td>添加xxx字段大于等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLessThan(value)</td><br>        <td>添加xxx字段小于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLessThanOrEqualTo(value)</td><br>        <td>添加xxx字段小于等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIn(List&lt;？&gt;)</td><br>        <td>添加xxx字段值在List&lt;？&gt;条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotIn(List&lt;？&gt;)</td><br>        <td>添加xxx字段值不在List&lt;？&gt;条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLike(“%”+value+”%”)</td><br>        <td>添加xxx字段值为value的模糊查询条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotLike(“%”+value+”%”)</td><br>        <td>添加xxx字段值不为value的模糊查询条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxBetween(value1,value2)</td><br>        <td>添加xxx字段值在value1和value2之间条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotBetween(value1,value2)</td><br>        <td>添加xxx字段值不在value1和value2之间条件</td><br>    </tr><br>    </tbody><br></table>
 
 <h3 id="三、使用案例"><a href="#三、使用案例" class="headerlink" title="三、使用案例"></a>三、使用案例</h3><h4 id="1-查询"><a href="#1-查询" class="headerlink" title="1.查询"></a>1.查询</h4><p>① selectByPrimaryKey() 按主键查询</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：select * from user where id = 100;</span></span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> UserMapper.selectByPrimaryKey(<span class="number">100</span>); </span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//相当于：select * from user where id = 100;
+User user = UserMapper.selectByPrimaryKey(100); 
+</code></pre>
 <p>② selectByExample() 和 selectByExampleWithBLOGs()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：select * from user where username = &#x27;wyw&#x27; </span></span><br><span class="line"><span class="comment">// and  username is null order by username asc,email desc</span></span><br><span class="line"><span class="type">UserExample</span> <span class="variable">example</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserExample</span>();</span><br><span class="line"><span class="type">Criteria</span> <span class="variable">criteria</span> <span class="operator">=</span> example.createCriteria();</span><br><span class="line">criteria.andUsernameEqualTo(<span class="string">&quot;wyw&quot;</span>);</span><br><span class="line">criteria.andUsernameIsNull();</span><br><span class="line">example.setOrderByClause(<span class="string">&quot;username asc,email desc&quot;</span>);</span><br><span class="line">List&lt;?&gt;list = XxxMapper.selectByExample(example);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//相当于：select * from user where username = &#39;wyw&#39; 
+// and  username is null order by username asc,email desc
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;wyw&quot;);
+criteria.andUsernameIsNull();
+example.setOrderByClause(&quot;username asc,email desc&quot;);
+List&lt;?&gt;list = XxxMapper.selectByExample(example);
+</code></pre>
 <h4 id="2-插入数据"><a href="#2-插入数据" class="headerlink" title="2.插入数据"></a>2.插入数据</h4><p>①insert()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：insert into user(ID,username,password,email) values </span></span><br><span class="line"><span class="comment">//(&#x27;dsfgsdfgdsfgds&#x27;,&#x27;jack&#x27;,&#x27;1234&#x27;,&#x27;hello@126.com&#x27;);</span></span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">user.setId(<span class="string">&quot;dsfgsdfgdsfgds&quot;</span>);</span><br><span class="line">user.setUsername(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line">user.setPassword(<span class="string">&quot;1234&quot;</span>)</span><br><span class="line">user.setEmail(<span class="string">&quot;hello@163.com&quot;</span>);</span><br><span class="line">XxxMapper.insert(user);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//相当于：insert into user(ID,username,password,email) values 
+//(&#39;dsfgsdfgdsfgds&#39;,&#39;jack&#39;,&#39;1234&#39;,&#39;hello@126.com&#39;);
+User user = new User();
+user.setId(&quot;dsfgsdfgdsfgds&quot;);
+user.setUsername(&quot;jack&quot;);
+user.setPassword(&quot;1234&quot;)
+user.setEmail(&quot;hello@163.com&quot;);
+XxxMapper.insert(user);
+</code></pre>
 <h4 id="3-更新数据"><a href="#3-更新数据" class="headerlink" title="3.更新数据"></a>3.更新数据</h4><p>①updateByPrimaryKey()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：update user set username=&#x27;rose&#x27;, password=&#x27;5678&#x27;, </span></span><br><span class="line"><span class="comment">//email=&#x27;hello@163.com&#x27; where id=&#x27;a01&#x27;</span></span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span><span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">user.setId(<span class="string">&quot;a01&quot;</span>);</span><br><span class="line">user.setUsername(<span class="string">&quot;rose&quot;</span>);</span><br><span class="line">user.setPassword(<span class="string">&quot;5678&quot;</span>);</span><br><span class="line">user.setEmail(<span class="string">&quot;hello@163.com&quot;</span>);</span><br><span class="line">XxxMapper.updateByPrimaryKey(user);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//相当于：update user set username=&#39;rose&#39;, password=&#39;5678&#39;, 
+//email=&#39;hello@163.com&#39; where id=&#39;a01&#39;
+User user =new User();
+user.setId(&quot;a01&quot;);
+user.setUsername(&quot;rose&quot;);
+user.setPassword(&quot;5678&quot;);
+user.setEmail(&quot;hello@163.com&quot;);
+XxxMapper.updateByPrimaryKey(user);
+</code></pre>
 <p>②updateByPrimaryKeySelective()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：update user set password=&#x27;7890&#x27; where id=&#x27;a01&#x27;</span></span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">user.setId(<span class="string">&quot;a01&quot;</span>);</span><br><span class="line">user.setPassword(<span class="string">&quot;7890&quot;</span>);</span><br><span class="line">XxxMapper.updateByPrimaryKey(user);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//相当于：update user set password=&#39;7890&#39; where id=&#39;a01&#39;
+User user = new User();
+user.setId(&quot;a01&quot;);
+user.setPassword(&quot;7890&quot;);
+XxxMapper.updateByPrimaryKey(user);
+</code></pre>
 <p>③ updateByExample() 和 updateByExampleSelective()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：update user set password=&#x27;6666&#x27; where username=&#x27;jack&#x27;</span></span><br><span class="line"><span class="type">UserExample</span> <span class="variable">example</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserExample</span>();</span><br><span class="line"><span class="type">Criteria</span> <span class="variable">criteria</span> <span class="operator">=</span> example.createCriteria();</span><br><span class="line">criteria.andUsernameEqualTo(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line"><span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">user.setPassword(<span class="string">&quot;6666&quot;</span>);</span><br><span class="line">XxxMapper.updateByPrimaryKeySelective(user,example);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//相当于：update user set password=&#39;6666&#39; where username=&#39;jack&#39;
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;jack&quot;);
+User user = new User();
+user.setPassword(&quot;6666&quot;);
+XxxMapper.updateByPrimaryKeySelective(user,example);
+</code></pre>
 <blockquote>
 <p>updateByExample()更新所有的字段，包括字段为null的也更新<br>建议使用 updateByExampleSelective()更新想更新的字段</p>
 </blockquote>
 <h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4.删除数据"></a>4.删除数据</h4><p>①deleteByPrimaryKey()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：delete from user where id=1</span></span><br><span class="line">XxxMapper.deleteByPrimaryKey(<span class="number">1</span>);  </span><br></pre></td></tr></table></figure>
+<pre><code class="java">//相当于：delete from user where id=1
+XxxMapper.deleteByPrimaryKey(1);  
+</code></pre>
 <p>②deleteByExample()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：delete from user where username=&#x27;jack&#x27;</span></span><br><span class="line"><span class="type">UserExample</span> <span class="variable">example</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserExample</span>();</span><br><span class="line"><span class="type">Criteria</span> <span class="variable">criteria</span> <span class="operator">=</span> example.createCriteria();</span><br><span class="line">criteria.andUsernameEqualTo(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line">XxxMapper.deleteByExample(example);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//相当于：delete from user where username=&#39;jack&#39;
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;jack&quot;);
+XxxMapper.deleteByExample(example);
+</code></pre>
 <h4 id="5-查询数据数量"><a href="#5-查询数据数量" class="headerlink" title="5.查询数据数量"></a>5.查询数据数量</h4><p>①countByExample()</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//相当于：select count(*) from user where username=&#x27;jack&#x27;</span></span><br><span class="line"><span class="type">UserExample</span> <span class="variable">example</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserExample</span>();</span><br><span class="line"><span class="type">Criteria</span> <span class="variable">criteria</span> <span class="operator">=</span> example.createCriteria();</span><br><span class="line">criteria.andUsernameEqualTo(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> XxxMapper.countByExample(example);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//相当于：select count(*) from user where username=&#39;jack&#39;
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;jack&quot;);
+int count = XxxMapper.countByExample(example);
+</code></pre>
+
         </div>
+		<text ><h3 id="一、通用Mapper中的方法解析"><a href="#一、通用Mapper中的方法解析" class="headerlink" title="一、通用Mapper中的方法解析"></a>一、通用Mapper中的方法解析</h3><table><br>    <thead><br>    <tr><br>        <th>方法</th><br>        <th>功能说明</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>int countByExample(UserExample example) thorws SQLException</td><br>        <td>按条件计数</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键删除</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">deleteByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>String/Integer <font color="hotpink">insert</font>(User record) thorws SQLException</td><br>        <td>插入数据（返回值为ID）</td><br>    </tr><br>    <tr><br>        <td>User <font color="hotpink">selectByPrimaryKey</font>(Integer id) thorws SQLException</td><br>        <td>按主键查询</td><br>    </tr><br>    <tr><br>        <td>List <font color="hotpink">selectByExample</font>(UserExample example) thorws SQLException</td><br>        <td>按条件查询</td><br>    </tr><br>    <tr><br>        <td>List selectByExampleWithBLOGs(UserExample example) thorws SQLException</td><br>        <td>按条件查询（包括BLOB字段）。只有当数据表中的字段类型有为二进制的才会产生。</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByPrimaryKey</font>(User record) thorws SQLException</td><br>        <td>按主键更新</td><br>    </tr><br>    <tr><br>        <td>int updateByPrimaryKeySelective(User record) thorws SQLException</td><br>        <td>按主键更新值不为null的字段</td><br>    </tr><br>    <tr><br>        <td>int <font color="hotpink">updateByExample</font>(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新</td><br>    </tr><br>    <tr><br>        <td>int updateByExampleSelective(User record, UserExample example) thorws SQLException</td><br>        <td>按条件更新值不为null的字段</td><br>    </tr><br>    </tbody><br></table><br><br><br><br>### 二、Example实例解析<br>mybatis的逆向工程中会生成实例及实例对应的example，example用于添加条件，相当where后面的部分<br><br><code>java
+import tk.mybatis.mapper.entity.Example;
+
+Example example = new Example(JavaBean.class);
+Example.Criteria criteria = example.createCriteria();</code><br><table><br>    <thead><br>    <tr><br>        <th>方法</th><br>        <th>说明</th><br>    </tr><br>    </thead><br>    <tbody><br>    <tr><br>        <td>example.setOrderByClause(“字段名 ASC”);</td><br>        <td>添加升序排列条件，DESC为降序</td><br>    </tr><br>    <tr><br>        <td>example.setDistinct(false)</td><br>        <td>去除重复，boolean型，true为选择不重复的记录。</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIsNull</td><br>        <td>添加字段xxx为null的条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIsNotNull</td><br>        <td>添加字段xxx不为null的条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxEqualTo(value)</td><br>        <td>添加xxx字段等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotEqualTo(value)</td><br>        <td>添加xxx字段不等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxGreaterThan(value)</td><br>        <td>添加xxx字段大于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxGreaterThanOrEqualTo(value)</td><br>        <td>添加xxx字段大于等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLessThan(value)</td><br>        <td>添加xxx字段小于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLessThanOrEqualTo(value)</td><br>        <td>添加xxx字段小于等于value条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxIn(List&lt;？&gt;)</td><br>        <td>添加xxx字段值在List&lt;？&gt;条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotIn(List&lt;？&gt;)</td><br>        <td>添加xxx字段值不在List&lt;？&gt;条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxLike(“%”+value+”%”)</td><br>        <td>添加xxx字段值为value的模糊查询条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotLike(“%”+value+”%”)</td><br>        <td>添加xxx字段值不为value的模糊查询条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxBetween(value1,value2)</td><br>        <td>添加xxx字段值在value1和value2之间条件</td><br>    </tr><br>    <tr><br>        <td>criteria.andXxxNotBetween(value1,value2)</td><br>        <td>添加xxx字段值不在value1和value2之间条件</td><br>    </tr><br>    </tbody><br></table>
+
+<h3 id="三、使用案例"><a href="#三、使用案例" class="headerlink" title="三、使用案例"></a>三、使用案例</h3><h4 id="1-查询"><a href="#1-查询" class="headerlink" title="1.查询"></a>1.查询</h4><p>① selectByPrimaryKey() 按主键查询</p>
+<pre><code class="java">//相当于：select * from user where id = 100;
+User user = UserMapper.selectByPrimaryKey(100); 
+</code></pre>
+<p>② selectByExample() 和 selectByExampleWithBLOGs()</p>
+<pre><code class="java">//相当于：select * from user where username = &#39;wyw&#39; 
+// and  username is null order by username asc,email desc
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;wyw&quot;);
+criteria.andUsernameIsNull();
+example.setOrderByClause(&quot;username asc,email desc&quot;);
+List&lt;?&gt;list = XxxMapper.selectByExample(example);
+</code></pre>
+<h4 id="2-插入数据"><a href="#2-插入数据" class="headerlink" title="2.插入数据"></a>2.插入数据</h4><p>①insert()</p>
+<pre><code class="java">//相当于：insert into user(ID,username,password,email) values 
+//(&#39;dsfgsdfgdsfgds&#39;,&#39;jack&#39;,&#39;1234&#39;,&#39;hello@126.com&#39;);
+User user = new User();
+user.setId(&quot;dsfgsdfgdsfgds&quot;);
+user.setUsername(&quot;jack&quot;);
+user.setPassword(&quot;1234&quot;)
+user.setEmail(&quot;hello@163.com&quot;);
+XxxMapper.insert(user);
+</code></pre>
+<h4 id="3-更新数据"><a href="#3-更新数据" class="headerlink" title="3.更新数据"></a>3.更新数据</h4><p>①updateByPrimaryKey()</p>
+<pre><code class="java">//相当于：update user set username=&#39;rose&#39;, password=&#39;5678&#39;, 
+//email=&#39;hello@163.com&#39; where id=&#39;a01&#39;
+User user =new User();
+user.setId(&quot;a01&quot;);
+user.setUsername(&quot;rose&quot;);
+user.setPassword(&quot;5678&quot;);
+user.setEmail(&quot;hello@163.com&quot;);
+XxxMapper.updateByPrimaryKey(user);
+</code></pre>
+<p>②updateByPrimaryKeySelective()</p>
+<pre><code class="java">//相当于：update user set password=&#39;7890&#39; where id=&#39;a01&#39;
+User user = new User();
+user.setId(&quot;a01&quot;);
+user.setPassword(&quot;7890&quot;);
+XxxMapper.updateByPrimaryKey(user);
+</code></pre>
+<p>③ updateByExample() 和 updateByExampleSelective()</p>
+<pre><code class="java">//相当于：update user set password=&#39;6666&#39; where username=&#39;jack&#39;
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;jack&quot;);
+User user = new User();
+user.setPassword(&quot;6666&quot;);
+XxxMapper.updateByPrimaryKeySelective(user,example);
+</code></pre>
+<blockquote>
+<p>updateByExample()更新所有的字段，包括字段为null的也更新<br>建议使用 updateByExampleSelective()更新想更新的字段</p>
+</blockquote>
+<h4 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4.删除数据"></a>4.删除数据</h4><p>①deleteByPrimaryKey()</p>
+<pre><code class="java">//相当于：delete from user where id=1
+XxxMapper.deleteByPrimaryKey(1);  
+</code></pre>
+<p>②deleteByExample()</p>
+<pre><code class="java">//相当于：delete from user where username=&#39;jack&#39;
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;jack&quot;);
+XxxMapper.deleteByExample(example);
+</code></pre>
+<h4 id="5-查询数据数量"><a href="#5-查询数据数量" class="headerlink" title="5.查询数据数量"></a>5.查询数据数量</h4><p>①countByExample()</p>
+<pre><code class="java">//相当于：select count(*) from user where username=&#39;jack&#39;
+UserExample example = new UserExample();
+Criteria criteria = example.createCriteria();
+criteria.andUsernameEqualTo(&quot;jack&quot;);
+int count = XxxMapper.countByExample(example);
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -567,7 +565,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2018/12/26/Typora%E4%BE%A7%E8%BE%B9%E6%A0%8F%E7%9A%84%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE%E6%8A%98%E5%8F%A0-win%E7%B3%BB%E7%BB%9F/" rel="prev">
+            <a href="/2018/12/26/Typora侧边栏的大纲视图折叠-win系统/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1537017338111-a3477aaeb9ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1537017338111-a3477aaeb9ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80">
               </div>
@@ -585,7 +583,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2018/12/25/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E7%82%B9%EF%BC%9F/" rel="next">
+            <a href="/2018/12/25/抽象类和接口有什么不同点？/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1559145430-e30c788dc85b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1559145430-e30c788dc85b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -654,7 +652,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -666,10 +664,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -951,7 +949,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -979,14 +977,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -1007,28 +1005,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

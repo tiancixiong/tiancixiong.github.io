@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,12 +379,338 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <blockquote>
 <p>十次方项目工具类<code>IdWorker.java</code><br>描述：使用<code>Twitter</code>的<code>Snowflake</code>雪花算法设置分布式自增长ID</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.management.ManagementFactory;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.NetworkInterface;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;名称：IdWorker.java&lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;描述：分布式自增长ID&lt;/p&gt;</span></span><br><span class="line"><span class="comment"> * &lt;pre&gt;</span></span><br><span class="line"><span class="comment"> *     Twitter的 Snowflake　JAVA实现方案</span></span><br><span class="line"><span class="comment"> * &lt;/pre&gt;</span></span><br><span class="line"><span class="comment"> * 核心代码为其IdWorker这个类实现，其原理结构如下，我分别用一个0表示一位，用—分割开部分的作用：</span></span><br><span class="line"><span class="comment"> * 1||0---0000000000 0000000000 0000000000 0000000000 0 --- 00000 ---00000 ---000000000000</span></span><br><span class="line"><span class="comment"> * 在上面的字符串中，第一位为未使用（实际上也可作为long的符号位），接下来的41位为毫秒级时间，</span></span><br><span class="line"><span class="comment"> * 然后5位datacenter标识位，5位机器ID（并不算标识符，实际是为线程标识），</span></span><br><span class="line"><span class="comment"> * 然后12位该毫秒内的当前毫秒内的计数，加起来刚好64位，为一个Long型。</span></span><br><span class="line"><span class="comment"> * 这样的好处是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞（由datacenter和机器ID作区分），</span></span><br><span class="line"><span class="comment"> * 并且效率较高，经测试，snowflake每秒能够产生26万ID左右，完全满足需要。</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加))</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Polim</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">IdWorker</span> &#123;</span><br><span class="line">    <span class="comment">// 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">twepoch</span> <span class="operator">=</span> <span class="number">1288834974657L</span>;</span><br><span class="line">    <span class="comment">// 机器标识位数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">workerIdBits</span> <span class="operator">=</span> <span class="number">5L</span>;</span><br><span class="line">    <span class="comment">// 数据中心标识位数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">datacenterIdBits</span> <span class="operator">=</span> <span class="number">5L</span>;</span><br><span class="line">    <span class="comment">// 机器ID最大值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">maxWorkerId</span> <span class="operator">=</span> -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; workerIdBits);</span><br><span class="line">    <span class="comment">// 数据中心ID最大值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">maxDatacenterId</span> <span class="operator">=</span> -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; datacenterIdBits);</span><br><span class="line">    <span class="comment">// 毫秒内自增位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">sequenceBits</span> <span class="operator">=</span> <span class="number">12L</span>;</span><br><span class="line">    <span class="comment">// 机器ID偏左移12位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">workerIdShift</span> <span class="operator">=</span> sequenceBits;</span><br><span class="line">    <span class="comment">// 数据中心ID左移17位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">datacenterIdShift</span> <span class="operator">=</span> sequenceBits + workerIdBits;</span><br><span class="line">    <span class="comment">// 时间毫秒左移22位</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">timestampLeftShift</span> <span class="operator">=</span> sequenceBits + workerIdBits + datacenterIdBits;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">sequenceMask</span> <span class="operator">=</span> -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; sequenceBits);</span><br><span class="line">    <span class="comment">/* 上次生产id时间戳 */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">long</span> <span class="variable">lastTimestamp</span> <span class="operator">=</span> -<span class="number">1L</span>;</span><br><span class="line">    <span class="comment">// 0，并发控制</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="variable">sequence</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> workerId;</span><br><span class="line">    <span class="comment">// 数据标识id部分</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> datacenterId;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">IdWorker</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.datacenterId = getDatacenterId(maxDatacenterId);</span><br><span class="line">        <span class="built_in">this</span>.workerId = getMaxWorkerId(datacenterId, maxWorkerId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> workerId     工作机器ID</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> datacenterId 序列号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">IdWorker</span><span class="params">(<span class="type">long</span> workerId, <span class="type">long</span> datacenterId)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (workerId &gt; maxWorkerId || workerId &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(String.format(<span class="string">&quot;worker Id can&#x27;t be greater than %d or less than 0&quot;</span>, maxWorkerId));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (datacenterId &gt; maxDatacenterId || datacenterId &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(String.format(<span class="string">&quot;datacenter Id can&#x27;t be greater than %d or less than 0&quot;</span>, maxDatacenterId));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.workerId = workerId;</span><br><span class="line">        <span class="built_in">this</span>.datacenterId = datacenterId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取下一个ID</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">long</span> <span class="title function_">nextId</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">timestamp</span> <span class="operator">=</span> timeGen();</span><br><span class="line">        <span class="keyword">if</span> (timestamp &lt; lastTimestamp) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(String.format(<span class="string">&quot;Clock moved backwards.  Refusing to generate id for %d milliseconds&quot;</span>, lastTimestamp - timestamp));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp == timestamp) &#123;</span><br><span class="line">            <span class="comment">// 当前毫秒内，则+1</span></span><br><span class="line">            sequence = (sequence + <span class="number">1</span>) &amp; sequenceMask;</span><br><span class="line">            <span class="keyword">if</span> (sequence == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 当前毫秒内计数满了，则等待下一秒</span></span><br><span class="line">                timestamp = tilNextMillis(lastTimestamp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sequence = <span class="number">0L</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        lastTimestamp = timestamp;</span><br><span class="line">        <span class="comment">// ID偏移组合生成最终的ID，并返回ID</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">nextId</span> <span class="operator">=</span> ((timestamp - twepoch) &lt;&lt; timestampLeftShift)</span><br><span class="line">                | (datacenterId &lt;&lt; datacenterIdShift)</span><br><span class="line">                | (workerId &lt;&lt; workerIdShift) | sequence;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> nextId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="title function_">tilNextMillis</span><span class="params">(<span class="keyword">final</span> <span class="type">long</span> lastTimestamp)</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">timestamp</span> <span class="operator">=</span> <span class="built_in">this</span>.timeGen();</span><br><span class="line">        <span class="keyword">while</span> (timestamp &lt;= lastTimestamp) &#123;</span><br><span class="line">            timestamp = <span class="built_in">this</span>.timeGen();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> timestamp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="title function_">timeGen</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 获取 maxWorkerId</span></span><br><span class="line"><span class="comment">     * &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">getMaxWorkerId</span><span class="params">(<span class="type">long</span> datacenterId, <span class="type">long</span> maxWorkerId)</span> &#123;</span><br><span class="line">        <span class="type">StringBuffer</span> <span class="variable">mpid</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuffer</span>();</span><br><span class="line">        mpid.append(datacenterId);</span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> ManagementFactory.getRuntimeMXBean().getName();</span><br><span class="line">        <span class="keyword">if</span> (!name.isEmpty()) &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             * GET jvmPid</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            mpid.append(name.split(<span class="string">&quot;@&quot;</span>)[<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * MAC + PID 的 hashcode 获取16个低位</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">return</span> (mpid.toString().hashCode() &amp; <span class="number">0xffff</span>) % (maxWorkerId + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 数据标识id部分</span></span><br><span class="line"><span class="comment">     * &lt;/p&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">getDatacenterId</span><span class="params">(<span class="type">long</span> maxDatacenterId)</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">id</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">InetAddress</span> <span class="variable">ip</span> <span class="operator">=</span> InetAddress.getLocalHost();</span><br><span class="line">            <span class="type">NetworkInterface</span> <span class="variable">network</span> <span class="operator">=</span> NetworkInterface.getByInetAddress(ip);</span><br><span class="line">            <span class="keyword">if</span> (network == <span class="literal">null</span>) &#123;</span><br><span class="line">                id = <span class="number">1L</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">byte</span>[] mac = network.getHardwareAddress();</span><br><span class="line">                id = ((<span class="number">0x000000FF</span> &amp; (<span class="type">long</span>) mac[mac.length - <span class="number">1</span>])</span><br><span class="line">                        | (<span class="number">0x0000FF00</span> &amp; (((<span class="type">long</span>) mac[mac.length - <span class="number">2</span>]) &lt;&lt; <span class="number">8</span>))) &gt;&gt; <span class="number">6</span>;</span><br><span class="line">                id = id % (maxDatacenterId + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot; getDatacenterId: &quot;</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">import java.lang.management.ManagementFactory;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+
+/**
+ * &lt;p&gt;名称：IdWorker.java&lt;/p&gt;
+ * &lt;p&gt;描述：分布式自增长ID&lt;/p&gt;
+ * &lt;pre&gt;
+ *     Twitter的 Snowflake　JAVA实现方案
+ * &lt;/pre&gt;
+ * 核心代码为其IdWorker这个类实现，其原理结构如下，我分别用一个0表示一位，用—分割开部分的作用：
+ * 1||0---0000000000 0000000000 0000000000 0000000000 0 --- 00000 ---00000 ---000000000000
+ * 在上面的字符串中，第一位为未使用（实际上也可作为long的符号位），接下来的41位为毫秒级时间，
+ * 然后5位datacenter标识位，5位机器ID（并不算标识符，实际是为线程标识），
+ * 然后12位该毫秒内的当前毫秒内的计数，加起来刚好64位，为一个Long型。
+ * 这样的好处是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞（由datacenter和机器ID作区分），
+ * 并且效率较高，经测试，snowflake每秒能够产生26万ID左右，完全满足需要。
+ * &lt;p&gt;
+ * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加))
+ *
+ * @author Polim
+ */
+public class IdWorker {
+    // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
+    private final static long twepoch = 1288834974657L;
+    // 机器标识位数
+    private final static long workerIdBits = 5L;
+    // 数据中心标识位数
+    private final static long datacenterIdBits = 5L;
+    // 机器ID最大值
+    private final static long maxWorkerId = -1L ^ (-1L &lt;&lt; workerIdBits);
+    // 数据中心ID最大值
+    private final static long maxDatacenterId = -1L ^ (-1L &lt;&lt; datacenterIdBits);
+    // 毫秒内自增位
+    private final static long sequenceBits = 12L;
+    // 机器ID偏左移12位
+    private final static long workerIdShift = sequenceBits;
+    // 数据中心ID左移17位
+    private final static long datacenterIdShift = sequenceBits + workerIdBits;
+    // 时间毫秒左移22位
+    private final static long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
+
+    private final static long sequenceMask = -1L ^ (-1L &lt;&lt; sequenceBits);
+    /* 上次生产id时间戳 */
+    private static long lastTimestamp = -1L;
+    // 0，并发控制
+    private long sequence = 0L;
+
+    private final long workerId;
+    // 数据标识id部分
+    private final long datacenterId;
+
+    public IdWorker() {
+        this.datacenterId = getDatacenterId(maxDatacenterId);
+        this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
+    }
+
+    /**
+     * @param workerId     工作机器ID
+     * @param datacenterId 序列号
+     */
+    public IdWorker(long workerId, long datacenterId) {
+        if (workerId &gt; maxWorkerId || workerId &lt; 0) {
+            throw new IllegalArgumentException(String.format(&quot;worker Id can&#39;t be greater than %d or less than 0&quot;, maxWorkerId));
+        }
+        if (datacenterId &gt; maxDatacenterId || datacenterId &lt; 0) {
+            throw new IllegalArgumentException(String.format(&quot;datacenter Id can&#39;t be greater than %d or less than 0&quot;, maxDatacenterId));
+        }
+        this.workerId = workerId;
+        this.datacenterId = datacenterId;
+    }
+
+    /**
+     * 获取下一个ID
+     *
+     * @return
+     */
+    public synchronized long nextId() {
+        long timestamp = timeGen();
+        if (timestamp &lt; lastTimestamp) {
+            throw new RuntimeException(String.format(&quot;Clock moved backwards.  Refusing to generate id for %d milliseconds&quot;, lastTimestamp - timestamp));
+        }
+
+        if (lastTimestamp == timestamp) {
+            // 当前毫秒内，则+1
+            sequence = (sequence + 1) &amp; sequenceMask;
+            if (sequence == 0) {
+                // 当前毫秒内计数满了，则等待下一秒
+                timestamp = tilNextMillis(lastTimestamp);
+            }
+        } else {
+            sequence = 0L;
+        }
+        lastTimestamp = timestamp;
+        // ID偏移组合生成最终的ID，并返回ID
+        long nextId = ((timestamp - twepoch) &lt;&lt; timestampLeftShift)
+                | (datacenterId &lt;&lt; datacenterIdShift)
+                | (workerId &lt;&lt; workerIdShift) | sequence;
+
+        return nextId;
+    }
+
+    private long tilNextMillis(final long lastTimestamp) {
+        long timestamp = this.timeGen();
+        while (timestamp &lt;= lastTimestamp) {
+            timestamp = this.timeGen();
+        }
+        return timestamp;
+    }
+
+    private long timeGen() {
+        return System.currentTimeMillis();
+    }
+
+    /**
+     * &lt;p&gt;
+     * 获取 maxWorkerId
+     * &lt;/p&gt;
+     */
+    protected static long getMaxWorkerId(long datacenterId, long maxWorkerId) {
+        StringBuffer mpid = new StringBuffer();
+        mpid.append(datacenterId);
+        String name = ManagementFactory.getRuntimeMXBean().getName();
+        if (!name.isEmpty()) {
+            /*
+             * GET jvmPid
+             */
+            mpid.append(name.split(&quot;@&quot;)[0]);
+        }
+        /*
+         * MAC + PID 的 hashcode 获取16个低位
+         */
+        return (mpid.toString().hashCode() &amp; 0xffff) % (maxWorkerId + 1);
+    }
+
+    /**
+     * &lt;p&gt;
+     * 数据标识id部分
+     * &lt;/p&gt;
+     */
+    protected static long getDatacenterId(long maxDatacenterId) {
+        long id = 0L;
+        try {
+            InetAddress ip = InetAddress.getLocalHost();
+            NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+            if (network == null) {
+                id = 1L;
+            } else {
+                byte[] mac = network.getHardwareAddress();
+                id = ((0x000000FF &amp; (long) mac[mac.length - 1])
+                        | (0x0000FF00 &amp; (((long) mac[mac.length - 2]) &lt;&lt; 8))) &gt;&gt; 6;
+                id = id % (maxDatacenterId + 1);
+            }
+        } catch (Exception e) {
+            System.out.println(&quot; getDatacenterId: &quot; + e.getMessage());
+        }
+        return id;
+    }
+
+}
+</code></pre>
 
         </div>
+		<text ><blockquote>
+<p>十次方项目工具类<code>IdWorker.java</code><br>描述：使用<code>Twitter</code>的<code>Snowflake</code>雪花算法设置分布式自增长ID</p>
+</blockquote>
+<pre><code class="java">import java.lang.management.ManagementFactory;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+
+/**
+ * &lt;p&gt;名称：IdWorker.java&lt;/p&gt;
+ * &lt;p&gt;描述：分布式自增长ID&lt;/p&gt;
+ * &lt;pre&gt;
+ *     Twitter的 Snowflake　JAVA实现方案
+ * &lt;/pre&gt;
+ * 核心代码为其IdWorker这个类实现，其原理结构如下，我分别用一个0表示一位，用—分割开部分的作用：
+ * 1||0---0000000000 0000000000 0000000000 0000000000 0 --- 00000 ---00000 ---000000000000
+ * 在上面的字符串中，第一位为未使用（实际上也可作为long的符号位），接下来的41位为毫秒级时间，
+ * 然后5位datacenter标识位，5位机器ID（并不算标识符，实际是为线程标识），
+ * 然后12位该毫秒内的当前毫秒内的计数，加起来刚好64位，为一个Long型。
+ * 这样的好处是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞（由datacenter和机器ID作区分），
+ * 并且效率较高，经测试，snowflake每秒能够产生26万ID左右，完全满足需要。
+ * &lt;p&gt;
+ * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加))
+ *
+ * @author Polim
+ */
+public class IdWorker {
+    // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
+    private final static long twepoch = 1288834974657L;
+    // 机器标识位数
+    private final static long workerIdBits = 5L;
+    // 数据中心标识位数
+    private final static long datacenterIdBits = 5L;
+    // 机器ID最大值
+    private final static long maxWorkerId = -1L ^ (-1L &lt;&lt; workerIdBits);
+    // 数据中心ID最大值
+    private final static long maxDatacenterId = -1L ^ (-1L &lt;&lt; datacenterIdBits);
+    // 毫秒内自增位
+    private final static long sequenceBits = 12L;
+    // 机器ID偏左移12位
+    private final static long workerIdShift = sequenceBits;
+    // 数据中心ID左移17位
+    private final static long datacenterIdShift = sequenceBits + workerIdBits;
+    // 时间毫秒左移22位
+    private final static long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
+
+    private final static long sequenceMask = -1L ^ (-1L &lt;&lt; sequenceBits);
+    /* 上次生产id时间戳 */
+    private static long lastTimestamp = -1L;
+    // 0，并发控制
+    private long sequence = 0L;
+
+    private final long workerId;
+    // 数据标识id部分
+    private final long datacenterId;
+
+    public IdWorker() {
+        this.datacenterId = getDatacenterId(maxDatacenterId);
+        this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
+    }
+
+    /**
+     * @param workerId     工作机器ID
+     * @param datacenterId 序列号
+     */
+    public IdWorker(long workerId, long datacenterId) {
+        if (workerId &gt; maxWorkerId || workerId &lt; 0) {
+            throw new IllegalArgumentException(String.format(&quot;worker Id can&#39;t be greater than %d or less than 0&quot;, maxWorkerId));
+        }
+        if (datacenterId &gt; maxDatacenterId || datacenterId &lt; 0) {
+            throw new IllegalArgumentException(String.format(&quot;datacenter Id can&#39;t be greater than %d or less than 0&quot;, maxDatacenterId));
+        }
+        this.workerId = workerId;
+        this.datacenterId = datacenterId;
+    }
+
+    /**
+     * 获取下一个ID
+     *
+     * @return
+     */
+    public synchronized long nextId() {
+        long timestamp = timeGen();
+        if (timestamp &lt; lastTimestamp) {
+            throw new RuntimeException(String.format(&quot;Clock moved backwards.  Refusing to generate id for %d milliseconds&quot;, lastTimestamp - timestamp));
+        }
+
+        if (lastTimestamp == timestamp) {
+            // 当前毫秒内，则+1
+            sequence = (sequence + 1) &amp; sequenceMask;
+            if (sequence == 0) {
+                // 当前毫秒内计数满了，则等待下一秒
+                timestamp = tilNextMillis(lastTimestamp);
+            }
+        } else {
+            sequence = 0L;
+        }
+        lastTimestamp = timestamp;
+        // ID偏移组合生成最终的ID，并返回ID
+        long nextId = ((timestamp - twepoch) &lt;&lt; timestampLeftShift)
+                | (datacenterId &lt;&lt; datacenterIdShift)
+                | (workerId &lt;&lt; workerIdShift) | sequence;
+
+        return nextId;
+    }
+
+    private long tilNextMillis(final long lastTimestamp) {
+        long timestamp = this.timeGen();
+        while (timestamp &lt;= lastTimestamp) {
+            timestamp = this.timeGen();
+        }
+        return timestamp;
+    }
+
+    private long timeGen() {
+        return System.currentTimeMillis();
+    }
+
+    /**
+     * &lt;p&gt;
+     * 获取 maxWorkerId
+     * &lt;/p&gt;
+     */
+    protected static long getMaxWorkerId(long datacenterId, long maxWorkerId) {
+        StringBuffer mpid = new StringBuffer();
+        mpid.append(datacenterId);
+        String name = ManagementFactory.getRuntimeMXBean().getName();
+        if (!name.isEmpty()) {
+            /*
+             * GET jvmPid
+             */
+            mpid.append(name.split(&quot;@&quot;)[0]);
+        }
+        /*
+         * MAC + PID 的 hashcode 获取16个低位
+         */
+        return (mpid.toString().hashCode() &amp; 0xffff) % (maxWorkerId + 1);
+    }
+
+    /**
+     * &lt;p&gt;
+     * 数据标识id部分
+     * &lt;/p&gt;
+     */
+    protected static long getDatacenterId(long maxDatacenterId) {
+        long id = 0L;
+        try {
+            InetAddress ip = InetAddress.getLocalHost();
+            NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+            if (network == null) {
+                id = 1L;
+            } else {
+                byte[] mac = network.getHardwareAddress();
+                id = ((0x000000FF &amp; (long) mac[mac.length - 1])
+                        | (0x0000FF00 &amp; (((long) mac[mac.length - 2]) &lt;&lt; 8))) &gt;&gt; 6;
+                id = id % (maxDatacenterId + 1);
+            }
+        } catch (Exception e) {
+            System.out.println(&quot; getDatacenterId: &quot; + e.getMessage());
+        }
+        return id;
+    }
+
+}
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -414,7 +739,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/04/01/Chrome%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD/" rel="prev">
+            <a href="/2019/04/01/Chrome历史版本下载/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1519852476561-ec618b0183ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=738&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1519852476561-ec618b0183ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=738&q=80">
               </div>
@@ -432,7 +757,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/03/29/bat%E8%84%9A%E6%9C%AC%E4%B8%AD%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4/" rel="next">
+            <a href="/2019/03/29/bat脚本中以管理员权限执行命令/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1490617033217-c50a46c169ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1490617033217-c50a46c169ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -501,7 +826,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -513,10 +838,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -798,7 +1123,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -826,14 +1151,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -854,28 +1179,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

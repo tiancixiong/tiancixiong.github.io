@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,6 +379,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <p>每次打开迅雷都会自动检查是否是最新版本，如果不是最新版本，迅雷会一直重复弹窗弹出<strong>更新到新版本</strong>的提示：<img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117081555322.png" alt="在这里插入图片描述"></p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>简介：迅雷提示升级是因为每次迅雷主程序启动时都会同时启动一个叫<code>XLLiveUD.exe</code>的程序，这个程序会检查更新，所以如果不想让他检查更新，就只需要把他替换掉就可以了（因为如果删除它，每次迅雷启动时都会弹出一个错误对话框，提示找不到文件<code>XLLiveUD.exe</code>）</p>
 <hr>
@@ -389,11 +389,24 @@
 </li>
 <li><p>在同一个目录找到迅雷执行程序文件<code>Thunder.exe</code>，这个是就是迅雷桌面快捷方式指到的程序也就是迅雷开启程序。然后复制拷贝<code>Thunder.exe</code>副本，然后将副本文件名更改为迅雷更新执行程序名：<strong>XLLiveUD.exe</strong><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117082959128.png" alt="在这里插入图片描述"><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117083307505.gif" alt="在这里插入图片描述"></p>
 </li>
-<li><p>当迅雷程序调用检查更新的执行文件时，实际上相当于重复点击打开迅雷，而迅雷本身不允许重复打开。这样既不会报错也不会造成重复弹屏的问题。从而算是比较完美的解决了<strong>关闭迅雷更新到新版本提示</strong>的问题(❁´◡&#96;❁)<em>✲ﾟ</em></p>
+<li><p>当迅雷程序调用检查更新的执行文件时，实际上相当于重复点击打开迅雷，而迅雷本身不允许重复打开。这样既不会报错也不会造成重复弹屏的问题。从而算是比较完美的解决了<strong>关闭迅雷更新到新版本提示</strong>的问题(❁´◡`❁)<em>✲ﾟ</em></p>
 </li>
 </ol>
 
         </div>
+		<text ><p>每次打开迅雷都会自动检查是否是最新版本，如果不是最新版本，迅雷会一直重复弹窗弹出<strong>更新到新版本</strong>的提示：<img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117081555322.png" alt="在这里插入图片描述"></p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>简介：迅雷提示升级是因为每次迅雷主程序启动时都会同时启动一个叫<code>XLLiveUD.exe</code>的程序，这个程序会检查更新，所以如果不想让他检查更新，就只需要把他替换掉就可以了（因为如果删除它，每次迅雷启动时都会弹出一个错误对话框，提示找不到文件<code>XLLiveUD.exe</code>）</p>
+<hr>
+
+<ol>
+<li><p>进入迅雷安装目录，找到<code>XLLiveUD.exe</code>( 可直接在迅雷安装目录中搜索这个文件 )，将其删除。这个就是自动升级的程序，但是删除之后下次开启迅雷会提示该文件丢失。<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117082613245.png" alt="在这里插入图片描述"><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117082638473.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>在同一个目录找到迅雷执行程序文件<code>Thunder.exe</code>，这个是就是迅雷桌面快捷方式指到的程序也就是迅雷开启程序。然后复制拷贝<code>Thunder.exe</code>副本，然后将副本文件名更改为迅雷更新执行程序名：<strong>XLLiveUD.exe</strong><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117082959128.png" alt="在这里插入图片描述"><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190117/20190117083307505.gif" alt="在这里插入图片描述"></p>
+</li>
+<li><p>当迅雷程序调用检查更新的执行文件时，实际上相当于重复点击打开迅雷，而迅雷本身不允许重复打开。这样既不会报错也不会造成重复弹屏的问题。从而算是比较完美的解决了<strong>关闭迅雷更新到新版本提示</strong>的问题(❁´◡`❁)<em>✲ﾟ</em></p>
+</li>
+</ol>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -422,7 +435,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/02/19/Java%E4%B8%ADList%E9%9B%86%E5%90%88%E5%8E%BB%E9%87%8D%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" rel="prev">
+            <a href="/2019/02/19/Java中List集合去重的几种方式/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1542443305-5bdd7e536b86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1542443305-5bdd7e536b86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -440,7 +453,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/01/12/XMind8-%E7%A0%B4%E8%A7%A3%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B%EF%BC%88win%E7%B3%BB%E7%BB%9F%EF%BC%89/" rel="next">
+            <a href="/2019/01/12/XMind8-破解激活教程（win系统）/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://picjumbo.com/wp-content/uploads/strawberries-with-yellow-background-free-photo.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://picjumbo.com/wp-content/uploads/strawberries-with-yellow-background-free-photo.jpg">
               </div>
@@ -509,7 +522,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -521,10 +534,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -806,7 +819,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -834,14 +847,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -862,28 +875,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

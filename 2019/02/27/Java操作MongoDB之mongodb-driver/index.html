@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,19 +379,218 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <p><code>mongodb-driver</code>是mongo官方推出的java连接mongoDB的驱动包，相当于JDBC驱动。<br>通过一个入门的案例来了解<code>mongodb-driver</code>的基本使用：</p>
-<h3 id="1、查询全部记录"><a href="#1、查询全部记录" class="headerlink" title="1、查询全部记录"></a>1、查询全部记录</h3><h4 id="1-1、创建工程mongoDemo，引入依赖"><a href="#1-1、创建工程mongoDemo，引入依赖" class="headerlink" title="1.1、创建工程mongoDemo，引入依赖"></a>1.1、创建工程mongoDemo，引入依赖</h4><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mongodb<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mongodb-driver<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.6.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-2、创建测试类"><a href="#1-2、创建测试类" class="headerlink" title="1.2、创建测试类"></a>1.2、创建测试类</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MongoDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建连接</span></span><br><span class="line">        <span class="type">MongoClient</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MongoClient</span>(<span class="string">&quot;192.168.206.128&quot;</span>);</span><br><span class="line">        <span class="comment">// 打开数据库spitdb</span></span><br><span class="line">        <span class="type">MongoDatabase</span> <span class="variable">spitdb</span> <span class="operator">=</span> client.getDatabase(<span class="string">&quot;spitdb&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取集合</span></span><br><span class="line">        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(<span class="string">&quot;spit&quot;</span>);</span><br><span class="line">        <span class="comment">// 查询记录，获取文档集</span></span><br><span class="line">        FindIterable&lt;Document&gt; documents = spit.find();</span><br><span class="line">        <span class="comment">// 循环遍历</span></span><br><span class="line">        <span class="keyword">for</span> (Document document : documents) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;内容：&quot;</span> + document.getString(<span class="string">&quot;content&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;用户ID：&quot;</span> + document.getString(<span class="string">&quot;userid&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;浏览量：&quot;</span> + document.getInteger(<span class="string">&quot;visits&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 关闭连接</span></span><br><span class="line">        client.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="1、查询全部记录"><a href="#1、查询全部记录" class="headerlink" title="1、查询全部记录"></a>1、查询全部记录</h3><h4 id="1-1、创建工程mongoDemo，引入依赖"><a href="#1-1、创建工程mongoDemo，引入依赖" class="headerlink" title="1.1、创建工程mongoDemo，引入依赖"></a>1.1、创建工程mongoDemo，引入依赖</h4><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
+    &lt;artifactId&gt;mongodb-driver&lt;/artifactId&gt;
+    &lt;version&gt;3.6.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h4 id="1-2、创建测试类"><a href="#1-2、创建测试类" class="headerlink" title="1.2、创建测试类"></a>1.2、创建测试类</h4><pre><code class="java">public class MongoDemo1 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
+        // 查询记录，获取文档集
+        FindIterable&lt;Document&gt; documents = spit.find();
+        // 循环遍历
+        for (Document document : documents) {
+            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
+            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
+            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
+        }
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
 <h3 id="2、条件查询"><a href="#2、条件查询" class="headerlink" title="2、条件查询"></a>2、条件查询</h3><p><code>BasicDBObject</code>对象：表示一个具体的记录，BasicDBObject实现了DBObject，是<code>key/value</code>的数据结构，用起来和HashMap是基本一致的。</p>
-<h4 id="2-1、查询userid为1013的记录"><a href="#2-1、查询userid为1013的记录" class="headerlink" title="2.1、查询userid为1013的记录"></a>2.1、查询userid为1013的记录</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MongoDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建连接</span></span><br><span class="line">        <span class="type">MongoClient</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MongoClient</span>(<span class="string">&quot;192.168.206.128&quot;</span>);</span><br><span class="line">        <span class="comment">// 打开数据库spitdb</span></span><br><span class="line">        <span class="type">MongoDatabase</span> <span class="variable">spitdb</span> <span class="operator">=</span> client.getDatabase(<span class="string">&quot;spitdb&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取集合</span></span><br><span class="line">        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(<span class="string">&quot;spit&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 构建查询条件，通过userid进行查询</span></span><br><span class="line">        <span class="type">BasicDBObject</span> <span class="variable">bson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BasicDBObject</span>(<span class="string">&quot;userid&quot;</span>, <span class="string">&quot;1013&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 通过userid查询记录获取文档集</span></span><br><span class="line">        FindIterable&lt;Document&gt; documents = spit.find(bson);</span><br><span class="line">        <span class="comment">// 循环遍历</span></span><br><span class="line">        <span class="keyword">for</span> (Document document : documents) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;内容：&quot;</span> + document.getString(<span class="string">&quot;content&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;用户ID：&quot;</span> + document.getString(<span class="string">&quot;userid&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;浏览量：&quot;</span> + document.getInteger(<span class="string">&quot;visits&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 关闭连接</span></span><br><span class="line">        client.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-1、查询userid为1013的记录"><a href="#2-1、查询userid为1013的记录" class="headerlink" title="2.1、查询userid为1013的记录"></a>2.1、查询userid为1013的记录</h4><pre><code class="java">public class MongoDemo1 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
 
-<h4 id="2-2、查询浏览量大于1000的记录"><a href="#2-2、查询浏览量大于1000的记录" class="headerlink" title="2.2、查询浏览量大于1000的记录"></a>2.2、查询浏览量大于1000的记录</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MongoDemo2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建连接</span></span><br><span class="line">        <span class="type">MongoClient</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MongoClient</span>(<span class="string">&quot;192.168.206.128&quot;</span>);</span><br><span class="line">        <span class="comment">// 打开数据库spitdb</span></span><br><span class="line">        <span class="type">MongoDatabase</span> <span class="variable">spitdb</span> <span class="operator">=</span> client.getDatabase(<span class="string">&quot;spitdb&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取集合</span></span><br><span class="line">        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(<span class="string">&quot;spit&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 构建查询条件，查询visits大于1000的结果</span></span><br><span class="line">        <span class="type">BasicDBObject</span> <span class="variable">bson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BasicDBObject</span>(<span class="string">&quot;visits&quot;</span>, <span class="keyword">new</span> <span class="title class_">BasicDBObject</span>(<span class="string">&quot;$gt&quot;</span>, <span class="number">1000</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 通过userid查询记录获取文档集</span></span><br><span class="line">        FindIterable&lt;Document&gt; documents = spit.find(bson);</span><br><span class="line">        <span class="comment">// 循环遍历</span></span><br><span class="line">        <span class="keyword">for</span> (Document document : documents) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;内容：&quot;</span> + document.getString(<span class="string">&quot;content&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;用户ID：&quot;</span> + document.getString(<span class="string">&quot;userid&quot;</span>));</span><br><span class="line">            System.out.println(<span class="string">&quot;浏览量：&quot;</span> + document.getInteger(<span class="string">&quot;visits&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 关闭连接</span></span><br><span class="line">        client.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        // 构建查询条件，通过userid进行查询
+        BasicDBObject bson = new BasicDBObject(&quot;userid&quot;, &quot;1013&quot;);
 
-<h3 id="3、插入数据"><a href="#3、插入数据" class="headerlink" title="3、插入数据"></a>3、插入数据</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MongoDemo3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建连接</span></span><br><span class="line">        <span class="type">MongoClient</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MongoClient</span>(<span class="string">&quot;192.168.206.128&quot;</span>);</span><br><span class="line">        <span class="comment">// 打开数据库spitdb</span></span><br><span class="line">        <span class="type">MongoDatabase</span> <span class="variable">spitdb</span> <span class="operator">=</span> client.getDatabase(<span class="string">&quot;spitdb&quot;</span>);</span><br><span class="line">        <span class="comment">// 获取集合</span></span><br><span class="line">        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(<span class="string">&quot;spit&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 准备数据</span></span><br><span class="line">        HashMap&lt;String, Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;content&quot;</span>, <span class="string">&quot;我要吐槽&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;userid&quot;</span>, <span class="string">&quot;9999&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;visits&quot;</span>, <span class="number">123</span>);</span><br><span class="line">        map.put(<span class="string">&quot;publishtime&quot;</span>, <span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="type">Document</span> <span class="variable">document</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Document</span>(map);</span><br><span class="line">        <span class="comment">// 插入一条数据</span></span><br><span class="line">        spit.insertOne(document);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 关闭连接</span></span><br><span class="line">        client.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        // 通过userid查询记录获取文档集
+        FindIterable&lt;Document&gt; documents = spit.find(bson);
+        // 循环遍历
+        for (Document document : documents) {
+            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
+            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
+            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
+        }
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
+<h4 id="2-2、查询浏览量大于1000的记录"><a href="#2-2、查询浏览量大于1000的记录" class="headerlink" title="2.2、查询浏览量大于1000的记录"></a>2.2、查询浏览量大于1000的记录</h4><pre><code class="java">public class MongoDemo2 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
+
+        // 构建查询条件，查询visits大于1000的结果
+        BasicDBObject bson = new BasicDBObject(&quot;visits&quot;, new BasicDBObject(&quot;$gt&quot;, 1000));
+
+        // 通过userid查询记录获取文档集
+        FindIterable&lt;Document&gt; documents = spit.find(bson);
+        // 循环遍历
+        for (Document document : documents) {
+            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
+            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
+            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
+        }
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
+<h3 id="3、插入数据"><a href="#3、插入数据" class="headerlink" title="3、插入数据"></a>3、插入数据</h3><pre><code class="java">public class MongoDemo3 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
+
+        // 准备数据
+        HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;content&quot;, &quot;我要吐槽&quot;);
+        map.put(&quot;userid&quot;, &quot;9999&quot;);
+        map.put(&quot;visits&quot;, 123);
+        map.put(&quot;publishtime&quot;, new Date());
+        //
+        Document document = new Document(map);
+        // 插入一条数据
+        spit.insertOne(document);
+
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
 
         </div>
+		<text ><p><code>mongodb-driver</code>是mongo官方推出的java连接mongoDB的驱动包，相当于JDBC驱动。<br>通过一个入门的案例来了解<code>mongodb-driver</code>的基本使用：</p>
+<h3 id="1、查询全部记录"><a href="#1、查询全部记录" class="headerlink" title="1、查询全部记录"></a>1、查询全部记录</h3><h4 id="1-1、创建工程mongoDemo，引入依赖"><a href="#1-1、创建工程mongoDemo，引入依赖" class="headerlink" title="1.1、创建工程mongoDemo，引入依赖"></a>1.1、创建工程mongoDemo，引入依赖</h4><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
+    &lt;artifactId&gt;mongodb-driver&lt;/artifactId&gt;
+    &lt;version&gt;3.6.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h4 id="1-2、创建测试类"><a href="#1-2、创建测试类" class="headerlink" title="1.2、创建测试类"></a>1.2、创建测试类</h4><pre><code class="java">public class MongoDemo1 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
+        // 查询记录，获取文档集
+        FindIterable&lt;Document&gt; documents = spit.find();
+        // 循环遍历
+        for (Document document : documents) {
+            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
+            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
+            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
+        }
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
+<h3 id="2、条件查询"><a href="#2、条件查询" class="headerlink" title="2、条件查询"></a>2、条件查询</h3><p><code>BasicDBObject</code>对象：表示一个具体的记录，BasicDBObject实现了DBObject，是<code>key/value</code>的数据结构，用起来和HashMap是基本一致的。</p>
+<h4 id="2-1、查询userid为1013的记录"><a href="#2-1、查询userid为1013的记录" class="headerlink" title="2.1、查询userid为1013的记录"></a>2.1、查询userid为1013的记录</h4><pre><code class="java">public class MongoDemo1 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
+
+        // 构建查询条件，通过userid进行查询
+        BasicDBObject bson = new BasicDBObject(&quot;userid&quot;, &quot;1013&quot;);
+
+        // 通过userid查询记录获取文档集
+        FindIterable&lt;Document&gt; documents = spit.find(bson);
+        // 循环遍历
+        for (Document document : documents) {
+            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
+            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
+            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
+        }
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
+<h4 id="2-2、查询浏览量大于1000的记录"><a href="#2-2、查询浏览量大于1000的记录" class="headerlink" title="2.2、查询浏览量大于1000的记录"></a>2.2、查询浏览量大于1000的记录</h4><pre><code class="java">public class MongoDemo2 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
+
+        // 构建查询条件，查询visits大于1000的结果
+        BasicDBObject bson = new BasicDBObject(&quot;visits&quot;, new BasicDBObject(&quot;$gt&quot;, 1000));
+
+        // 通过userid查询记录获取文档集
+        FindIterable&lt;Document&gt; documents = spit.find(bson);
+        // 循环遍历
+        for (Document document : documents) {
+            System.out.println(&quot;内容：&quot; + document.getString(&quot;content&quot;));
+            System.out.println(&quot;用户ID：&quot; + document.getString(&quot;userid&quot;));
+            System.out.println(&quot;浏览量：&quot; + document.getInteger(&quot;visits&quot;));
+        }
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
+<h3 id="3、插入数据"><a href="#3、插入数据" class="headerlink" title="3、插入数据"></a>3、插入数据</h3><pre><code class="java">public class MongoDemo3 {
+    public static void main(String[] args) {
+        // 创建连接
+        MongoClient client = new MongoClient(&quot;192.168.206.128&quot;);
+        // 打开数据库spitdb
+        MongoDatabase spitdb = client.getDatabase(&quot;spitdb&quot;);
+        // 获取集合
+        MongoCollection&lt;Document&gt; spit = spitdb.getCollection(&quot;spit&quot;);
+
+        // 准备数据
+        HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;content&quot;, &quot;我要吐槽&quot;);
+        map.put(&quot;userid&quot;, &quot;9999&quot;);
+        map.put(&quot;visits&quot;, 123);
+        map.put(&quot;publishtime&quot;, new Date());
+        //
+        Document document = new Document(map);
+        // 插入一条数据
+        spit.insertOne(document);
+
+        // 关闭连接
+        client.close();
+    }
+}
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -421,7 +619,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/03/12/%E6%9F%A5%E7%9C%8BCentOS%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/" rel="prev">
+            <a href="/2019/03/12/查看CentOS版本信息/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=769&q=80">
               </div>
@@ -439,7 +637,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/02/26/%E4%BD%BF%E7%94%A8SpringCache%E8%BF%9B%E8%A1%8C%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2/" rel="next">
+            <a href="/2019/02/26/使用SpringCache进行缓存数据库查询/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -508,7 +706,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -520,10 +718,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -805,7 +1003,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -833,14 +1031,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -861,28 +1059,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

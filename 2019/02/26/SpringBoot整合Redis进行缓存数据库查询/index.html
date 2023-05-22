@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,19 +379,132 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <p>1、导入redis的启动器</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--redis启动器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;!--redis启动器--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
 <p>2、在yml配置文件中配置redis连接信息</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.206</span><span class="number">.128</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="yml">spring:
+  redis:
+    host: 192.168.206.128
+</code></pre>
 <p>3、在service中通过RedisTemplate操作redis，使用redis进行缓存数据库查询</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据ID查询</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> Article <span class="title function_">findById</span><span class="params">(String id)</span> &#123;</span><br><span class="line">	<span class="comment">// 从redis缓存中提取数据</span></span><br><span class="line">	<span class="type">Article</span> <span class="variable">article</span> <span class="operator">=</span> (Article) redisTemplate.opsForValue().get(<span class="string">&quot;article_&quot;</span> + id);</span><br><span class="line">	<span class="comment">// 如果缓存中没有，则从数据库中查询并放入缓存中</span></span><br><span class="line">	<span class="keyword">if</span>(article == <span class="literal">null</span>)&#123;</span><br><span class="line">		article = articleDao.findById(id).get();</span><br><span class="line">		redisTemplate.opsForValue().set(<span class="string">&quot;article_&quot;</span> + id, article);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 返回从redis缓存中获得的数据</span></span><br><span class="line">	<span class="keyword">return</span> article;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * 根据ID查询
+ *
+ * @param id
+ * @return
+ */
+public Article findById(String id) {
+    // 从redis缓存中提取数据
+    Article article = (Article) redisTemplate.opsForValue().get(&quot;article_&quot; + id);
+    // 如果缓存中没有，则从数据库中查询并放入缓存中
+    if(article == null){
+        article = articleDao.findById(id).get();
+        redisTemplate.opsForValue().set(&quot;article_&quot; + id, article);
+    }
+
+    // 返回从redis缓存中获得的数据
+    return article;
+}
+</code></pre>
 <p>4、对数据库进行删除或修改后删除redis中的缓存</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> article</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(Article article)</span> &#123;</span><br><span class="line">	<span class="comment">// 删除redis中的缓存</span></span><br><span class="line">	redisTemplate.delete(<span class="string">&quot;article_&quot;</span> + article.getId());</span><br><span class="line">	<span class="comment">// 修改操作</span></span><br><span class="line">	articleDao.save(article);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 删除</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteById</span><span class="params">(String id)</span> &#123;</span><br><span class="line">	<span class="comment">// 删除redis缓存数据</span></span><br><span class="line">	redisTemplate.delete(<span class="string">&quot;article_&quot;</span> + id);</span><br><span class="line">	<span class="comment">// 删除操作</span></span><br><span class="line">	articleDao.deleteById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * 修改
+ *
+ * @param article
+ */
+public void update(Article article) {
+    // 删除redis中的缓存
+    redisTemplate.delete(&quot;article_&quot; + article.getId());
+    // 修改操作
+    articleDao.save(article);
+}
+
+/**
+ * 删除
+ *
+ * @param id
+ */
+public void deleteById(String id) {
+    // 删除redis缓存数据
+    redisTemplate.delete(&quot;article_&quot; + id);
+    // 删除操作
+    articleDao.deleteById(id);
+}
+</code></pre>
 <p>5、缓存过期处理</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 设置缓存过期时间为1天</span></span><br><span class="line">redisTemplate.opsForValue().set(<span class="string">&quot;article_&quot;</span> + id, article, <span class="number">1</span>, TimeUnit.DAYS);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">// 设置缓存过期时间为1天
+redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.DAYS);
+</code></pre>
 
         </div>
+		<text ><p>1、导入redis的启动器</p>
+<pre><code class="xml">&lt;!--redis启动器--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2、在yml配置文件中配置redis连接信息</p>
+<pre><code class="yml">spring:
+  redis:
+    host: 192.168.206.128
+</code></pre>
+<p>3、在service中通过RedisTemplate操作redis，使用redis进行缓存数据库查询</p>
+<pre><code class="java">/**
+ * 根据ID查询
+ *
+ * @param id
+ * @return
+ */
+public Article findById(String id) {
+    // 从redis缓存中提取数据
+    Article article = (Article) redisTemplate.opsForValue().get(&quot;article_&quot; + id);
+    // 如果缓存中没有，则从数据库中查询并放入缓存中
+    if(article == null){
+        article = articleDao.findById(id).get();
+        redisTemplate.opsForValue().set(&quot;article_&quot; + id, article);
+    }
+
+    // 返回从redis缓存中获得的数据
+    return article;
+}
+</code></pre>
+<p>4、对数据库进行删除或修改后删除redis中的缓存</p>
+<pre><code class="java">/**
+ * 修改
+ *
+ * @param article
+ */
+public void update(Article article) {
+    // 删除redis中的缓存
+    redisTemplate.delete(&quot;article_&quot; + article.getId());
+    // 修改操作
+    articleDao.save(article);
+}
+
+/**
+ * 删除
+ *
+ * @param id
+ */
+public void deleteById(String id) {
+    // 删除redis缓存数据
+    redisTemplate.delete(&quot;article_&quot; + id);
+    // 删除操作
+    articleDao.deleteById(id);
+}
+</code></pre>
+<p>5、缓存过期处理</p>
+<pre><code class="java">// 设置缓存过期时间为1天
+redisTemplate.opsForValue().set(&quot;article_&quot; + id, article, 1, TimeUnit.DAYS);
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -421,7 +533,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/02/26/SpringDataRedis%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" rel="prev">
+            <a href="/2019/02/26/SpringDataRedis常用方法/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1437326516294-01d0da392e11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1437326516294-01d0da392e11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -439,7 +551,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/02/26/%E4%BD%BF%E7%94%A8Spring-Data-JPA%E6%8A%A5%E9%94%99%EF%BC%9Ajavax-persistence-TransactionRequiredException-Executing-an-update-delete-query/" rel="next">
+            <a href="/2019/02/26/使用Spring-Data-JPA报错：javax-persistence-TransactionRequiredException-Executing-an-update-delete-query/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -508,7 +620,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -520,10 +632,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -805,7 +917,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -833,14 +945,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -861,28 +973,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

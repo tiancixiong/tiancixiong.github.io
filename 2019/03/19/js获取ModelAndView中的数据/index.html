@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,14 +379,66 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <p><strong>后台封装：</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/findById/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> ModelAndView <span class="title function_">findById</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> Integer id)</span> &#123;</span><br><span class="line">	<span class="comment">// 通过id查询商品</span></span><br><span class="line">	<span class="type">Goods</span> <span class="variable">dbgoods</span> <span class="operator">=</span> goodsService.findById(id);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 创建ModelAndView对象</span></span><br><span class="line">	<span class="type">ModelAndView</span> <span class="variable">mv</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ModelAndView</span>();</span><br><span class="line">	<span class="comment">// 跳转到goods_editor.html页面</span></span><br><span class="line">	mv.setViewName(<span class="string">&quot;/goods/goods_editor&quot;</span>);</span><br><span class="line">	<span class="comment">// 封装查询结果</span></span><br><span class="line">	mv.addObject(<span class="string">&quot;dbgoods&quot;</span>,dbgoods);</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">return</span> mv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br/>
+<pre><code class="java">@GetMapping(&quot;/findById/{id}&quot;)
+public ModelAndView findById(@PathVariable(&quot;id&quot;) Integer id) {
+    // 通过id查询商品
+    Goods dbgoods = goodsService.findById(id);
 
+    // 创建ModelAndView对象
+    ModelAndView mv = new ModelAndView();
+    // 跳转到goods_editor.html页面
+    mv.setViewName(&quot;/goods/goods_editor&quot;);
+    // 封装查询结果
+    mv.addObject(&quot;dbgoods&quot;,dbgoods);
+    //
+    return mv;
+}
+</code></pre>
+<p><br></p>
 <p><strong>前端获取：</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">th:inline</span>=<span class="string">&quot;javascript&quot;</span>&gt;</span><span class="language-javascript"> <span class="comment">// 需要添加 th:inline 才能访问 model 中的属性</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;页面加载完成&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 获取ModelAndView中的dbgoods对象</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> dbgoods = [[$&#123;dbgoods&#125;]];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 打印</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(dbgoods);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="html">&lt;script th:inline=&quot;javascript&quot;&gt; // 需要添加 th:inline 才能访问 model 中的属性
+    window.onload = function () {
+        console.log(&quot;页面加载完成&quot;);
+        // 获取ModelAndView中的dbgoods对象
+        var dbgoods = [[${dbgoods}]];
+        // 打印
+        console.log(dbgoods);
+    }
+&lt;/script&gt;
+</code></pre>
 
         </div>
+		<text ><p><strong>后台封装：</strong></p>
+<pre><code class="java">@GetMapping(&quot;/findById/{id}&quot;)
+public ModelAndView findById(@PathVariable(&quot;id&quot;) Integer id) {
+    // 通过id查询商品
+    Goods dbgoods = goodsService.findById(id);
+
+    // 创建ModelAndView对象
+    ModelAndView mv = new ModelAndView();
+    // 跳转到goods_editor.html页面
+    mv.setViewName(&quot;/goods/goods_editor&quot;);
+    // 封装查询结果
+    mv.addObject(&quot;dbgoods&quot;,dbgoods);
+    //
+    return mv;
+}
+</code></pre>
+<p><br></p>
+<p><strong>前端获取：</strong></p>
+<pre><code class="html">&lt;script th:inline=&quot;javascript&quot;&gt; // 需要添加 th:inline 才能访问 model 中的属性
+    window.onload = function () {
+        console.log(&quot;页面加载完成&quot;);
+        // 获取ModelAndView中的dbgoods对象
+        var dbgoods = [[${dbgoods}]];
+        // 打印
+        console.log(dbgoods);
+    }
+&lt;/script&gt;
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -416,7 +467,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/03/19/%E5%8E%9F%E7%94%9Fjs%E4%BF%AE%E6%94%B9textarea%E7%9A%84%E5%80%BC/" rel="prev">
+            <a href="/2019/03/19/原生js修改textarea的值/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1536409040381-f3caf7e80c49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1536409040381-f3caf7e80c49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -434,7 +485,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/03/19/SpringBoot%E4%BD%BF%E7%94%A8-thymeleaf-RestController-%E8%B7%B3%E8%BD%AC%E9%A1%B5%E9%9D%A2/" rel="next">
+            <a href="/2019/03/19/SpringBoot使用-thymeleaf-RestController-跳转页面/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1525467187333-8e3f68b8e742?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjk5NTd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1525467187333-8e3f68b8e742?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjk5NTd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -503,7 +554,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -515,10 +566,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -800,7 +851,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -828,14 +879,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -856,28 +907,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

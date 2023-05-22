@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,6 +379,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <blockquote>
 <p>环境：</p>
 <ul>
@@ -392,24 +392,44 @@
 <p>从图中可以看出, 当前设备网卡名称为： <strong>ens33</strong> (不同设备这个可能不同)，当前主机的ip为<strong>192.168.220.134</strong><br>CentOS7默认网卡设备文件存放于<code>/etc/sysconfig/network-scripts/</code>目录中，其中名为 <code>ifcfg-网卡名称</code> 的文件就是设备的默认网卡，我这里的网卡名为<code>ifcfg-ens33</code></p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108092522876.png" alt="image-20201108092522876"></p>
 <h3 id="配置网卡为静态IP"><a href="#配置网卡为静态IP" class="headerlink" title="配置网卡为静态IP"></a>配置网卡为静态IP</h3><p>通过<code>cat /etc/sysconfig/network-scripts/ifcfg-ens33</code>查看默认网卡设备配置信息：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">TYPE=&quot;Ethernet&quot;			# 网卡类型为：以太网</span><br><span class="line">PROXY_METHOD=&quot;none&quot;		# 代理方式：关闭状态</span><br><span class="line">BROWSER_ONLY=&quot;no&quot;		# 只是浏览器：否</span><br><span class="line">BOOTPROTO=&quot;dhcp&quot;		# 网卡的引导协议：DHCP[中文名称: 动态主机配置协议]</span><br><span class="line">DEFROUTE=&quot;yes&quot;			# 默认路由：是, 深入了解可以百度关键词 `默认路由` </span><br><span class="line">PEERDNS=&quot;yes&quot;			# 是否允许DHCP获得的DNS覆盖本地的DNS</span><br><span class="line">PEERROUTES=&quot;yes&quot;		# 是否从DHCP服务器获取用于定义接口的默认网关的信息的路由表条目</span><br><span class="line">IPV4_FAILURE_FATAL=&quot;no&quot;	# 是否开启IPV4致命错误检测：否</span><br><span class="line">IPV6INIT=&quot;yes&quot;			# IPV6是否自动初始化: 是[不会有任何影响, 现在还没用到IPV6]</span><br><span class="line">IPV6_AUTOCONF=&quot;yes&quot;		# IPV6是否自动配置：是[不会有任何影响, 现在还没用到IPV6]</span><br><span class="line">IPV6_DEFROUTE=&quot;yes&quot;		# IPV6是否可以为默认路由：是[不会有任何影响, 现在还没用到IPV6]</span><br><span class="line">IPV6_PEERDNS=&quot;yes&quot;		</span><br><span class="line">IPV6_PEERROUTES=&quot;yes&quot;</span><br><span class="line">IPV6_FAILURE_FATAL=&quot;no&quot;	# 是否开启IPV6致命错误检测：否</span><br><span class="line">IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;		# IPV6地址生成模型：stable-privacy [这只一种生成IPV6的策略]</span><br><span class="line">NAME=&quot;ens33&quot;			# 网卡物理设备名称</span><br><span class="line">UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;	# 通用唯一识别码,每一个网卡都会有,不能重复,否则两台linux只有一台网卡可用</span><br><span class="line">DEVICE=&quot;ens33&quot;			# 网卡设备名称, 必须和 `NAME` 值一样</span><br><span class="line">ONBOOT=&quot;no&quot;			# 是否开机启动,要想网卡开机就启动或通过 `systemctl restart network`控制网卡,必须设置为 `yes` </span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">TYPE=&quot;Ethernet&quot;            # 网卡类型为：以太网
+PROXY_METHOD=&quot;none&quot;        # 代理方式：关闭状态
+BROWSER_ONLY=&quot;no&quot;        # 只是浏览器：否
+BOOTPROTO=&quot;dhcp&quot;        # 网卡的引导协议：DHCP[中文名称: 动态主机配置协议]
+DEFROUTE=&quot;yes&quot;            # 默认路由：是, 深入了解可以百度关键词 `默认路由` 
+PEERDNS=&quot;yes&quot;            # 是否允许DHCP获得的DNS覆盖本地的DNS
+PEERROUTES=&quot;yes&quot;        # 是否从DHCP服务器获取用于定义接口的默认网关的信息的路由表条目
+IPV4_FAILURE_FATAL=&quot;no&quot;    # 是否开启IPV4致命错误检测：否
+IPV6INIT=&quot;yes&quot;            # IPV6是否自动初始化: 是[不会有任何影响, 现在还没用到IPV6]
+IPV6_AUTOCONF=&quot;yes&quot;        # IPV6是否自动配置：是[不会有任何影响, 现在还没用到IPV6]
+IPV6_DEFROUTE=&quot;yes&quot;        # IPV6是否可以为默认路由：是[不会有任何影响, 现在还没用到IPV6]
+IPV6_PEERDNS=&quot;yes&quot;        
+IPV6_PEERROUTES=&quot;yes&quot;
+IPV6_FAILURE_FATAL=&quot;no&quot;    # 是否开启IPV6致命错误检测：否
+IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;        # IPV6地址生成模型：stable-privacy [这只一种生成IPV6的策略]
+NAME=&quot;ens33&quot;            # 网卡物理设备名称
+UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;    # 通用唯一识别码,每一个网卡都会有,不能重复,否则两台linux只有一台网卡可用
+DEVICE=&quot;ens33&quot;            # 网卡设备名称, 必须和 `NAME` 值一样
+ONBOOT=&quot;no&quot;            # 是否开机启动,要想网卡开机就启动或通过 `systemctl restart network`控制网卡,必须设置为 `yes` 
+</code></pre>
 <p>通过<code>vi /etc/sysconfig/network-scripts/ifcfg-ens33</code>命令编辑 <strong>ifcfg-ens33</strong> 文件设置静态IP：</p>
 <blockquote>
 <p>设置网卡引导协议为 <code>静态</code></p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">BOOTPROTO=&quot;static&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">BOOTPROTO=&quot;static&quot;
+</code></pre>
 <blockquote>
 <p>设置网卡启动方式为 <code>开机启动</code> 并且可以通过系统服务管理器 <code>systemctl</code> 控制网卡</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ONBOOT=&quot;yes&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">ONBOOT=&quot;yes&quot;
+</code></pre>
 <blockquote>
-<p>配置「IP&#x2F;子网掩码&#x2F;网关」</p>
+<p>配置「IP/子网掩码/网关」</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">IPADDR=&quot;192.168.220.132&quot;	# 指定静态IP</span><br><span class="line">NETMASK=&quot;255.255.255.0&quot;		# 子网掩码</span><br><span class="line">GATEWAY=&quot;192.168.220.2&quot;		# 网关</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">IPADDR=&quot;192.168.220.132&quot;    # 指定静态IP
+NETMASK=&quot;255.255.255.0&quot;        # 子网掩码
+GATEWAY=&quot;192.168.220.2&quot;        # 网关
+</code></pre>
 <blockquote>
 <p><strong>注意</strong>：网关必须和虚机的网关地址一样，否则无法上网，网关可以在虚拟网络编辑器中找到</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108101030577.png" alt="image-20201108101030577"></p>
@@ -425,8 +445,9 @@
 <h3 id="连上外网"><a href="#连上外网" class="headerlink" title="连上外网"></a>连上外网</h3><p>那么现在已经成功修改成静态ip了，但是通过 <code>ping baidu.com</code> 发现连不上外网：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108094037580.png" alt="image-20201108094037580"></p>
 <p>这是因为当前CentOS还解析不了域名，我们需要修改 <code>ifcfg-ens33</code> 文件加入<strong>DNS</strong>解析</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">DNS1=&quot;114.114.114.114&quot;		# 114DNS</span><br><span class="line">DNS2=&quot;223.5.5.5&quot;			# 阿里DNS</span><br></pre></td></tr></table></figure>
-
+<pre><code class="shell">DNS1=&quot;114.114.114.114&quot;        # 114DNS
+DNS2=&quot;223.5.5.5&quot;            # 阿里DNS
+</code></pre>
 <blockquote>
 <p><code>8.8.8.8</code> 是谷歌提供的DNS服务，国内无节点，不推荐</p>
 </blockquote>
@@ -437,10 +458,133 @@
 </blockquote>
 <hr>
 <p>最终网卡设备配置详情表</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">TYPE=&quot;Ethernet&quot;</span><br><span class="line">BOOTPROTO=&quot;static&quot;</span><br><span class="line">DEFROUTE=&quot;yes&quot;</span><br><span class="line">PEERDNS=&quot;yes&quot;</span><br><span class="line">PEERROUTES=&quot;yes&quot;</span><br><span class="line">IPV4_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6INIT=&quot;yes&quot;</span><br><span class="line">IPV6_AUTOCONF=&quot;yes&quot;</span><br><span class="line">IPV6_DEFROUTE=&quot;yes&quot;</span><br><span class="line">IPV6_PEERDNS=&quot;yes&quot;</span><br><span class="line">IPV6_PEERROUTES=&quot;yes&quot;</span><br><span class="line">IPV6_FAILURE_FATAL=&quot;no&quot;</span><br><span class="line">IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;</span><br><span class="line">NAME=&quot;ens33&quot;</span><br><span class="line">UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;</span><br><span class="line">DEVICE=&quot;ens33&quot;</span><br><span class="line">ONBOOT=&quot;yes&quot;</span><br><span class="line">IPADDR=&quot;192.168.220.132&quot;</span><br><span class="line">NETMASK=&quot;255.255.255.0&quot;</span><br><span class="line">GATEWAY=&quot;192.168.220.2&quot;</span><br><span class="line">DNS1=&quot;114.114.114.114&quot;</span><br><span class="line">DNS2=&quot;223.5.5.5&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="text">TYPE=&quot;Ethernet&quot;
+BOOTPROTO=&quot;static&quot;
+DEFROUTE=&quot;yes&quot;
+PEERDNS=&quot;yes&quot;
+PEERROUTES=&quot;yes&quot;
+IPV4_FAILURE_FATAL=&quot;no&quot;
+IPV6INIT=&quot;yes&quot;
+IPV6_AUTOCONF=&quot;yes&quot;
+IPV6_DEFROUTE=&quot;yes&quot;
+IPV6_PEERDNS=&quot;yes&quot;
+IPV6_PEERROUTES=&quot;yes&quot;
+IPV6_FAILURE_FATAL=&quot;no&quot;
+IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;
+NAME=&quot;ens33&quot;
+UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;
+DEVICE=&quot;ens33&quot;
+ONBOOT=&quot;yes&quot;
+IPADDR=&quot;192.168.220.132&quot;
+NETMASK=&quot;255.255.255.0&quot;
+GATEWAY=&quot;192.168.220.2&quot;
+DNS1=&quot;114.114.114.114&quot;
+DNS2=&quot;223.5.5.5&quot;
+</code></pre>
 
         </div>
+		<text ><blockquote>
+<p>环境：</p>
+<ul>
+<li>VMware 15</li>
+<li>CentOS 7.3.1611</li>
+</ul>
+</blockquote>
+<h3 id="查看网卡信息"><a href="#查看网卡信息" class="headerlink" title="查看网卡信息"></a>查看网卡信息</h3><p>通过<code>ip addr</code>查看当前网卡的配置信息：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108092133554.png" alt="image-20201108092133554"></p>
+<p>从图中可以看出, 当前设备网卡名称为： <strong>ens33</strong> (不同设备这个可能不同)，当前主机的ip为<strong>192.168.220.134</strong><br>CentOS7默认网卡设备文件存放于<code>/etc/sysconfig/network-scripts/</code>目录中，其中名为 <code>ifcfg-网卡名称</code> 的文件就是设备的默认网卡，我这里的网卡名为<code>ifcfg-ens33</code></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108092522876.png" alt="image-20201108092522876"></p>
+<h3 id="配置网卡为静态IP"><a href="#配置网卡为静态IP" class="headerlink" title="配置网卡为静态IP"></a>配置网卡为静态IP</h3><p>通过<code>cat /etc/sysconfig/network-scripts/ifcfg-ens33</code>查看默认网卡设备配置信息：</p>
+<pre><code class="shell">TYPE=&quot;Ethernet&quot;            # 网卡类型为：以太网
+PROXY_METHOD=&quot;none&quot;        # 代理方式：关闭状态
+BROWSER_ONLY=&quot;no&quot;        # 只是浏览器：否
+BOOTPROTO=&quot;dhcp&quot;        # 网卡的引导协议：DHCP[中文名称: 动态主机配置协议]
+DEFROUTE=&quot;yes&quot;            # 默认路由：是, 深入了解可以百度关键词 `默认路由` 
+PEERDNS=&quot;yes&quot;            # 是否允许DHCP获得的DNS覆盖本地的DNS
+PEERROUTES=&quot;yes&quot;        # 是否从DHCP服务器获取用于定义接口的默认网关的信息的路由表条目
+IPV4_FAILURE_FATAL=&quot;no&quot;    # 是否开启IPV4致命错误检测：否
+IPV6INIT=&quot;yes&quot;            # IPV6是否自动初始化: 是[不会有任何影响, 现在还没用到IPV6]
+IPV6_AUTOCONF=&quot;yes&quot;        # IPV6是否自动配置：是[不会有任何影响, 现在还没用到IPV6]
+IPV6_DEFROUTE=&quot;yes&quot;        # IPV6是否可以为默认路由：是[不会有任何影响, 现在还没用到IPV6]
+IPV6_PEERDNS=&quot;yes&quot;        
+IPV6_PEERROUTES=&quot;yes&quot;
+IPV6_FAILURE_FATAL=&quot;no&quot;    # 是否开启IPV6致命错误检测：否
+IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;        # IPV6地址生成模型：stable-privacy [这只一种生成IPV6的策略]
+NAME=&quot;ens33&quot;            # 网卡物理设备名称
+UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;    # 通用唯一识别码,每一个网卡都会有,不能重复,否则两台linux只有一台网卡可用
+DEVICE=&quot;ens33&quot;            # 网卡设备名称, 必须和 `NAME` 值一样
+ONBOOT=&quot;no&quot;            # 是否开机启动,要想网卡开机就启动或通过 `systemctl restart network`控制网卡,必须设置为 `yes` 
+</code></pre>
+<p>通过<code>vi /etc/sysconfig/network-scripts/ifcfg-ens33</code>命令编辑 <strong>ifcfg-ens33</strong> 文件设置静态IP：</p>
+<blockquote>
+<p>设置网卡引导协议为 <code>静态</code></p>
+</blockquote>
+<pre><code class="shell">BOOTPROTO=&quot;static&quot;
+</code></pre>
+<blockquote>
+<p>设置网卡启动方式为 <code>开机启动</code> 并且可以通过系统服务管理器 <code>systemctl</code> 控制网卡</p>
+</blockquote>
+<pre><code class="shell">ONBOOT=&quot;yes&quot;
+</code></pre>
+<blockquote>
+<p>配置「IP/子网掩码/网关」</p>
+</blockquote>
+<pre><code class="shell">IPADDR=&quot;192.168.220.132&quot;    # 指定静态IP
+NETMASK=&quot;255.255.255.0&quot;        # 子网掩码
+GATEWAY=&quot;192.168.220.2&quot;        # 网关
+</code></pre>
+<blockquote>
+<p><strong>注意</strong>：网关必须和虚机的网关地址一样，否则无法上网，网关可以在虚拟网络编辑器中找到</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108101030577.png" alt="image-20201108101030577"></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108101049070.png" alt="image-20201108101049070"></p>
+</blockquote>
+<p>按住 <code>Esc</code> 输入 <code>Shift + :</code>  接着输入 <code>wq</code> 回车保存编辑并退出，设置完后通过<code>service network restart</code>命令重启网卡：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108093757485.png" alt="image-20201108093757485"></p>
+<blockquote>
+<p>这个时候如果是使用xshell之类工具连接着，则会断开连接，因为此时主机ip已经变为修改之后的地址，需修改xshell上配置的主机地址后再进行连接</p>
+</blockquote>
+<p>重启完成，查看此时的ip，发现修改成功：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108093944183.png" alt="image-20201108093944183"></p>
+<h3 id="连上外网"><a href="#连上外网" class="headerlink" title="连上外网"></a>连上外网</h3><p>那么现在已经成功修改成静态ip了，但是通过 <code>ping baidu.com</code> 发现连不上外网：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108094037580.png" alt="image-20201108094037580"></p>
+<p>这是因为当前CentOS还解析不了域名，我们需要修改 <code>ifcfg-ens33</code> 文件加入<strong>DNS</strong>解析</p>
+<pre><code class="shell">DNS1=&quot;114.114.114.114&quot;        # 114DNS
+DNS2=&quot;223.5.5.5&quot;            # 阿里DNS
+</code></pre>
+<blockquote>
+<p><code>8.8.8.8</code> 是谷歌提供的DNS服务，国内无节点，不推荐</p>
+</blockquote>
+<p>通过<code>service network restart</code>重启网卡，通过<code>cat /etc/resolv.conf</code>命令可以看到设置的DNS解析已生效，然后再来ping百度，可以ping通：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20201108/image-20201108094404164.png" alt="image-20201108094404164"></p>
+<blockquote>
+<p>如果还是ping不通，则可以换个DNS地址再试试</p>
+</blockquote>
+<hr>
+<p>最终网卡设备配置详情表</p>
+<pre><code class="text">TYPE=&quot;Ethernet&quot;
+BOOTPROTO=&quot;static&quot;
+DEFROUTE=&quot;yes&quot;
+PEERDNS=&quot;yes&quot;
+PEERROUTES=&quot;yes&quot;
+IPV4_FAILURE_FATAL=&quot;no&quot;
+IPV6INIT=&quot;yes&quot;
+IPV6_AUTOCONF=&quot;yes&quot;
+IPV6_DEFROUTE=&quot;yes&quot;
+IPV6_PEERDNS=&quot;yes&quot;
+IPV6_PEERROUTES=&quot;yes&quot;
+IPV6_FAILURE_FATAL=&quot;no&quot;
+IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;
+NAME=&quot;ens33&quot;
+UUID=&quot;f50c1acb-829e-4c6c-a9d7-3d9c5e6ea0d5&quot;
+DEVICE=&quot;ens33&quot;
+ONBOOT=&quot;yes&quot;
+IPADDR=&quot;192.168.220.132&quot;
+NETMASK=&quot;255.255.255.0&quot;
+GATEWAY=&quot;192.168.220.2&quot;
+DNS1=&quot;114.114.114.114&quot;
+DNS2=&quot;223.5.5.5&quot;
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -469,7 +613,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/12/03/Eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="prev">
+            <a href="/2020/12/03/Eclipse常用快捷键/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1528214096798-37891d32174c?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="//images.unsplash.com/photo-1528214096798-37891d32174c?w=540">
               </div>
@@ -487,7 +631,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2020/10/31/IDEA%E5%90%AF%E5%8A%A8%E8%AD%A6%E5%91%8A%E3%80%8COpenJDK%2064-Bit%20Server%20VM%20warning%E3%80%8D/" rel="next">
+            <a href="/2020/10/31/IDEA启动警告「OpenJDK 64-Bit Server VM warning」/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1527067829737-402993088e6b?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1527067829737-402993088e6b?w=540">
               </div>
@@ -556,7 +700,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -568,10 +712,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -853,7 +997,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -881,14 +1025,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -909,28 +1053,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

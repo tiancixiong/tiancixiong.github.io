@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,6 +379,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <blockquote>
 <p>环境：win10、Eclipse Neno.2、TortoiseSVN 1.14.0、Subclipse 4.3.3(eclipse插件)</p>
 </blockquote>
@@ -400,6 +400,25 @@
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112234887.png" alt="image-20210820112234887"></p>
 
         </div>
+		<text ><blockquote>
+<p>环境：win10、Eclipse Neno.2、TortoiseSVN 1.14.0、Subclipse 4.3.3(eclipse插件)</p>
+</blockquote>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>将svn中的项目的 <strong>Checkout</strong> 到本地使用eclipse开发过程中，发现每次 <strong>commit</strong> 后文件属性都变为 <strong>只读</strong> 属性，并且对刚刚提交后的文件进行编辑时就提示需要先锁定文件才能编辑</p>
+<blockquote>
+<p>笔者在eclipse中是使用的 Subclipse 对svn进行操作</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820111409567.png" alt="image-20210820111409567"></p>
+</blockquote>
+<p>commit后编辑文件提示需要锁定：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112455733.png" alt="commit后编辑文件提示需要锁定"></p>
+<p>文件属性变为只读：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112646097.png" alt="image-20210820112646097"></p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>1.在项目根目录中 <code>鼠标右键</code>-&gt;<code>TortoiseSVN</code>-&gt;<code>Properties</code></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820111954147.png" alt="image-20210820111954147"></p>
+<p>2.在弹出的属性设置框中点击：<code>New</code>-&gt;<code>Needs-Lock</code></p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112148846.png" alt="image-20210820112148846"></p>
+<p>3.选择 <code>No locking required</code>，点击 <code>OK</code> 即可解决</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20210820/image-20210820112234887.png" alt="image-20210820112234887"></p>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -428,7 +447,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/08/25/%E4%BD%BF%E7%94%A8Adobe-Acrobat%E6%89%93%E5%BC%80pdf%E6%96%87%E4%BB%B6-%E7%B3%BB%E7%BB%9F%E4%BB%BB%E5%8A%A1%E6%A0%8F%E4%B8%AD%E5%85%B6%E5%9B%BE%E6%A0%87%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98-win/" rel="prev">
+            <a href="/2021/08/25/使用Adobe-Acrobat打开pdf文件-系统任务栏中其图标异常问题-win/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1528361184293-ed4b359e02bd?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="//images.unsplash.com/photo-1528361184293-ed4b359e02bd?w=540">
               </div>
@@ -446,7 +465,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2021/08/12/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E6%B3%A8%E9%87%8A%E6%97%A0%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/" rel="next">
+            <a href="/2021/08/12/IDEA格式化后注释无法和代码自动对齐/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1533924004796-43f055849940?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="//images.unsplash.com/photo-1533924004796-43f055849940?w=540">
               </div>
@@ -515,7 +534,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -527,10 +546,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -812,7 +831,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -840,14 +859,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -868,28 +887,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

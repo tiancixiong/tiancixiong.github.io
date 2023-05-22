@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,20 +379,38 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <h1 id="spring-cloud-zuul-ratelimit"><a href="#spring-cloud-zuul-ratelimit" class="headerlink" title="spring-cloud-zuul-ratelimit"></a>spring-cloud-zuul-ratelimit</h1><p>RateLimiter是Google开源的实现了令牌桶算法的限流工具（速率限制器）。</p>
 <p>Spring Cloud Zuul RateLimiter结合Zuul对RateLimiter进行了封装，通过实现ZuulFilter提供了服务限流功能</p>
 <blockquote>
-<p>官网：<a href="https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit">https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit</a></p>
+<p>官网：<a href="https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit" target="_blank" rel="noopener">https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit</a></p>
 </blockquote>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><p>在zuul服务引入坐标</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.marcosbarbero.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-zuul-ratelimit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.3.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.marcosbarbero.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-zuul-ratelimit&lt;/artifactId&gt;
+    &lt;version&gt;2.2.3.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="配置限流策略"><a href="#配置限流策略" class="headerlink" title="配置限流策略"></a>配置限流策略</h3><pre><code class="yml">zuul:
+  ratelimit:
+    enabled: true #开启限流功能
+    repository: redis #限流数据的存储方式
+    default-policy-list:
+      # 所有服务在3秒内只能有1次请求且所有请求时间总和不得超过2秒
+      - limit: 1 #单位时间内请求次数限制
+        quota: 2 #单位时间内累计请求时间限制（秒），非必要参数
+        refresh-interval: 3 #单位时间（秒），默认60秒
 
-
-
-<h3 id="配置限流策略"><a href="#配置限流策略" class="headerlink" title="配置限流策略"></a>配置限流策略</h3><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line">  <span class="attr">ratelimit:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#开启限流功能</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">redis</span> <span class="comment">#限流数据的存储方式</span></span><br><span class="line">    <span class="attr">default-policy-list:</span></span><br><span class="line">      <span class="comment"># 所有服务在3秒内只能有1次请求且所有请求时间总和不得超过2秒</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">limit:</span> <span class="number">1</span> <span class="comment">#单位时间内请求次数限制</span></span><br><span class="line">        <span class="attr">quota:</span> <span class="number">2</span> <span class="comment">#单位时间内累计请求时间限制（秒），非必要参数</span></span><br><span class="line">        <span class="attr">refresh-interval:</span> <span class="number">3</span> <span class="comment">#单位时间（秒），默认60秒</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">6379</span></span><br></pre></td></tr></table></figure>
-
-
-
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+</code></pre>
 <h3 id="处理返回信息"><a href="#处理返回信息" class="headerlink" title="处理返回信息"></a>处理返回信息</h3><p>我们可能需要对触发限流的情况做监控、报警等，需要识别由限流导致的异常返回</p>
 <ol>
 <li><del>推荐使用默认的 <code>RateLimiterErrorHandler</code>，直接写自己需要的处理就行</del><ul>
@@ -403,14 +420,163 @@
 <li>zuul触发限流后会抛出 http 429，可以针对这个错误码对response包装</li>
 <li>也可以在全局异常处理中，判断出现的异常是否是 <code>RateLimitExceededException</code></li>
 </ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.marcosbarbero.cloud.autoconfigure.zuul.ratelimit.support.RateLimitExceededException;</span><br><span class="line"><span class="keyword">import</span> com.netflix.zuul.context.RequestContext;</span><br><span class="line"><span class="keyword">import</span> com.netflix.zuul.exception.ZuulException;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.web.ErrorController;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpStatus;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.ResponseEntity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ErrorHandlerController</span> <span class="keyword">implements</span> <span class="title class_">ErrorController</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getErrorPath</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;/error&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/error&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> ResponseEntity <span class="title function_">error</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">RequestContext</span> <span class="variable">ctx</span> <span class="operator">=</span> RequestContext.getCurrentContext();</span><br><span class="line">        <span class="type">ZuulException</span> <span class="variable">exception</span> <span class="operator">=</span> (ZuulException) ctx.getThrowable();</span><br><span class="line">        <span class="keyword">if</span> (exception != <span class="literal">null</span> &amp;&amp; exception.getCause() <span class="keyword">instanceof</span> RateLimitExceededException) &#123;</span><br><span class="line">            <span class="comment">// 自定义返回封装</span></span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(<span class="string">&quot;请稍后再试~&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 其他类型的eror</span></span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(<span class="string">&quot;服务异常&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">import com.marcosbarbero.cloud.autoconfigure.zuul.ratelimit.support.RateLimitExceededException;
+import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.web.ErrorController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
+@RestController
+public class ErrorHandlerController implements ErrorController {
+    @Override
+    public String getErrorPath() {
+        return &quot;/error&quot;;
+    }
 
+    @RequestMapping(&quot;/error&quot;)
+    public ResponseEntity error() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        ZuulException exception = (ZuulException) ctx.getThrowable();
+        if (exception != null &amp;&amp; exception.getCause() instanceof RateLimitExceededException) {
+            // 自定义返回封装
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(&quot;请稍后再试~&quot;);
+        }
+        // 其他类型的eror
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(&quot;服务异常&quot;);
+    }
+}
+</code></pre>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code class="yml">zuul:
+  #路由、重试等zuul其他配置省略
+  routes:
 
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">zuul:</span></span><br><span class="line">  <span class="comment">#路由、重试等zuul其他配置省略</span></span><br><span class="line">  <span class="attr">routes:</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">#限流</span></span><br><span class="line">  <span class="attr">ratelimit:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span> <span class="comment">#开启限流功能</span></span><br><span class="line">    <span class="attr">key-prefix:</span> <span class="string">$&#123;spring.application.name&#125;-rate-limit</span> <span class="comment">#缓存key的前缀</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">REDIS</span> <span class="comment">#存储类型。可选REDIS、CONSUL、JPA等，老版本还有本地内存可选</span></span><br><span class="line">    <span class="attr">behind-proxy:</span> <span class="literal">true</span> <span class="comment">#开启则限流与业务访问是异步的，相当于rateLimitFilter先放过；默认是false</span></span><br><span class="line">    <span class="attr">policy-list:</span> <span class="comment">#指定服务策略</span></span><br><span class="line">      <span class="attr">myProject1:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">limit:</span> <span class="number">5</span> <span class="comment">#这种配置方式相当于：10分钟内允许5个请求访问/api/test/info接口</span></span><br><span class="line">          <span class="attr">refresh-interval:</span> <span class="number">10</span></span><br><span class="line">          <span class="attr">type:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">url_pattern=/api/test/info</span></span><br><span class="line">      <span class="attr">myProject2:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">limit:</span> <span class="number">3000</span></span><br><span class="line">          <span class="attr">refresh-interval:</span> <span class="number">1</span> <span class="comment">#更常见的配置是这种，1秒允许3k个，相当于配qps限制</span></span><br><span class="line">          <span class="attr">type:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">url_pattern=/api/test2/info</span>        </span><br><span class="line">        <span class="bullet">-</span> <span class="attr">limit:</span> <span class="number">300</span></span><br><span class="line">          <span class="attr">refresh-interval:</span> <span class="number">1</span> <span class="comment">#如果同一个服务有多个需要限流的url，可以这样</span></span><br><span class="line">          <span class="attr">type:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">url_pattern=/api/test2/info2</span></span><br></pre></td></tr></table></figure>
-
+  #限流
+  ratelimit:
+    enabled: true #开启限流功能
+    key-prefix: ${spring.application.name}-rate-limit #缓存key的前缀
+    repository: REDIS #存储类型。可选REDIS、CONSUL、JPA等，老版本还有本地内存可选
+    behind-proxy: true #开启则限流与业务访问是异步的，相当于rateLimitFilter先放过；默认是false
+    policy-list: #指定服务策略
+      myProject1:
+        - limit: 5 #这种配置方式相当于：10分钟内允许5个请求访问/api/test/info接口
+          refresh-interval: 10
+          type:
+            - url_pattern=/api/test/info
+      myProject2:
+        - limit: 3000
+          refresh-interval: 1 #更常见的配置是这种，1秒允许3k个，相当于配qps限制
+          type:
+            - url_pattern=/api/test2/info        
+        - limit: 300
+          refresh-interval: 1 #如果同一个服务有多个需要限流的url，可以这样
+          type:
+            - url_pattern=/api/test2/info2
+</code></pre>
 
         </div>
+		<text ><h1 id="spring-cloud-zuul-ratelimit"><a href="#spring-cloud-zuul-ratelimit" class="headerlink" title="spring-cloud-zuul-ratelimit"></a>spring-cloud-zuul-ratelimit</h1><p>RateLimiter是Google开源的实现了令牌桶算法的限流工具（速率限制器）。</p>
+<p>Spring Cloud Zuul RateLimiter结合Zuul对RateLimiter进行了封装，通过实现ZuulFilter提供了服务限流功能</p>
+<blockquote>
+<p>官网：<a href="https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit" target="_blank" rel="noopener">https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit</a></p>
+</blockquote>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><p>在zuul服务引入坐标</p>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.marcosbarbero.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-zuul-ratelimit&lt;/artifactId&gt;
+    &lt;version&gt;2.2.3.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="配置限流策略"><a href="#配置限流策略" class="headerlink" title="配置限流策略"></a>配置限流策略</h3><pre><code class="yml">zuul:
+  ratelimit:
+    enabled: true #开启限流功能
+    repository: redis #限流数据的存储方式
+    default-policy-list:
+      # 所有服务在3秒内只能有1次请求且所有请求时间总和不得超过2秒
+      - limit: 1 #单位时间内请求次数限制
+        quota: 2 #单位时间内累计请求时间限制（秒），非必要参数
+        refresh-interval: 3 #单位时间（秒），默认60秒
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+</code></pre>
+<h3 id="处理返回信息"><a href="#处理返回信息" class="headerlink" title="处理返回信息"></a>处理返回信息</h3><p>我们可能需要对触发限流的情况做监控、报警等，需要识别由限流导致的异常返回</p>
+<ol>
+<li><del>推荐使用默认的 <code>RateLimiterErrorHandler</code>，直接写自己需要的处理就行</del><ul>
+<li>注意：RateLimiterErrorHandler无法捕获到限流异常信息429 TOO_MANY_REQUESTS，也就不能自定义异常返回信息</li>
+</ul>
+</li>
+<li>zuul触发限流后会抛出 http 429，可以针对这个错误码对response包装</li>
+<li>也可以在全局异常处理中，判断出现的异常是否是 <code>RateLimitExceededException</code></li>
+</ol>
+<pre><code class="java">import com.marcosbarbero.cloud.autoconfigure.zuul.ratelimit.support.RateLimitExceededException;
+import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.web.ErrorController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Slf4j
+@RestController
+public class ErrorHandlerController implements ErrorController {
+    @Override
+    public String getErrorPath() {
+        return &quot;/error&quot;;
+    }
+
+    @RequestMapping(&quot;/error&quot;)
+    public ResponseEntity error() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        ZuulException exception = (ZuulException) ctx.getThrowable();
+        if (exception != null &amp;&amp; exception.getCause() instanceof RateLimitExceededException) {
+            // 自定义返回封装
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(&quot;请稍后再试~&quot;);
+        }
+        // 其他类型的eror
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(&quot;服务异常&quot;);
+    }
+}
+</code></pre>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><pre><code class="yml">zuul:
+  #路由、重试等zuul其他配置省略
+  routes:
+
+  #限流
+  ratelimit:
+    enabled: true #开启限流功能
+    key-prefix: ${spring.application.name}-rate-limit #缓存key的前缀
+    repository: REDIS #存储类型。可选REDIS、CONSUL、JPA等，老版本还有本地内存可选
+    behind-proxy: true #开启则限流与业务访问是异步的，相当于rateLimitFilter先放过；默认是false
+    policy-list: #指定服务策略
+      myProject1:
+        - limit: 5 #这种配置方式相当于：10分钟内允许5个请求访问/api/test/info接口
+          refresh-interval: 10
+          type:
+            - url_pattern=/api/test/info
+      myProject2:
+        - limit: 3000
+          refresh-interval: 1 #更常见的配置是这种，1秒允许3k个，相当于配qps限制
+          type:
+            - url_pattern=/api/test2/info        
+        - limit: 300
+          refresh-interval: 1 #如果同一个服务有多个需要限流的url，可以这样
+          type:
+            - url_pattern=/api/test2/info2
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -440,7 +606,7 @@
           
             <div class="post-nepre full next">
           
-            <a href="/2022/06/23/MySQL%E7%89%88%E6%9C%AC%E4%BB%8E5-5%E5%8D%87%E7%BA%A7%E8%87%B35-7-win10/" rel="next">
+            <a href="/2022/06/23/MySQL版本从5-5升级至5-7-win10/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="//images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="//images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=540">
               </div>
@@ -509,7 +675,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -521,10 +687,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -806,7 +972,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -834,14 +1000,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -862,28 +1028,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

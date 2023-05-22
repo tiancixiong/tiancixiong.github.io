@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,16 +379,68 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
-<p>上传图片时报错：<br>Content type ‘multipart&#x2F;form-data;boundary&#x3D;—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset&#x3D;UTF-8’ not supported</p>
+<p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p>
 </blockquote>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190325/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostMapping(path = &quot;/uploadRotationImg&quot;)</span></span><br><span class="line"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title function_">uploadRotationImg</span><span class="params">(<span class="meta">@RequestParam(&quot;photos&quot;)</span> MultipartFile file, <span class="meta">@RequestBody</span> ImgRotation imgRotation)</span> &#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">// 进行上传操作</span></span><br><span class="line">		<span class="keyword">return</span> imgRotationService.uploadRotationImg(file, imgRotation);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		<span class="comment">// 上传失败</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ResponseEntity</span>&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
+public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {
+    try {
+        // 进行上传操作
+        return imgRotationService.uploadRotationImg(file, imgRotation);
+    } catch (Exception e) {
+        // 上传失败
+        e.printStackTrace();
+        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+</code></pre>
 <h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostMapping(path = &quot;/uploadRotationImg&quot;)</span></span><br><span class="line"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title function_">uploadRotationImg</span><span class="params">(<span class="meta">@RequestParam(&quot;photos&quot;)</span> MultipartFile file, ImgRotation imgRotation)</span> &#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">// 进行上传操作</span></span><br><span class="line">		<span class="keyword">return</span> imgRotationService.uploadRotationImg(file, imgRotation);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		<span class="comment">// 上传失败</span></span><br><span class="line">		e.printStackTrace();</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ResponseEntity</span>&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
+public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {
+    try {
+        // 进行上传操作
+        return imgRotationService.uploadRotationImg(file, imgRotation);
+    } catch (Exception e) {
+        // 上传失败
+        e.printStackTrace();
+        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+</code></pre>
 
         </div>
+		<text ><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
+<p>上传图片时报错：<br>Content type ‘multipart/form-data;boundary=—-WebKitFormBoundarypOpfYxCGU6Q4sciA;charset=UTF-8’ not supported</p>
+</blockquote>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20190325/20190325101824685.png" alt="在这里插入图片描述"><br>Controller层：</p>
+<pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
+public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, @RequestBody ImgRotation imgRotation) {
+    try {
+        // 进行上传操作
+        return imgRotationService.uploadRotationImg(file, imgRotation);
+    } catch (Exception e) {
+        // 上传失败
+        e.printStackTrace();
+        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+</code></pre>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>去掉<code>@RequestBody</code>注解就行了</p>
+<pre><code class="java">@PostMapping(path = &quot;/uploadRotationImg&quot;)
+public ResponseEntity&lt;String&gt; uploadRotationImg(@RequestParam(&quot;photos&quot;) MultipartFile file, ImgRotation imgRotation) {
+    try {
+        // 进行上传操作
+        return imgRotationService.uploadRotationImg(file, imgRotation);
+    } catch (Exception e) {
+        // 上传失败
+        e.printStackTrace();
+        return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -418,7 +469,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/03/25/Swagger%E5%BC%82%E5%B8%B8%EF%BC%9Ajava-lang-NumberFormatException-For-input-string/" rel="prev">
+            <a href="/2019/03/25/Swagger异常：java-lang-NumberFormatException-For-input-string/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1545361600-9c875a546ce7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1545361600-9c875a546ce7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80">
               </div>
@@ -436,7 +487,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/03/22/@RequestParam%E5%92%8C@RequestBody/" rel="next">
+            <a href="/2019/03/22/@RequestParam和@RequestBody/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1518260366392-d8b54a333da8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1518260366392-d8b54a333da8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -505,7 +556,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -517,10 +568,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -802,7 +853,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -830,14 +881,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -858,28 +909,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

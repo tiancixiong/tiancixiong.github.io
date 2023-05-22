@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,6 +379,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <h1 id="Run-Dashboard-面板"><a href="#Run-Dashboard-面板" class="headerlink" title="Run Dashboard 面板"></a>Run Dashboard 面板</h1><p><strong>Run Dashboard</strong>：微服务项目的开发过程中，工程会非常多，经常要启动很多个服务，才能完成一项测试。启动的多了，容易给开发者带来错乱的感觉，很不方便管理。IDEA开发工具推荐了一个很好用的功能–Run Dashboard。他是 Run 的升级版</p>
 <p>我们可以对比一下这个是Run Dashboard的窗口</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543905902634.png" alt="1543905902634"> </p>
@@ -399,14 +399,84 @@
 <li><p>接下来找到 <code>&lt;component name=&quot;RunDashboard&quot;&gt;</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543907062997.png" alt="1543907062997"> </p>
 </li>
 <li><p>加入如下配置：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">&quot;configurationTypes&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;SpringBootApplicationConfigurationType&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;option name=&quot;configurationTypes&quot;&gt;
+  &lt;set&gt;
+    &lt;option value=&quot;SpringBootApplicationConfigurationType&quot; /&gt;
+  &lt;/set&gt;
+&lt;/option&gt;
+</code></pre>
 <p>这样 <code>Run Dashboard</code> 自动就弹出来了</p>
 <p>最终配置如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">name</span>=<span class="string">&quot;RunDashboard&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">&quot;configurationTypes&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;SpringBootApplicationConfigurationType&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">&quot;ruleStates&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;ConfigurationTypeDashboardGroupingRule&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;StatusDashboardGroupingRule&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<pre><code class="xml">&lt;component name=&quot;RunDashboard&quot;&gt;
+  &lt;option name=&quot;configurationTypes&quot;&gt;
+    &lt;set&gt;
+      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot; /&gt;
+    &lt;/set&gt;
+  &lt;/option&gt;
+  &lt;option name=&quot;ruleStates&quot;&gt;
+    &lt;list&gt;
+      &lt;RuleState&gt;
+        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot; /&gt;
+      &lt;/RuleState&gt;
+      &lt;RuleState&gt;
+        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot; /&gt;
+      &lt;/RuleState&gt;
+    &lt;/list&gt;
+  &lt;/option&gt;
+&lt;/component&gt;
+</code></pre>
+</li>
 </ol>
 
         </div>
+		<text ><h1 id="Run-Dashboard-面板"><a href="#Run-Dashboard-面板" class="headerlink" title="Run Dashboard 面板"></a>Run Dashboard 面板</h1><p><strong>Run Dashboard</strong>：微服务项目的开发过程中，工程会非常多，经常要启动很多个服务，才能完成一项测试。启动的多了，容易给开发者带来错乱的感觉，很不方便管理。IDEA开发工具推荐了一个很好用的功能–Run Dashboard。他是 Run 的升级版</p>
+<p>我们可以对比一下这个是Run Dashboard的窗口</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543905902634.png" alt="1543905902634"> </p>
+<p>普通的Run窗口：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543905965611.png" alt="1543905965611"> </p>
+<p>显然如果启动多个端口Run Dashboard窗口显得更好管理。<br>一般有时候创建springboot项目的时候右下角可以提示你打开Run Dashboard，但是如果不提醒就需要自己配置了。</p>
+<h1 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>新建项目或者通过 <code>open</code> 打开项目时，可能会弹出提示 “Multiple Spring Boot run configurations were detected. Run Dashboard allows to manage multiple run configurations at once.” 见下图：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543906387601.png" alt="1543906387601"> </p>
+<p>点击 <code>Show run configurations in Run Dashboard</code> ，<code>Run Dashboard</code> 面板重新在底部区域展示了出来。</p>
+<p>如没有此提示，请选择方式二或方式三</p>
+<h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>打开Run Dashboard：View –&gt; Tool Windows –&gt; Run Dashboard</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543906576903.png" alt="1543906576903"></p>
+<h2 id="方式三"><a href="#方式三" class="headerlink" title="方式三"></a>方式三</h2><p>如果上述的方式都没有打开 <code>Run Dashboard</code> 面板，可以在工程目录下找 <code>.idea</code> 文件夹下的 <code>workspace.xml</code>文件，通过修改此文件可达到打开 <code>Run Dashboard</code> 面板的目的</p>
+<ol>
+<li><p>找到当前项目中 <code>.idea</code> 文件下的 <code>workspace.xml</code> 文件，双击打开<br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543906852844.png" alt="1543906852844"> </p>
+</li>
+<li><p>接下来找到 <code>&lt;component name=&quot;RunDashboard&quot;&gt;</code><br><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20181204/1543907062997.png" alt="1543907062997"> </p>
+</li>
+<li><p>加入如下配置：</p>
+<pre><code class="xml">&lt;option name=&quot;configurationTypes&quot;&gt;
+  &lt;set&gt;
+    &lt;option value=&quot;SpringBootApplicationConfigurationType&quot; /&gt;
+  &lt;/set&gt;
+&lt;/option&gt;
+</code></pre>
+<p>这样 <code>Run Dashboard</code> 自动就弹出来了</p>
+<p>最终配置如下：</p>
+<pre><code class="xml">&lt;component name=&quot;RunDashboard&quot;&gt;
+  &lt;option name=&quot;configurationTypes&quot;&gt;
+    &lt;set&gt;
+      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot; /&gt;
+    &lt;/set&gt;
+  &lt;/option&gt;
+  &lt;option name=&quot;ruleStates&quot;&gt;
+    &lt;list&gt;
+      &lt;RuleState&gt;
+        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot; /&gt;
+      &lt;/RuleState&gt;
+      &lt;RuleState&gt;
+        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot; /&gt;
+      &lt;/RuleState&gt;
+    &lt;/list&gt;
+  &lt;/option&gt;
+&lt;/component&gt;
+</code></pre>
+</li>
+</ol>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -435,7 +505,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2018/12/04/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="prev">
+            <a href="/2018/12/04/IDEA常用快捷键/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204-IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/image.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204-IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/image.png">
               </div>
@@ -453,7 +523,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2018/11/30/Java%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/" rel="next">
+            <a href="/2018/11/30/Java线程状态/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1513863640767-1605e79998a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1513863640767-1605e79998a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -522,7 +592,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -534,10 +604,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -819,7 +889,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -847,14 +917,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -875,28 +945,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

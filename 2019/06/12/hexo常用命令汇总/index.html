@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,65 +379,100 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新建文章</span></span><br><span class="line">hexo n</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清除缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成静态页面+部署</span></span><br><span class="line">hexo d -g		# 等同：hexo g &amp;&amp; hexo d</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成静态网页</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部署</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动服务器预览</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+		
+          <pre><code class="shell"># 新建文章
+hexo n
+
+# 清除缓存
+hexo clean
+
+# 生成静态页面+部署
+hexo d -g        # 等同：hexo g &amp;&amp; hexo d
+# 生成静态网页
+hexo g
+# 部署
+hexo d
+
+# 启动服务器预览
+hexo s
+</code></pre>
+<h1 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h1><pre><code class="shell"># 安装hexo
+npm install hexo -g
+
+# 升级hexo
+npm update hexo -g
+
+# hexo初始化
+hexo init
 
 
+# 查看node.js版本号
+node -v
+# 查看npm版本号
+npm -v
+# 查看git版本号
+git --version
+# 查看hexo版本号
+hexo -v
+</code></pre>
+<h1 id="插件安装和卸载"><a href="#插件安装和卸载" class="headerlink" title="插件安装和卸载"></a>插件安装和卸载</h1><pre><code class="shell"># 安装插件
+npm install hexo-xxx-xxx --save
 
-<h1 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装hexo</span></span><br><span class="line">npm install hexo -g</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">升级hexo</span></span><br><span class="line">npm update hexo -g</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">hexo初始化</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看node.js版本号</span></span><br><span class="line">node -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看npm版本号</span></span><br><span class="line">npm -v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看git版本号</span></span><br><span class="line">git --version</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看hexo版本号</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="插件安装和卸载"><a href="#插件安装和卸载" class="headerlink" title="插件安装和卸载"></a>插件安装和卸载</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装插件</span></span><br><span class="line">npm install hexo-xxx-xxx --save</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载插件</span></span><br><span class="line">npm uninstall hexo-xxx-xxx --save</span><br></pre></td></tr></table></figure>
-
-
-
+# 卸载插件
+npm uninstall hexo-xxx-xxx --save
+</code></pre>
 <h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><table>
 <thead>
 <tr>
-<th align="center">指令</th>
-<th align="center">简写</th>
-<th align="center">描述</th>
+<th style="text-align:center">指令</th>
+<th style="text-align:center">简写</th>
+<th style="text-align:center">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">hexo new</td>
-<td align="center">hexo n</td>
-<td align="center">新建文章</td>
+<tbody>
+<tr>
+<td style="text-align:center">hexo new</td>
+<td style="text-align:center">hexo n</td>
+<td style="text-align:center">新建文章</td>
 </tr>
 <tr>
-<td align="center">hexo generate</td>
-<td align="center">hexo g</td>
-<td align="center">生成静态文件</td>
+<td style="text-align:center">hexo generate</td>
+<td style="text-align:center">hexo g</td>
+<td style="text-align:center">生成静态文件</td>
 </tr>
 <tr>
-<td align="center">hexo deploy</td>
-<td align="center">hexo d</td>
-<td align="center">部署</td>
+<td style="text-align:center">hexo deploy</td>
+<td style="text-align:center">hexo d</td>
+<td style="text-align:center">部署</td>
 </tr>
 <tr>
-<td align="center">hexo server</td>
-<td align="center">hexo s</td>
-<td align="center">启动服务预览</td>
+<td style="text-align:center">hexo server</td>
+<td style="text-align:center">hexo s</td>
+<td style="text-align:center">启动服务预览</td>
 </tr>
 <tr>
-<td align="center">hexo publish</td>
-<td align="center">hexo p</td>
-<td align="center">发表草稿</td>
+<td style="text-align:center">hexo publish</td>
+<td style="text-align:center">hexo p</td>
+<td style="text-align:center">发表草稿</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>注: <code>hexo clean</code> 没有简写, <code>git --version</code> 没有简写</strong></p>
-<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新建一个网站</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo init [folder]</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><pre><code class="shell"># 新建一个网站
+$ hexo init [folder]
+</code></pre>
 <p>如果没有设置<code>folder</code>，Hexo默认在<strong>当前文件夹</strong>建立网站</p>
-<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">新建一篇文章,文章名称和标题为 [title],文章采用 [layout] 布局</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo new [layout] &lt;title&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>会在目录<code>source/_posts</code>下生成 [title].md 文件，[title].md文件的顶部会使用<code>---</code>分割区域，也称作<strong>Front matter</strong>区<br>如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration">_config.yml</a> 中的 <code>default_layout</code> 参数代替（一般默认是<code>post</code>）。<br>如果标题包含空格的话，请使用<strong>引号</strong>括起来。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">eg</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo new <span class="string">&quot;post title with whitespace&quot;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成静态文件</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo generate</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo g</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><pre><code class="shell"># 新建一篇文章,文章名称和标题为 [title],文章采用 [layout] 布局
+$ hexo new [layout] &lt;title&gt;
+</code></pre>
+<p>会在目录<code>source/_posts</code>下生成 [title].md 文件，[title].md文件的顶部会使用<code>---</code>分割区域，也称作<strong>Front matter</strong>区<br>如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">_config.yml</a> 中的 <code>default_layout</code> 参数代替（一般默认是<code>post</code>）。<br>如果标题包含空格的话，请使用<strong>引号</strong>括起来。</p>
+<pre><code class="shell"># eg
+$ hexo new &quot;post title with whitespace&quot;
+</code></pre>
+<h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><pre><code class="shell"># 生成静态文件
+$ hexo generate
+$ hexo g
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -446,7 +480,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-d</code>, <code>--deploy</code></td>
 <td>文件生成后立即部署网站</td>
 </tr>
@@ -454,13 +489,17 @@
 <td><code>-w</code>, <code>--watch</code></td>
 <td>监视文件变动</td>
 </tr>
-</tbody></table>
-<p>执行 <code>$ hexo g</code>后会在站点根目录下生成<code>public</code>文件夹, hexo会将<code>/blog/source/</code>下面的<code>.md</code>后缀的文件编译为<code>.html后</code>缀的文件,存放在<code>/blog/public/ </code>路径下</p>
-<h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">发表草稿</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo publish [layout] &lt;filename&gt;</span></span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+<p>执行 <code>$ hexo g</code>后会在站点根目录下生成<code>public</code>文件夹, hexo会将<code>/blog/source/</code>下面的<code>.md</code>后缀的文件编译为<code>.html后</code>缀的文件,存放在<code>/blog/public/</code>路径下</p>
+<h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><pre><code class="shell"># 发表草稿
+$ hexo publish [layout] &lt;filename&gt;
+</code></pre>
 <p><code>hexo publish [layout] &lt;title&gt;</code> 通过 <code>publish</code> 命令将草稿移动到 <code>source/_posts</code> 文件夹<br>如:<code>$ hexo publish [layout] &lt;title&gt;</code>，草稿默认是不会显示在页面中的，可在执行时加上 <code>--draft</code> 参数，或是把 <code>render_drafts</code> 参数设为 <code>true</code>来预览草稿。</p>
-<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动服务器（常用于调试）</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo server</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo s</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><pre><code class="shell"># 启动服务器（常用于调试）
+$ hexo server
+$ hexo s
+</code></pre>
 <p>默认情况下，访问网址为： <code>http://localhost:4000/</code>。Hexo 会监视文件变动并自动更新，除修改<strong>站点配置文件</strong>外,无须重启服务器,直接刷新网页即可生效。</p>
 <table>
 <thead>
@@ -470,7 +509,8 @@
 <th>eg</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-p</code>, <code>--port</code></td>
 <td>重设端口</td>
 <td>hexo s -p 5000</td>
@@ -490,9 +530,12 @@
 <td>自定义IP</td>
 <td>hexo s -i 192.168.1.1</td>
 </tr>
-</tbody></table>
-<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部署网站,将本地数据部署到远端服务器(如github、coding)</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo deploy</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo d</span></span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><pre><code class="shell"># 部署网站,将本地数据部署到远端服务器(如github、coding)
+$ hexo deploy
+$ hexo d
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -500,13 +543,217 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-g</code>, <code>--generate</code></td>
 <td>部署之前预先生成静态文件</td>
 </tr>
-</tbody></table>
-<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 渲染文件</span><br><span class="line">$ hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
+</tbody>
+</table>
+<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><pre><code># 渲染文件
+$ hexo render &lt;file1&gt; [file2] ...
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-o</code>, <code>--output</code></td>
+<td>设置输出路径</td>
+</tr>
+</tbody>
+</table>
+<h2 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h2><pre><code class="shell">$ hexo migrate &lt;type&gt;
+</code></pre>
+<p>从其他博客系统 <a href="https://hexo.io/zh-cn/docs/migration" target="_blank" rel="noopener">迁移内容</a>。</p>
+<h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><pre><code class="shell"># 清除缓存,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹
+$ hexo clean
+</code></pre>
+<p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><pre><code class="shell"># 列出网站资料
+$ hexo list &lt;type&gt;
+</code></pre>
+<h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><pre><code class="shell"># 显示 Hexo 版本
+$ hexo version
+</code></pre>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h3><pre><code>$ hexo --safe
+</code></pre><p>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</p>
+<h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><pre><code>$ hexo --debug
+</code></pre><p>在终端中显示调试信息并记录到 <code>debug.log</code>。当您碰到问题时，可以尝试用调试模式重新执行一次，并 <a href="https://github.com/hexojs/hexo/issues/new" target="_blank" rel="noopener">提交调试信息到 GitHub</a>。</p>
+<h3 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h3><pre><code>$ hexo --silent
+</code></pre><p>隐藏终端信息。</p>
+<h3 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h3><pre><code>$ hexo --config custom.yml
+</code></pre><p>自定义配置文件的路径，执行后将不再使用 <code>_config.yml</code>。</p>
+<h3 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h3><pre><code>$ hexo --draft
+</code></pre><p>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+<h3 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h3><pre><code>$ hexo --cwd /path/to/cwd
+</code></pre><p>自定义当前工作目录（Current working directory）的路径。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">hexo官方文档</a></li>
+<li><a href="https://segmentfault.com/a/1190000002632530#articleHeader1" target="_blank" rel="noopener">hexo常用命令笔记</a></li>
+</ul>
 
+        </div>
+		<text ><pre><code class="shell"># 新建文章
+hexo n
+
+# 清除缓存
+hexo clean
+
+# 生成静态页面+部署
+hexo d -g        # 等同：hexo g &amp;&amp; hexo d
+# 生成静态网页
+hexo g
+# 部署
+hexo d
+
+# 启动服务器预览
+hexo s
+</code></pre>
+<h1 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h1><pre><code class="shell"># 安装hexo
+npm install hexo -g
+
+# 升级hexo
+npm update hexo -g
+
+# hexo初始化
+hexo init
+
+
+# 查看node.js版本号
+node -v
+# 查看npm版本号
+npm -v
+# 查看git版本号
+git --version
+# 查看hexo版本号
+hexo -v
+</code></pre>
+<h1 id="插件安装和卸载"><a href="#插件安装和卸载" class="headerlink" title="插件安装和卸载"></a>插件安装和卸载</h1><pre><code class="shell"># 安装插件
+npm install hexo-xxx-xxx --save
+
+# 卸载插件
+npm uninstall hexo-xxx-xxx --save
+</code></pre>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><h2 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">指令</th>
+<th style="text-align:center">简写</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hexo new</td>
+<td style="text-align:center">hexo n</td>
+<td style="text-align:center">新建文章</td>
+</tr>
+<tr>
+<td style="text-align:center">hexo generate</td>
+<td style="text-align:center">hexo g</td>
+<td style="text-align:center">生成静态文件</td>
+</tr>
+<tr>
+<td style="text-align:center">hexo deploy</td>
+<td style="text-align:center">hexo d</td>
+<td style="text-align:center">部署</td>
+</tr>
+<tr>
+<td style="text-align:center">hexo server</td>
+<td style="text-align:center">hexo s</td>
+<td style="text-align:center">启动服务预览</td>
+</tr>
+<tr>
+<td style="text-align:center">hexo publish</td>
+<td style="text-align:center">hexo p</td>
+<td style="text-align:center">发表草稿</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注: <code>hexo clean</code> 没有简写, <code>git --version</code> 没有简写</strong></p>
+<h2 id="init"><a href="#init" class="headerlink" title="init"></a>init</h2><pre><code class="shell"># 新建一个网站
+$ hexo init [folder]
+</code></pre>
+<p>如果没有设置<code>folder</code>，Hexo默认在<strong>当前文件夹</strong>建立网站</p>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><pre><code class="shell"># 新建一篇文章,文章名称和标题为 [title],文章采用 [layout] 布局
+$ hexo new [layout] &lt;title&gt;
+</code></pre>
+<p>会在目录<code>source/_posts</code>下生成 [title].md 文件，[title].md文件的顶部会使用<code>---</code>分割区域，也称作<strong>Front matter</strong>区<br>如果没有设置 <code>layout</code> 的话，默认使用 <a href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="noopener">_config.yml</a> 中的 <code>default_layout</code> 参数代替（一般默认是<code>post</code>）。<br>如果标题包含空格的话，请使用<strong>引号</strong>括起来。</p>
+<pre><code class="shell"># eg
+$ hexo new &quot;post title with whitespace&quot;
+</code></pre>
+<h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><pre><code class="shell"># 生成静态文件
+$ hexo generate
+$ hexo g
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-d</code>, <code>--deploy</code></td>
+<td>文件生成后立即部署网站</td>
+</tr>
+<tr>
+<td><code>-w</code>, <code>--watch</code></td>
+<td>监视文件变动</td>
+</tr>
+</tbody>
+</table>
+<p>执行 <code>$ hexo g</code>后会在站点根目录下生成<code>public</code>文件夹, hexo会将<code>/blog/source/</code>下面的<code>.md</code>后缀的文件编译为<code>.html后</code>缀的文件,存放在<code>/blog/public/</code>路径下</p>
+<h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><pre><code class="shell"># 发表草稿
+$ hexo publish [layout] &lt;filename&gt;
+</code></pre>
+<p><code>hexo publish [layout] &lt;title&gt;</code> 通过 <code>publish</code> 命令将草稿移动到 <code>source/_posts</code> 文件夹<br>如:<code>$ hexo publish [layout] &lt;title&gt;</code>，草稿默认是不会显示在页面中的，可在执行时加上 <code>--draft</code> 参数，或是把 <code>render_drafts</code> 参数设为 <code>true</code>来预览草稿。</p>
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><pre><code class="shell"># 启动服务器（常用于调试）
+$ hexo server
+$ hexo s
+</code></pre>
+<p>默认情况下，访问网址为： <code>http://localhost:4000/</code>。Hexo 会监视文件变动并自动更新，除修改<strong>站点配置文件</strong>外,无须重启服务器,直接刷新网页即可生效。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+<th>eg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-p</code>, <code>--port</code></td>
+<td>重设端口</td>
+<td>hexo s -p 5000</td>
+</tr>
+<tr>
+<td><code>-s</code>, <code>--static</code></td>
+<td>只使用静态文件</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-l</code>, <code>--log</code></td>
+<td>启动日记记录，使用覆盖记录格式</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>自定义IP</td>
+<td>hexo s -i 192.168.1.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><pre><code class="shell"># 部署网站,将本地数据部署到远端服务器(如github、coding)
+$ hexo deploy
+$ hexo d
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -514,50 +761,60 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
+<td><code>-g</code>, <code>--generate</code></td>
+<td>部署之前预先生成静态文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="render"><a href="#render" class="headerlink" title="render"></a>render</h2><pre><code># 渲染文件
+$ hexo render &lt;file1&gt; [file2] ...
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>-o</code>, <code>--output</code></td>
 <td>设置输出路径</td>
 </tr>
-</tbody></table>
-<h2 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo migrate &lt;<span class="built_in">type</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>从其他博客系统 <a href="https://hexo.io/zh-cn/docs/migration">迁移内容</a>。</p>
-<h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清除缓存,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean</span></span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+<h2 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h2><pre><code class="shell">$ hexo migrate &lt;type&gt;
+</code></pre>
+<p>从其他博客系统 <a href="https://hexo.io/zh-cn/docs/migration" target="_blank" rel="noopener">迁移内容</a>。</p>
+<h2 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h2><pre><code class="shell"># 清除缓存,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹
+$ hexo clean
+</code></pre>
 <p>清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。</p>
 <p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">列出网站资料</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo list &lt;<span class="built_in">type</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示 Hexo 版本</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo version</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo --safe</span><br></pre></td></tr></table></figure>
-
-<p>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</p>
-<h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo --debug</span><br></pre></td></tr></table></figure>
-
-<p>在终端中显示调试信息并记录到 <code>debug.log</code>。当您碰到问题时，可以尝试用调试模式重新执行一次，并 <a href="https://github.com/hexojs/hexo/issues/new">提交调试信息到 GitHub</a>。</p>
-<h3 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo --silent</span><br></pre></td></tr></table></figure>
-
-<p>隐藏终端信息。</p>
-<h3 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo --config custom.yml</span><br></pre></td></tr></table></figure>
-
-<p>自定义配置文件的路径，执行后将不再使用 <code>_config.yml</code>。</p>
-<h3 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo --draft</span><br></pre></td></tr></table></figure>
-
-<p>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
-<h3 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo --cwd /path/to/cwd</span><br></pre></td></tr></table></figure>
-
-<p>自定义当前工作目录（Current working directory）的路径。</p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><pre><code class="shell"># 列出网站资料
+$ hexo list &lt;type&gt;
+</code></pre>
+<h2 id="version"><a href="#version" class="headerlink" title="version"></a>version</h2><pre><code class="shell"># 显示 Hexo 版本
+$ hexo version
+</code></pre>
+<h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><h3 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h3><pre><code>$ hexo --safe
+</code></pre><p>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</p>
+<h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><pre><code>$ hexo --debug
+</code></pre><p>在终端中显示调试信息并记录到 <code>debug.log</code>。当您碰到问题时，可以尝试用调试模式重新执行一次，并 <a href="https://github.com/hexojs/hexo/issues/new" target="_blank" rel="noopener">提交调试信息到 GitHub</a>。</p>
+<h3 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h3><pre><code>$ hexo --silent
+</code></pre><p>隐藏终端信息。</p>
+<h3 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h3><pre><code>$ hexo --config custom.yml
+</code></pre><p>自定义配置文件的路径，执行后将不再使用 <code>_config.yml</code>。</p>
+<h3 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h3><pre><code>$ hexo --draft
+</code></pre><p>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
+<h3 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h3><pre><code>$ hexo --cwd /path/to/cwd
+</code></pre><p>自定义当前工作目录（Current working directory）的路径。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://hexo.io/zh-cn/docs/commands">hexo官方文档</a></li>
-<li><a href="https://segmentfault.com/a/1190000002632530#articleHeader1">hexo常用命令笔记</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">hexo官方文档</a></li>
+<li><a href="https://segmentfault.com/a/1190000002632530#articleHeader1" target="_blank" rel="noopener">hexo常用命令笔记</a></li>
 </ul>
-
-        </div>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -586,7 +843,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/06/12/git-push%E6%8A%A5%E9%94%99%EF%BC%9AThe-current-branch-master-has-no-upstream-branch/" rel="prev">
+            <a href="/2019/06/12/git-push报错：The-current-branch-master-has-no-upstream-branch/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1531715359372-a4df1cd7384a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1531715359372-a4df1cd7384a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -604,7 +861,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/06/12/git%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E6%B1%87%E6%80%BB/" rel="next">
+            <a href="/2019/06/12/git常用命名汇总/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1499463217683-ee3c9ce038f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1499463217683-ee3c9ce038f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -673,7 +930,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -685,10 +942,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -970,7 +1227,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -998,14 +1255,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -1026,28 +1283,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

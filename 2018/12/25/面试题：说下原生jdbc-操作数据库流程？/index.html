@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,12 +379,142 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <blockquote>
-<p>原生的jdbc操作数据库流程：<br>1.注册驱动程序：Class.forName(“com.mysql.jdbc.Driver”);<br>2.使用驱动管理类来获取数据连接对象：conn &#x3D; DriverManager.getConnection(…);<br>3.获取数据库操作对象：Statement stmt &#x3D; conn.createStatement();<br>4.定义操作的SQL语句<br>5.执行SQL：stmt.executeQuery(sql);<br>6.处理结果集：ResultSet，如果SQL前有参数值就设置参数值setXXX()<br>7.关闭对象，回收数据库资源（关闭结果集–&gt;关闭数据库操作对象–&gt;关闭连接）</p>
+<p>原生的jdbc操作数据库流程：<br>1.注册驱动程序：Class.forName(“com.mysql.jdbc.Driver”);<br>2.使用驱动管理类来获取数据连接对象：conn = DriverManager.getConnection(…);<br>3.获取数据库操作对象：Statement stmt = conn.createStatement();<br>4.定义操作的SQL语句<br>5.执行SQL：stmt.executeQuery(sql);<br>6.处理结果集：ResultSet，如果SQL前有参数值就设置参数值setXXX()<br>7.关闭对象，回收数据库资源（关闭结果集–&gt;关闭数据库操作对象–&gt;关闭连接）</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JDBCTest</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用JDBC连接并操作mysql数据库</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 数据库驱动类名的字符串</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">driver</span> <span class="operator">=</span> <span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>;</span><br><span class="line">        <span class="comment">// 数据库连接串</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://127.0.0.1:3306/jdbctest&quot;</span>;</span><br><span class="line">        <span class="comment">// 用户名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">        <span class="comment">// 密码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;1234&quot;</span>;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 1、加载数据库驱动（ 成功加载后，会将Driver类的实例注册到DriverManager类中）</span></span><br><span class="line">            Class.forName(driver);</span><br><span class="line">            <span class="comment">// 2、获取数据库连接</span></span><br><span class="line">            conn = DriverManager.getConnection(url, username, password);</span><br><span class="line">            <span class="comment">// 3、获取数据库操作对象</span></span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            <span class="comment">// 4、定义操作的SQL语句</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;select * from user where id = 100&quot;</span>;</span><br><span class="line">            <span class="comment">// 5、执行数据库操作</span></span><br><span class="line">            rs = stmt.executeQuery(sql);</span><br><span class="line">            <span class="comment">// 6、获取并操作结果集</span></span><br><span class="line">            <span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">                System.out.println(rs.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                System.out.println(rs.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">// 7、关闭对象，回收数据库资源</span></span><br><span class="line">            <span class="keyword">if</span> (rs != <span class="literal">null</span>) &#123; <span class="comment">//关闭结果集对象</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    rs.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (stmt != <span class="literal">null</span>) &#123; <span class="comment">// 关闭数据库操作对象</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    stmt.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (conn != <span class="literal">null</span>) &#123; <span class="comment">// 关闭数据库连接对象</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!conn.isClosed()) &#123;</span><br><span class="line">                        conn.close();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class JDBCTest {
+    /**
+     * 使用JDBC连接并操作mysql数据库
+     */
+    public static void main(String[] args) {
+        // 数据库驱动类名的字符串
+        String driver = &quot;com.mysql.jdbc.Driver&quot;;
+        // 数据库连接串
+        String url = &quot;jdbc:mysql://127.0.0.1:3306/jdbctest&quot;;
+        // 用户名
+        String username = &quot;root&quot;;
+        // 密码
+        String password = &quot;1234&quot;;
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            // 1、加载数据库驱动（ 成功加载后，会将Driver类的实例注册到DriverManager类中）
+            Class.forName(driver);
+            // 2、获取数据库连接
+            conn = DriverManager.getConnection(url, username, password);
+            // 3、获取数据库操作对象
+            stmt = conn.createStatement();
+            // 4、定义操作的SQL语句
+            String sql = &quot;select * from user where id = 100&quot;;
+            // 5、执行数据库操作
+            rs = stmt.executeQuery(sql);
+            // 6、获取并操作结果集
+            while (rs.next()) {
+                System.out.println(rs.getInt(&quot;id&quot;));
+                System.out.println(rs.getString(&quot;name&quot;));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 7、关闭对象，回收数据库资源
+            if (rs != null) { //关闭结果集对象
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) { // 关闭数据库操作对象
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) { // 关闭数据库连接对象
+                try {
+                    if (!conn.isClosed()) {
+                        conn.close();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+</code></pre>
 
         </div>
+		<text ><blockquote>
+<p>原生的jdbc操作数据库流程：<br>1.注册驱动程序：Class.forName(“com.mysql.jdbc.Driver”);<br>2.使用驱动管理类来获取数据连接对象：conn = DriverManager.getConnection(…);<br>3.获取数据库操作对象：Statement stmt = conn.createStatement();<br>4.定义操作的SQL语句<br>5.执行SQL：stmt.executeQuery(sql);<br>6.处理结果集：ResultSet，如果SQL前有参数值就设置参数值setXXX()<br>7.关闭对象，回收数据库资源（关闭结果集–&gt;关闭数据库操作对象–&gt;关闭连接）</p>
+</blockquote>
+<pre><code class="java">public class JDBCTest {
+    /**
+     * 使用JDBC连接并操作mysql数据库
+     */
+    public static void main(String[] args) {
+        // 数据库驱动类名的字符串
+        String driver = &quot;com.mysql.jdbc.Driver&quot;;
+        // 数据库连接串
+        String url = &quot;jdbc:mysql://127.0.0.1:3306/jdbctest&quot;;
+        // 用户名
+        String username = &quot;root&quot;;
+        // 密码
+        String password = &quot;1234&quot;;
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            // 1、加载数据库驱动（ 成功加载后，会将Driver类的实例注册到DriverManager类中）
+            Class.forName(driver);
+            // 2、获取数据库连接
+            conn = DriverManager.getConnection(url, username, password);
+            // 3、获取数据库操作对象
+            stmt = conn.createStatement();
+            // 4、定义操作的SQL语句
+            String sql = &quot;select * from user where id = 100&quot;;
+            // 5、执行数据库操作
+            rs = stmt.executeQuery(sql);
+            // 6、获取并操作结果集
+            while (rs.next()) {
+                System.out.println(rs.getInt(&quot;id&quot;));
+                System.out.println(rs.getString(&quot;name&quot;));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // 7、关闭对象，回收数据库资源
+            if (rs != null) { //关闭结果集对象
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (stmt != null) { // 关闭数据库操作对象
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (conn != null) { // 关闭数据库连接对象
+                try {
+                    if (!conn.isClosed()) {
+                        conn.close();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -414,7 +543,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2018/12/25/%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E7%82%B9%EF%BC%9F/" rel="prev">
+            <a href="/2018/12/25/抽象类和接口有什么不同点？/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1559145430-e30c788dc85b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1559145430-e30c788dc85b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -432,7 +561,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2018/12/21/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98-cors%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F/" rel="next">
+            <a href="/2018/12/21/跨域问题-cors解决跨域/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1559549865-f09372d2aa3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1559549865-f09372d2aa3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -501,7 +630,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -513,10 +642,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -798,7 +927,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -826,14 +955,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -854,28 +983,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

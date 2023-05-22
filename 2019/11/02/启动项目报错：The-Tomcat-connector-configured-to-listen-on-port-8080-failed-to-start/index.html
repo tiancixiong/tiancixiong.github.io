@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,27 +379,66 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <p>启动SpringBoot项目，报错：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]</span><br><span class="line">	....</span><br><span class="line"></span><br><span class="line">Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed</span><br><span class="line">	....</span><br><span class="line"></span><br><span class="line">Caused by: java.net.BindException: Address already in use: bind</span><br><span class="line">	....</span><br></pre></td></tr></table></figure>
+<pre><code>org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+    ....
 
-<p>错误描述：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.</span><br></pre></td></tr></table></figure>
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+    ....
 
-<p>意思就是说<code>8080</code>端口一直被占用着，从而无法启动项目。此时很懵啊，因为本地并没有其他项目跑着…</p>
+Caused by: java.net.BindException: Address already in use: bind
+    ....
+</code></pre><p>错误描述：</p>
+<pre><code>The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+</code></pre><p>意思就是说<code>8080</code>端口一直被占用着，从而无法启动项目。此时很懵啊，因为本地并没有其他项目跑着…</p>
 <p><strong>解决</strong>：</p>
 <ol>
 <li><p>cmd打开黑窗口，输入下面指令显示所有端口和PID进程ID</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">netstat -ano
+</code></pre>
 </li>
 <li><p>找到8080端口对应的PID，通过<code>tasklist</code>指令找到对应的进程</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tasklist | findstr <span class="string">&quot;7676&quot;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">tasklist | findstr &quot;7676&quot;
+</code></pre>
 </li>
 <li><p>通过杀死此进程</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">taskkill /f /t /im java.exe </span><br></pre></td></tr></table></figure></li>
+<pre><code class="bash">taskkill /f /t /im java.exe 
+</code></pre>
+</li>
 </ol>
-<p>转载：<a href="https://blog.csdn.net/q343509740/article/details/80821409">https://blog.csdn.net/q343509740/article/details/80821409</a></p>
+<p>转载：<a href="https://blog.csdn.net/q343509740/article/details/80821409" target="_blank" rel="noopener">https://blog.csdn.net/q343509740/article/details/80821409</a></p>
 
         </div>
+		<text ><p>启动SpringBoot项目，报错：</p>
+<pre><code>org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+    ....
+
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+    ....
+
+Caused by: java.net.BindException: Address already in use: bind
+    ....
+</code></pre><p>错误描述：</p>
+<pre><code>The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+</code></pre><p>意思就是说<code>8080</code>端口一直被占用着，从而无法启动项目。此时很懵啊，因为本地并没有其他项目跑着…</p>
+<p><strong>解决</strong>：</p>
+<ol>
+<li><p>cmd打开黑窗口，输入下面指令显示所有端口和PID进程ID</p>
+<pre><code class="shell">netstat -ano
+</code></pre>
+</li>
+<li><p>找到8080端口对应的PID，通过<code>tasklist</code>指令找到对应的进程</p>
+<pre><code class="bash">tasklist | findstr &quot;7676&quot;
+</code></pre>
+</li>
+<li><p>通过杀死此进程</p>
+<pre><code class="bash">taskkill /f /t /im java.exe 
+</code></pre>
+</li>
+</ol>
+<p>转载：<a href="https://blog.csdn.net/q343509740/article/details/80821409" target="_blank" rel="noopener">https://blog.csdn.net/q343509740/article/details/80821409</a></p>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -429,7 +467,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/11/02/%E4%BD%BF%E7%94%A8git-io%E8%AE%BE%E7%BD%AEGitHub%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%9F%AD%E9%93%BE%E6%8E%A5/" rel="prev">
+            <a href="/2019/11/02/使用git-io设置GitHub项目的短链接/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1457419655743-2e0acc6b5122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1457419655743-2e0acc6b5122?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -447,7 +485,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/11/02/%E4%BD%BF%E7%94%A8Postman%E6%B5%8B%E8%AF%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E6%8E%A5%E5%8F%A3%E6%8A%A5%E9%94%99%EF%BC%9Athe-request-was-rejected-because-no-multipart-boundary-was-found/" rel="next">
+            <a href="/2019/11/02/使用Postman测试上传图片接口报错：the-request-was-rejected-because-no-multipart-boundary-was-found/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1518818419601-72c8673f5852?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1518818419601-72c8673f5852?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -516,7 +554,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -528,10 +566,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -813,7 +851,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -841,14 +879,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -869,28 +907,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,20 +379,22 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <h1 id="1、修改commit注释"><a href="#1、修改commit注释" class="headerlink" title="1、修改commit注释"></a>1、修改commit注释</h1><h2 id="1-1、修改最后一次commit注释"><a href="#1-1、修改最后一次commit注释" class="headerlink" title="1.1、修改最后一次commit注释"></a>1.1、修改最后一次commit注释</h2><p>通过<code>git log</code>查看提交历史信息：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523143139.png" alt="1573523143139"></p>
 <p>输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">git commit --amend
+</code></pre>
 <p>进入修改注释界面：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573522695253.png" alt="1573522695253"></p>
 <p>第一行就是最后一次commit的注释信息，按<code>i</code>键进行编辑状态，修改注释信息后按<code>Esc</code>后再按<code>:wq</code>保存并退出</p>
 <p>再次通过<code>git log</code>查看，注释信息由<strong>add test.txt</strong>修改为<strong>新增test.txt</strong>：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523236683.png" alt="1573523236683"></p>
 <h2 id="1-2、修改多次commit注释"><a href="#1-2、修改多次commit注释" class="headerlink" title="1.2、修改多次commit注释"></a>1.2、修改多次commit注释</h2><p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># n：需要修改的最近n此commit</span></span><br><span class="line">git rebase -i HEAD~n</span><br></pre></td></tr></table></figure>
-
-<p>比如我想要修改最近3次注释信息就使用<code>git rebase -i HEAD~3 </code>，显示下面内容：</p>
+<pre><code class="bash"># n：需要修改的最近n此commit
+git rebase -i HEAD~n
+</code></pre>
+<p>比如我想要修改最近3次注释信息就使用<code>git rebase -i HEAD~3</code>，显示下面内容：</p>
 <p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523831856.png" alt="1573523831856"></p>
 <blockquote>
 <p>这上面一行就是一次commit历史，按照提交的顺序进行排序，最下面的一行为最后一次commit</p>
@@ -405,17 +406,55 @@
 </blockquote>
 <p>然后按<code>Esc</code>后再按<code>:wq</code>保存并退出</p>
 <p>此时输入一下命令编辑第1条commit注释：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">git commit --amend
+</code></pre>
 <p>编辑注释信息(按<code>i</code>进入编辑状态，按<code>Esc</code>和<code>:wq</code>保存并退出)，此时分支变为<code>master|REBASE-i 1/3</code>；再输入下面信息进行保存：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">git rebase --continue
+</code></pre>
 <p>此时分支变为<code>master|REBASE-i 3/3</code>，现在只修改完第1条commit</p>
 <p>再通过<code>git commit --amend</code>和<code>git rebase --continue</code>修改第3条后分支状态变回<code>master</code>并提示<code>Successfully rebased and updated refs/heads/master.</code>说明已修改完成</p>
-<h1 id="2、提交到远程仓库"><a href="#2、提交到远程仓库" class="headerlink" title="2、提交到远程仓库"></a>2、提交到远程仓库</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 强制更新到远程仓库</span></span><br><span class="line">git push -f remote branch</span><br></pre></td></tr></table></figure>
-
+<h1 id="2、提交到远程仓库"><a href="#2、提交到远程仓库" class="headerlink" title="2、提交到远程仓库"></a>2、提交到远程仓库</h1><pre><code class="bash"># 强制更新到远程仓库
+git push -f remote branch
+</code></pre>
 
         </div>
+		<text ><h1 id="1、修改commit注释"><a href="#1、修改commit注释" class="headerlink" title="1、修改commit注释"></a>1、修改commit注释</h1><h2 id="1-1、修改最后一次commit注释"><a href="#1-1、修改最后一次commit注释" class="headerlink" title="1.1、修改最后一次commit注释"></a>1.1、修改最后一次commit注释</h2><p>通过<code>git log</code>查看提交历史信息：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523143139.png" alt="1573523143139"></p>
+<p>输入命令：</p>
+<pre><code class="bash">git commit --amend
+</code></pre>
+<p>进入修改注释界面：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573522695253.png" alt="1573522695253"></p>
+<p>第一行就是最后一次commit的注释信息，按<code>i</code>键进行编辑状态，修改注释信息后按<code>Esc</code>后再按<code>:wq</code>保存并退出</p>
+<p>再次通过<code>git log</code>查看，注释信息由<strong>add test.txt</strong>修改为<strong>新增test.txt</strong>：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523236683.png" alt="1573523236683"></p>
+<h2 id="1-2、修改多次commit注释"><a href="#1-2、修改多次commit注释" class="headerlink" title="1.2、修改多次commit注释"></a>1.2、修改多次commit注释</h2><p>命令：</p>
+<pre><code class="bash"># n：需要修改的最近n此commit
+git rebase -i HEAD~n
+</code></pre>
+<p>比如我想要修改最近3次注释信息就使用<code>git rebase -i HEAD~3</code>，显示下面内容：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573523831856.png" alt="1573523831856"></p>
+<blockquote>
+<p>这上面一行就是一次commit历史，按照提交的顺序进行排序，最下面的一行为最后一次commit</p>
+</blockquote>
+<p>按<code>i</code>进行编辑，需要修改那个注释，就将其前面的<code>pick</code>修改为<code>edit</code>：</p>
+<p><img src="//jsd.cdn.zzko.cn/gh/tiancixiong/BlogIMG@230521/blog/20191112/1573524177642.png" alt="1573524177642"></p>
+<blockquote>
+<p>上面为修改第1行和第3行的注释信息</p>
+</blockquote>
+<p>然后按<code>Esc</code>后再按<code>:wq</code>保存并退出</p>
+<p>此时输入一下命令编辑第1条commit注释：</p>
+<pre><code class="bash">git commit --amend
+</code></pre>
+<p>编辑注释信息(按<code>i</code>进入编辑状态，按<code>Esc</code>和<code>:wq</code>保存并退出)，此时分支变为<code>master|REBASE-i 1/3</code>；再输入下面信息进行保存：</p>
+<pre><code class="bash">git rebase --continue
+</code></pre>
+<p>此时分支变为<code>master|REBASE-i 3/3</code>，现在只修改完第1条commit</p>
+<p>再通过<code>git commit --amend</code>和<code>git rebase --continue</code>修改第3条后分支状态变回<code>master</code>并提示<code>Successfully rebased and updated refs/heads/master.</code>说明已修改完成</p>
+<h1 id="2、提交到远程仓库"><a href="#2、提交到远程仓库" class="headerlink" title="2、提交到远程仓库"></a>2、提交到远程仓库</h1><pre><code class="bash"># 强制更新到远程仓库
+git push -f remote branch
+</code></pre>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -444,7 +483,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/04/04/%E7%A6%81%E7%94%A8win10%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/" rel="prev">
+            <a href="/2020/04/04/禁用win10自动更新/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200404/win10update.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20200404/win10update.png">
               </div>
@@ -462,7 +501,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2019/11/11/%E8%A7%A3%E5%86%B3IDEA%E4%B8%AD%E5%AE%89%E8%A3%85CodeGlance%E6%8F%92%E4%BB%B6%E5%90%8E%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E9%97%AE%E9%A2%98/" rel="next">
+            <a href="/2019/11/11/解决IDEA中安装CodeGlance插件后不起作用问题/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1447014421976-7fec21d26d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1447014421976-7fec21d26d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
               </div>
@@ -531,7 +570,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -543,10 +582,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -828,7 +867,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -856,14 +895,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -884,28 +923,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>

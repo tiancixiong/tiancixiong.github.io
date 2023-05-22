@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
@@ -71,9 +71,8 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 7.0.0-rc1"><link rel="alternate" href="/atom.xml" title="天赐の小站" type="application/atom+xml">
 </head>
-
+</html>
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
   </div>
@@ -182,7 +181,7 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                        <a href="/categories/技术/">
                           <i class="fa fa-code" aria-hidden="true"></i>
                           技术
                         </a>
@@ -210,14 +209,14 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                        <a href="/categories/电影/">
                           <i class="fa fa-film" aria-hidden="true"></i>
                           电影
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                        <a href="/categories/日语/">
                           <i class="fa fa-language" aria-hidden="true"></i>
                           日语
                         </a>
@@ -238,28 +237,28 @@
                   <ul class="sub-menu">
                     
                       <li>
-                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                        <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                        <a href="/categories/随想/">
                           <i class="fa fa-commenting-o" aria-hidden="true"></i>
                           随想
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                        <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
                         </a>
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                        <a href="/categories/转载/">
                           <i class="fa fa-book" aria-hidden="true"></i>
                           转载
                         </a>
@@ -380,46 +379,250 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
+		
           <p>&lt; !– more –&gt;<br>HashSet存储元素的原理：<br>往hashSet添加元素的时候，首先会调用元素的 <code>hashCode</code> 方法得到元素的哈希码值，然后把哈希码值经过运算算出该元素存在哈希表中的位置。有两种情况：</p>
 <ul>
 <li><p>情况1：如果算出的位置目前还没有存在任何的元素，那么该元素可以直接添加到哈希表中。</p>
 </li>
-<li><p>情况2： 如果算出的位置目前已经存在其他的元素，那么还会调用元素的 <code>equals</code> 方法再与这个位置上的元素比较一次。<br>如果 <code>equals</code> 方法返回的是true，那么该元素被视为重复元素，不允许添加。如果equals方法返回的是false，那么该元素也可以被添加。</p>
+<li><p>情况2： 如果算出的位置目前已经存在其他的元素，那么还会调用元素的 <code>equals</code> 方法再与这个位置上的元素比较一次。<br>如果 <code>equals</code> 方法返回的是true，那么该元素被视为重复元素，不允许添加。如果equals方法返回的是false，那么该元素也可以被添加。  </p>
 </li>
 </ul>
-<h2 id="先看个最简单的构造方法"><a href="#先看个最简单的构造方法" class="headerlink" title="先看个最简单的构造方法"></a>先看个最简单的构造方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">* Constructs a <span class="keyword">new</span>, empty set; the backing &lt;tt&gt;HashMap&lt;/tt&gt; instance has</span><br><span class="line">* <span class="keyword">default</span> initial <span class="title function_">capacity</span> <span class="params">(<span class="number">16</span>)</span> and load <span class="title function_">factor</span> <span class="params">(<span class="number">0.75</span>)</span>.</span><br><span class="line">*/</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">HashSet</span><span class="params">()</span> &#123;</span><br><span class="line">	map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="先看个最简单的构造方法"><a href="#先看个最简单的构造方法" class="headerlink" title="先看个最简单的构造方法"></a>先看个最简单的构造方法</h2><pre><code class="java">* Constructs a new, empty set; the backing &lt;tt&gt;HashMap&lt;/tt&gt; instance has
+* default initial capacity (16) and load factor (0.75).
+*/
+public HashSet() {
+    map = new HashMap&lt;&gt;();
+}
+</code></pre>
 <p>很明显，HashSet底层是Hashmap存储的。借大神的话</p>
 <blockquote>
 <p>HashSet 就是HashMap的马甲       —–someone</p>
 </blockquote>
-<h2 id="再看看add方法"><a href="#再看看add方法" class="headerlink" title="再看看add方法"></a>再看看add方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Dummy value to associate with an Object in the backing Map</span></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">transient</span> HashMap&lt;E,Object&gt; map;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Object</span> <span class="variable">PRESENT</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Adds the specified element to this set if it is not already present.</span></span><br><span class="line"><span class="comment">     * More formally, adds the specified element &lt;tt&gt;e&lt;/tt&gt; to this set if</span></span><br><span class="line"><span class="comment">     * this set contains no element &lt;tt&gt;e2&lt;/tt&gt; such that</span></span><br><span class="line"><span class="comment">     * &lt;tt&gt;(e==null&amp;nbsp;?&amp;nbsp;e2==null&amp;nbsp;:&amp;nbsp;e.equals(e2))&lt;/tt&gt;.</span></span><br><span class="line"><span class="comment">     * If this set already contains the element, the call leaves the set</span></span><br><span class="line"><span class="comment">     * unchanged and returns &lt;tt&gt;false&lt;/tt&gt;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> e element to be added to this set</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> &lt;tt&gt;true&lt;/tt&gt; if this set did not already contain the specified</span></span><br><span class="line"><span class="comment">     * element</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E e)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> map.put(e, PRESENT)==<span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="再看看add方法"><a href="#再看看add方法" class="headerlink" title="再看看add方法"></a>再看看add方法</h2><pre><code class="java">// Dummy value to associate with an Object in the backing Map
+ private transient HashMap&lt;E,Object&gt; map;
+ private static final Object PRESENT = new Object();
+/**
+     * Adds the specified element to this set if it is not already present.
+     * More formally, adds the specified element &lt;tt&gt;e&lt;/tt&gt; to this set if
+     * this set contains no element &lt;tt&gt;e2&lt;/tt&gt; such that
+     * &lt;tt&gt;(e==null&amp;nbsp;?&amp;nbsp;e2==null&amp;nbsp;:&amp;nbsp;e.equals(e2))&lt;/tt&gt;.
+     * If this set already contains the element, the call leaves the set
+     * unchanged and returns &lt;tt&gt;false&lt;/tt&gt;.
+     *
+     * @param e element to be added to this set
+     * @return &lt;tt&gt;true&lt;/tt&gt; if this set did not already contain the specified
+     * element
+     */
+    public boolean add(E e) {
+        return map.put(e, PRESENT)==null;
+    }
+</code></pre>
 <p>add方法的参数：</p>
 <ul>
 <li>map：map是一个HashMap的实例</li>
 <li>e：我们要存储的值，是HashMap的key</li>
-<li>PRESENT：固定值( Object PRESENT &#x3D; new Object(); )，空的obj对象</li>
+<li>PRESENT：固定值( Object PRESENT = new Object(); )，空的obj对象</li>
 </ul>
 <p>Set偷偷的用了HashMap的 <code>put</code> 方法，然而HashMap并没有去重的功能呀，那么Set是如何做到去重的呢？</p>
 <p>从add方法中可以看到，E是我们要存储的值，而到了HashMap里面却变成了Key，PRESENT就是个空对象。</p>
 <p>在HashMap中Key的HashCode是决定底层数组的下标，进一步使用 <code>equals</code> 进行遍历对象链表中的<strong>Key</strong>进而覆盖原来的Value。</p>
 <p>那么对于HashSet，如果 <code>e</code> 已经存在（先HashCode相同定位到链表，然后equals比较定位到具体的Node），那么覆盖oldValue（value其实就是个傀儡，没啥用），Key不变；如果不存在，就添加一个新的节点（即加了一个新的Key）。</p>
-<p>HashMap的返回值是oldValue，oldValue&#x3D;&#x3D;null说明节点之前不存在；反之说明节点存在，虽然返回false但实际上还是对底层数据进行了改变（即旧的空对象变成了新的空对象）。</p>
+<p>HashMap的返回值是oldValue，oldValue==null说明节点之前不存在；反之说明节点存在，虽然返回false但实际上还是对底层数据进行了改变（即旧的空对象变成了新的空对象）。</p>
 <p>总而言之，HashSet确定相同的方式其实就是HashCode相同（才能找到同一链表），然后equals的返回值（才能比较具体节点进行覆盖）。</p>
 <h2 id="重点看key（敲黑板）"><a href="#重点看key（敲黑板）" class="headerlink" title="重点看key（敲黑板）"></a>重点看key（敲黑板）</h2><p>HashMap中的put方法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> V <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> putVal(hash(key), key, value, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Implements Map.put and related methods</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> hash hash for key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> key the key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value the value to put</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> onlyIfAbsent if true, don&#x27;t change existing value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> evict if false, the table is in creation mode.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> previous value, or null if none</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,</span></span><br><span class="line"><span class="params">                   <span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="type">int</span> n, i;</span><br><span class="line">        <span class="keyword">if</span> ((tab = table) == <span class="literal">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">            n = (tab = resize()).length;</span><br><span class="line">        <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="literal">null</span>)</span><br><span class="line">            tab[i] = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            Node&lt;K,V&gt; e; K k;</span><br><span class="line">            <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">                ((k = p.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                e = p;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="built_in">this</span>, tab, hash, key, value);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">binCount</span> <span class="operator">=</span> <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((e = p.next) == <span class="literal">null</span>) &#123;</span><br><span class="line">                        p.next = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">                        <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                            treeifyBin(tab, hash);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                        ((k = e.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    p = e;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (e != <span class="literal">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">                <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> e.value;</span><br><span class="line">                <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="literal">null</span>)</span><br><span class="line">                    e.value = value;</span><br><span class="line">                afterNodeAccess(e);</span><br><span class="line">                <span class="keyword">return</span> oldValue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ++modCount;</span><br><span class="line">        <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">            resize();</span><br><span class="line">        afterNodeInsertion(evict);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public V put(K key, V value) {
+        return putVal(hash(key), key, value, false, true);
+    }
+   /**
+     * Implements Map.put and related methods
+     *
+     * @param hash hash for key
+     * @param key the key
+     * @param value the value to put
+     * @param onlyIfAbsent if true, don&#39;t change existing value
+     * @param evict if false, the table is in creation mode.
+     * @return previous value, or null if none
+     */
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+        if ((p = tab[i = (n - 1) &amp; hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+        else {
+            Node&lt;K,V&gt; e; K k;
+            if (p.hash == hash &amp;&amp;
+                ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
+                e = p;
+            else if (p instanceof TreeNode)
+                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    if (e.hash == hash &amp;&amp;
+                        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+                        break;
+                    p = e;
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        ++modCount;
+        if (++size &gt; threshold)
+            resize();
+        afterNodeInsertion(evict);
+        return null;
+    }
+</code></pre>
 <p><strong>这里边有两个看点：</strong></p>
 <ul>
 <li>HashMap中key存储是hash后的值，对于String类型的相同值的hash值是一致的（其他接触类型类似，自定义对象类型需要重写hashcode方法与equel方法）。换句话说相同的值在hashMap中的存储位置是一样的。</li>
 <li>基于上一点来看看怎么存储重复值的。如下代码对于hashMap中已经存在的key，key不变，新value覆盖就value。对于HashSet而言新旧value都是PRESENT对象，所以set在存储的时候就不会重复。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (e != <span class="literal">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">	<span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> e.value;</span><br><span class="line">	<span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="literal">null</span>)</span><br><span class="line">		e.value = value;</span><br><span class="line">		afterNodeAccess(e);</span><br><span class="line">	<span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">if (e != null) { // existing mapping for key
+    V oldValue = e.value;
+    if (!onlyIfAbsent || oldValue == null)
+        e.value = value;
+        afterNodeAccess(e);
+    return oldValue;
+}
+</code></pre>
 <p>所以hashset中存储的值输出的顺序和存储的先后顺序不一致，这是因为hashset是按照值的hash顺序进行输出。</p>
 
         </div>
+		<text ><p>&lt; !– more –&gt;<br>HashSet存储元素的原理：<br>往hashSet添加元素的时候，首先会调用元素的 <code>hashCode</code> 方法得到元素的哈希码值，然后把哈希码值经过运算算出该元素存在哈希表中的位置。有两种情况：</p>
+<ul>
+<li><p>情况1：如果算出的位置目前还没有存在任何的元素，那么该元素可以直接添加到哈希表中。</p>
+</li>
+<li><p>情况2： 如果算出的位置目前已经存在其他的元素，那么还会调用元素的 <code>equals</code> 方法再与这个位置上的元素比较一次。<br>如果 <code>equals</code> 方法返回的是true，那么该元素被视为重复元素，不允许添加。如果equals方法返回的是false，那么该元素也可以被添加。  </p>
+</li>
+</ul>
+<h2 id="先看个最简单的构造方法"><a href="#先看个最简单的构造方法" class="headerlink" title="先看个最简单的构造方法"></a>先看个最简单的构造方法</h2><pre><code class="java">* Constructs a new, empty set; the backing &lt;tt&gt;HashMap&lt;/tt&gt; instance has
+* default initial capacity (16) and load factor (0.75).
+*/
+public HashSet() {
+    map = new HashMap&lt;&gt;();
+}
+</code></pre>
+<p>很明显，HashSet底层是Hashmap存储的。借大神的话</p>
+<blockquote>
+<p>HashSet 就是HashMap的马甲       —–someone</p>
+</blockquote>
+<h2 id="再看看add方法"><a href="#再看看add方法" class="headerlink" title="再看看add方法"></a>再看看add方法</h2><pre><code class="java">// Dummy value to associate with an Object in the backing Map
+ private transient HashMap&lt;E,Object&gt; map;
+ private static final Object PRESENT = new Object();
+/**
+     * Adds the specified element to this set if it is not already present.
+     * More formally, adds the specified element &lt;tt&gt;e&lt;/tt&gt; to this set if
+     * this set contains no element &lt;tt&gt;e2&lt;/tt&gt; such that
+     * &lt;tt&gt;(e==null&amp;nbsp;?&amp;nbsp;e2==null&amp;nbsp;:&amp;nbsp;e.equals(e2))&lt;/tt&gt;.
+     * If this set already contains the element, the call leaves the set
+     * unchanged and returns &lt;tt&gt;false&lt;/tt&gt;.
+     *
+     * @param e element to be added to this set
+     * @return &lt;tt&gt;true&lt;/tt&gt; if this set did not already contain the specified
+     * element
+     */
+    public boolean add(E e) {
+        return map.put(e, PRESENT)==null;
+    }
+</code></pre>
+<p>add方法的参数：</p>
+<ul>
+<li>map：map是一个HashMap的实例</li>
+<li>e：我们要存储的值，是HashMap的key</li>
+<li>PRESENT：固定值( Object PRESENT = new Object(); )，空的obj对象</li>
+</ul>
+<p>Set偷偷的用了HashMap的 <code>put</code> 方法，然而HashMap并没有去重的功能呀，那么Set是如何做到去重的呢？</p>
+<p>从add方法中可以看到，E是我们要存储的值，而到了HashMap里面却变成了Key，PRESENT就是个空对象。</p>
+<p>在HashMap中Key的HashCode是决定底层数组的下标，进一步使用 <code>equals</code> 进行遍历对象链表中的<strong>Key</strong>进而覆盖原来的Value。</p>
+<p>那么对于HashSet，如果 <code>e</code> 已经存在（先HashCode相同定位到链表，然后equals比较定位到具体的Node），那么覆盖oldValue（value其实就是个傀儡，没啥用），Key不变；如果不存在，就添加一个新的节点（即加了一个新的Key）。</p>
+<p>HashMap的返回值是oldValue，oldValue==null说明节点之前不存在；反之说明节点存在，虽然返回false但实际上还是对底层数据进行了改变（即旧的空对象变成了新的空对象）。</p>
+<p>总而言之，HashSet确定相同的方式其实就是HashCode相同（才能找到同一链表），然后equals的返回值（才能比较具体节点进行覆盖）。</p>
+<h2 id="重点看key（敲黑板）"><a href="#重点看key（敲黑板）" class="headerlink" title="重点看key（敲黑板）"></a>重点看key（敲黑板）</h2><p>HashMap中的put方法</p>
+<pre><code class="java">public V put(K key, V value) {
+        return putVal(hash(key), key, value, false, true);
+    }
+   /**
+     * Implements Map.put and related methods
+     *
+     * @param hash hash for key
+     * @param key the key
+     * @param value the value to put
+     * @param onlyIfAbsent if true, don&#39;t change existing value
+     * @param evict if false, the table is in creation mode.
+     * @return previous value, or null if none
+     */
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+        if ((p = tab[i = (n - 1) &amp; hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+        else {
+            Node&lt;K,V&gt; e; K k;
+            if (p.hash == hash &amp;&amp;
+                ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
+                e = p;
+            else if (p instanceof TreeNode)
+                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    if (e.hash == hash &amp;&amp;
+                        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+                        break;
+                    p = e;
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        ++modCount;
+        if (++size &gt; threshold)
+            resize();
+        afterNodeInsertion(evict);
+        return null;
+    }
+</code></pre>
+<p><strong>这里边有两个看点：</strong></p>
+<ul>
+<li>HashMap中key存储是hash后的值，对于String类型的相同值的hash值是一致的（其他接触类型类似，自定义对象类型需要重写hashcode方法与equel方法）。换句话说相同的值在hashMap中的存储位置是一样的。</li>
+<li>基于上一点来看看怎么存储重复值的。如下代码对于hashMap中已经存在的key，key不变，新value覆盖就value。对于HashSet而言新旧value都是PRESENT对象，所以set在存储的时候就不会重复。</li>
+</ul>
+<pre><code class="java">if (e != null) { // existing mapping for key
+    V oldValue = e.value;
+    if (!onlyIfAbsent || oldValue == null)
+        e.value = value;
+        afterNodeAccess(e);
+    return oldValue;
+}
+</code></pre>
+<p>所以hashset中存储的值输出的顺序和存储的先后顺序不一致，这是因为hashset是按照值的hash顺序进行输出。</p>
+</text>
         <!-- .entry-content -->
         <div class="single-reward">
           <div class="reward-open">赏<div class="reward-main">
@@ -448,7 +651,7 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2018/12/07/Hystrix%E7%8A%B6%E6%80%81/" rel="prev">
+            <a href="/2018/12/07/Hystrix状态/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181207-Hystrix%E7%8A%B6%E6%80%81/image.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181207-Hystrix%E7%8A%B6%E6%80%81/image.png">
               </div>
@@ -466,7 +669,7 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2018/12/04/IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="next">
+            <a href="/2018/12/04/IDEA常用快捷键/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204-IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/image.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://tiancixiong.coding.net/p/BlogIMG/d/BlogIMG/git/raw/master/blog/20181204-IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/image.png">
               </div>
@@ -535,7 +738,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -547,10 +750,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -832,7 +1035,7 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
                 </a>
@@ -860,14 +1063,14 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%B5%E5%BD%B1/">
+                <a href="/categories/电影/">
                   <i class="fa fa-film" aria-hidden="true"></i>
                   电影
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E6%97%A5%E8%AF%AD/">
+                <a href="/categories/日语/">
                   <i class="fa fa-language" aria-hidden="true"></i>
                   日语
                 </a>
@@ -888,28 +1091,28 @@
           <ul class="sub-menu">
             
               <li>
-                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                <a href="/categories/生活/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
                   生活
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                <a href="/categories/随想/">
                   <i class="fa fa-commenting-o" aria-hidden="true"></i>
                   随想
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
                 </a>
               </li>
             
               <li>
-                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                <a href="/categories/转载/">
                   <i class="fa fa-book" aria-hidden="true"></i>
                   转载
                 </a>
