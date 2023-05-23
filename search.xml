@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>GitHub的一些使用技巧</title>
+      <link href="/2023/05/23/GitHub%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+      <url>/2023/05/23/GitHub%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="代码搜索"><a href="#代码搜索" class="headerlink" title="代码搜索"></a>代码搜索</h1><h1 id="文件查看技巧"><a href="#文件查看技巧" class="headerlink" title="文件查看技巧"></a>文件查看技巧</h1><p>按下 <code>T</code> 键可以快速对仓库内的文件进行搜索</p><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523202104029.png" alt="image-20230523202104029"></p><p>按 <code>L</code> 键快速跳转到指定行：</p><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523202321482.png" alt="image-20230523202321482"></p><p>按 <code>B</code> 键，查看文件的 blame 信息：</p><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523202602363.png" alt="image-20230523202602363"></p><h1 id="命令面板"><a href="#命令面板" class="headerlink" title="命令面板"></a>命令面板</h1><blockquote><p>官方文档：<a href="https://docs.github.com/zh/get-started/using-github/github-command-palette" target="_blank" rel="noopener">传送门</a></p></blockquote><p><code>Ctrl+K</code> </p><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523203307629.png" alt="image-20230523203307629"></p><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h3 id="查看first-commit"><a href="#查看first-commit" class="headerlink" title="查看first commit"></a>查看first commit</h3><p>查看仓库的old commits时的路径类似：</p><pre><code class="text">https://github.com/toeverything/AFFiNE/commits/master?after=48c109e1493ef856db7a65e4f73036a7f771ff4c+34</code></pre><p>可以看到在最近一次 commit 的SHA后面有 <code>+34</code> 的格式，可以通过改变这个值快速定位到old commit。</p><p>比如，这个库目前有 3173 commits，可以通过下面快速访问first commit</p><pre><code>https://github.com/toeverything/AFFiNE/commits/master?after=48c109e1493ef856db7a65e4f73036a7f771ff4c+3171</code></pre><h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><ul><li><a href="https://docs.github.com/zh/get-started/using-github/keyboard-shortcuts" target="_blank" rel="noopener">键盘快捷键</a></li><li></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>延迟消息</title>
+      <link href="/2023/05/23/MQ%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E6%B6%88%E6%81%AF/"/>
+      <url>/2023/05/23/MQ%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E6%B6%88%E6%81%AF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="延时队列"><a href="#延时队列" class="headerlink" title="延时队列"></a>延时队列</h1><h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h2><p>RabbitMQ的延时消息主要有两个解决方案：</p><ul><li>消息的TTL + 死信Exchange</li><li>RabbitMQ Delayed Message Plugin</li></ul><h3 id="消息的TTL-死信Exchange"><a href="#消息的TTL-死信Exchange" class="headerlink" title="消息的TTL+死信Exchange"></a>消息的TTL+死信Exchange</h3><h4 id="存活时间TTL"><a href="#存活时间TTL" class="headerlink" title="存活时间TTL"></a>存活时间TTL</h4><p>TTL 全称为：time to live，一条消息或者该队列中的所有消息的最大存活时间，单位是毫秒。当消息没有配置消费者，消息就一直停留在队列中，停留时间超过存活时间后，消息会被自动删除。</p><p>RabbitMQ 支持两种 TTL 设置：</p><ul><li>对消息本身设置存活时间，每条消息的存活时间可以灵活设置为不同的存活时间。</li><li>对传递的队列设置存活时间，每条传到到队列的过期时间都一致。</li></ul><p>如果同时配置了队列的TTL和消息的TTL，将会使用较小的那个值。</p><p>当消息过期还没有被消费，此时消息会变成死信消息（dead letter），这是实现延迟队列的关键。死信消息会被RabbitMQ进行特殊处理，如果配置了死信队列信息，那么该消息将会被丢进死信队列中，如果没有配置，则该消息将会被丢弃。</p><p>消息变为死信的条件：</p><ul><li>消息被拒绝（通过<code>basic.reject</code> 或者 <code>back.nack</code>），并且设置 <code>requeue=false</code></li><li>消息的过期时间到期了</li><li>队列达到最大长度，消息被丢弃</li></ul><h4 id="死信交换机-DLX"><a href="#死信交换机-DLX" class="headerlink" title="死信交换机 DLX"></a>死信交换机 DLX</h4><p>DLX（Dead Letter Exchanges）意思为死信交换机。死信交换机和普通交换机没什么区别，不同的是死信交换机会绑定在其他队列上，当队列的消息变成死信消息后，死信消息会发送到死信交换上。</p><p>消息变成死信消息之后，它不会立即被删除，首先它要看有没有对应的死信交换机，如果有绑定的死信交换机，消息就会从发送到对应的死信交换机上。</p><p>队列绑定死信交换机需要两个参数：</p><ul><li><code>x-dead-letter-exchange</code>：绑定的死信交换机名称，必须</li><li><code>x-dead-letter-routing-key</code>：死信交换机转发到死信队列的路由键，可选</li></ul><blockquote><p>死信交换机和普通交换机的区别就是死信交换机的<code>Exchange</code>和<code>routingKey</code>作为绑定参数，绑定在其他队列上。</p></blockquote><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>一个延时消息的流程如下图：</p><p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523220318222.png" alt="image-20230523220318222"></p><ol><li>配置业务队列，绑定到业务交换机上</li><li>为业务队列配置死信交换机和路由key</li><li>为死信交换机配置死信队列</li></ol><p>死信队列并不是什么特殊的队列，只不过是绑定在死信交换机上的队列。死信交换机也不是什么特殊的交换机，只不过是用来接受死信的交换机，所以可以为任何类型【Direct、Fanout、Topic】。</p><ul><li>生产者将带有<code>TTL</code>的消息发送给交换机，由交换机路由到队列中；</li><li>队列由于没有消费，消息一直停留在队列中，一直等到消息超时，变成死信消息；</li><li>死信消息转发到死信交换机再路由到死信队列上，最后给消费者消费。</li></ul><h5 id="创建死信队列"><a href="#创建死信队列" class="headerlink" title="创建死信队列"></a>创建死信队列</h5><p>坐标：</p><pre><code class="xml">&lt;!--消息队列相关依赖--&gt;&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-amqp&lt;/artifactId&gt;&lt;/dependency&gt;</code></pre><p>配置：</p><pre><code class="yml">spring:  rabbitmq:    host: localhost #rabbitmq的连接地址    port: 5672 #rabbitmq的连接端口号    virtual-host: /yolo #rabbitmq的虚拟host    username: yolo #rabbitmq的用户名    password: yolo #rabbitmq的密码</code></pre><p>配置交换机和队列的绑定：</p><ul><li>死信队列绑定死信交换机</li><li></li></ul><pre><code class="java">import org.springframework.amqp.core.Binding;import org.springframework.amqp.core.BindingBuilder;import org.springframework.amqp.core.DirectExchange;import org.springframework.amqp.core.Queue;import org.springframework.context.annotation.Bean;import org.springframework.context.annotation.Configuration;import java.util.HashMap;import java.util.Map;@Configurationpublic class DelayQueueRabbitConfig {    /* @@@@ 死信队列 @@@ */    /**     * 死信队列     */    public static final String DLX_QUEUE = &quot;queue.dlx&quot;;    /**     * 死信交换机     */    public static final String DLX_EXCHANGE = &quot;exchange.dlx&quot;;    /**     * 死信routing-key     */    public static final String DLX_ROUTING_KEY = &quot;routingKey.dlx&quot;;    /**     * 死信队列     *     * @return     */    @Bean    public Queue dlxQueue() {        return new Queue(DLX_QUEUE, true);    }    /**     * 死信交换机     *     * @return     */    @Bean    public DirectExchange dlxExchange() {        return new DirectExchange(DLX_EXCHANGE, true, false);    }    /**     * 死信队列和死信交换机绑定     *     * @return     */    @Bean    public Binding bindingDLX() {        return BindingBuilder.bind(dlxQueue()).to(dlxExchange()).with(DLX_ROUTING_KEY);    }    /* @@@@ 延迟队列 @@@ */    /**     * 订单延迟队列     */    public static final String ORDER_QUEUE = &quot;queue.order&quot;;    /**     * 订单交换机     */    public static final String ORDER_EXCHANGE = &quot;exchange.order&quot;;    /**     * 订单routing-key     */    public static final String ORDER_ROUTING_KEY = &quot;routingkey.order&quot;;    /**     * 订单延迟队列     *     * @return     */    @Bean    public Queue orderQueue() {        Map&lt;String, Object&gt; params = new HashMap&lt;&gt;();        // 关键参数        params.put(&quot;x-dead-letter-exchange&quot;, DLX_EXCHANGE);        params.put(&quot;x-dead-letter-routing-key&quot;, DLX_ROUTING_KEY);        return new Queue(ORDER_QUEUE, true, false, false, params);    }    /**     * 订单交换机     *     * @return     */    @Bean    public DirectExchange orderExchange() {        return new DirectExchange(ORDER_EXCHANGE, true, false);    }    /**     * 订单队列和交换机绑定     *     * @return     */    @Bean    public Binding orderBinding() {        return BindingBuilder.bind(orderQueue()).to(orderExchange()).with(ORDER_ROUTING_KEY);    }}</code></pre><blockquote><p>绑定死信交换机通过添加<code>x-dead-letter-exchange</code>、<code>x-dead-letter-routing-key</code>参数指定对应的交换机和路由。</p></blockquote><h5 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h5><pre><code class="java">import org.springframework.amqp.rabbit.core.RabbitTemplate;import org.springframework.beans.factory.annotation.Autowired;import org.springframework.web.bind.annotation.GetMapping;import org.springframework.web.bind.annotation.RequestParam;import org.springframework.web.bind.annotation.RestController;import java.text.SimpleDateFormat;import java.util.Date;@RestControllerpublic class SendController {    @Autowired    private RabbitTemplate rabbitTemplate;    @GetMapping(&quot;/dlx&quot;)    public String dlx(@RequestParam(&quot;msg&quot;) String msgStr) {        String date = DateUtil.dateFormat(new Date());        String delayTime = &quot;5000&quot;; //单位毫秒        System.out.println(&quot;【发送消息】延迟 5 秒 发送时间 &quot; + date);        rabbitTemplate.convertAndSend(                DelayQueueRabbitConfig.ORDER_EXCHANGE,                DelayQueueRabbitConfig.ORDER_ROUTING_KEY,                msgStr,                message -&gt; {                    // 设置过期时间                    message.getMessageProperties().setExpiration(delayTime);                    return message;                });        return &quot;ok&quot;;    }}class DateUtil {    public static String dateFormat(Date date) {        SimpleDateFormat sdf = new SimpleDateFormat(&quot;HH:mm:ss&quot;);        return sdf.format(date);    }}</code></pre><h5 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h5><pre><code class="java">@RabbitListener(queues = DelayQueueRabbitConfig.DLX_QUEUE)public void delayPrecss(String msgStr, Channel channel, Message message) {    System.out.println(&quot;【接收消息】&quot; + msgStr + &quot; 接收时间&quot; + DateUtil.dateFormat(new Date()));}</code></pre><h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p>调用接口发送消息，可以看到，消息延迟了5秒后才被消费：</p><pre><code class="text">【发送消息】延迟 5 秒 发送时间 21:19:39【接收消息】hello 接收时间21:19:44</code></pre><h4 id="消息时序问题"><a href="#消息时序问题" class="headerlink" title="消息时序问题"></a>消息时序问题</h4><p>队列都有 <code>先进先出</code> 的特点。如果队列前面的消息延迟比队列后的消息延迟更长，需要等到队列前面的消息被消费后才能消费后面的消息。</p><p>测试下：</p><pre><code class="java">// 改造生产者@GetMapping(&quot;/dlx&quot;)public String dlx() {    dlxSend(&quot;延迟10秒&quot;, &quot;10000&quot;);    dlxSend(&quot;延迟2 秒&quot;, &quot;2000&quot;);    dlxSend(&quot;延迟5 秒&quot;, &quot;5000&quot;);    return &quot;ok&quot;;}private void dlxSend(String msgStr, String delayTime) {    System.out.println(&quot;【发送消息】&quot; + msgStr + &quot;当前时间&quot; + DateUtil.dateFormat(new Date()));    rabbitTemplate.convertAndSend(DelayQueueRabbitConfig.ORDER_EXCHANGE, DelayQueueRabbitConfig.ORDER_ROUTING_KEY,                                  msgStr,                                  message -&gt; {                                      message.getMessageProperties().setExpiration(delayTime);                                      return message;                                  });}</code></pre><p>控制台输出：</p><pre><code>【发送消息】延迟10秒当前时间21:45:00【发送消息】延迟2 秒当前时间21:45:00【发送消息】延迟5 秒当前时间21:45:00【接收消息】延迟10秒 接收时间21:45:10【接收消息】延迟2 秒 接收时间21:45:10【接收消息】延迟5 秒 接收时间21:45:10</code></pre><p>当前面的消息没被消费时后面的消息都不会被消费到；第二条消息延迟2秒的过期时间达到时，第一条还没被消费，第二条等待第一条被消费后立刻就能被消费了。</p><h3 id="RabbitMQ-Delayed-Message-Plugin"><a href="#RabbitMQ-Delayed-Message-Plugin" class="headerlink" title="RabbitMQ Delayed Message Plugin"></a>RabbitMQ Delayed Message Plugin</h3><p>RabbitMQ Delayed Message Plugin是官方提供的延时消息插件，虽然使用起来比较方便，但是不是高可用的，如果节点挂了会导致消息丢失。</p><blockquote><p>官网：<a href="https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/blob/main/README.md#limitations" target="_blank" rel="noopener">传送门</a></p><p>Delayed messages are stored in a Mnesia table (also see Limitations below) with a single disk replica on the current node. They will survive a node restart. While timer(s) that triggered scheduled delivery are not persisted, it will be re-initialised during plugin activation on node start. Obviously, only having one copy of a scheduled message in a cluster means that losing that node or disabling the plugin on it will lose the messages residing on that node.</p></blockquote><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p>去RabbitMQ的官网下载插件<code>rabbitmq_delayed_message_exchange</code>，插件地址：</p><ul><li><p><a href="https://www.rabbitmq.com/community-plugins.html" target="_blank" rel="noopener">https://www.rabbitmq.com/community-plugins.html</a></p><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523222655608.png" alt="image-20230523222655608"></p></li><li><p><a href="https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases" target="_blank" rel="noopener">https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases</a></p></li></ul><p>将插件文件复制到RabbitMQ安装目录的<code>plugins</code>目录下：</p><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523222937490.png" alt="image-20230523222937490"></p><p>进入RabbitMQ安装目录的<code>sbin</code>目录下，使用如下命令启用延迟插件：</p><pre><code class="bash">rabbitmq-plugins enable rabbitmq_delayed_message_exchange</code></pre><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523223527215.png" alt="image-20230523223527215"></p><p>启用插件成功，之后重新启动RabbitMQ服务，交换机会有新的类型<code>x-delayed-message</code>：</p><p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230524064307263.png" alt="image-20230524064307263"></p><p><code>x-delayed-message</code>类型的交换机，支持延迟投递消息。发送消息给<code>x-delayed-message</code>类型的交换机：</p><p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230524071017694.png" alt="image-20230524071017694"></p><ul><li><code>x-delayed-message</code>类型的交换机接收消息投递后，并未将直接路由到队列中，而是存储到<code>mnesia</code>(一个分布式数据系统)，该系统会检测消息延迟时间。</li><li>消息达到可投递时间，消息会被投递到目标队列。</li></ul><h4 id="实现延迟消息"><a href="#实现延迟消息" class="headerlink" title="实现延迟消息"></a>实现延迟消息</h4><p>配置交换机、队列以及绑定关系：</p><pre><code class="java">import org.springframework.amqp.core.Binding;import org.springframework.amqp.core.BindingBuilder;import org.springframework.amqp.core.CustomExchange;import org.springframework.amqp.core.Queue;import org.springframework.context.annotation.Bean;import org.springframework.context.annotation.Configuration;import java.util.HashMap;import java.util.Map;@Configurationpublic class XDelayedMessageConfig {    /**     * 队列     */    public static final String DIRECT_QUEUE = &quot;queue.delayed&quot;;    /**     * 延迟交换机     */    public static final String DELAYED_EXCHANGE = &quot;exchange.delayed&quot;;    /**     * 绑定的routing key     */    public static final String ROUTING_KEY = &quot;routingKey.bind&quot;;    @Bean    public Queue directQueue() {        return new Queue(DIRECT_QUEUE, true);    }    /**     * 定义延迟交换机     * 交换机的类型为 x-delayed-message     *     * @return     */    @Bean    public CustomExchange delayedExchange() {        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();        map.put(&quot;x-delayed-type&quot;, &quot;direct&quot;);        return new CustomExchange(DELAYED_EXCHANGE, &quot;x-delayed-message&quot;, true, false, map);    }    @Bean    public Binding delayOrderBinding() {        return BindingBuilder.bind(directQueue()).to(delayedExchange()).with(ROUTING_KEY).noargs();    }}</code></pre><p>生产者：</p><pre><code class="java">@GetMapping(&quot;/delay&quot;)public String delay() {    delaySend(&quot;延迟队列10 秒&quot;, 10000);    delaySend(&quot;延迟队列5 秒&quot;, 5000);    delaySend(&quot;延迟队列2 秒&quot;, 2000);    return &quot;ok&quot;;}private void delaySend(String msgStr, Integer delayTime) {    System.out.println(&quot;【发送消息】&quot; + msgStr + &quot;当前时间&quot; + DateUtil.dateFormat(new Date()));    rabbitTemplate.convertAndSend(XDelayedMessageConfig.DELAYED_EXCHANGE, XDelayedMessageConfig.ROUTING_KEY,                                  msgStr, message -&gt; {                                      message.getMessageProperties().setDelay(delayTime);                                      //message1.getMessageProperties().setHeader(&quot;x-delay&quot;,delayTime);                                      return message;                                  });}</code></pre><p>消费者：</p><pre><code class="java">@RabbitListener(queues = XDelayedMessageConfig.DIRECT_QUEUE)public void delayProcess(String msgStr, Channel channel, Message message) {    System.out.println(&quot;【接收消息】&quot; + msgStr + &quot; 接收时间&quot; + DateUtil.dateFormat(new Date()));}</code></pre><p>从控制台输出的结果，可以看出RabbitMQ的 <code>rabbitmq_delayed_message_exchange</code> 插件可以解决消息时序问题：</p><pre><code>【发送消息】延迟队列10 秒当前时间06:53:18【发送消息】延迟队列5 秒当前时间06:53:18【发送消息】延迟队列2 秒当前时间06:53:18【接收消息】延迟队列2 秒 接收时间06:53:20【接收消息】延迟队列5 秒 接收时间06:53:23【接收消息】延迟队列10 秒 接收时间06:53:28</code></pre><h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>由于死信队列方式需要创建两个交换机（死信队列交换机+处理队列交换机）、两个队列（死信队列+处理队列），而延迟插件方式只需创建一个交换机和一个队列，所以后者使用起来更简单</p><h2 id="RocketMQ"><a href="#RocketMQ" class="headerlink" title="RocketMQ"></a>RocketMQ</h2><p>TODO</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://www.rabbitmq.com/dlx.html" target="_blank" rel="noopener">RabbitMQ-dlx</a>、<a href="https://www.rabbitmq.com/ttl.html" target="_blank" rel="noopener">RabbitMQ-ttl</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MQ </tag>
+            
+            <tag> RabbitMQ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Zuul网关实现限流</title>
       <link href="/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/"/>
       <url>/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/</url>
@@ -978,9 +1030,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1101,9 +1153,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1277,9 +1329,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1331,9 +1383,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 踩坑 </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> Git </tag>
             
@@ -2843,9 +2895,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -3944,9 +3996,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       

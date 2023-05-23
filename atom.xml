@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xiongtianci.com/"/>
-  <updated>2023-05-21T10:45:04.502Z</updated>
+  <updated>2023-05-23T23:21:10.186Z</updated>
   <id>https://www.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub的一些使用技巧</title>
+    <link href="https://www.xiongtianci.com/2023/05/23/GitHub%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://www.xiongtianci.com/2023/05/23/GitHub的一些使用技巧/</id>
+    <published>2023-05-23T11:38:27.000Z</published>
+    <updated>2023-05-23T23:21:10.186Z</updated>
+    
+    <summary type="html">
+    
+      GitHub的一些使用技巧
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="GitHub" scheme="https://www.xiongtianci.com/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>延迟消息</title>
+    <link href="https://www.xiongtianci.com/2023/05/23/MQ%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E6%B6%88%E6%81%AF/"/>
+    <id>https://www.xiongtianci.com/2023/05/23/MQ实现延迟消息/</id>
+    <published>2023-05-22T23:25:20.000Z</published>
+    <updated>2023-05-23T23:21:42.765Z</updated>
+    
+    <summary type="html">
+    
+      MQ
+    
+    </summary>
+    
+      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="MQ" scheme="https://www.xiongtianci.com/tags/MQ/"/>
+    
+      <category term="RabbitMQ" scheme="https://www.xiongtianci.com/tags/RabbitMQ/"/>
+    
+  </entry>
   
   <entry>
     <title>Zuul网关实现限流</title>
@@ -375,44 +417,6 @@
     
     
       <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VMware中网络三种连接方式</title>
-    <link href="https://www.xiongtianci.com/2021/01/05/VMware%E4%B8%AD%E7%BD%91%E7%BB%9C%E4%B8%89%E7%A7%8D%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F/"/>
-    <id>https://www.xiongtianci.com/2021/01/05/VMware中网络三种连接方式/</id>
-    <published>2021-01-05T03:02:09.000Z</published>
-    <updated>2023-05-20T23:24:49.448Z</updated>
-    
-    <summary type="html">
-    
-      VMware中网络三种连接方式
-    
-    </summary>
-    
-      <category term="软件" scheme="https://www.xiongtianci.com/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-      <category term="VMware" scheme="https://www.xiongtianci.com/tags/VMware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx停止后仍然生效(win)</title>
-    <link href="https://www.xiongtianci.com/2020/12/24/nginx%E5%81%9C%E6%AD%A2%E5%90%8E%E4%BB%8D%E7%84%B6%E7%94%9F%E6%95%88(win)/"/>
-    <id>https://www.xiongtianci.com/2020/12/24/nginx停止后仍然生效(win)/</id>
-    <published>2020-12-24T07:47:57.000Z</published>
-    <updated>2023-05-20T23:47:07.759Z</updated>
-    
-    <summary type="html">
-    
-      nginx停止后仍然生效(win)
-    
-    </summary>
-    
-      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
     
   </entry>
   
