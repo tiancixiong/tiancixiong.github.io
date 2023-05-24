@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2023-05-23T23:21:10.186Z</updated>
+  <updated>2023-05-24T14:58:53.987Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过OpenAI-API-Key和Vercel部署个人ChatGPT Web网站</title>
+    <link href="https://blog.xiongtianci.com/2023/05/24/%E9%80%9A%E8%BF%87OpenAI-API-Key%E5%92%8CVercel%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BAChatGPT-Web%E7%BD%91%E7%AB%99/"/>
+    <id>https://blog.xiongtianci.com/2023/05/24/通过OpenAI-API-Key和Vercel部署个人ChatGPT-Web网站/</id>
+    <published>2023-05-24T12:21:27.000Z</published>
+    <updated>2023-05-24T14:58:53.987Z</updated>
+    
+    <summary type="html">
+    
+      通过OpenAI-API-Key和Vercel部署个人ChatGPT Web网站
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="AI" scheme="https://blog.xiongtianci.com/tags/AI/"/>
+    
+      <category term="ChatGPT" scheme="https://blog.xiongtianci.com/tags/ChatGPT/"/>
+    
+  </entry>
   
   <entry>
     <title>GitHub的一些使用技巧</title>
@@ -390,26 +412,6 @@
     <summary type="html">
     
       Eclipse在模块上右键没有gradle菜单选项
-    
-    </summary>
-    
-      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Eclipse右键team显示的是git菜单,怎么切换成svn菜单?</title>
-    <link href="https://blog.xiongtianci.com/2021/03/04/Eclipse%E5%8F%B3%E9%94%AEteam%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AFgit%E8%8F%9C%E5%8D%95-%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E6%88%90svn%E8%8F%9C%E5%8D%95/"/>
-    <id>https://blog.xiongtianci.com/2021/03/04/Eclipse右键team显示的是git菜单-怎么切换成svn菜单/</id>
-    <published>2021-03-04T01:51:16.000Z</published>
-    <updated>2023-05-20T23:47:07.760Z</updated>
-    
-    <summary type="html">
-    
-      Eclipse右键team显示的是git菜单,怎么切换成svn菜单?
     
     </summary>
     

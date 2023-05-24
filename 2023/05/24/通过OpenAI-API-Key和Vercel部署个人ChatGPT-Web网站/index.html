@@ -7,10 +7,10 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="天赐,天赐の小站,博客">
+  <meta name="keywords" content="chatgpt,openai,ai,天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">天赐の小站</title>
+  <title itemprop="name">通过OpenAI-API-Key和Vercel部署个人ChatGPT Web网站 | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/favicon.ico">
   
@@ -343,470 +343,200 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1676573408178-a5f280c3a320?w=540);" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1676573408178-a5f280c3a320?w=540">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      通过OpenAI-API-Key和Vercel部署个人ChatGPT Web网站</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://blog.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://blog.xiongtianci.com">木浅</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2023-5-24<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
-  
-  <!--首页startdash-->
-<!--<div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-</div>-->
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
-      
-  <!-- 首页默认获取最新文章集 -->
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/07/try{return}finally{}中的return/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=755&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-7 16:01</div>
-      <a href="/2019/01/07/try{return}finally{}中的return/" class="post-title">
-        <h3>try{ return }finally{}中的return</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/07/try{return}finally{}中的return/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+        <div class="entry-content">
+          <h1 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h1><p>本文介绍如何通过 Vercel + <a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank" rel="noopener">ChatGPT-Next-Web</a> + OpenAI API Key 部署 ChatGPT 网页。</p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ol>
+<li>准备好你的 <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">OpenAI API Key</a>；</li>
+<li>GitHub 账号</li>
+<li>域名（可申请免费的域名，文章后面会介绍）</li>
+<li>自备科学上网工具</li>
+</ol>
+<h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><h2 id="1-fork项目仓库"><a href="#1-fork项目仓库" class="headerlink" title="1. fork项目仓库"></a>1. fork项目仓库</h2><blockquote>
+<p><a href="https://github.com/Yidadaa/ChatGPT-Next-Web/blob/main/README_CN.md#%E4%BF%9D%E6%8C%81%E6%9B%B4%E6%96%B0" target="_blank" rel="noopener">为什么需要fork这个仓库？</a></p>
+</blockquote>
+<p>在 GitHub 中将 <a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank" rel="noopener">ChatGPT-Next-Web</a> 仓库 fork 到自己账号</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524203522061.png" alt="image-20230524203522061"></p>
+<h2 id="2-开启Action权限"><a href="#2-开启Action权限" class="headerlink" title="2. 开启Action权限"></a>2. 开启Action权限</h2><p>开启 Action 后可以保持你 fork 的仓库一直和上游保持同步，是最新的。</p>
+<p>切换到 <code>Actions</code>，点击 <code>I understand my workflows, go ahead and enable them</code>按钮：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524204300979.png" alt="image-20230524204300979"></p>
+<p>切换到 <code>Upstream Sync</code>，点击 <code>Enable workflow</code>：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524204403376.png" alt="image-20230524204403376"></p>
+<p>会看到工作流成功启用的提醒语句：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524204550862.png" alt="image-20230524204550862"></p>
+<h2 id="3-在Vercel部署网站"><a href="#3-在Vercel部署网站" class="headerlink" title="3. 在Vercel部署网站"></a>3. 在Vercel部署网站</h2><p>先<a href="https://vercel.com/signup" target="_blank" rel="noopener">注册Vercel</a>（注意：最好使用 gmail 邮箱进行注册。Vercel 屏蔽了国内邮箱和 Outlook 邮箱）。</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524210900196.png" alt="image-20230524210900196"></p>
+<p>注册成功后<a href="https://vercel.com/login/email" target="_blank" rel="noopener">登录账号</a>，进入 <a href="https://vercel.com/dashboard" target="_blank" rel="noopener">Vercel控制台</a>，创建一个新项目：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524211806203.png" alt="image-20230524211806203"></p>
+<p>选择从 GitHub 导入仓库：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524211835043.png" alt="image-20230524211835043"></p>
+<p>关联 GitHub 账号后选择刚刚 fork 的仓库（ChatGPT-Next-Web）：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524212131392.png" alt="image-20230524212131392"></p>
+<p>添加 Environment Variables（<a href="https://github.com/Yidadaa/ChatGPT-Next-Web/blob/main/README_CN.md#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" target="_blank" rel="noopener">环境变量</a>）：</p>
+<ol>
+<li><p>变量1（<strong>OPENAI_API_KEY</strong>），<strong>必填</strong>。这个 Value 是你的 OpenAI API Key。没有就需要通过一些手段去<a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">创建</a>；每个账号有5刀的免费<a href="https://platform.openai.com/account/usage" target="_blank" rel="noopener">试用额度</a>，</p>
+<ul>
+<li>Name：<code>OPENAI_API_KEY</code></li>
+<li>Value：<code>sk-ohtbdhgw……</code></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524212737773.png" alt="image-20230524212737773"></p>
+</li>
+<li><p>变量2（<strong>CODE</strong>），选填。这个是设置用户访问码，不设置这任何人通过你的网站不用密码就能调用 OpenAI。值为用英文逗号分隔的自定义密码 <code>code1,code2,code3</code></p>
+<ul>
+<li>Name：<code>CODE</code></li>
+<li>Value：<code>code1,code2,code3</code></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524213200622.png" alt="image-20230524213200622"></p>
+</li>
+</ol>
+<p>添加完变量后点击 Deploy 进行部署：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524213803201.png" alt="image-20230524213803201"></p>
+<p>部署成功：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524214051781.png" alt="image-20230524214051781"></p>
+<p>点击 Continue to Dashboard 跳转到仪表盘后点击 Visit 可以跳转至访问页面：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524214447695.png" alt="image-20230524214447695"></p>
+<p>在左下角进入设置选项，输入刚刚在 Vercel 设置的访问密码：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524214813338.png" alt="image-20230524214813338"></p>
+<p>访问成功：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524225517595.png" alt="image-20230524225517595"></p>
+<h2 id="4-自定义域名"><a href="#4-自定义域名" class="headerlink" title="4. 自定义域名"></a>4. 自定义域名</h2><p>由于 Vercel 在墙外，需要通过科学上网才能访问 Vercel 部署的应用。我们可以通过绑定域名，就能在大陆无需出海就能访问 ChatGPT 了。</p>
+<p>在 Vercel 的 Project Settings 中配置自定义域名：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524220928857.png" alt="image-20230524220928857"></p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524220942071.png" alt="image-20230524220942071"></p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524221109398.png" alt="image-20230524221109398"></p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524225058258.png" alt="image-20230524225058258"></p>
+<h1 id="申请免费域名"><a href="#申请免费域名" class="headerlink" title="申请免费域名"></a>申请免费域名</h1><p>接下来介绍如何申请免费的 eu.org 域名</p>
+<p>TODO</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524225127486.png" alt="image-20230524225127486"></p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230524/image-20230524225114067.png" alt="image-20230524225114067"></p>
+
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/07/什么是Java虚拟机？为什么Java“被称作是平台无关的编程语言”？/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.pixabay.com/photo/2018/04/23/15/04/salt-3344508_1280.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-7 15:01</div>
-      <a href="/2019/01/07/什么是Java虚拟机？为什么Java“被称作是平台无关的编程语言”？/" class="post-title">
-        <h3>什么是Java虚拟机？为什么Java“被称作是平台无关的编程语言”？</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-            <a href="/tags/虚拟机/">虚拟机<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/07/什么是Java虚拟机？为什么Java“被称作是平台无关的编程语言”？/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/07/MySQL存储引擎/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1541053892672-e3e9f3947e42?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=749&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-7 14:01</div>
-      <a href="/2019/01/07/MySQL存储引擎/" class="post-title">
-        <h3>MySQL存储引擎</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
         
-            <a href="/tags/面试题/">面试题<em>·</em></a>
+        
           
-            <a href="/tags/MySQL/">MySQL<em>·</em></a>
+            <div class="post-nepre full next">
           
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/07/MySQL存储引擎/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+            <a href="/2023/05/23/GitHub的一些使用技巧/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1520325746267-350533ec4d56?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1520325746267-350533ec4d56?w=540">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                GitHub的一些使用技巧</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10,
+		serverURLs: "https://VeenC2gY.api.lncldglobal.com"
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://blog.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="木浅" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://blog.xiongtianci.com" itemprop="url" rel="author">木浅</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/05/如何控制多线程执行顺序/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1517409597620-a445404605fe?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=899&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-5 11:01</div>
-      <a href="/2019/01/05/如何控制多线程执行顺序/" class="post-title">
-        <h3>如何控制多线程执行顺序</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-            <a href="/tags/多线程/">多线程<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/05/如何控制多线程执行顺序/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/05/为什么1000==1000返回为false，而100==100会返回为true/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1543816228-531a15980981?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=721&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-5 09:01</div>
-      <a href="/2019/01/05/为什么1000==1000返回为false，而100==100会返回为true/" class="post-title">
-        <h3>为什么 1000==1000 返回为false，而 100==100 会返回为true</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/05/为什么1000==1000返回为false，而100==100会返回为true/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/05/HashMap和HashTable的区别/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/41/bXoAlw8gT66vBo1wcFoO_IMG_9181.jpg?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-5 09:01</div>
-      <a href="/2019/01/05/HashMap和HashTable的区别/" class="post-title">
-        <h3>HashMap和HashTable的区别</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/05/HashMap和HashTable的区别/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/04/打印昨天的当前时刻/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1512627094037-1b2bf1ba363c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-4 16:01</div>
-      <a href="/2019/01/04/打印昨天的当前时刻/" class="post-title">
-        <h3>打印昨天的当前时刻</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/04/打印昨天的当前时刻/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/04/怎样将GB2312编码的字符串转换为ISO-8859-1编码的字符串？/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1489100517551-92a468b736f0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=889&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-4 16:01</div>
-      <a href="/2019/01/04/怎样将GB2312编码的字符串转换为ISO-8859-1编码的字符串？/" class="post-title">
-        <h3>怎样将GB2312编码的字符串转换为ISO-8859-1编码的字符串？</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/04/怎样将GB2312编码的字符串转换为ISO-8859-1编码的字符串？/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/03/MyBatis中#和$的区别？/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1438893761775-f1db119d27b2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=751&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-3 17:01</div>
-      <a href="/2019/01/03/MyBatis中#和$的区别？/" class="post-title">
-        <h3>MyBatis中 # 和 $ 的区别？</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-            <a href="/tags/MySQL/">MySQL<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/03/MyBatis中#和$的区别？/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    <!--首页文章列表-->
-
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/01/03/SQL中limit的用法/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1510538955947-ea29cdeba88f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-1-3 16:01</div>
-      <a href="/2019/01/03/SQL中limit的用法/" class="post-title">
-        <h3>SQL中limit的用法</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/面试题/">面试题<em>·</em></a>
-          
-            <a href="/tags/SQL/">SQL<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/01/03/SQL中limit的用法/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/page/10/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/"><i class="iconfont icon-right"></i></a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/12/" class="">Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
 
     </div>    
     <div class="ins-search">
