@@ -5,9 +5,9 @@
   <subtitle>You Only Live Once</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://www.xiongtianci.com/"/>
+  <link href="https://blog.xiongtianci.com/"/>
   <updated>2023-05-23T23:21:10.186Z</updated>
-  <id>https://www.xiongtianci.com/</id>
+  <id>https://blog.xiongtianci.com/</id>
   
   <author>
     <name>天赐</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>GitHub的一些使用技巧</title>
-    <link href="https://www.xiongtianci.com/2023/05/23/GitHub%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>https://www.xiongtianci.com/2023/05/23/GitHub的一些使用技巧/</id>
+    <link href="https://blog.xiongtianci.com/2023/05/23/GitHub%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://blog.xiongtianci.com/2023/05/23/GitHub的一些使用技巧/</id>
     <published>2023-05-23T11:38:27.000Z</published>
     <updated>2023-05-23T23:21:10.186Z</updated>
     
@@ -29,17 +29,17 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="GitHub" scheme="https://www.xiongtianci.com/tags/GitHub/"/>
+      <category term="GitHub" scheme="https://blog.xiongtianci.com/tags/GitHub/"/>
     
   </entry>
   
   <entry>
     <title>延迟消息</title>
-    <link href="https://www.xiongtianci.com/2023/05/23/MQ%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E6%B6%88%E6%81%AF/"/>
-    <id>https://www.xiongtianci.com/2023/05/23/MQ实现延迟消息/</id>
+    <link href="https://blog.xiongtianci.com/2023/05/23/MQ%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E6%B6%88%E6%81%AF/"/>
+    <id>https://blog.xiongtianci.com/2023/05/23/MQ实现延迟消息/</id>
     <published>2023-05-22T23:25:20.000Z</published>
     <updated>2023-05-23T23:21:42.765Z</updated>
     
@@ -49,19 +49,19 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="MQ" scheme="https://www.xiongtianci.com/tags/MQ/"/>
+      <category term="MQ" scheme="https://blog.xiongtianci.com/tags/MQ/"/>
     
-      <category term="RabbitMQ" scheme="https://www.xiongtianci.com/tags/RabbitMQ/"/>
+      <category term="RabbitMQ" scheme="https://blog.xiongtianci.com/tags/RabbitMQ/"/>
     
   </entry>
   
   <entry>
     <title>Zuul网关实现限流</title>
-    <link href="https://www.xiongtianci.com/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/"/>
-    <id>https://www.xiongtianci.com/2023/05/21/Zuul网关实现限流/</id>
+    <link href="https://blog.xiongtianci.com/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/"/>
+    <id>https://blog.xiongtianci.com/2023/05/21/Zuul网关实现限流/</id>
     <published>2023-05-21T06:10:12.000Z</published>
     <updated>2023-05-21T10:45:04.502Z</updated>
     
@@ -71,17 +71,17 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="微服务" scheme="https://www.xiongtianci.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+      <category term="微服务" scheme="https://blog.xiongtianci.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>MySQL版本从5.5升级至5.7(win10)</title>
-    <link href="https://www.xiongtianci.com/2022/06/23/MySQL%E7%89%88%E6%9C%AC%E4%BB%8E5-5%E5%8D%87%E7%BA%A7%E8%87%B35-7-win10/"/>
-    <id>https://www.xiongtianci.com/2022/06/23/MySQL版本从5-5升级至5-7-win10/</id>
+    <link href="https://blog.xiongtianci.com/2022/06/23/MySQL%E7%89%88%E6%9C%AC%E4%BB%8E5-5%E5%8D%87%E7%BA%A7%E8%87%B35-7-win10/"/>
+    <id>https://blog.xiongtianci.com/2022/06/23/MySQL版本从5-5升级至5-7-win10/</id>
     <published>2022-06-23T12:00:35.000Z</published>
     <updated>2023-05-20T23:47:23.287Z</updated>
     
@@ -91,17 +91,17 @@
     
     </summary>
     
-      <category term="软件" scheme="https://www.xiongtianci.com/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="https://blog.xiongtianci.com/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-      <category term="MySQL" scheme="https://www.xiongtianci.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://blog.xiongtianci.com/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>配置CentOS6.5静态ip导致xshell连接失败</title>
-    <link href="https://www.xiongtianci.com/2022/05/15/%E9%85%8D%E7%BD%AECentOS6-5%E9%9D%99%E6%80%81ip%E5%AF%BC%E8%87%B4xshell%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/"/>
-    <id>https://www.xiongtianci.com/2022/05/15/配置CentOS6-5静态ip导致xshell连接失败/</id>
+    <link href="https://blog.xiongtianci.com/2022/05/15/%E9%85%8D%E7%BD%AECentOS6-5%E9%9D%99%E6%80%81ip%E5%AF%BC%E8%87%B4xshell%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/"/>
+    <id>https://blog.xiongtianci.com/2022/05/15/配置CentOS6-5静态ip导致xshell连接失败/</id>
     <published>2022-05-15T07:15:23.000Z</published>
     <updated>2023-05-20T23:47:07.771Z</updated>
     
@@ -111,15 +111,15 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
   
   <entry>
     <title>CentOS6.5中yum源失效的解决方案</title>
-    <link href="https://www.xiongtianci.com/2022/05/15/CentOS6.5%E4%B8%ADyum%E6%BA%90%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>https://www.xiongtianci.com/2022/05/15/CentOS6.5中yum源失效的解决方案/</id>
+    <link href="https://blog.xiongtianci.com/2022/05/15/CentOS6.5%E4%B8%ADyum%E6%BA%90%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>https://blog.xiongtianci.com/2022/05/15/CentOS6.5中yum源失效的解决方案/</id>
     <published>2022-05-15T05:11:48.000Z</published>
     <updated>2023-05-20T12:23:55.105Z</updated>
     
@@ -129,17 +129,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://www.xiongtianci.com/categories/Linux/"/>
+      <category term="Linux" scheme="https://blog.xiongtianci.com/categories/Linux/"/>
     
     
-      <category term="CentOS6.5" scheme="https://www.xiongtianci.com/tags/CentOS6-5/"/>
+      <category term="CentOS6.5" scheme="https://blog.xiongtianci.com/tags/CentOS6-5/"/>
     
   </entry>
   
   <entry>
     <title>使用驱动人生后系统开机出现选择应急系统</title>
-    <link href="https://www.xiongtianci.com/2022/04/24/%E4%BD%BF%E7%94%A8%E9%A9%B1%E5%8A%A8%E4%BA%BA%E7%94%9F%E5%90%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E6%9C%BA%E5%87%BA%E7%8E%B0%E9%80%89%E6%8B%A9%E5%BA%94%E6%80%A5%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://www.xiongtianci.com/2022/04/24/使用驱动人生后系统开机出现选择应急系统/</id>
+    <link href="https://blog.xiongtianci.com/2022/04/24/%E4%BD%BF%E7%94%A8%E9%A9%B1%E5%8A%A8%E4%BA%BA%E7%94%9F%E5%90%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E6%9C%BA%E5%87%BA%E7%8E%B0%E9%80%89%E6%8B%A9%E5%BA%94%E6%80%A5%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://blog.xiongtianci.com/2022/04/24/使用驱动人生后系统开机出现选择应急系统/</id>
     <published>2022-04-24T01:03:56.000Z</published>
     <updated>2023-05-20T23:47:07.770Z</updated>
     
@@ -149,17 +149,17 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="软件" scheme="https://www.xiongtianci.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="https://blog.xiongtianci.com/tags/%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>nacos启动报错问题列表</title>
-    <link href="https://www.xiongtianci.com/2022/02/27/nacos%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%88%97%E8%A1%A8/"/>
-    <id>https://www.xiongtianci.com/2022/02/27/nacos启动报错问题列表/</id>
+    <link href="https://blog.xiongtianci.com/2022/02/27/nacos%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%88%97%E8%A1%A8/"/>
+    <id>https://blog.xiongtianci.com/2022/02/27/nacos启动报错问题列表/</id>
     <published>2022-02-27T07:48:17.000Z</published>
     <updated>2022-02-27T07:52:07.210Z</updated>
     
@@ -169,15 +169,15 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
   
   <entry>
     <title>安装Nacos,初始化sql报错：index column size too large. the maximum column size is 767 bytes</title>
-    <link href="https://www.xiongtianci.com/2022/02/27/%E5%AE%89%E8%A3%85Nacos-%E5%88%9D%E5%A7%8B%E5%8C%96sql%E6%8A%A5%E9%94%99%EF%BC%9Aindex-column-size-too-large-the-maximum-column-size-is-767-bytes/"/>
-    <id>https://www.xiongtianci.com/2022/02/27/安装Nacos-初始化sql报错：index-column-size-too-large-the-maximum-column-size-is-767-bytes/</id>
+    <link href="https://blog.xiongtianci.com/2022/02/27/%E5%AE%89%E8%A3%85Nacos-%E5%88%9D%E5%A7%8B%E5%8C%96sql%E6%8A%A5%E9%94%99%EF%BC%9Aindex-column-size-too-large-the-maximum-column-size-is-767-bytes/"/>
+    <id>https://blog.xiongtianci.com/2022/02/27/安装Nacos-初始化sql报错：index-column-size-too-large-the-maximum-column-size-is-767-bytes/</id>
     <published>2022-02-27T07:31:54.000Z</published>
     <updated>2022-02-27T07:38:01.223Z</updated>
     
@@ -187,15 +187,15 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
   
   <entry>
     <title>IDEA(首次安装)的常用设置</title>
-    <link href="https://www.xiongtianci.com/2022/02/21/IDEA-%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85-%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/"/>
-    <id>https://www.xiongtianci.com/2022/02/21/IDEA-首次安装-的常用设置/</id>
+    <link href="https://blog.xiongtianci.com/2022/02/21/IDEA-%E9%A6%96%E6%AC%A1%E5%AE%89%E8%A3%85-%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://blog.xiongtianci.com/2022/02/21/IDEA-首次安装-的常用设置/</id>
     <published>2022-02-21T01:38:11.000Z</published>
     <updated>2023-05-20T23:47:07.768Z</updated>
     
@@ -205,17 +205,17 @@
     
     </summary>
     
-      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://blog.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>隐藏IDEA项目目录后面显示的文件路径地址</title>
-    <link href="https://www.xiongtianci.com/2021/09/20/%E9%9A%90%E8%97%8FIDEA%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%90%8E%E9%9D%A2%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9D%80/"/>
-    <id>https://www.xiongtianci.com/2021/09/20/隐藏IDEA项目目录后面显示的文件路径地址/</id>
+    <link href="https://blog.xiongtianci.com/2021/09/20/%E9%9A%90%E8%97%8FIDEA%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E5%90%8E%E9%9D%A2%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9D%80/"/>
+    <id>https://blog.xiongtianci.com/2021/09/20/隐藏IDEA项目目录后面显示的文件路径地址/</id>
     <published>2021-09-20T07:13:59.000Z</published>
     <updated>2023-05-20T23:47:07.767Z</updated>
     
@@ -225,17 +225,17 @@
     
     </summary>
     
-      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://blog.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>Cron的语法格式</title>
-    <link href="https://www.xiongtianci.com/2021/09/13/Cron%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F/"/>
-    <id>https://www.xiongtianci.com/2021/09/13/Cron的语法格式/</id>
+    <link href="https://blog.xiongtianci.com/2021/09/13/Cron%E7%9A%84%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F/"/>
+    <id>https://blog.xiongtianci.com/2021/09/13/Cron的语法格式/</id>
     <published>2021-09-13T08:25:40.000Z</published>
     <updated>2021-09-13T12:34:37.657Z</updated>
     
@@ -245,21 +245,21 @@
     
     </summary>
     
-      <category term="技术" scheme="https://www.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="Spring" scheme="https://www.xiongtianci.com/tags/Spring/"/>
+      <category term="Spring" scheme="https://blog.xiongtianci.com/tags/Spring/"/>
     
-      <category term="SpringTask" scheme="https://www.xiongtianci.com/tags/SpringTask/"/>
+      <category term="SpringTask" scheme="https://blog.xiongtianci.com/tags/SpringTask/"/>
     
-      <category term="Cron" scheme="https://www.xiongtianci.com/tags/Cron/"/>
+      <category term="Cron" scheme="https://blog.xiongtianci.com/tags/Cron/"/>
     
   </entry>
   
   <entry>
     <title>使用Adobe Acrobat打开pdf文件,系统任务栏中其图标异常问题(win)</title>
-    <link href="https://www.xiongtianci.com/2021/08/25/%E4%BD%BF%E7%94%A8Adobe-Acrobat%E6%89%93%E5%BC%80pdf%E6%96%87%E4%BB%B6-%E7%B3%BB%E7%BB%9F%E4%BB%BB%E5%8A%A1%E6%A0%8F%E4%B8%AD%E5%85%B6%E5%9B%BE%E6%A0%87%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98-win/"/>
-    <id>https://www.xiongtianci.com/2021/08/25/使用Adobe-Acrobat打开pdf文件-系统任务栏中其图标异常问题-win/</id>
+    <link href="https://blog.xiongtianci.com/2021/08/25/%E4%BD%BF%E7%94%A8Adobe-Acrobat%E6%89%93%E5%BC%80pdf%E6%96%87%E4%BB%B6-%E7%B3%BB%E7%BB%9F%E4%BB%BB%E5%8A%A1%E6%A0%8F%E4%B8%AD%E5%85%B6%E5%9B%BE%E6%A0%87%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98-win/"/>
+    <id>https://blog.xiongtianci.com/2021/08/25/使用Adobe-Acrobat打开pdf文件-系统任务栏中其图标异常问题-win/</id>
     <published>2021-08-25T03:21:23.000Z</published>
     <updated>2023-05-20T23:47:07.766Z</updated>
     
@@ -269,19 +269,19 @@
     
     </summary>
     
-      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="Adobe" scheme="https://www.xiongtianci.com/tags/Adobe/"/>
+      <category term="Adobe" scheme="https://blog.xiongtianci.com/tags/Adobe/"/>
     
-      <category term="Acrobat" scheme="https://www.xiongtianci.com/tags/Acrobat/"/>
+      <category term="Acrobat" scheme="https://blog.xiongtianci.com/tags/Acrobat/"/>
     
   </entry>
   
   <entry>
     <title>解决SVN每次commit后文件属性都变为只读</title>
-    <link href="https://www.xiongtianci.com/2021/08/20/%E8%A7%A3%E5%86%B3SVN%E6%AF%8F%E6%AC%A1commit%E5%90%8E%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E9%83%BD%E5%8F%98%E4%B8%BA%E5%8F%AA%E8%AF%BB/"/>
-    <id>https://www.xiongtianci.com/2021/08/20/解决SVN每次commit后文件属性都变为只读/</id>
+    <link href="https://blog.xiongtianci.com/2021/08/20/%E8%A7%A3%E5%86%B3SVN%E6%AF%8F%E6%AC%A1commit%E5%90%8E%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E9%83%BD%E5%8F%98%E4%B8%BA%E5%8F%AA%E8%AF%BB/"/>
+    <id>https://blog.xiongtianci.com/2021/08/20/解决SVN每次commit后文件属性都变为只读/</id>
     <published>2021-08-20T03:06:39.000Z</published>
     <updated>2023-05-20T23:47:07.765Z</updated>
     
@@ -291,19 +291,19 @@
     
     </summary>
     
-      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
     
     
-      <category term="SVN" scheme="https://www.xiongtianci.com/tags/SVN/"/>
+      <category term="SVN" scheme="https://blog.xiongtianci.com/tags/SVN/"/>
     
-      <category term="Eclispe" scheme="https://www.xiongtianci.com/tags/Eclispe/"/>
+      <category term="Eclispe" scheme="https://blog.xiongtianci.com/tags/Eclispe/"/>
     
   </entry>
   
   <entry>
     <title>IDEA格式化后注释无法和代码自动对齐</title>
-    <link href="https://www.xiongtianci.com/2021/08/12/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E6%B3%A8%E9%87%8A%E6%97%A0%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/"/>
-    <id>https://www.xiongtianci.com/2021/08/12/IDEA格式化后注释无法和代码自动对齐/</id>
+    <link href="https://blog.xiongtianci.com/2021/08/12/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E6%B3%A8%E9%87%8A%E6%97%A0%E6%B3%95%E5%92%8C%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90/"/>
+    <id>https://blog.xiongtianci.com/2021/08/12/IDEA格式化后注释无法和代码自动对齐/</id>
     <published>2021-08-12T06:58:58.000Z</published>
     <updated>2023-05-20T23:47:07.765Z</updated>
     
@@ -313,17 +313,17 @@
     
     </summary>
     
-      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://blog.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>Eclipse设置护眼背景色和字体颜色并导入导出</title>
-    <link href="https://www.xiongtianci.com/2021/08/09/Eclipse%E8%AE%BE%E7%BD%AE%E6%8A%A4%E7%9C%BC%E8%83%8C%E6%99%AF%E8%89%B2%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E5%B9%B6%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
-    <id>https://www.xiongtianci.com/2021/08/09/Eclipse设置护眼背景色和字体颜色并导入导出/</id>
+    <link href="https://blog.xiongtianci.com/2021/08/09/Eclipse%E8%AE%BE%E7%BD%AE%E6%8A%A4%E7%9C%BC%E8%83%8C%E6%99%AF%E8%89%B2%E5%92%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E5%B9%B6%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/"/>
+    <id>https://blog.xiongtianci.com/2021/08/09/Eclipse设置护眼背景色和字体颜色并导入导出/</id>
     <published>2021-08-09T03:30:30.000Z</published>
     <updated>2023-05-20T23:47:07.763Z</updated>
     
@@ -333,17 +333,17 @@
     
     </summary>
     
-      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
     
     
-      <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
+      <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
   <entry>
     <title>Eclipse设置编码格式</title>
-    <link href="https://www.xiongtianci.com/2021/08/09/Eclipse%E8%AE%BE%E7%BD%AE%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F/"/>
-    <id>https://www.xiongtianci.com/2021/08/09/Eclipse设置编码格式/</id>
+    <link href="https://blog.xiongtianci.com/2021/08/09/Eclipse%E8%AE%BE%E7%BD%AE%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F/"/>
+    <id>https://blog.xiongtianci.com/2021/08/09/Eclipse设置编码格式/</id>
     <published>2021-08-09T02:49:13.000Z</published>
     <updated>2023-05-20T23:47:07.764Z</updated>
     
@@ -353,17 +353,17 @@
     
     </summary>
     
-      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
     
     
-      <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
+      <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
   <entry>
     <title>IDEA格式化代码后,方法顺序被改变</title>
-    <link href="https://www.xiongtianci.com/2021/07/13/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81%E5%90%8E-%E6%96%B9%E6%B3%95%E9%A1%BA%E5%BA%8F%E8%A2%AB%E6%94%B9%E5%8F%98/"/>
-    <id>https://www.xiongtianci.com/2021/07/13/IDEA格式化代码后-方法顺序被改变/</id>
+    <link href="https://blog.xiongtianci.com/2021/07/13/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81%E5%90%8E-%E6%96%B9%E6%B3%95%E9%A1%BA%E5%BA%8F%E8%A2%AB%E6%94%B9%E5%8F%98/"/>
+    <id>https://blog.xiongtianci.com/2021/07/13/IDEA格式化代码后-方法顺序被改变/</id>
     <published>2021-07-13T03:40:06.000Z</published>
     <updated>2023-05-20T23:47:07.762Z</updated>
     
@@ -373,17 +373,17 @@
     
     </summary>
     
-      <category term="IDE" scheme="https://www.xiongtianci.com/categories/IDE/"/>
+      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
     
     
-      <category term="IDEA" scheme="https://www.xiongtianci.com/tags/IDEA/"/>
+      <category term="IDEA" scheme="https://blog.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   
   <entry>
     <title>Eclipse在模块上右键没有gradle菜单选项</title>
-    <link href="https://www.xiongtianci.com/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/"/>
-    <id>https://www.xiongtianci.com/2021/03/04/Eclipse在模块上右键没有gradle菜单选项/</id>
+    <link href="https://blog.xiongtianci.com/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/"/>
+    <id>https://blog.xiongtianci.com/2021/03/04/Eclipse在模块上右键没有gradle菜单选项/</id>
     <published>2021-03-04T07:32:04.000Z</published>
     <updated>2023-05-20T23:47:07.761Z</updated>
     
@@ -393,17 +393,17 @@
     
     </summary>
     
-      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
+      <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
   <entry>
     <title>Eclipse右键team显示的是git菜单,怎么切换成svn菜单?</title>
-    <link href="https://www.xiongtianci.com/2021/03/04/Eclipse%E5%8F%B3%E9%94%AEteam%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AFgit%E8%8F%9C%E5%8D%95-%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E6%88%90svn%E8%8F%9C%E5%8D%95/"/>
-    <id>https://www.xiongtianci.com/2021/03/04/Eclipse右键team显示的是git菜单-怎么切换成svn菜单/</id>
+    <link href="https://blog.xiongtianci.com/2021/03/04/Eclipse%E5%8F%B3%E9%94%AEteam%E6%98%BE%E7%A4%BA%E7%9A%84%E6%98%AFgit%E8%8F%9C%E5%8D%95-%E6%80%8E%E4%B9%88%E5%88%87%E6%8D%A2%E6%88%90svn%E8%8F%9C%E5%8D%95/"/>
+    <id>https://blog.xiongtianci.com/2021/03/04/Eclipse右键team显示的是git菜单-怎么切换成svn菜单/</id>
     <published>2021-03-04T01:51:16.000Z</published>
     <updated>2023-05-20T23:47:07.760Z</updated>
     
@@ -413,10 +413,10 @@
     
     </summary>
     
-      <category term="工具" scheme="https://www.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="Eclipse" scheme="https://www.xiongtianci.com/tags/Eclipse/"/>
+      <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
