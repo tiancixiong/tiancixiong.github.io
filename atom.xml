@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2023-05-24T22:52:13.728Z</updated>
+  <updated>2023-05-25T14:05:35.341Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git合并分支的几种方式</title>
+    <link href="https://blog.xiongtianci.com/2023/05/25/git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>https://blog.xiongtianci.com/2023/05/25/git合并分支的几种方式/</id>
+    <published>2023-05-25T13:54:25.000Z</published>
+    <updated>2023-05-25T14:05:35.341Z</updated>
+    
+    <summary type="html">
+    
+      git合并分支的几种方式
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Git" scheme="https://blog.xiongtianci.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>通过OpenAI API Key和Vercel部署个人ChatGPT Web网站</title>
@@ -399,26 +419,6 @@
     
     
       <category term="IDEA" scheme="https://blog.xiongtianci.com/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Eclipse在模块上右键没有gradle菜单选项</title>
-    <link href="https://blog.xiongtianci.com/2021/03/04/Eclipse%E5%9C%A8%E6%A8%A1%E5%9D%97%E4%B8%8A%E5%8F%B3%E9%94%AE%E6%B2%A1%E6%9C%89gradle%E8%8F%9C%E5%8D%95%E9%80%89%E9%A1%B9/"/>
-    <id>https://blog.xiongtianci.com/2021/03/04/Eclipse在模块上右键没有gradle菜单选项/</id>
-    <published>2021-03-04T07:32:04.000Z</published>
-    <updated>2023-05-20T23:47:07.761Z</updated>
-    
-    <summary type="html">
-    
-      Eclipse在模块上右键没有gradle菜单选项
-    
-    </summary>
-    
-      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
     
   </entry>
   
