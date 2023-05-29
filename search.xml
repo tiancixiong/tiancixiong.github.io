@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>git实用命令</title>
+      <link href="/2023/05/28/git%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2023/05/28/git%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<ul><li>git grep &lt;关键词&gt; ：搜索含有关键词的文件</li><li>git blame &lt;文件名&gt;：查看指定文件每一行的提交人和提交时间</li><li>git log -p &lt;文件名&gt;：查看指定文件的每一次提交和改动</li></ul><h1 id="撤销提交"><a href="#撤销提交" class="headerlink" title="撤销提交"></a>撤销提交</h1><blockquote><p>教程：<a href="https://www.ruanyifeng.com/blog/2019/12/git-undo.html" target="_blank" rel="noopener">如何撤销 Git 操作？</a></p></blockquote><ol><li><p><strong>撤销</strong>提交：在当前提交后面，新增一次提交，抵消掉上一次提交导致的所有变化。它不会改变过去的历史，所以是首选方式，没有任何丢失代码的风险。</p><p>语法：<code>git revert [倒数第一个提交] [倒数第二个提交]</code></p><p>参数：</p><ul><li><code>--no-edit</code>：执行时不打开默认编辑器，直接使用 Git 自动生成的提交信息。</li><li><code>--no-commit</code>：只抵消暂存区和工作区的文件变化，不产生新的提交。</li></ul><p>例子：</p><pre><code class="bash"># git revert HEAD</code></pre></li><li><p><strong>丢弃</strong>提交：让最新提交的指针回到以前某个时点，该时点之后的提交都从历史中彻底消失。</p><p>语法：<code>git reset [last good SHA]</code></p><p>参数：</p><ul><li><code>--hard</code>：reset 默认不改变工作区的文件（但会改变暂存区），<code>--hard</code> 参数可以让工作区里面的文件也回到以前的状态。</li></ul></li><li><p><strong>替换</strong>上一次提交：产生一个新的提交对象，替换掉上一次提交产生的提交对象。如果暂存区有发生变化的文件，会一起提交到仓库。</p><p>语法：<code>git commit --amend -m &lt;message&gt;</code></p></li><li><p><strong>撤销工作区</strong>的文件修改：将文件在工作区的修改撤销到最近一次暂存区或版本库的内容。先找暂存区，如果该文件有暂存的版本，则恢复该版本，否则恢复上一次提交的版本。</p><p>语法：<code>git checkout -- [filename]</code></p><p><em>注意</em>：工作区的文件变化一旦被撤销，就无法找回了。</p></li><li><p>从暂存区撤销文件</p><p>语法：<code>git rm --cached [filename]</code></p></li><li><p>撤销当前分支的变化</p><pre><code class="bash"># 新建一个 feature 分支，指向当前最新的提交# 注意，这时依然停留在当前分支$ git branch feature# 切换到这几次提交之前的状态$ git reset --hard [当前分支此前的最后一次提交]# 切换到 feature 分支$ git checkout feature</code></pre><p>上面的操作等于是撤销当前分支的变化，将这些变化放到一个新建的分支。</p></li><li></li></ol><h1 id="问题代码定位"><a href="#问题代码定位" class="headerlink" title="问题代码定位"></a>问题代码定位</h1><blockquote><p>教程：<a href="https://www.ruanyifeng.com/blog/2018/12/git-bisect.html" target="_blank" rel="noopener">git bisect 命令教程</a></p></blockquote><p><code>git bisect</code>： 将代码提交的历史，按照二分法不断缩小定位，直到范围缩小到某一次代码提交。</p><pre><code class="bash"># 1.启动查错git bisect start [终点] [起点]# 2.1.标识本次提交没有问题，并自动切换到后半段的中点git bisect good# 2.2.标识本次提交有问题，并自动切换到后半段的中点git bisect bad# 直到出现成功找出有问题的那一次提交为止，提示：b47892 is the first bad commit# 3.退出查错，回到最近一次的代码提交git bisect reset</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL有关死锁的一些命令</title>
+      <link href="/2023/05/27/MySQL%E6%9C%89%E5%85%B3%E6%AD%BB%E9%94%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/"/>
+      <url>/2023/05/27/MySQL%E6%9C%89%E5%85%B3%E6%AD%BB%E9%94%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="5-7"><a href="#5-7" class="headerlink" title="5.7"></a>5.7</h2><p>1、查看正在进行中的事务</p><pre><code class="sql">mysql&gt; select * from information_schema.innodb_trx\G*************************** 1. row ***************************                    trx_id: 139926                 trx_state: RUNNING               trx_started: 2023-05-27 20:45:08     trx_requested_lock_id: NULL          trx_wait_started: NULL                trx_weight: 2       trx_mysql_thread_id: 347                 trx_query: NULL       trx_operation_state: NULL         trx_tables_in_use: 0         trx_tables_locked: 1          trx_lock_structs: 2     trx_lock_memory_bytes: 1136           trx_rows_locked: 1         trx_rows_modified: 0   trx_concurrency_tickets: 0       trx_isolation_level: REPEATABLE READ         trx_unique_checks: 1    trx_foreign_key_checks: 1trx_last_foreign_key_error: NULL trx_adaptive_hash_latched: 0 trx_adaptive_hash_timeout: 0          trx_is_read_only: 0trx_autocommit_non_locking: 01 row in set (0.00 sec)</code></pre><p>2、查看正在锁的事务</p><pre><code class="sql">mysql&gt; select * from information_schema.innodb_locks\G*************************** 1. row ***************************    lock_id: 139929:340:4:1lock_trx_id: 139929  lock_mode: X  lock_type: RECORD lock_table: `230510`.`t_order` lock_index: index_order lock_space: 340  lock_page: 4   lock_rec: 1  lock_data: supremum pseudo-record*************************** 2. row ***************************    lock_id: 139926:340:4:1lock_trx_id: 139926  lock_mode: X  lock_type: RECORD lock_table: `230510`.`t_order` lock_index: index_order lock_space: 340  lock_page: 4   lock_rec: 1  lock_data: supremum pseudo-record2 rows in set, 1 warning (0.00 sec)</code></pre><p>3、查看等待锁的事务</p><pre><code class="sql">mysql&gt; select * from information_schema.innodb_lock_waits\G*************************** 1. row ***************************requesting_trx_id: 139929requested_lock_id: 139929:340:4:1  blocking_trx_id: 139926 blocking_lock_id: 139926:340:4:11 row in set, 1 warning (0.00 sec)</code></pre><p>4、查询是否锁表</p><pre><code class="sql">mysql&gt; show open tables where in_use &gt; 0;+----------+---------+--------+-------------+| Database | Table   | In_use | Name_locked |+----------+---------+--------+-------------+| 230510   | t_order |      1 |           0 |+----------+---------+--------+-------------+1 row in set (0.00 sec)</code></pre><p>在发生死锁时，这几种方式都可以查询到和当前死锁相关的信息。</p><p>5、查看最近死锁的日志</p><pre><code class="sql">show engine innodb status;</code></pre><p>6、解除死锁</p><p>如果需要解除死锁，有一种最简单粗暴的方式，那就是找到进程id之后，直接干掉。</p><p>查看当前正在进行中的进程</p><pre><code class="sql">show processlist;-- 也可以使用select * from information_schema.innodb_trx\G</code></pre><p>杀掉进程对应的进程 id（进程id对应上面第一条命令的id和第二条命令的trx_mysql_thread_id）：</p><pre><code class="sql">kill &lt;id|trx_mysql_thread_id&gt;;</code></pre><p>验证（kill后再看是否还有锁）：</p><pre><code class="sql">show open tables where in_use &gt; 0;</code></pre><h2 id="8-0"><a href="#8-0" class="headerlink" title="8.0"></a>8.0</h2><ul><li><p>查看死锁<br>select * from performance_schema.data_locks;</p></li><li><p>查看死锁等待时间<br>select * from performance_schema.data_lock_waits;</p></li></ul><h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><h2 id="G的作用"><a href="#G的作用" class="headerlink" title="\G的作用"></a><code>\G</code>的作用</h2><p>在MySQL中,使用<code>\G</code>语句终止符可以使查询结果以列的方式显示,而不是默认的行的方式。例如，普通的查询结果显示为：</p><pre><code>mysql&gt; SELECT * FROM test;+----+-------+| id | name  |+----+-------+ |  1 | a     ||  2 | b     ||  3 | c     |+----+-------+3 rows in set (0.00 sec)</code></pre><p>使用 <code>\G</code> 语句终止符后,查询结果显示为:</p><pre><code>mysql&gt; SELECT * FROM test\G;*************************** 1. row ***************************      id: 1     name: a     *************************** 2. row ***************************      id: 2     name: b  *************************** 3. row ***************************       id: 3       name: c3 rows in set (0.00 sec)</code></pre><hr><p>使用 <code>\G</code> 后就不能再加分号 <code>;</code>，因为 <code>\G</code> 在功能上等同于 <code>;</code>，如果加了分号，那么就是 <code>;;</code>(2 个分号)，会报SQL语法错误 <code>No query specified</code>：</p><pre><code class="sql">mysql&gt; select * from t_order where id=1\G;*************************** 1. row ***************************         id: 1   order_no: 1001create_date: NULL1 row in set (0.00 sec)ERROR:No query specified</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git合并分支的几种方式</title>
       <link href="/2023/05/25/git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
       <url>/2023/05/25/git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
@@ -1082,9 +1132,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1205,9 +1255,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1381,9 +1431,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -2787,9 +2837,9 @@
       
         <tags>
             
-            <tag> 缓存 </tag>
-            
             <tag> SpringCache </tag>
+            
+            <tag> 缓存 </tag>
             
         </tags>
       
@@ -2866,11 +2916,11 @@
       
         <tags>
             
+            <tag> 缓存 </tag>
+            
             <tag> SpringBoot </tag>
             
             <tag> Redis </tag>
-            
-            <tag> 缓存 </tag>
             
         </tags>
       
@@ -2947,9 +2997,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -3481,9 +3531,9 @@
       
         <tags>
             
-            <tag> SpringMVC </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
             
         </tags>
       
@@ -4048,9 +4098,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       

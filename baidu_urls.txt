@@ -1,3 +1,5 @@
+https://blog.xiongtianci.com/2023/05/28/git实用命令/
+https://blog.xiongtianci.com/2023/05/27/MySQL有关死锁的一些命令/
 https://blog.xiongtianci.com/2023/05/25/git合并分支的几种方式/
 https://blog.xiongtianci.com/2023/05/24/通过OpenAI-API-Key和Vercel部署个人ChatGPT-Web网站/
 https://blog.xiongtianci.com/2023/05/23/GitHub的一些使用技巧/

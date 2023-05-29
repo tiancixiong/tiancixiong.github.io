@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2023-05-27T11:31:00.765Z</updated>
+  <updated>2023-05-28T01:10:39.418Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git实用命令</title>
+    <link href="https://blog.xiongtianci.com/2023/05/28/git%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.xiongtianci.com/2023/05/28/git实用命令/</id>
+    <published>2023-05-28T00:36:38.000Z</published>
+    <updated>2023-05-28T01:10:39.418Z</updated>
+    
+    <summary type="html">
+    
+      git实用命令
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Git" scheme="https://blog.xiongtianci.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL有关死锁的一些命令</title>
+    <link href="https://blog.xiongtianci.com/2023/05/27/MySQL%E6%9C%89%E5%85%B3%E6%AD%BB%E9%94%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.xiongtianci.com/2023/05/27/MySQL有关死锁的一些命令/</id>
+    <published>2023-05-27T12:42:39.000Z</published>
+    <updated>2023-05-27T23:36:25.753Z</updated>
+    
+    <summary type="html">
+    
+      排查死锁的命令
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="MySQL" scheme="https://blog.xiongtianci.com/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>git合并分支的几种方式</title>
@@ -379,46 +419,6 @@
     
     
       <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Eclipse设置编码格式</title>
-    <link href="https://blog.xiongtianci.com/2021/08/09/Eclipse%E8%AE%BE%E7%BD%AE%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F/"/>
-    <id>https://blog.xiongtianci.com/2021/08/09/Eclipse设置编码格式/</id>
-    <published>2021-08-09T02:49:13.000Z</published>
-    <updated>2023-05-20T23:47:07.764Z</updated>
-    
-    <summary type="html">
-    
-      Eclipse设置编码格式
-    
-    </summary>
-    
-      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
-    
-    
-      <category term="Eclipse" scheme="https://blog.xiongtianci.com/tags/Eclipse/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IDEA格式化代码后,方法顺序被改变</title>
-    <link href="https://blog.xiongtianci.com/2021/07/13/IDEA%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81%E5%90%8E-%E6%96%B9%E6%B3%95%E9%A1%BA%E5%BA%8F%E8%A2%AB%E6%94%B9%E5%8F%98/"/>
-    <id>https://blog.xiongtianci.com/2021/07/13/IDEA格式化代码后-方法顺序被改变/</id>
-    <published>2021-07-13T03:40:06.000Z</published>
-    <updated>2023-05-20T23:47:07.762Z</updated>
-    
-    <summary type="html">
-    
-      IDEA格式化代码后,方法顺序被改变
-    
-    </summary>
-    
-      <category term="IDE" scheme="https://blog.xiongtianci.com/categories/IDE/"/>
-    
-    
-      <category term="IDEA" scheme="https://blog.xiongtianci.com/tags/IDEA/"/>
     
   </entry>
   

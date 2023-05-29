@@ -7,10 +7,10 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="天赐,天赐の小站,博客">
+  <meta name="keywords" content="mysql,死锁,天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">Tag: Git | 天赐の小站</title>
+  <title itemprop="name">MySQL有关死锁的一些命令 | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/favicon.ico">
   
@@ -343,229 +343,285 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="Git.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=540);" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=540">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      MySQL有关死锁的一些命令</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://blog.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://blog.xiongtianci.com">木浅</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2023-5-27<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">Git</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- category默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2023/05/28/git实用命令/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://images.unsplash.com/photo-1562720053-82d9426daa0d?w=540" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2023/05/28/git实用命令/">
-    git实用命令</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2023-5-28</div>
-    <p>
-    git实用命令</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2023/05/28/git实用命令/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2023/05/25/git合并分支的几种方式/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://images.unsplash.com/photo-1542442906-e62aee292c52?w=540" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2023/05/25/git合并分支的几种方式/">
-    git合并分支的几种方式</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2023-5-25</div>
-    <p>
-    git合并分支的几种方式</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2023/05/25/git合并分支的几种方式/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/11/12/Git修改已提交的commit注释/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2019/11/12/Git修改已提交的commit注释/">
-    Git修改已提交的commit注释</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-11-12</div>
-    <p>
-    Git修改已提交的commit注释</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/11/12/Git修改已提交的commit注释/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/07/22/解决.gitignore过滤规则不起作用问题/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2019/07/22/解决.gitignore过滤规则不起作用问题/">
-    解决.gitignore过滤规则不起作用问题</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-7-22</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/07/22/解决.gitignore过滤规则不起作用问题/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/06/12/git-push报错：The-current-branch-master-has-no-upstream-branch/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://images.unsplash.com/photo-1531715359372-a4df1cd7384a?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2019/06/12/git-push报错：The-current-branch-master-has-no-upstream-branch/">
-    git push报错：The current branch master has no upstream branch</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-6-12</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/06/12/git-push报错：The-current-branch-master-has-no-upstream-branch/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/06/12/git常用命名汇总/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://images.unsplash.com/photo-1499463217683-ee3c9ce038f1?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2019/06/12/git常用命名汇总/">
-    git常用命名汇总</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-6-12</div>
-    <p>
-    git命令汇总</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/06/12/git常用命名汇总/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="5-7"><a href="#5-7" class="headerlink" title="5.7"></a>5.7</h2><p>1、查看正在进行中的事务</p>
+<pre><code class="sql">mysql&gt; select * from information_schema.innodb_trx\G
+*************************** 1. row ***************************
+                    trx_id: 139926
+                 trx_state: RUNNING
+               trx_started: 2023-05-27 20:45:08
+     trx_requested_lock_id: NULL
+          trx_wait_started: NULL
+                trx_weight: 2
+       trx_mysql_thread_id: 347
+                 trx_query: NULL
+       trx_operation_state: NULL
+         trx_tables_in_use: 0
+         trx_tables_locked: 1
+          trx_lock_structs: 2
+     trx_lock_memory_bytes: 1136
+           trx_rows_locked: 1
+         trx_rows_modified: 0
+   trx_concurrency_tickets: 0
+       trx_isolation_level: REPEATABLE READ
+         trx_unique_checks: 1
+    trx_foreign_key_checks: 1
+trx_last_foreign_key_error: NULL
+ trx_adaptive_hash_latched: 0
+ trx_adaptive_hash_timeout: 0
+          trx_is_read_only: 0
+trx_autocommit_non_locking: 0
+1 row in set (0.00 sec)
+</code></pre>
+<p>2、查看正在锁的事务</p>
+<pre><code class="sql">mysql&gt; select * from information_schema.innodb_locks\G
+*************************** 1. row ***************************
+    lock_id: 139929:340:4:1
+lock_trx_id: 139929
+  lock_mode: X
+  lock_type: RECORD
+ lock_table: `230510`.`t_order`
+ lock_index: index_order
+ lock_space: 340
+  lock_page: 4
+   lock_rec: 1
+  lock_data: supremum pseudo-record
+*************************** 2. row ***************************
+    lock_id: 139926:340:4:1
+lock_trx_id: 139926
+  lock_mode: X
+  lock_type: RECORD
+ lock_table: `230510`.`t_order`
+ lock_index: index_order
+ lock_space: 340
+  lock_page: 4
+   lock_rec: 1
+  lock_data: supremum pseudo-record
+2 rows in set, 1 warning (0.00 sec)
+</code></pre>
+<p>3、查看等待锁的事务</p>
+<pre><code class="sql">mysql&gt; select * from information_schema.innodb_lock_waits\G
+*************************** 1. row ***************************
+requesting_trx_id: 139929
+requested_lock_id: 139929:340:4:1
+  blocking_trx_id: 139926
+ blocking_lock_id: 139926:340:4:1
+1 row in set, 1 warning (0.00 sec)
+</code></pre>
+<p>4、查询是否锁表</p>
+<pre><code class="sql">mysql&gt; show open tables where in_use &gt; 0;
++----------+---------+--------+-------------+
+| Database | Table   | In_use | Name_locked |
++----------+---------+--------+-------------+
+| 230510   | t_order |      1 |           0 |
++----------+---------+--------+-------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>在发生死锁时，这几种方式都可以查询到和当前死锁相关的信息。</p>
+<p>5、查看最近死锁的日志</p>
+<pre><code class="sql">show engine innodb status;
+</code></pre>
+<p>6、解除死锁</p>
+<p>如果需要解除死锁，有一种最简单粗暴的方式，那就是找到进程id之后，直接干掉。</p>
+<p>查看当前正在进行中的进程</p>
+<pre><code class="sql">show processlist;
 
+-- 也可以使用
+select * from information_schema.innodb_trx\G
+</code></pre>
+<p>杀掉进程对应的进程 id（进程id对应上面第一条命令的id和第二条命令的trx_mysql_thread_id）：</p>
+<pre><code class="sql">kill &lt;id|trx_mysql_thread_id&gt;;
+</code></pre>
+<p>验证（kill后再看是否还有锁）：</p>
+<pre><code class="sql">show open tables where in_use &gt; 0;
+</code></pre>
+<h2 id="8-0"><a href="#8-0" class="headerlink" title="8.0"></a>8.0</h2><ul>
+<li><p>查看死锁<br>select * from performance_schema.data_locks;</p>
+</li>
+<li><p>查看死锁等待时间<br>select * from performance_schema.data_lock_waits;</p>
+</li>
+</ul>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><h2 id="G的作用"><a href="#G的作用" class="headerlink" title="\G的作用"></a><code>\G</code>的作用</h2><p>在MySQL中,使用<code>\G</code>语句终止符可以使查询结果以列的方式显示,而不是默认的行的方式。例如，普通的查询结果显示为：</p>
+<pre><code>mysql&gt; SELECT * FROM test;
++----+-------+
+| id | name  |
++----+-------+ 
+|  1 | a     |
+|  2 | b     |
+|  3 | c     |
++----+-------+
+3 rows in set (0.00 sec)
+</code></pre><p>使用 <code>\G</code> 语句终止符后,查询结果显示为:</p>
+<pre><code>mysql&gt; SELECT * FROM test\G;
+*************************** 1. row ***************************
+      id: 1
+     name: a     
+*************************** 2. row ***************************
+      id: 2
+     name: b  
+*************************** 3. row ***************************
+       id: 3  
+     name: c
+3 rows in set (0.00 sec)
+</code></pre><hr>
+<p>使用 <code>\G</code> 后就不能再加分号 <code>;</code>，因为 <code>\G</code> 在功能上等同于 <code>;</code>，如果加了分号，那么就是 <code>;;</code>(2 个分号)，会报SQL语法错误 <code>No query specified</code>：</p>
+<pre><code class="sql">mysql&gt; select * from t_order where id=1\G;
+*************************** 1. row ***************************
+         id: 1
+   order_no: 1001
+create_date: NULL
+1 row in set (0.00 sec)
 
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+ERROR:
+No query specified
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2023/05/28/git实用命令/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1562720053-82d9426daa0d?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1562720053-82d9426daa0d?w=540">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                git实用命令</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2023/05/25/git合并分支的几种方式/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1542442906-e62aee292c52?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1542442906-e62aee292c52?w=540">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                git合并分支的几种方式</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10,
+		serverURLs: "https://VeenC2gY.api.lncldglobal.com"
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://blog.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="木浅" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://blog.xiongtianci.com" itemprop="url" rel="author">木浅</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
