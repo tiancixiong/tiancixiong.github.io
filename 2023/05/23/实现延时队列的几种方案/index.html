@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  
+  <!-- 关键字 keywords -->
+  
+  <meta name="keywords" content="mq,rabbitmq,延迟队列,天赐,天赐の小站,博客">
+  
+  
+  <title itemprop="name">实现延时队列的几种方案 | 天赐の小站</title>
+  
+    <link rel="shortcut icon" href="//fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/font.css" media="all">
+  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/insight.css" media="all">
+  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "天赐の小站";
+  mashiro_option.author_name = "天赐の小站";
+  mashiro_option.site_url = "/";
+  mashiro_option.v_appId = "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI";
+  mashiro_option.v_appKey = "F5kjyHdh4akqc7SDmfzQP8Qi";
+  mashiro_option.v_notify = false;
+  mashiro_option.v_verify = false;
+  mashiro_option.v_placeholder = "你是我一生只会遇见一次的惊喜 ...";
+  mashiro_option.v_avatar = "monsterid";
+  mashiro_option.v_pageSize = "5" || 10;
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+  console.info("%c Blog %c", "background:#24272A; color:#ffffff", "", "https://blog.xiongtianci.com");
+  console.info("%c GitHub %c", "background:#24272A; color:#ffffff", "", "https://github.com/tiancixiong");
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/5cm_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/5cm_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_06.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_09.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_10.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_11.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_12.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Avatar_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Before.Sunrise_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Before.Sunrise_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Before.Sunset_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/bighero_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/bighero_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/bighero_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Coco_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Coco_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Coco_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/CUG.King.of.Heroes_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_06.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_09.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_04.webp,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Hauru.no.ugoku.shiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Into.the.Wild_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Kaze.tachinu_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiki_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiki_03.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiki_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_06.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/koenokatachi_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/koenokatachi_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/koenokatachi_03.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Kotonoha.no.Niwa_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/La.La.Land_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Le.Petit.Prince_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Le.Petit.Prince_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mimi.wo.sumaseba_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/My.Sassy.Girl_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Paperman_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Paperman_02.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Piper_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ponyo_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ponyo_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ponyo_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Reply.1988_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Reply.1988_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Reply.1988_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SpiderMan.Into.the.SpiderVerse_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SpiderMan.Into.the.SpiderVerse_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SpiderMan.Into.the.SpiderVerse_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/The.Girl.Who.Leapt.Through.Time_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/The.Pianist_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/TheLonelyAndGreatGod_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Titanic_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Titanic_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Titanic_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/totoro1.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/WALL_E_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/WALL_E_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Zootopia_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/2049.Blade.Runner_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/2049.Blade.Runner_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/American.Dreams.in.China_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Biri.Girl_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Bohemian.Rhapsody_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Bohemian.Rhapsody_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Bohemian.Rhapsody_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Crouching.Tiger.Hidden.Dragon.2000_01.webp,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Detachment_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Detachment_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Gisaengchung_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Iron.Man_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Kureyon.Shinchan_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Love.Actually_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Roman.Holiday_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Roman.Holiday_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Sherlock.S01_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/The.Secret.Life.of.Walter.Mitty_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Youth.Over.Flowers.in.Africa_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Youth.Over.Flowers.in.Africa_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/My.Mister_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/One.Day_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/One.Day_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/One.Day_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ready.Player.One_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Begin.Again_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Begin.Again_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Freddie_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/naruto.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SetoNaikai_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/yexiu_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/yexiu_02_FUJISKYTREE.png".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <!--首页背景图下方的波浪线-->
+  <!--<div id="banner_wave_1"></div>-->
+  <!--<div id="banner_wave_2"></div>-->
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="/">
+          <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>You Only Live Once</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="mailto:support@xiongtianci.com" target="_blank" class="social-github" title="E-mail">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">天赐の小站</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+                    极客
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/Linux/">
+                          <i class="fa fa-linux" aria-hidden="true"></i>
+                          Linux
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+                    爱好
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/电影/">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          电影
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/日语/">
+                          <i class="fa fa-language" aria-hidden="true"></i>
+                          日语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1513581166391-887a96ddeafd?w=540);" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1513581166391-887a96ddeafd?w=540">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      实现延时队列的几种方案</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://blog.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://blog.xiongtianci.com">木浅</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2023-5-23<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="使用关系型数据库实现"><a href="#使用关系型数据库实现" class="headerlink" title="使用关系型数据库实现"></a>使用关系型数据库实现</h1><p>TODO</p>
+<h1 id="使用Redis实现"><a href="#使用Redis实现" class="headerlink" title="使用Redis实现"></a>使用Redis实现</h1><p>主要思路如下:</p>
+<ol>
+<li>生产消息时,将消息的值作为 ZSET 的value,将当前时间加上delay时间作为score, <code>zadd</code> 添加到ZSET中。</li>
+<li>消费消息时,使用 <code>zrangebyscore</code> 从ZSET中获取score在当前时间之前（0 &lt; score &lt;= 当前时间戳）的消息进行消费。可以每隔一定时间查询一次,也可以使用Redis的Keyspace Notification功能接收消息到达的通知进行消费。</li>
+<li>如果一定时间内消息未消费,由于其score值仍然小于当前时间,所以会被重复消费,实现了消息的重试机制。</li>
+<li>消息被成功消费后,需要从ZSET中移除,避免重复消费,使用 <code>zrem</code> 移除消息。</li>
+</ol>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>依赖：</p>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>配置：</p>
+<pre><code class="java">import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+
+@Configuration
+public class RedisConfig {
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory() {
+        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
+        config.setHostName(&quot;localhost&quot;);
+        config.setPort(6379);
+        return new LettuceConnectionFactory(config);
+    }
+}
+</code></pre>
+<h2 id="Redisson"><a href="#Redisson" class="headerlink" title="Redisson"></a>Redisson</h2><h1 id="使用MQ实现"><a href="#使用MQ实现" class="headerlink" title="使用MQ实现"></a>使用MQ实现</h1><h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h2><p>RabbitMQ的延时消息主要有两个解决方案：</p>
+<ul>
+<li>消息的TTL + 死信Exchange</li>
+<li>RabbitMQ Delayed Message Plugin</li>
+</ul>
+<h3 id="消息的TTL-死信Exchange"><a href="#消息的TTL-死信Exchange" class="headerlink" title="消息的TTL+死信Exchange"></a>消息的TTL+死信Exchange</h3><h4 id="存活时间TTL"><a href="#存活时间TTL" class="headerlink" title="存活时间TTL"></a>存活时间TTL</h4><p>TTL 全称为：time to live，一条消息或者该队列中的所有消息的最大存活时间，单位是毫秒。当消息没有配置消费者，消息就一直停留在队列中，停留时间超过存活时间后，消息会被自动删除。</p>
+<p>RabbitMQ 支持两种 TTL 设置：</p>
+<ul>
+<li>对消息本身设置存活时间，每条消息的存活时间可以灵活设置为不同的存活时间。</li>
+<li>对传递的队列设置存活时间，每条传到到队列的过期时间都一致。</li>
+</ul>
+<p>如果同时配置了队列的TTL和消息的TTL，将会使用较小的那个值。</p>
+<p>当消息过期还没有被消费，此时消息会变成死信消息（dead letter），这是实现延迟队列的关键。死信消息会被RabbitMQ进行特殊处理，如果配置了死信队列信息，那么该消息将会被丢进死信队列中，如果没有配置，则该消息将会被丢弃。</p>
+<p>消息变为死信的条件：</p>
+<ul>
+<li>消息被拒绝（通过<code>basic.reject</code> 或者 <code>back.nack</code>），并且设置 <code>requeue=false</code></li>
+<li>消息的过期时间到期了</li>
+<li>队列达到最大长度，消息被丢弃</li>
+</ul>
+<h4 id="死信交换机-DLX"><a href="#死信交换机-DLX" class="headerlink" title="死信交换机 DLX"></a>死信交换机 DLX</h4><p>DLX（Dead Letter Exchanges）意思为死信交换机。死信交换机和普通交换机没什么区别，不同的是死信交换机会绑定在其他队列上，当队列的消息变成死信消息后，死信消息会发送到死信交换上。</p>
+<p>消息变成死信消息之后，它不会立即被删除，首先它要看有没有对应的死信交换机，如果有绑定的死信交换机，消息就会从发送到对应的死信交换机上。</p>
+<p>队列绑定死信交换机需要两个参数：</p>
+<ul>
+<li><code>x-dead-letter-exchange</code>：绑定的死信交换机名称，必须</li>
+<li><code>x-dead-letter-routing-key</code>：死信交换机转发到死信队列的路由键，可选</li>
+</ul>
+<blockquote>
+<p>死信交换机和普通交换机的区别就是死信交换机的<code>Exchange</code>和<code>routingKey</code>作为绑定参数，绑定在其他队列上。</p>
+</blockquote>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>一个延时消息的流程如下图：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523220318222.png" alt="image-20230523220318222"></p>
+<ol>
+<li>配置业务队列，绑定到业务交换机上</li>
+<li>为业务队列配置死信交换机和路由key</li>
+<li>为死信交换机配置死信队列</li>
+</ol>
+<p>死信队列并不是什么特殊的队列，只不过是绑定在死信交换机上的队列。死信交换机也不是什么特殊的交换机，只不过是用来接受死信的交换机，所以可以为任何类型【Direct、Fanout、Topic】。</p>
+<ul>
+<li>生产者将带有<code>TTL</code>的消息发送给交换机，由交换机路由到队列中；</li>
+<li>队列由于没有消费，消息一直停留在队列中，一直等到消息超时，变成死信消息；</li>
+<li>死信消息转发到死信交换机再路由到死信队列上，最后给消费者消费。</li>
+</ul>
+<h5 id="创建死信队列"><a href="#创建死信队列" class="headerlink" title="创建死信队列"></a>创建死信队列</h5><p>坐标：</p>
+<pre><code class="xml">&lt;!--消息队列相关依赖--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-amqp&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>配置：</p>
+<pre><code class="yml">spring:
+  rabbitmq:
+    host: localhost #rabbitmq的连接地址
+    port: 5672 #rabbitmq的连接端口号
+    virtual-host: /yolo #rabbitmq的虚拟host
+    username: yolo #rabbitmq的用户名
+    password: yolo #rabbitmq的密码
+</code></pre>
+<p>配置交换机和队列的绑定：</p>
+<ul>
+<li>死信队列绑定死信交换机</li>
+<li></li>
+</ul>
+<pre><code class="java">import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+public class DelayQueueRabbitConfig {
+    /* @@@@ 死信队列 @@@ */
+    /**
+     * 死信队列
+     */
+    public static final String DLX_QUEUE = &quot;queue.dlx&quot;;
+
+    /**
+     * 死信交换机
+     */
+    public static final String DLX_EXCHANGE = &quot;exchange.dlx&quot;;
+
+    /**
+     * 死信routing-key
+     */
+    public static final String DLX_ROUTING_KEY = &quot;routingKey.dlx&quot;;
+
+    /**
+     * 死信队列
+     *
+     * @return
+     */
+    @Bean
+    public Queue dlxQueue() {
+        return new Queue(DLX_QUEUE, true);
+    }
+
+    /**
+     * 死信交换机
+     *
+     * @return
+     */
+    @Bean
+    public DirectExchange dlxExchange() {
+        return new DirectExchange(DLX_EXCHANGE, true, false);
+    }
+
+    /**
+     * 死信队列和死信交换机绑定
+     *
+     * @return
+     */
+    @Bean
+    public Binding bindingDLX() {
+        return BindingBuilder.bind(dlxQueue()).to(dlxExchange()).with(DLX_ROUTING_KEY);
+    }
+
+    /* @@@@ 延迟队列 @@@ */
+    /**
+     * 订单延迟队列
+     */
+    public static final String ORDER_QUEUE = &quot;queue.order&quot;;
+
+    /**
+     * 订单交换机
+     */
+    public static final String ORDER_EXCHANGE = &quot;exchange.order&quot;;
+
+    /**
+     * 订单routing-key
+     */
+    public static final String ORDER_ROUTING_KEY = &quot;routingkey.order&quot;;
+
+    /**
+     * 订单延迟队列
+     *
+     * @return
+     */
+    @Bean
+    public Queue orderQueue() {
+        Map&lt;String, Object&gt; params = new HashMap&lt;&gt;();
+        // 关键参数
+        params.put(&quot;x-dead-letter-exchange&quot;, DLX_EXCHANGE);
+        params.put(&quot;x-dead-letter-routing-key&quot;, DLX_ROUTING_KEY);
+        return new Queue(ORDER_QUEUE, true, false, false, params);
+    }
+
+    /**
+     * 订单交换机
+     *
+     * @return
+     */
+    @Bean
+    public DirectExchange orderExchange() {
+        return new DirectExchange(ORDER_EXCHANGE, true, false);
+    }
+
+    /**
+     * 订单队列和交换机绑定
+     *
+     * @return
+     */
+    @Bean
+    public Binding orderBinding() {
+        return BindingBuilder.bind(orderQueue()).to(orderExchange()).with(ORDER_ROUTING_KEY);
+    }
+}
+</code></pre>
+<blockquote>
+<p>绑定死信交换机通过添加<code>x-dead-letter-exchange</code>、<code>x-dead-letter-routing-key</code>参数指定对应的交换机和路由。</p>
+</blockquote>
+<h5 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h5><pre><code class="java">import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@RestController
+public class SendController {
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @GetMapping(&quot;/dlx&quot;)
+    public String dlx(@RequestParam(&quot;msg&quot;) String msgStr) {
+        String date = DateUtil.dateFormat(new Date());
+        String delayTime = &quot;5000&quot;; //单位毫秒
+        System.out.println(&quot;【发送消息】延迟 5 秒 发送时间 &quot; + date);
+        rabbitTemplate.convertAndSend(
+                DelayQueueRabbitConfig.ORDER_EXCHANGE,
+                DelayQueueRabbitConfig.ORDER_ROUTING_KEY,
+                msgStr,
+                message -&gt; {
+                    // 设置过期时间
+                    message.getMessageProperties().setExpiration(delayTime);
+                    return message;
+                });
+        return &quot;ok&quot;;
+    }
+}
+
+class DateUtil {
+    public static String dateFormat(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(&quot;HH:mm:ss&quot;);
+        return sdf.format(date);
+    }
+}
+</code></pre>
+<h5 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h5><pre><code class="java">@RabbitListener(queues = DelayQueueRabbitConfig.DLX_QUEUE)
+public void delayPrecss(String msgStr, Channel channel, Message message) {
+    System.out.println(&quot;【接收消息】&quot; + msgStr + &quot; 接收时间&quot; + DateUtil.dateFormat(new Date()));
+}
+</code></pre>
+<h5 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h5><p>调用接口发送消息，可以看到，消息延迟了5秒后才被消费：</p>
+<pre><code class="text">【发送消息】延迟 5 秒 发送时间 21:19:39
+【接收消息】hello 接收时间21:19:44
+</code></pre>
+<h4 id="消息时序问题"><a href="#消息时序问题" class="headerlink" title="消息时序问题"></a>消息时序问题</h4><p>队列都有 <code>先进先出</code> 的特点。如果队列前面的消息延迟比队列后的消息延迟更长，需要等到队列前面的消息被消费后才能消费后面的消息。</p>
+<p>测试下：</p>
+<pre><code class="java">// 改造生产者
+@GetMapping(&quot;/dlx&quot;)
+public String dlx() {
+    dlxSend(&quot;延迟10秒&quot;, &quot;10000&quot;);
+    dlxSend(&quot;延迟2 秒&quot;, &quot;2000&quot;);
+    dlxSend(&quot;延迟5 秒&quot;, &quot;5000&quot;);
+    return &quot;ok&quot;;
+}
+
+private void dlxSend(String msgStr, String delayTime) {
+    System.out.println(&quot;【发送消息】&quot; + msgStr + &quot;当前时间&quot; + DateUtil.dateFormat(new Date()));
+    rabbitTemplate.convertAndSend(DelayQueueRabbitConfig.ORDER_EXCHANGE, DelayQueueRabbitConfig.ORDER_ROUTING_KEY,
+                                  msgStr,
+                                  message -&gt; {
+                                      message.getMessageProperties().setExpiration(delayTime);
+                                      return message;
+                                  });
+}
+</code></pre>
+<p>控制台输出：</p>
+<pre><code>【发送消息】延迟10秒当前时间21:45:00
+【发送消息】延迟2 秒当前时间21:45:00
+【发送消息】延迟5 秒当前时间21:45:00
+【接收消息】延迟10秒 接收时间21:45:10
+【接收消息】延迟2 秒 接收时间21:45:10
+【接收消息】延迟5 秒 接收时间21:45:10
+</code></pre><p>当前面的消息没被消费时后面的消息都不会被消费到；第二条消息延迟2秒的过期时间达到时，第一条还没被消费，第二条等待第一条被消费后立刻就能被消费了。</p>
+<h3 id="RabbitMQ-Delayed-Message-Plugin"><a href="#RabbitMQ-Delayed-Message-Plugin" class="headerlink" title="RabbitMQ Delayed Message Plugin"></a>RabbitMQ Delayed Message Plugin</h3><p>RabbitMQ Delayed Message Plugin是官方提供的延时消息插件，虽然使用起来比较方便，但是不是高可用的，如果节点挂了会导致消息丢失。</p>
+<blockquote>
+<p>官网：<a href="https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/blob/main/README.md#limitations" target="_blank" rel="noopener">传送门</a></p>
+<p>Delayed messages are stored in a Mnesia table (also see Limitations below) with a single disk replica on the current node. They will survive a node restart. While timer(s) that triggered scheduled delivery are not persisted, it will be re-initialised during plugin activation on node start. Obviously, only having one copy of a scheduled message in a cluster means that losing that node or disabling the plugin on it will lose the messages residing on that node.</p>
+</blockquote>
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p>去RabbitMQ的官网下载插件<code>rabbitmq_delayed_message_exchange</code>，插件地址：</p>
+<ul>
+<li><p><a href="https://www.rabbitmq.com/community-plugins.html" target="_blank" rel="noopener">https://www.rabbitmq.com/community-plugins.html</a></p>
+<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523222655608.png" alt="image-20230523222655608"></p>
+</li>
+<li><p><a href="https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases" target="_blank" rel="noopener">https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases</a></p>
+</li>
+</ul>
+<p>将插件文件复制到RabbitMQ安装目录的<code>plugins</code>目录下：</p>
+<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523222937490.png" alt="image-20230523222937490"></p>
+<p>进入RabbitMQ安装目录的<code>sbin</code>目录下，使用如下命令启用延迟插件：</p>
+<pre><code class="bash">rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+</code></pre>
+<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523223527215.png" alt="image-20230523223527215"></p>
+<p>启用插件成功，之后重新启动RabbitMQ服务，交换机会有新的类型<code>x-delayed-message</code>：</p>
+<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230524064307263.png" alt="image-20230524064307263"></p>
+<p><code>x-delayed-message</code>类型的交换机，支持延迟投递消息。发送消息给<code>x-delayed-message</code>类型的交换机：</p>
+<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230524071017694.png" alt="image-20230524071017694"></p>
+<ul>
+<li><code>x-delayed-message</code>类型的交换机接收消息投递后，并未将直接路由到队列中，而是存储到<code>mnesia</code>(一个分布式数据系统)，该系统会检测消息延迟时间。</li>
+<li>消息达到可投递时间，消息会被投递到目标队列。</li>
+</ul>
+<h4 id="实现延迟消息"><a href="#实现延迟消息" class="headerlink" title="实现延迟消息"></a>实现延迟消息</h4><p>配置交换机、队列以及绑定关系：</p>
+<pre><code class="java">import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.CustomExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+public class XDelayedMessageConfig {
+    /**
+     * 队列
+     */
+    public static final String DIRECT_QUEUE = &quot;queue.delayed&quot;;
+
+    /**
+     * 延迟交换机
+     */
+    public static final String DELAYED_EXCHANGE = &quot;exchange.delayed&quot;;
+
+    /**
+     * 绑定的routing key
+     */
+    public static final String ROUTING_KEY = &quot;routingKey.bind&quot;;
+
+    @Bean
+    public Queue directQueue() {
+        return new Queue(DIRECT_QUEUE, true);
+    }
+
+    /**
+     * 定义延迟交换机
+     * 交换机的类型为 x-delayed-message
+     *
+     * @return
+     */
+    @Bean
+    public CustomExchange delayedExchange() {
+        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;x-delayed-type&quot;, &quot;direct&quot;);
+        return new CustomExchange(DELAYED_EXCHANGE, &quot;x-delayed-message&quot;, true, false, map);
+    }
+
+    @Bean
+    public Binding delayOrderBinding() {
+        return BindingBuilder.bind(directQueue()).to(delayedExchange()).with(ROUTING_KEY).noargs();
+    }
+
+}
+</code></pre>
+<p>生产者：</p>
+<pre><code class="java">@GetMapping(&quot;/delay&quot;)
+public String delay() {
+    delaySend(&quot;延迟队列10 秒&quot;, 10000);
+    delaySend(&quot;延迟队列5 秒&quot;, 5000);
+    delaySend(&quot;延迟队列2 秒&quot;, 2000);
+    return &quot;ok&quot;;
+}
+
+private void delaySend(String msgStr, Integer delayTime) {
+    System.out.println(&quot;【发送消息】&quot; + msgStr + &quot;当前时间&quot; + DateUtil.dateFormat(new Date()));
+    rabbitTemplate.convertAndSend(XDelayedMessageConfig.DELAYED_EXCHANGE, XDelayedMessageConfig.ROUTING_KEY,
+                                  msgStr, message -&gt; {
+                                      message.getMessageProperties().setDelay(delayTime);
+                                      //message1.getMessageProperties().setHeader(&quot;x-delay&quot;,delayTime);
+                                      return message;
+                                  });
+}
+</code></pre>
+<p>消费者：</p>
+<pre><code class="java">@RabbitListener(queues = XDelayedMessageConfig.DIRECT_QUEUE)
+public void delayProcess(String msgStr, Channel channel, Message message) {
+    System.out.println(&quot;【接收消息】&quot; + msgStr + &quot; 接收时间&quot; + DateUtil.dateFormat(new Date()));
+}
+</code></pre>
+<p>从控制台输出的结果，可以看出RabbitMQ的 <code>rabbitmq_delayed_message_exchange</code> 插件可以解决消息时序问题：</p>
+<pre><code>【发送消息】延迟队列10 秒当前时间06:53:18
+【发送消息】延迟队列5 秒当前时间06:53:18
+【发送消息】延迟队列2 秒当前时间06:53:18
+【接收消息】延迟队列2 秒 接收时间06:53:20
+【接收消息】延迟队列5 秒 接收时间06:53:23
+【接收消息】延迟队列10 秒 接收时间06:53:28
+</code></pre><h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><p>由于死信队列方式需要创建两个交换机（死信队列交换机+处理队列交换机）、两个队列（死信队列+处理队列），而延迟插件方式只需创建一个交换机和一个队列，所以后者使用起来更简单</p>
+<h2 id="RocketMQ"><a href="#RocketMQ" class="headerlink" title="RocketMQ"></a>RocketMQ</h2><p>TODO</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://www.rabbitmq.com/dlx.html" target="_blank" rel="noopener">RabbitMQ-dlx</a>、<a href="https://www.rabbitmq.com/ttl.html" target="_blank" rel="noopener">RabbitMQ-ttl</a></li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2023/05/23/GitHub的一些使用技巧/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1520325746267-350533ec4d56?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1520325746267-350533ec4d56?w=540">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                GitHub的一些使用技巧</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2023/05/21/Zuul网关实现限流/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1517462035531-76bc910a6903?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1517462035531-76bc910a6903?w=540">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Zuul网关实现限流</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10,
+		serverURLs: "https://VeenC2gY.api.lncldglobal.com"
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://blog.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg" itemprop="image" alt="木浅" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://blog.xiongtianci.com" itemprop="url" rel="author">木浅</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 天赐<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-info">
+		<div class="footertext">
+			<div class="img-preload">
+				<img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@1.0/img/other/wordpress-rotating-ball-o.svg">
+				<img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@1.0/img/other/disqus-preloader.svg">
+			</div>
+			<p class="foo-logo"
+				style="background-image: url('https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/img/custom/sakura.svg');">
+			</p>
+			<div
+				style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none;margin-top:0.7em;">
+				<i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i>
+			</div>
+			<!-- color: #666666; -->
+			<div style="color: #b9b9b9;">&copy;
+				2018-2023&nbsp;天赐&nbsp;
+			</div>
+		</div>
+		<!-- 访客统计 -->
+		<!--<div id="busuanzi_container"></div>-->
+		<!-- 已运行的时间-容器 -->
+		<div id="days"></div>
+		<div class="footer-device">
+			<p id="footer-sponsor">
+				<!-- <a href="https://pages.github.com/" target="_blank" alt="GitHub Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/GitHub.svg" alt="GitHub Pages"
+						style="height: 2em; max-height: 2em;" title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<!-- <a href="https://coding.net/pages" target="_blank" alt="Coding Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/Coding.png" alt="Coding Pages"
+						style="height: 1.3em; max-height: 1.3em;padding-bottom: 0px;margin-bottom: 0.35em;"
+						title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<a href="https://www.jsdelivr.com/" target="_blank" alt="Free CDN" rel="nofollow"><img
+						src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/img/logo/JsDelivr_Logo.svg" alt="jsDelivr"
+						style="height: 2em; max-height: 2em;padding-bottom: 0px;"></a>&nbsp;&nbsp;&nbsp;<a
+					href="https://www.google.com/intl/ja/analytics/" target="_blank" alt="Analytics solution"
+					rel="nofollow"><img src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/img/logo/Google.svg"
+						alt="Google Analytics" style="height: 1.7em; max-height: 1.7em;padding-bottom: 0px;"></a>
+			</p>
+		</div>
+	</div>
+	<!-- .site-info -->
+</footer>
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/lib.min.js"></script>
+<script src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/vendor/clipboard.min.js"></script>
+<script type="text/javascript" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/InsightSearch.js"></script>
+<script type="text/javascript" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/zoom.min.js"></script>
+<script type="text/javascript" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/sakura-app.js"></script>
+<!--浏览器搞笑标题-->
+<!--<script type="text/javascript" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/title_change.js"></script>-->
+<script type="text/javascript" src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/volantis.min.js"></script>
+<!-- Valine -->
+<!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<!--<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>-->
+<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "close"
+			},
+			"windowheight": "fixed",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	} else {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "open"
+			},
+			"windowheight": "auto",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	}
+		/* ]]> */
+</script>
+<script>
+	$(document).ready(function () {
+		if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+			if ($(".pattern-center").length > 0) { //有图的情况
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -400,
+					scrollSmoothOffset: -85
+				});
+			} else {
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -85,
+					scrollSmoothOffset: -85
+				});
+			}
+			var offsetTop = $('.toc').offset().top - 95;
+			window.onscroll = function () {
+				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+				if (scrollTop >= offsetTop) {
+					$('.toc').addClass('toc-fixed');
+				} else {
+					$('.toc').removeClass('toc-fixed');
+				}
+			}
+		}
+	});
+</script>
+<!-- 已运行的时间-js -->
+<script>
+	function show_date_time() {
+		window.setTimeout("show_date_time()", 1000);
+		// 获得建站时间
+		var time = "28/11/2018 15:36:06";
+		time = time.replace(/\//g, ':').replace(' ', ':');
+		time = time.split(':');
+		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
+
+		today = new Date();
+		timeold = (today.getTime() - BirthDay.getTime());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		msPerYear = 365 * 24 * 60 * 60 * 1000
+		e_yearsold = timeold / msPerYear
+		yearsold = Math.floor(e_yearsold);
+		//e_daysold = timeold / msPerDay
+		e_daysold = timeold/msPerDay - yearsold*365;
+		daysold = Math.floor(e_daysold);
+		e_hrsold = (e_daysold - daysold) * 24;
+		hrsold = setzero(Math.floor(e_hrsold));
+		e_minsold = (e_hrsold - hrsold) * 60;
+		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + yearsold + " 年 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+	}
+
+	function setzero(i) {
+		if (i < 10) {
+			i = "0" + i
+		};
+		return i;
+	}
+	show_date_time();
+</script>
+<!-- 访客统计-js -->
+<!--<script>
+		if(true){
+			document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
+		}else{
+			document.getElementById('busuanzi_container').hidden;
+		}
+	</script>-->
+<!-- 百度统计自动推送 -->
+<!--<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var scriptList = document.getElementsByTagName("script");
+		var s = scriptList[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+	-->
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin"  style="position: fixed">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white-bg"><i class="fa fa-television" aria-hidden="true"></i></li>
+            <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+            <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+            <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+            <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+            <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+            <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+            <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</div>
+
+<canvas id="night-mode-cover"></canvas>
+<style>
+#mainskin{
+    position: fixed;
+}
+</style> 
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换主题 | SCHEME TOOL &nbsp;
+	<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+</div>
+  
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">天赐の小站</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+            极客
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/Linux/">
+                  <i class="fa fa-linux" aria-hidden="true"></i>
+                  Linux
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+            爱好
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/电影/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  电影
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/日语/">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  日语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>-->
+<link rel="stylesheet" href="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/css/aplayer/APlayer.min.css">
+<script src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/aplayer/APlayer.min.js"></script>
+
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  /*.aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }*/
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="7040682880"
+
+    data-server="tencent"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.5"
+
+    data-mutex="true"
+
+    data-listFolded="false"
+
+</div>
+<!-- Meting 一个支持各种音乐平台(腾讯、网易...)的音乐 API 框架 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>-->
+<script src="https://jsd.cdn.zzko.cn/gh/tiancixiong/cdn@sakura-theme/js/aplayer/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>
