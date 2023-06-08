@@ -441,7 +441,7 @@ public class RedisConfig {
 <p>死信交换机和普通交换机的区别就是死信交换机的<code>Exchange</code>和<code>routingKey</code>作为绑定参数，绑定在其他队列上。</p>
 </blockquote>
 <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>一个延时消息的流程如下图：</p>
-<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523220318222.png" alt="image-20230523220318222"></p>
+<p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@14be0f3ffd399dca9272d0ba486011a53bb9eb9a/blog/20230523/image-20230523220318222.png" alt="image-20230523220318222"></p>
 <ol>
 <li>配置业务队列，绑定到业务交换机上</li>
 <li>为业务队列配置死信交换机和路由key</li>
@@ -672,21 +672,21 @@ private void dlxSend(String msgStr, String delayTime) {
 <h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p>去RabbitMQ的官网下载插件<code>rabbitmq_delayed_message_exchange</code>，插件地址：</p>
 <ul>
 <li><p><a href="https://www.rabbitmq.com/community-plugins.html" target="_blank" rel="noopener">https://www.rabbitmq.com/community-plugins.html</a></p>
-<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523222655608.png" alt="image-20230523222655608"></p>
+<p> <img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@14be0f3ffd399dca9272d0ba486011a53bb9eb9a/blog/20230523/image-20230523222655608.png" alt="image-20230523222655608"></p>
 </li>
 <li><p><a href="https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases" target="_blank" rel="noopener">https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases</a></p>
 </li>
 </ul>
 <p>将插件文件复制到RabbitMQ安装目录的<code>plugins</code>目录下：</p>
-<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523222937490.png" alt="image-20230523222937490"></p>
+<p> <img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@14be0f3ffd399dca9272d0ba486011a53bb9eb9a/blog/20230523/image-20230523222937490.png" alt="image-20230523222937490"></p>
 <p>进入RabbitMQ安装目录的<code>sbin</code>目录下，使用如下命令启用延迟插件：</p>
 <pre><code class="bash">rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 </code></pre>
-<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230523223527215.png" alt="image-20230523223527215"></p>
+<p> <img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@14be0f3ffd399dca9272d0ba486011a53bb9eb9a/blog/20230523/image-20230523223527215.png" alt="image-20230523223527215"></p>
 <p>启用插件成功，之后重新启动RabbitMQ服务，交换机会有新的类型<code>x-delayed-message</code>：</p>
-<p> <img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230524064307263.png" alt="image-20230524064307263"></p>
+<p> <img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@14be0f3ffd399dca9272d0ba486011a53bb9eb9a/blog/20230523/image-20230524064307263.png" alt="image-20230524064307263"></p>
 <p><code>x-delayed-message</code>类型的交换机，支持延迟投递消息。发送消息给<code>x-delayed-message</code>类型的交换机：</p>
-<p><img src="https://raw.githubusercontent.com/tiancixiong/BlogIMG/master/blog/20230523/image-20230524071017694.png" alt="image-20230524071017694"></p>
+<p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@14be0f3ffd399dca9272d0ba486011a53bb9eb9a/blog/20230523/image-20230524071017694.png" alt="image-20230524071017694"></p>
 <ul>
 <li><code>x-delayed-message</code>类型的交换机接收消息投递后，并未将直接路由到队列中，而是存储到<code>mnesia</code>(一个分布式数据系统)，该系统会检测消息延迟时间。</li>
 <li>消息达到可投递时间，消息会被投递到目标队列。</li>
@@ -898,7 +898,7 @@ public void delayProcess(String msgStr, Channel channel, Message message) {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -910,10 +910,10 @@ public void delayProcess(String msgStr, Channel channel, Message message) {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
