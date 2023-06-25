@@ -99,6 +99,14 @@
             
               
                 <li>
+                  <a href="https://github.com/tiancixiong" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
                   <a href="mailto:support@xiongtianci.com" target="_blank" class="social-github" title="E-mail">
                     <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/social/email.svg">
                   </a>
@@ -430,7 +438,7 @@ public class RedisConfig {
 <li>消息的过期时间到期了</li>
 <li>队列达到最大长度，消息被丢弃</li>
 </ul>
-<h4 id="死信交换机-DLX"><a href="#死信交换机-DLX" class="headerlink" title="死信交换机 DLX"></a>死信交换机 DLX</h4><p>DLX（Dead Letter Exchanges）意思为死信交换机。死信交换机和普通交换机没什么区别，不同的是死信交换机会绑定在其他队列上，当队列的消息变成死信消息后，死信消息会发送到死信交换上。</p>
+<h4 id="死信交换机-DLX"><a href="#死信交换机-DLX" class="headerlink" title="死信交换机 DLX"></a>死信交换机 DLX</h4><p>DLX（Dead Letter Exchanges）意思为死信交换机。死信交换机和普通交换机没什么区别，不同的是死信交换机会绑定在<strong>其他队列</strong>上，当队列的消息变成死信消息后，死信消息会发送到死信交换上。</p>
 <p>消息变成死信消息之后，它不会立即被删除，首先它要看有没有对应的死信交换机，如果有绑定的死信交换机，消息就会从发送到对应的死信交换机上。</p>
 <p>队列绑定死信交换机需要两个参数：</p>
 <ul>
@@ -663,7 +671,7 @@ private void dlxSend(String msgStr, String delayTime) {
 【接收消息】延迟10秒 接收时间21:45:10
 【接收消息】延迟2 秒 接收时间21:45:10
 【接收消息】延迟5 秒 接收时间21:45:10
-</code></pre><p>当前面的消息没被消费时后面的消息都不会被消费到；第二条消息延迟2秒的过期时间达到时，第一条还没被消费，第二条等待第一条被消费后立刻就能被消费了。</p>
+</code></pre><p>当前面的消息没被消费时，后面的消息都不会被消费到。如上面的第二条消息延迟2秒的过期时间达到时，第一条还没被消费，第二条等待第一条被消费后立刻就能被消费了。</p>
 <h3 id="RabbitMQ-Delayed-Message-Plugin"><a href="#RabbitMQ-Delayed-Message-Plugin" class="headerlink" title="RabbitMQ Delayed Message Plugin"></a>RabbitMQ Delayed Message Plugin</h3><p>RabbitMQ Delayed Message Plugin是官方提供的延时消息插件，虽然使用起来比较方便，但是不是高可用的，如果节点挂了会导致消息丢失。</p>
 <blockquote>
 <p>官网：<a href="https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/blob/main/README.md#limitations" target="_blank" rel="noopener">传送门</a></p>
