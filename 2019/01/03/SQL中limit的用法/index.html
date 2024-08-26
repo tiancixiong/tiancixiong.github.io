@@ -387,27 +387,48 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <blockquote>
+          <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><blockquote>
 <p>limit子句用于限制查询结果返回的数量，常用于分页查询</p>
 </blockquote>
 <p><strong>格式：</strong></p>
-<pre><code class="sql">select * from tableName limit i,n
-# tableName：表名
-# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i
-# n：为查询结果返回的数量
-# i与n之间使用英文逗号&quot;,&quot;隔开
+<pre><code class="sql">SELECT * FROM tableName LIMIT [offset,] rows | rows OFFSET offset
 
-# 
-limit n 等同于 limit 0,n
+# tableName：表名
+# offset：可选项，偏移量，指定了结果集的起始位置(从0开始)，为0时可省略
+# rows：行数，指定了返回结果集的行数
 </code></pre>
+<p><code>limit rows</code> 等同于 <code>limit 0,rows</code> 等同于 <code>limit rows OFFSET 0</code></p>
 <p>栗子：</p>
-<pre><code class="sql"># 查询10条数据，索引从0到9，第1条记录到第10条记录
+<pre><code class="sql"># 查询10条数据，第1条记录到第10条记录
 select * from t_user limit 10;
 select * from t_user limit 0,10;
 
-# 查询8条数据，索引从5到12，第6条记录到第13条记录
-select * from t_user limit 5,8;
+# 查询8条数据，第6条记录到第13条记录
+select * from t_user limit 5,8; //偏移量是从0开始的，因此将从第6行开始选择
 </code></pre>
+<h2 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h2><p><code>offset</code> 是 MySQL 中用于指定结果集偏移量的关键字。在使用 <code>LIMIT</code> 子句时，可以通过指定偏移量来<strong>跳过</strong>一定数量的行，从而获取结果集的不同部分。<strong>偏移量从0开始计数</strong>，因此 <code>OFFSET 0</code> 表示从结果集的第一行开始返回结果。</p>
+<p>需要注意：</p>
+<ol>
+<li>如果 <code>offset</code> 超过了表中的总记录数，就会返回空结果</li>
+<li>offset 与 count 一起使用可以实现更灵活的分页查询。但如果 offset 过大，查询效率可能会受影响</li>
+</ol>
+<p>如：<code>SELECT * FROM table LIMIT 1000, 50;</code>，这个语句会跳过前 1000 条数据，然后取 50 条数据，即第 1001 到 1050 条。</p>
+<h3 id="优化偏移量大的问题"><a href="#优化偏移量大的问题" class="headerlink" title="优化偏移量大的问题"></a>优化偏移量大的问题</h3><p>offset 过大，查询效率可能会受影响。这是因为 MySQL 在处理 LIMIT 子句时，需要扫描整个结果集并跳过指定数量的行，然后才能返回所需的行。</p>
+<p>优化方案：</p>
+<ol>
+<li><p>id 是递增的情况：</p>
+<ul>
+<li><code>SELECT * FROM table WHERE id &gt; 1000000 LIMIT 10;</code>，这里的 LIMIT 是限制了条数，没有采用偏移量</li>
+<li><code>SELECT * FROM table WHERE id &gt;= (SELECT id FROM table LIMIT 1000000, 1) LIMIT 10;</code></li>
+</ul>
+</li>
+<li><p>id 非递增：</p>
+<ul>
+<li><code>SELECT * FROM table WHERE id IN (SELECT id FROM table LIMIT 1000000, 10);</code>，某些 MYSQL 版本不支持在 in 子句中使用 limit</li>
+<li><code>SELECT a.* FROM table a, (SELECT id FROM table LIMIT 1000000, 10) b WHERE a.id = b.id;</code></li>
+</ul>
+</li>
+</ol>
 
         </div>
         <!-- .entry-content -->
@@ -552,7 +573,7 @@ select * from t_user limit 5,8;
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2023 天赐<br>
+      &copy; 2024 天赐<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -573,7 +594,7 @@ select * from t_user limit 5,8;
 			</div>
 			<!-- color: #666666; -->
 			<div style="color: #b9b9b9;">&copy;
-				2018-2023&nbsp;天赐&nbsp;
+				2018-2024&nbsp;天赐&nbsp;
 			</div>
 		</div>
 		<!-- 访客统计 -->

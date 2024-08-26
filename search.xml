@@ -4,6 +4,140 @@
   
     
     <entry>
+      <title>记录制作网线水晶头</title>
+      <link href="/2024/08/26/%E8%AE%B0%E5%BD%95%E5%88%B6%E4%BD%9C%E7%BD%91%E7%BA%BF%E6%B0%B4%E6%99%B6%E5%A4%B4/"/>
+      <url>/2024/08/26/%E8%AE%B0%E5%BD%95%E5%88%B6%E4%BD%9C%E7%BD%91%E7%BA%BF%E6%B0%B4%E6%99%B6%E5%A4%B4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>家里是开发商自带精装修，装修的各方面质量都不行，弱电箱的网线水晶头都没安装。家里一共4个网线面板口和3个电话线口，本来这次以为安装水晶头就行了，后来测试发现4个网线面包中有3个线序不对。</p><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul><li>8P网线钳。25￥</li><li>巡线仪，由于弱电箱里面有7根网线，对应4个网线面包和3个电话线口，但是没标识哪个对应哪个，就需要这个工具了。41￥</li><li>超五类水晶头若干。水晶头，专业术语为RJ-45连接器，共有八芯做成。5￥</li></ul><h1 id="网线线序"><a href="#网线线序" class="headerlink" title="网线线序"></a>网线线序</h1><h2 id="标准线序"><a href="#标准线序" class="headerlink" title="标准线序"></a>标准线序</h2><p>网线的接法主要有两种标准：<strong>T568A</strong> 和 <strong>T568B</strong>。这两种标准规定了不同颜色的线芯应该连接到水晶头的哪个位置。这两种接法广泛用于以太网网络中。</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826080414164.png" alt="image-20240826080414164" style="zoom:50%;"></p><p><strong>T568A与T568B的区别</strong></p><p>本质上来说，T568A标准与T568B标准没有太大的区别，只是颜色与线芯排列顺序不一样，</p><ul><li><p>T568A线序为：绿白 绿 橙白 蓝 蓝白 橙 棕白 棕</p></li><li><p>T568B线序为：橙白 橙 绿白 蓝 蓝白 绿 棕白 棕</p></li></ul><p><strong>直通线与交叉线</strong></p><ul><li><p><strong>直通线（Straight-through Cable）：</strong> 直通线两端使用相同的接法（T568A-T568A 或 T568B-T568B）。这种线缆常用于连接计算机到交换机、路由器等网络设备。</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826081027266.png" alt="image-20240826081027266" style="zoom:40%;"></p></li><li><p><strong>交叉线（Crossover Cable）：</strong> 交叉线两端使用不同的接法（T568A-T568B）。这种线缆常用于直接连接两台计算机或两台相同类型的网络设备。</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826081010689.png" alt="image-20240826081010689" style="zoom:40%;"></p></li></ul><p>现代网络设备支持<strong>自动MDI/MDIX</strong>功能，这意味着它们可以自动调整以适应直通线或交叉线，因此大多数情况下使用直通线（T568B-T568B）即可。</p><h2 id="网络面板线序"><a href="#网络面板线序" class="headerlink" title="网络面板线序"></a>网络面板线序</h2><p>网络面板就是下面这个东西：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826075646921.png" alt="image-20240826075646921" style="zoom:40%;"></p><p>这里需要注意下，每个厂家的面板接线柱顺序可能是不一样的，我们需要按面板上的颜色接线。厂家画的顺序不是内部走线顺序，最终针脚触点顺序都是标准顺序的（T568A/B）。</p><p>我家的面板是按照 T568B 标准接的：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826091959172.png" alt="image-20240826091959172" style="zoom:50%;"></p><h1 id="开整"><a href="#开整" class="headerlink" title="开整"></a>开整</h1><p>由于弱电箱的线没有标注哪根线对应哪个面板，首先需要使用巡线仪找出哪个对应哪个。然后就是使用网线钳制作水晶头了。</p><p>制作水晶头的注意事项可以在淘宝上面顺便进去一个网线钳的详情页找到：<br><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826092414314.png" alt="image-20240826092414314" style="zoom:50%;"></p><p>需要注意一点，网线的外皮也需要压进去，这样才能抗拉，防止线缆在使用过程中发生松动或断开。</p><p>接水晶头：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826102219315.png" alt="image-20240826102219315" style="zoom: 50%;"><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826102251296.png" alt="image-20240826102251296" style="zoom:50%;"></p><p>接完水晶头后用巡线仪的发射器和接收器分别连接到刚刚接的水晶头和网络面板上面进行网络线序校对，检查下网线接的顺序对不对。发现家里4个网络面板有3个没按照面板上的颜色顺序接，是错的。</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826103208722.png" alt="image-20240826103208722" style="zoom:50%;"><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240826/image-20240826103242998.png" alt="image-20240826103242998" style="zoom:50%;"></p><p>没啥难度。收工~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>红米AX6000官方固件解锁clash</title>
+      <link href="/2024/08/24/%E7%BA%A2%E7%B1%B3AX6000%E5%AE%98%E6%96%B9%E5%9B%BA%E4%BB%B6%E8%A7%A3%E9%94%81clash/"/>
+      <url>/2024/08/24/%E7%BA%A2%E7%B1%B3AX6000%E5%AE%98%E6%96%B9%E5%9B%BA%E4%BB%B6%E8%A7%A3%E9%94%81clash/</url>
+      
+        <content type="html"><![CDATA[<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul><li><p>红米AX6000，固件本版1.0.67</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240824/image-20240824140209297.png" alt="image-20240824140209297"></p></li><li><p>SSH连接工具</p></li><li><p>开启Telnet（windows默认未开启）</p></li></ul><blockquote><p>本记录适用于固件本版1.0.67，如果不是，就需要通过<a href="http://miwifi.com/miwifi_download.html" target="_blank" rel="noopener">小米路由器官方修复工具</a>进行降级，手动降级至<a href="https://cdn.cnbj1.fds.api.mi-img.com/xiaoqiang/rom/rb06/miwifi_rb06_firmware_de54d_1.0.67.bin" target="_blank" rel="noopener">1.0.67版固件</a>。因为后续安装插件操作的前提是需要开启SSH，其他的固件版本不确定能否解锁SSH。</p></blockquote><h1 id="1、获取token"><a href="#1、获取token" class="headerlink" title="1、获取token"></a>1、获取token</h1><p>进入路由器后台界面，地址：<a href="http://192.168.31.1。登录后地址栏上" target="_blank" rel="noopener">http://192.168.31.1。登录后地址栏上</a> <code>stok=</code> 后面的部分就是token。将 token 复制下来，后面需要用到。</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240824/image-20240824135602932.png" alt="image-20240824135602932"></p><pre><code>http://192.168.31.1/cgi-bin/luci/;stok={token}/web/home#router</code></pre><h1 id="2、开启telnet"><a href="#2、开启telnet" class="headerlink" title="2、开启telnet"></a>2、开启telnet</h1><p><strong>开启开发者模式</strong></p><p>将下面的 <code>{token}</code> 替换后，粘贴到浏览器中访问，更改路由器的crash分区，使其进入到开发者模式：</p><pre><code class="tex">http://192.168.31.1/cgi-bin/luci/;stok={token}/api/misystem/set_sys_time?timezone=%20%27%20%3B%20zz%3D%24%28dd%20if%3D%2Fdev%2Fzero%20bs%3D1%20count%3D2%202%3E%2Fdev%2Fnull%29%20%3B%20printf%20%27%A5%5A%25c%25c%27%20%24zz%20%24zz%20%7C%20mtd%20write%20-%20crash%20%3B%20</code></pre><blockquote><p>相当于执行<code>zz=$(dd if=/dev/zero bs=1 count=2 2&gt;/dev/null) ; printf &#39;\xA5\x5A%c%c&#39; $zz $zz | mtd write - crash ;</code>，也就是将 <code>\xA5\x5A\x00\x00</code> 写入crash分区</p></blockquote><p>浏览器返回 <code>&quot;code&quot;:0</code>，表示成功：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240824/image-20240824140627035.png" alt="image-20240824140627035"></p><h2 id="通过浏览器重启路由器"><a href="#通过浏览器重启路由器" class="headerlink" title="通过浏览器重启路由器"></a>通过浏览器重启路由器</h2><p>替换token后在浏览器上访问，路由器会重启，请等待重启完成：</p><pre><code>http://192.168.31.1/cgi-bin/luci/;stok={token}/api/misystem/set_sys_time?timezone=%20%27%20%3b%20reboot%20%3b%20</code></pre><blockquote><p>相当于执行 <code>reboot</code></p></blockquote><p>浏览器返回 <code>{&quot;code&quot;:0}</code>，表示执行成功。</p><h2 id="设置Bdata永久开启telnet"><a href="#设置Bdata永久开启telnet" class="headerlink" title="设置Bdata永久开启telnet"></a>设置Bdata永久开启telnet</h2><p>待路由器重启完成后，重新登录进入路由器管理后台，获取新的token。</p><pre><code>http://192.168.31.1/cgi-bin/luci/;stok={token}/api/misystem/set_sys_time?timezone=%20%27%20%3B%20bdata%20set%20telnet_en%3D1%20%3B%20bdata%20set%20ssh_en%3D1%20%3B%20bdata%20set%20uart_en%3D1%20%3B%20bdata%20commit%20%3B%20</code></pre><blockquote><p>相当于执行 <code>bdata set telnet_en=1 ; bdata set ssh_en=1 ; bdata set uart_en=1 ; bdata commit ;</code></p><ul><li><code>bdata set telnet_en=1</code>: 启用telnet服务。</li><li><code>bdata set ssh_en=1</code>: 启用SSH服务。</li><li><code>bdata set uart_en=1</code>: 启用UART服务。</li><li><code>bdata commit</code>: 提交之前的设置更改。</li></ul></blockquote><h2 id="再次重启路由器"><a href="#再次重启路由器" class="headerlink" title="再次重启路由器"></a>再次重启路由器</h2><p>上面设置完成（<code>{&quot;code&quot;:0}</code>）后再次重启路由器：</p><pre><code>http://192.168.31.1/cgi-bin/luci/;stok={token}/api/misystem/set_sys_time?timezone=%20%27%20%3b%20reboot%20%3b%20</code></pre><h1 id="3、开启路由器SSH"><a href="#3、开启路由器SSH" class="headerlink" title="3、开启路由器SSH"></a>3、开启路由器SSH</h1><h2 id="使用Telnet连接路由器"><a href="#使用Telnet连接路由器" class="headerlink" title="使用Telnet连接路由器"></a>使用Telnet连接路由器</h2><p>路由器重启完成后，windows系统中通过cmd窗口执行：<code>telnet 192.168.31.1</code>（端口默认23，无用户名密码），连接连接路由器。看到<code>Are you ok</code>的界面，就证明连接成功：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240824/image-20240824141630154.png" alt="image-20240824141630154"></p><p>连上telnet后依次运行下面命令。</p><h2 id="永久开启并固化SSH"><a href="#永久开启并固化SSH" class="headerlink" title="永久开启并固化SSH"></a>永久开启并固化SSH</h2><p>执行下面命令永久开启 SSH 端口：</p><pre><code class="bash">echo -e &#39;admin\nadmin&#39; | passwd rootnvram set ssh_en=1nvram set telnet_en=1nvram set uart_en=1nvram set boot_wait=onnvram commitsed -i &#39;s/channel=.*/channel=&quot;debug&quot;/g&#39; /etc/init.d/dropbear/etc/init.d/dropbear restartmkdir /data/auto_sshcd /data/auto_sshcurl -O https://fastly.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.shchmod +x auto_ssh.shuci set firewall.auto_ssh=includeuci set firewall.auto_ssh.type=&#39;script&#39;uci set firewall.auto_ssh.path=&#39;/data/auto_ssh/auto_ssh.sh&#39;uci set firewall.auto_ssh.enabled=&#39;1&#39;uci commit firewalluci set system.@system[0].timezone=&#39;CST-8&#39;uci set system.@system[0].webtimezone=&#39;CST-8&#39;uci set system.@system[0].timezoneindex=&#39;2.84&#39;uci commitmtd erase crashreboot</code></pre><blockquote><p>以下是这段命令的解释，执行上面命令后不需要执行下面命令了。</p><ul><li><p>修改root密码，将root密码修改为<code>admin</code>：</p><pre><code class="bash">echo -e &#39;admin\nadmin&#39; | passwd root</code></pre></li><li><p>固化SSH</p><pre><code class="bash">nvram set ssh_en=1nvram set telnet_en=1nvram set uart_en=1nvram set boot_wait=onnvram commit</code></pre><blockquote><ul><li><code>ssh_en=1</code> 启用 SSH；<code>telnet_en=1</code> 启用 Telnet</li><li><code>uart_en=1</code> 启用串口通信</li><li><code>boot_wait=on</code> 用于在路由器启动时提供一个时间窗口，允许用户通过特定方式（如串口连接或网络）中断正常的启动流程</li></ul></blockquote><p>固化SSH之后，以后升级路由器固件SSH也会保留不会被恢复。</p></li><li><p>永久开启SSH。设置一个自动解锁 SSH 的脚本，并配置防火墙在启动时自动执行该脚本：</p><pre><code class="bash">mkdir /data/auto_ssh &amp;&amp; cd /data/auto_sshcurl -O https://cdn.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.shchmod +x auto_ssh.shuci set firewall.auto_ssh=includeuci set firewall.auto_ssh.type=&#39;script&#39;uci set firewall.auto_ssh.path=&#39;/data/auto_ssh/auto_ssh.sh&#39;uci set firewall.auto_ssh.enabled=&#39;1&#39;uci commit firewall</code></pre></li><li><p>修改时区设置</p><pre><code class="bash">uci set system.@system[0].timezone=&#39;CST-8&#39;uci set system.@system[0].webtimezone=&#39;CST-8&#39;uci set system.@system[0].timezoneindex=&#39;2.84&#39;uci commit</code></pre></li><li><p>关闭开发/调试模式</p><pre><code class="bash">mtd erase crash</code></pre></li><li><p>重启路由器</p><pre><code class="bash">reboot</code></pre></li></ul></blockquote><h1 id="4、SSH连接设备"><a href="#4、SSH连接设备" class="headerlink" title="4、SSH连接设备"></a>4、SSH连接设备</h1><ul><li>主机名：192.168.31.1</li><li>端口：22（默认）</li><li>用户名：root</li><li>密码：admin</li></ul><p>需要电脑连上Redmi AX6000的WIFI</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20240824/image-20240824142543791.png" alt="image-20240824142543791"></p><h1 id="5、安装ShellClash面板"><a href="#5、安装ShellClash面板" class="headerlink" title="5、安装ShellClash面板"></a>5、安装ShellClash面板</h1><p>通过SSH进入路由器后，依次执行下面命令。</p><blockquote><p>在SSH工具中使用 Backspace 退格键可能会失效，出现 <code>^H</code> 的情况。这个时候可以试下 <code>Shift + Backspace</code>或<code>Ctrl + Backspace</code>进行删除。</p></blockquote><h2 id="安装clash"><a href="#安装clash" class="headerlink" title="安装clash"></a>安装clash</h2><p>这一步需要路由器已连上网络。</p><pre><code class="shell">sh -c &quot;$(curl -kfsSl https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/install.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/nul</code></pre><blockquote><p>备用安装源：</p><ul><li><code>export url=&#39;https://raw.fastgit.org/juewuy/ShellClash/master&#39; &amp;&amp; sh -c &quot;$(curl -kfsSl $url/install.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</code></li><li><code>export url=&#39;https://raw.githubusercontent.com/juewuy/ShellClash/master&#39; &amp;&amp; sh -c &quot;$(curl -kfsSl $url/install.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</code></li><li><code>export url=&#39;https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master&#39; &amp;&amp; sh -c &quot;$(curl -kfsSl $url/install.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/null</code></li></ul></blockquote><p>下面是安装过程：</p><pre><code class="bash">root@XiaoQiang:~# sh -c &quot;$(curl -kfsSl https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/install.sh)&quot; &amp;&amp; source /etc/profile &amp;&gt; /dev/nul*************************************************                 欢迎使用                  ****                ShellCrash                 ****                             by  Juewuy    *************************************************-----------------------------------------------请选择想要安装的版本： 1 公测版(推荐) 2 稳定版 3 开发版-----------------------------------------------请输入相应数字 &gt; 1最新版本：1.9.1beta13-----------------------------------------------如遇问题请加TG群反馈： t.me/ShellClash 支持各种基于openwrt的路由器设备支持Debian、Centos等标准Linux系统-----------------------------------------------注意：安装ShellCrash至少需要预留约1MB的磁盘空间检测到当前设备为小米官方系统，请选择安装位置 1 安装到 /data 目录(推荐，支持软固化功能) 2 安装到 /userdisk 目录(推荐，支持软固化功能) 3 安装到自定义目录(不推荐，不明勿用！) 0 退出安装-----------------------------------------------请输入相应数字 &gt; 1目标目录/data空间剩余：38.1M确认安装？(1/0) &gt; 1-----------------------------------------------开始从服务器获取安装文件！-----------------------------------------------############################################################################################################ 100.0%-----------------------------------------------开始解压文件！-----------------------------------------------ShellCrash 已经安装成功!-----------------------------------------------输入 crash 命令即可管理！！！-----------------------------------------------root@XiaoQiang:~# crash</code></pre><p>安装完成。</p><h2 id="配置ShellClash"><a href="#配置ShellClash" class="headerlink" title="配置ShellClash"></a>配置ShellClash</h2><p>输入 <code>clash</code>或<code>clash</code> 命令执行面板管理程序。</p><pre><code class="bash">root@XiaoQiang:~# crash-----------------------------------------------欢迎使用ShellCrash！        版本：1.9.1beta13Clash服务没有运行（纯净模式），未设置开机启动！TG频道：https://t.me/ShellClash---------------------------------------------------------------------------------------------- 欢迎使用ShellCrash新手引导！ -----------------------------------------------请先选择你的使用环境： (你之后依然可以在设置中更改各种配置)----------------------------------------------- 1 路由设备配置局域网透明代理 2 Linux设备仅配置本机代理-----------------------------------------------请输入对应数字 &gt; 1</code></pre><blockquote><p>选项 1 全局代理：</p><p>选项 2 本机代理：</p></blockquote><pre><code class="bash">-----------------------------------------------启用推荐的自动任务配置？这包括：-----------------------------------------------每隔10分钟自动保存面板配置服务启动后自动同步ntp时间在每周3的3点整更新订阅并重启服务-----------------------------------------------是否启用？(1/0) &gt; 1任务【运行时每10分钟自动保存面板配置】添加成功！任务【服务启动后自动同步ntp时间】添加成功！任务【在每周3的3点整更新订阅并重启服务】添加成功！-----------------------------------------------检测到为小米路由设备，启用软固化可防止路由升级后丢失SSH是否启用软固化功能？(1/0) &gt; 0                -----------------------------------------------是否导入配置文件？(这是运行前的最后一步)你必须拥有一份配置文件才能运行服务！-----------------------------------------------现在开始导入？(1/0) &gt; 1----------------------------------------------- ShellCrash配置文件管理----------------------------------------------- 1 在线生成配置文件 2 在线获取完配置文件 3 本地生成providers配置文件 4 本地上传完整配置文件 5 设置自动更新 6 自定义配置文件 7 更新配置文件 8 还原配置文件-----------------------------------------------请输入对应数字 &gt; 2-----------------------------------------------此功能可能会导致一些bug！！！强烈建议你使用在线生成配置文件功能！继续后如出现任何问题，请务必自行解决，一切提问恕不受理！-----------------------------------------------我确认遇到问题可以自行解决[1/0] &gt; 1-----------------------------------------------仅限导入完整的配置文件链接！！！-----------------------------------------------有流媒体需求，请使用6-1在线生成配置文件功能！！！如不了解机制，请使用6-1在线生成配置文件功能！！！如遇任何问题，请使用6-1在线生成配置文件功能！！！此功能可能会导致部分节点无法连接或者规则覆盖不完整！！！-----------------------------------------------0 返回上级菜单-----------------------------------------------请输入完整链接 &gt; https://xxxvpn.xx/****************/config.yaml</code></pre><blockquote><p>输入完整链接时，右键粘贴服务商提供的配置文件链接并按回车执行命令</p></blockquote><pre><code>-----------------------------------------------链接地址为：https://xxxvpn.xx/****************/config.yaml可以手动复制该链接到浏览器打开并查看数据是否正常！############################################### 100.0%已成功获取配置文件！-----------------------------------------------很好！现在只需要执行启动就可以愉快的使用了！-----------------------------------------------立即启动服务？(1/0) &gt; 1-----------------------------------------------未找到【clash】核心，正在下载！############################################### 100.0%服务已启动！请使用 http://192.168.31.1:9999/ui 管理内置规则-----------------------------------------------欢迎使用ShellCrash！        版本：1.9.1beta13Clash服务正在运行（Redir模式），已设置开机启动！当前内存占用：21224 kB，已运行：00小时00分00秒TG频道：https://t.me/ShellClash----------------------------------------------- 1 启动/重启服务 2 内核功能设置 3 停止内核服务 4 内核启动设置 5 配置自动任务 6 导入配置文件 7 内核进阶设置 8 其他工具 9 更新/卸载----------------------------------------------- 0 退出脚本请输入对应数字 &gt; 9  -----------------------------------------------欢迎使用更新功能：-----------------------------------------------当前目录(/data/ShellCrash)剩余空间：34.5M----------------------------------------------- 1 更新管理脚本    1.9.1beta13 &gt; 1.9.1beta13  2 切换内核文件    v1.7.1 &gt; v1.7.1 3 更新数据库文件    &gt; 20240629 4 安装本地Dashboard面板 5 安装/更新本地根证书文件 6 查看PAC自动代理配置----------------------------------------------- 7 切换安装源及安装版本 8 配置自动更新 9 卸载ShellCrash-----------------------------------------------99 鸣谢！----------------------------------------------- 0 返回上级菜单-----------------------------------------------请输入对应数字 &gt; 4-----------------------------------------------安装本地版dashboard管理面板打开管理面板的速度更快且更稳定-----------------------------------------------请选择面板安装类型：----------------------------------------------- 1 安装Yacd面板(约1.1mb) 2 安装Yacd-Meta魔改面板(约1.5mb) 3 安装MetaXD面板(约1.5mb) 4 安装基础面板(约500kb) 5 安装Meta基础面板(约800kb) 9 卸载本地面板 0 返回上级菜单请输入对应数字 &gt; 1-----------------------------------------------请选择面板安装目录：----------------------------------------------- 1 在/data/ShellCrash/ui目录安装 2 在/www/clash目录安装----------------------------------------------- 0 返回上级菜单请输入对应数字 &gt; 1-----------------------------------------------正在连接服务器获取安装文件…………############################################### 100.0%下载成功，正在解压文件！-----------------------------------------------面板安装成功！</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://www.gaicas.com/redmi-ax6000.html" target="_blank" rel="noopener">红米路由器AX6000解锁SSH 启用科学上网</a></li><li><a href="https://www.right.com.cn/forum/thread-8313126-1-1.html" target="_blank" rel="noopener">红米AX6000刷机折腾记录</a></li><li><a href="https://github.com/kjfx/AX6000/releases/tag/redmi_ax6000_ssh" target="_blank" rel="noopener">Redmi AX6000解锁SSH和科学上网教程</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>红米AX6000刷机记录</title>
+      <link href="/2024/08/24/%E7%BA%A2%E7%B1%B3AX6000%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/"/>
+      <url>/2024/08/24/%E7%BA%A2%E7%B1%B3AX6000%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>先挖个坑，目前直接用 官方固件+clash 就行了，后面有需求在进行刷机。<br>——20240824</p></blockquote><h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><p>本次用到：</p><ul><li>红米AX6000，自带固件1.0.67</li></ul><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://www.youtube.com/watch?v=KH318DzR7lA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KH318DzR7lA</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 路由器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JUC学习笔记：Future接口</title>
+      <link href="/2024/01/18/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2024/01/18/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h2><pre><code class="java">package java.util.concurrent;public interface Future&lt;V&gt; {    boolean cancel(boolean mayInterruptIfRunning);    boolean isCancelled();    boolean isDone();    V get() throws InterruptedException, ExecutionException;    V get(long timeout, TimeUnit unit)            throws InterruptedException, ExecutionException, TimeoutException;}</code></pre><ul><li>isCancelled：只有任务未启动，或者在完成之前被取消，才会返回true，表示任务已经被成功取消。其他情况都会返回false</li></ul><p>子接口</p><ul><li>RunnableFuture</li><li>FutureTask</li></ul><h2 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h2><p>Semaphore 主要用于控制对某组资源的访问权限，它维护了一个计数器，该计数器代表可用的许可数。线程在访问资源之前必须先获得许可，每次成功获得许可，计数器减一；释放资源时，计数器增加。当计数器为零时，后续的线程需要等待其他线程释放许可。</p><ul><li><code>acquire()</code> 方法是用来获取许可的，如果许可可用，它会立即返回，否则会一直阻塞直到有许可为止。</li><li><code>release()</code> 方法用于释放许可，将计数器增加。如果有其他线程正在等待许可，那么释放许可后，其中一个等待的线程将被唤醒并获得许可。</li></ul><p>简单使用：</p><pre><code class="java">import java.util.concurrent.Semaphore;public class SemaphoreExample {    public static void main(String[] args) {        Semaphore semaphore = new Semaphore(3); // 创建一个初始许可数为3的Semaphore        Thread thread1 = new Thread(() -&gt; {            try {                semaphore.acquire(); // 获取一个许可                System.out.println(&quot;Thread 1 acquired a permit&quot;);                Thread.sleep(2000); // 模拟线程使用资源的时间                semaphore.release(); // 释放许可                System.out.println(&quot;Thread 1 released a permit&quot;);            } catch (InterruptedException e) {                e.printStackTrace();            }        });        Thread thread2 = new Thread(() -&gt; {            try {                semaphore.acquire();                System.out.println(&quot;Thread 2 acquired a permit&quot;);                Thread.sleep(2000);                semaphore.release();                System.out.println(&quot;Thread 2 released a permit&quot;);            } catch (InterruptedException e) {                e.printStackTrace();            }        });        thread1.start();        thread2.start();    }}</code></pre><h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p>ThreadPoolExecutor提供的启动和停止任务的方法<br>（1）execute():提交任务，交给线程池执行<br>（2）submit():提交任务，能够返回执行结果 execute+Future<br>（3）shutdown():关闭线程池，等待任务都执行完<br>（4）shutdownNow():立即关闭线程池，不等待任务执行完</p><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="SimpleDateFormat非线程安全"><a href="#SimpleDateFormat非线程安全" class="headerlink" title="SimpleDateFormat非线程安全"></a>SimpleDateFormat非线程安全</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JUC </tag>
+            
+            <tag> 高并发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RabbitMQ中Headers-Exchange的使用</title>
+      <link href="/2023/11/02/RabbitMQ%E4%B8%ADHeaders-Exchange%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2023/11/02/RabbitMQ%E4%B8%ADHeaders-Exchange%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://hevodata.com/learn/rabbitmq-exchange-type/" target="_blank" rel="noopener">https://hevodata.com/learn/rabbitmq-exchange-type/</a></p><p><a href="https://blog.csdn.net/weixin_45492007/article/details/106098977" target="_blank" rel="noopener">https://blog.csdn.net/weixin_45492007/article/details/106098977</a></p><p><a href="https://blog.csdn.net/hry2015/article/details/79188615" target="_blank" rel="noopener">https://blog.csdn.net/hry2015/article/details/79188615</a></p><p><a href="https://www.alibabacloud.com/help/zh/message-queue-for-rabbitmq/latest/how-do-i-use-a-headers-exchange" target="_blank" rel="noopener">https://www.alibabacloud.com/help/zh/message-queue-for-rabbitmq/latest/how-do-i-use-a-headers-exchange</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>踩坑记录-Java中时间字段入库值和格式化后的值相差一秒</title>
+      <link href="/2023/10/13/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-Java%E4%B8%AD%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E5%85%A5%E5%BA%93%E5%80%BC%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E7%9A%84%E5%80%BC%E7%9B%B8%E5%B7%AE%E4%B8%80%E7%A7%92/"/>
+      <url>/2023/10/13/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-Java%E4%B8%AD%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E5%85%A5%E5%BA%93%E5%80%BC%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E7%9A%84%E5%80%BC%E7%9B%B8%E5%B7%AE%E4%B8%80%E7%A7%92/</url>
+      
+        <content type="html"><![CDATA[<p>先说现象，有一个时间写到本地数据库中的值和格式化后的值相差一秒。</p><p>上代码：</p><pre><code class="java">String dateStr = &quot;2023-10-13 13:14:15:999&quot;;try {    SimpleDateFormat sdf1 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss:SSS&quot;);    SimpleDateFormat sdf2 = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);    Date date = sdf1.parse(dateStr);    System.out.println(&quot;日期-带毫秒值：&quot; + sdf1.format(date));    System.out.println(&quot;日期-不带毫秒值：&quot; + sdf2.format(date));    TestBean bean = new TestBean();    bean.setTime(date);    // 入库    testMapper.insert(bean);} catch (Exception e) {    e.printStackTrace();}</code></pre><p>执行日志：</p><pre><code class="tex">日期-带毫秒值：2023-10-13 13:14:15:999日期-不带毫秒值：2023-10-13 13:14:15Creating a new SqlSessionSqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21ef3d1] was not registered for synchronization because synchronization is not activeJDBC Connection [HikariProxyConnection@1544756118 wrapping com.mysql.cj.jdbc.ConnectionImpl@69d5f596] will not be managed by Spring==&gt;  Preparing: INSERT INTO t_test ( time ) VALUES ( ? ) ==&gt; Parameters: 2023-10-13 13:14:15.999(Timestamp)&lt;==    Updates: 1</code></pre><p>数据库中的数据：</p><pre><code class="shell">mysql&gt; select * from t_test;+----+---------------------+| id | time                |+----+---------------------+|  1 | 2023-10-13 13:14:16 |+----+---------------------+</code></pre><p>此时发现，日期原始值为<code>2023-10-13 13:14:15:999</code>，使用<code>yyyy-MM-dd HH:mm:ss</code>格式进行格式化后的值为<code>2023-10-13 13:14:15</code>，入库的值却为<code>2023-10-13 13:14:16</code></p><p>搜索：mybatis datetime 时间四舍五入</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决windows中Typora上万字后异常卡顿的情况</title>
       <link href="/2023/05/29/%E8%A7%A3%E5%86%B3windows%E4%B8%ADTypora%E4%B8%8A%E4%B8%87%E5%AD%97%E5%90%8E%E5%BC%82%E5%B8%B8%E5%8D%A1%E9%A1%BF%E7%9A%84%E6%83%85%E5%86%B5/"/>
       <url>/2023/05/29/%E8%A7%A3%E5%86%B3windows%E4%B8%ADTypora%E4%B8%8A%E4%B8%87%E5%AD%97%E5%90%8E%E5%BC%82%E5%B8%B8%E5%8D%A1%E9%A1%BF%E7%9A%84%E6%83%85%E5%86%B5/</url>
@@ -1157,9 +1291,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1280,9 +1414,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1456,9 +1590,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -2862,9 +2996,9 @@
       
         <tags>
             
-            <tag> 缓存 </tag>
-            
             <tag> SpringCache </tag>
+            
+            <tag> 缓存 </tag>
             
         </tags>
       
@@ -2941,11 +3075,11 @@
       
         <tags>
             
+            <tag> 缓存 </tag>
+            
             <tag> SpringBoot </tag>
             
             <tag> Redis </tag>
-            
-            <tag> 缓存 </tag>
             
         </tags>
       
@@ -3022,9 +3156,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -3405,7 +3539,7 @@
       <link href="/2019/01/03/SQL%E4%B8%ADlimit%E7%9A%84%E7%94%A8%E6%B3%95/"/>
       <url>/2019/01/03/SQL%E4%B8%ADlimit%E7%9A%84%E7%94%A8%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>limit子句用于限制查询结果返回的数量，常用于分页查询</p></blockquote><p><strong>格式：</strong></p><pre><code class="sql">select * from tableName limit i,n# tableName：表名# i：为查询结果的索引值(默认从0开始)，当i=0时可省略i# n：为查询结果返回的数量# i与n之间使用英文逗号&quot;,&quot;隔开# limit n 等同于 limit 0,n</code></pre><p>栗子：</p><pre><code class="sql"># 查询10条数据，索引从0到9，第1条记录到第10条记录select * from t_user limit 10;select * from t_user limit 0,10;# 查询8条数据，索引从5到12，第6条记录到第13条记录select * from t_user limit 5,8;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><blockquote><p>limit子句用于限制查询结果返回的数量，常用于分页查询</p></blockquote><p><strong>格式：</strong></p><pre><code class="sql">SELECT * FROM tableName LIMIT [offset,] rows | rows OFFSET offset# tableName：表名# offset：可选项，偏移量，指定了结果集的起始位置(从0开始)，为0时可省略# rows：行数，指定了返回结果集的行数</code></pre><p><code>limit rows</code> 等同于 <code>limit 0,rows</code> 等同于 <code>limit rows OFFSET 0</code></p><p>栗子：</p><pre><code class="sql"># 查询10条数据，第1条记录到第10条记录select * from t_user limit 10;select * from t_user limit 0,10;# 查询8条数据，第6条记录到第13条记录select * from t_user limit 5,8; //偏移量是从0开始的，因此将从第6行开始选择</code></pre><h2 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h2><p><code>offset</code> 是 MySQL 中用于指定结果集偏移量的关键字。在使用 <code>LIMIT</code> 子句时，可以通过指定偏移量来<strong>跳过</strong>一定数量的行，从而获取结果集的不同部分。<strong>偏移量从0开始计数</strong>，因此 <code>OFFSET 0</code> 表示从结果集的第一行开始返回结果。</p><p>需要注意：</p><ol><li>如果 <code>offset</code> 超过了表中的总记录数，就会返回空结果</li><li>offset 与 count 一起使用可以实现更灵活的分页查询。但如果 offset 过大，查询效率可能会受影响</li></ol><p>如：<code>SELECT * FROM table LIMIT 1000, 50;</code>，这个语句会跳过前 1000 条数据，然后取 50 条数据，即第 1001 到 1050 条。</p><h3 id="优化偏移量大的问题"><a href="#优化偏移量大的问题" class="headerlink" title="优化偏移量大的问题"></a>优化偏移量大的问题</h3><p>offset 过大，查询效率可能会受影响。这是因为 MySQL 在处理 LIMIT 子句时，需要扫描整个结果集并跳过指定数量的行，然后才能返回所需的行。</p><p>优化方案：</p><ol><li><p>id 是递增的情况：</p><ul><li><code>SELECT * FROM table WHERE id &gt; 1000000 LIMIT 10;</code>，这里的 LIMIT 是限制了条数，没有采用偏移量</li><li><code>SELECT * FROM table WHERE id &gt;= (SELECT id FROM table LIMIT 1000000, 1) LIMIT 10;</code></li></ul></li><li><p>id 非递增：</p><ul><li><code>SELECT * FROM table WHERE id IN (SELECT id FROM table LIMIT 1000000, 10);</code>，某些 MYSQL 版本不支持在 in 子句中使用 limit</li><li><code>SELECT a.* FROM table a, (SELECT id FROM table LIMIT 1000000, 10) b WHERE a.id = b.id;</code></li></ul></li></ol>]]></content>
       
       
       <categories>
@@ -3556,9 +3690,9 @@
       
         <tags>
             
-            <tag> SpringMVC </tag>
-            
             <tag> 面试题 </tag>
+            
+            <tag> SpringMVC </tag>
             
         </tags>
       
@@ -4123,9 +4257,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
