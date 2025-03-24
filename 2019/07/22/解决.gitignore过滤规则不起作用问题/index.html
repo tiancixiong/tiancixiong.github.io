@@ -388,8 +388,10 @@
         
         <div class="entry-content">
           <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在<code>Git</code>使用<code>.gitignore</code>进行过滤时不起作用</p>
-<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><pre><code class="shell"># 最后是一个&quot;.&quot;
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><pre><code class="shell"># 从索引中移除所有文件，但不会删除工作区的文件
 git rm -r --cached .
+# 重新add
+git add -A
 </code></pre>
 <p>如果出现：<strong>use -f to force removal</strong>，则使用<code>git rm -rf --cached .</code></p>
 <p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20190722/1563764670532.png" alt="1563764670532"></p>
@@ -537,7 +539,7 @@ git rm -r --cached .
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2024 天赐<br>
+      &copy; 2025 天赐<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -558,7 +560,7 @@ git rm -r --cached .
 			</div>
 			<!-- color: #666666; -->
 			<div style="color: #b9b9b9;">&copy;
-				2018-2024&nbsp;天赐&nbsp;
+				2018-2025&nbsp;天赐&nbsp;
 			</div>
 		</div>
 		<!-- 访客统计 -->

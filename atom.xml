@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2024-08-27T02:12:22.792Z</updated>
+  <updated>2025-03-24T05:57:16.934Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -17,11 +17,101 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>加密存储在数据库中的数据如何进行模糊查询</title>
+    <link href="https://blog.xiongtianci.com/2025/03/23/%E5%8A%A0%E5%AF%86%E5%AD%98%E5%82%A8%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/"/>
+    <id>https://blog.xiongtianci.com/2025/03/23/加密存储在数据库中的数据如何进行模糊查询/</id>
+    <published>2025-03-23T12:09:26.000Z</published>
+    <updated>2025-03-24T05:57:16.934Z</updated>
+    
+    <summary type="html">
+    
+      加密存储在数据库中的数据如何进行模糊查询
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>分布式锁的几种实现方案</title>
+    <link href="https://blog.xiongtianci.com/2025/03/21/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/"/>
+    <id>https://blog.xiongtianci.com/2025/03/21/分布式锁的几种实现方案/</id>
+    <published>2025-03-21T01:48:29.000Z</published>
+    <updated>2025-03-23T00:58:19.307Z</updated>
+    
+    <summary type="html">
+    
+      分布式锁的几种实现方案
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>网络测速工具iPerf3的使用</title>
+    <link href="https://blog.xiongtianci.com/2025/03/01/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F%E5%B7%A5%E5%85%B7iPerf3%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://blog.xiongtianci.com/2025/03/01/网络测速工具iPerf3的使用/</id>
+    <published>2025-03-01T01:22:33.000Z</published>
+    <updated>2025-03-01T09:05:38.284Z</updated>
+    
+    <summary type="html">
+    
+      网络测速工具iPerf3的使用
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>电子书下载</title>
+    <link href="https://blog.xiongtianci.com/2024/12/18/%E7%94%B5%E5%AD%90%E4%B9%A6%E4%B8%8B%E8%BD%BD/"/>
+    <id>https://blog.xiongtianci.com/2024/12/18/电子书下载/</id>
+    <published>2024-12-18T01:28:20.000Z</published>
+    <updated>2025-03-24T06:01:13.555Z</updated>
+    
+    <summary type="html">
+    
+      电子书下载
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用Adobe Acrobat的PitStop插件批量去除水印</title>
+    <link href="https://blog.xiongtianci.com/2024/12/07/%E4%BD%BF%E7%94%A8Adobe-Acrobat%E7%9A%84PitStop%E6%8F%92%E4%BB%B6%E6%89%B9%E9%87%8F%E5%8E%BB%E9%99%A4%E6%B0%B4%E5%8D%B0/"/>
+    <id>https://blog.xiongtianci.com/2024/12/07/使用Adobe-Acrobat的PitStop插件批量去除水印/</id>
+    <published>2024-12-07T02:27:51.000Z</published>
+    <updated>2025-03-24T06:00:56.430Z</updated>
+    
+    <summary type="html">
+    
+      使用Adobe Acrobat的PitStop插件批量去除水印
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>记录制作网线水晶头</title>
     <link href="https://blog.xiongtianci.com/2024/08/26/%E8%AE%B0%E5%BD%95%E5%88%B6%E4%BD%9C%E7%BD%91%E7%BA%BF%E6%B0%B4%E6%99%B6%E5%A4%B4/"/>
     <id>https://blog.xiongtianci.com/2024/08/26/记录制作网线水晶头/</id>
     <published>2024-08-25T23:41:52.000Z</published>
-    <updated>2024-08-27T02:12:22.792Z</updated>
+    <updated>2025-02-11T06:26:48.890Z</updated>
     
     <summary type="html">
     
@@ -75,6 +165,42 @@
   </entry>
   
   <entry>
+    <title>分布式ID的几种生成方式</title>
+    <link href="https://blog.xiongtianci.com/2024/03/01/%E5%88%86%E5%B8%83%E5%BC%8FID%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F/"/>
+    <id>https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/</id>
+    <published>2024-03-01T01:21:33.000Z</published>
+    <updated>2025-03-19T02:40:39.205Z</updated>
+    
+    <summary type="html">
+    
+      分布式ID的几种生成方式
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于Windows的一些设置</title>
+    <link href="https://blog.xiongtianci.com/2024/02/01/%E5%85%B3%E4%BA%8EWindows%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://blog.xiongtianci.com/2024/02/01/关于Windows的一些设置/</id>
+    <published>2024-02-01T00:56:48.000Z</published>
+    <updated>2025-03-18T02:39:48.455Z</updated>
+    
+    <summary type="html">
+    
+      关于Windows的一些设置
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>JUC学习笔记：Future接口</title>
     <link href="https://blog.xiongtianci.com/2024/01/18/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://blog.xiongtianci.com/2024/01/18/JUC学习笔记/</id>
@@ -93,6 +219,24 @@
       <category term="JUC" scheme="https://blog.xiongtianci.com/tags/JUC/"/>
     
       <category term="高并发" scheme="https://blog.xiongtianci.com/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebSocket学习笔记</title>
+    <link href="https://blog.xiongtianci.com/2024/01/01/WebSocket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://blog.xiongtianci.com/2024/01/01/WebSocket学习笔记/</id>
+    <published>2024-01-01T01:07:04.000Z</published>
+    <updated>2025-03-18T12:55:04.663Z</updated>
+    
+    <summary type="html">
+    
+      WebSocket学习笔记
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
     
   </entry>
   
@@ -251,162 +395,6 @@
     
     
       <category term="GitHub" scheme="https://blog.xiongtianci.com/tags/GitHub/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实现延时队列的几种方案</title>
-    <link href="https://blog.xiongtianci.com/2023/05/23/%E5%AE%9E%E7%8E%B0%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%A1%88/"/>
-    <id>https://blog.xiongtianci.com/2023/05/23/实现延时队列的几种方案/</id>
-    <published>2023-05-22T23:25:20.000Z</published>
-    <updated>2023-06-10T01:48:18.062Z</updated>
-    
-    <summary type="html">
-    
-      MQ
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="MQ" scheme="https://blog.xiongtianci.com/tags/MQ/"/>
-    
-      <category term="RabbitMQ" scheme="https://blog.xiongtianci.com/tags/RabbitMQ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Zuul网关实现限流</title>
-    <link href="https://blog.xiongtianci.com/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/"/>
-    <id>https://blog.xiongtianci.com/2023/05/21/Zuul网关实现限流/</id>
-    <published>2023-05-21T06:10:12.000Z</published>
-    <updated>2023-05-21T10:45:04.502Z</updated>
-    
-    <summary type="html">
-    
-      Zuul网关实现限流
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="微服务" scheme="https://blog.xiongtianci.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL版本从5.5升级至5.7(win10)</title>
-    <link href="https://blog.xiongtianci.com/2022/06/23/MySQL%E7%89%88%E6%9C%AC%E4%BB%8E5-5%E5%8D%87%E7%BA%A7%E8%87%B35-7-win10/"/>
-    <id>https://blog.xiongtianci.com/2022/06/23/MySQL版本从5-5升级至5-7-win10/</id>
-    <published>2022-06-23T12:00:35.000Z</published>
-    <updated>2023-06-07T06:39:46.440Z</updated>
-    
-    <summary type="html">
-    
-      MySQL版本从5.5升级至5.7(win10)
-    
-    </summary>
-    
-      <category term="软件" scheme="https://blog.xiongtianci.com/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-      <category term="MySQL" scheme="https://blog.xiongtianci.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>配置CentOS6.5静态ip导致xshell连接失败</title>
-    <link href="https://blog.xiongtianci.com/2022/05/15/%E9%85%8D%E7%BD%AECentOS6-5%E9%9D%99%E6%80%81ip%E5%AF%BC%E8%87%B4xshell%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5/"/>
-    <id>https://blog.xiongtianci.com/2022/05/15/配置CentOS6-5静态ip导致xshell连接失败/</id>
-    <published>2022-05-15T07:15:23.000Z</published>
-    <updated>2023-06-07T06:39:46.438Z</updated>
-    
-    <summary type="html">
-    
-      配置CentOS6.5静态ip导致xshell连接失败
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS6.5中yum源失效的解决方案</title>
-    <link href="https://blog.xiongtianci.com/2022/05/15/CentOS6.5%E4%B8%ADyum%E6%BA%90%E5%A4%B1%E6%95%88%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>https://blog.xiongtianci.com/2022/05/15/CentOS6.5中yum源失效的解决方案/</id>
-    <published>2022-05-15T05:11:48.000Z</published>
-    <updated>2023-05-20T12:23:55.105Z</updated>
-    
-    <summary type="html">
-    
-      CentOS6.5中yum源失效的解决方案
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://blog.xiongtianci.com/categories/Linux/"/>
-    
-    
-      <category term="CentOS6.5" scheme="https://blog.xiongtianci.com/tags/CentOS6-5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用驱动人生后系统开机出现选择应急系统</title>
-    <link href="https://blog.xiongtianci.com/2022/04/24/%E4%BD%BF%E7%94%A8%E9%A9%B1%E5%8A%A8%E4%BA%BA%E7%94%9F%E5%90%8E%E7%B3%BB%E7%BB%9F%E5%BC%80%E6%9C%BA%E5%87%BA%E7%8E%B0%E9%80%89%E6%8B%A9%E5%BA%94%E6%80%A5%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://blog.xiongtianci.com/2022/04/24/使用驱动人生后系统开机出现选择应急系统/</id>
-    <published>2022-04-24T01:03:56.000Z</published>
-    <updated>2023-06-07T06:39:46.436Z</updated>
-    
-    <summary type="html">
-    
-      使用驱动人生后系统开机出现选择应急系统
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="软件" scheme="https://blog.xiongtianci.com/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nacos启动报错问题列表</title>
-    <link href="https://blog.xiongtianci.com/2022/02/27/nacos%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%88%97%E8%A1%A8/"/>
-    <id>https://blog.xiongtianci.com/2022/02/27/nacos启动报错问题列表/</id>
-    <published>2022-02-27T07:48:17.000Z</published>
-    <updated>2022-02-27T07:52:07.210Z</updated>
-    
-    <summary type="html">
-    
-      nacos启动报错问题列表
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>安装Nacos,初始化sql报错：index column size too large. the maximum column size is 767 bytes</title>
-    <link href="https://blog.xiongtianci.com/2022/02/27/%E5%AE%89%E8%A3%85Nacos-%E5%88%9D%E5%A7%8B%E5%8C%96sql%E6%8A%A5%E9%94%99%EF%BC%9Aindex-column-size-too-large-the-maximum-column-size-is-767-bytes/"/>
-    <id>https://blog.xiongtianci.com/2022/02/27/安装Nacos-初始化sql报错：index-column-size-too-large-the-maximum-column-size-is-767-bytes/</id>
-    <published>2022-02-27T07:31:54.000Z</published>
-    <updated>2022-02-27T07:38:01.223Z</updated>
-    
-    <summary type="html">
-    
-      index column size too large.
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
     
   </entry>
   
