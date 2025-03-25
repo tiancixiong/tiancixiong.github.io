@@ -388,7 +388,7 @@
         
         <div class="entry-content">
           <h1 id="消息丢失的场景"><a href="#消息丢失的场景" class="headerlink" title="消息丢失的场景"></a>消息丢失的场景</h1><p>RabbitMQ丢失消息的3种情况：</p>
-<p><img src="assets/image-20250324142239134.png" alt="image-20250324142239134"></p>
+<p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20250324/image-20250324142239134.png" alt="image-20250324142239134"></p>
 <ol>
 <li>生产者丢失消息<ul>
 <li>场景： 生产者发送消息后，RabbitMQ 服务器崩溃或网络中断，导致消息未到达 RabbitMQ。</li>
@@ -450,7 +450,7 @@
 </ul>
 </li>
 </ol>
-<h1 id="如何确保消息不丢失"><a href="#如何确保消息不丢失" class="headerlink" title="如何确保消息不丢失"></a>如何确保消息不丢失</h1><p><img src="assets/image-20250324143814782.png" alt="image-20250324143814782"></p>
+<h1 id="如何确保消息不丢失"><a href="#如何确保消息不丢失" class="headerlink" title="如何确保消息不丢失"></a>如何确保消息不丢失</h1><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@4b011d0/blog/20250324/image-20250324143814782.png" alt="image-20250324143814782"></p>
 <p>为了确保消息不丢失，可以采取以下措施：</p>
 <ol>
 <li><p>生产者端</p>
@@ -522,9 +522,7 @@ public class RabbitMQConfig {
     // 定义交换机
     @Bean
     public DirectExchange myExchange() {
-        return ExchangeBuilder.directExchange(&quot;myExchange&quot;)
-                .durable(true) // 持久化交换机
-                .build();
+        return new DirectExchange(&quot;myExchange&quot;, true, false);
     }
 
     // 绑定队列和交换机
@@ -566,6 +564,66 @@ public class RabbitMQConfig {
 <li>超时机制（TTL）：死信消息本身没有默认TTL，除非显式设置，否则死信消息会永久保留在队列中。</li>
 </ul>
 </blockquote>
+<p>配置 confirm 回调和 return 回调：</p>
+<pre><code class="java">import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageProperties;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@Slf4j
+public class RabbitMQTemplateConfig {
+
+    @Bean
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        // 开启强制标志（确保消息路由失败时能触发ReturnCallback）
+        rabbitTemplate.setMandatory(true);
+        // 设置Confirm回调
+        rabbitTemplate.setConfirmCallback(confirmCallback());
+        // 设置Return回调（新版本推荐使用setReturnsCallback）
+        rabbitTemplate.setReturnsCallback(returnsCallback());
+        return rabbitTemplate;
+    }
+
+    // Confirm 回调
+    private RabbitTemplate.ConfirmCallback confirmCallback() {
+        return (correlationData, ack, cause) -&gt; {
+            if (correlationData == null) {
+                log.warn(&quot;Confirm回调收到null correlationData&quot;);
+                return;
+            }
+
+            if (ack) {
+                log.info(&quot;消息发送成功: [ID={}]&quot;, correlationData.getId());
+            } else {
+                log.error(&quot;消息发送失败: [ID={}] [原因:{}]&quot;, correlationData.getId(), cause);
+                // 这里可以添加失败处理逻辑，如记录到数据库等待重试
+            }
+        };
+    }
+
+    // Return 回调处理路由失败（当消息无法路由到队列时触发）
+    private RabbitTemplate.ReturnsCallback returnsCallback() {
+        return returned -&gt; {
+            Message message = returned.getMessage();
+            MessageProperties properties = message.getMessageProperties();
+
+            log.error(&quot;消息无法路由到队列: [Body={}] [原因:{}] [Exchange={}] [RoutingKey={}] [Headers={}]&quot;,
+                    new String(message.getBody()),
+                    returned.getReplyText(),
+                    returned.getExchange(),
+                    returned.getRoutingKey(),
+                    properties.getHeaders());
+
+            // 这里可以添加路由失败处理逻辑，如记录到数据库等待人工干预
+        };
+    }
+}
+</code></pre>
 <p>生产者：</p>
 <pre><code class="java">import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
@@ -583,7 +641,6 @@ import java.util.UUID;
 @Slf4j
 @Service
 public class MessageProducer {
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -608,29 +665,17 @@ public class MessageProducer {
         // 4. 发送消息（携带 CorrelationData）
         rabbitTemplate.convertAndSend(&quot;myExchange&quot;, &quot;myRoutingKey&quot;, msg, correlationData);
 
-        // 5. Confirm 回调
-        rabbitTemplate.setConfirmCallback((correlationData1, ack, cause) -&gt; {
-            if (ack) {
-                log.info(&quot;消息发送成功: [ID={}] [TraceID={}]&quot;,
-                        correlationData1.getId(),
-                        headers.get(&quot;traceId&quot;));
-            } else {
-                log.error(&quot;消息发送失败: [ID={}] [原因:{}]&quot;, correlationData1.getId(), cause);
-                // 可在此处实现重试逻辑（如记录到数据库后定时重试）
-            }
-        });
-
-        // 6. Return 回调处理路由失败（当消息无法路由到队列时触发）
-        rabbitTemplate.setReturnCallback((message1, replyCode, replyText, exchange, routingKey) -&gt; {
-            log.error(&quot;消息无法路由到队列: [Body={}] [原因:{}]&quot;,
-                    new String(message1.getBody()),
-                    replyText);
-        });
+        log.debug(&quot;消息已发送: [ID={}] [TraceID={}]&quot;, correlationId, headers.get(&quot;traceId&quot;));
     }
 }
 </code></pre>
 <blockquote>
 <p>CorrelationData 是 Spring AMQP 提供的一个消息关联标识对象，主要用于 Publisher Confirm 模式下关联发送的消息和确认结果。通过 <code>id</code> 字段（通常是业务ID或UUID）唯一标识消息。</p>
+<p>几个ID：</p>
+<ul>
+<li>correlationId：关联ID。用于生产者确认（Publisher Confirm）模式，关联发送的消息和服务器确认回执。在需要幂等性处理的场景中，用于识别重复消息。</li>
+<li>traceId：追踪ID。用于全链路追踪，跨服务、跨系统的调用链追踪；在分布式系统中，通过TraceId将不同服务的日志串联起来。</li>
+</ul>
 </blockquote>
 <p>消费者：</p>
 <pre><code class="java">import com.rabbitmq.client.Channel;
@@ -645,6 +690,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
@@ -673,53 +719,83 @@ public class MessageConsumer {
             channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         } catch (Exception e) {
             // 4. 处理失败逻辑
-            Map&lt;String, Object&gt; headers = message.getMessageProperties().getHeaders();
-            // 获取消息头中的重试次数
-            int retryCount = (int) headers.getOrDefault(&quot;retryCount&quot;, 0);
-
-            if (retryCount &lt; MAX_RETRY_COUNT) {
-                // 4.1 未超最大重试次数，重新入队
-                headers.put(&quot;retryCount&quot;, retryCount + 1); // 更新重试次数
-
-                // 4.2 重建消息（保留原始 correlationId 和 traceId）
-                MessageProperties properties = new MessageProperties();
-                properties.setDeliveryMode(MessageDeliveryMode.PERSISTENT);
-                properties.setHeaders(headers);
-                Message newMessage = new Message(message.getBody(), properties);
-
-                // 4.3 发布新消息到队列（必须传递 CorrelationData）
-                // 从 Header 中获取 correlationId 并重建 CorrelationData
-                String correlationId = (String) headers.get(&quot;correlationId&quot;);
-                rabbitTemplate.convertAndSend(
-                        &quot;myExchange&quot;,
-                        &quot;myRoutingKey&quot;,
-                        newMessage,
-                        new CorrelationData(correlationId) // 防止生产者 Confirm 回调出现 NPE
-                );
-
-                // 4.4 确认原消息已处理（即使失败）
-                channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-                log.warn(&quot;消息重试中: [次数={}] [TraceID={}]&quot;,
-                        retryCount + 1,
-                        headers.get(&quot;traceId&quot;));
-            } else {
-                // 4.5 超过最大重试次数，转入死信队列
-                channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, false);
-                log.error(&quot;消息处理失败，已达到最大重试次数，转移到死信队列: [TraceID={}]&quot;, headers.get(&quot;traceId&quot;));
-            }
+            handleRetry(message, channel, e);
         }
+    }
+
+    private void handleRetry(Message message, Channel channel, Exception e) throws IOException {
+        MessageProperties originalProps = message.getMessageProperties();
+        Map&lt;String, Object&gt; headers = originalProps.getHeaders();
+        // 获取消息头中的重试次数
+        int retryCount = (int) headers.getOrDefault(&quot;retryCount&quot;, 0);
+
+        if (retryCount &gt;= MAX_RETRY_COUNT) {
+            // 超过最大重试次数，转入死信队列
+            channel.basicNack(originalProps.getDeliveryTag(), false, false);
+            log.error(&quot;消息处理失败，已达到最大重试次数，转移到死信队列: [TraceID={}]&quot;, headers.get(&quot;traceId&quot;));
+        } else {
+            // 未超最大重试次数，重新入队
+            headers.put(&quot;retryCount&quot;, retryCount + 1); // 更新重试次数
+            // 创建新消息属性
+            MessageProperties newProps = new MessageProperties();
+            // 1) 拷贝持久化设置
+            MessageDeliveryMode receivedMode = originalProps.getReceivedDeliveryMode();
+            if (receivedMode != null) {
+                newProps.setDeliveryMode(receivedMode);
+            } else {
+                // 默认设置为持久化（安全策略）
+                newProps.setDeliveryMode(MessageDeliveryMode.PERSISTENT);
+            }
+            // 2) 拷贝其他必要属性
+            newProps.setHeaders(new HashMap&lt;&gt;(originalProps.getHeaders())); // 保留原始 correlationId 和 traceId
+            newProps.setContentType(originalProps.getContentType());
+            newProps.setContentEncoding(originalProps.getContentEncoding());
+            newProps.setCorrelationId(originalProps.getCorrelationId());
+            newProps.setReplyTo(originalProps.getReplyTo());
+
+            // 发布新消息到队列（必须传递 CorrelationData）
+            rabbitTemplate.convertAndSend(
+                    &quot;myExchange&quot;,
+                    &quot;myRoutingKey&quot;,
+                    new Message(message.getBody(), newProps),
+                    new CorrelationData(headers.get(&quot;correlationId&quot;).toString()) // 防止生产者 Confirm 回调出现 NPE
+            );
+
+            // 确认原消息已处理（即使失败）
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            log.warn(&quot;消息重试中: [次数={}] [TraceID={}]&quot;,
+                    retryCount + 1,
+                    headers.get(&quot;traceId&quot;));
+        }
+    }
+
+    // 指数退避算法
+    private long calculateBackoffDelay(int retryCount) {
+        long baseDelay = 5000; // 基础延迟5秒
+        long maxDelay = 60000; // 最大延迟60秒
+        return Math.min(baseDelay * (1 &lt;&lt; retryCount), maxDelay);
     }
 
     // 增加死信处理
     @RabbitListener(queues = &quot;myDLQueue&quot;)
-    public void handleDeadLetter(Message message) {
-        String msg = new String(message.getBody());
-        log.error(&quot;收到死信消息: {}&quot;, msg);
+    public void handleDeadLetter(Message message, Channel channel) throws IOException {
+        try {
+            String msg = new String(message.getBody());
+            log.error(&quot;收到死信消息: {}&quot;, msg);
 
-        // 可选操作：
-        // 1. 记录到数据库（如MySQL、Elasticsearch）
-        // 2. 发送告警（邮件/短信/钉钉）
-        // 3. 人工介入或自动修复
+            // 可选操作：
+            // 1. 记录到数据库（如MySQL、Elasticsearch）
+            // 2. 发送告警（邮件/短信/钉钉）
+            // 3. 人工介入或自动修复
+
+            // 手动确认消息
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            log.info(&quot;死信消息已确认处理完成&quot;);
+        } catch (Exception e) {
+            // 处理失败时拒绝消息（避免死循环）
+            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, false);
+            log.error(&quot;死信消息处理失败: {}&quot;, e.getMessage());
+        }
     }
 }
 </code></pre>
@@ -728,6 +804,7 @@ public class MessageConsumer {
 <li>CorrelationData 传递：重试时从消息 Header 中读取原始 <code>correlationId</code> 并重建</li>
 <li>消息追踪：生产者在消息头中添加追踪ID（traceId）字段，通过唯一ID串联消息经过的所有服务（生产者→MQ→消费者→其他服务），以支持完整的消息生命周期追踪。消费者重试逻辑中需要保持原始 traceId。</li>
 <li>消费者重试机制的逻辑是 <code>重建新消息+ACK原消息</code> 的设计，主要是因为如果直接 <code>basicNack(requeue=true)</code> 会导致消息头（如 <code>retryCount</code> ）无法更新。</li>
+<li><code>originalProps.getReceivedDeliveryMode()</code></li>
 </ul>
 </blockquote>
 <p>controller：</p>
@@ -760,6 +837,8 @@ public class TestController {
     listener:
       simple:
         acknowledge-mode: manual
+        retry:
+          enabled: false # 禁用Spring的自动重试，使用我们自定义的重试逻辑
 </code></pre>
 <p>启动类：</p>
 <pre><code class="java">@SpringBootApplication
@@ -787,7 +866,55 @@ public class Application {
     Broker-&gt;&gt;Consumer: 消息C(retryCount=2)
     Consumer-&gt;&gt;Broker: NACK消息C → 转入死信队列
 </code></pre>
-<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><p>消费者重试<strong>不建议立即重试</strong>，而是应该采用<strong>延迟重试策略</strong>。很多情况下立即重试仍会失败，浪费资源；消息持续失败导致高频重试，CPU/内存飙升，拖垮整个服务。</p>
+<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="优化重试机制"><a href="#优化重试机制" class="headerlink" title="优化重试机制"></a>优化重试机制</h2><p>消费者重试<strong>不建议立即重试</strong>，而是应该采用<strong>延迟重试策略</strong>。很多情况下立即重试仍会失败，浪费资源；消息持续失败导致高频重试，CPU/内存飙升，拖垮整个服务。</p>
+<p>立即重试的问题分析：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">问题</th>
+<th style="text-align:left">风险</th>
+<th style="text-align:left">解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>资源风暴</strong></td>
+<td style="text-align:left">消息处理失败后立即重试，可能引发瞬时高负载</td>
+<td style="text-align:left">引入指数退避延迟</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>无效重试</strong></td>
+<td style="text-align:left">若失败原因是下游服务短暂不可用，立即重试大概率再次失败</td>
+<td style="text-align:left">逐步增加重试间隔</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>消息堆积</strong></td>
+<td style="text-align:left">高频重试会占用队列资源，阻塞其他消息处理</td>
+<td style="text-align:left">使用独立延迟队列</td>
+</tr>
+</tbody>
+</table>
+<p>常见的重试策略：</p>
+<ol>
+<li><strong>指数退避重试 (Exponential Backoff)</strong><ul>
+<li>重试间隔随时间指数增长（如1s, 2s, 4s, 8s…）</li>
+<li>防止短时间内大量重试导致系统雪崩</li>
+</ul>
+</li>
+<li><strong>固定间隔重试</strong><ul>
+<li>每次重试之间保持固定时间间隔</li>
+<li>比立即重试更温和，但不如指数退避灵活</li>
+</ul>
+</li>
+<li><strong>死信队列(DLX) + 延迟队列</strong><ul>
+<li>处理失败的消息先进入死信队列</li>
+<li>通过TTL或插件实现延迟重试</li>
+<li>这是RabbitMQ中最常见的生产级方案</li>
+</ul>
+</li>
+</ol>
+<p>接下来基于指数退避重试机制，结合延迟交换机（Delayed Exchange）优化重试机制。</p>
+<p>消息流转大致流程：</p>
 <pre><code class="mermaid">sequenceDiagram
     participant Producer
     participant MainQueue
@@ -806,6 +933,162 @@ public class Application {
         Consumer-&gt;&gt;DLQ: NACK转入死信
     end
 </code></pre>
+<p>需安装 <code>rabbitmq_delayed_message_exchange</code> 插件，声明 <code>x-delayed-message</code> 类型交换机。RabbitMQ官方插件支持每条消息独立延迟：</p>
+<pre><code class="bash"># linux
+# 进入RabbitMQ容器执行
+rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+# 验证插件列表应包含
+rabbitmq-plugins list | grep delay
+
+# windows
+rabbitmq_server-3.7.14\sbin&gt;rabbitmq-plugins.bat enable rabbitmq_delayed_message_exchange
+rabbitmq_server-3.7.14\sbin&gt;rabbitmq-plugins.bat list | find &quot;delay&quot;
+</code></pre>
+<p>修正RabbitMQ配置类（确保交换机、队列、绑定关系一致）</p>
+<pre><code class="java">@Configuration
+public class RabbitMQConfig {
+    // 主业务队列（保持不变）
+    @Bean public Queue myQueue() { /* ... */ }
+    @Bean public DirectExchange myExchange() { /* ... */ }
+    @Bean public Binding binding() { /* ... */ }
+    // 死信队列和交换机（保持不变）
+    @Bean public Queue myDLQueue() { /* ... */ }
+    @Bean public DirectExchange myDLX() { /* ... */ }
+    @Bean public Binding dlBinding() { /* ... */ }
+
+    // 延迟交换机（插件支持）（新增）
+    @Bean
+    public CustomExchange delayExchange() {
+        Map&lt;String, Object&gt; args = new HashMap&lt;&gt;();
+        args.put(&quot;x-delayed-type&quot;, &quot;direct&quot;); // 底层仍用direct路由
+        return new CustomExchange(&quot;myDelayExchange&quot;, &quot;x-delayed-message&quot;, true, false, args);
+    }
+
+    // 绑定延迟交换机到延迟队列（新增）
+    @Bean
+    public Binding delayBinding(Queue myQueue, CustomExchange delayExchange) {
+        return BindingBuilder.bind(myQueue)
+                .to(delayExchange)
+                .with(&quot;myRoutingKey&quot;) // 和主队列的 routingKey 一致
+                .noargs();
+    }
+}
+</code></pre>
+<p>延迟消息不会 <strong>立即</strong> 进入队列，而是由 <strong><code>x-delayed-message</code></strong> 插件 <strong>暂存</strong>，直到延迟时间到期后才投递，会导致 <code>ReturnCallback</code> 可能在消息被暂存时误触发。所以需要修改 <code>RabbitMQTemplateConfig#returnsCallback()</code> 方法：</p>
+<pre><code class="java">private RabbitTemplate.ReturnsCallback returnsCallback() {
+    return returned -&gt; {
+        // 如果是延迟交换机，忽略 ReturnCallback
+        if (&quot;myDelayExchange&quot;.equals(returned.getExchange())) {
+            log.debug(&quot;延迟消息暂存，忽略 ReturnCallback&quot;);
+            return;
+        }
+
+        Message message = returned.getMessage();
+        MessageProperties properties = message.getMessageProperties();
+
+        log.error(&quot;消息无法路由到队列: [Body={}] [原因:{}] [Exchange={}] [RoutingKey={}] [Headers={}]&quot;,
+                new String(message.getBody()),
+                returned.getReplyText(),
+                returned.getExchange(),
+                returned.getRoutingKey(),
+                properties.getHeaders());
+
+        // 这里可以添加路由失败处理逻辑，如记录到数据库等待人工干预
+    };
+}
+</code></pre>
+<p>生产者无需修改，消费者需要修改 <code>handleRetry()</code> 方法，将重试消息发布到延迟交换机而不是直接重发给主队列：</p>
+<pre><code class="java">private void handleRetry(Message message, Channel channel, Exception e) throws IOException {
+    // ... 原有业务逻辑 ...
+
+    if (retryCount &gt;= MAX_RETRY_COUNT) {
+        // ... 原有业务逻辑 ...
+    } else {
+        // ... 原有业务逻辑 ...
+
+        // 计算动态延迟（指数退避：5s, 10s, 20s...）
+        long delayMs = calculateBackoffDelay(retryCount);
+
+        // 设置重试相关属性
+        newProps.setHeader(&quot;x-delay&quot;, delayMs); // 添加延迟头
+        newProps.setHeader(&quot;retryCount&quot;, retryCount + 1); // 更新重试次数
+
+        // 发布到延迟交换机
+        rabbitTemplate.convertAndSend(
+                &quot;myDelayExchange&quot;, // 使用延迟交换机
+                &quot;myRoutingKey&quot;, // 使用主队列的 routingKey
+                new Message(message.getBody(), newProps),
+                m -&gt; {
+                    // 设置消息级延迟（单位：毫秒）
+                    m.getMessageProperties().setHeader(&quot;x-delay&quot;, delayMs);
+                    return m;
+                },
+                new CorrelationData(headers.get(&quot;correlationId&quot;).toString())
+        );
+
+        // 确认原消息
+        channel.basicAck(originalProps.getDeliveryTag(), false);
+        log.warn(&quot;消息将在 {}ms 后重试 (第{}次)&quot;, delayMs, retryCount + 1);
+    }
+}
+</code></pre>
+<pre><code class="java">// 指数退避算法
+private long calculateBackoffDelay(int retryCount) {
+    long baseDelay = 5000; // 基础延迟5秒
+    long maxDelay = 60000; // 最大延迟60秒
+    return Math.min(baseDelay * (1 &lt;&lt; retryCount), maxDelay);
+}
+</code></pre>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="RabbitMQ命令"><a href="#RabbitMQ命令" class="headerlink" title="RabbitMQ命令"></a>RabbitMQ命令</h2><p><strong>查看持久化配置</strong></p>
+<p>消息持久化需要三个条件同时满足：</p>
+<ul>
+<li>交换机持久化</li>
+<li>队列持久化</li>
+<li>消息发布时设置 <code>properties.setDeliveryMode(MessageDeliveryMode.PERSISTENT);</code></li>
+</ul>
+<pre><code class="bash"># 1、列出所有交换机及其属性
+rabbitmqctl list_exchanges name type durable auto_delete arguments
+# durable 列为 true 表示交换机设置了持久化
+
+# 2、列出所有队列及其属性
+rabbitmqctl list_queues name durable auto_delete arguments
+# durable 列为 true 表示队列设置了持久化
+
+# 3、查看消息持久化 (取决于发布时设置的delivery_mode：1-非持久化、2-持久化)
+# 获取队列中的消息详情：properties.delivery_mode (需要安装rabbitmq_management插件)
+# linux
+rabbitmqadmin get queue=&lt;queue_name&gt; count=1
+# windows
+python rabbitmqadmin get queue=myQueue count=1 --format=raw_json
+</code></pre>
+<p><strong>绑定关系验证</strong>：</p>
+<pre><code class="bash"># 列出所有交换机
+rabbitmqadmin list exchanges name type arguments
+# 列出队列
+rabbitmqadmin list queues name messages
+# 列出绑定关系
+rabbitmqadmin list bindings
+</code></pre>
+<blockquote>
+<p>windows 需要从 <code>http://localhost:15672/cli/</code> 下载 <code>rabbitmqadmin</code>，并且用 <code>python rabbitmqadmin ...</code> 运行命令。</p>
+</blockquote>
+<h2 id="消费者重试时丢失了deliveryMode-2"><a href="#消费者重试时丢失了deliveryMode-2" class="headerlink" title="消费者重试时丢失了deliveryMode=2"></a>消费者重试时丢失了<code>deliveryMode=2</code></h2><p>在上面代码中，重试机制里面有段代码：</p>
+<pre><code class="java">// 1) 拷贝持久化设置
+MessageDeliveryMode receivedMode = originalProps.getReceivedDeliveryMode();
+if (receivedMode != null) {
+    newProps.setDeliveryMode(receivedMode);
+} else {
+    // 默认设置为持久化（安全策略）
+    newProps.setDeliveryMode(MessageDeliveryMode.PERSISTENT);
+}
+</code></pre>
+<p>这里如果只是通过 <code>message.getMessageProperties()</code> 获取原消息属性 <code>originalProps</code> 直接设置给新消息属性 <code>newProps</code>，这样子就会导致新消息会丢失 <code>deliveryMode=2</code> （持久化）配置信息，最后导致消息不会进行持久化了。</p>
+<p>原因：</p>
+<ul>
+<li>当生产者发送消息时，<code>deliveryMode=2</code>（持久化）是 AMQP 协议层的属性，保存在消息的 <code>BasicProperties</code> 中。</li>
+<li>Spring AMQP 在 <code>@RabbitListener</code> 中会将原始 AMQP 消息转换为 <code>Message</code> 对象时，<strong>会丢失部分协议层属性</strong>（包括 <code>deliveryMode</code>）。</li>
+</ul>
+<p>在 Spring AMQP 2.3 及以上版本中，可以直接通过 <code>MessageProperties</code> 的 <code>getReceivedDeliveryMode()</code> 方法获取生产者设置的原始 <code>deliveryMode</code> 值。</p>
 
         </div>
         <!-- .entry-content -->
@@ -906,7 +1189,7 @@ public class Application {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -918,10 +1201,10 @@ public class Application {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
