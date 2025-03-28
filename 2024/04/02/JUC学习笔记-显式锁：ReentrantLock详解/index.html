@@ -387,7 +387,9 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="ReentrantLock核心特性"><a href="#ReentrantLock核心特性" class="headerlink" title="ReentrantLock核心特性"></a>ReentrantLock核心特性</h1><h3 id="与synchronized的对比"><a href="#与synchronized的对比" class="headerlink" title="与synchronized的对比"></a>与synchronized的对比</h3><table>
+          <h1 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h1><p><code>ReentrantLock</code> 是 Java 并发工具包 (<code>java.util.concurrent.locks</code>) 中的一个重要类，它实现了 <code>Lock</code> 接口，提供了比 <code>synchronized</code> 更灵活、更强大的锁机制。</p>
+<p>与synchronized的对比</p>
+<table>
 <thead>
 <tr>
 <th style="text-align:left">特性</th>
@@ -2182,7 +2184,7 @@ try {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -2194,10 +2196,10 @@ try {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
