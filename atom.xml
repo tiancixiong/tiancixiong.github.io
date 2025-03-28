@@ -183,11 +183,87 @@
   </entry>
   
   <entry>
+    <title>JUC学习笔记-异步编程：Future与Callable</title>
+    <link href="https://blog.xiongtianci.com/2024/04/08/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/"/>
+    <id>https://blog.xiongtianci.com/2024/04/08/JUC学习笔记-异步编程：Future与Callable/</id>
+    <published>2024-04-08T02:48:49.000Z</published>
+    <updated>2025-03-27T09:17:38.713Z</updated>
+    
+    <summary type="html">
+    
+      JUC学习笔记-异步编程：Future与Callable
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="JUC" scheme="https://blog.xiongtianci.com/tags/JUC/"/>
+    
+      <category term="高并发" scheme="https://blog.xiongtianci.com/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JUC学习笔记-显式锁：ReentrantLock详解</title>
+    <link href="https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-显式锁：ReentrantLock详解/</id>
+    <published>2024-04-02T09:13:16.000Z</published>
+    <updated>2025-03-28T10:27:21.451Z</updated>
+    
+    <summary type="html">
+    
+      JUC学习笔记-显式锁：ReentrantLock详解
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JUC学习笔记-基础并发工具：Atomic包与CAS</title>
+    <link href="https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/"/>
+    <id>https://blog.xiongtianci.com/2024/04/01/JUC学习笔记-基础并发工具：Atomic包与CAS/</id>
+    <published>2024-04-01T09:13:02.000Z</published>
+    <updated>2025-03-27T11:43:35.264Z</updated>
+    
+    <summary type="html">
+    
+      JUC学习笔记-基础并发工具：Atomic包与CAS
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JUC学习步骤</title>
+    <link href="https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4/"/>
+    <id>https://blog.xiongtianci.com/2024/04/01/JUC学习步骤/</id>
+    <published>2024-04-01T07:47:54.000Z</published>
+    <updated>2025-03-27T11:44:07.170Z</updated>
+    
+    <summary type="html">
+    
+      JUC学习步骤
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>分布式ID的几种生成方式</title>
     <link href="https://blog.xiongtianci.com/2024/03/01/%E5%88%86%E5%B8%83%E5%BC%8FID%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F/"/>
     <id>https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/</id>
     <published>2024-03-01T01:21:33.000Z</published>
-    <updated>2025-03-25T14:02:35.640Z</updated>
+    <updated>2025-03-27T04:05:34.761Z</updated>
     
     <summary type="html">
     
@@ -215,28 +291,6 @@
     
       <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>JUC学习笔记：Future接口</title>
-    <link href="https://blog.xiongtianci.com/2024/01/18/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://blog.xiongtianci.com/2024/01/18/JUC学习笔记/</id>
-    <published>2024-01-18T02:48:49.000Z</published>
-    <updated>2024-01-22T05:45:58.732Z</updated>
-    
-    <summary type="html">
-    
-      JUC学习笔记：Future接口
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="JUC" scheme="https://blog.xiongtianci.com/tags/JUC/"/>
-    
-      <category term="高并发" scheme="https://blog.xiongtianci.com/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
@@ -333,68 +387,6 @@
     
     
       <category term="MySQL" scheme="https://blog.xiongtianci.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git合并分支的几种方式</title>
-    <link href="https://blog.xiongtianci.com/2023/05/25/git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
-    <id>https://blog.xiongtianci.com/2023/05/25/git合并分支的几种方式/</id>
-    <published>2023-05-25T13:54:25.000Z</published>
-    <updated>2023-06-08T23:10:56.818Z</updated>
-    
-    <summary type="html">
-    
-      git合并分支的几种方式
-    
-    </summary>
-    
-      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Git" scheme="https://blog.xiongtianci.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>通过OpenAI API Key和Vercel部署个人ChatGPT Web网站</title>
-    <link href="https://blog.xiongtianci.com/2023/05/24/%E9%80%9A%E8%BF%87OpenAI-API-Key%E5%92%8CVercel%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BAChatGPT-Web%E7%BD%91%E7%AB%99/"/>
-    <id>https://blog.xiongtianci.com/2023/05/24/通过OpenAI-API-Key和Vercel部署个人ChatGPT-Web网站/</id>
-    <published>2023-05-24T12:21:27.000Z</published>
-    <updated>2023-06-08T23:19:17.360Z</updated>
-    
-    <summary type="html">
-    
-      通过OpenAI-API-Key和Vercel部署个人ChatGPT Web网站
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="AI" scheme="https://blog.xiongtianci.com/tags/AI/"/>
-    
-      <category term="ChatGPT" scheme="https://blog.xiongtianci.com/tags/ChatGPT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub的一些使用技巧</title>
-    <link href="https://blog.xiongtianci.com/2023/05/23/GitHub%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
-    <id>https://blog.xiongtianci.com/2023/05/23/GitHub的一些使用技巧/</id>
-    <published>2023-05-23T11:38:27.000Z</published>
-    <updated>2023-06-08T23:12:00.481Z</updated>
-    
-    <summary type="html">
-    
-      GitHub的一些使用技巧
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="GitHub" scheme="https://blog.xiongtianci.com/tags/GitHub/"/>
     
   </entry>
   

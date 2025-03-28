@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2025-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4/</loc>
+    <lastmod>2025-03-27</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/</loc>
+    <lastmod>2025-03-27</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/04/08/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/</loc>
+    <lastmod>2025-03-27</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/03/01/%E5%88%86%E5%B8%83%E5%BC%8FID%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F/</loc>
+    <lastmod>2025-03-27</lastmod>
+  </url>
+  <url>
     <loc>https://blog.xiongtianci.com/2025/03/24/RabbitMQ%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E8%BE%93/</loc>
     <lastmod>2025-03-25</lastmod>
   </url>
@@ -37,10 +57,6 @@
     <lastmod>2025-03-25</lastmod>
   </url>
   <url>
-    <loc>https://blog.xiongtianci.com/2024/03/01/%E5%88%86%E5%B8%83%E5%BC%8FID%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F/</loc>
-    <lastmod>2025-03-25</lastmod>
-  </url>
-  <url>
     <loc>https://blog.xiongtianci.com/2024/02/01/%E5%85%B3%E4%BA%8EWindows%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%BE%E7%BD%AE/</loc>
     <lastmod>2025-03-25</lastmod>
   </url>
@@ -55,10 +71,6 @@
   <url>
     <loc>https://blog.xiongtianci.com/2019/06/05/%E4%B8%80%E5%8D%83%E8%A1%8CMySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-04-22</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/01/18/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-01-22</lastmod>
   </url>
   <url>
     <loc>https://blog.xiongtianci.com/2023/10/13/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-Java%E4%B8%AD%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E5%85%A5%E5%BA%93%E5%80%BC%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E7%9A%84%E5%80%BC%E7%9B%B8%E5%B7%AE%E4%B8%80%E7%A7%92/</loc>

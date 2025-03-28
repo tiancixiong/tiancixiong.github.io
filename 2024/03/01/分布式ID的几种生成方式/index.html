@@ -387,7 +387,268 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="Leaf"><a href="#Leaf" class="headerlink" title="Leaf"></a>Leaf</h1><p><a href="https://github.com/Meituan-Dianping/Leaf" target="_blank" rel="noopener">Leaf</a> 是美团推出的一个分布式ID生成服务</p>
+          <h1 id="UUID"><a href="#UUID" class="headerlink" title="UUID"></a>UUID</h1><p>UUID (Universally Unique Identifier) 是一个 128 位的标识符，用于在分布式系统中唯一地标识信息。UUID 的标准定义见 RFC 4122。</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li><strong>全局唯一性</strong>：理论上在不同时间、不同机器上生成的 UUID 都不会重复</li>
+<li><strong>固定长度</strong>：128 位，通常表示为 32 个十六进制数字，分为 5 组显示</li>
+<li><strong>无需中央管理机构</strong>：可以本地生成，不需要注册</li>
+<li><strong>多种生成算法</strong>：UUID 有 5 个版本，每个版本使用不同的生成方法</li>
+</ul>
+<p>格式：标准 UUID 表示为 32 个十六进制数字，分为 5 组，形式为：<code>8-4-4-4-12</code>，例如 <code>550e8400-e29b-41d4-a716-446655440000</code>。</p>
+<p>UUID 的版本：</p>
+<ol>
+<li><strong>版本 1 (基于时间和 MAC 地址)</strong>：使用当前时间戳和 MAC 地址生成</li>
+<li><strong>版本 2 (DCE 安全 UUID)</strong>：基于版本 1，但加入了本地域标识符</li>
+<li><strong>版本 3 (基于名称的 MD5 哈希)</strong>：使用命名空间和名称的 MD5 哈希生成</li>
+<li><strong>版本 4 (随机 UUID)</strong>：使用随机或伪随机数生成</li>
+<li><strong>版本 5 (基于名称的 SHA-1 哈希)</strong>：类似版本 3，但使用 SHA-1 哈希</li>
+</ol>
+<h2 id="Java-中的实现"><a href="#Java-中的实现" class="headerlink" title="Java 中的实现"></a>Java 中的实现</h2><p>在Java中，UUID（通用唯一标识符）是一个128位的值，通常表示为32个十六进制数字，由连字符分隔成5组（8-4-4-4-12格式）。</p>
+<h3 id="主要方法"><a href="#主要方法" class="headerlink" title="主要方法"></a>主要方法</h3><ol>
+<li><p>生成随机 UUID (版本 4)：</p>
+<pre><code class="java">UUID uuid = UUID.randomUUID();
+</code></pre>
+</li>
+<li><p>从字符串创建 UUID：</p>
+<pre><code class="java">// 用于序列化/反序列化
+UUID uuid = UUID.fromString(&quot;550e8400-e29b-41d4-a716-446655440000&quot;);
+</code></pre>
+</li>
+<li><p>获取 UUID 的各个部分：</p>
+<pre><code class="java">// 获取 UUID 的高64位（前64位）
+long mostSigBits = uuid.getMostSignificantBits();
+// 获取 UUID 的低64位（后64位）
+long leastSigBits = uuid.getLeastSignificantBits();
+
+// 利用高低位重建 UUID
+UUID newUuid = new UUID(mostSigBits, leastSigBits);
+
+// 比较两个UUID时，先比较高64位，如果不相等就不需要比较低64位
+int compare(UUID u1, UUID u2) {
+    int cmp = Long.compare(u1.getMostSignificantBits(), u2.getMostSignificantBits());
+    if (cmp != 0) return cmp;
+    return Long.compare(u1.getLeastSignificantBits(), u2.getLeastSignificantBits());
+}
+
+// 基于UUID的高低位生成更短的唯一ID
+public String generateShortId(UUID uuid) {
+    return Long.toHexString(uuid.getMostSignificantBits()) + 
+           Long.toHexString(uuid.getLeastSignificantBits());
+}
+</code></pre>
+<ul>
+<li><code>getMostSignificantBits()</code> 和 <code>getLeastSignificantBits()</code> 方法分别获取UUID 128位值的高低位，为两个long值（每个long是64位）</li>
+<li>特殊场景中直接比较 long 值比比较字符串更高效</li>
+<li>传输两个 long 比传输 UUID 字符串更节省带宽</li>
+</ul>
+</li>
+<li><p>比较 UUID：</p>
+<pre><code class="java">int comparison = uuid1.compareTo(uuid2);
+</code></pre>
+</li>
+<li><p>生成基于名称的 UUID (版本 3 或 5)：</p>
+<pre><code class="java">// 版本 3 (MD5)
+UUID uuid3 = UUID.nameUUIDFromBytes(&quot;name&quot;.getBytes());
+
+// 版本 5 (SHA-1) - Java 标准库不直接支持，需要自己实现
+</code></pre>
+</li>
+</ol>
+<pre><code class="java">import java.util.UUID;
+
+public class UUIDExample {
+    public static void main(String[] args) {
+        // 生成随机 UUID (版本4)
+        UUID randomUUID = UUID.randomUUID(); // 大多数情况下这是最佳选择
+        System.out.println(&quot;随机 UUID: &quot; + randomUUID);
+
+        // 从字符串创建 UUID
+        UUID fromString = UUID.fromString(&quot;550e8400-e29b-41d4-a716-446655440000&quot;);
+        System.out.println(&quot;从字符串创建的 UUID: &quot; + fromString);
+
+        // 生成基于名称的 UUID (版本3)
+        UUID nameBasedUUID = UUID.nameUUIDFromBytes(&quot;example&quot;.getBytes());
+        System.out.println(&quot;基于名称的 UUID: &quot; + nameBasedUUID);
+
+        // 获取 UUID 的各个部分
+        System.out.println(&quot;Most significant bits: &quot; + randomUUID.getMostSignificantBits());
+        System.out.println(&quot;Least significant bits: &quot; + randomUUID.getLeastSignificantBits());
+        System.out.println(&quot;版本号: &quot; + randomUUID.version()); // 4 表示版本4
+        System.out.println(&quot;变体: &quot; + randomUUID.variant()); // 2 表示IETF变体
+    }
+}
+</code></pre>
+<h3 id="UUID-版本3和4对比"><a href="#UUID-版本3和4对比" class="headerlink" title="UUID 版本3和4对比"></a>UUID 版本3和4对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>Java中的实现</th>
+<th>特点</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本3</td>
+<td><code>UUID.randomUUID()</code></td>
+<td>完全基于随机数<br>122位随机性 (其余6位用于版本和变体信息)</td>
+<td>安全令牌、会话ID，等</td>
+</tr>
+<tr>
+<td>版本4</td>
+<td><code>UUID.nameUUIDFromBytes()</code></td>
+<td>基于命名空间和名称的 MD5 哈希<br>相同输入总是产生相同输出</td>
+<td>基于内容生成唯一ID (如文件内容哈希)、需要跨系统一致生成的ID，等</td>
+</tr>
+</tbody>
+</table>
+<h1 id="数据库自增序列"><a href="#数据库自增序列" class="headerlink" title="数据库自增序列"></a>数据库自增序列</h1><p>利用数据库的自增特性：</p>
+<ul>
+<li>单数据库：<code>AUTO_INCREMENT</code>(MySQL)或<code>SEQUENCE</code>(Oracle)</li>
+<li>多数据库：设置不同步长（如DB1:1,4,7… DB2:2,5,8… DB3:3,6,9…）</li>
+</ul>
+<h2 id="单数据库实现"><a href="#单数据库实现" class="headerlink" title="单数据库实现"></a>单数据库实现</h2><p><strong>MySQL (AUTO_INCREMENT)</strong>:</p>
+<pre><code class="sql">CREATE TABLE items (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100)
+);
+</code></pre>
+<p><strong>Oracle (SEQUENCE)</strong>:</p>
+<pre><code class="sql">CREATE SEQUENCE item_seq START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE items (
+    id NUMBER PRIMARY KEY,
+    name VARCHAR2(100)
+);
+
+-- 插入时使用
+INSERT INTO items (id, name) VALUES (item_seq.NEXTVAL, &#39;item1&#39;);
+</code></pre>
+<h2 id="多数据库实现（步长设置）"><a href="#多数据库实现（步长设置）" class="headerlink" title="多数据库实现（步长设置）"></a>多数据库实现（步长设置）</h2><p>在分布式系统中，通过设置不同数据库实例的自增步长和初始值来避免ID冲突：</p>
+<pre><code>DB1: 初始值=1，步长=3 → 1, 4, 7, 10...
+DB2: 初始值=2，步长=3 → 2, 5, 8, 11...
+DB3: 初始值=3，步长=3 → 3, 6, 9, 12...
+</code></pre><h2 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h2><h3 id="基于MySQL的实现"><a href="#基于MySQL的实现" class="headerlink" title="基于MySQL的实现"></a>基于MySQL的实现</h3><pre><code class="sql">-- DB1配置
+SET @@auto_increment_increment=3;
+SET @@auto_increment_offset=1;
+
+-- DB2配置
+SET @@auto_increment_increment=3;
+SET @@auto_increment_offset=2;
+
+-- DB3配置
+SET @@auto_increment_increment=3;
+SET @@auto_increment_offset=3;
+</code></pre>
+<h1 id="Redis生成ID"><a href="#Redis生成ID" class="headerlink" title="Redis生成ID"></a>Redis生成ID</h1><p>利用Redis的原子性操作：</p>
+<pre><code class="java">// 使用INCR命令
+Long id = redisTemplate.opsForValue().increment(&quot;global_id&quot;);
+</code></pre>
+<h1 id="Snowflake算法"><a href="#Snowflake算法" class="headerlink" title="Snowflake算法"></a>Snowflake算法</h1><p>Twitter开源的分布式ID算法，64位长整型：</p>
+<ul>
+<li>1位符号位 + 41位时间戳 + 10位工作机器ID + 12位序列号</li>
+</ul>
+<p>Snowflake 生成的 64 位 ID 的结构如下：</p>
+<pre><code>+--------------------------------------------------------------------------+
+| 1 Bit Unused | 41 Bit Timestamp | 10 Bit Machine ID | 12 Bit Sequence ID |
++--------------------------------------------------------------------------+
+</code></pre><ul>
+<li><strong>1 位未使用的 bit</strong>：最高位是符号位，始终为 0，表示正数。</li>
+<li><strong>41 位时间戳</strong>：表示自定义起始时间（<code>twepoch</code>）以来的毫秒数，可以用来排序。</li>
+<li><strong>10 位机器 ID</strong>：用于表示生成 ID 的机器或数据中心，确保分布式系统中不同节点生成的 ID 唯一。通常由 5 位数据中心 ID 和 5 位机器 ID 组成。</li>
+<li><strong>12 位序列号</strong>：表示在同一毫秒内生成的不同 ID，解决高并发场景下的冲突问题。</li>
+</ul>
+<p>实现步骤</p>
+<ol>
+<li><strong>获取当前时间戳</strong>：获取当前时间与自定义起始时间的差值（单位为毫秒）。</li>
+<li><strong>检查时钟回拨</strong>：确保当前时间戳不小于上一次生成 ID 的时间戳。如果发生回拨，通常会抛出异常。</li>
+<li><strong>生成序列号</strong>：<ul>
+<li>如果在同一毫秒内生成的 ID，将序列号加 1。</li>
+<li>如果序列号达到最大值，等待到下一毫秒。</li>
+<li>如果是新的毫秒，序列号重置为 0。</li>
+</ul>
+</li>
+<li><strong>拼接 ID</strong>：将时间戳、机器 ID 和序列号左移并按位或组合成 64 位的 ID。</li>
+</ol>
+<h2 id="Java-实现"><a href="#Java-实现" class="headerlink" title="Java 实现"></a>Java 实现</h2><p>以下是 Snowflake 算法在 Java 中的完整实现代码：</p>
+<pre><code class="java">public class SnowflakeIdGenerator {
+
+    private final long sequenceBits = 12L;
+    private final long workerIdBits = 5L;
+    private final long dataCenterIdBits = 5L;
+
+    private final long maxWorkerId = -1L ^ (-1L &lt;&lt; workerIdBits);
+    private final long maxDataCenterId = -1L ^ (-1L &lt;&lt; dataCenterIdBits);
+    private final long sequenceMask = -1L ^ (-1L &lt;&lt; sequenceBits);
+
+    private final long workerIdShift = sequenceBits;
+    private final long dataCenterIdShift = sequenceBits + workerIdBits;
+    private final long timestampLeftShift = sequenceBits + workerIdBits + dataCenterIdBits;
+
+    private final long twepoch = 1587708854000L;
+
+    private long workerId;
+    private long dataCenterId;
+    private long sequence = 0L;
+    private long lastTimestamp = -1L;
+
+    public SnowflakeIdGenerator(long workerId, long dataCenterId) {
+        if (workerId &gt; maxWorkerId || workerId &lt; 0) {
+            throw new IllegalArgumentException(String.format(&quot;workerId can&#39;t be greater than %d or less than 0&quot;, maxWorkerId));
+        }
+        if (dataCenterId &gt; maxDataCenterId || dataCenterId &lt; 0) {
+            throw new IllegalArgumentException(String.format(&quot;dataCenterId can&#39;t be greater than %d or less than 0&quot;, maxDataCenterId));
+        }
+        this.workerId = workerId;
+        this.dataCenterId = dataCenterId;
+    }
+
+    public synchronized long nextId() {
+        long timestamp = timeGen();
+
+        if (timestamp &lt; lastTimestamp) {
+            throw new RuntimeException(String.format(&quot;Clock moved backwards.  Refusing to generate id for %d milliseconds&quot;, lastTimestamp - timestamp));
+        }
+
+        if (lastTimestamp == timestamp) {
+            sequence = (sequence + 1) &amp; sequenceMask;
+            if (sequence == 0) {
+                timestamp = tilNextMillis(lastTimestamp);
+            }
+        } else {
+            sequence = 0L;
+        }
+
+        lastTimestamp = timestamp;
+
+        return ((timestamp - twepoch) &lt;&lt; timestampLeftShift)
+                | (dataCenterId &lt;&lt; dataCenterIdShift)
+                | (workerId &lt;&lt; workerIdShift)
+                | sequence;
+    }
+
+    protected long timeGen() {
+        return System.currentTimeMillis();
+    }
+
+    protected long tilNextMillis(long lastTimestamp) {
+        long timestamp = timeGen();
+        while (timestamp &lt;= lastTimestamp) {
+            timestamp = timeGen();
+        }
+        return timestamp;
+    }
+
+    public static void main(String[] args) {
+        SnowflakeIdGenerator idGenerator = new SnowflakeIdGenerator(1, 1);
+        for (int i = 0; i &lt; 10; i++) {
+            System.out.println(idGenerator.nextId());
+        }
+    }
+}
+</code></pre>
+<h1 id="Leaf"><a href="#Leaf" class="headerlink" title="Leaf"></a>Leaf</h1><p><a href="https://github.com/Meituan-Dianping/Leaf" target="_blank" rel="noopener">Leaf</a> 是美团推出的一个分布式ID生成服务</p>
 <p>Leaf的Leaf-segment号段模式和Leaf-snowflake模式</p>
 <h2 id="Leaf-segment号段模式"><a href="#Leaf-segment号段模式" class="headerlink" title="Leaf-segment号段模式"></a>Leaf-segment号段模式</h2><p>Leaf-segment号段模式是对直接用数据库自增ID充当分布式ID的一种优化，减少对数据库的频率操作。相当于从数据库批量的获取自增ID，每次从数据库取出一个号段范围，例如 (1,1000] 代表1000个ID，业务服务将号段在本地生成1~1000的自增ID并加载到内存</p>
 <p>依赖于数据库：</p>
@@ -441,6 +702,54 @@ public long getIdle() {
     return this.getMax() - getValue().get();
 }
 </code></pre>
+<h1 id="比对"><a href="#比对" class="headerlink" title="比对"></a>比对</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left">数据库自增序列</th>
+<th style="text-align:left">UUID</th>
+<th style="text-align:left">Snowflake</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">有序性</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+</tr>
+<tr>
+<td style="text-align:left">分布式支持</td>
+<td style="text-align:left">需要特殊配置</td>
+<td style="text-align:left">原生支持</td>
+<td style="text-align:left">原生支持</td>
+</tr>
+<tr>
+<td style="text-align:left">性能</td>
+<td style="text-align:left">中等(依赖DB)</td>
+<td style="text-align:left">高</td>
+<td style="text-align:left">高</td>
+</tr>
+<tr>
+<td style="text-align:left">可读性</td>
+<td style="text-align:left">好</td>
+<td style="text-align:left">差</td>
+<td style="text-align:left">中等</td>
+</tr>
+<tr>
+<td style="text-align:left">扩展复杂度</td>
+<td style="text-align:left">高(需协调)</td>
+<td style="text-align:left">低</td>
+<td style="text-align:left">中等</td>
+</tr>
+<tr>
+<td style="text-align:left">依赖外部系统</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">部分依赖</td>
+</tr>
+</tbody>
+</table>
 
         </div>
         <!-- .entry-content -->
@@ -471,15 +780,15 @@ public long getIdle() {
           
             <div class="post-nepre half previous">
           
-            <a href="/2024/08/24/红米AX6000刷机记录/" rel="prev">
+            <a href="/2024/04/01/JUC学习步骤/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1460924089785-8467346e18ea?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1460924089785-8467346e18ea?w=540">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                红米AX6000刷机记录</h3>
+                JUC学习步骤</h3>
                 <hr>
               </div>
             </a>

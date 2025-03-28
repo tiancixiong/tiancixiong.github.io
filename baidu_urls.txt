@@ -7,9 +7,12 @@ https://blog.xiongtianci.com/2024/12/07/使用Adobe-Acrobat的PitStop插件批�
 https://blog.xiongtianci.com/2024/08/26/记录制作网线水晶头/
 https://blog.xiongtianci.com/2024/08/24/红米AX6000官方固件解锁clash/
 https://blog.xiongtianci.com/2024/08/24/红米AX6000刷机记录/
+https://blog.xiongtianci.com/2024/04/08/JUC学习笔记-异步编程：Future与Callable/
+https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-显式锁：ReentrantLock详解/
+https://blog.xiongtianci.com/2024/04/01/JUC学习笔记-基础并发工具：Atomic包与CAS/
+https://blog.xiongtianci.com/2024/04/01/JUC学习步骤/
 https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/
 https://blog.xiongtianci.com/2024/02/01/关于Windows的一些设置/
-https://blog.xiongtianci.com/2024/01/18/JUC学习笔记/
 https://blog.xiongtianci.com/2024/01/01/WebSocket学习笔记/
 https://blog.xiongtianci.com/2023/10/13/踩坑记录-Java中时间字段入库值和格式化后的值相差一秒/
 https://blog.xiongtianci.com/2023/05/29/解决windows中Typora上万字后异常卡顿的情况/
