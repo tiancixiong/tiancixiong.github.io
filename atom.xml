@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2025-03-29T02:36:38.413Z</updated>
+  <updated>2025-03-25T14:03:44.731Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -15,42 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>JUC学习笔记-显式锁：ReentrantLock详解</title>
-    <link href="https://blog.xiongtianci.com/2025/03/29/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://blog.xiongtianci.com/2025/03/29/JUC学习笔记-显式锁：ReentrantLock详解/</id>
-    <published>2025-03-29T02:35:59.000Z</published>
-    <updated>2025-03-29T02:36:38.413Z</updated>
-    
-    <summary type="html">
-    
-      JUC学习笔记-显式锁：ReentrantLock详解
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JUC学习笔记-基础并发工具：Atomic包与CAS</title>
-    <link href="https://blog.xiongtianci.com/2025/03/29/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/"/>
-    <id>https://blog.xiongtianci.com/2025/03/29/JUC学习笔记-基础并发工具：Atomic包与CAS/</id>
-    <published>2025-03-29T02:34:17.000Z</published>
-    <updated>2025-03-29T02:35:37.301Z</updated>
-    
-    <summary type="html">
-    
-      JUC学习笔记-基础并发工具：Atomic包与CAS
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>RabbitMQ如何保证消息的可靠性传输</title>
@@ -220,10 +184,10 @@
   
   <entry>
     <title>JUC学习笔记-异步编程：Future与Callable</title>
-    <link href="https://blog.xiongtianci.com/2024/04/08/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/"/>
-    <id>https://blog.xiongtianci.com/2024/04/08/JUC学习笔记-异步编程：Future与Callable/</id>
-    <published>2024-04-08T02:48:49.000Z</published>
-    <updated>2025-03-27T09:17:38.713Z</updated>
+    <link href="https://blog.xiongtianci.com/2024/04/09/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/"/>
+    <id>https://blog.xiongtianci.com/2024/04/09/JUC学习笔记-异步编程：Future与Callable/</id>
+    <published>2024-04-09T02:48:49.000Z</published>
+    <updated>2025-03-29T02:46:13.861Z</updated>
     
     <summary type="html">
     
@@ -242,10 +206,10 @@
   
   <entry>
     <title>JUC学习笔记-显式锁：ReentrantLock详解</title>
-    <link href="https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-显式锁：ReentrantLock详解/</id>
-    <published>2024-04-02T09:13:16.000Z</published>
-    <updated>2025-03-29T02:36:34.006Z</updated>
+    <link href="https://blog.xiongtianci.com/2024/04/03/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://blog.xiongtianci.com/2024/04/03/JUC学习笔记-显式锁：ReentrantLock详解/</id>
+    <published>2024-04-03T09:13:16.000Z</published>
+    <updated>2025-03-29T02:46:05.398Z</updated>
     
     <summary type="html">
     
@@ -260,10 +224,10 @@
   
   <entry>
     <title>JUC学习笔记-基础并发工具：Atomic包与CAS</title>
-    <link href="https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/"/>
-    <id>https://blog.xiongtianci.com/2024/04/01/JUC学习笔记-基础并发工具：Atomic包与CAS/</id>
-    <published>2024-04-01T09:13:02.000Z</published>
-    <updated>2025-03-27T11:43:35.264Z</updated>
+    <link href="https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/"/>
+    <id>https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-基础并发工具：Atomic包与CAS/</id>
+    <published>2024-04-02T09:13:02.000Z</published>
+    <updated>2025-03-29T02:45:56.022Z</updated>
     
     <summary type="html">
     
@@ -383,6 +347,46 @@
     
     
       <category term="Typora" scheme="https://blog.xiongtianci.com/tags/Typora/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git实用命令</title>
+    <link href="https://blog.xiongtianci.com/2023/05/28/git%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.xiongtianci.com/2023/05/28/git实用命令/</id>
+    <published>2023-05-28T00:36:38.000Z</published>
+    <updated>2023-05-28T01:10:39.418Z</updated>
+    
+    <summary type="html">
+    
+      git实用命令
+    
+    </summary>
+    
+      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Git" scheme="https://blog.xiongtianci.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL有关死锁的一些命令</title>
+    <link href="https://blog.xiongtianci.com/2023/05/27/MySQL%E6%9C%89%E5%85%B3%E6%AD%BB%E9%94%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4/"/>
+    <id>https://blog.xiongtianci.com/2023/05/27/MySQL有关死锁的一些命令/</id>
+    <published>2023-05-27T12:42:39.000Z</published>
+    <updated>2023-05-27T23:36:25.753Z</updated>
+    
+    <summary type="html">
+    
+      排查死锁的命令
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="MySQL" scheme="https://blog.xiongtianci.com/tags/MySQL/"/>
     
   </entry>
   

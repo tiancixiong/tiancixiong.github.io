@@ -1,5 +1,3 @@
-https://blog.xiongtianci.com/2025/03/29/JUC学习笔记-显式锁：ReentrantLock详解/
-https://blog.xiongtianci.com/2025/03/29/JUC学习笔记-基础并发工具：Atomic包与CAS/
 https://blog.xiongtianci.com/2025/03/24/RabbitMQ如何保证消息的可靠性传输/
 https://blog.xiongtianci.com/2025/03/23/加密存储在数据库中的数据如何进行模糊查询/
 https://blog.xiongtianci.com/2025/03/21/分布式锁的几种实现方案/
@@ -9,9 +7,9 @@ https://blog.xiongtianci.com/2024/12/07/使用Adobe-Acrobat的PitStop插件批�
 https://blog.xiongtianci.com/2024/08/26/记录制作网线水晶头/
 https://blog.xiongtianci.com/2024/08/24/红米AX6000官方固件解锁clash/
 https://blog.xiongtianci.com/2024/08/24/红米AX6000刷机记录/
-https://blog.xiongtianci.com/2024/04/08/JUC学习笔记-异步编程：Future与Callable/
-https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-显式锁：ReentrantLock详解/
-https://blog.xiongtianci.com/2024/04/01/JUC学习笔记-基础并发工具：Atomic包与CAS/
+https://blog.xiongtianci.com/2024/04/09/JUC学习笔记-异步编程：Future与Callable/
+https://blog.xiongtianci.com/2024/04/03/JUC学习笔记-显式锁：ReentrantLock详解/
+https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-基础并发工具：Atomic包与CAS/
 https://blog.xiongtianci.com/2024/04/01/JUC学习步骤/
 https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/
 https://blog.xiongtianci.com/2024/02/01/关于Windows的一些设置/

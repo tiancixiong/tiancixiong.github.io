@@ -7,10 +7,10 @@
   
   <!-- 关键字 keywords -->
   
-  <meta name="keywords" content="a,天赐,天赐の小站,博客">
+  <meta name="keywords" content="juc,future,天赐,天赐の小站,博客">
   
   
-  <title itemprop="name">JUC学习笔记-基础并发工具：Atomic包与CAS | 天赐の小站</title>
+  <title itemprop="name">JUC学习笔记-异步编程：Future与Callable | 天赐の小站</title>
   
     <link rel="shortcut icon" href="//fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/custom/favicon.ico">
   
@@ -361,7 +361,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      JUC学习笔记-基础并发工具：Atomic包与CAS</h1>
+      JUC学习笔记-异步编程：Future与Callable</h1>
       <p class="entry-census">
         <span>
           <a href="https://blog.xiongtianci.com">
@@ -373,7 +373,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2025-3-29<span class="bull">
+        2024-4-9<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -387,634 +387,1067 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="Atomic包与CAS概述"><a href="#Atomic包与CAS概述" class="headerlink" title="Atomic包与CAS概述"></a>Atomic包与CAS概述</h1><p>1、<strong>什么是Atomic包</strong></p>
-<p><code>java.util.concurrent.atomic</code> 包是Java提供的一组线程安全的原子操作类，可以在不使用锁的情况下实现线程安全操作。这些类主要分为以下几类：</p>
-<ul>
-<li>基本类型：<code>AtomicInteger</code>、<code>AtomicLong</code>、<code>AtomicBoolean</code></li>
-<li>引用类型：<code>AtomicReference</code>、<code>AtomicStampedReference</code>、<code>AtomicMarkableReference</code></li>
-<li>数组类型：<code>AtomicIntegerArray</code>、<code>AtomicLongArray</code>、<code>AtomicReferenceArray</code></li>
-<li>累加器：<code>LongAdder</code>、<code>DoubleAdder</code>（Java 8+）</li>
+          <h1 id="Callable和Future"><a href="#Callable和Future" class="headerlink" title="Callable和Future"></a>Callable和Future</h1><ul>
+<li><strong>Callable</strong> 负责 <strong>定义任务逻辑</strong>（类似 <code>Runnable</code>，但能返回结果和抛出异常）。</li>
+<li><strong>Future</strong> 负责 <strong>管理任务生命周期</strong> 和 <strong>获取计算结果</strong>。</li>
+<li>二者结合才能完整实现 <strong>“提交任务 → 异步执行 → 获取结果”</strong> 的流程。</li>
 </ul>
-<p>2、<strong>什么是CAS</strong></p>
-<p>CAS（Compare-And-Swap）是一种无锁算法，包含三个操作数：</p>
-<ul>
-<li>内存位置（V）</li>
-<li>预期原值（A）</li>
-<li>新值（B）</li>
-</ul>
-<p>CAS操作逻辑：当且仅当V的值等于A时，才会将V的值更新为B，否则不执行任何操作。无论哪种情况，都会返回V的当前值。</p>
-<h2 id="Atomic类和CAS的关系"><a href="#Atomic类和CAS的关系" class="headerlink" title="Atomic类和CAS的关系"></a>Atomic类和CAS的关系</h2><p>Java 的 <code>java.util.concurrent.atomic</code> 包中的所有原子类（如 <code>AtomicInteger</code>、<code>AtomicReference</code>）底层均基于 <strong>CAS 机制</strong> 实现。</p>
-<ul>
-<li><strong>Atomic类</strong> 是暴露给开发者使用的 <strong>工具</strong>。</li>
-<li><strong>CAS</strong> 是这些工具背后的 <strong>核心算法</strong>。</li>
-</ul>
-<pre><code class="java">// AtomicInteger 的源码片段（JDK）
-public final int incrementAndGet() {
-    return U.getAndAddInt(this, VALUE, 1) + 1;
-}
-// 最终调用的是Unsafe类的CAS操作：
-unsafe.compareAndSwapInt(obj, offset, expect, update);
+<p><strong>功能互补</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">职责</th>
+<th style="text-align:left">对方的作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Callable</strong></td>
+<td style="text-align:left">定义可返回结果的任务逻辑</td>
+<td style="text-align:left">需要 <code>Future</code> 来接收和管理它的计算结果</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Future</strong></td>
+<td style="text-align:left">监控任务状态、获取结果或取消任务</td>
+<td style="text-align:left">需要 <code>Callable</code> 作为实际的任务提供者</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="java">// 典型使用场景
+ExecutorService executor = Executors.newCachedThreadPool();
+Callable&lt;String&gt; task = () -&gt; &quot;Hello World&quot;;  // 定义任务
+Future&lt;String&gt; future = executor.submit(task); // 提交任务并获取Future
+String result = future.get();                  // 通过Future获取结果
 </code></pre>
-<p>Atomic 包的 <strong>所有能力</strong> 均围绕 CAS 展开：</p>
-<ul>
-<li><strong>原子自增</strong>：<code>AtomicInteger.getAndIncrement()</code> → CAS 循环</li>
-<li><strong>条件更新</strong>：<code>AtomicReference.compareAndSet()</code> → 直接调用 CAS</li>
-<li><strong>复杂累加</strong>：<code>LongAdder</code> → 分段 CAS 优化</li>
-</ul>
-<pre><code class="java">AtomicInteger counter = new AtomicInteger(0);
-
-// 底层CAS实现伪代码：
-int oldValue;
-do {
-    oldValue = counter.get(); // 读取当前值
-} while (!counter.compareAndSet(oldValue, oldValue + 1)); // CAS尝试更新
-</code></pre>
-<p>所有使用 Atomic 类的场景都隐含了 CAS 的参与：</p>
-<ol>
-<li><p>计数器</p>
-<pre><code class="java">// 高并发环境下的计数器
-AtomicInteger count = new AtomicInteger();
-count.incrementAndGet(); // 内部用CAS保证线程安全
-</code></pre>
-</li>
-<li><p>状态标志</p>
-<pre><code class="java">// 无锁实现状态切换
-AtomicBoolean isRunning = new AtomicBoolean(true);
-isRunning.compareAndSet(true, false); // CAS更新
-</code></pre>
-</li>
-<li><p>非阻塞算法</p>
-<pre><code class="java">// 实现无锁栈（Treiber算法）
-AtomicReference&lt;Node&lt;E&gt;&gt; top = new AtomicReference&lt;&gt;();
-public void push(E item) {
-    Node&lt;E&gt; newHead = new Node&lt;&gt;(item);
-    Node&lt;E&gt; oldHead;
-    do {
-        oldHead = top.get();
-        newHead.next = oldHead;
-    } while (!top.compareAndSet(oldHead, newHead)); // CAS更新栈顶
-}
-</code></pre>
-</li>
-</ol>
-<h1 id="核心源码"><a href="#核心源码" class="headerlink" title="核心源码"></a>核心源码</h1><p>1、AtomicInteger实现原理</p>
-<pre><code class="java">public class AtomicInteger extends Number implements java.io.Serializable {
-    private static final long serialVersionUID = 6214790243416807050L;
-
-    // 获取Unsafe实例
-    private static final Unsafe unsafe = Unsafe.getUnsafe();
-    private static final long valueOffset;
-
-    static {
-        try {
-            // 获取value字段的内存偏移地址
-            valueOffset = unsafe.objectFieldOffset
-                (AtomicInteger.class.getDeclaredField(&quot;value&quot;));
-        } catch (Exception ex) { throw new Error(ex); }
-    }
-
-    private volatile int value;
-
-    // CAS核心方法
-    public final boolean compareAndSet(int expect, int update) {
-        return unsafe.compareAndSwapInt(this, valueOffset, expect, update);
-    }
-
-    // 原子自增
-    public final int incrementAndGet() {
-        return unsafe.getAndAddInt(this, valueOffset, 1) + 1;
-    }
-}
-</code></pre>
-<p>2、Unsafe类的CAS操作</p>
-<p>Atomic类底层依赖 <code>sun.misc.Unsafe</code> 类的CAS操作：</p>
-<pre><code class="java">// Unsafe类提供了多种CAS方法
-// 对象字段的CAS操作
-public final native boolean compareAndSwapObject(Object o, long offset, Object expected, Object x);
-public final native boolean compareAndSwapInt(Object o, long offset, int expected, int x);
-public final native boolean compareAndSwapLong(Object o, long offset, long expected, long x);
-</code></pre>
-<p>参数说明：</p>
-<ul>
-<li><code>o</code>: 要操作的对象</li>
-<li><code>offset</code>: 字段在对象中的偏移量(内存地址)</li>
-<li><code>expected</code>: 期望的当前值</li>
-<li><code>x</code>: 要设置的新值</li>
-</ul>
-<h1 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h1><p><strong>计数器场景</strong></p>
-<pre><code class="java">// 传统同步方式
-class Counter {
-    private int count = 0;
-    public synchronized void increment() {
-        count++;
-    }
-}
-
-// Atomic方式
-class AtomicCounter {
-    private AtomicInteger count = new AtomicInteger(0);
-    public void increment() {
-        count.incrementAndGet();
-    }
-    // 更灵活的操作
-    public void add(int delta) {
-        count.getAndAdd(delta);
-    }
-}
-</code></pre>
-<p><strong>状态标志控制</strong></p>
-<pre><code class="java">import java.util.concurrent.atomic.AtomicBoolean;
-
-// 系统开关控制
-public class FeatureToggle {
-    private AtomicBoolean enabled = new AtomicBoolean(false);
-
-    public void enable() {
-        enabled.set(true);
-    }
-
-    public void disable() {
-        enabled.set(false);
-    }
-
-    public boolean isEnabled() {
-        return enabled.get();
-    }
-
-    // 安全切换状态
-    public boolean toggle() {
-        boolean prev;
-        do {
-            prev = enabled.get();
-        } while (!enabled.compareAndSet(prev, !prev));
-        return !prev;
-    }
-}
-</code></pre>
-<p><strong>库存扣减（电商场景）</strong></p>
-<pre><code class="java">import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
-
-public class InventorySystem {
-    private AtomicInteger stock = new AtomicInteger(1000); // 总库存
-
-    public boolean deductStock(int quantity) {
-        int current;
-        do {
-            current = stock.get();
-            if (current &lt; quantity) {
-                return false; // 库存不足
-            }
-        } while (!stock.compareAndSet(current, current - quantity));
-
-        // 扣减成功，处理订单逻辑
-
-        return true;
-    }
-
-    // 测试用例
-    public static void main(String[] args) {
-        InventorySystem inventory = new InventorySystem();
-        // 模拟100个线程并发扣减
-        IntStream.range(0, 100).parallel().forEach(i -&gt; {
-            if (inventory.deductStock(1)) {
-                System.out.println(&quot;扣减成功&quot;);
-            }
-        });
-        System.out.println(&quot;剩余库存: &quot; + inventory.stock.get());
-    }
-}
-</code></pre>
-<p><strong>序列号生成（分布式ID）</strong></p>
-<pre><code class="java">import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicLong;
-
-public class SequenceGenerator {
-    private final AtomicLong sequence = new AtomicLong(0);
-
-    public long nextId() {
-        return sequence.getAndIncrement();
-    }
-
-    // 生成带时间戳的订单ID（格式：时间戳 + 6位序列号）
-    public String generateOrderId() {
-        long timestamp = System.currentTimeMillis();
-        long seq = nextId();
-        return String.format(&quot;%d%06d&quot;, timestamp, seq % 1_000_000);
-    }
-}
-
-class SequenceGeneratorTest {
-    private static final SequenceGenerator generator = new SequenceGenerator();
-    private static final Set&lt;String&gt; generatedIds = ConcurrentHashMap.newKeySet(); // 线程安全的Set
-    private static final int THREAD_COUNT = 100; // 并发线程数
-    private static final int REQUESTS_PER_THREAD = 1000; // 每个线程生成ID的数量
-
-    public static void main(String[] args) throws InterruptedException {
-        ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
-        CountDownLatch latch = new CountDownLatch(THREAD_COUNT);
-
-        long startTime = System.currentTimeMillis();
-
-        // 提交任务
-        for (int i = 0; i &lt; THREAD_COUNT; i++) {
-            executor.submit(() -&gt; {
-                try {
-                    for (int j = 0; j &lt; REQUESTS_PER_THREAD; j++) {
-                        String orderId = generator.generateOrderId();
-                        if (!generatedIds.add(orderId)) {
-                            System.err.println(&quot;⚠️ 重复ID: &quot; + orderId);
-                        }
-                    }
-                } finally {
-                    latch.countDown();
-                }
-            });
-        }
-
-        // 等待所有线程完成
-        latch.await();
-        executor.shutdown();
-
-        long totalTime = System.currentTimeMillis() - startTime;
-        int totalIds = THREAD_COUNT * REQUESTS_PER_THREAD;
-
-        System.out.println(&quot;测试完成！&quot;);
-        System.out.println(&quot;生成ID总数: &quot; + totalIds);
-        System.out.println(&quot;唯一ID数量: &quot; + generatedIds.size());
-        System.out.println(&quot;是否有重复: &quot; + (generatedIds.size() != totalIds ? &quot;是&quot; : &quot;否&quot;));
-        System.out.println(&quot;总耗时: &quot; + totalTime + &quot;ms&quot;);
-        System.out.println(&quot;QPS: &quot; + (totalIds * 1000L / totalTime));
-    }
-}
-</code></pre>
-<p><strong>实时报价系统</strong></p>
-<pre><code class="java">public class PriceUpdater {
-    private AtomicReference&lt;BigDecimal&gt; currentPrice = 
-        new AtomicReference&lt;&gt;(BigDecimal.ZERO);
-
-    // 多个行情源同时更新价格
-    public void updatePrice(BigDecimal newPrice) {
-        BigDecimal current;
-        do {
-            current = currentPrice.get();
-            if (newPrice.compareTo(current) &lt;= 0) {
-                return; // 新价格不比当前高，不更新
-            }
-        } while (!currentPrice.compareAndSet(current, newPrice));
-
-        // 价格更新通知
-        notifySubscribers(newPrice);
-    }
-
-    private void notifySubscribers(BigDecimal price) {
-        // 通知订阅者逻辑...
-    }
-}
-</code></pre>
-<h1 id="CAS的局限性及解决方案"><a href="#CAS的局限性及解决方案" class="headerlink" title="CAS的局限性及解决方案"></a>CAS的局限性及解决方案</h1><h2 id="ABA问题"><a href="#ABA问题" class="headerlink" title="ABA问题"></a>ABA问题</h2><p><strong>问题描述</strong>：线程1读取值为A，线程2将值改为B后又改回A，此时线程1的CAS操作仍会成功，可能导致逻辑错误。</p>
-<pre><code class="java">AtomicReference&lt;Integer&gt; account = new AtomicReference&lt;&gt;(100);
-
-// 线程1 (会遭遇ABA问题)
-new Thread(() -&gt; {
-    int current = account.get(); // 读取100
-    System.out.println(&quot;线程1读取: &quot; + current);
-
-    // 模拟处理其他事情时被挂起
-    try { Thread.sleep(1000); } catch (InterruptedException e) {}
-
-    // 尝试更新
-    boolean success = account.compareAndSet(current, 200);
-    System.out.println(&quot;线程1更新结果: &quot; + success + &quot;，当前值: &quot; + account.get());
-}).start();
-
-// 线程2 (制造ABA场景)
-new Thread(() -&gt; {
-    // 第一次修改：100→50
-    boolean success1 = account.compareAndSet(100, 50);
-    System.out.println(&quot;线程2第一次修改: &quot; + success1 + &quot;，当前值: &quot; + account.get());
-
-    // 第二次修改：50→100
-    boolean success2 = account.compareAndSet(50, 100);
-    System.out.println(&quot;线程2第二次修改: &quot; + success2 + &quot;，当前值: &quot; + account.get());
-}).start();
-</code></pre>
-<p><strong>银行账户转账中的ABA问题</strong>：</p>
-<p>在银行转账场景中，假设账户余额为100元：</p>
-<ol>
-<li>线程A读取余额为100，准备转账50元</li>
-<li>线程A被挂起</li>
-<li>线程B转账50元，余额变为50</li>
-<li>线程C存入50元，余额又变回100</li>
-<li>线程A恢复执行，发现余额还是100，认为没有变化，执行转账操作</li>
-</ol>
-<p>这样会导致账户实际上被扣款两次（线程B和线程A都扣款了50元），但余额看起来只减少了50元。</p>
-<p><strong>解决方案</strong>：使用 <code>AtomicStampedReference</code> 或 <code>AtomicMarkableReference</code> 添加版本号控制。</p>
-<p><code>AtomicStampedReference</code> 通过添加一个版本号（stamp）来解决ABA问题。每次修改都会递增版本号，CAS操作不仅要比较值，还要比较版本号。</p>
-<pre><code class="java">import java.util.concurrent.atomic.AtomicStampedReference;
-
-// 银行账户转账ABA问题示例
-public class Account {
-    // 使用AtomicStampedReference包装余额，初始值100，初始版本号0
-    private AtomicStampedReference&lt;Integer&gt; balance = 
-        new AtomicStampedReference&lt;&gt;(100, 0);
-
-    public boolean transfer(int amount) {
-        int[] stamp = new int[1]; // 用于保存当前版本号的数组
-        int current;
-        do {
-            // 获取当前值和版本号
-            current = balance.get(stamp);
-            if (current &lt; amount) {
-                return false; // 余额不足，转账失败
-            }
-        } while (!balance.compareAndSet(
-            current, current - amount,  // 期望值和新值
-            stamp[0], stamp[0] + 1)); // 期望版本号和新版本号
-        return true;
-    }
+<h1 id="Callable接口"><a href="#Callable接口" class="headerlink" title="Callable接口"></a>Callable接口</h1><p>Callable是Java 5引入的接口，与Runnable类似，但有三个关键区别：</p>
+<pre><code class="java">public interface Callable&lt;V&gt; {
+    V call() throws Exception;
 }
 </code></pre>
 <ul>
-<li>使用 <code>get(stamp)</code> 同时获取当前值和版本号</li>
-<li><code>compareAndSet()</code> 只有当值和版本号都匹配时才更新</li>
+<li>可以返回结果（泛型V）</li>
+<li>可以抛出受检异常</li>
+<li>需要实现 <code>call()</code> 方法而非 <code>run()</code></li>
 </ul>
-<hr>
-<p><code>AtomicStampedReference</code> 和 <code>AtomicMarkableReference</code> 都是 Java 并发包中用于解决 <strong>ABA 问题</strong> 的原子引用类</p>
+<p>与 Runnable 的对比</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:left">特性</th>
-<th style="text-align:left"><code>AtomicStampedReference</code></th>
-<th style="text-align:left"><code>AtomicMarkableReference</code></th>
+<th style="text-align:left">Callable</th>
+<th style="text-align:left">Runnable</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>版本控制方式</strong></td>
-<td style="text-align:left">使用 <strong>整数版本号（stamp）</strong>（每次修改递增）</td>
-<td style="text-align:left">使用 <strong>布尔标记（mark）</strong>（true/false）</td>
+<td style="text-align:left">返回值</td>
+<td style="text-align:left">支持</td>
+<td style="text-align:left">不支持</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>适用场景</strong></td>
-<td style="text-align:left">需要严格版本控制的场景（如银行交易）</td>
-<td style="text-align:left">只需知道”是否被修改过”的场景（如缓存标记）</td>
+<td style="text-align:left">异常</td>
+<td style="text-align:left">可以抛出受检异常</td>
+<td style="text-align:left">不能抛出受检异常</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>ABA 问题解决方案</strong></td>
-<td style="text-align:left">通过版本号检测中间变化</td>
-<td style="text-align:left">通过布尔标记检测是否被修改过</td>
+<td style="text-align:left">方法签名</td>
+<td style="text-align:left">V call() throws Exception</td>
+<td style="text-align:left">void run()</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>典型用例</strong></td>
-<td style="text-align:left">账户余额、计数器</td>
-<td style="text-align:left">对象状态标记、缓存失效机制</td>
+<td style="text-align:left">使用场景</td>
+<td style="text-align:left">需要返回结果的异步任务</td>
+<td style="text-align:left">简单的异步操作</td>
 </tr>
 </tbody>
 </table>
-<p>AtomicStampedReference 适用场景：</p>
-<ul>
-<li>银行账户余额（防止 ABA 问题）</li>
-<li>计数器（需要知道修改次数）</li>
-<li>任何需要 <strong>精确版本控制</strong> 的场景</li>
-</ul>
-<pre><code class="java">AtomicStampedReference&lt;Integer&gt; account = new AtomicStampedReference&lt;&gt;(100, 0);
-
-// 线程1：读取值和版本号
-int[] stamp = new int[1];
-int balance = account.get(stamp); // balance=100, stamp[0]=0
-
-// 线程2：修改值并增加版本号
-account.compareAndSet(100, 50, 0, 1); // 版本号 0→1
-
-// 线程1尝试更新（失败，因为版本号已变）
-boolean success = account.compareAndSet(100, 200, stamp[0], stamp[0] + 1);
-// success = false（因为版本号已变为1，不匹配0）
-</code></pre>
-<p>AtomicMarkableReference 适用场景：</p>
-<ul>
-<li>缓存数据是否失效（true=失效，false=有效）</li>
-<li>对象是否被锁定（true=已锁定，false=未锁定）</li>
-<li>只需知道 <strong>“对象是否被修改过”</strong>，而不关心修改了多少次</li>
-</ul>
-<pre><code class="java">AtomicMarkableReference&lt;String&gt; cache = new AtomicMarkableReference&lt;&gt;(&quot;data&quot;, false);
-
-// 线程1：读取值和标记
-boolean[] mark = new boolean[1];
-String data = cache.get(mark); // data=&quot;data&quot;, mark[0]=false
-
-// 线程2：修改值并设置标记为 true（表示已修改）
-cache.compareAndSet(&quot;data&quot;, &quot;newData&quot;, false, true);
-
-// 线程1尝试更新（失败，因为标记已变）
-boolean success = cache.compareAndSet(&quot;data&quot;, &quot;updated&quot;, mark[0], true);
-// success = false（因为标记已变为 true，不匹配 false）
-</code></pre>
-<p><strong>如何选择？</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">场景</th>
-<th style="text-align:left">推荐类</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>需要严格版本控制</strong>（如金融交易）</td>
-<td style="text-align:left"><code>AtomicStampedReference</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>只需知道是否被修改过</strong>（如缓存失效）</td>
-<td style="text-align:left"><code>AtomicMarkableReference</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="自旋开销"><a href="#自旋开销" class="headerlink" title="自旋开销"></a>自旋开销</h2><p><strong>问题描述</strong>：高并发场景下CAS失败率增加，线程会持续自旋，导致CPU空转。</p>
-<pre><code class="java">public class Counter {
-    private AtomicInteger count = new AtomicInteger(0);
-
-    public void increment() {
-        int oldValue;
-        do {
-            oldValue = count.get();
-        } while (!count.compareAndSet(oldValue, oldValue + 1));
+<h2 id="Callable的基本使用"><a href="#Callable的基本使用" class="headerlink" title="Callable的基本使用"></a>Callable的基本使用</h2><p>基本用法示例：</p>
+<pre><code class="java">// 创建Callable任务
+Callable&lt;Integer&gt; task = () -&gt; {
+    int sum = 0;
+    for (int i = 1; i &lt;= 10; i++) {
+        sum += i;
+        Thread.sleep(100); // 模拟耗时操作
     }
-}
-// 高并发时可能导致大量线程自旋
-</code></pre>
-<p><strong>解决方案</strong>：</p>
-<ul>
-<li>使用 <code>LongAdder</code> 替代 <code>AtomicLong</code>（Java 8+）</li>
-<li>引入适当的退避策略</li>
-</ul>
-<pre><code class="java">// 高并发计数器优化
-public class HitCounter {
-    // 使用 LongAdder 作为计数器
-    private LongAdder count = new LongAdder();
+    return sum;
+};
 
-    // 增加计数
-    public void hit() {
-        count.increment();
-    }
+// 使用FutureTask包装Callable
+FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;&gt;(task);
 
-    // 获取总计数
-    public long getCount() {
-        return count.sum();
-    }
+// 启动线程执行任务
+new Thread(futureTask).start();
+
+try {
+    // 获取计算结果（会阻塞直到计算完成）
+    int result = futureTask.get();
+    System.out.println(&quot;1到10的和为: &quot; + result);
+} catch (InterruptedException | ExecutionException e) {
+    e.printStackTrace();
 }
 </code></pre>
-<p><code>LongAdder</code> 采用了 <strong>分段累加（Cell 分散）</strong> 的策略：</p>
-<ol>
-<li><strong>基础值（base）</strong>：初始计数值</li>
-<li><strong>Cell 数组</strong>：当竞争激烈时，会创建多个 Cell，让不同线程更新不同的 Cell</li>
-<li><strong>最终求和</strong>：<code>sum()</code> 方法返回 base + 所有 Cell 的和</li>
-</ol>
-<p><strong>退避算法（Exponential Backoff）</strong></p>
-<pre><code class="java">public class BackoffCounter {
-    private AtomicInteger count = new AtomicInteger(0);
-    // 最小退避时间(单位毫秒)
-    private static final int MIN_DELAY = 1;
-    // 最大退避时间(单位毫秒)，防止退避时间无限增长
-    private static final int MAX_DELAY = 100;
+<p>与 ExecutorService 结合使用：</p>
+<pre><code class="java">// 创建线程池
+ExecutorService executor = Executors.newFixedThreadPool(4);
 
-    public void increment() {
-        int delay = MIN_DELAY; // 初始退避时间
-        while (true) {
-            int current = count.get();
-            if (count.compareAndSet(current, current + 1)) {
-                break; // CAS成功，退出循环
+// 创建Callable任务列表
+List&lt;Callable&lt;Integer&gt;&gt; tasks = new ArrayList&lt;&gt;();
+for (int i = 0; i &lt; 10; i++) {
+    final int taskId = i;
+    tasks.add(() -&gt; {
+        System.out.println(&quot;任务&quot; + taskId + &quot;开始执行&quot;);
+        Thread.sleep(1000); // 模拟耗时操作
+        return taskId * taskId; // 返回平方值
+    });
+}
+
+try {
+    // 提交所有任务并获取Future列表
+    List&lt;Future&lt;Integer&gt;&gt; futures = executor.invokeAll(tasks);
+
+    // 处理结果
+    for (Future&lt;Integer&gt; future : futures) {
+        System.out.println(&quot;任务结果: &quot; + future.get());
+    }
+} catch (InterruptedException | ExecutionException e) {
+    e.printStackTrace();
+} finally {
+    // 关闭线程池
+    executor.shutdown();
+}
+</code></pre>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p><strong>场景1：并行计算</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ParallelComputation {
+    public static void main(String[] args) {
+        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+
+        try {
+            // 并行计算每个数字的阶乘
+            List&lt;Future&lt;Long&gt;&gt; futures = executor.invokeAll(
+                    numbers.stream()
+                            .map(n -&gt; (Callable&lt;Long&gt;) () -&gt; factorial(n))
+                            .collect(Collectors.toList())
+            );
+
+            for (int i = 0; i &lt; numbers.size(); i++) {
+                System.out.printf(&quot;%d! = %d%n&quot;, numbers.get(i), futures.get(i).get());
             }
-            // CAS失败后等待随机时间
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            executor.shutdown();
+        }
+    }
+
+    private static long factorial(int n) {
+        if (n == 0) return 1;
+        long result = 1;
+        for (int i = 1; i &lt;= n; i++) {
+            result *= i;
             try {
-                Thread.sleep((long)(Math.random() * delay));
+                Thread.sleep(100); // 模拟计算耗时
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
-            delay = Math.min(delay * 2, MAX_DELAY); // 指数增加退避时间
+        }
+        return result;
+    }
+}
+</code></pre>
+<p><strong>场景2：超时控制</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+
+public class TimeoutExample {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        Callable&lt;String&gt; task = () -&gt; {
+            Thread.sleep(2000); // 模拟长时间运行的任务
+            return &quot;任务完成&quot;;
+        };
+
+        Future&lt;String&gt; future = executor.submit(task);
+
+        try {
+            // 设置1秒超时
+            String result = future.get(1, TimeUnit.SECONDS);
+            System.out.println(result);
+        } catch (TimeoutException e) {
+            System.out.println(&quot;任务超时，取消任务&quot;);
+            future.cancel(true); // 尝试中断任务
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            executor.shutdown();
         }
     }
 }
 </code></pre>
-<p>指数退避算法：每次失败后，等待时间按指数增长：1, 2, 4, 8,…直到MAX_DELAY</p>
-<h2 id="只能保证单个变量原子性"><a href="#只能保证单个变量原子性" class="headerlink" title="只能保证单个变量原子性"></a>只能保证单个变量原子性</h2><p><strong>问题描述</strong>：<br>CAS无法保证多个变量的原子更新。</p>
-<p><strong>解决方案</strong>：</p>
-<ul>
-<li>使用<code>AtomicReference</code>包装多个变量</li>
-<li>使用锁机制</li>
-</ul>
-<pre><code class="java">// 原子更新多个变量
-public class Point {
-    private static class State {
-        final int x;
-        final int y;
-        State(int x, int y) {
-            this.x = x;
-            this.y = y;
+<p><strong>场景3：多个任务竞争（获取第一个完成的结果）</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
+public class FirstCompletedExample {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newCachedThreadPool();
+
+        List&lt;Callable&lt;String&gt;&gt; tasks = Arrays.asList(
+            () -&gt; { Thread.sleep(new Random().nextInt(1000)); return &quot;任务1完成&quot;; },
+            () -&gt; { Thread.sleep(new Random().nextInt(1000)); return &quot;任务2完成&quot;; },
+            () -&gt; { Thread.sleep(new Random().nextInt(1000)); return &quot;任务3完成&quot;; }
+        );
+
+        try {
+            // 获取第一个完成的任务结果
+            String result = executor.invokeAny(tasks);
+            System.out.println(&quot;第一个完成的任务: &quot; + result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            executor.shutdown();
         }
-    }
-
-    // 原子状态引用
-    private AtomicReference&lt;State&gt; state = 
-        new AtomicReference&lt;&gt;(new State(0, 0));
-
-    // 原子更新方法
-    public void move(int deltaX, int deltaY) {
-        State current;
-        State newState;
-        do {
-            current = state.get(); // 获取当前状态
-            newState = new State(  // 创建新状态
-                current.x + deltaX, 
-                current.y + deltaY
-            );
-        } while (!state.compareAndSet(current, newState));
-    }
-
-    public int getX() {
-        return state.get().x;
-    }
-    public int getY() {
-        return state.get().y;
     }
 }
 </code></pre>
+<h1 id="Future接口"><a href="#Future接口" class="headerlink" title="Future接口"></a>Future接口</h1><p>Future是Java并发编程中一个非常重要的接口，它位于 <code>java.util.concurrent</code> 包中。Future 表示一个异步计算的结果，它提供了检查计算是否完成的方法，以及等待计算完成并检索其结果的方法。</p>
+<p>Future接口为Java并发编程提供了基础的异步计算支持，通过它可以：</p>
 <ul>
-<li><code>State</code>类被设计为<strong>不可变(immutable)</strong>的，所有字段都是<code>final</code>的，一旦创建就不能修改</li>
+<li>提交任务并获取未来可能的结果</li>
+<li>查询任务状态和取消任务</li>
+<li>实现任务的超时控制</li>
 </ul>
-<h1 id="性能对比与选型建议"><a href="#性能对比与选型建议" class="headerlink" title="性能对比与选型建议"></a>性能对比与选型建议</h1><p>1、Atomic vs Synchronized</p>
-<pre><code class="java">// 性能测试对比
-public class PerformanceTest {
-    private AtomicInteger atomicCounter = new AtomicInteger(0);
-    private int syncCounter = 0;
+<pre><code class="java">package java.util.concurrent;
 
-    @Test
-    public void testPerformance() {
-        // Atomic测试
-        long atomicTime = test(() -&gt; {
-            atomicCounter.incrementAndGet();
+public interface Future&lt;V&gt; {
+    // 尝试取消任务的执行
+    boolean cancel(boolean mayInterruptIfRunning);
+
+    // 判断任务是否被取消
+    boolean isCancelled();
+
+    // 判断任务是否完成
+    boolean isDone();
+
+    // 获取计算结果（阻塞直到计算完成）
+    V get() throws InterruptedException, ExecutionException;
+
+    // 获取计算结果（带超时限制）
+    V get(long timeout, TimeUnit unit)
+        throws InterruptedException, ExecutionException, TimeoutException;
+}
+</code></pre>
+<ul>
+<li><strong>isCancelled()</strong>：只有任务未启动，或者在完成之前被取消，才会返回true，表示任务已经被成功取消。其他情况都会返回false</li>
+<li><strong>get()</strong>：方法是阻塞的，可能会影响系统响应性。使用带超时的 <code>get()</code> 方法避免无限期等待</li>
+</ul>
+<h2 id="Future的使用"><a href="#Future的使用" class="headerlink" title="Future的使用"></a>Future的使用</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p><strong>案例1：基本使用</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+
+public class FutureBasicDemo {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        // 提交Callable任务，返回Future对象
+        Future&lt;String&gt; future = executor.submit(() -&gt; {
+            Thread.sleep(2000); // 模拟耗时操作
+            return &quot;Hello, Future!&quot;;
         });
 
-        // Synchronized测试
-        long syncTime = test(() -&gt; {
-            synchronized (this) {
-                syncCounter++;
+        System.out.println(&quot;任务已提交，可以继续做其他事情...&quot;);
+
+        // 检查任务是否完成
+        if (!future.isDone()) {
+            System.out.println(&quot;任务还未完成，可以继续处理其他逻辑&quot;);
+        }
+
+        // 获取结果（会阻塞直到任务完成）
+        String result = future.get();
+        System.out.println(&quot;获取到结果: &quot; + result);
+
+        executor.shutdown();
+    }
+}
+</code></pre>
+<p><strong>案例2：超时控制</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+
+public class FutureTimeoutDemo {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        Future&lt;String&gt; future = executor.submit(() -&gt; {
+            Thread.sleep(3000);
+            return &quot;Result after long processing&quot;;
+        });
+
+        try {
+            // 设置超时时间为2秒
+            String result = future.get(2, TimeUnit.SECONDS);
+            System.out.println(&quot;结果: &quot; + result);
+        } catch (TimeoutException e) {
+            System.out.println(&quot;任务执行超时&quot;);
+            future.cancel(true); // 取消任务
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            executor.shutdown();
+        }
+    }
+}
+</code></pre>
+<p><strong>案例3：任务取消</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+
+public class FutureCancelDemo {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        Future&lt;String&gt; future = executor.submit(() -&gt; {
+            Thread.sleep(5000);
+            return &quot;This should not be reached if cancelled&quot;;
+        });
+
+        // 模拟执行一段时间后决定取消任务
+        Thread.sleep(1000);
+
+        // 尝试取消任务（参数true表示可以中断正在执行的任务）
+        boolean cancelled = future.cancel(true);
+        System.out.println(&quot;任务取消&quot; + (cancelled ? &quot;成功&quot; : &quot;失败&quot;));
+
+        // 检查任务状态
+        System.out.println(&quot;任务是否取消: &quot; + future.isCancelled());
+        System.out.println(&quot;任务是否完成: &quot; + future.isDone());
+
+        try {
+            // 尝试获取已取消任务的结果会抛出CancellationException
+            String result = future.get();
+            System.out.println(result);
+        } catch (CancellationException e) {
+            System.out.println(&quot;无法获取结果，任务已被取消&quot;);
+        }
+
+        executor.shutdown();
+    }
+}
+</code></pre>
+<h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><p><strong>场景1：并行处理多个任务</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+
+public class MultipleFuturesDemo {
+    public static void main(String[] args) throws Exception {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        // 提交多个任务
+        Future&lt;String&gt; future1 = executor.submit(() -&gt; {
+            Thread.sleep(1000);
+            return &quot;Result from Task 1&quot;;
+        });
+
+        Future&lt;String&gt; future2 = executor.submit(() -&gt; {
+            Thread.sleep(1500);
+            return &quot;Result from Task 2&quot;;
+        });
+
+        Future&lt;String&gt; future3 = executor.submit(() -&gt; {
+            Thread.sleep(800);
+            return &quot;Result from Task 3&quot;;
+        });
+
+        // 获取所有结果（会按调用顺序阻塞）
+        System.out.println(future1.get());
+        System.out.println(future2.get());
+        System.out.println(future3.get());
+
+        executor.shutdown();
+    }
+}
+</code></pre>
+<p><strong>场景2：电商价格聚合案例</strong></p>
+<pre><code class="java">import java.util.concurrent.*;
+
+public class PriceAggregator {
+    private ExecutorService executor = Executors.newFixedThreadPool(3);
+
+    public double getFinalPrice(String product) throws Exception {
+        // 并行获取不同平台的价格
+        Future&lt;Double&gt; taobaoPrice = executor.submit(() -&gt; getPriceFromTaobao(product));
+        Future&lt;Double&gt; jdPrice = executor.submit(() -&gt; getPriceFromJD(product));
+        Future&lt;Double&gt; pddPrice = executor.submit(() -&gt; getPriceFromPDD(product));
+
+        // 模拟其他处理
+        System.out.println(&quot;正在处理其他业务逻辑...&quot;);
+        Thread.sleep(500);
+
+        // 获取所有价格并计算最低价
+        double finalPrice = Math.min(taobaoPrice.get(), Math.min(jdPrice.get(), pddPrice.get()));
+
+        return finalPrice;
+    }
+
+    private double getPriceFromTaobao(String product) throws InterruptedException {
+        Thread.sleep(1000);
+        return 199.0; // 模拟价格
+    }
+
+    private double getPriceFromJD(String product) throws InterruptedException {
+        Thread.sleep(1200);
+        return 219.0; // 模拟价格
+    }
+
+    private double getPriceFromPDD(String product) throws InterruptedException {
+        Thread.sleep(800);
+        return 189.0; // 模拟价格
+    }
+
+    public static void main(String[] args) throws Exception {
+        PriceAggregator aggregator = new PriceAggregator();
+        double price = aggregator.getFinalPrice(&quot;iPhone 13&quot;);
+        System.out.println(&quot;最终价格: &quot; + price);
+        aggregator.executor.shutdown();
+    }
+}
+</code></pre>
+<h1 id="Future实现类"><a href="#Future实现类" class="headerlink" title="Future实现类"></a>Future实现类</h1><p>JUC 并发包中，Future 接口有几个重要的实现类，每个实现类都有其特定的使用场景和优势：</p>
+<ol>
+<li><strong>FutureTask</strong>：最基础的 Future 实现，同时实现了 Runnable 接口</li>
+<li><strong>ScheduledFuture</strong>：用于定时任务的 Future 实现</li>
+<li><strong>ForkJoinTask</strong>：Fork/Join 框架中的 Future 实现</li>
+<li><strong>CompletableFuture</strong>（Java 8+）：功能最丰富的Future实现</li>
+</ol>
+<h2 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h2><p>FutureTask 是 Future 接口的一个实现类，特点：</p>
+<ul>
+<li>同时实现了 Future 和 Runnable 接口，因此可作为任务提交给线程池 <code>Executor</code> 执行</li>
+<li>只能执行一次，不能重复使用</li>
+<li>内部基于AQS（AbstractQueuedSynchronizer）实现状态控制</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="java">import java.util.concurrent.FutureTask;
+
+public class FutureTaskDemo {
+    public static void main(String[] args) throws Exception {
+        // 创建FutureTask
+        FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;&gt;(() -&gt; {
+            int sum = 0;
+            for (int i = 0; i &lt; 100; i++) {
+                sum += i;
+                Thread.sleep(10);
             }
+            return sum;
         });
 
-        System.out.printf(&quot;Atomic: %dms, Synchronized: %dms%n&quot;, 
-            atomicTime, syncTime);
-    }
+        // 创建线程执行FutureTask
+        new Thread(futureTask).start();
 
-    private long test(Runnable task) {
-        long start = System.currentTimeMillis();
-        IntStream.range(0, 1_000_000)
-            .parallel()
-            .forEach(i -&gt; task.run());
-        return System.currentTimeMillis() - start;
+        // 主线程可以继续做其他事情
+        System.out.println(&quot;主线程正在处理其他任务...&quot;);
+        Thread.sleep(500);
+
+        // 获取计算结果
+        if (!futureTask.isDone()) {
+            System.out.println(&quot;计算任务还未完成，请稍候...&quot;);
+        }
+
+        int result = futureTask.get();
+        System.out.println(&quot;计算结果: &quot; + result);
     }
 }
 </code></pre>
-<p>2、选型建议</p>
+<p><strong>案例：缓存系统实现</strong></p>
+<p>基于 FutureTask 实现的高并发缓存系统，解决了缓存系统中常见的”缓存击穿”问题，并提供了线程安全的缓存访问机制：</p>
+<pre><code class="java">import java.math.BigInteger;
+import java.util.Map;
+import java.util.concurrent.*;
+
+public class CacheSystem&lt;K, V&gt; {
+    private final Map&lt;K, FutureTask&lt;V&gt;&gt; cache = new ConcurrentHashMap&lt;&gt;();
+    private final Computable&lt;K, V&gt; computable;
+
+    public CacheSystem(Computable&lt;K, V&gt; computable) {
+        this.computable = computable;
+    }
+
+    public V get(final K key) throws InterruptedException {
+        while (true) {
+            FutureTask&lt;V&gt; future = cache.get(key);
+            if (future == null) {
+                FutureTask&lt;V&gt; newTask = new FutureTask&lt;&gt;(() -&gt; computable.compute(key));
+                future = cache.putIfAbsent(key, newTask);
+                if (future == null) {
+                    future = newTask;
+                    future.run(); // 开始计算
+                }
+            }
+
+            try {
+                return future.get();
+            } catch (CancellationException e) {
+                cache.remove(key);
+            } catch (ExecutionException e) {
+                throw launderThrowable(e.getCause());
+            }
+        }
+    }
+
+    private RuntimeException launderThrowable(Throwable t) {
+        if (t instanceof RuntimeException) return (RuntimeException) t;
+        else if (t instanceof Error) throw (Error) t;
+        else throw new IllegalStateException(&quot;Not unchecked&quot;, t);
+    }
+
+    public interface Computable&lt;K, V&gt; {
+        V compute(K key) throws InterruptedException;
+    }
+}
+
+// 使用示例
+class CacheDemo {
+    public static void main(String[] args) {
+        CacheSystem&lt;String, BigInteger&gt; cache = new CacheSystem&lt;&gt;(key -&gt; {
+            // 模拟耗时计算
+            Thread.sleep(1000);
+            return new BigInteger(key);
+        });
+
+        ExecutorService executor = Executors.newFixedThreadPool(10);
+        for (int i = 0; i &lt; 10; i++) {
+            final String key = &quot;12345&quot;;
+            executor.execute(() -&gt; {
+                try {
+                    System.out.println(Thread.currentThread().getName() +
+                            &quot; 获取结果: &quot; + cache.get(key));
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            });
+        }
+        executor.shutdown();
+    }
+}
+</code></pre>
+<p>工作流程：</p>
+<pre><code>[客户端调用get(key)]
+       |
+       v
+检查缓存是否存在 --&gt; 存在 --&gt; 返回缓存结果
+       |
+       v
+不存在 --&gt; 创建FutureTask --&gt; 放入缓存 --&gt; 执行计算
+       |
+       v
+其他线程再次请求相同key --&gt; 获取已存在的FutureTask --&gt; 等待计算结果
+</code></pre><p>使用场景：</p>
+<pre><code class="java">// 电商系统-商品详情缓存
+CacheSystem&lt;Long, ProductDetail&gt; productCache = new CacheSystem&lt;&gt;(productId -&gt; {
+    // 从数据库获取商品详情（耗时操作）
+    return productDao.getDetailById(productId);
+});
+
+// 获取商品详情（数万QPS场景下能有效防止缓存击穿）
+ProductDetail detail = productCache.get(12345L);
+</code></pre>
+<h2 id="ScheduledFuture与定时任务"><a href="#ScheduledFuture与定时任务" class="headerlink" title="ScheduledFuture与定时任务"></a>ScheduledFuture与定时任务</h2><p>ScheduledFuture 用于表示延迟或周期性任务的执行结果，通常与 <code>ScheduledExecutorService</code> 配合使用。</p>
+<p><strong>核心特性</strong>：</p>
+<ul>
+<li><strong>延迟/周期性任务</strong>：支持固定延迟（<code>scheduleWithFixedDelay</code>）或固定速率（<code>scheduleAtFixedRate</code>）的任务调度。</li>
+<li><strong>继承自 <code>Future</code></strong>：提供任务取消、结果获取等基础功能。</li>
+<li><strong>时间控制</strong>：通过 <code>getDelay()</code> 方法获取剩余延迟时间。</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<pre><code class="java">ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+ScheduledFuture&lt;?&gt; future = executor.schedule(
+        () -&gt; System.out.println(&quot;Task executed after 1 second&quot;),
+        1, TimeUnit.SECONDS
+);
+</code></pre>
+<p><strong>案例：订单超时取消</strong></p>
+<pre><code class="java">import java.util.Map;
+import java.util.concurrent.*;
+
+public class OrderTimeoutSystem {
+    private final ScheduledExecutorService scheduler =
+            Executors.newScheduledThreadPool(1);
+    private final Map&lt;Long, ScheduledFuture&lt;?&gt;&gt; orderTasks = new ConcurrentHashMap&lt;&gt;();
+
+    public void placeOrder(long orderId) {
+        // 提交定时任务，30分钟后检查订单状态
+        ScheduledFuture&lt;?&gt; future = scheduler.schedule(() -&gt; {
+            if (!isOrderPaid(orderId)) {
+                cancelOrder(orderId);
+                orderTasks.remove(orderId);
+            }
+        }, 30, TimeUnit.MINUTES);
+
+        orderTasks.put(orderId, future);
+    }
+
+    public void orderPaid(long orderId) {
+        ScheduledFuture&lt;?&gt; future = orderTasks.get(orderId);
+        if (future != null) {
+            future.cancel(false); // 订单已支付，取消定时任务
+            orderTasks.remove(orderId);
+        }
+    }
+
+    private boolean isOrderPaid(long orderId) {
+        // 查询数据库或缓存
+        return false;
+    }
+
+    private void cancelOrder(long orderId) {
+        System.out.println(&quot;订单超时取消: &quot; + orderId);
+        // 实际业务中会更新订单状态等操作
+    }
+
+    public void shutdown() {
+        scheduler.shutdown();
+    }
+}
+
+// 使用示例
+class OrderTimeoutDemo {
+    public static void main(String[] args) throws InterruptedException {
+        OrderTimeoutSystem system = new OrderTimeoutSystem();
+
+        // 模拟订单创建
+        long orderId = 10001L;
+        system.placeOrder(orderId);
+        System.out.println(&quot;订单创建: &quot; + orderId);
+
+        // 模拟15分钟后支付
+        Thread.sleep(TimeUnit.MINUTES.toMillis(15));
+        system.orderPaid(orderId);
+        System.out.println(&quot;订单已支付: &quot; + orderId);
+
+        system.shutdown();
+    }
+}
+</code></pre>
+<h2 id="ForkJoinTask"><a href="#ForkJoinTask" class="headerlink" title="ForkJoinTask"></a>ForkJoinTask</h2><p>用途：支持分治（Divide-and-Conquer）任务的抽象基类，通常用于 <code>ForkJoinPool</code> 中处理递归或并行任务。</p>
+<p><strong>核心特性</strong>：</p>
+<ul>
+<li><strong>分治策略</strong>：通过 <code>fork()</code> 分解任务，<code>join()</code> 合并结果。</li>
+<li><strong>自动负载均衡</strong>：<code>ForkJoinPool</code> 使用工作窃取（Work-Stealing）算法，空闲线程从忙碌线程的队列尾部窃取任务。</li>
+<li><strong>两种子类</strong>：<ul>
+<li><code>RecursiveTask</code>：返回结果的任务。</li>
+<li><code>RecursiveAction</code>：无返回结果的任务。</li>
+</ul>
+</li>
+</ul>
+<p><strong>示例</strong>（计算斐波那契数列）：</p>
+<blockquote>
+<p>斐波那契数列的定义：</p>
+<ul>
+<li><code>F(0) = 0</code></li>
+<li><code>F(1) = 1</code></li>
+<li><code>F(n) = F(n-1) + F(n-2)</code> （当 <code>n &gt; 1</code> 时）<br>例如：<code>0, 1, 1, 2, 3, 5, 8, 13...</code></li>
+</ul>
+</blockquote>
+<pre><code class="java">import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveTask;
+
+class FibonacciTask extends RecursiveTask&lt;Integer&gt; {
+    final int n;
+
+    FibonacciTask(int n) {
+        this.n = n;
+    }
+
+    protected Integer compute() {
+        if (n &lt;= 1) return n;
+        FibonacciTask f1 = new FibonacciTask(n - 1);
+        f1.fork(); // 分解任务
+        FibonacciTask f2 = new FibonacciTask(n - 2);
+        return f2.compute() + f1.join(); // 合并结果
+    }
+}
+
+class FibonacciTest {
+    public static void main(String[] args) {
+        int n = 10; // 计算斐波那契数列的第10项
+        ForkJoinPool pool = new ForkJoinPool(); // 创建ForkJoin线程池
+        FibonacciTask task = new FibonacciTask(n);
+        int result = pool.invoke(task); // 提交任务并获取结果
+        System.out.println(&quot;F(&quot; + n + &quot;) = &quot; + result); // 输出结果
+        pool.shutdown(); // 关闭线程池
+    }
+}
+</code></pre>
+<p>分治逻辑：</p>
+<ul>
+<li>将问题拆解为计算 <code>F(n-1)</code> 和 <code>F(n-2)</code> 的子任务。</li>
+<li><code>fork()</code> 提交一个子任务到线程池异步执行，<code>compute()</code> 同步执行另一个子任务。</li>
+<li><code>join()</code> 等待异步任务的完成并获取结果。</li>
+</ul>
+<p><strong>案例：统计大量字符串出现的频率</strong></p>
+<pre><code class="java">import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.*;
+
+public class DataProcessor extends RecursiveTask&lt;Map&lt;String, Integer&gt;&gt; {
+    // 任务拆分的阈值，当 数据量≤1000 时直接处理
+    private static final int THRESHOLD = 1000;
+    private final List&lt;String&gt; data; // 待处理的字符串列表
+
+    public DataProcessor(List&lt;String&gt; data) {
+        this.data = data;
+    }
+
+    /**
+     *
+     * @return 一个统计字符串频率的 Map
+     */
+    @Override
+    protected Map&lt;String, Integer&gt; compute() {
+        if (data.size() &lt;= THRESHOLD) {
+            return processDirectly(); // 数据量小，直接统计
+        } else {
+            int mid = data.size() / 2;
+            DataProcessor leftTask = new DataProcessor(data.subList(0, mid));
+            DataProcessor rightTask = new DataProcessor(data.subList(mid, data.size()));
+
+            leftTask.fork(); // 异步提交左半部分任务
+            Map&lt;String, Integer&gt; rightResult = rightTask.compute(); // 同步处理右半部分
+            Map&lt;String, Integer&gt; leftResult = leftTask.join(); // 等待左半部分结果
+
+            // 合并左右结果
+            rightResult.forEach((k, v) -&gt;
+                    leftResult.merge(k, v, Integer::sum));
+            return leftResult;
+        }
+    }
+
+    // 遍历列表，使用 map.merge 方法统计词频
+    private Map&lt;String, Integer&gt; processDirectly() {
+        Map&lt;String, Integer&gt; result = new HashMap&lt;&gt;();
+        for (String item : data) {
+            result.merge(item, 1, Integer::sum);
+        }
+        return result;
+    }
+}
+
+// 使用示例
+class ForkJoinDemo {
+    public static void main(String[] args) {
+        // 模拟大数据集。生成 10_000 个随机字符串（格式为 item-0 到 item-99）
+        List&lt;String&gt; bigData = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; 10_000; i++) {
+            bigData.add(&quot;item-&quot; + ThreadLocalRandom.current().nextInt(100));
+        }
+
+        ForkJoinPool pool = new ForkJoinPool();
+        DataProcessor task = new DataProcessor(bigData);
+        Map&lt;String, Integer&gt; result = pool.invoke(task);
+
+        System.out.println(&quot;处理结果大小: &quot; + result.size());
+        // 按词频降序排序，输出前5个高频词
+        result.entrySet().stream()
+                .sorted(Map.Entry.&lt;String, Integer&gt;comparingByValue().reversed())
+                .limit(5)
+                .forEach(e -&gt; System.out.println(e.getKey() + &quot;: &quot; + e.getValue()));
+    }
+}
+</code></pre>
+<h2 id="CompletableFuture"><a href="#CompletableFuture" class="headerlink" title="CompletableFuture"></a>CompletableFuture</h2><p><code>CompletableFuture</code> 是 Java 8 引入的异步编程工具。</p>
+<p><strong>用途</strong>：支持异步任务的链式调用、组合和异常处理，是 <code>Future</code> 的增强版。</p>
+<p><strong>核心特性</strong>：</p>
+<ul>
+<li><strong>非阻塞回调</strong>：通过 <code>thenApply</code>、<code>thenAccept</code> 等方法链式处理结果。</li>
+<li><strong>任务组合</strong>：支持 <code>thenCombine</code>、<code>allOf</code>、<code>anyOf</code> 等多任务协作。</li>
+<li><strong>异常处理</strong>：通过 <code>exceptionally</code> 或 <code>handle</code> 方法捕获异常。</li>
+<li><strong>手动完成</strong>：可通过 <code>complete()</code> 或 <code>completeExceptionally()</code> 主动干预任务状态。</li>
+</ul>
+<p><strong>适用场景</strong></p>
+<ol>
+<li><strong>并行执行多个任务</strong>（如调用多个微服务）。</li>
+<li><strong>异步任务编排</strong>（如 A 完成后触发 B）。</li>
+<li><strong>超时控制</strong>（<code>orTimeout</code>, <code>completeOnTimeout</code>）。</li>
+<li><strong>异常恢复</strong>（<code>exceptionally</code>, <code>handle</code>）。</li>
+</ol>
+<p>常用方法：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">场景</th>
-<th style="text-align:left">推荐方案</th>
-<th style="text-align:left">理由</th>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">简单计数器</td>
-<td style="text-align:left"><code>AtomicInteger/Long</code></td>
-<td style="text-align:left">实现简单，性能好</td>
+<td style="text-align:left"><code>supplyAsync</code> / <code>runAsync</code></td>
+<td style="text-align:left">创建异步任务</td>
 </tr>
 <tr>
-<td style="text-align:left">高并发统计</td>
-<td style="text-align:left"><code>LongAdder</code></td>
-<td style="text-align:left">减少CAS竞争</td>
+<td style="text-align:left"><code>thenApply</code> / <code>thenAccept</code> / <code>thenRun</code></td>
+<td style="text-align:left">链式回调</td>
 </tr>
 <tr>
-<td style="text-align:left">复杂对象更新</td>
-<td style="text-align:left"><code>AtomicReference</code></td>
-<td style="text-align:left">保证引用原子性</td>
+<td style="text-align:left"><code>thenCompose</code></td>
+<td style="text-align:left">链式嵌套 Future</td>
 </tr>
 <tr>
-<td style="text-align:left">需要版本控制</td>
-<td style="text-align:left"><code>AtomicStampedReference</code></td>
-<td style="text-align:left">解决ABA问题</td>
+<td style="text-align:left"><code>thenCombine</code> / <code>allOf</code> / <code>anyOf</code></td>
+<td style="text-align:left">组合多个 Future</td>
 </tr>
 <tr>
-<td style="text-align:left">多变量原子更新</td>
-<td style="text-align:left">锁机制</td>
-<td style="text-align:left">CAS无法直接支持</td>
+<td style="text-align:left"><code>exceptionally</code> / <code>handle</code></td>
+<td style="text-align:left">异常处理</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>complete</code> / <code>completeExceptionally</code></td>
+<td style="text-align:left">手动控制 Future</td>
 </tr>
 </tbody>
 </table>
+<p><strong>示例</strong>：</p>
+<pre><code class="java">CompletableFuture.supplyAsync(() -&gt; &quot;Hello&quot;)
+    .thenApply(s -&gt; s + &quot; World&quot;)
+    .thenAccept(System.out::println)
+    .exceptionally(ex -&gt; { ex.printStackTrace(); return null; });
+</code></pre>
+<h3 id="执行异步任务"><a href="#执行异步任务" class="headerlink" title="执行异步任务"></a>执行异步任务</h3><p>1、<code>supplyAsync</code> - 执行有返回值的异步任务</p>
+<pre><code class="java">// 异步获取用户信息
+CompletableFuture&lt;String&gt; getUserInfo = CompletableFuture.supplyAsync(() -&gt; {
+    // 模拟网络请求
+    try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+    return &quot;User: Alice, Age: 25&quot;;
+});
+
+System.out.println(getUserInfo.get()); // 阻塞获取结果
+</code></pre>
+<ul>
+<li><p>默认使用 <code>ForkJoinPool.commonPool()</code>。</p>
+</li>
+<li><p>可指定自定义线程池：</p>
+<pre><code class="java">ExecutorService executor = Executors.newFixedThreadPool(4);
+CompletableFuture&lt;String&gt; future = CompletableFuture.supplyAsync(() -&gt; &quot;Task&quot;, executor);
+</code></pre>
+</li>
+</ul>
+<p>2、<code>runAsync</code> - 执行无返回值的异步任务</p>
+<pre><code class="java">// 异步记录日志
+CompletableFuture&lt;Void&gt; logTask = CompletableFuture.runAsync(() -&gt; {
+    System.out.println(&quot;Logging operation completed at &quot; + System.currentTimeMillis());
+});
+
+logTask.join(); // 等待任务完成
+</code></pre>
+<h3 id="链式调用（回调处理）"><a href="#链式调用（回调处理）" class="headerlink" title="链式调用（回调处理）"></a>链式调用（回调处理）</h3><p>链式调用（Chaining Calls）允许以<strong>流水线（Pipeline）</strong>的方式将多个异步操作串联起来，形成清晰的任务处理流程。</p>
+<p><strong>将多个操作通过方法连续调用的方式连接在一起</strong>，前一个操作的输出作为后一个操作的输入，形成”任务流水线”。</p>
+<p>1、<code>thenApply</code> - 转换结果，对前一个任务的结果进行转换。</p>
+<pre><code class="java">// 异步获取用户名后转为大写
+CompletableFuture&lt;String&gt; upperCaseName = CompletableFuture.supplyAsync(() -&gt; &quot;alice&quot;)
+    .thenApply(name -&gt; name.toUpperCase());
+
+System.out.println(upperCaseName.get()); // &quot;ALICE&quot;
+</code></pre>
+<p>2、<code>thenAccept</code> - 消费结果，获取前一个任务的结果并进行消费（无返回值）。</p>
+<pre><code class="java">// 异步查询订单后发送邮件
+CompletableFuture.supplyAsync(() -&gt; &quot;Order#12345&quot;)
+    .thenAccept(order -&gt; System.out.println(&quot;Sending confirmation for &quot; + order));
+</code></pre>
+<p>3、<code>thenRun</code> - 任务完成后执行操作，前一个任务完成后执行某个操作，不关心结果。</p>
+<pre><code class="java">// 数据库备份完成后通知管理员
+CompletableFuture.runAsync(() -&gt; backupDatabase())
+    .thenRun(() -&gt; System.out.println(&quot;Notifying admin: Backup complete&quot;));
+</code></pre>
+<p>4、<code>thenCompose</code> - 链式嵌套 Future，用于链式调用多个 <code>CompletableFuture</code>，避免回调地狱。</p>
+<pre><code class="java">// 先查用户ID，再查用户详情
+CompletableFuture&lt;Integer&gt; userIdFuture = CompletableFuture.supplyAsync(() -&gt; 1001);
+
+CompletableFuture&lt;String&gt; userDetailFuture = userIdFuture.thenCompose(id -&gt; 
+    CompletableFuture.supplyAsync(() -&gt; &quot;User Details for ID: &quot; + id)
+);
+
+System.out.println(userDetailFuture.get()); // &quot;User Details for ID: 1001&quot;
+</code></pre>
+<hr>
+<p><strong>Q1：<code>thenApply</code> 和 <code>thenCompose</code> 的区别？</strong></p>
+<ul>
+<li><p><code>thenApply</code>：接收前序结果，返回<strong>普通值</strong></p>
+<pre><code class="java">.thenApply(v -&gt; v.toUpperCase()) // 返回 String
+</code></pre>
+</li>
+<li><p><code>thenCompose</code>：接收前序结果，返回<strong>新的 CompletableFuture</strong></p>
+<pre><code class="java">.thenCompose(v -&gt; queryFromDB(v)) // 返回 CompletableFuture&lt;String&gt;
+</code></pre>
+</li>
+</ul>
+<p><strong>Q2：电商订单处理链</strong></p>
+<pre><code class="java">// 1. 查询用户信息 → 2. 查询商品 → 3. 计算价格 → 4. 生成订单
+CompletableFuture.supplyAsync(() -&gt; getUser(userId))
+    .thenApply(user -&gt; getProduct(user, productId))
+    .thenApply(product -&gt; calculatePrice(product))
+    .thenAccept(price -&gt; createOrder(price))
+    .exceptionally(ex -&gt; {
+        log.error(&quot;Order failed&quot;, ex);
+        return null;
+    });
+</code></pre>
+<h3 id="组合多个Future"><a href="#组合多个Future" class="headerlink" title="组合多个Future"></a>组合多个Future</h3><p>1、<code>thenCombine</code> - 合并两个 Future 的结果，等待两个任务完成，并对结果进行合并。</p>
+<pre><code class="java">// 并行查询商品价格和库存，然后计算总价值
+CompletableFuture&lt;Double&gt; priceFuture = CompletableFuture.supplyAsync(() -&gt; 19.99);
+CompletableFuture&lt;Integer&gt; stockFuture = CompletableFuture.supplyAsync(() -&gt; 100);
+
+CompletableFuture&lt;BigDecimal&gt; totalValue = priceFuture.thenCombine(stockFuture,
+        (price, stock) -&gt; new BigDecimal(String.valueOf(price)).multiply(new BigDecimal(stock))
+);
+
+System.out.println(totalValue.get().toString()); // 1999.0
+</code></pre>
+<p>2、<code>allOf</code> - 等待所有 Future 完成。并行执行多个任务，并在所有任务完成后触发回调。</p>
+<pre><code class="java">// 批量调用多个API，全部完成后处理数据
+CompletableFuture&lt;String&gt; api1 = CompletableFuture.supplyAsync(() -&gt; &quot;Data1&quot;);
+CompletableFuture&lt;String&gt; api2 = CompletableFuture.supplyAsync(() -&gt; &quot;Data2&quot;);
+CompletableFuture&lt;String&gt; api3 = CompletableFuture.supplyAsync(() -&gt; &quot;Data3&quot;);
+
+CompletableFuture&lt;Void&gt; allApis = CompletableFuture.allOf(api1, api2, api3);
+
+allApis.thenRun(() -&gt; {
+    System.out.println(&quot;All APIs completed&quot;);
+    // 获取各个任务的结果
+    try {
+        String result1 = api1.get();
+        String result2 = api2.get();
+        String result3 = api3.get();
+        System.out.println(result1 + &quot;, &quot; + result2 + &quot;, &quot; + result3);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+});
+</code></pre>
+<p>3、<code>anyOf</code> - 任意一个 Future 完成时触发。多个任务竞争，只要有一个完成就触发回调。</p>
+<pre><code class="java">// 多个服务提供相同数据，取最先返回的
+CompletableFuture&lt;String&gt; serviceA = CompletableFuture.supplyAsync(() -&gt; {
+    try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+    return &quot;Service A Result&quot;;
+});
+
+CompletableFuture&lt;String&gt; serviceB = CompletableFuture.supplyAsync(() -&gt; {
+    try { Thread.sleep(1000); } catch (InterruptedException e) { e.printStackTrace(); }
+    return &quot;Service B Result&quot;;
+});
+
+CompletableFuture&lt;Object&gt; fastestResult = CompletableFuture.anyOf(serviceA, serviceB);
+
+System.out.println(fastestResult.get()); // &quot;Service B Result&quot;（因为B更快）
+</code></pre>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>1、<code>exceptionally</code> - 捕获异常并返回默认值。类似于 <code>try-catch</code>，在异常时提供备用值。</p>
+<pre><code class="java">// 查询用户信息失败时返回默认用户
+CompletableFuture&lt;String&gt; userFuture = CompletableFuture.supplyAsync(() -&gt; {
+    if (Math.random() &gt; 0.5) {
+        throw new RuntimeException(&quot;Failed to fetch user&quot;);
+    }
+    return &quot;User Data&quot;;
+}).exceptionally(ex -&gt; {
+    System.err.println(&quot;Error: &quot; + ex.getMessage());
+    return &quot;Default User&quot;;
+});
+
+System.out.println(userFuture.get());
+</code></pre>
+<p>2、<code>handle</code> - 无论成功或失败都处理。无论任务成功还是失败，都会执行回调。</p>
+<pre><code class="java">// 处理任务结果或异常
+CompletableFuture&lt;Integer&gt; parsedFuture = CompletableFuture.supplyAsync(() -&gt; &quot;123&quot;)
+    .handle((str, ex) -&gt; {
+        if (ex != null) {
+            return -1; // 解析失败返回默认值
+        }
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    });
+
+System.out.println(parsedFuture.get()); // 123 或 -1（如果异常）
+</code></pre>
+<h3 id="手动控制Future"><a href="#手动控制Future" class="headerlink" title="手动控制Future"></a>手动控制Future</h3><p>1、<code>complete</code> - 手动设置结果。强制完成任务并设置结果。</p>
+<pre><code class="java">// 超时手动完成任务
+CompletableFuture&lt;String&gt; future = new CompletableFuture&lt;&gt;();
+
+// 模拟超时控制
+new Thread(() -&gt; {
+    try {
+        Thread.sleep(2000);
+        future.complete(&quot;Fallback Data&quot;);
+    } catch (InterruptedException e) {
+        future.completeExceptionally(e);
+    }
+}).start();
+
+System.out.println(future.get()); // &quot;Fallback Data&quot;（如果超时）
+</code></pre>
+<p>2、<code>completeExceptionally</code> - 手动设置异常。强制任务失败并抛出异常。</p>
+<pre><code class="java">// 任务验证失败时主动终止
+CompletableFuture&lt;String&gt; future = new CompletableFuture&lt;&gt;();
+
+if (invalidInput) {
+    future.completeExceptionally(new IllegalArgumentException(&quot;Invalid input&quot;));
+} else {
+    future.complete(&quot;Valid Result&quot;);
+}
+</code></pre>
+<h2 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">类</th>
+<th style="text-align:left">核心场景</th>
+<th style="text-align:left">是否支持链式调用</th>
+<th style="text-align:left">任务类型</th>
+<th style="text-align:left">底层机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>FutureTask</code></td>
+<td style="text-align:left">手动包装异步任务</td>
+<td style="text-align:left">❌</td>
+<td style="text-align:left">一次性任务</td>
+<td style="text-align:left">线程池或单独线程执行</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ScheduledFuture</code></td>
+<td style="text-align:left">延迟/周期性任务</td>
+<td style="text-align:left">❌</td>
+<td style="text-align:left">单次或周期性</td>
+<td style="text-align:left">基于时间调度</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ForkJoinTask</code></td>
+<td style="text-align:left">分治任务（递归、并行）</td>
+<td style="text-align:left">❌</td>
+<td style="text-align:left">可分解的子任务</td>
+<td style="text-align:left">工作窃取线程池</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>CompletableFuture</code></td>
+<td style="text-align:left">异步回调、组合多任务</td>
+<td style="text-align:left">✔️</td>
+<td style="text-align:left">链式或组合任务</td>
+<td style="text-align:left">回调链 + 线程池</td>
+</tr>
+</tbody>
+</table>
+<p><strong>如何选择？</strong></p>
+<ol>
+<li><strong>需要延迟/周期任务</strong> → <code>ScheduledFuture</code></li>
+<li><strong>简单异步任务封装</strong> → <code>FutureTask</code></li>
+<li><strong>递归或并行计算</strong> → <code>ForkJoinTask</code></li>
+<li><strong>复杂异步流程（如回调、组合）</strong> → <code>CompletableFuture</code></li>
+</ol>
 
         </div>
         <!-- .entry-content -->
@@ -1045,15 +1478,15 @@ public class PerformanceTest {
           
             <div class="post-nepre half previous">
           
-            <a href="/2025/03/29/JUC学习笔记-显式锁：ReentrantLock详解/" rel="prev">
+            <a href="/2024/08/24/红米AX6000刷机记录/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1460924089785-8467346e18ea?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1460924089785-8467346e18ea?w=540">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                JUC学习笔记-显式锁：ReentrantLock详解</h3>
+                红米AX6000刷机记录</h3>
                 <hr>
               </div>
             </a>
@@ -1063,15 +1496,15 @@ public class PerformanceTest {
           
             <div class="post-nepre half next">
           
-            <a href="/2025/03/24/RabbitMQ如何保证消息的可靠性传输/" rel="next">
+            <a href="/2024/04/03/JUC学习笔记-显式锁：ReentrantLock详解/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1547122891-8aae3f2a03dc?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1547122891-8aae3f2a03dc?w=540">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                RabbitMQ如何保证消息的可靠性传输</h3>
+                JUC学习笔记-显式锁：ReentrantLock详解</h3>
                 <hr>
               </div>
             </a>

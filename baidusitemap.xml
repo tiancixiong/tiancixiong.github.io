@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.xiongtianci.com/2025/03/29/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>https://blog.xiongtianci.com/2024/04/09/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/</loc>
     <lastmod>2025-03-29</lastmod>
   </url>
   <url>
-    <loc>https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>https://blog.xiongtianci.com/2024/04/03/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2025-03-29</lastmod>
   </url>
   <url>
-    <loc>https://blog.xiongtianci.com/2025/03/29/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/</loc>
+    <loc>https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/</loc>
     <lastmod>2025-03-29</lastmod>
   </url>
   <url>
@@ -18,14 +18,6 @@
   </url>
   <url>
     <loc>https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4/</loc>
-    <lastmod>2025-03-27</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/</loc>
-    <lastmod>2025-03-27</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/04/08/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/</loc>
     <lastmod>2025-03-27</lastmod>
   </url>
   <url>
