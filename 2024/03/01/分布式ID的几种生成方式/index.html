@@ -395,6 +395,17 @@
 <li><strong>无需中央管理机构</strong>：可以本地生成，不需要注册</li>
 <li><strong>多种生成算法</strong>：UUID 有 5 个版本，每个版本使用不同的生成方法</li>
 </ul>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>本地生成，无网络开销，性能高。</li>
+<li>全球唯一。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>无序（作为主键时导致B+树频繁分裂，影响插入性能）。</li>
+<li>字符串存储占用空间大（36字节），查询效率低。</li>
+</ul>
+<p><strong>适用场景</strong>：对唯一性要求高、无需有序且非DB主键的场景。</p>
 <p>格式：标准 UUID 表示为 32 个十六进制数字，分为 5 组，形式为：<code>8-4-4-4-12</code>，例如 <code>550e8400-e29b-41d4-a716-446655440000</code>。</p>
 <p>UUID 的版本：</p>
 <ol>
@@ -508,6 +519,13 @@ public class UUIDExample {
 <li>单数据库：<code>AUTO_INCREMENT</code>(MySQL)或<code>SEQUENCE</code>(Oracle)</li>
 <li>多数据库：设置不同步长（如DB1:1,4,7… DB2:2,5,8… DB3:3,6,9…）</li>
 </ul>
+<p><strong>优点</strong>：简单，递增有序。<br><strong>缺点</strong>：</p>
+<ul>
+<li>强依赖DB，存在单点风险。</li>
+<li>分库分表时需额外配置步长，扩容困难。</li>
+<li>暴露业务数据量（如用户ID可推测注册量）。</li>
+</ul>
+<p><strong>适用场景</strong>：小型非分布式系统。</p>
 <h2 id="单数据库实现"><a href="#单数据库实现" class="headerlink" title="单数据库实现"></a>单数据库实现</h2><p><strong>MySQL (AUTO_INCREMENT)</strong>:</p>
 <pre><code class="sql">CREATE TABLE items (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -541,15 +559,45 @@ SET @@auto_increment_offset=2;
 SET @@auto_increment_increment=3;
 SET @@auto_increment_offset=3;
 </code></pre>
-<h1 id="Redis生成ID"><a href="#Redis生成ID" class="headerlink" title="Redis生成ID"></a>Redis生成ID</h1><p>利用Redis的原子性操作：</p>
+<h1 id="Redis生成ID"><a href="#Redis生成ID" class="headerlink" title="Redis生成ID"></a>Redis生成ID</h1><p><strong>实现</strong>：利用Redis的 <code>INCR</code> 或 <code>INCRBY</code> 原子操作生成递增ID。</p>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>性能优于DB（单机可达10W+/秒）。</li>
+<li>可生成有序ID。</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>需引入Redis，增加系统复杂度。</li>
+<li>持久化问题（AOF/RDB宕机可能导致ID重复）。</li>
+</ul>
+<p><strong>优化</strong>：</p>
+<ul>
+<li>集群模式下分片生成（如每个实例预分配ID段）。</li>
+</ul>
+<p><strong>适用场景</strong>：需要高性能且允许少量ID不连续的场景。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>利用Redis的原子性操作：</p>
 <pre><code class="java">// 使用INCR命令
 Long id = redisTemplate.opsForValue().increment(&quot;global_id&quot;);
 </code></pre>
-<h1 id="Snowflake算法"><a href="#Snowflake算法" class="headerlink" title="Snowflake算法"></a>Snowflake算法</h1><p>Twitter开源的分布式ID算法，64位长整型：</p>
+<h1 id="Snowflake算法"><a href="#Snowflake算法" class="headerlink" title="Snowflake算法"></a>Snowflake算法</h1><p>Snowflake 算法，雪花算法，是 Twitter 开源的分布式ID生成算法。生成后是一个 64bit 的 long 型的数值，组成部分引入了时间戳。</p>
+<p><strong>实现</strong>：64位ID = <code>1位符号位</code> + <code>41位时间戳</code> + <code>10位机器ID</code> + <code>12位序列号</code>。</p>
+<p><strong>优点</strong>：</p>
 <ul>
-<li>1位符号位 + 41位时间戳 + 10位工作机器ID + 12位序列号</li>
+<li>本地生成，高性能（单机每秒26万+）。</li>
+<li>趋势递增，适合作为DB主键。</li>
 </ul>
-<p>Snowflake 生成的 64 位 ID 的结构如下：</p>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>依赖系统时钟（时钟回拨会导致ID重复）。</li>
+<li>需管理机器ID（如通过ZooKeeper）。</li>
+</ul>
+<p><strong>优化</strong>：</p>
+<ul>
+<li>改进版（如美团Leaf）：解决时钟回拨问题。</li>
+<li>缩短时间戳位数，扩展机器ID（如百度UidGenerator）。</li>
+</ul>
+<p><strong>适用场景</strong>：高并发分布式系统（如订单、日志系统）。</p>
+<p>ID 的结构如下：</p>
 <pre><code>+--------------------------------------------------------------------------+
 | 1 Bit Unused | 41 Bit Timestamp | 10 Bit Machine ID | 12 Bit Sequence ID |
 +--------------------------------------------------------------------------+
@@ -867,7 +915,7 @@ public long getIdle() {
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -879,10 +927,10 @@ public long getIdle() {
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',

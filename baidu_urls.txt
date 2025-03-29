@@ -1,3 +1,5 @@
+https://blog.xiongtianci.com/2025/03/29/JUC学习笔记-显式锁：ReentrantLock详解/
+https://blog.xiongtianci.com/2025/03/29/JUC学习笔记-基础并发工具：Atomic包与CAS/
 https://blog.xiongtianci.com/2025/03/24/RabbitMQ如何保证消息的可靠性传输/
 https://blog.xiongtianci.com/2025/03/23/加密存储在数据库中的数据如何进行模糊查询/
 https://blog.xiongtianci.com/2025/03/21/分布式锁的几种实现方案/
