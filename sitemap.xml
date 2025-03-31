@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.xiongtianci.com/2024/01/01/WebSocket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2025-03-31T02:55:25.455Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.xiongtianci.com/2024/04/09/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/</loc>
     
     <lastmod>2025-03-29T02:46:13.861Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://blog.xiongtianci.com/2024/02/01/%E5%85%B3%E4%BA%8EWindows%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2025-03-25T14:02:20.134Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/01/01/WebSocket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2025-03-25T14:02:11.089Z</lastmod>
     
   </url>
   
