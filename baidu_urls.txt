@@ -11,7 +11,9 @@ https://blog.xiongtianci.com/2024/04/09/JUC学习笔记-异步编程：Future与
 https://blog.xiongtianci.com/2024/04/03/JUC学习笔记-显式锁：ReentrantLock详解/
 https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-基础并发工具：Atomic包与CAS/
 https://blog.xiongtianci.com/2024/04/01/JUC学习步骤/
+https://blog.xiongtianci.com/2024/03/11/JDK8中的StampedLock/
 https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/
+https://blog.xiongtianci.com/2024/02/02/C语言中的指针、解引用、取地址/
 https://blog.xiongtianci.com/2024/02/01/关于Windows的一些设置/
 https://blog.xiongtianci.com/2024/01/01/WebSocket学习笔记/
 https://blog.xiongtianci.com/2023/10/13/踩坑记录-Java中时间字段入库值和格式化后的值相差一秒/
