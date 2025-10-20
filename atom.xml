@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2025-03-25T14:03:44.731Z</updated>
+  <updated>2025-10-19T23:44:18.293Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软路由系统使用篇</title>
+    <link href="https://blog.xiongtianci.com/2025/10/20/%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E7%AF%87/"/>
+    <id>https://blog.xiongtianci.com/2025/10/20/软路由系统使用篇/</id>
+    <published>2025-10-19T23:44:17.000Z</published>
+    <updated>2025-10-19T23:44:18.293Z</updated>
+    
+    <summary type="html">
+    
+      软路由系统使用篇
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WR30U路由器救砖记录</title>
+    <link href="https://blog.xiongtianci.com/2025/10/18/WR30U%E8%B7%AF%E7%94%B1%E5%99%A8%E6%95%91%E7%A0%96%E8%AE%B0%E5%BD%95/"/>
+    <id>https://blog.xiongtianci.com/2025/10/18/WR30U路由器救砖记录/</id>
+    <published>2025-10-17T23:45:34.000Z</published>
+    <updated>2025-10-20T00:16:17.093Z</updated>
+    
+    <summary type="html">
+    
+      WR30U路由器救砖记录
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="路由器" scheme="https://blog.xiongtianci.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+      <category term="软路由" scheme="https://blog.xiongtianci.com/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在同一台电脑上配置SSH管理多个GitHub账户</title>
+    <link href="https://blog.xiongtianci.com/2025/07/19/%E5%9C%A8%E5%90%8C%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E9%85%8D%E7%BD%AESSH%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAGitHub%E8%B4%A6%E6%88%B7/"/>
+    <id>https://blog.xiongtianci.com/2025/07/19/在同一台电脑上配置SSH管理多个GitHub账户/</id>
+    <published>2025-07-19T00:25:50.000Z</published>
+    <updated>2025-08-05T01:10:47.857Z</updated>
+    
+    <summary type="html">
+    
+      在同一台电脑上配置SSH管理多个GitHub账户
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java并发：FutureTask能确保在高并发环境下任务只执行一次</title>
+    <link href="https://blog.xiongtianci.com/2025/05/21/Java%E5%B9%B6%E5%8F%91%EF%BC%9AFutureTask%E8%83%BD%E7%A1%AE%E4%BF%9D%E5%9C%A8%E9%AB%98%E5%B9%B6%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BB%BB%E5%8A%A1%E5%8F%AA%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1/"/>
+    <id>https://blog.xiongtianci.com/2025/05/21/Java并发：FutureTask能确保在高并发环境下任务只执行一次/</id>
+    <published>2025-05-21T14:10:26.000Z</published>
+    <updated>2025-05-21T14:21:52.985Z</updated>
+    
+    <summary type="html">
+    
+      Java并发：FutureTask能确保在高并发环境下任务只执行一次
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Acrobat操作PDF的功能整合</title>
+    <link href="https://blog.xiongtianci.com/2025/05/06/Acrobat%E6%93%8D%E4%BD%9CPDF%E7%9A%84%E5%8A%9F%E8%83%BD%E6%95%B4%E5%90%88/"/>
+    <id>https://blog.xiongtianci.com/2025/05/06/Acrobat操作PDF的功能整合/</id>
+    <published>2025-05-06T14:24:27.000Z</published>
+    <updated>2025-05-06T14:25:12.017Z</updated>
+    
+    <summary type="html">
+    
+      Acrobat操作PDF的功能整合
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>RabbitMQ如何保证消息的可靠性传输</title>
@@ -291,100 +385,6 @@
     
       <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>C语言中的指针</title>
-    <link href="https://blog.xiongtianci.com/2024/02/02/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88/"/>
-    <id>https://blog.xiongtianci.com/2024/02/02/C语言中的指针/</id>
-    <published>2024-02-02T01:24:20.000Z</published>
-    <updated>2025-04-08T13:14:48.798Z</updated>
-    
-    <summary type="html">
-    
-      C语言中的指针
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="C" scheme="https://blog.xiongtianci.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于Windows的一些设置</title>
-    <link href="https://blog.xiongtianci.com/2024/02/01/%E5%85%B3%E4%BA%8EWindows%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AE%BE%E7%BD%AE/"/>
-    <id>https://blog.xiongtianci.com/2024/02/01/关于Windows的一些设置/</id>
-    <published>2024-02-01T00:56:48.000Z</published>
-    <updated>2025-03-25T14:02:20.134Z</updated>
-    
-    <summary type="html">
-    
-      关于Windows的一些设置
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>WebSocket学习笔记</title>
-    <link href="https://blog.xiongtianci.com/2024/01/01/WebSocket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://blog.xiongtianci.com/2024/01/01/WebSocket学习笔记/</id>
-    <published>2024-01-01T01:07:04.000Z</published>
-    <updated>2025-03-31T02:55:25.455Z</updated>
-    
-    <summary type="html">
-    
-      WebSocket学习笔记
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>踩坑记录-Java中时间字段入库值和格式化后的值相差一秒</title>
-    <link href="https://blog.xiongtianci.com/2023/10/13/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-Java%E4%B8%AD%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E5%85%A5%E5%BA%93%E5%80%BC%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E7%9A%84%E5%80%BC%E7%9B%B8%E5%B7%AE%E4%B8%80%E7%A7%92/"/>
-    <id>https://blog.xiongtianci.com/2023/10/13/踩坑记录-Java中时间字段入库值和格式化后的值相差一秒/</id>
-    <published>2023-10-13T10:07:02.000Z</published>
-    <updated>2023-10-13T10:49:12.175Z</updated>
-    
-    <summary type="html">
-    
-      踩坑记录-Java中时间字段入库值和格式化后的值相差一秒
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>解决windows中Typora上万字后异常卡顿的情况</title>
-    <link href="https://blog.xiongtianci.com/2023/05/29/%E8%A7%A3%E5%86%B3windows%E4%B8%ADTypora%E4%B8%8A%E4%B8%87%E5%AD%97%E5%90%8E%E5%BC%82%E5%B8%B8%E5%8D%A1%E9%A1%BF%E7%9A%84%E6%83%85%E5%86%B5/"/>
-    <id>https://blog.xiongtianci.com/2023/05/29/解决windows中Typora上万字后异常卡顿的情况/</id>
-    <published>2023-05-29T08:27:45.000Z</published>
-    <updated>2023-06-08T23:09:34.349Z</updated>
-    
-    <summary type="html">
-    
-      解决windows上Typora
-    
-    </summary>
-    
-      <category term="工具" scheme="https://blog.xiongtianci.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="Typora" scheme="https://blog.xiongtianci.com/tags/Typora/"/>
     
   </entry>
   

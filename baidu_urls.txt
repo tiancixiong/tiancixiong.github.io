@@ -1,3 +1,8 @@
+https://blog.xiongtianci.com/2025/10/20/软路由系统使用篇/
+https://blog.xiongtianci.com/2025/10/18/WR30U路由器救砖记录/
+https://blog.xiongtianci.com/2025/07/19/在同一台电脑上配置SSH管理多个GitHub账户/
+https://blog.xiongtianci.com/2025/05/21/Java并发：FutureTask能确保在高并发环境下任务只执行一次/
+https://blog.xiongtianci.com/2025/05/06/Acrobat操作PDF的功能整合/
 https://blog.xiongtianci.com/2025/03/24/RabbitMQ如何保证消息的可靠性传输/
 https://blog.xiongtianci.com/2025/03/23/加密存储在数据库中的数据如何进行模糊查询/
 https://blog.xiongtianci.com/2025/03/21/分布式锁的几种实现方案/
@@ -15,6 +20,8 @@ https://blog.xiongtianci.com/2024/03/11/JDK8中的StampedLock/
 https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/
 https://blog.xiongtianci.com/2024/02/02/C语言中的指针/
 https://blog.xiongtianci.com/2024/02/01/关于Windows的一些设置/
+https://blog.xiongtianci.com/2024/01/26/Windows系统使用过程中的一些问题/
+https://blog.xiongtianci.com/2024/01/25/Adobe-Acrobat插件-Pitstop的使用/
 https://blog.xiongtianci.com/2024/01/01/WebSocket学习笔记/
 https://blog.xiongtianci.com/2023/10/13/踩坑记录-Java中时间字段入库值和格式化后的值相差一秒/
 https://blog.xiongtianci.com/2023/05/29/解决windows中Typora上万字后异常卡顿的情况/
