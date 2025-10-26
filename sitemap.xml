@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.xiongtianci.com/2025/01/02/%E8%AE%B0%E5%BD%95%EF%BC%9AVMware%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%9C%A8%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%97%A0%E6%B3%95ping%E9%80%9A%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2025-10-26T02:22:16.813Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2025/05/21/Java%E5%B9%B6%E5%8F%91%EF%BC%9AFutureTask%E8%83%BD%E7%A1%AE%E4%BF%9D%E5%9C%A8%E9%AB%98%E5%B9%B6%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BB%BB%E5%8A%A1%E5%8F%AA%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1/</loc>
+    
+    <lastmod>2025-10-26T02:19:41.045Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2025/07/19/%E5%9C%A8%E5%90%8C%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E9%85%8D%E7%BD%AESSH%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAGitHub%E8%B4%A6%E6%88%B7/</loc>
+    
+    <lastmod>2025-10-26T02:19:07.247Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2023/10/13/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-Java%E4%B8%AD%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E5%85%A5%E5%BA%93%E5%80%BC%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E7%9A%84%E5%80%BC%E7%9B%B8%E5%B7%AE%E4%B8%80%E7%A7%92/</loc>
+    
+    <lastmod>2025-10-26T02:17:53.401Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/03/11/JDK8%E4%B8%AD%E7%9A%84StampedLock/</loc>
+    
+    <lastmod>2025-10-26T02:17:30.008Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4/</loc>
+    
+    <lastmod>2025-10-26T02:17:14.104Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/</loc>
+    
+    <lastmod>2025-10-26T02:16:56.548Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/04/03/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/</loc>
+    
+    <lastmod>2025-10-26T02:16:38.529Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2024/04/09/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/</loc>
+    
+    <lastmod>2025-10-26T02:16:24.693Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2025/01/01/VMware%E4%B8%A2%E5%A4%B1%E4%BA%86%E4%B9%8B%E5%89%8D%E5%AE%89%E8%A3%85%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
+    
+    <lastmod>2025-10-26T02:14:25.009Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.xiongtianci.com/2023/05/21/Zuul%E7%BD%91%E5%85%B3%E5%AE%9E%E7%8E%B0%E9%99%90%E6%B5%81/</loc>
     
     <lastmod>2025-10-26T01:55:00.347Z</lastmod>
@@ -30,27 +100,6 @@
   </url>
   
   <url>
-    <loc>https://blog.xiongtianci.com/2025/07/19/%E5%9C%A8%E5%90%8C%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%E9%85%8D%E7%BD%AESSH%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAGitHub%E8%B4%A6%E6%88%B7/</loc>
-    
-    <lastmod>2025-10-26T01:45:44.317Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2025/05/21/Java%E5%B9%B6%E5%8F%91%EF%BC%9AFutureTask%E8%83%BD%E7%A1%AE%E4%BF%9D%E5%9C%A8%E9%AB%98%E5%B9%B6%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BB%BB%E5%8A%A1%E5%8F%AA%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1/</loc>
-    
-    <lastmod>2025-10-26T01:45:44.283Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2025/05/06/Acrobat%E6%93%8D%E4%BD%9CPDF%E7%9A%84%E5%8A%9F%E8%83%BD%E6%95%B4%E5%90%88/</loc>
-    
-    <lastmod>2025-10-26T01:45:44.266Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.xiongtianci.com/2025/03/24/RabbitMQ%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%BC%A0%E8%BE%93/</loc>
     
     <lastmod>2025-10-26T01:45:44.249Z</lastmod>
@@ -75,20 +124,6 @@
     <loc>https://blog.xiongtianci.com/2025/03/01/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F%E5%B7%A5%E5%85%B7iPerf3%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2025-10-26T01:45:44.197Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2025/01/02/%E8%AE%B0%E5%BD%95%EF%BC%9AVMware%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%9C%A8%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%97%A0%E6%B3%95ping%E9%80%9A%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
-    
-    <lastmod>2025-10-26T01:45:44.181Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2025/01/01/VMware%E4%B8%A2%E5%A4%B1%E4%BA%86%E4%B9%8B%E5%89%8D%E5%AE%89%E8%A3%85%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA/</loc>
-    
-    <lastmod>2025-10-26T01:45:44.163Z</lastmod>
     
   </url>
   
@@ -124,41 +159,6 @@
     <loc>https://blog.xiongtianci.com/2024/08/24/%E7%BA%A2%E7%B1%B3AX6000%E5%88%B7%E6%9C%BA%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2025-10-26T01:45:43.998Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/04/09/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%EF%BC%9AFuture%E4%B8%8ECallable/</loc>
-    
-    <lastmod>2025-10-26T01:45:43.962Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/04/03/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%98%BE%E5%BC%8F%E9%94%81%EF%BC%9AReentrantLock%E8%AF%A6%E8%A7%A3/</loc>
-    
-    <lastmod>2025-10-26T01:45:43.911Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/</loc>
-    
-    <lastmod>2025-10-26T01:45:43.883Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4/</loc>
-    
-    <lastmod>2025-10-26T01:45:43.866Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2024/03/11/JDK8%E4%B8%AD%E7%9A%84StampedLock/</loc>
-    
-    <lastmod>2025-10-26T01:45:43.849Z</lastmod>
     
   </url>
   
@@ -201,13 +201,6 @@
     <loc>https://blog.xiongtianci.com/2024/01/01/WebSocket%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2025-10-26T01:45:43.746Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2023/10/13/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95-Java%E4%B8%AD%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E5%85%A5%E5%BA%93%E5%80%BC%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E7%9A%84%E5%80%BC%E7%9B%B8%E5%B7%AE%E4%B8%80%E7%A7%92/</loc>
-    
-    <lastmod>2025-10-26T01:45:43.728Z</lastmod>
     
   </url>
   
@@ -285,13 +278,6 @@
     <loc>https://blog.xiongtianci.com/2022/02/27/%E5%AE%89%E8%A3%85Nacos-%E5%88%9D%E5%A7%8B%E5%8C%96sql%E6%8A%A5%E9%94%99%EF%BC%9Aindex-column-size-too-large-the-maximum-column-size-is-767-bytes/</loc>
     
     <lastmod>2025-10-26T01:45:43.243Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/2022/02/27/nacos%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E5%88%97%E8%A1%A8/</loc>
-    
-    <lastmod>2025-10-26T01:45:43.226Z</lastmod>
     
   </url>
   

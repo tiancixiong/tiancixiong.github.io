@@ -1,7 +1,6 @@
 https://blog.xiongtianci.com/2025/10/18/WR30U路由器救砖记录/
 https://blog.xiongtianci.com/2025/07/19/在同一台电脑上配置SSH管理多个GitHub账户/
 https://blog.xiongtianci.com/2025/05/21/Java并发：FutureTask能确保在高并发环境下任务只执行一次/
-https://blog.xiongtianci.com/2025/05/06/Acrobat操作PDF的功能整合/
 https://blog.xiongtianci.com/2025/03/24/RabbitMQ如何保证消息的可靠性传输/
 https://blog.xiongtianci.com/2025/03/23/加密存储在数据库中的数据如何进行模糊查询/
 https://blog.xiongtianci.com/2025/03/21/分布式锁的几种实现方案/
@@ -37,7 +36,6 @@ https://blog.xiongtianci.com/2022/06/23/MySQL版本从5-5升级至5-7-win10/
 https://blog.xiongtianci.com/2022/05/15/配置CentOS6-5静态ip导致xshell连接失败/
 https://blog.xiongtianci.com/2022/05/15/CentOS6.5中yum源失效的解决方案/
 https://blog.xiongtianci.com/2022/04/24/使用驱动人生后系统开机出现选择应急系统/
-https://blog.xiongtianci.com/2022/02/27/nacos启动报错问题列表/
 https://blog.xiongtianci.com/2022/02/27/安装Nacos-初始化sql报错：index-column-size-too-large-the-maximum-column-size-is-767-bytes/
 https://blog.xiongtianci.com/2022/02/21/IDEA-首次安装-的常用设置/
 https://blog.xiongtianci.com/2021/09/20/隐藏IDEA项目目录后面显示的文件路径地址/
