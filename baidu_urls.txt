@@ -1,4 +1,3 @@
-https://blog.xiongtianci.com/2025/10/20/软路由系统使用篇/
 https://blog.xiongtianci.com/2025/10/18/WR30U路由器救砖记录/
 https://blog.xiongtianci.com/2025/07/19/在同一台电脑上配置SSH管理多个GitHub账户/
 https://blog.xiongtianci.com/2025/05/21/Java并发：FutureTask能确保在高并发环境下任务只执行一次/
@@ -7,6 +6,8 @@ https://blog.xiongtianci.com/2025/03/24/RabbitMQ如何保证消息的可靠性�
 https://blog.xiongtianci.com/2025/03/23/加密存储在数据库中的数据如何进行模糊查询/
 https://blog.xiongtianci.com/2025/03/21/分布式锁的几种实现方案/
 https://blog.xiongtianci.com/2025/03/01/网络测速工具iPerf3的使用/
+https://blog.xiongtianci.com/2025/01/02/记录：VMware和主机在桥接模式下无法ping通的问题/
+https://blog.xiongtianci.com/2025/01/01/VMware丢失了之前安装的虚拟机/
 https://blog.xiongtianci.com/2024/12/18/电子书下载/
 https://blog.xiongtianci.com/2024/12/07/使用Adobe-Acrobat的PitStop插件批量去除水印/
 https://blog.xiongtianci.com/2024/08/26/记录制作网线水晶头/

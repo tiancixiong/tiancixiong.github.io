@@ -4,30 +4,11 @@
   
     
     <entry>
-      <title>软路由系统使用篇</title>
-      <link href="/2025/10/20/%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E7%AF%87/"/>
-      <url>/2025/10/20/%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E7%AF%87/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>WR30U路由器救砖记录</title>
       <link href="/2025/10/18/WR30U%E8%B7%AF%E7%94%B1%E5%99%A8%E6%95%91%E7%A0%96%E8%AE%B0%E5%BD%95/"/>
       <url>/2025/10/18/WR30U%E8%B7%AF%E7%94%B1%E5%99%A8%E6%95%91%E7%A0%96%E8%AE%B0%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在海鲜市场淘了个 WR30U 路由器。结果收到后不到半天就被我刷成砖了🤪</p><p>我是 uboot 刷成功了，但是在刷完 openwrt 后，系统启动不了，右侧网络黄灯常亮，系统灯不亮：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251018170141515.png" alt="image-20251018170141515"></p><p>尝试完各种重启、长按 REST 后仍无反应。最后，就只能 TTL 救砖了。</p><h1 id="救砖过程"><a href="#救砖过程" class="headerlink" title="救砖过程"></a>救砖过程</h1><h2 id="一、准备工具"><a href="#一、准备工具" class="headerlink" title="一、准备工具"></a>一、准备工具</h2><p>1、usb转串口设备。我这里用的 CH340G 模块（Windows10 系统通常可自动安装驱动，未自动安装时可联系商家获取）</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019102341354.png" alt="image-20251019102341354"></p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019102245770.png" alt="image-20251019102245770"></p><p>2、公对母杜邦线 3 根</p><p>买 CH340G 时店家会赠送杜邦线，但一般都是母对母，而 WR30U 的 TTL 接口是孔状结构没有针脚，所以还需要购买几根 2.54 间距公对母的杜邦线。</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019101817761.png" alt="image-20251019101817761"></p><p>也可以用 2.54mm 间距的 4P 单排针结合母对母杜邦线：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019104057553.png" alt="image-20251019104057553"></p><p>也可以选择烧录夹，不过贵点：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019103922734.png" alt="image-20251019103922734"></p><p>3、螺丝刀（拆机用）</p><p>4、一台电脑（需有网口，关闭防火墙和杀毒软件）</p><p>5、串口调试工具（如 Putty、SecureCRT、Xshell 等）、tftp 工具</p><p>6、WR30U 的 U-Boot 固件（我这里用的 hanwckf 制作的固件：<a href="https://github.com/hanwckf/bl-mt798x/releases/tag/20241115" target="_blank" rel="noopener">bl-mt798x</a>）</p><ul><li>固件文件名：<code>mt7981_wr30u-fip-fixed-parts-multi-layout.bin</code></li></ul><p>另：可以顺便准备 openwrt 的固件，救砖后一并刷入</p><h2 id="二、硬件连接"><a href="#二、硬件连接" class="headerlink" title="二、硬件连接"></a>二、硬件连接</h2><h3 id="1、连接-USB-转-TTL-模块"><a href="#1、连接-USB-转-TTL-模块" class="headerlink" title="1、连接 USB 转 TTL 模块"></a>1、连接 USB 转 TTL 模块</h3><p>拆开路由器外壳：</p><ul><li>用螺丝刀卸下 WR30U 底部螺丝，壳子底部标签下左右各一个；</li><li>翻到正面，撬开顶部盖板。</li></ul><p>找到 WR30U 主板的 TTL 接口。WR30U 路由器 TTL 接口在主板正面右上方，如下图：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251018084802685.png" alt="image-20251018084802685"></p><p><strong>接线原则（<code>关键</code>）</strong></p><p>CH340G 与主板的 TTL 引脚需按照 “交叉连接” 原则接线（模块 TX 接主板 RX，模块 RX 接主板 TX，GND 共地），即：</p><ul><li><strong>CH340G 的 TXD</strong> → 连接 <strong>WR30U 主板的 RX</strong>（模块发送接主板接收）</li><li><strong>CH340G 的 GND</strong> → 连接 <strong>WR30U 主板的 GND</strong>（共地，必须接）</li><li><strong>CH340G 的 RXD</strong> → 连接 <strong>WR30U 主板的 TX</strong>（模块接收接主板发送）</li></ul><blockquote><ul><li><strong>TXD（Transmit Data）</strong>：即发送数据线，用于设备将数据发送给与其通信的另一个设备。</li><li><strong>RXD（Receive Data）</strong>：即接收数据线，用于设备接收来自通信伙伴的数据。</li><li><strong>GND（Ground）</strong>：即地线，是公共接地端，为电路提供一个公共参考电位，确保发送端和接收端的地电位相同，以保证数据传输的稳定性。</li></ul></blockquote><p><strong>注意</strong>：</p><ul><li><code>不要接</code> CH340G 的 <code>VCC</code>（5V 或 3.3V）到主板，WR30U 主板通常由自身电源供电，外接 VCC 可能导致短路烧坏设备！</li><li>若接线后无数据，可能是 TX/RX 接反，可尝试交换两根线。</li></ul><p>最终效果：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019180048562.png" alt="image-20251019180048562"></p><blockquote><p>杜邦线和接口连接不是特别牢固，可以用电烙铁焊接下。</p></blockquote><h3 id="2、连接电脑与路由器"><a href="#2、连接电脑与路由器" class="headerlink" title="2、连接电脑与路由器"></a>2、连接电脑与路由器</h3><ol><li><p>路由器先不通电。TTL 模块的 USB 端插入电脑，安装驱动后在 “设备管理器” 中确认 COM 端口（如 COM5）；并在设备管理器中双击此设备，将速率修改为 <code>115200</code></p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019180243663.png" alt="image-20251019180243663"></p></li><li><p>用网线将电脑网口与路由器 LAN 口连接，电脑手动设置静态 IP（如 <code>192.168.1.100</code>，子网掩码 <code>255.255.255.0</code>，网关 <code>192.168.1.1</code>）</p></li><li><p>在电脑中搭建 tftp 服务（用于上传 uboot 至路由器）。下载 <a href="https://github.com/PJO2/tftpd64/releases" target="_blank" rel="noopener">tftp</a>、安装、启动并设置</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019181206114.png" alt="image-20251019181206114"></p></li></ol><h2 id="三、通过串口强制进入-U-Boot"><a href="#三、通过串口强制进入-U-Boot" class="headerlink" title="三、通过串口强制进入 U-Boot"></a>三、通过串口强制进入 U-Boot</h2><ol><li><p><strong>打开串口调试工具</strong>用软件（如 Putty、SecureCRT）连接 TTL 模块的 COM 口。配置：选择 “Serial” 模式，填写串口端口号（如 COM5），波特率为 <code>115200</code>，数据位：<code>8</code>，停止位：<code>1</code>，校验位：<code>None</code>，流控：<code>None</code>。我这里用的 xshell：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019181535299.png" alt="image-20251019181535299"></p></li><li><p><strong>启动路由器并进入uboot</strong></p><ul><li><p>给 WR30U 通电，串口工具应会滚动打印启动日志（如 U-Boot 启动信息、系统加载过程）。在日志滚动时快速按 <strong>方向下键</strong> 即可中断启动，进入 U-Boot 控制台；</p></li><li><p>窗口日志会停在 <code>U-Boot Boot Menu</code> 选项中，移动上下键选择 <code>4</code>（<code>4. Upgrade ATF FIP</code>）</p><pre><code>  *** U-Boot Boot Menu ***      1. Startup system (Default)      2. Upgrade firmware      3. Upgrade ATF BL2      4. Upgrade ATF FIP      5. Upgrade single image      6. Load image      7. Start Web failsafe      0. U-Boot console</code></pre></li></ul></li><li><p>然后在 <code>Upgrading ATF FIP</code> 选项中选择 <code>0</code></p><pre><code>*** Upgrading ATF FIP ***Available load methods:    0 - TFTP client (Default)    1 - Xmodem    2 - Ymodem    3 - Kermit    4 - S-RecordSelect (enter for default): 0</code></pre></li><li><p>随后，配置 TFTP Server 的相关信息</p><pre><code class="bash"># 设置uboot即路由器IPInput U-Boot&#39;s IP address: 192.168.1.1 # 设置TFTP服务器IP，即电脑ipInput TFTP server&#39;s IP address: 192.168.1.100# 设置路由器子网掩码Input IP netmask: 255.255.255.0# 这个填入下载的 uboot 固件的文件名Input file name: mt7981_wr30u-fip-fixed-parts-multi-layout.bin</code></pre></li><li><p>按下回车，会将本地的 uboot 上传至路由器并自动写入，相关日志信息：</p><pre><code class="tex">Input U-Boot&#39;s IP address: 192.168.1.1 Input TFTP server&#39;s IP address: 192.168.1.100 Input IP netmask: 255.255.255.0Input file name: mt7981_wr30u-fip-fixed-parts-multi-layout.binUsing ethernet@15100000 deviceTFTP from server 192.168.1.100; our IP address is 192.168.1.1Filename &#39;mt7981_wr30u-fip-fixed-parts-multi-layout.bin&#39;.Load address: 0x46000000Loading: ####################################################     1.3 MiB/sdoneBytes transferred = 757473 (b8ee1 hex)Saving Environment to MTD... Erasing on MTD device &#39;Nvram&#39;... OKWriting to MTD device &#39;Nvram&#39;... OKOK*** Loaded 757473 (0xb8ee1) bytes at 0x46000000 ***Erasing &#39;fip&#39; from 0x380000, size 0xc0000 ... OKWriting &#39;fip&#39; from 0x46000000 to 0x380000, size 0xb8ee1 ... OK*** ATF FIP upgrade completed! ***</code></pre></li></ol><p>访问 uboot 后台：<a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p><p>至此，已经成功救砖🎉🎉🎉</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019183105959.png" alt="image-20251019183105959"></p><hr><p>最后，我们也可以顺便刷入 openwrt 固件（上传后注意校验 MD5）</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019183407570.png" alt="image-20251019183407570"></p><h1 id="另"><a href="#另" class="headerlink" title="另"></a>另</h1><p>如果是刷 uboot 就失败成砖的，可以试试：<a href="https://www.cnblogs.com/p123/p/18046679" target="_blank" rel="noopener">MediaTek Filogic 系列路由器串口救砖教程</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在海鲜市场淘了个 WR30U 路由器。结果收到后不到半天就被我刷成砖了🤪</p><p>我是 uboot 刷成功了，但是在刷完 openwrt 后，系统启动不了，右侧网络黄灯常亮，系统灯不亮：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251018170141515.png" alt="image-20251018170141515"></p><p>尝试完各种重启、长按 REST 后仍无反应。最后，就只能 TTL 救砖了。</p><h1 id="救砖过程"><a href="#救砖过程" class="headerlink" title="救砖过程"></a>救砖过程</h1><h2 id="一、准备工具"><a href="#一、准备工具" class="headerlink" title="一、准备工具"></a>一、准备工具</h2><p>1、usb转串口设备。我这里用的 CH340G 模块（Windows10 系统通常可自动安装驱动，未自动安装时可联系商家获取）</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019102341354.png" alt="image-20251019102341354"></p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019102245770.png" alt="image-20251019102245770"></p><p>2、公对母杜邦线 3 根</p><p>买 CH340G 时店家会赠送杜邦线，但一般都是母对母，而 WR30U 的 TTL 接口是孔状结构没有针脚，所以还需要购买几根 2.54 间距公对母的杜邦线。</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019101817761.png" alt="image-20251019101817761"></p><p>也可以用 2.54mm 间距的 4P 单排针结合母对母杜邦线：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019104057553.png" alt="image-20251019104057553"></p><p>也可以选择烧录夹，不过贵点：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019103922734.png" alt="image-20251019103922734"></p><p>3、螺丝刀（拆机用）</p><p>4、一台电脑（需有网口，关闭防火墙和杀毒软件）</p><p>5、串口调试工具（如 Putty、SecureCRT、Xshell 等）、tftp 工具</p><p>6、WR30U 的 U-Boot 固件（我这里用的 hanwckf 制作的固件：<a href="https://github.com/hanwckf/bl-mt798x/releases/tag/20241115" target="_blank" rel="noopener">bl-mt798x</a>）</p><ul><li>固件文件名：<code>mt7981_wr30u-fip-fixed-parts-multi-layout.bin</code></li></ul><p>另：可以顺便准备 openwrt 的固件，救砖后一并刷入</p><h2 id="二、硬件连接"><a href="#二、硬件连接" class="headerlink" title="二、硬件连接"></a>二、硬件连接</h2><h3 id="1、连接-USB-转-TTL-模块"><a href="#1、连接-USB-转-TTL-模块" class="headerlink" title="1、连接 USB 转 TTL 模块"></a>1、连接 USB 转 TTL 模块</h3><p>拆开路由器外壳：</p><ul><li>用螺丝刀卸下 WR30U 底部螺丝，壳子底部标签下左右各一个；</li><li>翻到正面，撬开顶部盖板。</li></ul><p>找到 WR30U 主板的 TTL 接口。WR30U 路由器 TTL 接口在主板正面右上方，如下图：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251018084802685.png" alt="image-20251018084802685"></p><p><strong>接线原则（<code>关键</code>）</strong></p><p>CH340G 与主板的 TTL 引脚需按照 “交叉连接” 原则接线（模块 TX 接主板 RX，模块 RX 接主板 TX，GND 共地），即：</p><ul><li><strong>CH340G 的 TXD</strong> → 连接 <strong>WR30U 主板的 RX</strong>（模块发送接主板接收）</li><li><strong>CH340G 的 GND</strong> → 连接 <strong>WR30U 主板的 GND</strong>（共地，必须接）</li><li><strong>CH340G 的 RXD</strong> → 连接 <strong>WR30U 主板的 TX</strong>（模块接收接主板发送）</li></ul><blockquote><ul><li><strong>TXD（Transmit Data）</strong>：即发送数据线，用于设备将数据发送给与其通信的另一个设备。</li><li><strong>RXD（Receive Data）</strong>：即接收数据线，用于设备接收来自通信伙伴的数据。</li><li><strong>GND（Ground）</strong>：即地线，是公共接地端，为电路提供一个公共参考电位，确保发送端和接收端的地电位相同，以保证数据传输的稳定性。</li></ul></blockquote><p><strong>注意</strong>：</p><ul><li><code>不要接</code> CH340G 的 <code>VCC</code>（5V 或 3.3V）到主板，WR30U 主板通常由自身电源供电，外接 VCC 可能导致短路烧坏设备！</li><li>若接线后无数据，可能是 TX/RX 接反，可尝试交换两根线。</li></ul><p>最终效果：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019180048562.png" alt="image-20251019180048562"></p><blockquote><p>杜邦线和接口连接不是特别牢固，可以用电烙铁焊接下。</p></blockquote><h3 id="2、连接电脑与路由器"><a href="#2、连接电脑与路由器" class="headerlink" title="2、连接电脑与路由器"></a>2、连接电脑与路由器</h3><ol><li><p>路由器先不通电。TTL 模块的 USB 端插入电脑，安装驱动后在 “设备管理器” 中确认 COM 端口（如 COM5）；并在设备管理器中双击此设备，将速率修改为 <code>115200</code></p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019180243663.png" alt="image-20251019180243663"></p></li><li><p>用网线将电脑网口与路由器 LAN 口连接，电脑手动设置静态 IP（如 <code>192.168.1.100</code>，子网掩码 <code>255.255.255.0</code>，网关 <code>192.168.1.1</code>）</p></li><li><p>在电脑中搭建 tftp 服务（用于上传 uboot 至路由器）。下载 <a href="https://github.com/PJO2/tftpd64/releases" target="_blank" rel="noopener">tftp</a>、安装、启动并设置</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019181206114.png" alt="image-20251019181206114"></p></li></ol><h2 id="三、通过串口强制进入-U-Boot"><a href="#三、通过串口强制进入-U-Boot" class="headerlink" title="三、通过串口强制进入 U-Boot"></a>三、通过串口强制进入 U-Boot</h2><ol><li><p><strong>打开串口调试工具</strong>用软件（如 Putty、SecureCRT）连接 TTL 模块的 COM 口。配置：选择 “Serial” 模式，填写串口端口号（如 COM5），波特率为 <code>115200</code>，数据位：<code>8</code>，停止位：<code>1</code>，校验位：<code>None</code>，流控：<code>None</code>。我这里用的 xshell：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019181535299.png" alt="image-20251019181535299"></p></li><li><p><strong>启动路由器并进入uboot</strong></p><ul><li><p>给 WR30U 通电，串口工具应会滚动打印启动日志（如 U-Boot 启动信息、系统加载过程）。在日志滚动时快速按 <strong>方向下键</strong> 即可中断启动，进入 U-Boot 控制台；</p></li><li><p>窗口日志会停在 <code>U-Boot Boot Menu</code> 选项中，移动上下键选择 <code>4</code>（<code>4. Upgrade ATF FIP</code>）</p><pre><code>  *** U-Boot Boot Menu ***      1. Startup system (Default)      2. Upgrade firmware      3. Upgrade ATF BL2      4. Upgrade ATF FIP      5. Upgrade single image      6. Load image      7. Start Web failsafe      0. U-Boot console</code></pre></li></ul></li><li><p>然后在 <code>Upgrading ATF FIP</code> 选项中选择 <code>0</code></p><pre><code>*** Upgrading ATF FIP ***Available load methods:    0 - TFTP client (Default)    1 - Xmodem    2 - Ymodem    3 - Kermit    4 - S-RecordSelect (enter for default): 0</code></pre></li><li><p>随后，配置 TFTP Server 的相关信息</p><pre><code class="bash"># 设置uboot即路由器IPInput U-Boot&#39;s IP address: 192.168.1.1 # 设置TFTP服务器IP，即电脑ipInput TFTP server&#39;s IP address: 192.168.1.100# 设置路由器子网掩码Input IP netmask: 255.255.255.0# 这个填入下载的 uboot 固件的文件名Input file name: mt7981_wr30u-fip-fixed-parts-multi-layout.bin</code></pre></li><li><p>按下回车，会将本地的 uboot 上传至路由器并自动写入，相关日志信息：</p><pre><code class="tex">Input U-Boot&#39;s IP address: 192.168.1.1 Input TFTP server&#39;s IP address: 192.168.1.100 Input IP netmask: 255.255.255.0Input file name: mt7981_wr30u-fip-fixed-parts-multi-layout.binUsing ethernet@15100000 deviceTFTP from server 192.168.1.100; our IP address is 192.168.1.1Filename &#39;mt7981_wr30u-fip-fixed-parts-multi-layout.bin&#39;.Load address: 0x46000000Loading: ####################################################     1.3 MiB/sdoneBytes transferred = 757473 (b8ee1 hex)Saving Environment to MTD... Erasing on MTD device &#39;Nvram&#39;... OKWriting to MTD device &#39;Nvram&#39;... OKOK*** Loaded 757473 (0xb8ee1) bytes at 0x46000000 ***Erasing &#39;fip&#39; from 0x380000, size 0xc0000 ... OKWriting &#39;fip&#39; from 0x46000000 to 0x380000, size 0xb8ee1 ... OK*** ATF FIP upgrade completed! ***</code></pre></li></ol><p>访问 uboot 后台：<a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p><p>至此，已经成功救砖🎉🎉🎉</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019183105959.png" alt="image-20251019183105959"></p><hr><p>最后，我们也可以顺便刷入 openwrt 固件（上传后注意校验 MD5）</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20251018/image-20251019183407570.png" alt="image-20251019183407570"></p><h1 id="另"><a href="#另" class="headerlink" title="另"></a>另</h1><p>如果是刷 uboot 就失败成砖的，可以试试：<a href="https://www.cnblogs.com/p123/p/18046679" target="_blank" rel="noopener">MediaTek Filogic 系列路由器串口救砖教程</a></p><h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1>]]></content>
       
       
       <categories>
@@ -169,6 +150,44 @@
       <url>/2025/03/01/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F%E5%B7%A5%E5%85%B7iPerf3%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       
         <content type="html"><![CDATA[<blockquote><p>环境：</p><ul><li>iperf 3.18</li></ul></blockquote><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote><p>百科：<br>Iperf 是一个网络性能测试工具。Iperf可以测试最大 TCP 和 UDP 带宽性能，具有多种参数和UDP特性，可以根据需要调整，可以报告带宽、延迟抖动和数据包丢失。</p></blockquote><p>官方文档：<a href="https://iperf.fr/iperf-doc.php" target="_blank" rel="noopener">https://iperf.fr/iperf-doc.php</a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul><li>Linux</li><li>windows<ul><li>下载：<a href="https://iperf.fr/iperf-download.php" target="_blank" rel="noopener">https://iperf.fr/iperf-download.php</a></li></ul></li><li>MacOS</li></ul><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>命令语法格式：</p><pre><code class="bash">iperf3 [-s|-c host] [options]</code></pre><p>使用 <code>iperf3 -help</code> 查看所有的操作指令</p><p>服务器或客户端通用选项：</p><ul><li><code>-p, --port #</code>：指定服务器监听的端口号或客户端连接的端口号。</li><li><code>-f, --format [kmgtKMGT]</code>：指定带宽报告的单位，可选 Kbits（千比特）、Mbits（兆比特）、Gbits（吉比特）、Tbits（太比特）。</li><li><code>-i, --interval #</code>：设置周期性带宽报告的间隔时间（秒）。</li><li><code>-I, --pidfile file</code>：将进程 ID（PID）写入指定的文件。</li><li><code>-F, --file name</code>：发送或接收指定的文件。</li><li><code>-A, --affinity n[,m]</code>：设置 CPU 亲和性，将进程绑定到指定的核心 <code>n</code>（可选客户端绑定到核心 <code>m</code>，服务器绑定到核心 <code>n</code>）。</li><li><code>-B, --bind &lt;host&gt;</code>：绑定到指定主机地址关联的网络接口。</li><li><code>-V, --verbose</code>：输出更详细的信息。</li><li><code>-J, --json</code>：以 JSON 格式输出结果。</li><li><code>--json-stream</code>：以行分隔的 JSON 格式输出结果。</li><li><code>--logfile f</code>：将输出发送到指定的日志文件。</li><li><code>--forceflush</code>：强制在每个间隔时间刷新输出。</li><li><code>--timestamps&lt;=format&gt;</code>：在每行输出前添加时间戳（可选 <code>=</code> 和格式字符串，遵循 <code>strftime(3)</code> 的格式）。</li><li><code>--rcv-timeout #</code>：设置接收数据的空闲超时时间（默认 120000 毫秒）。</li><li><code>-d, --debug[=#]</code>：输出调试信息（可选 <code>=</code> 和调试级别：1-4，默认是 4，输出所有信息）。</li><li><code>-v, --version</code>：显示版本信息并退出。</li><li><code>-h, --help</code>：显示帮助信息并退出。</li></ul><p>备注：</p><ul><li><code>[KMG]</code> 表示选项支持 <code>K</code>（千）、<code>M</code>（兆）、<code>G</code>（吉）后缀。</li></ul><h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><p>服务器特定选项：</p><ul><li><code>-s, --server</code>：以服务器模式运行。</li><li><code>-D, --daemon</code>：以守护进程模式运行服务器。</li><li><code>-1, --one-off</code>：处理一个客户端连接后退出。</li><li><code>--server-bitrate-limit #[KMG][/#]</code>：设置服务器的总比特率限制（默认 0 表示无限制，可选斜杠和秒数用于平均数据速率，默认 5 秒）。</li><li><code>--idle-timeout #</code>：在服务器空闲指定秒数后重启（默认无超时）。</li><li><code>--rsa-private-key-path</code>：指定用于解密认证凭证的 RSA 私钥路径。</li><li><code>--authorized-users-path</code>：指定包含用户凭证的配置文件路径。</li><li><code>--time-skew-threshold</code>：设置服务器和客户端在认证过程中的时间偏差阈值（秒）。</li><li><code>--use-pkcs1-padding</code>：使用 PKCS1 填充（需自行承担风险）。</li></ul><p>启动服务端：</p><pre><code class="bash">#默认监听5201端口iperf3 -s#指定监听端口iperf3 -s -p 10086</code></pre><pre><code class="bash">#守护进程模式。守护进程是一种在后台运行的进程，通常不与任何终端或用户交互，适合长期运行的服务。iperf3 -s -D#--logfile，指定日志输出#使用 taskkill 指令关闭守护进程服务tasklist | findstr iperf3taskkill /PID &lt;PID&gt; /F#/T 终止指定进程及其所有子进程#/F 强制终止进程</code></pre><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>客户端特定选项：</p><ul><li><code>-c, --client &lt;host&gt;[%&lt;dev&gt;]</code>：以客户端模式运行，连接到指定主机（可选 <code>&lt;dev&gt;</code> 等同于 <code>--bind-dev &lt;dev&gt;</code>）。</li><li><code>-u, --udp</code>：使用 UDP 而不是 TCP。</li><li><code>--connect-timeout #</code>：设置控制连接建立的超时时间（毫秒）。</li><li><code>-b, --bitrate #[KMG][/#]</code>：设置目标比特率（0 表示无限制，默认 UDP 为 1 Mbit/sec，TCP 无限制，可选斜杠和数据包数量用于突发模式）。</li><li><code>--pacing-timer #[KMG]</code>：设置服务器的定时器用于数据发送节奏（微秒，默认 1000，已弃用，仅用于旧版本服务器的兼容性）。</li><li><code>-t, --time #</code>：设置传输时间（秒，默认 10 秒）。</li><li><code>-n, --bytes #[KMG]</code>：设置传输的字节数（替代 <code>-t</code>）。</li><li><code>-k, --blockcount #[KMG]</code>：设置传输的块（数据包）数量（替代 <code>-t</code> 或 <code>-n</code>）。</li><li><code>-l, --length #[KMG]</code>：设置读写缓冲区的长度（默认 TCP 为 128 KB，UDP 为动态或 1460）。</li><li><code>--cport &lt;port&gt;</code>：绑定到指定的客户端端口（TCP 和 UDP，默认使用临时端口）。</li><li><code>-P, --parallel #</code>：设置并行运行的客户端流数量。</li><li><code>-R, --reverse</code>：以反向模式运行（服务器发送，客户端接收）。</li><li><code>--bidir</code>：以双向模式运行（客户端和服务器同时发送和接收数据）。</li><li><code>-w, --window #[KMG]</code>：设置发送/接收的套接字缓冲区大小（间接设置 TCP 窗口大小）。</li><li><code>-M, --set-mss #</code>：设置 TCP/SCTP 最大段大小（MTU - 40 字节）。</li><li><code>-N, --no-delay</code>：设置 TCP/SCTP 无延迟，禁用 Nagle 算法。</li><li><code>-4, --version4</code>：仅使用 IPv4。</li><li><code>-6, --version6</code>：仅使用 IPv6。</li><li><code>-S, --tos N</code>：设置 IP 服务类型（0-255，支持十进制、八进制和十六进制，如 52、064、0x34）。</li><li><code>--dscp N 或 --dscp val</code>：设置 IP DSCP 值（0-63 或符号值，支持十进制、八进制和十六进制）。</li><li><code>-Z, --zerocopy</code>：使用“零拷贝”方法发送数据。</li><li><code>-O, --omit N</code>：在测试前进行 N 秒的预测试，并忽略预测试的统计信息。</li><li><code>-T, --title str</code>：在每行输出前添加前缀字符串。</li><li><code>--extra-data str</code>：在客户端和服务器的 JSON 输出中包含额外的数据字符串。</li><li><code>--get-server-output</code>：从服务器获取结果。</li><li><code>--udp-counters-64bit</code>：在 UDP 测试数据包中使用 64 位计数器。</li><li><code>--repeating-payload</code>：在负载中使用重复模式，而不是随机化负载（类似于 iperf2）。</li><li><code>--dont-fragment</code>：设置 IPv4 的“不分片”标志。</li><li><code>--username</code>：设置认证的用户名。</li><li><code>--rsa-public-key-path</code>：指定用于加密认证凭证的 RSA 公钥路径。</li></ul><pre><code class="bash">#连接到 iperf3 服务器并进行网络性能测试#默认进行 TCP 测试iperf3 -c &lt;服务器IP&gt; [-p 端口号]#多链路测试。iperf3 是单线程的，这里是创建多个并发的客户端连接，从而模拟多线程的效果iperf3 -c &lt;服务器IP&gt; [-p 端口号] -P 10#结果看 SUM 一栏#UDP 测试iperf3 -c &lt;服务器IP&gt; [-p 端口号] -u -b 100M#默认模式：客户端（-c）向服务器发送数据，服务器接收数据。用于测试从客户端到服务器的上行带宽（上传速度）#客户端反向测试。服务器发送数据，客户端（-c）从服务器接收数据。用于测试从服务器到客户端的下行带宽（下载速度）iperf3 -c &lt;服务器IP&gt; [-p 端口号] -R#客户端同时测试双向流量。同时测试上行和下行带宽iperf3 -c &lt;服务器IP&gt; [-p 端口号] --bidir</code></pre><h2 id="结果解析"><a href="#结果解析" class="headerlink" title="结果解析"></a>结果解析</h2><p>客户端会显示测试结果，包括TCP和UDP带宽、丢包率等信息。</p><pre><code class="bash">$ iperf3 -c 192.168.31.148 -u -b 1000MConnecting to host 192.168.31.148, port 5201[  5] local 192.168.31.108 port 63882 connected to 192.168.31.148 port 5201#Interval: 测试的时间间隔#Transfer: 表示测试的时间间隔内转输的数据量#Bitrate: 在该时间间隔内的带宽#Total Datagrams: 在该时间间隔内发送的数据包总数[ ID] Interval           Transfer     Bitrate         Total Datagrams[  5]   0.00-1.02   sec  50.6 MBytes   416 Mbits/sec  36364[  5]   1.02-2.02   sec  52.3 MBytes   441 Mbits/sec  37543...[  5]   9.01-10.01  sec  62.5 MBytes   525 Mbits/sec  44872- - - - - - - - - - - - - - - - - - - - - - - - -#测试报告汇总#Jitter: 网路抖动#Lost/Total Datagrams: 丢包数/总数据包数（丢包率）#sender: 发送端#receiver: 接收端[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams[  5]   0.00-10.01  sec   574 MBytes   481 Mbits/sec  0.000 ms  0/412333 (0%)  sender[  5]   0.00-10.14  sec   300 MBytes   248 Mbits/sec  0.017 ms  196999/412304 (48%)  receiveriperf Done.</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>记录：VMware和主机在桥接模式下无法ping通的问题</title>
+      <link href="/2025/01/02/%E8%AE%B0%E5%BD%95%EF%BC%9AVMware%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%9C%A8%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%97%A0%E6%B3%95ping%E9%80%9A%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2025/01/02/%E8%AE%B0%E5%BD%95%EF%BC%9AVMware%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%9C%A8%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%97%A0%E6%B3%95ping%E9%80%9A%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>桥接模式下 VMware 里面的虚拟机和主机相互无法 ping 通。</p><p>虚拟机桥接模式正常桥接至主机的物理无线网卡：</p><p><img src="assets/image-20251022163757086.png" alt="image-20251022163757086"></p><p>虚拟机设置中桥接模式也配置正常：</p><p><img src="assets/image-20251022163823487.png" alt="image-20251022163823487"></p><p>主机的无线网络适配器也勾选了 <code>VMware Bridge Protocol</code>：</p><p><img src="assets/image-20251022170221628.png" alt="image-20251022170221628"></p><p>主机网络信息：</p><pre><code>无线局域网适配器 WLAN:   连接特定的 DNS 后缀 . . . . . . . :   IPv4 地址 . . . . . . . . . . . . : 192.168.0.104   子网掩码  . . . . . . . . . . . . : 255.255.255.0   默认网关. . . . . . . . . . . . . : 192.168.0.1</code></pre><p>虚拟机网络配置（<code>/etc/sysconfig/network-scripts/ifcfg-eth0</code>）：</p><pre><code class="ini">DEVICE=eth0TYPE=EthernetONBOOT=yes              # 开机启动网卡BOOTPROTO=static        # 静态IPIPADDR=192.168.0.191    # 与物理机同网段NETMASK=255.255.255.0   # 与物理机一致GATEWAY=192.168.0.1     # 与物理机网关一致DNS1=192.168.0.1        </code></pre><ul><li><p>主机能够 ping 通除了虚拟机外的其他局域网设备；虚拟机可以上网，可以 ping 通除了主机外的其他局域网设备；主机和虚拟机无法 ping 通；</p></li><li><p>主机和虚拟机防火墙都已关闭；</p></li></ul><h1 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h1><p>检查 ARP 缓存， 发现 <code>192.168.0.104</code> 无法正常解析：</p><p><img src="assets/image-20251022201802511.png" alt="image-20251022201802511"></p><p>使用 <code>traceroute 192.168.0.104</code> 追踪路由， 在第一跳被转发到了  <code>192.168.0.191</code> 即虚拟机的ip</p><p><img src="assets/image-20251022202207132.png" alt="image-20251022202207132"></p><p>进入路由器后台发现虚拟机和宿主机在路由器中都是用的主机的名称、mac地址，不知道这个有没有影响：</p><p><img src="assets/image-20251022202716898.png" alt="image-20251022202716898"></p><p>我从下午弄到深夜，尝试了各种方法，但是这个问题依旧没有解决。这个问题先记录下来，后面看看能不能解决。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VMware丢失了之前安装的虚拟机</title>
+      <link href="/2025/01/01/VMware%E4%B8%A2%E5%A4%B1%E4%BA%86%E4%B9%8B%E5%89%8D%E5%AE%89%E8%A3%85%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <url>/2025/01/01/VMware%E4%B8%A2%E5%A4%B1%E4%BA%86%E4%B9%8B%E5%89%8D%E5%AE%89%E8%A3%85%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>环境：</p><ul><li>Windows 10</li><li>VMware 15 Pro</li></ul></blockquote><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>启动 vmware 后发现之前安装的虚拟机全部不见了：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20250101/image-20251022144245298.png" alt="image-20251022144245298"></p><h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>文件 -&gt; 扫描虚拟机 -&gt; 填写本地虚拟机系统所在目录进行扫描即可添加：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20250101/image-20251022145135157.png" alt="image-20251022145135157"></p><p>添加成功：</p><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20250101/image-20251022145236164.png" alt="image-20251022145236164"></p>]]></content>
       
       
       <categories>
@@ -1685,9 +1704,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1808,9 +1827,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1984,9 +2003,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -3521,9 +3540,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -4055,9 +4074,9 @@
       
         <tags>
             
-            <tag> 面试题 </tag>
-            
             <tag> SpringMVC </tag>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       
@@ -4622,9 +4641,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -5204,7 +5223,7 @@
       <link href="/2018/11/15/%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/"/>
       <url>/2018/11/15/%E5%8F%8D%E5%90%91%E5%AE%89%E8%A3%85jar%E5%8C%85%E5%88%B0Mave%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/</url>
       
-        <content type="html"><![CDATA[<p>当maven中央仓库没有所需jar的坐标时，需要自行将jar包反向安装到maven的本地仓库中<br>步骤：</p><blockquote><p>注意：前提是安装好Maven并且配置好maven的环境变量</p><ol><li>准备所需的jar包<br><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115010549472.png" alt="在这里插入图片描述"></li><li>打开命令行，输入以下命令，按下回车即可安装<pre><code>mvn install:install-file -Dfile=d:\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar</code></pre><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115011230828.png" alt="在这里插入图片描述"></li><li>可以在Maven本地仓库中查看是否安装成功<br><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115011514373.png" alt="在这里插入图片描述"></li><li>在pom文件中导入坐标<br><code>`</code>xml</li></ol></blockquote><p><dependency><br>    <groupid>com.alibaba</groupid><br>    <artifactid>dubbo</artifactid><br>    <version>2.8.4</version><br></dependency><br><code>`</code></p>]]></content>
+        <content type="html"><![CDATA[<p>当maven中央仓库没有所需jar的坐标时，需要自行将jar包反向安装到maven的本地仓库中<br>步骤：</p><blockquote><p>注意：前提是安装好Maven并且配置好maven的环境变量</p><ol><li>准备所需的jar包<br><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115010549472.png" alt="在这里插入图片描述"></li></ol></blockquote><ol start="2"><li><p>打开命令行，输入以下命令，按下回车即可安装</p><pre><code class="bash">mvn install:install-file -Dfile=d:\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar</code></pre><p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115011230828.png" alt="在这里插入图片描述"></p></li><li><p>可以在Maven本地仓库中查看是否安装成功<br><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115011514373.png" alt="在这里插入图片描述"></p></li><li><p>在pom文件中导入坐标</p><pre><code class="xml">&lt;dependency&gt;    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;    &lt;artifactId&gt;dubbo&lt;/artifactId&gt;    &lt;version&gt;2.8.4&lt;/version&gt;            &lt;/dependency&gt;</code></pre></li></ol>]]></content>
       
       
       <categories>

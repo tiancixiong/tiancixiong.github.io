@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2025-10-19T23:44:18.293Z</updated>
+  <updated>2025-10-21T00:22:21.191Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -17,29 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>软路由系统使用篇</title>
-    <link href="https://blog.xiongtianci.com/2025/10/20/%E8%BD%AF%E8%B7%AF%E7%94%B1%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E7%AF%87/"/>
-    <id>https://blog.xiongtianci.com/2025/10/20/软路由系统使用篇/</id>
-    <published>2025-10-19T23:44:17.000Z</published>
-    <updated>2025-10-19T23:44:18.293Z</updated>
-    
-    <summary type="html">
-    
-      软路由系统使用篇
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>WR30U路由器救砖记录</title>
     <link href="https://blog.xiongtianci.com/2025/10/18/WR30U%E8%B7%AF%E7%94%B1%E5%99%A8%E6%95%91%E7%A0%96%E8%AE%B0%E5%BD%95/"/>
     <id>https://blog.xiongtianci.com/2025/10/18/WR30U路由器救砖记录/</id>
     <published>2025-10-17T23:45:34.000Z</published>
-    <updated>2025-10-20T00:16:17.093Z</updated>
+    <updated>2025-10-21T00:22:21.191Z</updated>
     
     <summary type="html">
     
@@ -174,6 +156,42 @@
     <summary type="html">
     
       网络测速工具iPerf3的使用
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>记录：VMware和主机在桥接模式下无法ping通的问题</title>
+    <link href="https://blog.xiongtianci.com/2025/01/02/%E8%AE%B0%E5%BD%95%EF%BC%9AVMware%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%9C%A8%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E4%B8%8B%E6%97%A0%E6%B3%95ping%E9%80%9A%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://blog.xiongtianci.com/2025/01/02/记录：VMware和主机在桥接模式下无法ping通的问题/</id>
+    <published>2025-01-02T08:32:40.000Z</published>
+    <updated>2025-10-22T12:30:31.492Z</updated>
+    
+    <summary type="html">
+    
+      记录：VMware和主机在桥接模式下无法ping通的问题
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>VMware丢失了之前安装的虚拟机</title>
+    <link href="https://blog.xiongtianci.com/2025/01/01/VMware%E4%B8%A2%E5%A4%B1%E4%BA%86%E4%B9%8B%E5%89%8D%E5%AE%89%E8%A3%85%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <id>https://blog.xiongtianci.com/2025/01/01/VMware丢失了之前安装的虚拟机/</id>
+    <published>2025-01-01T06:40:16.000Z</published>
+    <updated>2025-10-26T01:00:26.347Z</updated>
+    
+    <summary type="html">
+    
+      VMware丢失了之前安装的虚拟机
     
     </summary>
     
@@ -362,24 +380,6 @@
     <summary type="html">
     
       JDK8中的StampedLock
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>分布式ID的几种生成方式</title>
-    <link href="https://blog.xiongtianci.com/2024/03/01/%E5%88%86%E5%B8%83%E5%BC%8FID%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F/"/>
-    <id>https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/</id>
-    <published>2024-03-01T01:21:33.000Z</published>
-    <updated>2025-03-29T02:27:05.877Z</updated>
-    
-    <summary type="html">
-    
-      分布式ID的几种生成方式
     
     </summary>
     
