@@ -390,11 +390,10 @@
           <p>当maven中央仓库没有所需jar的坐标时，需要自行将jar包反向安装到maven的本地仓库中<br>步骤：</p>
 <blockquote>
 <p>注意：前提是安装好Maven并且配置好maven的环境变量</p>
-<ol>
-<li>准备所需的jar包<br><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115010549472.png" alt="在这里插入图片描述"></li>
-</ol>
 </blockquote>
-<ol start="2">
+<ol>
+<li><p>准备所需的jar包<br><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/blog/20181115/20181115010549472.png" alt="在这里插入图片描述"></p>
+</li>
 <li><p>打开命令行，输入以下命令，按下回车即可安装</p>
 <pre><code class="bash">mvn install:install-file -Dfile=d:\dubbo-2.8.4.jar -DgroupId=com.alibaba -DartifactId=dubbo -Dversion=2.8.4 -Dpackaging=jar
 </code></pre>
