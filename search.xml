@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git使用过程中的问题记录</title>
+      <link href="/2025/10/27/Git%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+      <url>/2025/10/27/Git%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>环境：</p><ul><li>Windows 10</li><li>git version 2.35.1.windows.2</li></ul></blockquote><h2 id="git-add添加大文件导致卡住不动"><a href="#git-add添加大文件导致卡住不动" class="headerlink" title="git add添加大文件导致卡住不动"></a>git add添加大文件导致卡住不动</h2><p>在 Git 中处理大文件时，使用 <strong>Git LFS（Large File Storage）</strong> 是推荐的方案，它可以避免大文件直接存入 Git 仓库历史，减小仓库体积并提升操作性能。</p><pre><code class="bash"># 安装后，初始化 LFS（每个仓库只需执行一次）git lfs install# 配置追踪大文件# 执行后会生成/更新 .gitattributes 文件，必须将该文件提交到仓库，否则其他协作者无法识别 LFS 追踪规则git lfs track &quot;video.mp4&quot;git lfs track &quot;*.zip&quot;git lfs track &quot;designs/*.psd&quot;</code></pre><p>之后正常使用 <code>git add</code>，但是即使这样添加大文件时也会卡住不动。</p><ol><li><p>如果卡住时强制打断 <code>git add</code> 后，Git 可能会遗留一个 <code>.git/index.lock</code> 文件，这是 Git 为了防止多个进程同时修改索引（index）而创建的锁文件。如果有则需要删除此文件，如果这个锁文件没有被正常清理，后续的 Git 操作（如 <code>git add</code>、<code>git commit</code> 等）可能会报错</p><pre><code class="bash">rm -f .git/index.lock</code></pre></li><li><p>可以使用 verbose 选项 (<code>-v</code> 或者 <code>--verbose</code>)，虽然这是 “详细模式” 选项，但是它可以神奇的解决卡住的问题</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WR30U路由器救砖记录</title>
       <link href="/2025/10/18/WR30U%E8%B7%AF%E7%94%B1%E5%99%A8%E6%95%91%E7%A0%96%E8%AE%B0%E5%BD%95/"/>
       <url>/2025/10/18/WR30U%E8%B7%AF%E7%94%B1%E5%99%A8%E6%95%91%E7%A0%96%E8%AE%B0%E5%BD%95/</url>
@@ -1666,9 +1691,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1789,9 +1814,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1965,9 +1990,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -2835,9 +2860,9 @@
       
         <tags>
             
-            <tag> bat </tag>
-            
             <tag> 脚本 </tag>
+            
+            <tag> bat </tag>
             
         </tags>
       
@@ -3342,9 +3367,9 @@
       
         <tags>
             
-            <tag> 缓存 </tag>
-            
             <tag> SpringCache </tag>
+            
+            <tag> 缓存 </tag>
             
         </tags>
       
@@ -3421,11 +3446,11 @@
       
         <tags>
             
+            <tag> 缓存 </tag>
+            
             <tag> SpringBoot </tag>
             
             <tag> Redis </tag>
-            
-            <tag> 缓存 </tag>
             
         </tags>
       
@@ -3502,9 +3527,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
             <tag> RunDashboard </tag>
             
@@ -4036,9 +4061,9 @@
       
         <tags>
             
-            <tag> 面试题 </tag>
-            
             <tag> SpringMVC </tag>
+            
+            <tag> 面试题 </tag>
             
         </tags>
       
@@ -4603,9 +4628,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> IDEA </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       

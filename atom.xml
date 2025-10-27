@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2025-10-26T01:45:44.340Z</updated>
+  <updated>2025-10-27T05:26:06.642Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git使用过程中的问题记录</title>
+    <link href="https://blog.xiongtianci.com/2025/10/27/Git%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <id>https://blog.xiongtianci.com/2025/10/27/Git使用过程中的问题记录/</id>
+    <published>2025-10-27T05:15:33.000Z</published>
+    <updated>2025-10-27T05:26:06.642Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="git" scheme="https://blog.xiongtianci.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>WR30U路由器救砖记录</title>
@@ -362,24 +385,6 @@
     <summary type="html">
     
       JDK8中的StampedLock
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>分布式ID的几种生成方式</title>
-    <link href="https://blog.xiongtianci.com/2024/03/01/%E5%88%86%E5%B8%83%E5%BC%8FID%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%9F%E6%88%90%E6%96%B9%E5%BC%8F/"/>
-    <id>https://blog.xiongtianci.com/2024/03/01/分布式ID的几种生成方式/</id>
-    <published>2024-03-01T01:21:33.000Z</published>
-    <updated>2025-10-26T01:45:43.831Z</updated>
-    
-    <summary type="html">
-    
-      分布式ID的几种生成方式
     
     </summary>
     
