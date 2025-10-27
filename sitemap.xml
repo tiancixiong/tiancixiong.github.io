@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.xiongtianci.com/2025/10/27/Git%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://blog.xiongtianci.com/about/index.html</loc>
     
-    <lastmod>2025-10-27T05:26:06.642Z</lastmod>
+    <lastmod>2025-10-27T10:29:08.820Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/music/index.html</loc>
+    
+    <lastmod>2025-10-27T10:26:47.704Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/comment/index.html</loc>
+    
+    <lastmod>2025-10-27T10:26:11.814Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/client/index.html</loc>
+    
+    <lastmod>2025-10-27T10:25:57.696Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/lab/index.html</loc>
+    
+    <lastmod>2025-10-27T10:25:11.788Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/donate/index.html</loc>
+    
+    <lastmod>2025-10-27T10:24:56.869Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.xiongtianci.com/2025/07/05/Git%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2025-10-27T05:30:41.265Z</lastmod>
     
   </url>
   
@@ -1493,37 +1535,9 @@
   </url>
   
   <url>
-    <loc>https://blog.xiongtianci.com/about/index.html</loc>
-    
-    <lastmod>2021-09-16T08:40:04.369Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/client/index.html</loc>
-    
-    <lastmod>2021-09-16T01:35:43.221Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.xiongtianci.com/links/index.html</loc>
     
     <lastmod>2021-03-09T01:47:12.364Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/donate/index.html</loc>
-    
-    <lastmod>2021-03-07T06:15:51.180Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/comment/index.html</loc>
-    
-    <lastmod>2020-07-31T04:31:13.420Z</lastmod>
     
   </url>
   
@@ -1542,23 +1556,9 @@
   </url>
   
   <url>
-    <loc>https://blog.xiongtianci.com/music/index.html</loc>
-    
-    <lastmod>2019-06-18T03:44:25.191Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.xiongtianci.com/rss/index.html</loc>
     
     <lastmod>2019-06-18T03:38:10.531Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.xiongtianci.com/lab/index.html</loc>
-    
-    <lastmod>2019-06-18T03:34:38.073Z</lastmod>
     
   </url>
   
