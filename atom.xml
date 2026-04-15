@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2025-10-26T01:45:44.340Z</updated>
+  <updated>2026-04-15T06:19:46.444Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>中兴ZXHN F6610M光猫获取超密</title>
+    <link href="https://blog.xiongtianci.com/2026/04/15/%E4%B8%AD%E5%85%B4ZXHN-F6610M%E5%85%89%E7%8C%AB%E8%8E%B7%E5%8F%96%E8%B6%85%E5%AF%86/"/>
+    <id>https://blog.xiongtianci.com/2026/04/15/中兴ZXHN-F6610M光猫获取超密/</id>
+    <published>2026-04-14T23:03:33.000Z</published>
+    <updated>2026-04-15T06:19:46.444Z</updated>
+    
+    <summary type="html">
+    
+      中兴ZXHN F6610M光猫获取超密
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>WR30U路由器救砖记录</title>
@@ -149,6 +167,24 @@
   </entry>
   
   <entry>
+    <title>Java知识点梳理</title>
+    <link href="https://blog.xiongtianci.com/2025/03/01/Java%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%861/"/>
+    <id>https://blog.xiongtianci.com/2025/03/01/Java知识点梳理1/</id>
+    <published>2025-03-01T06:03:30.000Z</published>
+    <updated>2026-03-13T00:48:24.894Z</updated>
+    
+    <summary type="html">
+    
+      Java知识点梳理
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>网络测速工具iPerf3的使用</title>
     <link href="https://blog.xiongtianci.com/2025/03/01/%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F%E5%B7%A5%E5%85%B7iPerf3%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>https://blog.xiongtianci.com/2025/03/01/网络测速工具iPerf3的使用/</id>
@@ -163,6 +199,30 @@
     
       <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Chrome和Edge显示由贵组织管理</title>
+    <link href="https://blog.xiongtianci.com/2025/02/09/Chrome%E5%92%8CEdge%E6%98%BE%E7%A4%BA%E7%94%B1%E8%B4%B5%E7%BB%84%E7%BB%87%E7%AE%A1%E7%90%86/"/>
+    <id>https://blog.xiongtianci.com/2025/02/09/Chrome和Edge显示由贵组织管理/</id>
+    <published>2025-02-09T02:01:20.000Z</published>
+    <updated>2025-11-09T02:20:35.767Z</updated>
+    
+    <summary type="html">
+    
+      Chrome和Edge显示由贵组织管理
+    
+    </summary>
+    
+      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Chrome" scheme="https://blog.xiongtianci.com/tags/Chrome/"/>
+    
+      <category term="Edge" scheme="https://blog.xiongtianci.com/tags/Edge/"/>
+    
+      <category term="浏览器" scheme="https://blog.xiongtianci.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
   </entry>
   
@@ -328,60 +388,6 @@
     <summary type="html">
     
       JUC学习笔记-显式锁：ReentrantLock详解
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JUC学习笔记-基础并发工具：Atomic包与CAS</title>
-    <link href="https://blog.xiongtianci.com/2024/04/02/JUC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%9F%BA%E7%A1%80%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%9AAtomic%E5%8C%85%E4%B8%8ECAS/"/>
-    <id>https://blog.xiongtianci.com/2024/04/02/JUC学习笔记-基础并发工具：Atomic包与CAS/</id>
-    <published>2024-04-02T09:13:02.000Z</published>
-    <updated>2025-10-26T02:16:56.548Z</updated>
-    
-    <summary type="html">
-    
-      JUC学习笔记-基础并发工具：Atomic包与CAS
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JUC学习步骤</title>
-    <link href="https://blog.xiongtianci.com/2024/04/01/JUC%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4/"/>
-    <id>https://blog.xiongtianci.com/2024/04/01/JUC学习步骤/</id>
-    <published>2024-04-01T07:47:54.000Z</published>
-    <updated>2025-10-26T02:17:14.104Z</updated>
-    
-    <summary type="html">
-    
-      JUC学习步骤
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JDK8中的StampedLock</title>
-    <link href="https://blog.xiongtianci.com/2024/03/11/JDK8%E4%B8%AD%E7%9A%84StampedLock/"/>
-    <id>https://blog.xiongtianci.com/2024/03/11/JDK8中的StampedLock/</id>
-    <published>2024-03-11T11:09:35.000Z</published>
-    <updated>2025-10-26T02:17:30.008Z</updated>
-    
-    <summary type="html">
-    
-      JDK8中的StampedLock
     
     </summary>
     

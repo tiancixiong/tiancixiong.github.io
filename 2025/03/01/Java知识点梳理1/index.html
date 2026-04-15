@@ -1,0 +1,2585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  
+  <!-- 关键字 keywords -->
+  
+  <meta name="keywords" content="a,天赐,天赐の小站,博客">
+  
+  
+  <title itemprop="name">Java知识点梳理 | 天赐の小站</title>
+  
+    <link rel="shortcut icon" href="//fastly.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/custom/favicon_32x32.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/font.css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/insight.css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "天赐の小站";
+  mashiro_option.author_name = "天赐の小站";
+  mashiro_option.site_url = "/";
+  mashiro_option.v_appId = "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI";
+  mashiro_option.v_appKey = "F5kjyHdh4akqc7SDmfzQP8Qi";
+  mashiro_option.v_notify = false;
+  mashiro_option.v_verify = false;
+  mashiro_option.v_placeholder = "你是我一生只会遇见一次的惊喜 ...";
+  mashiro_option.v_avatar = "monsterid";
+  mashiro_option.v_pageSize = "5" || 10;
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+  console.info("%c Blog %c", "background:#24272A; color:#ffffff", "", "https://blog.xiongtianci.com");
+  console.info("%c GitHub %c", "background:#24272A; color:#ffffff", "", "https://github.com/tiancixiong");
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/5cm_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/5cm_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_06.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_09.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_10.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_11.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/A.Voyage.of.Chihiro_12.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Atonement_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Avatar_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Before.Sunrise_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Before.Sunrise_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Before.Sunset_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/bighero_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/bighero_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/bighero_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Coco_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Coco_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Coco_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/CUG.King.of.Heroes_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_06.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_08.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Digimon_09.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_04.webp,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Friends_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Harry.Potter_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Hauru.no.ugoku.shiro_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Into.the.Wild_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Kaze.tachinu_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiki_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiki_03.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiki_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_06.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/kiminona_07.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/koenokatachi_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/koenokatachi_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/koenokatachi_03.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Kotonoha.no.Niwa_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/La.La.Land_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Le.Petit.Prince_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Le.Petit.Prince_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mimi.wo.sumaseba_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_04.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Mr.Bean.Holiday_05.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/My.Sassy.Girl_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Paperman_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Paperman_02.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Piper_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ponyo_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ponyo_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ponyo_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Reply.1988_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Reply.1988_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Reply.1988_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SpiderMan.Into.the.SpiderVerse_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SpiderMan.Into.the.SpiderVerse_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SpiderMan.Into.the.SpiderVerse_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/The.Girl.Who.Leapt.Through.Time_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/The.Pianist_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/TheLonelyAndGreatGod_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Titanic_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Titanic_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Titanic_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/totoro1.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/WALL_E_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/WALL_E_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Zootopia_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/2049.Blade.Runner_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/2049.Blade.Runner_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/American.Dreams.in.China_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Biri.Girl_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Bohemian.Rhapsody_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Bohemian.Rhapsody_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Bohemian.Rhapsody_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Crouching.Tiger.Hidden.Dragon.2000_01.webp,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Detachment_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Detachment_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Gisaengchung_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Iron.Man_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Kureyon.Shinchan_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Love.Actually_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Roman.Holiday_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Roman.Holiday_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Sherlock.S01_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/The.Secret.Life.of.Walter.Mitty_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Youth.Over.Flowers.in.Africa_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Youth.Over.Flowers.in.Africa_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/My.Mister_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/One.Day_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/One.Day_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/One.Day_03.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Ready.Player.One_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Begin.Again_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Begin.Again_02.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/Freddie_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/naruto.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/SetoNaikai_01.jpg,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/yexiu_01.png,https://cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@230521/theme/cover/yexiu_02_FUJISKYTREE.png".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <!--首页背景图下方的波浪线-->
+  <!--<div id="banner_wave_1"></div>-->
+  <!--<div id="banner_wave_2"></div>-->
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="/">
+          <img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/custom/avatar_500x500.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>You Only Live Once</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/tiancixiong" target="_blank" class="social-github" title="github">
+                    <img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="mailto:support@xiongtianci.com" target="_blank" class="social-github" title="E-mail">
+                    <img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">天赐の小站</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+                    极客
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/Linux/">
+                          <i class="fa fa-linux" aria-hidden="true"></i>
+                          Linux
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+                    爱好
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/电影/">
+                          <i class="fa fa-film" aria-hidden="true"></i>
+                          电影
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/日语/">
+                          <i class="fa fa-language" aria-hidden="true"></i>
+                          日语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://images.unsplash.com/photo-1528164344705-47542687000d?w=540);" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Java知识点梳理</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://blog.xiongtianci.com">
+            <img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/custom/avatar_80x80.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://blog.xiongtianci.com">木浅</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2025-3-1<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <blockquote>
+<p>这里记录遇到的一些有趣的 java 面试题</p>
+</blockquote>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="语法基础"><a href="#语法基础" class="headerlink" title="语法基础"></a>语法基础</h2><h3 id="a-a-b-与-a-b-的区别"><a href="#a-a-b-与-a-b-的区别" class="headerlink" title="a = a + b 与 a += b 的区别"></a>a = a + b 与 a += b 的区别</h3><p>核心区别：自动类型转换（隐式窄化转换）</p>
+<p>Java 对这两种写法的编译规则有明确区分：</p>
+<ul>
+<li><code>a = a + b</code>：<strong>不会自动进行窄化类型转换</strong>，如果运算结果的类型宽于<code>a</code>的类型，必须手动强转，否则编译报错；</li>
+<li><code>a += b</code>：<strong>会自动进行隐式窄化类型转换</strong>，编译器会在后台帮你完成强转，无需手动写，但可能导致精度丢失。</li>
+</ul>
+<p><code>+=</code>是 Java 的<strong>复合赋值运算符</strong>，编译器会自动为运算结果添加对应类型的强转，其语义等价于：</p>
+<pre><code>a += b;  &lt;==&gt;  a = (T) (a + b); （T是a的原始类型）
+</code></pre><p>不只是<code>+=</code>，<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code>等复合赋值运算符都遵循 “自动隐式窄化转换” 规则</p>
+<p><strong>场景 1：使用a = a + b（编译报错）</strong></p>
+<pre><code class="java">byte a = 127;
+byte b = 127;
+// 当 byte/short/char 类型进行算术运算时，会先自动提升为 int 类型再计算
+b = a + b; // error : cannot convert from int to byte
+b += a; // ok
+</code></pre>
+<p><strong>场景 2：使用a += b（编译通过，但可能丢精度）</strong></p>
+<pre><code class="java">short a = 1;
+int b = 2;
+a += b; // 编译通过，等价于 a = (short) (a + b);
+System.out.println(a); // 输出3（无精度丢失）
+
+// 精度丢失的场景
+short c = Short.MAX_VALUE; // short的最大值
+int d = 1;
+c += d; // 等价于 c = (short) (c + d);
+System.out.println(c); // 输出-32768（溢出，精度丢失）
+</code></pre>
+<h3 id="能在-Switch-中使用-String-吗"><a href="#能在-Switch-中使用-String-吗" class="headerlink" title="能在 Switch 中使用 String 吗?"></a>能在 Switch 中使用 String 吗?</h3><p>Java <strong>7 及以上版本</strong> 支持在 switch 语句中使用 String 类型；Java 6 及以下版本不支持，强行使用会直接编译报错。</p>
+<p>switch 本质上是基于<strong>数值类型</strong>（byte、short、int、char，以及它们的包装类）的分支判断，无法直接处理字符串。Java 7 之所以能支持 String 类型的 switch，核心是编译器在编译阶段做了 “语法糖” 转换，将 String 的 switch 转换成基于<code>hashCode()</code>和<code>equals()</code>的数值判断，具体步骤如下：</p>
+<p><strong>步骤 1</strong>：编译器先获取每个 case 中 String 常量的<code>hashCode()</code>（int 类型），将 switch 的 String 参数转换成对该 hashCode 的 int 类型 switch；</p>
+<p><strong>步骤 2</strong>：在每个 hashCode 对应的分支中，额外通过<code>equals()</code>方法做二次校验（避免哈希冲突）；</p>
+<p><strong>步骤 3</strong>：如果 switch 的 String 参数为 null，会直接抛出<code>NullPointerException</code>（编译期不会检查 null，运行时触发）。</p>
+<h3 id="为什么在重写-equals-方法的时候需要重写-hashCode-方法"><a href="#为什么在重写-equals-方法的时候需要重写-hashCode-方法" class="headerlink" title="为什么在重写 equals 方法的时候需要重写 hashCode 方法?"></a>为什么在重写 equals 方法的时候需要重写 hashCode 方法?</h3><p>1、先明确 Java 官方的核心契约（Object 类规范）</p>
+<p>Java 语言规范对这两个方法的核心约定是：</p>
+<ul>
+<li>如果两个对象通过<code>equals()</code>方法判断为相等（<code>true</code>），那么它们的<code>hashCode()</code>方法必须返回<strong>相同的整数值</strong>。</li>
+<li>如果两个对象的<code>hashCode()</code>返回值不同，那么它们的<code>equals()</code>方法必须返回<code>false</code>（反过来不成立：hashCode 相同，equals 不一定相等）。</li>
+</ul>
+<p>2、不重写 hashCode 的严重问题（实战场景）</p>
+<p>假设你只重写了<code>equals</code>但未重写<code>hashCode</code>，以<code>Person</code>类为例：</p>
+<pre><code class="java">class Person {
+    private String id; // 身份证号，作为相等判断的依据
+    private String name;
+
+    // 只重写equals，按id判断相等
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id);
+    }
+
+    // 未重写hashCode，使用Object默认实现（基于对象内存地址）
+
+    // 构造器、getter/setter省略
+}
+</code></pre>
+<p>测试代码：</p>
+<pre><code class="java">public class Test {
+    public static void main(String[] args) {
+        Person p1 = new Person(&quot;123456&quot;, &quot;张三&quot;);
+        Person p2 = new Person(&quot;123456&quot;, &quot;张三&quot;);
+
+        // equals判断相等
+        System.out.println(p1.equals(p2)); // 输出true
+        // 但hashCode不同（Object默认按内存地址生成）
+        System.out.println(p1.hashCode()); // 例如：1163157884
+        System.out.println(p2.hashCode()); // 例如：1956725890
+
+        // 放入HashSet（依赖hashCode和equals）
+        HashSet&lt;Person&gt; set = new HashSet&lt;&gt;();
+        set.add(p1);
+        set.add(p2);
+        // 预期：Set中只有1个元素（因为p1和p2相等）
+        // 实际：Set中有2个元素（违反Set的去重规则）
+        System.out.println(set.size()); // 输出2
+    }
+}
+</code></pre>
+<p><strong>问题根源</strong>：</p>
+<p>哈希容器（<code>HashMap</code>/<code>HashSet</code>）的工作逻辑是 “先哈希，后相等”：</p>
+<ol>
+<li>存储元素时，先通过<code>hashCode</code>计算元素应放入的 “桶位置”；</li>
+<li>查找 / 去重时，先找对应桶，再在桶内通过<code>equals</code>判断是否为同一元素。</li>
+</ol>
+<p>如果<code>equals</code>相等但<code>hashCode</code>不同，两个相等的对象会被放入不同的桶，哈希容器会认为它们是不同对象，导致去重、查找等核心功能失效。</p>
+<p>3、正确的实现方式（同时重写 equals 和 hashCode）</p>
+<pre><code class="java">class Person {
+    private String id;
+    private String name;
+
+    public Person(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    // 重写equals：按id判断相等
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id);
+    }
+
+    // 重写hashCode：仅基于equals中用到的字段（id）生成
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    // getter/setter省略
+}
+</code></pre>
+<p>测试结果：</p>
+<pre><code class="java">Person p1 = new Person(&quot;123456&quot;, &quot;张三&quot;);
+Person p2 = new Person(&quot;123456&quot;, &quot;张三&quot;);
+System.out.println(p1.equals(p2)); // true
+System.out.println(p1.hashCode() == p2.hashCode()); // true
+HashSet&lt;Person&gt; set = new HashSet&lt;&gt;();
+set.add(p1);
+set.add(p2);
+System.out.println(set.size()); // 输出1（符合预期）
+</code></pre>
+<p>4、重写 hashCode 的最佳实践</p>
+<ul>
+<li>哈希值的生成必须基于<code>equals</code>方法中用到的<strong>所有字段</strong>（如果 equals 用了 id 和 name，hashCode 也要包含这两个字段），避免 “equals 相等但 hashCode 不同”；</li>
+<li>尽量让不同对象的 hashCode 分布均匀（减少哈希冲突），但无需追求绝对唯一；</li>
+<li>优先使用<code>Objects.hash()</code>（Java 7+），简洁且能处理 null 值。</li>
+</ul>
+<h3 id="finally-代码块是否在任何情况下都会被执行？"><a href="#finally-代码块是否在任何情况下都会被执行？" class="headerlink" title="finally{}代码块是否在任何情况下都会被执行？"></a><code>finally{}</code>代码块是否在任何情况下都会被执行？</h3><p><strong><code>finally</code> 并不是绝对会被执行</strong>，大部分场景下它会执行，但存在几种特殊情况会导致<code>finally</code>代码块跳过执行。</p>
+<p>1、大多数情况下，finally 会执行</p>
+<p>只要<code>try</code>代码块被执行（哪怕<code>try</code>里抛出异常、<code>return</code>、<code>break</code>等），<code>finally</code>都会在<code>try/catch</code>结束前执行，这是<code>finally</code>的核心设计目的（保证资源释放等收尾逻辑执行）。</p>
+<p>2、这 3 种情况，finally 不会执行</p>
+<p>这些情况的核心共性是：<strong>JVM 在执行到 finally 之前就已经终止运行</strong>，导致 finally 代码块没有机会被执行。</p>
+<h5 id="情况-1：JVM-被强制终止（如调用System-exit-0-）"><a href="#情况-1：JVM-被强制终止（如调用System-exit-0-）" class="headerlink" title="情况 1：JVM 被强制终止（如调用System.exit(0)）"></a>情况 1：JVM 被强制终止（如调用<code>System.exit(0)</code>）</h5><p><code>System.exit(0)</code>会直接终止 JVM 进程，进程终止后所有代码都无法执行：</p>
+<pre><code class="java">public class FinallyDemo {
+    public static void main(String[] args) {
+        try {
+            System.out.println(&quot;执行try块&quot;);
+            System.exit(0); // 强制终止JVM
+        } finally {
+            System.out.println(&quot;执行finally块&quot;); // 不会执行
+        }
+    }
+}
+// 输出：
+// 执行try块
+</code></pre>
+<h5 id="情况-2：线程被强制中断（Thread-stop-）"><a href="#情况-2：线程被强制中断（Thread-stop-）" class="headerlink" title="情况 2：线程被强制中断（Thread.stop()）"></a>情况 2：线程被强制中断（<code>Thread.stop()</code>）</h5><p><code>Thread.stop()</code>是废弃的危险方法，会直接终止线程，导致该线程的<code>finally</code>无法执行（实际开发严禁使用，但需了解该场景）：</p>
+<pre><code class="java">public class FinallyDemo {
+    public static void main(String[] args) throws InterruptedException {
+        Thread t = new Thread(() -&gt; {
+            try {
+                System.out.println(&quot;线程执行try块&quot;);
+                Thread.sleep(1000); // 模拟耗时操作
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println(&quot;线程执行finally块&quot;); // 不会执行
+            }
+        });
+        t.start();
+        Thread.sleep(100);
+        t.stop(); // 强制终止线程
+    }
+}
+// 输出：
+// 线程执行try块
+</code></pre>
+<h5 id="情况-3：JVM-崩溃（如硬件故障、内存溢出导致进程崩溃）"><a href="#情况-3：JVM-崩溃（如硬件故障、内存溢出导致进程崩溃）" class="headerlink" title="情况 3：JVM 崩溃（如硬件故障、内存溢出导致进程崩溃）"></a>情况 3：JVM 崩溃（如硬件故障、内存溢出导致进程崩溃）</h5><p>如果程序运行时出现严重错误（如<code>OutOfMemoryError</code>且无内存可用、CPU / 硬件故障），JVM 进程会直接崩溃，此时<code>finally</code>自然无法执行。比如：</p>
+<pre><code class="java">public class FinallyDemo {
+    public static void main(String[] args) {
+        try {
+            System.out.println(&quot;执行try块&quot;);
+            // 无限创建大对象，导致OOM崩溃
+            List&lt;byte[]&gt; list = new ArrayList&lt;&gt;();
+            while (true) {
+                list.add(new byte[1024 * 1024 * 100]);
+            }
+        } finally {
+            System.out.println(&quot;执行finally块&quot;); // 大概率不会执行（JVM崩溃）
+        }
+    }
+}
+</code></pre>
+<h3 id="try-finally-结构里-return-的执行顺序和最终返回结果"><a href="#try-finally-结构里-return-的执行顺序和最终返回结果" class="headerlink" title="try-finally 结构里 return 的执行顺序和最终返回结果"></a><code>try-finally</code> 结构里 <code>return</code> 的执行顺序和最终返回结果</h3><p>结论：<strong>无论 <code>try</code> 块中是否抛出异常，<code>finally</code> 块总会在 <code>try</code> 块的 <code>return</code> 执行之前运行；如果 <code>finally</code> 块也有 <code>return</code>，则会覆盖 <code>try</code> 块的 <code>return</code> 结果</strong>。</p>
+<p>场景 1：try 中有 return，finally 中无 return（最常见）</p>
+<p><code>try</code> 块的 <code>return</code> 会先计算返回值（暂存），然后执行 <code>finally</code> 块，最后返回暂存的结果。</p>
+<pre><code class="java">public static int test1() {
+    int num = 10;
+    try {
+        // 先计算return的表达式（num+10=20），暂存这个值
+        return num + 10;
+    } finally {
+        // finally执行（修改num，但不影响已暂存的返回值）
+        num = 100;
+        System.out.println(&quot;finally块执行，num=&quot; + num);
+    }
+}
+
+public static void main(String[] args) {
+    System.out.println(&quot;最终返回值：&quot; + test1());
+}
+</code></pre>
+<p>执行结果：</p>
+<pre><code>finally块执行，num=100
+最终返回值：20
+</code></pre><p>场景 2：try 中有 return，finally 中也有 return</p>
+<p><code>finally</code> 块的 <code>return</code> 会覆盖 <code>try</code> 块的 <code>return</code>，且 <code>try</code> 块暂存的返回值会被丢弃。</p>
+<pre><code class="java">public static int test2() {
+    int num = 10;
+    try {
+        return num + 10; // 算出20暂存，但不会返回
+    } finally {
+        num = 100;
+        return num; // 直接返回100，覆盖try的return
+    }
+}
+
+public static void main(String[] args) {
+    System.out.println(&quot;最终返回值：&quot; + test2());
+}
+</code></pre>
+<p>执行结果：</p>
+<pre><code>最终返回值：100
+</code></pre><p>场景 3：try 中抛出异常，catch 有 return，finally 也有 return</p>
+<p>如果 <code>try</code> 抛出异常进入 <code>catch</code>，<code>catch</code> 的 <code>return</code> 也会被 <code>finally</code> 的 <code>return</code> 覆盖。</p>
+<pre><code class="java">public static int test3() {
+    int num = 10;
+    try {
+        int a = 1 / 0; // 抛出算术异常
+        return num + 10;
+    } catch (ArithmeticException e) {
+        return num + 20; // 算出30暂存，但不会返回
+    } finally {
+        num = 100;
+        return num; // 覆盖catch的return，返回100
+    }
+}
+
+public static void main(String[] args) {
+    System.out.println(&quot;最终返回值：&quot; + test3());
+}
+</code></pre>
+<p>执行结果：</p>
+<pre><code>最终返回值：100
+</code></pre><p>场景 4：finally 中有 return，掩盖异常</p>
+<p>如果 <code>try</code> 抛出异常，且 <code>finally</code> 有 <code>return</code>，则异常会被掩盖（不会向上抛出），这是开发中的<strong>坑</strong>。</p>
+<pre><code class="java">public static int test4() {
+    try {
+        int a = 1 / 0; // 抛出异常
+        return 1;
+    } finally {
+        return 2; // 执行return，异常被掩盖
+    }
+}
+
+public static void main(String[] args) {
+    System.out.println(&quot;最终返回值：&quot; + test4()); // 输出2，无异常抛出
+}
+</code></pre>
+<p><code>try</code> 抛出的异常本应向上传递，但 <code>finally</code> 的 <code>return</code> 会终止方法，异常被 “吞掉”，调试时很难定位问题。</p>
+<h4 id="开发建议"><a href="#开发建议" class="headerlink" title="开发建议"></a>开发建议</h4><ol>
+<li><strong>禁止在 <code>finally</code> 中使用 <code>return</code></strong>：这是 Java 编码的最佳实践，会导致返回值覆盖、异常掩盖等问题，增加调试难度；</li>
+<li><code>finally</code> 仅用于释放资源（如关闭流、数据库连接），不要包含业务逻辑或返回操作。</li>
+</ol>
+<h3 id="泛型的上限和下限？"><a href="#泛型的上限和下限？" class="headerlink" title="泛型的上限和下限？"></a>泛型的上限和下限？</h3><p>ava 泛型中<strong>上限（Upper Bounds）</strong> 和<strong>下限（Lower Bounds）</strong>是通过<strong>通配符<code>?</code></strong> 配合<code>extends</code>（上限）和<code>super</code>（下限）来限制泛型类型的取值范围，核心目的是解决泛型的 “不可变性” 问题（比如<code>List&lt;String&gt;</code>不是<code>List&lt;Object&gt;</code>的子类），让泛型使用更灵活。</p>
+<p>一、先理解核心前提：泛型的不可变性</p>
+<p>泛型默认是 “不可变” 的，即即使类 A 是类 B 的子类，<code>List&lt;A&gt;</code>也不是<code>List&lt;B&gt;</code>的子类，直接赋值会编译报错：</p>
+<pre><code class="java">List&lt;String&gt; strList = new ArrayList&lt;&gt;();
+// 编译错误：不兼容的类型，List&lt;String&gt; 无法转换为 List&lt;Object&gt;
+List&lt;Object&gt; objList = strList; 
+</code></pre>
+<p>泛型上下限就是为了在这种场景下，通过通配符放宽类型限制，同时保证类型安全。</p>
+<p>二、泛型上限（Upper Bounds）：<code>? extends T</code></p>
+<p>限制泛型类型必须是<strong>T 类本身，或 T 的子类 / 实现类</strong>（T 可以是类或接口），语法：<code>&lt;? extends T&gt;</code>。</p>
+<p>特点：</p>
+<ul>
+<li><strong>只能读取，不能写入</strong>（除了<code>null</code>）：因为编译器无法确定泛型的具体类型是 T 的哪个子类，写入会有类型安全风险；</li>
+<li><strong>读取时只能赋值给 T 类型</strong>：保证读取的对象一定是 T 类型的实例。</li>
+</ul>
+<pre><code class="java">import java.util.ArrayList;
+import java.util.List;
+
+public class GenericBoundsDemo {
+    // 泛型上限：只能接收List&lt;Number&gt;或List&lt;Number的子类&gt;（Integer、Double等）
+    public static void printNumberList(List&lt;? extends Number&gt; list) {
+        // 合法：读取，赋值给Number类型（所有元素都是Number的子类）
+        for (Number num : list) {
+            System.out.println(num);
+        }
+
+        // 编译错误：无法写入（编译器不知道list实际是List&lt;Integer&gt;还是List&lt;Double&gt;）
+        list.add(10);
+        // 唯一例外：可以写入null（null是所有类型的默认值）
+        list.add(null);
+    }
+
+    public static void main(String[] args) {
+        List&lt;Integer&gt; intList = new ArrayList&lt;&gt;();
+        intList.add(1);
+        intList.add(2);
+
+        List&lt;Double&gt; doubleList = new ArrayList&lt;&gt;();
+        doubleList.add(3.14);
+
+        // 合法：Integer是Number的子类
+        printNumberList(intList);
+        // 合法：Double是Number的子类
+        printNumberList(doubleList);
+
+        List&lt;String&gt; strList = new ArrayList&lt;&gt;();
+        printNumberList(strList); // 编译错误：String不是Number的子类
+    }
+}
+</code></pre>
+<p>三、泛型下限（Lower Bounds）：<code>? super T</code></p>
+<p>限制泛型类型必须是<strong>T 类本身，或 T 的父类 / 接口</strong>（T 可以是类或接口），语法：<code>&lt;? super T&gt;</code>。</p>
+<p>特点：</p>
+<ul>
+<li><strong>只能写入 T 类型（或 T 的子类），读取时只能赋值给 Object 类型</strong>：因为编译器能确定泛型的具体类型是 T 的父类，写入 T 类型一定安全；但读取时无法确定具体父类类型，只能用 Object 接收。</li>
+</ul>
+<pre><code class="java">import java.util.ArrayList;
+import java.util.List;
+
+public class GenericBoundsDemo {
+    // 泛型下限：只能接收List&lt;Integer&gt;或List&lt;Integer的父类&gt;（Number、Object等）
+    public static void addInteger(List&lt;? super Integer&gt; list) {
+        // 合法：写入Integer类型（父类集合可以接收子类对象）
+        list.add(10);
+        list.add(20);
+        // 合法：写入Integer的子类（Integer没有子类，这里仅演示逻辑）
+        // list.add(new MyInteger()); 
+
+        // 编译错误：写入非Integer类型（Double不是Integer的子类）
+        list.add(3.14); 
+
+        // 读取时只能赋值给Object
+        for (Object obj : list) {
+            System.out.println(obj);
+        }
+    }
+
+    public static void main(String[] args) {
+        // 合法：List&lt;Object&gt;是Integer的父类
+        List&lt;Object&gt; objList = new ArrayList&lt;&gt;();
+        addInteger(objList);
+
+        // 合法：List&lt;Number&gt;是Integer的父类
+        List&lt;Number&gt; numList = new ArrayList&lt;&gt;();
+        addInteger(numList);
+
+        // 合法：List&lt;Integer&gt;本身
+        List&lt;Integer&gt; intList = new ArrayList&lt;&gt;();
+        addInteger(intList);
+
+        // 编译错误：List&lt;Double&gt;不是Integer的父类
+        List&lt;Double&gt; doubleList = new ArrayList&lt;&gt;();
+        // addInteger(doubleList); 
+    }
+}
+</code></pre>
+<p>经典应用：PECS 原则</p>
+<p>这是泛型上下限的核心使用准则，全称：<strong>Producer Extends, Consumer Super</strong>（生产者用 Extends，消费者用 Super）：</p>
+<ul>
+<li><strong>生产者（Producer）</strong>：如果泛型对象是 “产出” 数据（供你读取），用<code>? extends T</code>（比如<code>List&lt;? extends Fruit&gt;</code>，你从里面取 Fruit）；</li>
+<li><strong>消费者（Consumer）</strong>：如果泛型对象是 “消费” 数据（你向里面写），用<code>? super T</code>（比如<code>List&lt;? super Apple&gt;</code>，你向里面存 Apple）。</li>
+</ul>
+<p>示例（Java 集合工具类<code>Collections.copy</code>的源码核心逻辑）：</p>
+<pre><code class="java">// dest是消费者（接收元素），用super；src是生产者（提供元素），用extends
+public static &lt;T&gt; void copy(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src) {
+    for (int i = 0; i &lt; src.size(); i++) {
+        dest.set(i, src.get(i)); // 安全：src取T，dest存T
+    }
+}
+</code></pre>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="Java-异常的底层实现机制"><a href="#Java-异常的底层实现机制" class="headerlink" title="Java 异常的底层实现机制"></a>Java 异常的底层实现机制</h3><p>Java 的异常处理（try-catch-finally）在源码层面是语法糖，底层完全依赖 JVM 字节码中的<code>Exception Table</code>（异常表）实现 ——<strong>异常表是 JVM 记录 “异常捕获范围、处理位置、异常类型” 的核心数据结构</strong>，所有 try-catch 逻辑最终都会被编译器转换为异常表条目，而非源码层面的 “分支判断”。</p>
+<h4 id="一、先明确核心结论"><a href="#一、先明确核心结论" class="headerlink" title="一、先明确核心结论"></a>一、先明确核心结论</h4><ol>
+<li>Java 源码中的<code>try-catch</code>块，编译器不会生成 “if-else” 式的分支代码，而是在字节码中生成<code>Exception Table</code>；</li>
+<li>当程序抛出异常时，JVM 会遍历当前方法的异常表，匹配 “异常发生的位置” 和 “异常类型”，找到对应的处理逻辑；</li>
+<li><code>finally</code>块的执行则是编译器通过 “复制字节码 + 异常表兜底” 实现，本质也依赖异常表。</li>
+</ol>
+<h4 id="二、Exception-Table-的结构（字节码层面）"><a href="#二、Exception-Table-的结构（字节码层面）" class="headerlink" title="二、Exception Table 的结构（字节码层面）"></a>二、Exception Table 的结构（字节码层面）</h4><p>Exception Table是JVM执行异常处理时的查找表，它记录了方法中每个异常处理器的信息。当方法抛出异常时，JVM会查找这个表来确定应该跳转到哪里执行。每个异常表项包含以下信息：</p>
+<ul>
+<li>from  : 异常处理器生效的起始位置（字节码索引）</li>
+<li>to    : 异常处理器生效的结束位置（字节码索引）</li>
+<li>target: 异常处理代码的起始位置（catch块的字节码索引）</li>
+<li><p>type  : 要捕获的异常类型（类的全限定名）</p>
+<p>Exception Table的工作原理。当异常发生时：</p>
+</li>
+</ul>
+<ol>
+<li>JVM在当前方法中查找匹配的异常处理器</li>
+<li>从当前抛出异常的指令位置开始，在异常表中查找：<ul>
+<li>异常发生的指令索引在 <code>[from, to)</code> 范围内</li>
+<li>抛出的异常类型匹配 <code>type</code>（或<code>type</code>为<code>any</code>）</li>
+</ul>
+</li>
+<li>找到后，JVM跳转到<code>target</code>位置的代码执行</li>
+<li>如果没有找到，方法会异常退出，异常抛给调用者</li>
+</ol>
+<p><strong>注意事项</strong></p>
+<ul>
+<li><strong>from包含，to不包含</strong>：异常处理区间是[from, to)</li>
+<li><strong>type为”any”</strong>：表示捕获所有类型的异常（finally块的情况）</li>
+<li><strong>异常表不影响正常控制流</strong>：只有异常发生时才会查询</li>
+<li><strong>性能考虑</strong>：异常表的存在不会影响正常代码的执行性能</li>
+</ul>
+<h4 id="三、分析"><a href="#三、分析" class="headerlink" title="三、分析"></a>三、分析</h4><p>通过一个简单的 try-catch 示例，一步步拆解底层逻辑：</p>
+<h5 id="步骤-1：编写测试源码"><a href="#步骤-1：编写测试源码" class="headerlink" title="步骤 1：编写测试源码"></a>步骤 1：编写测试源码</h5><pre><code class="java">public class ExceptionTableDemo {
+    public static void test() {
+        try {
+            int a = 1 / 0; // 可能抛出ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println(&quot;捕获算术异常&quot;);
+        }
+    }
+
+    public static void main(String[] args) {
+        test();
+    }
+}
+</code></pre>
+<h5 id="步骤-2：编译并查看字节码（重点看-Exception-Table）"><a href="#步骤-2：编译并查看字节码（重点看-Exception-Table）" class="headerlink" title="步骤 2：编译并查看字节码（重点看 Exception Table）"></a>步骤 2：编译并查看字节码（重点看 Exception Table）</h5><ol>
+<li><p>编译：<code>javac ExceptionTableDemo.java</code>；</p>
+</li>
+<li><p>查看字节码（带异常表）：<code>javap -v -c ExceptionTableDemo.class</code>；</p>
+</li>
+<li><p>核心输出（test 方法的字节码 + 异常表）：</p>
+<pre><code>// test方法的字节码指令
+public static void test();
+  descriptor: ()V
+  flags: ACC_PUBLIC, ACC_STATIC
+  Code:
+    stack=2, locals=1, args_size=0
+       0: iconst_1
+       1: iconst_0
+       2: idiv                // 执行除法，可能抛出ArithmeticException
+       3: istore_0            // 把结果存入局部变量0（正常执行时的逻辑）
+       4: goto          16    // 正常执行完try块，跳转到方法结束
+       7: astore_0            // 捕获异常，把异常对象存入局部变量0
+       8: getstatic     #3    // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: ldc           #4    // String 捕获算术异常
+      13: invokevirtual #5    // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      16: return            // 方法结束
+    Exception table:        // 异常表。核心
+       from    to  target type
+           0     4     7   Class java/lang/ArithmeticException
+...
+</code></pre></li>
+</ol>
+<h5 id="步骤-3：解读异常表和执行逻辑"><a href="#步骤-3：解读异常表和执行逻辑" class="headerlink" title="步骤 3：解读异常表和执行逻辑"></a>步骤 3：解读异常表和执行逻辑</h5><p>异常表条目：<code>from 0 to 4 target 7 type ArithmeticException</code></p>
+<ul>
+<li><code>from 0</code>：监控从字节码偏移量 0 开始（try 块的第一条指令：iconst_1）；</li>
+<li><code>to 4</code>：监控到字节码偏移量 4 结束（不包含 4，即 try 块的最后一条指令是 idiv/istore_0）；</li>
+<li><code>target 7</code>：如果在 0-4 范围内抛出<code>ArithmeticException</code>，跳转到字节码偏移量 7 执行（catch 块逻辑）；</li>
+<li><code>type</code>：要捕获的异常类型是 ArithmeticException。</li>
+</ul>
+<p><strong>JVM 执行流程</strong>：</p>
+<ol>
+<li>正常执行：0→1→2→3→4→16→return（无异常，跳过 catch）；</li>
+<li>抛出异常：0→1→2（执行 idiv，除数为 0，抛出 ArithmeticException）→JVM 暂停正常执行→遍历异常表→匹配到 “0-4 范围 + ArithmeticException”→跳转到 7 执行 catch 块→8→11→13→16→return。</li>
+</ol>
+<h4 id="四、finally-块的底层实现（依赖异常表兜底）"><a href="#四、finally-块的底层实现（依赖异常表兜底）" class="headerlink" title="四、finally 块的底层实现（依赖异常表兜底）"></a>四、finally 块的底层实现（依赖异常表兜底）</h4><p>finally 的执行逻辑更复杂，它会在异常表中出现多次：</p>
+<ol>
+<li><strong>正常路径</strong>：在 try 块结束（goto）前，插入 finally 的字节码；</li>
+<li><strong>异常路径</strong>：在异常表中新增一条<code>catch_type=0</code>的条目，兜底所有异常，执行 finally 后再抛异常。</li>
+</ol>
+<p>示例（带 finally 的源码）</p>
+<pre><code class="java">public static void test() {
+    try {
+        int a = 1 / 0;
+    } catch (ArithmeticException e) {
+        System.out.println(&quot;捕获算术异常&quot;);
+    } finally {
+        System.out.println(&quot;执行finally&quot;);
+    }
+}
+</code></pre>
+<p>异常表新增条目（核心变化）</p>
+<pre><code>Code:
+  stack=2, locals=2, args_size=0
+     0: iconst_1
+     1: iconst_0
+     2: idiv
+     3: istore_0
+     4: getstatic     #2                  
+     7: ldc           #3                  
+     9: invokevirtual #4                  
+    12: goto          46
+    15: astore_0
+    16: getstatic     #2                  
+    19: ldc           #6                  
+    21: invokevirtual #4                  
+    24: getstatic     #2                  
+    27: ldc           #3                  
+    29: invokevirtual #4                  
+    32: goto          46
+    35: astore_1
+    36: getstatic     #2                  
+    39: ldc           #3                  
+    41: invokevirtual #4                  
+    44: aload_1
+    45: athrow
+    46: return
+  Exception table:
+     from    to  target type
+         0     4    15   Class java/lang/ArithmeticException
+         0     4    35   any            // 处理所有其他异常
+        15    24    35   any            // catch块中的异常处理
+</code></pre><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射的核心价值是<strong>在运行时动态获取类的信息、创建对象、调用方法、修改属性</strong>，突破编译期的访问限制</p>
+<p>反射的核心本质是：<strong>在运行时获取类的 <code>Class</code> 对象，通过这个对象操作类的所有成员（字段、方法、构造器）</strong>。</p>
+<ul>
+<li>编译期：代码写好后，编译器只知道类的表面信息，无法动态操作类的私有成员；</li>
+<li>运行时：JVM 会为每个加载的类创建一个唯一的 <code>Class</code> 对象，反射就是通过这个对象 “窥探” 并操作类的所有细节。</li>
+</ul>
+<p>反射的核心类（都在 <code>java.lang.reflect</code> 包下）。反射的所有操作都围绕以下 4 个核心类展开，而这些类都需要通过 <code>Class</code> 对象获取：</p>
+<table>
+<thead>
+<tr>
+<th>核心类</th>
+<th>作用</th>
+<th>获取方式（示例）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Class</code></td>
+<td>代表类的元信息（反射的入口）</td>
+<td><code>Class clazz = User.class;</code></td>
+</tr>
+<tr>
+<td><code>Field</code></td>
+<td>代表类的字段（成员变量）</td>
+<td><code>Field field = clazz.getDeclaredField(&quot;name&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Method</code></td>
+<td>代表类的方法</td>
+<td><code>Method method = clazz.getDeclaredMethod(&quot;sayHello&quot;);</code></td>
+</tr>
+<tr>
+<td><code>Constructor</code></td>
+<td>代表类的构造器</td>
+<td><code>Constructor constructor = clazz.getDeclaredConstructor(String.class);</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="一、先准备测试类（基础载体）"><a href="#一、先准备测试类（基础载体）" class="headerlink" title="一、先准备测试类（基础载体）"></a>一、先准备测试类（基础载体）</h4><p>定义一个包含不同访问修饰符的类，用于演示反射操作：</p>
+<pre><code class="Java">import java.util.Arrays;
+
+// 测试类：包含构造方法、成员变量、成员方法（不同访问权限）
+public class User {
+    // 成员变量（不同访问修饰符）
+    public String username;
+    private Integer age;
+    protected String address;
+    String phone; // 默认访问权限
+
+    // 构造方法
+    public User() {} // 无参构造
+    public User(String username, Integer age) { // 有参构造
+        this.username = username;
+        this.age = age;
+    }
+    private User(String username) { // 私有构造
+        this.username = username;
+    }
+
+    // 成员方法
+    public void sayHello() {
+        System.out.println(&quot;Hello, &quot; + username);
+    }
+    private String getInfo(String prefix) {
+        return prefix + &quot;: &quot; + username + &quot;, &quot; + age;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;User{&quot; +
+                &quot;username=&#39;&quot; + username + &#39;\&#39;&#39; +
+                &quot;, age=&quot; + age +
+                &quot;, address=&#39;&quot; + address + &#39;\&#39;&#39; +
+                &quot;, phone=&#39;&quot; + phone + &#39;\&#39;&#39; +
+                &#39;}&#39;;
+    }
+}
+</code></pre>
+<h4 id="二、反射的核心使用步骤（分模块）"><a href="#二、反射的核心使用步骤（分模块）" class="headerlink" title="二、反射的核心使用步骤（分模块）"></a>二、反射的核心使用步骤（分模块）</h4><p>反射的所有操作都以<strong>获取Class对象</strong>为起点，Class对象是反射的“入口”。</p>
+<h5 id="1-第一步：获取Class对象（3种方式）"><a href="#1-第一步：获取Class对象（3种方式）" class="headerlink" title="1. 第一步：获取Class对象（3种方式）"></a>1. 第一步：获取Class对象（3种方式）</h5><pre><code class="Java">public class ReflectionDemo {
+    public static void main(String[] args) throws Exception {
+        // 方式1：Class.forName(&quot;全类名&quot;)（最常用，动态加载）
+        Class&lt;?&gt; clazz1 = Class.forName(&quot;User&quot;);
+
+        // 方式2：类名.class（编译期确定，静态加载）
+        Class&lt;?&gt; clazz2 = User.class;
+
+        // 方式3：对象.getClass()（已有实例时使用）
+        User user = new User();
+        Class&lt;?&gt; clazz3 = user.getClass();
+
+        // 验证：三个Class对象是同一个（JVM中每个类只有一个Class实例）
+        System.out.println(clazz1 == clazz2); // true
+        System.out.println(clazz1 == clazz3); // true
+    }
+}
+</code></pre>
+<h5 id="2-第二步：通过反射创建对象（操作Constructor）"><a href="#2-第二步：通过反射创建对象（操作Constructor）" class="headerlink" title="2. 第二步：通过反射创建对象（操作Constructor）"></a>2. 第二步：通过反射创建对象（操作Constructor）</h5><p>支持调用<strong>无参构造、有参构造、私有构造</strong>：</p>
+<pre><code class="Java">public class ReflectionDemo {
+    public static void main(String[] args) throws Exception {
+        Class&lt;?&gt; clazz = User.class;
+
+        // 1. 调用无参构造（public）
+        User user1 = (User) clazz.newInstance(); // JDK9后标记为过时，推荐用getConstructor()
+        user1.username = &quot;张三&quot;;
+        System.out.println(user1); // User{username=&#39;张三&#39;, age=null, address=&#39;null&#39;, phone=&#39;null&#39;}
+
+        // 2. 调用有参构造（public）
+        // 获取有参构造：参数类型为String、Integer
+        Constructor&lt;?&gt; constructor = clazz.getConstructor(String.class, Integer.class);
+        User user2 = (User) constructor.newInstance(&quot;李四&quot;, 20);
+        System.out.println(user2); // User{username=&#39;李四&#39;, age=20, address=&#39;null&#39;, phone=&#39;null&#39;}
+
+        // 3. 调用私有构造（private）
+        // getDeclaredConstructor：获取所有构造（包括private）
+        Constructor&lt;?&gt; privateConstructor = clazz.getDeclaredConstructor(String.class);
+        privateConstructor.setAccessible(true); // 突破private访问限制
+        User user3 = (User) privateConstructor.newInstance(&quot;王五&quot;);
+        System.out.println(user3); // User{username=&#39;王五&#39;, age=null, address=&#39;null&#39;, phone=&#39;null&#39;}
+    }
+}
+</code></pre>
+<h5 id="3-第三步：通过反射操作成员变量（操作Field）"><a href="#3-第三步：通过反射操作成员变量（操作Field）" class="headerlink" title="3. 第三步：通过反射操作成员变量（操作Field）"></a>3. 第三步：通过反射操作成员变量（操作Field）</h5><p>支持读取/修改<strong>任意访问权限</strong>的成员变量（包括private）：</p>
+<pre><code class="Java">public class ReflectionDemo {
+    public static void main(String[] args) throws Exception {
+        Class&lt;?&gt; clazz = User.class;
+        User user = (User) clazz.newInstance();
+
+        // 1. 操作public变量
+        Field usernameField = clazz.getField(&quot;username&quot;); // getField：仅获取public变量
+        usernameField.set(user, &quot;赵六&quot;); // 设置值
+        System.out.println(usernameField.get(user)); // 获取值：赵六
+
+        // 2. 操作private变量
+        Field ageField = clazz.getDeclaredField(&quot;age&quot;); // getDeclaredField：获取所有变量（包括private）
+        ageField.setAccessible(true); // 关闭访问检查（突破private）
+        ageField.set(user, 25);
+        System.out.println(ageField.get(user)); // 25
+
+        // 3. 操作protected/default变量（同private逻辑）
+        Field addressField = clazz.getDeclaredField(&quot;address&quot;);
+        addressField.setAccessible(true);
+        addressField.set(user, &quot;北京&quot;);
+
+        Field phoneField = clazz.getDeclaredField(&quot;phone&quot;);
+        phoneField.setAccessible(true);
+        phoneField.set(user, &quot;13800138000&quot;);
+
+        System.out.println(user); // User{username=&#39;赵六&#39;, age=25, address=&#39;北京&#39;, phone=&#39;13800138000&#39;}
+
+        // 4. 获取所有成员变量
+        Field[] allFields = clazz.getDeclaredFields();
+        for (Field field : allFields) {
+            field.setAccessible(true);
+            System.out.println(field.getName() + &quot;: &quot; + field.get(user));
+        }
+    }
+}
+</code></pre>
+<h5 id="4-第四步：通过反射调用成员方法（操作Method）"><a href="#4-第四步：通过反射调用成员方法（操作Method）" class="headerlink" title="4. 第四步：通过反射调用成员方法（操作Method）"></a>4. 第四步：通过反射调用成员方法（操作Method）</h5><p>支持调用<strong>任意访问权限</strong>的方法（包括private）：</p>
+<pre><code class="Java">public class ReflectionDemo {
+    public static void main(String[] args) throws Exception {
+        Class&lt;?&gt; clazz = User.class;
+        User user = (User) clazz.getConstructor(String.class, Integer.class).newInstance(&quot;孙七&quot;, 30);
+
+        // 1. 调用public方法
+        Method sayHelloMethod = clazz.getMethod(&quot;sayHello&quot;); // getMethod：仅获取public方法
+        sayHelloMethod.invoke(user); // 调用方法：Hello, 孙七
+
+        // 2. 调用private方法
+        // getDeclaredMethod：参数1=方法名，参数2=方法参数类型
+        Method getInfoMethod = clazz.getDeclaredMethod(&quot;getInfo&quot;, String.class);
+        getInfoMethod.setAccessible(true); // 突破private限制
+        // invoke：参数1=调用对象，参数2=方法入参
+        String result = (String) getInfoMethod.invoke(user, &quot;用户信息&quot;);
+        System.out.println(result); // 用户信息: 孙七, 30
+
+        // 3. 获取所有方法（包括继承的public方法）
+        Method[] allMethods = clazz.getDeclaredMethods();
+        System.out.println(&quot;所有方法：&quot; + Arrays.toString(allMethods));
+    }
+}
+</code></pre>
+<h4 id="三、反射的核心使用场景"><a href="#三、反射的核心使用场景" class="headerlink" title="三、反射的核心使用场景"></a>三、反射的核心使用场景</h4><ol>
+<li><strong>框架开发</strong>：Spring/IOC、MyBatis等框架的核心底层（如Spring通过反射创建Bean、MyBatis通过反射封装结果集）；</li>
+<li><strong>动态代理</strong>：AOP的底层实现（JDK动态代理通过反射调用目标方法）；</li>
+<li><strong>序列化/反序列化</strong>：JSON工具（如FastJSON）通过反射读取/设置对象属性；</li>
+<li><strong>注解处理</strong>：自定义注解的解析（通过反射获取注解标注的字段/方法）；</li>
+<li><strong>动态加载类</strong>：如插件化开发、热部署（运行时加载未知类）。</li>
+</ol>
+<h4 id="四、反射的注意事项"><a href="#四、反射的注意事项" class="headerlink" title="四、反射的注意事项"></a>四、反射的注意事项</h4><ol>
+<li><strong>性能问题</strong>：反射跳过编译期检查，性能比直接调用低（约10-100倍），高频调用场景需缓存Class/Method/Field对象；</li>
+<li><strong>安全问题</strong>：突破访问权限（如修改private变量），可能破坏封装性，需谨慎使用；</li>
+<li><strong>兼容性问题</strong>：依赖类的结构（字段名、方法名），类结构变更会导致反射代码报错；</li>
+<li><strong>访问权限</strong>：操作private成员时，需调用<code>setAccessible(true)</code>（关闭安全检查），在有安全管理器的环境下可能被禁止。</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><strong>反射核心流程</strong>：获取Class对象 → 操作Constructor（创建对象）/Field（操作属性）/Method（调用方法），其中<code>getDeclaredXXX</code>可获取所有访问权限的成员，<code>setAccessible(true)</code>突破private限制；</li>
+<li><strong>核心价值</strong>：运行时动态操作类/对象，是框架开发的基础；</li>
+<li><strong>使用约束</strong>：注意性能损耗和封装性破坏，非必要场景（如普通业务代码）不建议使用。</li>
+</ol>
+<h2 id="SPI机制"><a href="#SPI机制" class="headerlink" title="SPI机制"></a>SPI机制</h2><p>Java中的SPI（Service Provider Interface）机制的定义、核心原理、使用方式和应用场景，这是考察对Java模块化扩展、框架底层设计思路理解的重要知识点，也是中间件/框架开发中常用的扩展方式。</p>
+<h3 id="详细解答"><a href="#详细解答" class="headerlink" title="详细解答"></a>详细解答</h3><h4 id="一、SPI机制的核心定义"><a href="#一、SPI机制的核心定义" class="headerlink" title="一、SPI机制的核心定义"></a>一、SPI机制的核心定义</h4><p>SPI（Service Provider Interface）是<strong>Java提供的一种服务发现机制</strong>，核心思想是：<strong>将接口的定义与实现分离，通过配置文件指定接口的实现类，程序运行时动态加载实现类</strong>，从而实现“接口标准化、实现模块化、扩展可插拔”。</p>
+<p>简单来说：</p>
+<ul>
+<li>你定义一个接口（服务标准）；</li>
+<li>其他人按照这个接口写实现类（服务提供者）；</li>
+<li>程序通过SPI机制，在运行时自动找到并加载这些实现类，无需硬编码指定。</li>
+</ul>
+<h4 id="二、SPI的核心设计与执行流程"><a href="#二、SPI的核心设计与执行流程" class="headerlink" title="二、SPI的核心设计与执行流程"></a>二、SPI的核心设计与执行流程</h4><p>SPI机制的核心依赖「接口 + 配置文件 + 加载器」三部分，执行流程如下：</p>
+<h5 id="1-核心组成"><a href="#1-核心组成" class="headerlink" title="1. 核心组成"></a>1. 核心组成</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">组件</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">服务接口（Service Interface）</td>
+<td style="text-align:left">定义标准化的服务规范（如<code>java.sql.Driver</code>）</td>
+</tr>
+<tr>
+<td style="text-align:left">服务实现类（Provider）</td>
+<td style="text-align:left">第三方实现的接口实现类（如MySQL的<code>com.mysql.cj.jdbc.Driver</code>）</td>
+</tr>
+<tr>
+<td style="text-align:left">配置文件</td>
+<td style="text-align:left">在<code>META-INF/services/</code>目录下，以「接口全类名」命名的文件，内容是实现类的全类名</td>
+</tr>
+<tr>
+<td style="text-align:left">服务加载器（ServiceLoader）</td>
+<td style="text-align:left">JDK提供的<code>java.util.ServiceLoader</code>类，负责加载配置文件中的实现类</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-标准执行流程（五步）"><a href="#2-标准执行流程（五步）" class="headerlink" title="2. 标准执行流程（五步）"></a>2. 标准执行流程（五步）</h5><pre><code class="mermaid">flowchart TD
+    A[定义服务接口] --&gt; B[第三方实现接口]
+    B --&gt; C[在META-INF/services/下创建配置文件]
+    C --&gt; D[程序中用ServiceLoader加载实现类]
+    D --&gt; E[遍历使用加载的实现类]
+</code></pre>
+<h4 id="三、SPI机制的实战示例（从零实现）"><a href="#三、SPI机制的实战示例（从零实现）" class="headerlink" title="三、SPI机制的实战示例（从零实现）"></a>三、SPI机制的实战示例（从零实现）</h4><p>通过一个简单的“日志框架扩展”示例，直观理解SPI的使用：</p>
+<h5 id="步骤1：定义服务接口（核心规范）"><a href="#步骤1：定义服务接口（核心规范）" class="headerlink" title="步骤1：定义服务接口（核心规范）"></a>步骤1：定义服务接口（核心规范）</h5><pre><code class="Java">// 日志服务接口（SPI的核心接口）
+public interface LogService {
+    void log(String message);
+}
+</code></pre>
+<h5 id="步骤2：编写服务实现类（不同厂商的实现）"><a href="#步骤2：编写服务实现类（不同厂商的实现）" class="headerlink" title="步骤2：编写服务实现类（不同厂商的实现）"></a>步骤2：编写服务实现类（不同厂商的实现）</h5><pre><code class="Java">// 控制台日志实现
+public class ConsoleLogService implements LogService {
+    @Override
+    public void log(String message) {
+        System.out.println(&quot;[控制台日志] &quot; + message);
+    }
+}
+
+// 文件日志实现
+public class FileLogService implements LogService {
+    @Override
+    public void log(String message) {
+        System.out.println(&quot;[文件日志] &quot; + message);
+    }
+}
+</code></pre>
+<h5 id="步骤3：创建SPI配置文件（关键）"><a href="#步骤3：创建SPI配置文件（关键）" class="headerlink" title="步骤3：创建SPI配置文件（关键）"></a>步骤3：创建SPI配置文件（关键）</h5><ol>
+<li><p>在项目的<code>resources</code>目录下，创建目录结构：<code>META-INF/services/</code>；</p>
+</li>
+<li><p>在该目录下创建文件，文件名必须是<strong>接口的全类名</strong>：<code>com.example.spi.LogService</code>；</p>
+</li>
+<li><p>文件内容为实现类的全类名（每行一个）：</p>
+<ol>
+<li><pre><code class="Plain">com.example.spi.ConsoleLogService
+com.example.spi.FileLogService
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h5 id="步骤4：通过ServiceLoader加载并使用实现类"><a href="#步骤4：通过ServiceLoader加载并使用实现类" class="headerlink" title="步骤4：通过ServiceLoader加载并使用实现类"></a>步骤4：通过ServiceLoader加载并使用实现类</h5><pre><code class="Java">import java.util.ServiceLoader;
+
+public class SpiDemo {
+    public static void main(String[] args) {
+        // 1. 获取ServiceLoader实例（传入服务接口类）
+        ServiceLoader&lt;LogService&gt; serviceLoader = ServiceLoader.load(LogService.class);
+
+        // 2. 遍历加载所有实现类（懒加载：遍历到才会加载）
+        for (LogService logService : serviceLoader) {
+            // 3. 调用实现类的方法
+            logService.log(&quot;SPI机制测试&quot;);
+        }
+    }
+}
+</code></pre>
+<h5 id="步骤5：运行结果"><a href="#步骤5：运行结果" class="headerlink" title="步骤5：运行结果"></a>步骤5：运行结果</h5><pre><code class="Plain">[控制台日志] SPI机制测试
+[文件日志] SPI机制测试
+</code></pre>
+<h4 id="四、SPI机制的核心特点"><a href="#四、SPI机制的核心特点" class="headerlink" title="四、SPI机制的核心特点"></a>四、SPI机制的核心特点</h4><h5 id="1-优点"><a href="#1-优点" class="headerlink" title="1. 优点"></a>1. 优点</h5><ul>
+<li><strong>解耦</strong>：接口与实现分离，无需硬编码依赖实现类，新增实现只需添加配置文件，无需修改核心代码；</li>
+<li><strong>可插拔</strong>：实现类可动态替换（如替换日志实现、数据库驱动）；</li>
+<li><strong>标准化</strong>：遵循统一的加载规范，框架/中间件之间可无缝扩展。</li>
+</ul>
+<h5 id="2-缺点"><a href="#2-缺点" class="headerlink" title="2. 缺点"></a>2. 缺点</h5><ul>
+<li><strong>懒加载</strong>：ServiceLoader是懒加载模式，只有遍历到实现类时才会加载，可能导致首次调用延迟；</li>
+<li><strong>线程不安全</strong>：ServiceLoader本身不是线程安全的，多线程场景需手动加锁；</li>
+<li><strong>无法指定加载顺序</strong>：配置文件中的实现类按顺序加载，无法自定义优先级；</li>
+<li><strong>异常处理不友好</strong>：加载失败时仅打印日志，不抛出异常，排查问题较麻烦。</li>
+</ul>
+<h4 id="五、SPI机制的典型应用场景"><a href="#五、SPI机制的典型应用场景" class="headerlink" title="五、SPI机制的典型应用场景"></a>五、SPI机制的典型应用场景</h4><ol>
+<li><strong>数据库驱动加载</strong>：JDBC的<code>java.sql.Driver</code>接口是SPI的经典应用——不同数据库（MySQL/Oracle）提供各自的Driver实现，JDK通过SPI加载驱动，无需手动<code>Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;)</code>；</li>
+<li><strong>Spring框架</strong>：Spring中大量使用SPI扩展（如<code>ApplicationContextInitializer</code>、<code>BeanDefinitionRegistryPostProcessor</code>）；</li>
+<li><strong>Dubbo框架</strong>：Dubbo的扩展机制基于SPI实现（增强了原生SPI，支持优先级、自适应扩展等）；</li>
+<li><strong>日志框架</strong>：SLF4J通过SPI加载不同的日志实现（Log4j/Logback）；</li>
+<li><strong>JDK内置扩展</strong>：如<code>java.nio.charset.spi.CharsetProvider</code>（字符集扩展）、<code>java.util.spi.LocaleServiceProvider</code>（本地化扩展）。</li>
+</ol>
+<h4 id="六、SPI与API的区别（易混点）"><a href="#六、SPI与API的区别（易混点）" class="headerlink" title="六、SPI与API的区别（易混点）"></a>六、SPI与API的区别（易混点）</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">维度</th>
+<th style="text-align:left">SPI</th>
+<th style="text-align:left">API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">设计角度</td>
+<td style="text-align:left">面向<strong>实现者</strong>（服务提供者）</td>
+<td style="text-align:left">面向<strong>调用者</strong>（服务使用者）</td>
+</tr>
+<tr>
+<td style="text-align:left">调用关系</td>
+<td style="text-align:left">接口由调用方定义，实现由第三方提供</td>
+<td style="text-align:left">接口由实现方定义，调用方直接使用</td>
+</tr>
+<tr>
+<td style="text-align:left">核心目的</td>
+<td style="text-align:left">扩展现有功能</td>
+<td style="text-align:left">提供可用的功能</td>
+</tr>
+<tr>
+<td style="text-align:left">示例</td>
+<td style="text-align:left">JDBC Driver、Dubbo扩展</td>
+<td style="text-align:left">Spring Bean、StringUtils工具类</td>
+</tr>
+</tbody>
+</table>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><strong>核心本质</strong>：SPI是Java的服务发现机制，通过「接口+配置文件+ServiceLoader」实现接口与实现的解耦，支持动态加载实现类；</li>
+<li><strong>核心流程</strong>：定义接口 → 实现接口 → 配置META-INF/services/文件 → ServiceLoader加载并使用；</li>
+<li><strong>典型应用</strong>：JDBC驱动、Dubbo/Spring扩展、日志框架适配，是框架/中间件实现可插拔扩展的核心方式。</li>
+</ol>
+<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><h3 id="集合有哪些类？"><a href="#集合有哪些类？" class="headerlink" title="集合有哪些类？"></a>集合有哪些类？</h3><ul>
+<li>Set <ul>
+<li>TreeSet 基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)。</li>
+<li>HashSet 基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</li>
+<li>LinkedHashSet 具有 HashSet 的查找效率，且内部使用双向链表维护元素的插入顺序。</li>
+</ul>
+</li>
+<li>List <ul>
+<li>ArrayList 基于动态数组实现，支持随机访问。</li>
+<li>Vector 和 ArrayList 类似，但它是线程安全的。</li>
+<li>LinkedList 基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列。</li>
+</ul>
+</li>
+<li>Queue <ul>
+<li>LinkedList 可以用它来实现双向队列。</li>
+<li>PriorityQueue 基于堆结构实现，可以用它来实现优先队列。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ArrayList-Fail-Fast-机制"><a href="#ArrayList-Fail-Fast-机制" class="headerlink" title="ArrayList Fail-Fast 机制"></a>ArrayList Fail-Fast 机制</h3><h5 id="一、Fail-Fast机制的核心定义"><a href="#一、Fail-Fast机制的核心定义" class="headerlink" title="一、Fail-Fast机制的核心定义"></a>一、Fail-Fast机制的核心定义</h5><p>Fail-Fast（快速失败）是ArrayList（以及HashMap、HashSet等非线程安全集合）的一种<strong>错误检测机制</strong>：当多个线程对集合进行结构性修改（如添加/删除元素），或单线程在迭代器遍历过程中直接修改集合结构时，迭代器会立即抛出 <code>ConcurrentModificationException</code> 异常，而不是容忍错误继续执行，以此快速暴露问题。</p>
+<p>简单来说：<strong>迭代器遍历集合时，不允许集合的结构被意外修改，否则立刻报错</strong>。</p>
+<h5 id="二、触发Fail-Fast的典型场景"><a href="#二、触发Fail-Fast的典型场景" class="headerlink" title="二、触发Fail-Fast的典型场景"></a>二、触发Fail-Fast的典型场景</h5><p>场景1：单线程遍历中直接修改集合（最常见）</p>
+<pre><code class="Java">import java.util.ArrayList;
+import java.util.Iterator;
+
+public class FailFastDemo {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;A&quot;);
+        list.add(&quot;B&quot;);
+        list.add(&quot;C&quot;);
+
+        // 错误方式：遍历中直接remove元素，触发Fail-Fast
+        for (String s : list) { // 增强for循环底层是迭代器
+            if (s.equals(&quot;A&quot;)) {
+                list.remove(s); // 直接修改集合结构
+            }
+        }
+    }
+}
+</code></pre>
+<p>运行结果：</p>
+<pre><code class="Plain">Exception in thread &quot;main&quot; java.util.ConcurrentModificationException
+ at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:909)
+ at java.util.ArrayList$Itr.next(ArrayList.java:859)
+ at FailFastDemo.main(FailFastDemo.java:12)
+</code></pre>
+<p>场景2：多线程并发修改</p>
+<pre><code class="Java">import java.util.ArrayList;
+
+public class FailFastDemo {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;A&quot;);
+        list.add(&quot;B&quot;);
+
+        // 线程1：遍历集合
+        new Thread(() -&gt; {
+            for (String s : list) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(s);
+            }
+        }).start();
+
+        // 线程2：修改集合结构
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            list.add(&quot;C&quot;); // 结构性修改
+        }).start();
+    }
+}
+</code></pre>
+<p>运行结果（大概率触发）：</p>
+<pre><code class="Plain">A
+Exception in thread &quot;Thread-0&quot; java.util.ConcurrentModificationException
+ at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:909)
+ ...
+</code></pre>
+<h5 id="三、Fail-Fast的底层实现原理（modCount和expectedModCount）"><a href="#三、Fail-Fast的底层实现原理（modCount和expectedModCount）" class="headerlink" title="三、Fail-Fast的底层实现原理（modCount和expectedModCount）"></a>三、Fail-Fast的底层实现原理（modCount和expectedModCount）</h5><p>ArrayList的Fail-Fast核心依赖两个变量：</p>
+<ol>
+<li><code>modCount</code>：ArrayList类中的<strong>成员变量</strong>，记录集合的<strong>结构性修改次数</strong>（添加、删除元素时自增，修改元素值不会变化）；</li>
+<li><code>expectedModCount</code>：ArrayList内部迭代器（<code>Itr</code>类）的<strong>成员变量</strong>，初始化时等于当前的<code>modCount</code>，代表迭代器预期的集合修改次数。</li>
+</ol>
+<p>核心执行流程：</p>
+<pre><code class="mermaid">flowchart TD
+    A[创建迭代器] --&gt; B[expectedModCount = modCount]
+    B --&gt; C[&quot;迭代器调用next()/remove()&quot;]
+    C --&gt; D[检查modCount == expectedModCount?]
+    D -- 是 --&gt; E[正常执行]
+    D -- 否 --&gt; F[抛出ConcurrentModificationException]
+</code></pre>
+<p>源码层面拆解（ArrayList核心片段）：</p>
+<pre><code class="Java">public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt; {
+    // 1. 集合的结构性修改次数（父类AbstractList中定义）
+    protected transient int modCount = 0;
+
+    // 2. 内部迭代器类
+    private class Itr implements Iterator&lt;E&gt; {
+        int expectedModCount = modCount; // 初始化时同步modCount
+
+        @Override
+        public E next() {
+            // 核心：每次调用next()都会检查修改次数
+            checkForComodification();
+            // ... 其他逻辑
+        }
+
+        // 检查是否触发Fail-Fast
+        final void checkForComodification() {
+            if (modCount != expectedModCount) {
+                // 抛出快速失败异常
+                throw new ConcurrentModificationException();
+            }
+        }
+    }
+
+    // 3. 结构性修改方法（如add）会修改modCount
+    public boolean add(E e) {
+        modCount++; // 结构性修改，自增
+        // ... 添加元素逻辑
+        return true;
+    }
+
+    // 4. 直接调用list.remove()也会修改modCount
+    public boolean remove(Object o) {
+        modCount++; // 结构性修改，自增
+        // ... 删除元素逻辑
+        return true;
+    }
+}
+</code></pre>
+<p><strong>场景1报错原因</strong>：</p>
+<ul>
+<li>增强for循环底层是迭代器，初始化时<code>expectedModCount = modCount = 3</code>；</li>
+<li>遍历到”A”时，调用<code>list.remove()</code>，<code>modCount</code>自增为4；</li>
+<li>迭代器下一次调用<code>next()</code>时，检查<code>modCount(4) != expectedModCount(3)</code>，抛出异常。</li>
+</ul>
+<h5 id="四、Fail-Fast的“例外情况”（不触发的场景）"><a href="#四、Fail-Fast的“例外情况”（不触发的场景）" class="headerlink" title="四、Fail-Fast的“例外情况”（不触发的场景）"></a>四、Fail-Fast的“例外情况”（不触发的场景）</h5><p>并非所有修改都会触发Fail-Fast，核心看是否修改<code>modCount</code>或是否通过迭代器修改：</p>
+<ol>
+<li><p><strong>迭代器自身的remove()方法</strong>：迭代器的<code>remove()</code>会同步更新<code>expectedModCount</code>，不会触发异常：</p>
+<pre><code class="java">// 正确方式：通过迭代器remove
+Iterator&lt;String&gt; iterator = list.iterator();
+while (iterator.hasNext()) {
+    String s = iterator.next();
+    if (s.equals(&quot;A&quot;)) {
+        iterator.remove(); // 迭代器自身的remove，同步expectedModCount
+    }
+}
+</code></pre>
+</li>
+<li><p><strong>修改元素值（非结构性修改）</strong>：仅修改<code>list.set(index, value)</code>不会改变<code>modCount</code>，不会触发异常；</p>
+</li>
+<li><p><strong>遍历最后一个元素时修改</strong>：若遍历到最后一个元素时调用<code>list.remove()</code>，迭代器已无<code>next()</code>调用，不会触发检查（不推荐依赖此特性）。</p>
+</li>
+</ol>
+<h5 id="五、如何避免Fail-Fast？"><a href="#五、如何避免Fail-Fast？" class="headerlink" title="五、如何避免Fail-Fast？"></a>五、如何避免Fail-Fast？</h5><p>根据场景选择不同方案：</p>
+<ol>
+<li><strong>单线程场景</strong>：使用迭代器的<code>remove()</code>方法（而非集合的<code>remove()</code>）；</li>
+<li><strong>多线程场景</strong>：<ol>
+<li>方案1：使用线程安全集合（如<code>CopyOnWriteArrayList</code>，基于“写时复制”实现，无Fail-Fast）；</li>
+<li>方案2：遍历前加锁（如<code>synchronized</code>或<code>ReentrantLock</code>），保证遍历和修改互斥；</li>
+<li>方案3：使用<code>Collections.synchronizedList()</code>包装ArrayList（底层加锁，性能较低）。</li>
+</ol>
+</li>
+</ol>
+<p>示例：CopyOnWriteArrayList（推荐多线程场景）</p>
+<pre><code class="Java">import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class FailFastDemo {
+    public static void main(String[] args) {
+        // 替换为CopyOnWriteArrayList，无Fail-Fast
+        CopyOnWriteArrayList&lt;String&gt; list = new CopyOnWriteArrayList&lt;&gt;(new ArrayList&lt;&gt;());
+        list.add(&quot;A&quot;);
+        list.add(&quot;B&quot;);
+        list.add(&quot;C&quot;);
+
+        // 遍历中直接修改，不触发异常
+        for (String s : list) {
+            if (s.equals(&quot;A&quot;)) {
+                list.remove(s);
+            }
+        }
+        System.out.println(list); // [B, C]
+    }
+}
+</code></pre>
+<h5 id="六、Fail-Fast的核心特点"><a href="#六、Fail-Fast的核心特点" class="headerlink" title="六、Fail-Fast的核心特点"></a>六、Fail-Fast的核心特点</h5><ol>
+<li><strong>不是线程安全机制</strong>：Fail-Fast只是错误检测机制，不能保证线程安全，仅能快速暴露并发修改问题；</li>
+<li><strong>不保证100%触发</strong>：由于CPU调度等原因，多线程场景下可能出现“漏检”（modCount刚好相等），因此不能依赖它作为并发安全的判断依据；</li>
+<li><strong>仅检测结构性修改</strong>：修改元素值（<code>set()</code>）不会改变<code>modCount</code>，不会触发异常。</li>
+</ol>
+<h5 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h5><ol>
+<li><strong>核心原理</strong>：ArrayList的Fail-Fast依赖<code>modCount</code>（集合修改次数）和<code>expectedModCount</code>（迭代器预期修改次数）的对比，不一致则抛出<code>ConcurrentModificationException</code>；</li>
+<li><strong>触发条件</strong>：迭代器遍历过程中，集合被直接修改（单线程）或并发修改（多线程）结构（添加/删除元素）；</li>
+<li><strong>解决方案</strong>：单线程用迭代器<code>remove()</code>，多线程用<code>CopyOnWriteArrayList</code>或加锁，避免直接修改集合。</li>
+</ol>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><h3 id="Map有哪些类？"><a href="#Map有哪些类？" class="headerlink" title="Map有哪些类？"></a>Map有哪些类？</h3><ul>
+<li><code>TreeMap</code> 基于红黑树实现。</li>
+<li><code>HashMap</code> 1.7基于哈希表实现，1.8基于数组+链表+红黑树。</li>
+<li><code>HashTable</code> 和 HashMap 类似，但它是线程安全的，这意味着同一时刻多个线程可以同时写入 HashTable 并且不会导致数据不一致。它是遗留类，不应该去使用它。现在可以使用 ConcurrentHashMap 来支持线程安全，并且 ConcurrentHashMap 的效率会更高(1.7 ConcurrentHashMap 引入了分段锁, 1.8 引入了红黑树)。</li>
+<li><code>LinkedHashMap</code> 使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用(LRU)顺序。</li>
+</ul>
+<h3 id="JDK7-HashMap如何实现？"><a href="#JDK7-HashMap如何实现？" class="headerlink" title="JDK7 HashMap如何实现？"></a>JDK7 HashMap如何实现？</h3><p>哈希表有两种实现方式，一种开放地址方式(Open addressing)，另一种是冲突链表方式(Separate chaining with linked lists)。<strong>Java7 *HashMap*采用的是冲突链表方式</strong>。</p>
+<p>JDK 7的HashMap核心是<strong>数组 + 链表</strong>的组合结构（也叫“哈希桶”结构），核心设计围绕“哈希计算→桶定位→冲突处理→扩容”展开，下面从核心结构、核心流程、关键机制三个维度拆解：</p>
+<h4 id="一、核心数据结构"><a href="#一、核心数据结构" class="headerlink" title="一、核心数据结构"></a>一、核心数据结构</h4><pre><code class="java">// jdk1.7
+package java.util;
+public class HashMap&lt;K,V&gt;
+    extends AbstractMap&lt;K,V&gt;
+    implements Map&lt;K,V&gt;, Cloneable, Serializable
+{
+    transient Entry&lt;K,V&gt;[] table;
+
+    public HashMap() {
+        this(DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
+    }
+
+    public HashMap(int initialCapacity, float loadFactor) {
+        if (initialCapacity &lt; 0)
+            throw new IllegalArgumentException(&quot;Illegal initial capacity: &quot; +
+                                               initialCapacity);
+        if (initialCapacity &gt; MAXIMUM_CAPACITY)
+            initialCapacity = MAXIMUM_CAPACITY;
+        if (loadFactor &lt;= 0 || Float.isNaN(loadFactor))
+            throw new IllegalArgumentException(&quot;Illegal load factor: &quot; +
+                                               loadFactor);
+
+        // Find a power of 2 &gt;= initialCapacity
+        int capacity = 1;
+        while (capacity &lt; initialCapacity)
+            capacity &lt;&lt;= 1;
+
+        this.loadFactor = loadFactor;
+        threshold = (int)Math.min(capacity * loadFactor, MAXIMUM_CAPACITY + 1);
+        table = new Entry[capacity];
+        useAltHashing = sun.misc.VM.isBooted() &amp;&amp;
+                (capacity &gt;= Holder.ALTERNATIVE_HASHING_THRESHOLD);
+        init();
+    }
+    // ...
+}
+</code></pre>
+<p>JDK 7 HashMap的底层由两个核心部分组成：</p>
+<ol>
+<li><p><strong>数组（table）</strong>：类型为<code>Entry[]</code>，数组的每个元素称为“桶（bucket）”，桶中存储的是<code>Entry</code>链表的头节点；</p>
+</li>
+<li><p><strong>链表（Entry）</strong>：解决哈希冲突（不同key计算出相同桶索引），<code>Entry</code>是HashMap的内部类，核心属性：</p>
+<pre><code class="Java">static class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+    final K key;
+    V value;
+    Entry&lt;K,V&gt; next; // 指向下一个Entry，形成链表
+    int hash; // key的哈希值（提前计算，避免重复计算）
+
+    Entry(int h, K k, V v, Entry&lt;K,V&gt; n) {
+        value = v;
+        next = n;
+        key = k;
+        hash = h;
+    }
+}
+</code></pre>
+</li>
+</ol>
+<h4 id="二、核心操作流程（put-get）"><a href="#二、核心操作流程（put-get）" class="headerlink" title="二、核心操作流程（put/get）"></a>二、核心操作流程（put/get）</h4><h5 id="1-put方法（存储键值对）"><a href="#1-put方法（存储键值对）" class="headerlink" title="1. put方法（存储键值对）"></a>1. put方法（存储键值对）</h5><p>put通过“哈希计算→桶定位→头插法插入→扩容判断”实现，get通过“哈希定位→链表遍历匹配”实现；</p>
+<p>这是HashMap最核心的方法，完整流程如下：</p>
+<pre><code class="mermaid">flowchart TD
+    A[&quot;调用put(K key, V value)&quot;] --&gt; B[&quot;计算key的哈希值：hash(key)&quot;]
+    B --&gt; C[&quot;通过哈希值计算桶索引：index = hash &amp; (table.length - 1)&quot;]
+    C --&gt; D{检查桶是否为空？}
+    D -- 空 --&gt; E[创建新Entry，放入该桶（作为链表头）]
+    D -- 非空 --&gt; F[遍历桶中的Entry链表]
+    F --&gt; G{是否存在相同key？}
+    G -- 是 --&gt; H[替换旧value，返回旧值]
+    G -- 否 --&gt; I[新Entry插入链表头部（头插法）]
+    I --&gt; J{检查是否需要扩容？（size &gt; 阈值）}
+    J -- 是 --&gt; K[&quot;执行扩容：resize()，重新哈希并迁移数据&quot;]
+    J -- 否 --&gt; L[结束]
+</code></pre>
+<p>关键步骤拆解：</p>
+<ul>
+<li><p><strong>步骤1：哈希值计算</strong></p>
+<p>JDK 7对key的hashCode做了二次哈希（扰动函数），减少哈希冲突：</p>
+<pre><code class="Java">final int hash(Object k) {
+    int h = 0;
+    // 处理String类型的key，优化哈希计算（JDK 7特有）
+    if (useAltHashing) {
+        if (k instanceof String) {
+            return sun.misc.Hashing.stringHash32((String) k);
+        }
+        h = hashSeed;
+    }
+    h ^= k.hashCode(); // 异或hashCode
+    // 二次哈希（扰动）：减少高位未参与计算导致的冲突
+    h ^= (h &gt;&gt;&gt; 20) ^ (h &gt;&gt;&gt; 12);
+    return h ^ (h &gt;&gt;&gt; 7) ^ (h &gt;&gt;&gt; 4);
+
+</code></pre>
+</li>
+<li><p><strong>步骤2：桶索引计算</strong></p>
+<p>用<code>hash &amp; (table.length - 1)</code>替代取模运算（效率更高），前提是table长度为2的幂次：</p>
+<pre><code class="Java">int index = hash &amp; (table.length - 1);
+</code></pre>
+</li>
+<li><p><strong>步骤3：冲突处理（头插法）</strong></p>
+<p>新Entry插入链表头部（而非尾部），原因是JDK 7认为“最新插入的元素被访问的概率更高”，头插法效率更高；</p>
+</li>
+<li><p><strong>步骤4：扩容触发条件</strong></p>
+<p>当<code>size（实际存储的键值对数量） &gt; threshold（阈值）</code>时触发扩容，阈值计算公式：<code>threshold = table.length * loadFactor（负载因子，默认0.75）</code>。</p>
+</li>
+</ul>
+<h5 id="2-get方法（获取键值对）"><a href="#2-get方法（获取键值对）" class="headerlink" title="2. get方法（获取键值对）"></a>2. get方法（获取键值对）</h5><p>流程比put简单，核心是“定位桶→遍历链表匹配key”：</p>
+<pre><code class="mermaid">flowchart TD
+    A[&quot;调用get(Object key)&quot;] --&gt; B[&quot;计算key的哈希值：hash(key)&quot;]
+    B --&gt; C[&quot;计算桶索引：index = hash &amp; (table.length - 1)&quot;]
+    C --&gt; D[遍历桶中的Entry链表]
+    D --&gt; E{匹配key（hash相等 + equals相等）？}
+    E -- 是 --&gt; F[返回对应value]
+    E -- 否 --&gt; G[返回null]
+</code></pre>
+<h4 id="三、核心机制：扩容（resize）"><a href="#三、核心机制：扩容（resize）" class="headerlink" title="三、核心机制：扩容（resize）"></a>三、核心机制：扩容（resize）</h4><p>扩容是JDK 7 HashMap的核心痛点，也是与JDK 8的关键差异：</p>
+<h5 id="1-扩容流程"><a href="#1-扩容流程" class="headerlink" title="1. 扩容流程"></a>1. 扩容流程</h5><ol>
+<li>新建一个长度为原数组2倍的新数组（保证长度为2的幂次）；</li>
+<li>遍历原数组的每个桶，将桶中的Entry链表<strong>重新哈希</strong>，迁移到新数组的对应桶中；</li>
+<li>迁移完成后，将table引用指向新数组，更新阈值（新阈值 = 新长度 * 负载因子）。</li>
+</ol>
+<h5 id="2-扩容的核心问题：链表环-amp-数据丢失（多线程场景）"><a href="#2-扩容的核心问题：链表环-amp-数据丢失（多线程场景）" class="headerlink" title="2. 扩容的核心问题：链表环 &amp; 数据丢失（多线程场景）"></a>2. 扩容的核心问题：链表环 &amp; 数据丢失（多线程场景）</h5><p>JDK 7 HashMap的扩容采用<strong>头插法迁移链表</strong>，在多线程环境下会导致严重问题：</p>
+<ul>
+<li><strong>问题1：链表形成环</strong>线程A和线程B同时扩容，迁移同一链表时，头插法会导致链表节点的<code>next</code>指针指向错乱，形成环形链表，后续get操作会陷入死循环；</li>
+<li><strong>问题2：数据丢失</strong>多线程同时插入节点，头插法可能覆盖已插入的节点，导致部分键值对丢失；</li>
+<li>结论：JDK 7 HashMap<strong>非线程安全</strong>，多线程场景严禁使用（需用Hashtable或ConcurrentHashMap）。</li>
+</ul>
+<h4 id="四、JDK-7-HashMap的关键参数"><a href="#四、JDK-7-HashMap的关键参数" class="headerlink" title="四、JDK 7 HashMap的关键参数"></a>四、JDK 7 HashMap的关键参数</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">initialCapacity</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">初始数组长度（必须是2的幂次，若传入非2幂次，会自动调整为最近的2幂次）</td>
+</tr>
+<tr>
+<td style="text-align:left">loadFactor</td>
+<td style="text-align:left">0.75</td>
+<td style="text-align:left">负载因子：平衡空间与时间效率，0.75是权衡后的最优值（减少冲突+减少扩容）</td>
+</tr>
+<tr>
+<td style="text-align:left">threshold</td>
+<td style="text-align:left">12</td>
+<td style="text-align:left">扩容阈值（16*0.75），size超过12触发扩容</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">实际存储的键值对数量</td>
+</tr>
+<tr>
+<td style="text-align:left">modCount</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">结构性修改次数（用于Fail-Fast机制）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="JDK8-HashMap如何实现？"><a href="#JDK8-HashMap如何实现？" class="headerlink" title="JDK8 HashMap如何实现？"></a>JDK8 HashMap如何实现？</h3><p>JDK 8 HashMap 在 JDK 7 的基础上做了重大优化，核心解决了 JDK 7 扩容时的链表环、数据丢失等问题，同时提升了哈希冲突后的查询效率。其底层实现依然围绕「哈希计算→桶定位→冲突处理→扩容」展开，但在数据结构、冲突处理、扩容机制上均有升级，核心是 <strong>数组 + 链表 + 红黑树</strong> 的组合结构。</p>
+<h4 id="一、核心数据结构（核心升级点）"><a href="#一、核心数据结构（核心升级点）" class="headerlink" title="一、核心数据结构（核心升级点）"></a>一、核心数据结构（核心升级点）</h4><pre><code class="java">// HashMap 类中定义的关键常量
+/**
+ * 链表转红黑树的阈值：当桶中链表长度 ≥ 8 时，触发树化（前提是数组长度 ≥ 64）
+ */
+static final int TREEIFY_THRESHOLD = 8;
+
+/**
+ * 红黑树转回链表的阈值：当红黑树节点数 ≤ 6 时，触发链表化
+ */
+static final int UNTREEIFY_THRESHOLD = 6;
+
+/**
+ * 触发树化的最小数组长度：只有数组长度 ≥ 64 时，才会真正树化；否则只扩容
+ */
+static final int MIN_TREEIFY_CAPACITY = 64;
+
+// HashMap 的链表转红黑树逻辑主要集中在 treeifyBin 方法，红黑树转回链表在 untreeify 方法，阈值定义在类常量中
+/**
+ * 将指定桶中的链表转换为红黑树（树化）
+ * @param tab 哈希表数组
+ * @param hash 桶的哈希值（对应数组索引）
+ */
+final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {
+    int n, index;
+    Node&lt;K,V&gt; e;
+    // 核心判断：如果数组长度 &lt; MIN_TREEIFY_CAPACITY（64），则不树化，而是扩容
+    if (tab == null || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)
+        resize(); // 扩容（减少哈希冲突，替代树化）
+    // 如果数组长度 ≥ 64，且桶中存在节点，则真正将链表转为红黑树
+    else if ((e = tab[index = (n - 1) &amp; hash]) != null) {
+        TreeNode&lt;K,V&gt; hd = null, tl = null;
+        // 1. 将普通 Node 节点转为 TreeNode 节点
+        do {
+            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, null);
+            if (tl == null)
+                hd = p;
+            else {
+                p.prev = tl;
+                tl.next = p;
+            }
+            tl = p;
+        } while ((e = e.next) != null);
+        // 2. 将 TreeNode 链表替换原数组桶中的普通链表
+        if ((tab[index] = hd) != null)
+            hd.treeify(tab); // 3. 真正构建红黑树结构
+    }
+}
+
+// 辅助方法：将普通 Node 转为 TreeNode
+TreeNode&lt;K,V&gt; replacementTreeNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next) {
+    return new TreeNode&lt;&gt;(p.hash, p.key, p.value, next);
+}
+
+/**
+ * 将红黑树转回普通链表（链表化）
+ * @return 转回后的链表头节点
+ */
+final Node&lt;K,V&gt; untreeify(HashMap&lt;K,V&gt; map) {
+    Node&lt;K,V&gt; hd = null, tl = null;
+    // 遍历红黑树节点，逐个转回普通 Node
+    for (Node&lt;K,V&gt; q = this; q != null; q = q.next) {
+        Node&lt;K,V&gt; p = map.replacementNode(q, null);
+        if (tl == null)
+            hd = p;
+        else
+            tl.next = p;
+        tl = p;
+    }
+    return hd;
+}
+
+// 辅助方法：将 TreeNode 转回普通 Node
+Node&lt;K,V&gt; replacementNode(Node&lt;K,V&gt; p, Node&lt;K,V&gt; next) {
+    return new Node&lt;&gt;(p.hash, p.key, p.value, next);
+}
+</code></pre>
+<p>JDK 8 保留了 JDK 7「数组+链表」的基础结构，但新增了红黑树作为链表的升级形态，当链表长度超过阈值时，自动转为红黑树，大幅提升查询效率（链表查询时间复杂度 O(n)，红黑树 O(logn)）。</p>
+<h5 id="1-数组（table）"><a href="#1-数组（table）" class="headerlink" title="1. 数组（table）"></a>1. 数组（table）</h5><p>类型改为 <code>Node[]</code>（JDK 7 是 <code>Entry[]</code>），<code>Node</code> 是 HashMap 的内部类，替代了 JDK 7 的 <code>Entry</code>，核心属性与 Entry 类似，但新增了红黑树相关的指针（for 红黑树节点）：</p>
+<pre><code class="java">// 普通链表节点
+static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+    final int hash;
+    final K key;
+    V value;
+    Node&lt;K,V&gt; next; // 链表下一个节点
+
+    Node(int hash, K key, V value, Node&lt;K,V&gt; next) {
+        this.hash = hash;
+        this.key = key;
+        this.value = value;
+        this.next = next;
+    }
+}
+
+// 红黑树节点（继承自Node，用于链表转红黑树）
+static final class TreeNode&lt;K,V&gt; extends LinkedHashMap.Entry&lt;K,V&gt; {
+    TreeNode&lt;K,V&gt; parent; // 红黑树父节点
+    TreeNode&lt;K,V&gt; left;   // 左子节点
+    TreeNode&lt;K,V&gt; right;  // 右子节点
+    TreeNode&lt;K,V&gt; prev;   // 用于回退链表（便于红黑树转链表）
+    boolean red;          // 红黑树节点颜色（红/黑）
+}
+</code></pre>
+<h5 id="2-红黑树触发条件"><a href="#2-红黑树触发条件" class="headerlink" title="2. 红黑树触发条件"></a>2. 红黑树触发条件</h5><p>当同一个桶（数组索引）中的链表长度 <strong>≥ 8</strong>，且数组长度 <strong>≥ 64</strong> 时，链表自动转为红黑树；若数组长度 &lt; 64，不会转红黑树，而是先触发扩容（减少冲突）；当红黑树节点数量 ≤ 6 时，自动转回链表（节省空间）。</p>
+<pre><code class="java">// 触发树化（链表化）的入口
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
+    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;
+    // ... 省略其他逻辑 ...
+
+    // 遍历桶中链表，插入新节点后检查长度
+    for (int binCount = 0; ; ++binCount) {
+        if ((e = p.next) == null) {
+            p.next = newNode(hash, key, value, null);
+            // 关键：如果链表长度 ≥ 8，触发树化
+            if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 因为从 0 计数
+                treeifyBin(tab, hash);
+            break;
+        }
+        // ... 省略重复键判断逻辑 ...
+    }
+    // ... 省略扩容等其他逻辑 ...
+}
+</code></pre>
+<h4 id="二、核心操作流程（put-get，与JDK-7对比）"><a href="#二、核心操作流程（put-get，与JDK-7对比）" class="headerlink" title="二、核心操作流程（put/get，与JDK 7对比）"></a>二、核心操作流程（put/get，与JDK 7对比）</h4><p>JDK 8 的 put/get 流程在 JDK 7 基础上优化了冲突处理和扩容逻辑，核心流程如下：</p>
+<h3 id="1-put方法（存储键值对，核心优化）"><a href="#1-put方法（存储键值对，核心优化）" class="headerlink" title="1. put方法（存储键值对，核心优化）"></a>1. put方法（存储键值对，核心优化）</h3><p>put 是 JDK 8 HashMap 最核心的方法，优化了哈希计算、冲突插入方式、红黑树转换和扩容逻辑，流程如下：</p>
+<h4 id="关键步骤拆解（与JDK-7对比）"><a href="#关键步骤拆解（与JDK-7对比）" class="headerlink" title="关键步骤拆解（与JDK 7对比）"></a>关键步骤拆解（与JDK 7对比）</h4><ul>
+<li><strong>哈希值计算（简化扰动）</strong>：JDK 7 做了4次扰动（移位+异或），JDK 8 简化为1次异或，减少计算开销，同时保证哈希分布均匀：            <code>static final int hash(Object key) { `</code>    int h; <code>// 核心：key.hashCode() 异或 高位哈希（h &gt;&gt;&gt; 16），让高位参与计算</code>    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16); <code></code>}` 解释：将 hashCode 的高位（16位）与低位（16位）异或，让高位哈希值也参与桶索引计算，减少因高位未参与导致的哈希冲突。</li>
+<li><strong>冲突处理（尾插法替代头插法）</strong>：JDK 7 用头插法，多线程扩容易形成链表环；JDK 8 用尾插法，保证链表顺序，彻底解决扩容时的链表环和数据丢失问题（但仍非线程安全，多线程插入仍可能覆盖数据）。</li>
+<li><strong>红黑树转换</strong>：当链表长度≥8且数组长度≥64时，转为红黑树，提升查询效率；避免小数组时转红黑树（红黑树占用空间比链表大，小数据量反而不划算）。</li>
+</ul>
+<h3 id="2-get方法（获取键值对，优化查询）"><a href="#2-get方法（获取键值对，优化查询）" class="headerlink" title="2. get方法（获取键值对，优化查询）"></a>2. get方法（获取键值对，优化查询）</h3><p>流程与 JDK 7 类似，但新增了红黑树的查询逻辑，效率更高：</p>
+<h2 id="三、核心机制：扩容（resize，重大优化）"><a href="#三、核心机制：扩容（resize，重大优化）" class="headerlink" title="三、核心机制：扩容（resize，重大优化）"></a>三、核心机制：扩容（resize，重大优化）</h2><p>JDK 8 扩容机制在 JDK 7 基础上做了两大优化：解决链表环问题、提升扩容效率，核心流程与 JDK 7 一致（新建2倍长度数组、迁移数据、更新阈值），但数据迁移逻辑大幅优化。</p>
+<h3 id="1-扩容触发条件（与JDK-7一致）"><a href="#1-扩容触发条件（与JDK-7一致）" class="headerlink" title="1. 扩容触发条件（与JDK 7一致）"></a>1. 扩容触发条件（与JDK 7一致）</h3><p>当 <code>size（实际存储的键值对数量） &gt; threshold（阈值）</code> 时触发扩容，阈值计算公式：<code>threshold = table.length * loadFactor（默认0.75）</code>；此外，当链表长度≥8但数组长度&lt;64时，也会触发扩容（而非直接转红黑树）。</p>
+<h3 id="2-扩容核心优化：数据迁移（无需重新计算哈希）"><a href="#2-扩容核心优化：数据迁移（无需重新计算哈希）" class="headerlink" title="2. 扩容核心优化：数据迁移（无需重新计算哈希）"></a>2. 扩容核心优化：数据迁移（无需重新计算哈希）</h3><p>JDK 7 扩容时，需要对每个节点重新计算哈希值，再定位新桶索引；JDK 8 利用「数组长度是2的幂次」的特性，无需重新计算哈希，直接通过「哈希值的高位bit」判断迁移方向：</p>
+<ul>
+<li>原数组长度为<code>oldCap</code>，新数组长度为 <code>newCap = oldCap * 2</code>；</li>
+<li>对于每个节点的哈希值 <code>hash</code>，判断 <code>hash &amp; oldCap</code> 的结果：           <ul>
+<li>结果为0：节点留在原桶对应的新桶（索引不变）；</li>
+<li>结果为1：节点迁移到新桶（索引 = 原索引 + oldCap）；</li>
+</ul>
+</li>
+</ul>
+<p>优势：无需重新计算哈希，仅通过一次位运算就能确定迁移方向，大幅提升扩容效率；同时，尾插法迁移数据，避免链表环问题。</p>
+<h3 id="3-扩容后的红黑树处理"><a href="#3-扩容后的红黑树处理" class="headerlink" title="3. 扩容后的红黑树处理"></a>3. 扩容后的红黑树处理</h3><p>若原桶中是红黑树，扩容后会判断红黑树节点数量：若节点数量 ≤ 6，自动转回链表；否则，将红黑树拆分到两个新桶中，分别形成新的红黑树（或链表）。</p>
+<h2 id="四、JDK-8-HashMap-的关键参数（与JDK-7对比）"><a href="#四、JDK-8-HashMap-的关键参数（与JDK-7对比）" class="headerlink" title="四、JDK 8 HashMap 的关键参数（与JDK 7对比）"></a>四、JDK 8 HashMap 的关键参数（与JDK 7对比）</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">参数名</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">与JDK 7差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">initialCapacity</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">初始数组长度（必须是2的幂次）</td>
+<td style="text-align:left">无差异</td>
+</tr>
+<tr>
+<td style="text-align:left">loadFactor</td>
+<td style="text-align:left">0.75</td>
+<td style="text-align:left">负载因子，平衡空间与时间效率</td>
+<td style="text-align:left">无差异</td>
+</tr>
+<tr>
+<td style="text-align:left">threshold</td>
+<td style="text-align:left">12（16*0.75）</td>
+<td style="text-align:left">扩容阈值</td>
+<td style="text-align:left">无差异，但触发红黑树转换时会额外扩容</td>
+</tr>
+<tr>
+<td style="text-align:left">size</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">实际存储的键值对数量</td>
+<td style="text-align:left">无差异</td>
+</tr>
+<tr>
+<td style="text-align:left">modCount</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">结构性修改次数（Fail-Fast机制）</td>
+<td style="text-align:left">无差异</td>
+</tr>
+<tr>
+<td style="text-align:left">TREEIFY_THRESHOLD</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">链表转红黑树的阈值</td>
+<td style="text-align:left">JDK 7 无此参数</td>
+</tr>
+<tr>
+<td style="text-align:left">UNTREEIFY_THRESHOLD</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">红黑树转链表的阈值</td>
+<td style="text-align:left">JDK 7 无此参数</td>
+</tr>
+<tr>
+<td style="text-align:left">MIN_TREEIFY_CAPACITY</td>
+<td style="text-align:left">64</td>
+<td style="text-align:left">链表转红黑树的最小数组长度</td>
+<td style="text-align:left">JDK 7 无此参数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="五、JDK-8-HashMap-的核心特点（与JDK-7对比）"><a href="#五、JDK-8-HashMap-的核心特点（与JDK-7对比）" class="headerlink" title="五、JDK 8 HashMap 的核心特点（与JDK 7对比）"></a>五、JDK 8 HashMap 的核心特点（与JDK 7对比）</h2><h3 id="1-优点-1"><a href="#1-优点-1" class="headerlink" title="1. 优点"></a>1. 优点</h3><ul>
+<li>解决了 JDK 7 扩容时的链表环、数据丢失问题（尾插法）；</li>
+<li>哈希冲突严重时（链表过长），自动转为红黑树，查询效率从 O(n) 提升到 O(logn)；</li>
+<li>简化哈希计算，扩容时无需重新计算哈希，提升扩容效率；</li>
+<li>支持 null key 和 null value（null key 固定存放在索引0的桶中）。</li>
+</ul>
+<h3 id="2-缺点（仍存在）"><a href="#2-缺点（仍存在）" class="headerlink" title="2. 缺点（仍存在）"></a>2. 缺点（仍存在）</h3><ul>
+<li>非线程安全：多线程并发插入、扩容时，仍可能出现数据覆盖（如两个线程同时插入同一个桶，尾插法可能覆盖节点）；</li>
+<li>红黑树转换有开销：链表转红黑树、红黑树转链表，以及红黑树的插入、平衡操作，均有一定性能开销（但总体利大于弊）。</li>
+</ul>
+<h2 id="六、JDK-7-与-JDK-8-HashMap-核心差异总结"><a href="#六、JDK-7-与-JDK-8-HashMap-核心差异总结" class="headerlink" title="六、JDK 7 与 JDK 8 HashMap 核心差异总结"></a>六、JDK 7 与 JDK 8 HashMap 核心差异总结</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">对比维度</th>
+<th style="text-align:left">JDK 7 HashMap</th>
+<th style="text-align:left">JDK 8 HashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">核心数据结构</td>
+<td style="text-align:left">数组 + 链表</td>
+<td style="text-align:left">数组 + 链表 + 红黑树</td>
+</tr>
+<tr>
+<td style="text-align:left">冲突处理方式</td>
+<td style="text-align:left">头插法（多线程扩容易出问题）</td>
+<td style="text-align:left">尾插法（解决链表环、数据丢失）</td>
+</tr>
+<tr>
+<td style="text-align:left">哈希计算</td>
+<td style="text-align:left">4次扰动（移位+异或）</td>
+<td style="text-align:left">1次扰动（hashCode ^ 高位哈希）</td>
+</tr>
+<tr>
+<td style="text-align:left">扩容数据迁移</td>
+<td style="text-align:left">重新计算哈希值定位新桶</td>
+<td style="text-align:left">位运算判断迁移方向（无需重新哈希）</td>
+</tr>
+<tr>
+<td style="text-align:left">查询效率（冲突严重时）</td>
+<td style="text-align:left">O(n)（链表）</td>
+<td style="text-align:left">O(logn)（红黑树）</td>
+</tr>
+<tr>
+<td style="text-align:left">线程安全问题</td>
+<td style="text-align:left">扩容易形成链表环、数据丢失</td>
+<td style="text-align:left">无链表环，仍可能数据覆盖（非线程安全）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h2><p>JDK 8 HashMap 是对 JDK 7 的针对性优化，核心目标是 <strong>提升查询效率、解决扩容时的线程安全隐患（部分）</strong>：</p>
+<ol>
+<li>核心结构：数组+链表+红黑树，链表过长时转红黑树，平衡查询效率和空间开销；</li>
+<li>核心优化：尾插法解决链表环，简化哈希计算、优化扩容迁移，提升性能；</li>
+<li>注意点：仍非线程安全，多线程场景需用 ConcurrentHashMap；红黑树转换有一定开销，适用于哈希冲突较多的场景；</li>
+<li>设计核心：依然遵循「数组长度为2的幂次」「负载因子0.75」的原则，平衡空间与时间效率。</li>
+</ol>
+<h3 id="JDK-7与JDK-8-HashMap的核心差异"><a href="#JDK-7与JDK-8-HashMap的核心差异" class="headerlink" title="JDK 7与JDK 8 HashMap的核心差异"></a>JDK 7与JDK 8 HashMap的核心差异</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">维度</th>
+<th style="text-align:left">JDK 7 HashMap</th>
+<th style="text-align:left">JDK 8 HashMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">数据结构</td>
+<td style="text-align:left">数组 + 链表</td>
+<td style="text-align:left">数组 + 链表 + 红黑树（链表长度≥8时转红黑树）</td>
+</tr>
+<tr>
+<td style="text-align:left">冲突处理</td>
+<td style="text-align:left">头插法</td>
+<td style="text-align:left">尾插法（避免扩容时链表环问题）</td>
+</tr>
+<tr>
+<td style="text-align:left">哈希计算</td>
+<td style="text-align:left">多次扰动（4次异或+移位）</td>
+<td style="text-align:left">简化扰动（1次异或）</td>
+</tr>
+<tr>
+<td style="text-align:left">扩容迁移</td>
+<td style="text-align:left">重新计算哈希值</td>
+<td style="text-align:left">利用高位哈希值，直接判断迁移方向（效率更高）</td>
+</tr>
+<tr>
+<td style="text-align:left">失败机制</td>
+<td style="text-align:left">Fail-Fast</td>
+<td style="text-align:left">Fail-Fast</td>
+</tr>
+<tr>
+<td style="text-align:left">线程安全问题</td>
+<td style="text-align:left">扩容易形成链表环</td>
+<td style="text-align:left">无链表环问题，但仍非线程安全</td>
+</tr>
+</tbody>
+</table>
+<h3 id="HashSet是如何实现的？"><a href="#HashSet是如何实现的？" class="headerlink" title="HashSet是如何实现的？"></a>HashSet是如何实现的？</h3><p><em>HashSet</em>是对<em>HashMap</em>的简单包装，对<em>HashSet</em>的函数调用都会转换成合适的<em>HashMap</em>方法</p>
+<h1 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h1><h2 id="并发基础"><a href="#并发基础" class="headerlink" title="并发基础"></a>并发基础</h2><h4 id="多线程的出现是要解决什么问题的-本质什么"><a href="#多线程的出现是要解决什么问题的-本质什么" class="headerlink" title="多线程的出现是要解决什么问题的? 本质什么?"></a>多线程的出现是要解决什么问题的? 本质什么?</h4><p>CPU、内存、I/O 设备的速度是有极大差异的，为了合理利用 CPU 的高性能，平衡这三者的速度差异，计算机体系结构、操作系统、编译程序都做出了贡献，主要体现为:</p>
+<ul>
+<li>CPU 增加了缓存，以均衡与内存的速度差异；// 导致可见性问题</li>
+<li>操作系统增加了进程、线程，以分时复用 CPU，进而均衡 CPU 与 I/O 设备的速度差异；// 导致原子性问题</li>
+<li>编译程序优化指令执行次序，使得缓存能够得到更加合理地利用。// 导致有序性问题</li>
+</ul>
+<h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1>
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/custom/donate/WeChanQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <!--<div class="toc" style="background: none;"></div>-->
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2025/03/21/分布式锁的几种实现方案/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1505868954261-144157311e7e?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1505868954261-144157311e7e?w=540">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                分布式锁的几种实现方案</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2025/03/01/网络测速工具iPerf3的使用/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1510752238388-dbb96fc2f7fe?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1510752238388-dbb96fc2f7fe?w=540">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                网络测速工具iPerf3的使用</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      <!-- 评论插件valine -->
+
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "VeenC2gYYyfSOq2rcCSmmruy-MdYXbMMI",
+        appKey: "F5kjyHdh4akqc7SDmfzQP8Qi",
+		notify: false,
+		verify: false,
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+		avatar: "monsterid",
+		//meta: [nick,mail,link],
+		visitor: true,
+        recordIP: "true",
+		pageSize: "5" || 10,
+		serverURLs: "https://VeenC2gY.api.lncldglobal.com"
+      });
+	//增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://blog.xiongtianci.com" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/custom/avatar_80x80.jpg" itemprop="image" alt="木浅" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://blog.xiongtianci.com" itemprop="url" rel="author">木浅</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>YOLO</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2026 天赐<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-info">
+		<div class="footertext">
+			<div class="img-preload">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/wordpress-rotating-ball-o.svg">
+				<img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/other/disqus-preloader.svg">
+			</div>
+			<p class="foo-logo"
+				style="background-image: url('https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/img/custom/sakura.svg');">
+			</p>
+			<div
+				style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none;margin-top:0.7em;">
+				<i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i>
+			</div>
+			<!-- color: #666666; -->
+			<div style="color: #b9b9b9;">&copy;
+				2018-2026&nbsp;天赐&nbsp;
+			</div>
+		</div>
+		<!-- 访客统计 -->
+		<!--<div id="busuanzi_container"></div>-->
+		<!-- 已运行的时间-容器 -->
+		<div id="days"></div>
+		<div class="footer-device">
+			<p id="footer-sponsor">
+				<!-- <a href="https://pages.github.com/" target="_blank" alt="GitHub Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/GitHub.svg" alt="GitHub Pages"
+						style="height: 2em; max-height: 2em;" title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<!-- <a href="https://coding.net/pages" target="_blank" alt="Coding Pages" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@1.0/img/logo/Coding.png" alt="Coding Pages"
+						style="height: 1.3em; max-height: 1.3em;padding-bottom: 0px;margin-bottom: 0.35em;"
+						title=""></a>&nbsp;&nbsp;&nbsp; -->
+				<a href="https://www.jsdelivr.com/" target="_blank" alt="Free CDN" rel="nofollow"><img
+						src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/img/logo/JsDelivr_Logo.svg" alt="jsDelivr"
+						style="height: 2em; max-height: 2em;padding-bottom: 0px;"></a>&nbsp;&nbsp;&nbsp;<a
+					href="https://www.google.com/intl/ja/analytics/" target="_blank" alt="Analytics solution"
+					rel="nofollow"><img src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/img/logo/Google.svg"
+						alt="Google Analytics" style="height: 1.7em; max-height: 1.7em;padding-bottom: 0px;"></a>
+			</p>
+		</div>
+	</div>
+	<!-- .site-info -->
+</footer>
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/vendor/clipboard.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/InsightSearch.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/zoom.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/sakura-app.js"></script>
+<!--浏览器搞笑标题-->
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/title_change.js"></script>-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/volantis.min.js"></script>
+<!-- Valine -->
+<!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<!--<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>-->
+<!--<script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>-->
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+	/* <![CDATA[ */
+	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "close"
+			},
+			"windowheight": "fixed",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	} else {
+		var Poi = {
+			"pjax": "1",
+			"movies": {
+				"url": "https://cdn.jsdelivr.net/gh/tiancixiong/cdn@v3.0",
+				"name": "/video/Unbroken.mp4",
+				"live": "open"
+			},
+			"windowheight": "auto",
+			"codelamp": "close",
+			"ajaxurl": "",
+			"order": "asc",
+			"formpostion": "bottom"
+		};
+	}
+		/* ]]> */
+</script>
+<script>
+	$(document).ready(function () {
+		if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+			if ($(".pattern-center").length > 0) { //有图的情况
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -400,
+					scrollSmoothOffset: -85
+				});
+			} else {
+				tocbot.init({
+					// Where to render the table of contents.
+					tocSelector: '.toc', // 放置目录的容器
+					// Where to grab the headings to build the table of contents.
+					contentSelector: '.entry-content', // 正文内容所在
+					// Which headings to grab inside of the contentSelector element.
+					scrollSmooth: true,
+					headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+					headingsOffset: -85,
+					scrollSmoothOffset: -85
+				});
+			}
+			var offsetTop = $('.toc').offset().top - 95;
+			window.onscroll = function () {
+				var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+				if (scrollTop >= offsetTop) {
+					$('.toc').addClass('toc-fixed');
+				} else {
+					$('.toc').removeClass('toc-fixed');
+				}
+			}
+		}
+	});
+</script>
+<!-- 已运行的时间-js -->
+<script>
+	function show_date_time() {
+		window.setTimeout("show_date_time()", 1000);
+		// 获得建站时间
+		var time = "28/11/2018 15:36:06";
+		time = time.replace(/\//g, ':').replace(' ', ':');
+		time = time.split(':');
+		BirthDay = new Date(time[2], (time[1] - 1), time[0], time[3], time[4], time[5]);
+
+		today = new Date();
+		timeold = (today.getTime() - BirthDay.getTime());
+		sectimeold = timeold / 1000
+		secondsold = Math.floor(sectimeold);
+		msPerDay = 24 * 60 * 60 * 1000
+		msPerYear = 365 * 24 * 60 * 60 * 1000
+		e_yearsold = timeold / msPerYear
+		yearsold = Math.floor(e_yearsold);
+		//e_daysold = timeold / msPerDay
+		e_daysold = timeold/msPerDay - yearsold*365;
+		daysold = Math.floor(e_daysold);
+		e_hrsold = (e_daysold - daysold) * 24;
+		hrsold = setzero(Math.floor(e_hrsold));
+		e_minsold = (e_hrsold - hrsold) * 60;
+		minsold = setzero(Math.floor((e_hrsold - hrsold) * 60));
+		seconds = setzero(Math.floor((e_minsold - minsold) * 60));
+		document.getElementById('days').innerHTML = "已在风雨中运行 " + yearsold + " 年 " + daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒";
+	}
+
+	function setzero(i) {
+		if (i < 10) {
+			i = "0" + i
+		};
+		return i;
+	}
+	show_date_time();
+</script>
+<!-- 访客统计-js -->
+<!--<script>
+		if(true){
+			document.getElementById('busuanzi_container').innerHTML="<span id=\"busuanzi_container_site_pv\">本站总访问量 <span id=\"busuanzi_value_site_pv\"></span> 次</span><span class=\"post-meta-divider\"> | </span><span id=\"busuanzi_container_site_uv\">本站访客数 <span id=\"busuanzi_value_site_uv\"></span> 人</span>";
+		}else{
+			document.getElementById('busuanzi_container').hidden;
+		}
+	</script>-->
+<!-- 百度统计自动推送 -->
+<!--<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var scriptList = document.getElementsByTagName("script");
+		var s = scriptList[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+	</script>
+	-->
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 实现换肤功能 -->
+  <div class="skin-menu no-select" id="mainskin"  style="position: fixed">
+    <div class="theme-controls row-container">
+        <ul class="menu-list">
+            <li id="white-bg"><i class="fa fa-television" aria-hidden="true"></i></li>
+            <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+            <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+            <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+            <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+            <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+            <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+            <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+        </ul>
+    </div>
+</div>
+
+<canvas id="night-mode-cover"></canvas>
+<style>
+#mainskin{
+    position: fixed;
+}
+</style> 
+  <div class="changeSkin-gear no-select">
+    <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换主题 | SCHEME TOOL &nbsp;
+	<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+</div>
+  
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@sakura/img/custom/avatar_500x500.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">天赐の小站</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-horizontal" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-terminal faa-vertical" aria-hidden="true"></i>
+            极客
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/Linux/">
+                  <i class="fa fa-linux" aria-hidden="true"></i>
+                  Linux
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-slack faa-spin" aria-hidden="true"></i>
+            爱好
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/电影/">
+                  <i class="fa fa-film" aria-hidden="true"></i>
+                  电影
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/日语/">
+                  <i class="fa fa-language" aria-hidden="true"></i>
+                  日语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-ring" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-burst" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-falling" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-passing" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/css/aplayer/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/aplayer/APlayer.min.js"></script>
+
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  /*.aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }*/
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="7040682880"
+
+    data-server="tencent"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.5"
+
+    data-mutex="true"
+
+    data-listFolded="false"
+
+</div>
+<!-- Meting 一个支持各种音乐平台(腾讯、网易...)的音乐 API 框架 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/gh/tiancixiong/cdn@sakura-theme/js/aplayer/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>
