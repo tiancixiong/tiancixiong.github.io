@@ -387,7 +387,9 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <blockquote>
+          <p>【免责声明】本文仅限个人自有设备学习使用，违规操作后果自负，严禁用于任何非法用途。</p>
+<hr>
+<blockquote>
 <p>环境：</p>
 <ul>
 <li>光猫型号：ZXHN F6610M</li>
@@ -401,7 +403,8 @@
 <li>通过光猫背后铭牌中的 user 账户登录光猫后台，最重要的是记录 <code>LOID</code> 信息。另外也可以记录下 VLAN ID（可能没有）、PASSWORD认证、SN认证 等信息，能截图的都截下图。</li>
 <li>宽带账户密码。如果不知道就问客服</li>
 <li>下载工具：<ul>
-<li><a href="https://github.com/Septrum101/zteOnu/releases" target="_blank" rel="noopener">https://github.com/Septrum101/zteOnu/releases</a></li>
+<li>解锁&amp;固化telnet：<a href="https://github.com/Septrum101/zteOnu/releases" target="_blank" rel="noopener">https://github.com/Septrum101/zteOnu/releases</a></li>
+<li><a href="https://github.com/yhsc0001/zhongxingguangmaopeizhiwenjianjiajiemigongju3.0banben" target="_blank" rel="noopener">中兴光猫配置文件加解密工具3.0版本</a></li>
 </ul>
 </li>
 </ol>
@@ -411,10 +414,8 @@
 <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="1、解锁tlenet"><a href="#1、解锁tlenet" class="headerlink" title="1、解锁tlenet"></a>1、解锁tlenet</h2><p>移动/联通/电信常见默认超管账户（仅供参考）</p>
 <ul>
 <li>移动：<code>CMCCAdmin</code>/<code>aDm8H%MdA</code></li>
-<li><p>联通：<code>CUAdmin</code>/<code>CUAdmin</code></p>
-</li>
-<li><p>电信：<code>telecomadmin</code>/<code>nE7jA%5m</code></p>
-</li>
+<li>联通：<code>CUAdmin</code>/<code>CUAdmin</code></li>
+<li>电信：<code>telecomadmin</code>/<code>nE7jA%5m</code></li>
 </ul>
 <p>光猫注册后运营商会下发配置修改超管密码，并且 telnet 端口也会被关闭。</p>
 <p>首先需要重置光猫，这样就能使用 <a href="https://github.com/Septrum101/zteOnu/releases" target="_blank" rel="noopener">zteOnu</a> 工具进行 telnet 连接：</p>
@@ -441,27 +442,25 @@ wait reboot..
 </code></pre>
 </li>
 <li><p>重启光猫，用 telnet 连接光猫，账户是上面获取到的 root/Zte521</p>
-<p><code>`</code>cmd<br>C:\Users\Administrator&gt;telnet 192.168.1.1</p>
-<p>F6610M<br>Login: root<br>Password:</p>
+<pre><code class="cmd">C:\Users\Administrator&gt;telnet 192.168.1.1
+
+F6610M
+Login: root
+Password:
+
+BusyBox v1.17.2 (2023-11-22 19:30:56 CST) built-in shell (ash)
+Enter &#39;help&#39; for a list of built-in commands.
+
+/ #
+</code></pre>
 </li>
 </ol>
-<p>   BusyBox v1.17.2 (2023-11-22 19:30:56 CST) built-in shell (ash)<br>   Enter ‘help’ for a list of built-in commands.</p>
-<p>   / #</p>
-<pre><code>
-
-
-也可以用工具进行解锁： [中兴Telnet开启工具（第一款）](http://hackliu.com/wp-content/uploads/2025/02/%E4%B8%AD%E5%85%B4Telnet%E5%BC%80%E5%90%AF%E5%B7%A5%E5%85%B7%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%BE%EF%BC%89.zip)（[来源](https://hackliu.com/?p=258)）
-
-
-
-## 2、固化 telnet
-
-&gt; zteOnu 有固化的逻辑，使用 zteOnu 解锁 telnet 的可以忽略本步骤
-
-zteOnu固化的相关源码：
-
-```go
-// github.com/Septrum101/zteOnu/blob/master/app/telnet/telnet.go
+<p>也可以用工具进行解锁： <a href="http://hackliu.com/wp-content/uploads/2025/02/%E4%B8%AD%E5%85%B4Telnet%E5%BC%80%E5%90%AF%E5%B7%A5%E5%85%B7%EF%BC%88%E7%AC%AC%E4%B8%80%E6%AC%BE%EF%BC%89.zip" target="_blank" rel="noopener">中兴Telnet开启工具（第一款）</a>（<a href="https://hackliu.com/?p=258" target="_blank" rel="noopener">来源</a>）</p>
+<h2 id="2、固化-telnet"><a href="#2、固化-telnet" class="headerlink" title="2、固化 telnet"></a>2、固化 telnet</h2><blockquote>
+<p>zteOnu 有固化的逻辑，使用 zteOnu 解锁 telnet 的可以忽略本步骤</p>
+</blockquote>
+<p>zteOnu固化的相关源码：</p>
+<pre><code class="go">// github.com/Septrum101/zteOnu/blob/master/app/telnet/telnet.go
 func (t *Telnet) modifyDB() error {
     // set DB data
     prefix := &quot;sendcmd 1 DB set TelnetCfg 0 &quot;
@@ -480,7 +479,8 @@ func (t *Telnet) modifyDB() error {
 
     return nil
 }
-</code></pre><hr>
+</code></pre>
+<hr>
 <p>进入 telnet 先查看下 TelnetCfg 数据库：</p>
 <pre><code class="bash">/ # sendcmd 1 DB p TelnetCfg
 &lt;Tbl name=&quot;TelnetCfg&quot; RowCount=&quot;1&quot;&gt;
@@ -527,15 +527,17 @@ reboot
 sendcmd 1 DB set TelnetCfg 0 TSLan_UPwd ******
 sendcmd 1 DB save
 </code></pre>
-<h2 id="3、光猫注册"><a href="#3、光猫注册" class="headerlink" title="3、光猫注册"></a>3、光猫注册</h2><p>进入光猫管理页面 <a href="http://192.168.1.1，使用默认超管登录，我这里是移动宽带" target="_blank" rel="noopener">http://192.168.1.1，使用默认超管登录，我这里是移动宽带</a></p>
+<h2 id="3、光猫注册"><a href="#3、光猫注册" class="headerlink" title="3、光猫注册"></a>3、光猫注册</h2><p>进入光猫管理页面 <a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a>，使用默认超管登录，我这里是移动宽带</p>
 <p>需要配置LOID、以及Internet连接中的宽带账户密码：</p>
 <p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20260415/image-20260415133217091.png" alt="image-20260415133217091"></p>
 <p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20260415/image-20260415133326088.png" alt="image-20260415133326088"></p>
 <p>配置好后插入光纤，重启，等待注册</p>
-<h2 id="4、获取超管密码"><a href="#4、获取超管密码" class="headerlink" title="4、获取超管密码"></a>4、获取超管密码</h2><p>下载 <a href="https://gitcode.com/open-source-toolkit/78cc4" target="_blank" rel="noopener">ztecfg.exe</a> 工具，用于对中兴光猫配置文件进行解密</p>
+<h2 id="4、获取超管密码"><a href="#4、获取超管密码" class="headerlink" title="4、获取超管密码"></a>4、获取超管密码</h2><blockquote>
+<p>下载 <a href="https://gitcode.com/open-source-toolkit/78cc4" target="_blank" rel="noopener">ztecfg.exe</a> 工具，用于对中兴光猫配置文件进行解密</p>
+</blockquote>
 <p>将光猫中的telnet配置文件下载到本地并解密：</p>
 <p>在windows 端开启 tftp 服务，进入光猫 telnet 并运行：</p>
-<pre><code class="bash"># 替换成windows以太网ip地址
+<pre><code class="bash"># 光猫telnet执行。替换成windows以太网ip地址
 tftp -p -l /userconfig/cfg/db_user_cfg.xml -r db_user_cfg.xml 192.168.1.3
 </code></pre>
 <p><img src="//cdn.jsdelivr.net/gh/tiancixiong/BlogIMG@master/blog/20260415/image-20260415082548450.png" alt="image-20260415082548450"></p>
@@ -556,11 +558,38 @@ tftp -p -l /userconfig/cfg/db_user_cfg.xml -r db_user_cfg.xml 192.168.1.3
 &lt;DM name=&quot;ForceCheck&quot; val=&quot;0&quot;/&gt;
 &lt;/Row&gt;
 </code></pre>
-<blockquote>
-<p>我这里的超管密码仍然是默认的，暂时还没被修改</p>
-</blockquote>
-<p>其他重要配置信息：</p>
+<p>至此，就能获取到光猫注册后的超密了。我这里的超管密码仍然是默认的，暂时还没被修改。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="db-user-cfg-xml"><a href="#db-user-cfg-xml" class="headerlink" title="db_user_cfg.xml"></a>db_user_cfg.xml</h2><p><code>db_user_cfg.xml</code> 是中兴光猫（ZXHN 系列，如 F650、F660、F677、G7615 等）的核心用户配置<strong>数据库文件</strong>，存储设备所有用户级配置（WAN、LAN、WiFi、账户、TR069、Telnet、端口映射等），默认路径：<code>/userconfig/cfg/db_user_cfg.xml</code>。</p>
 <ul>
+<li>原始文件：加密的二进制格式，不是明文 XML，需解密解压后才是标准 XML 树结构。</li>
+<li>明文结构：根节点为<code>&lt;DB&gt;</code>，内部以<code>&lt;Tbl&gt;</code>（表）、<code>&lt;Row&gt;</code>（行）、<code>&lt;DM&gt;</code>（数据项）三层组织，是中兴设备的配置数据库导出格式。</li>
+</ul>
+<p>核心层级：Tbl → Row → DM（标准结构）</p>
+<p>所有配置都遵循这个固定三层结构，<strong>无自定义嵌套标签</strong>：</p>
+<pre><code class="xml">&lt;Tbl name=&quot;表名&quot; RowCount=&quot;数据总行数&quot;&gt;
+  &lt;Row No=&quot;行号（从0开始）&quot;&gt;
+    &lt;DM name=&quot;参数名&quot; val=&quot;参数值&quot;/&gt;
+    &lt;DM name=&quot;参数名&quot; val=&quot;参数值&quot;/&gt;
+    ...
+  &lt;/Row&gt;
+  &lt;Row No=&quot;1&quot;&gt;...&lt;/Row&gt;
+  ...
+&lt;/Tbl&gt;
+</code></pre>
+<ul>
+<li><code>&lt;Tbl&gt;</code>：配置表，对应设备一个功能模块（如 WAN、WiFi、用户认证）<ul>
+<li><code>name</code>：表名（唯一标识，如<code>DevAuthInfo</code>、<code>WanConnection</code>、<code>WiFiCfg</code>）</li>
+<li><code>RowCount</code>：该表下有多少条配置记录</li>
+</ul>
+</li>
+<li><code>&lt;Row&gt;</code>：表中的一条记录（实例），<code>No</code>从 0 递增</li>
+<li><code>&lt;DM&gt;</code>：单个配置项（Data Member）<ul>
+<li><code>name</code>：参数键名（如<code>UserName</code>、<code>Password</code>、<code>Enable</code>、<code>SSID</code>）</li>
+<li><code>val</code>：参数值（字符串 / 数字 / 十六进制，密码多为加密哈希）</li>
+</ul>
+</li>
+</ul>
+<h3 id="一些重要配置项"><a href="#一些重要配置项" class="headerlink" title="一些重要配置项"></a>一些重要配置项</h3><ul>
 <li><p>TelnetCfg：光猫中 telnet 相关配置信息</p>
 <pre><code class="xml">&lt;Tbl name=&quot;TelnetCfg&quot; RowCount=&quot;1&quot;&gt;
 &lt;Row No=&quot;0&quot;&gt;
@@ -586,8 +615,24 @@ tftp -p -l /userconfig/cfg/db_user_cfg.xml -r db_user_cfg.xml 192.168.1.3
 &lt;/Row&gt;
 </code></pre>
 </li>
+<li><p>设备认证 / 账户管理（登录权限）</p>
+<pre><code class="xml">&lt;Tbl name=&quot;DevAuthInfo&quot; RowCount=&quot;6&quot;&gt;
+  &lt;Row No=&quot;0&quot;&gt;
+    &lt;DM name=&quot;ViewName&quot; val=&quot;IGD.AU1&quot; /&gt;
+    &lt;DM name=&quot;Enable&quot; val=&quot;1&quot; /&gt;
+    &lt;DM name=&quot;UserName&quot; val=&quot;CMCCAdmin&quot; /&gt;
+    &lt;DM name=&quot;PassWord&quot; val=&quot;aDm8H%MdA&quot; /&gt;
+    &lt;DM name=&quot;Level&quot; val=&quot;1&quot; /&gt; &lt;!-- 1=管理员，2=普通用户 --&gt;
+  &lt;/Row&gt;
+  &lt;!-- 其他账户（如user、guest、维护账户） --&gt;
+&lt;/Tbl&gt;
+</code></pre>
+</li>
 </ul>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code class="bash"># 查看所有地区编号
+<ul>
+<li></li>
+</ul>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><pre><code class="bash"># 查看所有地区编号
 cat /etc/init.d/regioncode
 
 # 查看当前地区
@@ -614,8 +659,211 @@ setmac show2
 <pre><code class="bash"># 查看设备总览
 sendcmd 1 DB p DevInfo
 </code></pre>
+<h3 id="wifi相关"><a href="#wifi相关" class="headerlink" title="wifi相关"></a>wifi相关</h3><pre><code class="bash"># ssid等信息返回的是脱敏信息，可在解密后的光猫配置文件查看
+
+# 查看所有WLAN配置表（含SSID名称、启用状态）
+sendcmd 1 DB p WLANCfg
+
+# 查看WiFi密码（PSK密钥）
+sendcmd 1 DB p WLANPSK
+</code></pre>
+<p>修改 WiFi 名称（SSID）和密码</p>
+<pre><code class="bash"># 语法：sendcmd 1 DB set WLANCfg &lt;RowID&gt; &lt;字段名&gt; &lt;新值&gt;
+# 查看WLANCfg表，找到你要修改的SSID对应的RowID（一般SSID1对应Row 0，SSID5对应Row 4）
+
+# 修改2.4G SSID名称（替换为你要的名字）
+sendcmd 1 DB set WLANCfg 0 SSID &quot;MyWiFi_2.4G&quot;
+
+# 修改5G SSID名称（替换为你要的名字）
+sendcmd 1 DB set WLANCfg 4 SSID &quot;MyWiFi_5G&quot;
+
+# 修改2.4G WiFi密码（替换为你要的密码，8-63位）
+sendcmd 1 DB set WLANPSK 0 PSK &quot;MyWiFiPass123&quot;
+
+# 修改5G WiFi密码（替换为你要的密码）
+sendcmd 1 DB set WLANPSK 4 PSK &quot;MyWiFiPass123&quot;
+
+# 保存配置到闪存
+sendcmd 1 DB save
+# 重启光猫
+reboot
+</code></pre>
+<h2 id="ZTE配置文件解密"><a href="#ZTE配置文件解密" class="headerlink" title="ZTE配置文件解密"></a>ZTE配置文件解密</h2><p>将 <a href="https://github.com/ipatrina/ZTE-Patrina" target="_blank" rel="noopener">ZTE-Patrina</a> 喂给 ai 后得到使用 python 实现的逻辑：</p>
+<pre><code class="python">import zlib
+import hashlib
+from Crypto.Cipher import AES
+import os
+
+
+# -----------------------------------------------------------------------------
+# 工具函数：对应 VB 里的 GetAESCBCEncryKey / GetAESCBCEncryIV
+# -----------------------------------------------------------------------------
+def get_aes_key(password, max_len):
+    key_src = password[:max_len].encode(&#39;utf-8&#39;)
+    return hashlib.sha256(key_src).digest()
+
+
+def get_aes_iv(password, max_len):
+    iv_src = password[:max_len].encode(&#39;utf-8&#39;)
+    hash_obj = hashlib.sha256(iv_src)
+    return hash_obj.digest()[:16]
+
+
+# -----------------------------------------------------------------------------
+# AES-256-CBC 解密（对应 VB DecryptAES）
+# -----------------------------------------------------------------------------
+def decrypt_aes(input_bytes, key, iv):
+    try:
+        header_size = 12
+        data_size = len(input_bytes) - header_size
+        data_size = (data_size // 16) * 16  # 16字节对齐
+
+        if data_size &lt;= 0:
+            return b&#39;&#39;
+
+        data_buf = input_bytes[header_size: header_size + data_size]
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        decrypted = cipher.decrypt(data_buf)
+        return decrypted
+    except:
+        return b&#39;&#39;
+
+
+# -----------------------------------------------------------------------------
+# CRC + Deflate 解压（中兴老格式，对应 VB DecryptCRC）
+# -----------------------------------------------------------------------------
+def decrypt_crc(input_bytes):
+    ms = []
+    ptr = 0
+    try:
+        while ptr &gt;= 0:
+            # 读取块头：dataSize, bufSize, offset
+            data_size = int.from_bytes(input_bytes[ptr:ptr + 4], &#39;little&#39;)
+            buf_size = int.from_bytes(input_bytes[ptr + 4:ptr + 8], &#39;little&#39;)
+            offset = int.from_bytes(input_bytes[ptr + 8:ptr + 12], &#39;little&#39;)
+
+            # 解压块：跳过2字节，解压剩余
+            compressed = input_bytes[ptr + 12 + 2: ptr + 12 + 2 + (buf_size - 2)]
+            decompress = zlib.decompressobj(-zlib.MAX_WBITS)  # 无头部DEFLATE
+            out = decompress.decompress(compressed)
+            ms.append(out)
+
+            # 下一块
+            ptr = offset - 60
+    except:
+        pass
+    return b&#39;&#39;.join(ms)
+
+
+# -----------------------------------------------------------------------------
+# 友华异或解密（对应 VB DecryptYouhua）
+# -----------------------------------------------------------------------------
+def decrypt_youhua(input_bytes):
+    return bytes([b - 1 if b != 0 else 255 for b in input_bytes])
+
+
+# -----------------------------------------------------------------------------
+# 主解密逻辑：完全对应 VB LoadConfig
+# -----------------------------------------------------------------------------
+def decrypt_config_file(input_path, indiv_key=&#39;&#39;):
+    with open(input_path, &#39;rb&#39;) as f:
+        buf = f.read()
+
+    header_size = 60
+
+    while True:
+        if len(buf) &lt;= header_size:
+            break
+
+        # 已经是明文 XML
+        if buf[0] == 0x3C:
+            break
+
+        # 中兴加密格式：魔数 01 02 03 04
+        # 中兴光猫/路由器加密配置文件（.cfg/.bin）的标准文件头签名，明文XML开头是0x3C（&lt;）
+        elif buf[0:4] == b&#39;\x01\x02\x03\x04&#39;:
+            data_buf = buf[header_size:]  # 跳过60字节固定文件头
+            enc_type = buf[7]  # 取第8字节，判断加密类型
+
+            if enc_type == 0:
+                # 类型 0：CRC + Deflate
+                buf = decrypt_crc(data_buf)
+
+            elif enc_type == 4:
+                # 类型 4：AES-256-CBC（官方默认密钥）
+                # key和iv是写在固件里的，逆向中兴固件提取得到
+                default_key = &#39;8cc72b05705d5c46f412af8cbed55aad&#39;
+                default_iv = &#39;667b02a85c61c786def4521b060265e8&#39;
+
+                if indiv_key:
+                    tmp_key = hashlib.md5(indiv_key.encode(&#39;utf-8&#39;)).digest()
+                    use_key = tmp_key.hex().lower()
+                else:
+                    use_key = default_key
+
+                key = get_aes_key(use_key, 31)
+                iv = get_aes_iv(default_iv, 31)
+                buf = decrypt_aes(data_buf, key, iv)
+
+            else:
+                # 其他类型：PON_Dkey
+                key = get_aes_key(&#39;PON_Dkey&#39;, 256)
+                iv = get_aes_iv(&#39;PON_DIV&#39;, 256)
+                buf = decrypt_aes(data_buf, key, iv)
+
+        # 友华格式
+        elif buf[0] == 0x3D:
+            buf = decrypt_youhua(buf)
+            break
+
+        else:
+            buf = b&#39;&#39;
+            break
+
+    # 尝试 UTF-8 解码成明文 XML
+    try:
+        xml_text = buf.decode(&#39;utf-8&#39;, errors=&#39;replace&#39;)
+        return xml_text
+    except:
+        return &#39;[解码失败]&#39;
+
+
+# -----------------------------------------------------------------------------
+# 使用示例（直接运行即可）
+# -----------------------------------------------------------------------------
+if __name__ == &#39;__main__&#39;:
+    # 把你的配置文件路径放在这里
+    input_file = r&#39;your_config.cfg&#39;  # 或 .bin / .xml
+
+    if not os.path.exists(input_file):
+        print(f&#39;文件不存在：{input_file}&#39;)
+    else:
+        print(&#39;正在解密...&#39;)
+        plain_xml = decrypt_config_file(input_file)
+        print(&#39;\n===== 解密后的明文 XML =====\n&#39;)
+        print(plain_xml)
+
+        # 自动保存到文件
+        out_path = f&#39;decrypted_{os.path.basename(input_file)}.xml&#39;
+        with open(out_path, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+            f.write(plain_xml)
+        print(f&#39;\n✅ 已保存到：{out_path}&#39;)
+</code></pre>
+<p>注意：</p>
+<ol>
+<li>安装依赖：<code>pip install pycryptodome</code></li>
+<li>运行环境：python3</li>
+<li>支持的解密类型：<ul>
+<li>中兴 01020304 魔数加密</li>
+<li>中兴 AES-256-CBC 类型 4</li>
+<li>中兴 CRC+Deflate 老格式</li>
+<li>友华 0x3D 开头异或加密</li>
+</ul>
+</li>
+</ol>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://github.com/Septrum101/zteOnu" target="_blank" rel="noopener">https://github.com/Septrum101/zteOnu</a></li>
+<li><a href="https://github.com/yhsc0001/zhongxingguangmaopeizhiwenjianjiajiemigongju3.0banben" target="_blank" rel="noopener">https://github.com/yhsc0001/zhongxingguangmaopeizhiwenjianjiajiemigongju3.0banben</a></li>
 <li><a href="https://gitcode.com/open-source-toolkit/78cc4" target="_blank" rel="noopener">https://gitcode.com/open-source-toolkit/78cc4</a></li>
 <li><a href="https://hackliu.com/?p=258" target="_blank" rel="noopener">https://hackliu.com/?p=258</a></li>
 <li><a href="https://blog.csdn.net/gsls200808/article/details/132805857" target="_blank" rel="noopener">https://blog.csdn.net/gsls200808/article/details/132805857</a></li>
@@ -623,6 +871,7 @@ sendcmd 1 DB p DevInfo
 <li><a href="https://www.right.com.cn/forum/thread-8393194-1-1.html" target="_blank" rel="noopener">https://www.right.com.cn/forum/thread-8393194-1-1.html</a></li>
 <li><a href="https://www.77bx.com/71.html" target="_blank" rel="noopener">https://www.77bx.com/71.html</a></li>
 <li><a href="https://blog.nkxingxh.top/archives/310/" target="_blank" rel="noopener">https://blog.nkxingxh.top/archives/310/</a></li>
+<li><a href="https://github.com/ipatrina/ZTE-Patrina" target="_blank" rel="noopener">https://github.com/ipatrina/ZTE-Patrina</a></li>
 </ul>
 
         </div>
@@ -651,9 +900,26 @@ sendcmd 1 DB p DevInfo
       <!--<div class="toc" style="background: none;"></div>-->
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2026/04/24/python-exe反编译工具及流程/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=540">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                python exe反编译工具及流程</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2025/10/18/WR30U路由器救砖记录/" rel="next">
               <div class="background">
@@ -724,7 +990,7 @@ sendcmd 1 DB p DevInfo
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -736,10 +1002,10 @@ sendcmd 1 DB p DevInfo
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
