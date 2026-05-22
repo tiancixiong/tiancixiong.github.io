@@ -1,3 +1,4 @@
+https://blog.xiongtianci.com/2026/05/22/Chrome图片另存的路径变成了默认下载路径而不是上次保存路径/
 https://blog.xiongtianci.com/2026/05/21/笔记本电脑如何提高电池的性能-Windows/
 https://blog.xiongtianci.com/2026/05/20/Windows禁止更新后如何安装微软商店的应用/
 https://blog.xiongtianci.com/2026/04/24/python-exe反编译工具及流程/

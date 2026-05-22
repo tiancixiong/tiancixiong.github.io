@@ -395,26 +395,24 @@
 <li>Windows 10.0.19044</li>
 </ul>
 </blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>再给我的老伙计 <strong>Dell Inspiron 7560</strong> 换了4块电池后，才了解到锂电池长期充100%满电非常伤电芯，长期插电满电放着，会加快电池老化速度。设置 60%~80% 停止充电最耐用。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在给我的老伙计 <strong>Dell Inspiron 7560</strong> 换了4块电池后，才了解到锂电池长期充100%满电非常伤电芯，长期插电满电放着，会加快电池老化速度。设置 60%~80% 停止充电最耐用。</p>
 <p>本文就是基于此对 <strong>Dell Inspiron 7560</strong> 进行充电设置，限充 80%</p>
 <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h3 id="方法一：在BIOS中设置"><a href="#方法一：在BIOS中设置" class="headerlink" title="方法一：在BIOS中设置"></a>方法一：在BIOS中设置</h3><ol>
 <li>关机 -&gt; 开机立刻按 <strong>F2</strong> 进 BIOS</li>
 <li>找 Power Management -&gt; Primary Bettery Charge Configuration。另外在 Advanced Bettery Charge Configuration 可以按时间 / 日程动态切换充电配置</li>
 <li><p>充电模式选 <strong>Custom</strong>：</p>
 <ul>
-<li>Custom Charget Start：开始充电电量，设置 50%</li>
+<li><p>Custom Charget Start：开始充电电量，设置 50%</p>
+</li>
+<li><p>Custom ChargeStop：停止充电电量，设置 80%</p>
+</li>
 </ul>
 </li>
-</ol>
-<ul>
-<li>Custom ChargeStop：停止充电电量，设置 80%</li>
-</ul>
-<ol start="4">
 <li>保存并退出</li>
 </ol>
 <p>如果发现不生效，电池仍然充到满电，可以试试下面的方法二。</p>
 <h3 id="方法二：用-My-Dell-Dell-Optimizer"><a href="#方法二：用-My-Dell-Dell-Optimizer" class="headerlink" title="方法二：用 My Dell / Dell Optimizer"></a>方法二：用 My Dell / Dell Optimizer</h3><p>我这台只能用 My Dell，不支持 Dell Optimizer</p>
-<p>最后利用 Dell 提供的工具 <a href="https://apps.microsoft.com/detail/9pn7t3jfprz6?hl=zh-cn&amp;gl=FR" target="_blank" rel="noopener">MyDell</a> 可以管理。可以通过微软商店直接安装；或者下载 <a href="http://tlu.dl.delivery.mp.microsoft.com/filestreamingservice/files/5296962a-bb4e-4d4a-a957-c388e7569299?P1=1779358288&amp;P2=404&amp;P3=2&amp;P4=NDpcpfRtw4qNUPlBDolQWwb4zxPNbamDB%2bgfFs%2bwZsMwKN1fk6hefUkP%2f0y%2bq5aCDIt55TwyHqMwdjeuIzFzNQ%3d%3d" target="_blank" rel="noopener">DellInc.MyDell_2023.901.2000.0_neutral_~_htrsf667h5kn2.appxbundle</a> 文件后在 <strong>powershell</strong> 中使用命令 <code>Add-AppxPackage 文件路径</code> 进行安装（见<a href="https://blog.xiongtianci.com/2026/05/20/Windows%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0%E5%90%8E%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E5%BE%AE%E8%BD%AF%E5%95%86%E5%BA%97%E7%9A%84%E5%BA%94%E7%94%A8/">详情</a>）</p>
+<p>利用 Dell 提供的工具 <a href="https://apps.microsoft.com/detail/9pn7t3jfprz6?hl=zh-cn&amp;gl=FR" target="_blank" rel="noopener">MyDell</a> 设置限充。可以通过微软商店直接安装；或者下载 <a href="http://tlu.dl.delivery.mp.microsoft.com/filestreamingservice/files/5296962a-bb4e-4d4a-a957-c388e7569299?P1=1779358288&amp;P2=404&amp;P3=2&amp;P4=NDpcpfRtw4qNUPlBDolQWwb4zxPNbamDB%2bgfFs%2bwZsMwKN1fk6hefUkP%2f0y%2bq5aCDIt55TwyHqMwdjeuIzFzNQ%3d%3d" target="_blank" rel="noopener">DellInc.MyDell_2023.901.2000.0_neutral_~_htrsf667h5kn2.appxbundle</a> 文件后在 <strong>powershell</strong> 中使用命令 <code>Add-AppxPackage 文件路径</code> 进行安装（见<a href="https://blog.xiongtianci.com/2026/05/20/Windows%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0%E5%90%8E%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E5%BE%AE%E8%BD%AF%E5%95%86%E5%BA%97%E7%9A%84%E5%BA%94%E7%94%A8/">详情</a>）</p>
 <p>在 My Dell 中进行配置：</p>
 <ul>
 <li>My Dell -&gt; 功率 -&gt; 设置 -&gt; 自定义，进行配置</li>
@@ -451,9 +449,26 @@
       <!--<div class="toc" style="background: none;"></div>-->
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2026/05/22/Chrome图片另存的路径变成了默认下载路径而不是上次保存路径/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://fastly.jsdelivr.net/gh/tiancixiong/cdn@v1.0/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://images.unsplash.com/photo-1562619398-e7a474328df3?w=540" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://images.unsplash.com/photo-1562619398-e7a474328df3?w=540">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Chrome图片另存的路径变成了默认下载路径而不是上次保存路径</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2026/05/20/Windows禁止更新后如何安装微软商店的应用/" rel="next">
               <div class="background">

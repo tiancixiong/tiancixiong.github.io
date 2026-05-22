@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.xiongtianci.com/"/>
-  <updated>2026-05-21T09:38:01.632Z</updated>
+  <updated>2026-05-22T06:15:19.555Z</updated>
   <id>https://blog.xiongtianci.com/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Chrome图片另存的路径变成了默认下载路径而不是上次保存路径</title>
+    <link href="https://blog.xiongtianci.com/2026/05/22/Chrome%E5%9B%BE%E7%89%87%E5%8F%A6%E5%AD%98%E7%9A%84%E8%B7%AF%E5%BE%84%E5%8F%98%E6%88%90%E4%BA%86%E9%BB%98%E8%AE%A4%E4%B8%8B%E8%BD%BD%E8%B7%AF%E5%BE%84%E8%80%8C%E4%B8%8D%E6%98%AF%E4%B8%8A%E6%AC%A1%E4%BF%9D%E5%AD%98%E8%B7%AF%E5%BE%84/"/>
+    <id>https://blog.xiongtianci.com/2026/05/22/Chrome图片另存的路径变成了默认下载路径而不是上次保存路径/</id>
+    <published>2026-05-22T01:55:10.000Z</published>
+    <updated>2026-05-22T06:15:19.555Z</updated>
+    
+    <summary type="html">
+    
+      Chrome图片另存的路径变成了默认下载路径而不是上次保存路径
+    
+    </summary>
+    
+      <category term="Chrome" scheme="https://blog.xiongtianci.com/categories/Chrome/"/>
+    
+    
+      <category term="Chrome" scheme="https://blog.xiongtianci.com/tags/Chrome/"/>
+    
+      <category term="浏览器" scheme="https://blog.xiongtianci.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何延长笔记本电池使用寿命-Windows</title>
     <link href="https://blog.xiongtianci.com/2026/05/21/%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%94%B5%E8%84%91%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E7%94%B5%E6%B1%A0%E7%9A%84%E6%80%A7%E8%83%BD-Windows/"/>
     <id>https://blog.xiongtianci.com/2026/05/21/笔记本电脑如何提高电池的性能-Windows/</id>
     <published>2026-05-21T02:04:54.000Z</published>
-    <updated>2026-05-21T09:38:01.632Z</updated>
+    <updated>2026-05-21T11:05:47.827Z</updated>
     
     <summary type="html">
     
@@ -379,26 +401,6 @@
     
       <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>红米AX6000官方固件解锁clash</title>
-    <link href="https://blog.xiongtianci.com/2024/08/24/%E7%BA%A2%E7%B1%B3AX6000%E5%AE%98%E6%96%B9%E5%9B%BA%E4%BB%B6%E8%A7%A3%E9%94%81clash/"/>
-    <id>https://blog.xiongtianci.com/2024/08/24/红米AX6000官方固件解锁clash/</id>
-    <published>2024-08-24T01:39:19.000Z</published>
-    <updated>2025-10-26T01:45:44.018Z</updated>
-    
-    <summary type="html">
-    
-      红米AX6000官方固件解锁clash
-    
-    </summary>
-    
-      <category term="技术" scheme="https://blog.xiongtianci.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="路由器" scheme="https://blog.xiongtianci.com/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
     
   </entry>
   
